@@ -1,0 +1,55 @@
+<!-- templates/item/_edit_flds.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  keys      = @keys || keyss(@map_s)
+
+  req_fn    = fn name ->
+    cond do
+      name =~ ~r{ ^ meta \. title $ }x       -> "required"
+      name =~ ~r{ ^ user \. email_addr $ }x  -> "required"
+      name =~ ~r{ ^ user \. full_name $ }x   -> "required"
+      true  -> ""
+    end
+  end
+
+  size_fn   = fn name ->
+    rows  = cond do
+      name =~ ~r{^ about \. access $ }x     -> 10
+      name =~ ~r{^ about \. verbose $ }x    -> 25
+      name =~ ~r{^ address \. postal \. }x  -> 10
+      true  -> 2
+    end
+
+    {rows, rows*200}
+  end
+%>
+
+<div class="hs-base2">
+  <h4>
+    <code><%= @title %></code>
+    <%= hide_show("is:2/2", "names and values for \"#{ @title }\"") %>
+  </h4>
+
+  <div class="hs-body2 hs-is">
+    <%= for key <- keys do %>
+      <%
+        id            = "#{ @title }.#{ key }"
+        label         = "#{ key } (#{ @map_s[key] })"
+        {rows, chars} = size_fn.(id)
+        required      = req_fn.(id)
+      %>
+
+      <label for="<%= id %>"><%= label %></label><br>
+      <p>
+        &nbsp;
+        <textarea id="<%= id %>" name="PA.<%= id %>"
+          rows="<%= rows %>" cols="75" maxlength="<%= chars %>"
+          <%= required %> placeholder="<%= required %>"
+          ><%= @map_i[key] %></textarea>
+      </p>
+
+    <% end %>
+  </div>
+</div>

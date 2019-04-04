@@ -1,0 +1,13 @@
+# cat_sof|Elixir/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/any/elixir'
+  upstream    = 'http://elixir-lang.org'
+  wiki        = 'ext_awi|Elixir'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/elixir'

@@ -1,0 +1,12 @@
+# cat_sof|Atril/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/x86_64/atril'
+  upstream    = 'https://mate-desktop.org'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/atril'

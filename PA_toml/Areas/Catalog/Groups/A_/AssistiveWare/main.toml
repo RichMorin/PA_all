@@ -1,0 +1,68 @@
+# cat_gro|AssistiveWare/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'AssistiveWare'
+  title       = 'AssistiveWare'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, learning disability, low vision'
+  produces    = 'hardware, keyboard, software'
+  products    = '''
+Infovox iVox, Keeble and Keedogo iOS keyboards, KeyStrokes, News-2-You,
+Pictello, Proloquo2Go, Proloquo4Text, Wrise
+'''
+  roles       = 'company, manufacturer, software developer'
+  supports    = 'education'
+
+[ about ]
+
+  precis      = 'provides assistive technology software for iOS and macOS'
+
+  verbose     = '''
+> AssistiveWare, a leading innovator of assistive technology software for iOS
+and macOS with over 250,000 customers worldwide, is committed to
+collaborating with the global community to make a difference in people's
+lives.  Founded in 2000, AssistiveWare offers a portfolio of award-winning
+solutions for individuals with disabilities.  Offerings include:
+
+> - Infovox iVox
+> - Keeble and Keedogo iOS keyboards
+> - KeyStrokes
+> - News-2-You
+> - Pictello
+> - Proloquo2Go
+> - Proloquo4Text
+> - Wrise
+
+> -- [$url]{http://www.assistiveware.com}
+'''
+
+[ address.email ]
+
+  info        = 'info@assistiveware.com'
+
+[ address.phone ]
+
+  fax         = '+31 20 6128266'
+  main        = '+31 20 6127473'
+
+[ address.postal ]
+
+  main        = '''
+AssistiveWare
+Laurierstraat 193
+Amsterdam, 1016 PL
+Netherlands 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.assistiveware.com'

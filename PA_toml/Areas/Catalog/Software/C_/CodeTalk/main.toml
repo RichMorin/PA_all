@@ -1,0 +1,54 @@
+# cat_sof|CodeTalk/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'CodeTalk'
+  title       = 'CodeTalk'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'speech generation'
+  impairments = 'blindness, low vision'
+  interfaces  = 'speech, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'MS Windows, Visual Studio'
+  roles       = 'IDE, plugin'
+  supports    = 'C#, debugging, programming, Python'
+
+[ about ]
+
+  precis      = 'a blind-accessible IDE for Visual Studio'
+
+  verbose     = '''
+> Code Talk is a step towards making programming IDEs more accessible.
+The plugin currently concentrates on three main aspects of Programming:
+
+- Glanceability
+- Real-Time Error information
+- Accessible Debugging
+
+CodeTalk is currently only available for Visual Studio running in Windows
+for C# and Python languages.
+We are working very hard towards bringing it to more platforms and IDEs.
+Stay tuned.
+
+> -- [$url]{ext_gh|Microsoft/CodeTalk}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|Microsoft/CodeTalk'
+  zoo         = '''
+https://www.microsoft.com/en-us/research/blog/codetalk-rethinking-ide-accessibility,
+https://www.microsoft.com/en-us/research/project/codetalk
+'''
+
+[ address.web_site ]
+
+  main        = 'https://microsoft.github.io/CodeTalk'

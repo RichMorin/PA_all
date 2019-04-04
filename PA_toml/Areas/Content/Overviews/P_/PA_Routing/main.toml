@@ -1,0 +1,154 @@
+# con_ove|PA_Routing/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PA_Routing'
+  title       = "Pete's Alley - Routing"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "how we perform request routing for Pete's Alley"
+
+  verbose     = '''
+Our approach to request routing is fairly idiomatic.
+We use the `:show` action (and minor variations such as `:show_code`)
+for most tasks, only inventing new actions when forced to do so.
+
+The `TomlInfo` [Actor]{ext_wp|Actor_model}
+maintains an in-memory version of the TOML file tree.
+Any time that we need to specify a file path, we do so in terms of a `key`
+that refers to an existing TOML file.  However, we may modify the key to
+get to related files.
+
+Here are all of our routes, from `router.ex`.  We don't use the `resources`
+macro, as it wouldn't help much and it would obscure the basic structure:
+
+    get   "/area",            AreaController,     :show
+    get   "/reload",          AreaController,     :reload
+
+    get   "/dash",            DashController,     :show
+    get   "/dash/code",       DashController,     :show_code
+    get   "/dash/data",       DashController,     :show_data
+    get   "/dash/make",       DashController,     :show_make
+    get   "/dash/refs",       DashController,     :show_refs
+    get   "/dash/tags",       DashController,     :show_tags
+
+    get   "/item",            ItemController,     :show
+    get   "/item/edit",       ItemController,     :edit_form
+    post  "/item/edit",       ItemController,     :edit_post
+
+    get   "/mail/feed",       MailController,     :feed_form
+    post  "/mail/feed",       MailController,     :feed_post
+
+    get   "/search/find",     SearchController,   :find
+    post  "/search/show",     SearchController,   :show
+    get   "/search/clear",    SearchController,   :clear_form
+    post  "/search/clear",    SearchController,   :clear_post
+
+    get   "/source",          SourceController,   :show
+    get   "/source/down",     SourceController,   :down
+
+    get   "/",                TextController,     :show
+    get   "/text",            TextController,     :show
+
+### <tt>AreaController</tt>
+
+    get   "/area",            AreaController,     :show
+
+    # Show the index for a specified area:
+    #
+    #   /area?key=Areas/_area.toml
+    #   /area?key=Areas/Content/_area.toml
+    #   /area?key=Areas/Content/HowTos/_area.toml
+
+    get   "/reload",          AreaController,     :reload
+    
+    # Reload `TomlInfo`, the Elixir Agent that maintains the in-memory
+    # version of the TOML file tree.  (For security, this action is only
+    # available to clients on the same Local Area Network.)
+
+### <tt>DashController</tt>
+
+    get   "/dash",            DashController,     :show
+
+    # Show an index page of the available dashboards.
+
+    get   "/dash/code",       DashController,     :show_code
+    get   "/dash/data",       DashController,     :show_data
+    get   "/dash/make",       DashController,     :show_make
+    get   "/dash/refs",       DashController,     :show_refs
+    get   "/dash/tags",       DashController,     :show_tags
+
+    # Show individual dashboard pages.
+
+### <tt>ItemController</tt>
+
+    get   "/item",            ItemController,     :show
+
+    # Display a specified item, possibly bringing in content from
+    # ancillary files (eg, `text.*.toml`):
+    #
+    #   /item?key=Areas/Catalog/Hardware/Anova_PC/main.toml
+
+    get   "/item/edit",       ItemController,     :edit_form
+    post  "/item/edit",       ItemController,     :edit_post
+
+    # Display an item editing page; accept the submission.
+
+### <tt>MailController</tt>
+
+    get   "/mail/feed",       MailController,     :feed_form
+    post  "/mail/feed",       MailController,     :feed_post
+
+    # Display a feedback editing page; accept the submission.
+
+### <tt>SearchController</tt>
+
+    get   "/search/find",     SearchController,   :find
+    post  "/search/show",     SearchController,   :show
+
+    # Display a "search" form; do a search upon submission.
+
+    get   "/search/clear",    SearchController,   :clear_form
+    post  "/search/clear",    SearchController,   :clear_post
+
+    # Display a "clear" form; clear selections upon submission.
+
+### <tt>SourceController</tt>
+
+    get   "/source",          SourceController,   :show
+
+    # Display the specified TOML source file:
+    #
+    #   /source?key=_schemas/main.toml
+    #   /source?key=_text/usage.toml
+    #   /source?key=Areas/Catalog/Hardware/Anova_PC/main.toml
+
+    get   "/source/down",     SourceController,   :down
+
+    # Download the specified TOML source file:
+    #
+    #   /source/down?key=_schemas/main.toml
+    #   /source/down?key=_text/usage.toml
+    #   /source/down?key=Areas/Catalog/Hardware/Anova_PC/main.toml
+    
+### <tt>TextController<tt>
+
+    get   "/",                TextController,     :show
+    get   "/text",            TextController,     :show
+
+    # Show the specified text page:
+    #
+    #   /text?key=_text/home.toml     # "/" also works for this.
+    #   /text?key=_text/usage.toml
+'''
+
+[ zoo ]
+
+  snippets    = '...'

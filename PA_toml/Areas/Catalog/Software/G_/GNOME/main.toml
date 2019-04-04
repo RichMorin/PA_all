@@ -1,0 +1,64 @@
+# cat_sof|GNOME/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNOME'
+  title       = 'GNOME'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_sof|Dasher, cat_sof|Orca'
+
+[ meta.tags ]
+
+  interfaces  = 'GUI'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'desktop environment, system software'
+
+[ about ]
+
+  precis      = 'a desktop environment for Unix-like operating systems'
+
+  verbose     = '''
+> GNOME ... is a free and open-source desktop environment for Unix-like
+operating systems.
+GNOME was originally an acronym for GNU Network Object Model Environment,
+but the acronym was dropped because it no longer reflected the vision
+of the GNOME project.
+
+> -- [$url]{ext_wp|GNOME}
+'''
+
+  access  = '''
+> GNOME aims to make and keep the desktop environment physically
+and cognitively ergonomic for people with disabilities.
+The GNOME HIG tries to take this into account as far as possible
+but specific issues are solved by special software.
+
+> GNOME addresses computer accessibility issues by using
+the Accessibility Toolkit (ATK) application programming interface,
+which allows enhancing user experience by using special input methods
+and speech synthesis and speech recognition software.
+Particular utilities are registered with ATK using Assistive Technology
+Service Provider Interface (AT-SPI), and become globally used
+throughout the desktop.
+Several assistive technology providers, including Orca screen reader
+and Dasher input method, were developed specifically for use with GNOME.
+
+> -- [$url]{ext_wp|GNOME#Accessibility}
+'''
+
+[ address.related ]
+
+  wikipedia   = '''
+ext_wp|GNOME,
+ext_wp|The_GNOME_Project,
+'''
+
+[ address.web_site ]
+
+  contact     = 'main|/contact'
+  main        = 'https://www.gnome.org'

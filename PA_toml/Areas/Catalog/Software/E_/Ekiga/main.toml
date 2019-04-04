@@ -1,0 +1,41 @@
+# cat_sof|Ekiga/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Ekiga'
+  title       = 'Ekiga'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_sof|GNOME'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'audio, video'
+  licenses    = 'free, GPL, open source'
+  roles       = 'application, IM client, VoIP client'
+  standards   = 'H.323, IM, SIP, SoftPhone, VoIP'
+  supports    = 'communication, reading'
+
+[ about ]
+
+  precis      = 'a VoIP and video conferencing application'
+
+  verbose     = '''
+> Ekiga (formerly known as GnomeMeeting) is an open source SoftPhone,
+Video Conferencing, and Instant Messenger application over the Internet.
+
+> -- [$url]{https://www.ekiga.org}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Ekiga'
+
+[ address.web_site ]
+
+  main        = 'https://www.ekiga.org'

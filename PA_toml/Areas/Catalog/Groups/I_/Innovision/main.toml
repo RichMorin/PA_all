@@ -1,0 +1,57 @@
+# cat_gro|Innovision/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Innovision'
+  title       = 'Innovision (Inceptor Technologies Private Limited)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'hardware, keyboard, software'
+  products    = 'Braille Me'
+  standards   = 'braille'
+  supports    = 'daily living, education, telecom'
+
+[ about ]
+
+  precis      = 'provides assistive devices for the visually impaired'
+
+  verbose     = '''
+> Innovision seeks to make assistive aids affordable through cutting edge
+technological innovation.  We would be showcasing Braille Me, our
+revolutionary Smart Braille Display, targeted at holistic digital
+accessibility for the visually impaired community.  We seek to bring
+education, computer skill training, and digital empowerment at their
+fingertips.
+
+> -- [$url]{http://www.innovisiontech.co}
+'''
+
+[ address.email ]
+
+  info        = 'info@innovisiontech.co'
+
+[ address.phone ]
+
+  main        = '+91 9167470369'
+
+[ address.postal ]
+
+  main        = '''
+Innovision (Inceptor Technologies Private Limited)
+CM-09, SINE
+IIT Bombay, Powai
+Mumbai, 400076
+India 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.innovisiontech.co'

@@ -1,0 +1,54 @@
+# cat_peo|Rich_Morin/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'cat_peo|Rich_Morin'
+  title       = 'Rich Morin'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Amanda_Lacy'
+  f_editors   = 'cat_peo|Amanda_Lacy'
+
+[ meta.tags ]
+
+  impairments = 'deafness'
+  skills      = '''
+accessibility tester, author, computer programmer, editor, reviewer, tester
+'''
+
+[ about ]
+
+  precis      = 'an author, editor, and computer programmer'
+
+  verbose     = '''
+Rich Morin is an author, editor, and computer programmer.
+He uses [macOS]{ext_wp|MacOS} as his development environment,
+but may deploy to [Linux]{ext_wp|Linux} or other systems.
+Rich has been interested in mechanized documentation
+and open source software distribution for decades.
+So, in a sense, Pete's Alley and the Perkian Project
+are simply other experiments in these areas.
+
+Rich has a number of friends and relatives with disabilities;
+he also has a few (relatively minor) disabilities of his own.
+So, he often finds himself researching accessible products and services,
+seeking out other interested individuals, etc.
+This site is motivated by the desire to make this process easier
+for himself and others.
+See [About Pete's Alley]{_text/about.toml} for details.
+'''
+
+[ address.email ]
+
+  main        = 'rdm@cfcl.com'
+
+[ address.related ]
+
+  linked_in   = 'ext_li|in/richmorin' 
+
+[ address.web_site ]
+
+  main        = 'http://www.cfcl.com/rdm'
+  projects    = 'http://wiki.cfcl.com/Projects'

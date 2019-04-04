@@ -1,0 +1,56 @@
+# cat_gro|Harpo/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Harpo'
+  title       = 'Harpo Sp. z o.o'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'hardware, keyboard, software'
+  roles       = 'company, manufacturer, software developer'
+  standards   = 'braille'
+  supports    = 'Braille literacy, education'
+
+[ about ]
+
+  precis      = 'promotes Braille education and literacy for the blind'
+
+  verbose     = '''
+> Harpo's mission is to create intelligent and innovative solutions for people
+with disabilities, using state-of-the-art electronic and information
+technology.  Our passion is Braille literacy and experiencing technology by
+blind children.  We understand the benefits the technology provides to blind
+persons and how Braille is important because of this fact. 
+
+> -- [$url]{http://int.harpo.com.pl}
+'''
+
+[ address.email ]
+
+  info        = 'iss-info@harpo.com.pl'
+
+[ address.phone ]
+
+  fax         = '+48 618531419'
+  main        = '+48 618531425'
+
+[ address.postal ]
+
+  main        = '''
+Harpo Sp. z o.o
+27 Grudnia 7
+Poznan, 61-737
+Poland
+'''
+
+[ address.web_site ]
+
+  main        = 'http://int.harpo.com.pl'

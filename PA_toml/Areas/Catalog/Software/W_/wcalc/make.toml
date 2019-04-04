@@ -1,0 +1,19 @@
+# cat_sof|wcalc/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|wcalc'
+  upstream    = 'http://w-calc.sourceforge.net'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/wcalc'
+  search      = 'ext_pd|search?keywords=wcalc'
+  track       = 'https://tracker.debian.org/pkg/wcalc'
+
+  commands    = 'sudo apt-get install wcalc'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

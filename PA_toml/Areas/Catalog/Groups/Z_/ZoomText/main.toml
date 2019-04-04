@@ -1,0 +1,55 @@
+# cat_gro|ZoomText/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'ZoomText'
+  title       = 'ZoomText'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_gro|Freedom_Scientific, cat_gro|Vispero'
+
+[ meta.tags ]
+
+  aliases     = 'Ai Squared'
+  impairments = 'blindness, learning disability, low vision'
+  produces    = 'hardware, keyboard, software'
+  products    = '''
+ZoomContacts iPad app, ZoomReader iOS app,
+ZoomText, ZoomText Fusion, ZoomText ImageReader, ZoomText Large-Print Keyboard
+'''
+  supports    = 'education, reading'
+
+[ about ]
+
+  precis      = 'manufactures computer-based accessibility products'
+
+  verbose     = '''
+> ZoomText’s family of products includes:
+
+> - ZoomText
+> - ZoomText Fusion
+> - ZoomText ImageReader
+> - ZoomReader iOS app
+> - ZoomContacts iPad app
+> - ZoomText Large-Print Keyboard
+'''
+
+[ address.email ]
+
+  info        = 'support@vispero.com'
+
+[ address.phone ]
+
+  fax         = '+1 727 471 7931'
+  main        = '+1 800 444 4443 (9-5 EST)'
+
+[ address.web_site ]
+
+  contact     = 'main|/help/contact-us'
+  help        = 'main|/help'
+  main        = 'https://www.zoomtext.com'
+  support     = 'main|/Support'

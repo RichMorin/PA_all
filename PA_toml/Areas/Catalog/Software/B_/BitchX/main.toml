@@ -1,0 +1,43 @@
+# cat_sof|BitchX/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'BitchX'
+  title       = 'BitchX'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'scriptable'
+  impairments = 'blindness, low vision'
+  interfaces  = 'chat, text-based'
+  licenses    = 'open source'
+  roles       = 'application, chat client'
+  standards   = 'IRC'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'a full-featured, scriptable IRC client'
+
+  verbose     = '''
+> BitchX is a free software text-based IRC (Internet Relay Chat) client
+for UNIX-like systems.
+
+> -- [$url]{http://bitchx.sourceforge.net/category/about.html}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|BitchX/BitchX1.2'
+  sourceforge = 'http://bitchx.sourceforge.net'
+  wikipedia   = 'ext_wp|BitchX'
+
+[ address.web_site ]
+
+  main        = 'http://www.bitchx.com'

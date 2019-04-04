@@ -1,0 +1,140 @@
+/* table.css - support tables (eg, in dash/*.html.eex) */
+
+/* Dashboard */
+
+table.dash-code {
+  border-spacing:   20px 0px;
+  border-collapse:  separate;
+  width:            500px;
+}
+
+table.dash-code td,
+table.dash-code th {
+  text-align:       right;
+}
+
+table.dash-code td.dash-code-left,
+table.dash-code th.dash-code-left {
+  text-align:       left;
+  width:            40%;
+}
+
+/* Dup Values with Types (dtwt) */
+
+table.dash-dvwt {
+  border-spacing:   20px 0px;
+  border-collapse:  separate;
+  width:            90%;
+}
+
+table.dash-dvwt td.dash-dvwt-val,
+table.dash-dvwt th.dash-dvwt-val {
+  text-align:       left;
+  width:            30%;
+}
+
+table.dash-dvwt td.dash-dvwt-list,
+table.dash-dvwt th.dash-dvwt-list {
+  text-align:       left;
+  width:            70%;
+}
+
+/* Make information (make) */
+
+table.dash-make {
+  border-spacing:   20px 0px;
+  border-collapse:  separate;
+  width:            900px;
+}
+
+table.dash-make td.dash-make-tag,
+table.dash-make th.dash-make-tag {
+  text-align:       left;
+  width:            25%;
+}
+
+table.dash-make td.dash-make-list,
+table.dash-make th.dash-make-list {
+  border-spacing:   0px 0px;
+  text-align:       left;
+  width:            1%;
+}
+
+table.dash-make td.dash-make-text,
+table.dash-make th.dash-make-text {
+  text-align:       left;
+  width:            70%;
+}
+
+/* Odd Values with Types (ovwt) */
+
+table.dash-ovwt {
+  border-spacing:   20px 0px;
+  border-collapse:  separate;
+  width:            600px;
+}
+
+table.dash-ovwt td.dash-ovwt-val,
+table.dash-ovwt th.dash-ovwt-val {
+  text-align:       left;
+  width:            50%;
+}
+
+table.dash-ovwt td.dash-ovwt-list,
+table.dash-ovwt th.dash-ovwt-list {
+  text-align:       left;
+  width:            25%;
+}
+
+/* Value Usage by Type (vubt) */
+
+table.dash-vubt {
+  border-spacing:   20px 0px;
+  border-collapse:  separate;
+  layout:           fixed;
+}
+
+table.dash-vubt td,
+table.dash-vubt th {
+  text-align:       right;
+}
+
+table.dash-vubt td.dash-vubt-desc,
+table.dash-vubt th.dash-vubt-desc {
+  text-align:       left;
+  width:            40%;
+}
+
+table.dash-vubt td.dash-vubt-left,
+table.dash-vubt th.dash-vubt-left {
+  text-align:       left;
+  width:            10%;
+}
+
+/* Shirky (in Content/Overviews/PA_Typed_Tags) */
+
+table.shirky {
+  border-spacing:   20px 0px;
+  border-collapse:  separate;
+  layout:           fixed;
+}
+
+table.shirky td,
+table.shirky th {
+  text-align:       left;
+}
+
+/* Types (in Content/Overviews/PA_Typed_Tags) */
+
+table.types {
+  border-spacing:   20px 0px;
+  border-collapse:  separate;
+  layout:           fixed;
+}
+
+/* Tablesorter Overrides #K - !important is a code smell... */
+
+table.tablesorter-default td,
+table.tablesorter-default th {
+  font-size:              1.3em !important;
+}

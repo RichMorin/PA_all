@@ -1,0 +1,6 @@
+<!-- templates/item/_edit_btns.html.eex -->
+
+<p>
+  <input name="button" type="submit" value="Preview" \>&nbsp;
+  <input name="button" type="submit" value="Submit"  \>
+</p>

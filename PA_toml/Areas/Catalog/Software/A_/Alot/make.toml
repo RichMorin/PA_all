@@ -1,0 +1,22 @@
+# cat_sof|Alot/make.toml
+
+[ meta ]
+
+[ os ]
+
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/any/alot'
+  upstream    = 'ext_gh|pazz/alot'
+
+[ os.debian ]
+
+  doc         = 'ext_pd|stretch/alot-doc'
+  package     = 'ext_pd|stretch/alot'
+  search      = 'ext_pd|search?keywords=alot'
+
+  commands    = 'sudo apt-get install alot'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

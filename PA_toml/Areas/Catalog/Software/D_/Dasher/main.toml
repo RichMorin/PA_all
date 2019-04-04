@@ -1,0 +1,64 @@
+# cat_sof|Dasher/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Dasher'
+  title       = 'Dasher'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_sof|GNOME, cat_sof|Orca'
+
+[ meta.tags ]
+
+  impairments = 'dexterity'
+  interfaces  = 'terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'system software, utility'
+  supports    = 'communication, education'
+
+[ about ]
+
+  precis      = 'an information-efficient text-entry interface'
+
+  verbose     = '''
+> Dasher is an information-efficient text-entry interface,
+driven by natural continuous pointing gestures.
+Dasher is a competitive text-entry system wherever a full-size keyboard
+cannot be used - for example,
+
+> - when operating a computer one-handed,
+by joystick, touchscreen, trackball, or mouse;
+
+> - when operating a computer with zero hands
+(i.e., by head-mouse or by eyetracker);
+
+> - on a palmtop computer;
+
+> - on a wearable computer.
+
+> The eyetracking version of Dasher allows an experienced user
+to write text as fast as normal handwriting - 29 words per minute;
+using a mouse, experienced users can write at 39 words per minute.
+Dasher can be used to write efficiently in any language.
+
+> -- [$url]{http://www.inference.org.uk/dasher/DasherSummary.html}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Dasher_(software)'
+
+  zoo         = '''
+http://www.inference.org.uk/dasher/DasherSummary.html,
+https://help.gnome.org/users/dasher/unstable/basics.html.en,
+https://www.bltt.org/software/dasher/index.htm,
+'''
+
+[ address.web_site ]
+
+  download    = 'main|/Download.html'
+  main        = 'http://www.inference.org.uk/dasher'

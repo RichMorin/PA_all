@@ -1,0 +1,19 @@
+# cat_sof|Frotz/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|frotz/'
+  upstream    = 'http://frotz.sf.net'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/frotz'
+  search      = 'ext_pd|search?keywords=frotz'
+  track       = 'https://tracker.debian.org/pkg/frotz'
+
+  commands    = 'sudo apt-get install frotz'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

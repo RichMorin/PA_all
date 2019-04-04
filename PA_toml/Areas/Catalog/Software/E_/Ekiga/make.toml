@@ -1,0 +1,12 @@
+# cat_sof|Ekiga/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/x86_64/ekiga/'
+  upstream    = 'http://www.ekiga.org'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/ekiga'

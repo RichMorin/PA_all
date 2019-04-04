@@ -1,0 +1,58 @@
+# cat_gro|Crawford_Tech/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Crawford_Tech'
+  title       = 'Crawford Technologies Inc.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'hardware, keyboard, software'
+  products    = 'VOICEYE Smartphone App'
+  standards   = 'barcode, braille'
+  supports    = 'daily living'
+
+[ about ]
+
+  precis      = 'provides accessible scanning and production of barcodes'
+
+  verbose     = '''
+> VOICEYE Smartphone App that makes paper accessible and is available for
+iPhone and Android devices.  Just scan and read the barcode anywhere,
+anytime.  Produce a code for printed document using VOICEYE Maker software
+and print becomes accessible to the user!  When you scan a VOICEYE code, it
+can be listened to with voiceover, displayed on your VOICEYE App in five
+high contrast modes (coloured text), via a refreshable braille display and
+TTS software, like on the iPhone. 
+
+> -- [$url]{http://www.crawfordtech.com}
+'''
+
+[ address.email ]
+
+  info        = 'dquon@crawfordtech.com'
+
+[ address.phone ]
+
+  main        = '+1 866 679 0864'
+
+[ address.postal ]
+
+  main        = '''
+Crawford Technologies Inc.
+60 St. Clair Avenue East
+Suite 1002
+Toronto, M4T 1N5
+Canada
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.crawfordtech.com'

@@ -1,0 +1,19 @@
+# cat_sof|ScrollZ/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|scrollz'
+  upstream    = 'http://www.scrollz.info'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/scrollz'
+  search      = 'ext_pd|search?keywords=scrollz'
+  track       = 'https://tracker.debian.org/pkg/scrollz'
+
+  commands    = 'sudo apt-get install scrollz'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

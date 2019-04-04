@@ -1,0 +1,64 @@
+<!-- templates/search/_find_define.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  kv_info   = @tag_info.kv_info
+  kv_descs  = kv_info.kv_descs
+  kv_map    = kv_info.kv_map
+%>
+
+<div class="hs-base1">
+
+  <h3>Define a search query
+    <%= hide_show("ih:1/2", "tag types to be defined") %>
+  </h3>
+
+  <div class="hs-body1 hs-ih">
+    <p>
+      This part of the page lets you define a search query,
+      based on tag types and values.
+      First, "show" an appropriate tag type (e.g., "directories").
+      The parenthesized number following each tag value indicates
+      the number of items that it applies to.
+      Then, check boxes for any desired tag values (e.g., "Hardware").
+      Finally, click the "Submit" button.
+    </p>
+
+    <%= for tag_type <- tag_types(kv_map) do %>
+      <div class="hs-base2">
+        <h4>
+          <%= tag_type %>
+          <%= hide_show("ih:2/2", "tag types and values to be defined") %>
+        </h4>
+
+        <div class="hs-body2 hs-ih">
+          <fieldset>
+            <legend><%= tag_type %> (<%= kv_descs[tag_type] %>)</legend>
+
+            <ul>
+              <%
+                sub_map   = kv_map[tag_type]
+                tag_vals  = keyss(sub_map)
+              %>
+              
+              <%= for tag_val <- tag_vals do %>
+                <%
+                  tmp       = String.replace(tag_val, ~r{ \W+ }x, "_")
+                  name      = "#{ tag_type }__#{ tmp }"
+                  full_tag  = "#{ tag_type }:#{ tag_val }"
+                %>
+
+                <p>
+                  <input type="checkbox" id="d_y_<%= name %>"
+                         name="<%= name %>" value="d:y:<%= full_tag %>">
+                  <%= tag_val %> (<%= sub_map[tag_val] %>)
+                </p>
+              <% end %>
+            </ul>
+          </fieldset>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

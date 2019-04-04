@@ -1,0 +1,41 @@
+# cat_peo|Amanda_Lacy/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'cat_peo|Amanda_Lacy'
+  title       = 'Amanda Lacy'
+
+[ meta.refs ]
+
+  f_authors   = 'Amanda_Lacy,Rich_Morin'
+  f_editors   = 'Amanda_Lacy,Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'congenitally blind'
+  skills      = '''
+accessibility tester, author, computer programmer, editor, reviewer, tester
+'''
+
+[ about ]
+
+  precis      = 'a computer programmer and accessibility tester'
+
+  verbose     = '''
+Amanda is a congenitally blind accessibility tester and computer programmer.
+She lives in [Austin, TX]{ext_wp|Austin,_Texas} and has a BA in Computer Science
+from the [University of Texas at Austin]{ext_wp|University_of_Texas_at_Austin}.
+Amanda can use a variety of assistive software and operating systems, including
+[Orca]{ext_wp|Orca_(assistive_technology)} on [Linux]{ext_wp|Linux},
+[VoiceOver]{ext_wp|VoiceOver} on [macOS]{ext_wp|MacOS}, and
+[NVDA]{ext_wp|NonVisual_Desktop_Access} on [Windows]{ext_wp|Microsoft_Windows}.
+'''
+
+[ address.email ]
+
+  main        = 'lacy925@gmail.com'
+
+[ address.related ]
+
+  linked_in   = 'ext_li|in/amanda-lacy-3100a020' 

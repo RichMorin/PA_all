@@ -1,0 +1,13 @@
+# cat_sof|tdsr/make.toml
+
+[ meta ]
+
+  summary     = 'tdsr is available from GitHub and Homebrew.'
+
+[ os.arch ]
+
+# package     = 'none found, as of 2019.0310'
+
+[ os.debian ]
+
+# package     = 'none found, as of 2019.0310'

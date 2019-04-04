@@ -1,0 +1,59 @@
+# cat_gro|AccessibilityOz/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'AccessibilityOz'
+  title       = 'AccessibilityOz'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, dyslexia, low vision'
+  interfaces  = 'video, web'
+  produces    = 'consulting, software, testing, video player'
+  products    = 'AccessibilityOz, OzART, OzPlayer, OzWiki'
+  roles       = 'company, consultancy, software developer'
+  supports    = 'reading, testing'
+
+[ about ]
+
+  precis      = 'web accessibility consultancy and software developer'
+
+  verbose     = '''
+> AccessibilityOz is a world-class web accessibility consultancy.
+
+> - OzPlayer: The world's first accessible video player.
+
+> - OzART: A unique automated accessibility testing tool that guides you
+>   through manual testing.
+  
+> - OzWiki: A database of accessibility errors and their solutions. 
+
+> -- [$url]{http://www.accessibilityoz.com}
+'''
+
+[ address.email ]
+
+  info        = 'gian@accessibilityoz.com'
+
+[ address.phone ]
+
+  main        = '+1 415 621 9366'
+
+[ address.postal ]
+
+  main        = '''
+AccessibilityOz
+228 E 45th St., Suite 9E
+New York, NY 10017
+United States
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.accessibilityoz.com'

@@ -1,0 +1,38 @@
+<!-- templates/item/_show_refs.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  reject_fn   = fn key ->
+    "#{ key }" |> String.starts_with?("f_")
+  end
+
+  ref_map     = @item.meta.refs
+
+  ref_keys    = ref_map
+  |> keyss()
+  |> Enum.reject(reject_fn)
+
+  ref_cnt     = Enum.count(ref_keys)
+%>
+
+<%= if ref_cnt > 0 do %>
+  <div class="hs-base1">
+    <h3>References
+        <%= hide_show("is:1/1", "references to other items") %>
+    </h3>
+
+    <div class="hs-body1">
+      <ul>
+        <%= for ref_key <- ref_keys do %>
+          <li>
+            <%=
+              ref_val   = ref_map[ref_key]
+              fmt_ref(ref_key, ref_val)
+            %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,34 @@
+<!-- templates/dash/show_data.html.eex -->
+
+<%
+  alias  PhxHttpWeb.DashView
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+%>
+
+<div class="hs-base1">
+  <h2>
+    Data Files
+    <%= hide_show("is:1/2",
+          "data-related section headings,
+           data-related headings and content") %>
+  </h2>
+
+  <%= render DashView, "_path.html", assigns %>
+
+  <div class="hs-body1 hs-is">
+    <p>
+      This is the dashboard page for reference data (e.g., TOML).
+      The statistics below are calculated as follows:
+    </p>
+
+    <ul>
+      <li>Files - number of locally-written files</li>
+      <li>Lines - number of lines (including blank lines)</li>
+      <li>Chars - number of characters (aka codepoints)</li>
+    </ul>
+
+    <%= render DashView, "_data_big.html", assigns %>
+    <%= render DashView, "_data_area.html", assigns %>
+    <%= render DashView, "_data_name.html", assigns %>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+# cat_sof|OCRdesktop/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'OCRdesktop'
+  title       = 'OCRdesktop'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_sof|Tesseract'
+
+[ meta.tags ]
+
+  features    = 'extensible, flexible, speech synthesis'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, open source'
+  requires    = 'Tesseract'
+  roles       = 'screen reader, utility'
+  supports    = 'communication, reading'
+
+[ about ]
+
+  precis      = 'grab content from the screen as text via OCR technology'
+
+  verbose     = '''
+> OCRdesktop is a useful accessibility tool to grab content from the screen
+as text via OCR technology.
+
+> It takes an image of the current window or workspace,
+prepares it for better results, and uses tesseract to recognize text on it.
+The result is presented in a caret-enabled text area,
+in a detailed list with coordinates and confidence, or in the clipboard.
+It also can emulate clicks on the text.
+
+> -- [$url]{https://wiki.archlinux.org/index.php/Ocrdesktop}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|chrys87/ocrdesktop'
+  zoo         = 'https://linux-a11y.org/index.php?page=ocrdesktop'
+
+[ address.web_site ]
+
+  main        = 'https://wiki.archlinux.org/index.php/Ocrdesktop'

@@ -1,0 +1,71 @@
+# cat_sof|Knoppix/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Knoppix'
+  title       = 'Knoppix'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'screen reader, speech generation'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, GPLv3, open source'
+  requires    = 'dialog, Linux, espeak'
+  roles       = 'operating system'
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'a blind-friendly Linux distribution'
+
+  verbose     = '''
+> KNOPPIX ... is an operating system based on Debian designed to be run
+directly from a CD / DVD (Live CD) or a USB flash drive (Live USB),
+one of the first of its kind for any operating system.
+Knoppix was developed by, and named after, Linux consultant Klaus Knopper.
+When starting a program, it is loaded from the removable medium and
+decompressed into a RAM drive. The decompression is transparent and on-the-fly.
+
+> Although KNOPPIX is primarily designed to be used as a Live CD,
+it can also be installed on a hard disk like a typical operating system.
+Computers that support booting from USB devices can load KNOPPIX
+from a live USB flash drive or memory card.
+
+> -- [$url]{ext_wp|Knoppix}
+'''
+
+  access      = '''
+> Adriane Knoppix is a variation [of Knoppix] that is intended for blind
+and visually impaired people, which can be used entirely without vision
+oriented output devices.  It was released in the third quarter of 2007
+as a Live CD.  Adriane Knoppix is named after Adriane Knopper, the wife
+of Klaus Knopper, the developer of Knoppix.  Adriane has a visual
+impairment, and has been assisting Klaus with the development of the
+software.  The name Adriane is also a backronym for "Audio Desktop
+Reference Implementation And Networking Environment".
+
+> -- [$url]{ext_wp|Knoppix#Adriane_Knoppix}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Knoppix, ext_wp|Knoppix'
+
+  zoo = '''
+http://knopper.net/knoppix/knoppix701-en.html,
+https://wiki.debian.org/Derivatives/Census/Knoppix,
+http://www.knopper.net/knoppix/knoppix850-en.html,
+http://www.knopper.net/knoppix-adriane/index-en.html,
+https://opensource.com/life/16/7/knoppix-adriane-interface
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.knopper.net/index-en.html'

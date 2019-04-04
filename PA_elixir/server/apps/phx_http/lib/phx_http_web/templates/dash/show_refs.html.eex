@@ -1,0 +1,31 @@
+<!-- templates/dash/show_refs.html.eex -->
+
+<%
+  alias  PhxHttpWeb.DashView
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+%>
+
+<div class="hs-base1">
+  <h2>
+    Refs
+    <%= hide_show("is:1/2",
+          "ref-related section headings,
+           ref-related headings and content") %>
+  </h2>
+
+  <%= render DashView, "_path.html", assigns %>
+
+  <div class="hs-body1 hs-is">
+    <p>
+      This is the dashboard page for ref
+      (i.e., item reference) types and values.
+      Note that refs are mapped into
+      <a href="/dash/tags"
+         title="Go to: Tags dashboard">tags</a>.
+    </p>
+
+    <%= render DashView, "_refs_dup.html", assigns %>
+    <%= render DashView, "_refs_odd.html", assigns %>
+    <%= render DashView, "_refs_type.html", assigns %>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+# cat_sof|Lucidor/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|lucidor'
+  upstream    = 'http://lucidor.org/lucidor'
+
+[ os.debian ]
+
+# package     = 'none found, as of 2019.0310'

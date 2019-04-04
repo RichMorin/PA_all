@@ -1,0 +1,46 @@
+# cat_sof|Lucidor/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Lucidor'
+  title       = 'Lucidor'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based, web'
+  licenses    = 'open source'
+  roles       = 'application, ebook reader'
+  runs_on     = 'Linux, Windows'
+  standards   = 'EPUB, OPDS'
+  supports    = 'communication, education'
+
+[ about ]
+
+  precis      = 'a program for reading and handling e-books'
+
+  verbose     = '''
+> Lucidor is a computer program for reading and handling e-books.
+Lucidor supports e-books in the EPUB file format
+and catalogs in the OPDS format. ...
+Lucidor provides functionality to
+
+- Read EPUB e-books.
+- Organize a collection of e-books in a local bookcase.
+- Search for and download e-books from the Internet,
+  for example by browsing OPDS catalogs.
+- Convert web feeds and web pages into e-books.
+
+> -- [$url]{https://lucidor.org/lucidor}
+'''
+
+[ address.web_site ]
+
+  download    = 'main|download.php'
+  main        = 'https://lucidor.org/lucidor/'

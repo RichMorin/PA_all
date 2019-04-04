@@ -1,0 +1,54 @@
+<!-- templates/area/show_3.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+  about     = @item.about
+%>
+
+<h2><%= @name %></h2>
+
+<%= fmt_path(@key) %>
+
+<%= fmt_markdown(about.verbose) %>
+
+<div class="hs-base1">
+  <h3>
+    Items: <%= @item_cnt %>
+    <%= hide_show("is:1/1", "all items in this section") %>
+  </h3>
+
+  <div class="hs-body1 hs-is">
+
+    <ul>
+      <b>Index:</b>
+      <%= for first_char <- @first_chars do %>
+        &nbsp;
+        <%=
+          title   = "Go to the \"#{ first_char }\" page heading."
+          url     = "##{ first_char }"
+          link(first_char, title: title, to: url)
+        %>
+      <% end %>
+    </ul>
+
+    <ul>
+      <%= for item_info <- @sort_items do %>
+        <% {key, item_title, precis} = item_info %>
+        <%= if key do %>
+          <% url = "/item?key=#{ key }" %>
+          <li>
+            <p>
+              <%=
+                title   = "Go to the \"#{ item_title }\" item page."
+                link(item_title, title: title, to: url)
+              %><br>
+              <%= precis %>
+            </p>
+          </li>
+        <% else %>
+          <a name="<%= item_title %>"><h4><%= item_title %></h4></a>
+        <% end %>     
+      <% end %>
+    </ul>
+  </div>
+</div>

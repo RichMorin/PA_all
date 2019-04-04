@@ -1,0 +1,51 @@
+# cat_sof|Tesseract/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Tesseract'
+  title       = 'Tesseract'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, open source, Apache'
+  roles       = 'application, library'
+  runs_on     = 'Linux, macOS, Windows'
+  standards   = 'plain text, hOCR (HTML), PDF, invisible-text-only PDF, TSV'
+
+[ about ]
+
+  precis      = 'an OCR engine and a command line program'
+
+  verbose     = '''
+> Tesseract is an optical character recognition engine
+for various operating systems.
+It is free software, released under the Apache License, Version 2.0,
+and development has been sponsored by Google since 2006.
+
+> In 2006, Tesseract was considered one of the most accurate open-source
+OCR engines then available.
+
+> -- [$url]{ext_wp|Tesseract_(software)}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|tesseract-ocr/tesseract'
+  wikipedia   = 'ext_wp|Tesseract_(software)'
+  
+  zoo         = '''
+https://github.com/tesseract-ocr/docs/blob/master/tesseracticdar2007.pdf,
+https://opensource.google.com/projects/tesseract,
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gh|tesseract-ocr/tesseract'

@@ -1,0 +1,19 @@
+# cat_sof|Pandoc/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/x86_64/pandoc/'
+  upstream    = 'https://pandoc.org'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/pandoc'
+  search      = 'ext_pd|search?keywords=pandoc'
+  track       = 'https://tracker.debian.org/pkg/pandoc'
+
+  commands    = 'sudo apt-get install pandoc'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

@@ -1,0 +1,54 @@
+# cat_gro|Chris_Park/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Chris_Park'
+  title       = 'C&P (Chris Park Technology)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, learning disability, low vision'
+  interfaces  = 'video'
+  produces    = 'cane, magnifier, software'
+  roles       = 'company, manufacturer'
+  supports    = 'communication, daily living, education, mobility, telecom'
+
+[ about ]
+
+  precis      = 'develops technology for vision loss and learning disabilities'
+
+  verbose     = '''
+> C & P, known as Chris Park Technology, develops video magnifiers and canes
+for people with vision loss and learning disabilities.  C & P was the real
+manufacturer of cameras, video magnifiers, and canes for organizations such
+as Baum, Ai Squared, and NFB.
+
+> -- [$url]{http://www.chrisparkdesign.com}
+'''
+
+[ address.email ]
+
+  main        = 'chrisparkdesign@gmail.com'
+
+[ address.phone ]
+
+  main        = '+1 949 274 8662'
+
+[ address.postal ]
+
+  main        = '''
+C & P (Chris Park Technology)
+2233 West Balboa Boulevard
+Newport Beach, CA 92663
+United States 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.chrisparkdesign.com'

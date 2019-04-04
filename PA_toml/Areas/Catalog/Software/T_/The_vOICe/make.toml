@@ -1,0 +1,16 @@
+# cat_sof|The_vOICe/make.toml
+
+[ meta ]
+
+  summary     = '''
+The vOICe has been ported to the Raspberry Pi, as part of the After Sight
+project.
+'''
+
+[ os.arch ]
+
+# package     = 'none found, as of 2019.0307'
+
+[ os.debian ]
+
+# package     = 'none found, as of 2019.0310'

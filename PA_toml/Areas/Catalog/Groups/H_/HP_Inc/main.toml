@@ -1,0 +1,55 @@
+# cat_gro|HP_Inc/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'HP_Inc'
+  title       = 'HP Inc.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'learning disability'
+  produces    = 'hardware, software'
+  supports    = 'daily living, education'
+
+[ about ]
+
+  precis      = 'provides a broad range of hardware and software offerings'
+
+  verbose     = '''
+> At HP Inc., we believe in reinvention.  We believe that technology should
+make life better for everyone, everywhere.  This vision guides everything
+we do, how we do it, and why we do it.  It is why we keep reinventing our
+company, our technologies and what tomorrow holds, so industries,
+communities, and individuals can keep reinventing how they operate, ideate,
+and create what matters the most to them. 
+
+> -- [$url]{http://www.hp.com}
+'''
+
+[ address.email ]
+
+  info        = 'glenn.meyer@hp.com'
+
+[ address.phone ]
+
+  main        = '+1 281 927 7743'
+
+[ address.postal ]
+
+  main        = '''
+HP Inc.
+11445 Compaq Center Drive West
+Bldg CCM03
+Houston, TX 77070
+United States
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.hp.com'

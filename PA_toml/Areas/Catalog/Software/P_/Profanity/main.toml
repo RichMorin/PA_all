@@ -1,0 +1,42 @@
+# cat_sof|Profanity/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Profanity'
+  title       = 'Profanity'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'chat, command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'IRSSI'
+  roles       = 'application, chat client'
+  standards   = 'IRC, Jabber, XMPP'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'a console-based client for XMPP and Jabber'
+
+  verbose     = '''
+> Profanity is a console based instant messaging client for XMPP (Jabber)
+protocol based chat.  It is written in C and ncurses, and is inspired by
+popular IRC client IRSSI.
+
+> -- [$url]{ext_pd|jessie/profanity}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|boothj5/profanity' 
+  wikipedia   = 'ext_wp|Profanity_(instant_messaging_client)'
+
+[ address.web_site ]
+
+  main        = 'http://www.profanity.im'

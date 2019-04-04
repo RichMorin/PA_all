@@ -1,0 +1,56 @@
+# cat_gro|Kunyoong_IBC/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Kunyoong_IBC'
+  title       = 'Kunyoong IBC Co., Ltd.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'hardware, keyboard'
+  supports    = 'communication, daily living, mobility, telecom'
+
+[ about ]
+
+  precis      = 'manufactures assistive devices for the disabled'
+
+  verbose     = '''
+> For over a decade, Kunyoong IBC has developed and manufactured assistive
+devices for the rehabilitation of the disabled people.  Domestically and
+internationally, we are well known for our exquisite technology that is
+designed to much improve the well being of people who need assistance.
+As of 2017, we have developed more than 50 kinds of products for disabled
+people and are representative company specialized in handicapped products. 
+
+> -- [$url]{http://kunyoong.com/main_en}
+'''
+
+[ address.email ]
+
+  main        = 'kunyoong@kita.net'
+
+[ address.phone ]
+
+  fax         = '+82 2 561 5928'
+  main        = '+82 10 2539 0702'
+
+[ address.postal ]
+
+  main        = '''
+Kunyoong IBC Co., Ltd.
+Rm. 1311, Digital Empire Bldg.
+1130 Beoman-ro, Geumcheon-gu
+Seoul, 08595
+Korea, Republic of 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://kunyoong.com/main_en'

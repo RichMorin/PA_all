@@ -1,0 +1,19 @@
+# cat_sof|Links/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|core/x86_64/links'
+  upstream    = 'http://links.twibright.com'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/links'
+  search      = 'ext_pd|search?keywords=links'
+  track       = 'https://tracker.debian.org/pkg/links'
+
+  commands    = 'sudo apt-get install links'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

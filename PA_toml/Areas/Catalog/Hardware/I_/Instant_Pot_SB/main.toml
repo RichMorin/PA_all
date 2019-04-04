@@ -1,0 +1,57 @@
+# cat_har|Instant_Pot_SB/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Instant_Pot_SB'
+  title       = 'Instant Pot Smart'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  provider    = 'cat_gro|Instant_Pot'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  roles       = '''
+appliance, cake maker, food warmer, pressure cooker, rice cooker,
+steamer, sterilizer, yoghurt maker
+'''
+  standards   = 'Bluetooth'
+  supports    = 'cooking, daily living'
+
+[ about ]
+
+  access      = '''
+Bluetooth connectivity allows operation from a cell phone and/or personal
+computer.
+'''
+
+  precis      = 'a bluetooth-enabled smart cooker'
+
+  verbose     = '''
+> Instant Pot Smart is a revolutionary Smart cooker designed by Canadians
+with the objectives of being safe, convenient, and dependable.  It is
+Bluetooth enabled, allowing programming and monitoring from smartphones
+or tablets.  It speeds up cooking by 2-6 times, using up to 70% less energy.
+Above all, it produces nutritious, healthy food in a convenient and
+consistent fashion.
+
+> -- [$url]{https://www.instantpot.com}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Instant_Pot'
+
+[ address.web_site ]
+
+  about       = 'main|/about-instant-brands-inc-instant-pot'
+  faq         = 'main|/faq'
+  main        = 'https://www.instantpot.com'
+  manual      = 'main|/wp-content/uploads/2018/06/DUO-Series-Manual-English-January-24-2018-web.pdf'
+  product     = 'main|/portfolio-item/smart-bluetooth'
+  support     = 'main|/support'
+  zoo         = 'main|/portfolio-item/smart-bluetooth-2'

@@ -1,0 +1,53 @@
+# cat_ser|SlideShare/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'SlideShare'
+  title       = 'LinkedIn SlideShare'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'web'
+  produces    = 'presentations, slide sets'
+  standards   = 'PDF'
+
+[ about ]
+
+  access      = '''
+PDF is the recommended format, but slide sets may be in PowerPoint, etc.
+Indeed, some content may only be available in raster image format.
+'''
+
+  precis      = 'provides an online library of presentation slide sets'
+
+  verbose     = '''
+> 80 million professionals trust SlideShare to learn about any topic quickly
+from subject matter experts.
+
+> Founded in 2006 with the goal of making knowledge sharing easy, Slideshare
+joined the LinkedIn family in 2012 and has since grown into a top destination
+for professional content.  With over 18 million uploads in 40 content
+categories, it is today one of the top 100 most-visited websites in the world.
+
+> -- [$url]{https://www.slideshare.net}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|SlideShare'
+
+[ address.web_site ]
+
+  main        = 'https://www.slideshare.net/'
+  about       = 'main|about'
+  contact     = 'ext_li|help/slideshare/ask'
+  formats     = 'ext_li|help/slideshare/answer/53682'
+  help        = 'ext_li|help/slideshare'
+  parent      = 'ext_li|'

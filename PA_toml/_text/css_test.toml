@@ -1,0 +1,44 @@
+# _text/css_test.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'css_test'
+  title       = "CSS Test Page"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'a test page for CSS tweaking'
+
+  verbose     = '''
+paragraph text...
+
+### H3 Header
+
+paragraph text...
+
+#### H4 Header
+
+paragraph text...
+
+##### H5 Header
+
+paragraph text...
+
+###### H6 Header
+
+paragraph text...
+
+- level 1 list item...
+  - level 2 list item...
+    - level 3 list item...
+
+- level 1 list item...
+  - level 2 list item...
+    - level 3 list item...
+'''

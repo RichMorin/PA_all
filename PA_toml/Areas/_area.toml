@@ -1,0 +1,24 @@
+# Areas/_area.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Areas'
+  title       = 'Areas'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'the top level of the Areas tree'
+
+  verbose     = '''
+The Areas tree contains a [Catalog]{cat|:a}
+of accessibility-related resources,
+along with some long-form [Content]{con|:a}:
+[Essays]{con_ess|:a}, [HowTos]{con_how|:a}, and [Overviews]{con_ove|:a}.
+Check below for details...
+'''

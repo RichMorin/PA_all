@@ -1,0 +1,41 @@
+# cat_sof|Eww/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Eww'
+  title       = 'Eww (Emacs Web Wowser)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based, web'
+  licenses    = 'open source'
+  requires    = 'Emacs, Lisp'
+  roles       = 'application, browser'
+  standards   = 'HTML, HTTP'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'a web browser written entirely in Emacs Lisp'
+
+  verbose     = '''
+> Emacs Web Wowser (a backronym of "eww") is a web browser written entirely
+in Emacs Lisp.
+
+> -- [$url]{ext_wp|Eww_(web_browser)}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Eww_(web_browser)'
+
+[ address.web_site ]
+
+  main        = 'ext_gs|emacs/manual/html_mono/eww.html'

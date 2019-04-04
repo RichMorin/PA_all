@@ -1,0 +1,70 @@
+# cat_gro|Visioneers/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Visioneers'
+  title       = 'Visioneers / World Access for the Blind'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  aliases     = 'WAFTB, World Access for the Blind'
+  features    = 'echolocation'
+  impairments = 'blindness, low vision'
+  produces    = 'advocacy, training'
+  roles       = 'non-profit, organization'
+  supports    = 'mobility, navigation'
+
+[ about ]
+
+  precis      = 'facilitates and promotes the achievements of blind people'
+
+  verbose     = '''
+> Visioneers (World Access for the Blind) is a 501(c)(3) Non-Profit
+organization that facilitates the self-directed achievement of people
+with all forms of blindness, and increases public awareness about the
+strengths and capabilities of blind people.
+
+> World Access for the Blind strives to improve the quality of interaction
+between blind and sighted people by facilitating equal access to the
+world's resources and opportunities.  We are interested in more than
+meeting the minimum requirements for functioning and life satisfaction.
+We believe in mutual respect, consideration, and accommodation of blind
+and sighted people by society. We expect to see the blind population on
+mass rise to levels of productive participation and achievement to compare
+with those of sighted people.
+
+> -- [$url]{http://visioneers.org}
+'''
+
+[ address.email ]
+
+  info        = 'info@visioneers.org'
+
+[ address.phone ]
+
+  main        = '+1 866 396 7035'
+
+[ address.postal ]
+
+  main        = '''
+Visioneers / World Access for the Blind 
+650 N Rose Dr., #208
+Placentia, CA 92870 USA
+'''
+
+[ address.related ]
+
+  twitter     = 'ext_tw|waftb'
+  wikipedia   = 'ext_wp|World_Access_for_the_Blind'
+
+[ address.web_site ]
+
+  about       = 'main|/who-we-are'
+  also        = 'http://waftb.org'
+  main        = 'http://visioneers.org'

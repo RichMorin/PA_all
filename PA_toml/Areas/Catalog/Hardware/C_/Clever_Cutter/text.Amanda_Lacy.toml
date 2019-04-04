@@ -1,0 +1,21 @@
+# text.Amanda_Lacy.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Clever_Cutter'
+
+[ meta.refs ]
+
+  f_authors   = 'Amanda_Lacy, Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'quite useful, but less versatile than a knife'
+
+  verbose     = '''
+The Clever Cutter is quite useful, but less versatile than a knife.
+For example, it works poorly for dismembering annoying visitors.
+Still, it's worth keeping in the drawer.
+'''

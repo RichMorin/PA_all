@@ -1,0 +1,52 @@
+# cat_gro|Google/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Google'
+  title       = 'Google Inc.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision, motor control'
+  products    = 'Android, Chromebook, Liftware, G Suite, Google Home'
+  produces    = 'hardware, software'
+  supports    = 'communication, daily living, telecom'
+
+[ about ]
+
+  precis      = 'provides a wide range of computer-related offerings'
+
+  verbose     = '''
+> Google technology includes Android phones and tablets, Chromebooks,
+Liftware utensils, G Suite Apps, Google Home, and more! 
+
+> -- [$url]{https://www.google.com}
+'''
+
+[ address.email ]
+
+  info        = 'lpalmaro@google.com'
+
+[ address.phone ]
+
+  main        = '+1 650 253 0000'
+
+[ address.postal ]
+
+  main        = '''
+Google Inc.
+1600 Amphitheatre Parkway
+Mountain View, CA 94043
+United States 
+'''
+
+[ address.web_site ]
+
+  about       = 'main|/about/company'
+  main        = 'https://www.google.com'

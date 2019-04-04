@@ -1,0 +1,49 @@
+# cat_sof|Xiki/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Xiki'
+  title       = 'Xiki'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'menu generation'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'Ruby'
+  roles       = 'API, library, user interface'
+  supports    = 'software development'
+
+[ about ]
+
+  precis      = 'a Ruby library to create menu-based interactive interfaces'
+
+  verbose     = '''
+> Xiki strives to be the simplest possible way (and ways) to create
+interactive interfaces.  This means a text in and text out interface.
+Since everything is text, almost nothing is against the rules when
+you're creating an interface in Xiki.  Xiki stands for "expanding wiki",
+and is inspired by the wiki philosophy of fully editable text, with
+simple syntaxes (like ">" for a heading, and "-" for a bullet).  Xiki
+extends wiki ideas to user interface in general.
+
+> -- [$url]{https://www.kickstarter.com/projects/
+            xiki/xiki-the-command-revolution}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|trogdoro/xiki'
+  rubydoc     = 'ext_rd|xiki'
+  rubygems    = 'ext_rg|xiki'
+
+[ address.web_site ]
+
+  main        = 'http://xiki.org'

@@ -1,0 +1,19 @@
+# cat_sof|GNU_bc/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/x86_64/bc/'
+  upstream    = 'ext_gs|bc'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/bc'
+  search      = 'ext_pd|search?keywords=bc'
+  track       = 'https://tracker.debian.org/pkg/bc'
+
+  commands    = 'sudo apt-get install bc'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

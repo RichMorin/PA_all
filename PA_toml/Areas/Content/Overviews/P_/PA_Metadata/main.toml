@@ -1,0 +1,80 @@
+# con_ove|PA_Metadata/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PA_Metadata'
+  title       = "Pete's Alley - Data and Metadata"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "how Pete's Alley uses data and metadata"
+
+  verbose     = '''
+In Pete's Alley, the line between [data]{ext_wp|Data}
+and [metadata]{ext_wp|Metadata} is more like a spectrum.
+At one end, we have [body text]{ext_wp|Body_text},
+such as the paragraph you're currently reading.
+For convenience in reading and editing,
+it's encoded as [Markdown]{ext_wp|Markdown}, with some minor extensions.
+At the other end, we have the file ID, keys for other items, etc.
+In the middle, there is a range of sub-trees (e.g., `address`, `meta`)
+whose content may be interpreted as either data or metadata.
+
+This information is stored in a flexible, if somewhat unusual,
+[data structure]{ext_wp|Data_structure}.
+The input data is stored as a shallow [tree]{ext_wp|Tree_(data_structure)}
+of [TOML]{ext_wp|TOML} files
+(e.g., `Areas/Content/Overviews/PA_Metadata/main.toml`).
+Each file contains a tree of
+[hash maps]{ext_wp|Hash_table}, using
+[text strings]{ext_wp|String_(computer_science)} as both keys and
+[leaf nodes]{ext_wp|Tree_(data_structure)#Terminology}.
+
+At load time, the file tree is flattened into a single hash (`items`)
+whose keys are the relative path names of each TOML file.
+The content of the file, with minor additions and changes,
+is stored as the item's value.
+For example, in a nod toward efficiency,
+the item's hash keys are converted to [symbols]{ext_wp|Symbol_(programming)}.
+Some metadata is also harvested and added to the item.
+Finally, a set of [inverted indexes]{ext_wp|Inverted_index} is created,
+allowing tags and types to be located rapidly.
+
+Most of the item's metadata resides in its `meta` sub-tree.
+The `meta.tags` hash, in particular,
+stores sets of [tag]{ext_wp|Tag_(metadata)} values (e.g., `blindness`)
+under a limited number of types (e.g., `impairments`).
+Our [searching]{ext_wp|Searching} technology uses these
+to enable complex [set]{ext_wp|Set_theory} operations,
+using the [intersection]{ext_wp|Intersection_(set_theory)}
+and [union]{ext_wp|Union_(set_theory)} of query results.
+
+### Graph Databases
+
+Basically, we are using collections of hashes and functions
+to implement a small part of the capabilities offered by a
+[graph database]{ext_wp|Graph_database} such as [Neo4j]{ext_wp|Neo4j}.
+Indeed, we expect to experiment with Neo4j as we continue,
+but the current, informal approach provides all of the flexibility
+and performance we need for this stage of development.
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '''
+#### <a name="provides">provides</a>
+
+The `provides` type includes things provided by this item.
+
+#### <a name="provider">provider</a>
+
+The `provider` type includes the path of providing organization.
+'''

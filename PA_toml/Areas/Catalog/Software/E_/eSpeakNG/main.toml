@@ -1,0 +1,48 @@
+# cat_sof|eSpeakNG/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'eSpeakNG'
+  title       = 'eSpeak NG (Next Generation)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'compact, provides many languages'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'eSpeak'
+  roles       = 'speech synthesizer'
+
+[ about ]
+
+  precis      = 'a speech synthesizer that supports 99 languages and accents'
+
+  verbose     = '''
+> eSpeakNG is a compact, open source, software speech synthesizer for
+Linux, Windows, and other platforms.  It uses a formant synthesis
+method, providing many languages in a small size.  Much of the
+programming for eSpeakNG's language support is done using rule files
+with feedback from native speakers.
+
+> -- [$url]{ext_wp|ESpeakNG}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|espeak-ng/espeak-ng'
+  sourceforge = 'ext_sf|projects/espeak'
+  wikipedia   = 'ext_wp|ESpeakNG'
+
+  #  https://launchpad.net/python-espeak
+
+[ address.web_site ]
+
+  forum       = 'https://groups.io/g/espeak-ng'
+  main        = 'http://espeak.sourceforge.net'

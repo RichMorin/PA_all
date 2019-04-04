@@ -1,0 +1,130 @@
+# con_ove|PA_Data_Tree/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PA_TOML_Tree'
+  title       = "Pete's Alley - The Data Tree"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "an overview of the data tree used in Pete's Alley"
+
+  verbose     = '''
+Pete's Alley is based on a tree of text-based data files,
+encoded in a combination of [TOML]{ext_wp|TOML} and [Markdown]{ext_wp|Markdown}.
+We also support some minor syntax extensions
+(e.g., comma-separated lists, shorthand for file paths and URLs).
+This approach lets our users read and edit the files conveniently,
+while allowing our software to deal with structured data.
+
+### Data Structures
+
+The pervasive use of data structures is a huge win
+for error checking, indexing, and other processing needs.
+For example, schema files can be used to document the structure and semantics
+of data files, as well as supporting error detection.
+Our working data structure is a [tree]{ext_wp|Tree_(data_structure)},
+made up of [associative arrays]{ext_wp|Associative_array}
+(aka dictionaries, hashes, or maps).
+The leaf nodes are either
+[text strings]{ext_wp|String_(computer_science)} or
+[lists]{ext_wp|List_(abstract_data_type)} of strings.
+
+The top level of the tree is a map whose keys are (slightly modified)
+relative file paths.
+For example, the key for this page's main file is
+`Areas/Content/Overviews/PA_Data_Tree/main.toml`.
+The internal tree is constructed at run time by walking the file tree
+and loading the TOML-encoded data into the map.
+We also perform some error checking, indexing, and pre-processing
+at this time.
+
+### File Tree
+
+The file tree (`PA_toml`) contains several administrative directories
+(e.g., `_config`, `_schemas`, `_test`, `_text`),
+followed by the `Areas` section.
+This section contains a topical catalog of resources
+(e.g., `Groups`, `Hardware`, `People`, `Services`, `Software`)
+and several types of long-form content (e.g., `Essays`, `HowTos`, `Overviews`).
+
+    PA_toml/                  the TOML file tree
+
+    | _config/                configuration, etc.
+    | | forced.toml           define "forced OK" URLs
+    | | prefix.toml           define prefix codes
+    | _schemas/*.toml         file type schemas
+    | _test/*.toml            test data (WIP)
+    | _text/*.toml            administrative text
+
+    | Areas/
+    | | _area.toml            info on Areas
+
+    | | Catalog/              a curated resource catalog
+    | | | _area.toml          info on Areas/Catalog
+    | | | Groups/             organizations, projects, etc.
+    | | | | _area.toml        info on Areas/Catalog/Groups
+    | | | | A_/               items starting with "A"
+    | | | | | A.../           files for item "A..."
+    | | | | | | main.toml     main text and metadata
+    | | | | | | make.toml     build information (optional)
+    | | | | | | text.*.toml   reviews, etc. (optional)
+    | | | Hardware/...        appliances, computers, etc.
+    | | | People/...          authors, editors, etc.
+    | | | Services/...        Internet servers, etc.
+    | | | Software/...        computer software
+    
+    | | Content/              long-form written content
+    | | | _area.toml          info on Areas/Content
+    | | | Essays/             memoirs, opinions, etc.
+    | | | | _area.toml        info on Areas/Content/Essays
+    | | | | A_/               items starting with "A"
+    | | | | | A.../           files for item "A..."
+    | | | | | | main.toml     main text and metadata
+    | | | HowTos/...          step-by-step instructions
+    | | | Overviews/...       topic overviews, etc.
+
+### File Format
+
+The file tree contains several types of files, including:
+
+- area - descriptive text and metadata
+- main - the main content for an item
+- make - software build information
+- text - product reviews, etc.
+
+All of the files are encoded in a TOML (frequently with Markdown inclusions),
+but the minor details vary among the file types.
+The specifics are documented in `_schemas/*.toml`
+(the file type schemas), but here are some typical elements:
+
+    meta/                     metadata
+    | *                       administrivia
+    | tags/*                  comma-separated tags
+
+    about/                    descriptive text
+    | access/*                accessibility notes
+    | precis/*                one-line summary
+    | verbose/*               paragraphs of text
+
+    address/                  contact information
+    | email/*                 email addresses
+    | phone/*                 phone numbers
+    | postal/*                postal addresses
+    | related/*               related web URLs
+    | web_site/*              primary web URLs
+
+For brevity and editing convenience,
+we support several minor extensions to Markdown and TOML syntax.
+For details, visit [Pete's Alley - Extensions]{con_how|PA_Extensions}.
+'''
+
+[ zoo ]
+
+  snippets    = '...'

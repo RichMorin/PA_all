@@ -1,0 +1,63 @@
+# cat_sof|Jupyter/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Jupyter'
+  title       = "Jupyter"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'Unix integration'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'Python'
+  roles       = 'application, text editor'
+  standards   = 'CSS, HTML, JSON, LaTeX, Markdown, PDF, WebSockets, ZMQ'
+
+[ about ]
+
+  precis      = 'an interactive computational environment'
+
+  verbose     = '''
+> Jupyter Notebook (formerly IPython Notebooks) is a web-based interactive
+computational environment for creating Jupyter notebook documents.
+The "notebook" term can colloquially make reference to many different entities,
+mainly the Jupyter web application, Jupyter Python web server, or Jupyter
+document format depending on context.
+A Jupyter Notebook document is a JSON document, following a versioned schema,
+and containing an ordered list of input/output cells which can contain code,
+text (using Markdown), mathematics, plots and rich media,
+usually ending with the ".ipynb" extension.
+
+> A Jupyter Notebook can be converted to a number of open standard output
+formats (HTML, presentation slides, LaTeX, PDF, ReStructuredText, Markdown,
+Python) through "Download As" in the web interface, via the nbconvert library
+or "jupyter nbconvert" command line interface in a shell.
+
+> -- [$url]{ext_wp|Project_Jupyter#Jupyter_Notebook}
+'''
+
+[ address.related ]
+
+
+  github      = '''
+ext_gh|jupyter/jupyter,
+ext_gh|jupyter/jupyter/wiki/Jupyter-kernels,
+ext_gh|jupyter/notebook,
+'''
+
+  wikipedia   = '''
+ext_wp|Project_Jupyter,
+ext_wp|Project_Jupyter#Jupyter_Notebook
+'''
+
+[ address.web_site ]
+
+  main        = 'https://jupyter.org'

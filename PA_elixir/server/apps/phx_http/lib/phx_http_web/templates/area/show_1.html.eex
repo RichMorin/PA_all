@@ -1,0 +1,51 @@
+<!-- templates/area/show_1.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+  about   = @item.about
+%>
+
+<h2>Areas</h2>
+
+<%= fmt_markdown(about.verbose) %>
+
+<%= for {major_u, minors} <- @tuples do %>
+  <h3>
+    <%=
+      precis  = get_precis(major_u)
+      title   = "Go to the #{ major_u } index page."
+      url     = url_area(major_u)
+      link(major_u, title: title, to: url)
+    %>
+  </h3>
+
+  <p>This is <%= precis %>.</p>
+
+  <div class="hs-base1">
+    <p>
+      <h4>
+        Sections: <%= Enum.count(minors) %>
+        <%= hide_show("is:1/1", "sections in the #{ major_u } area") %>
+      </h4>
+    </p>
+
+    <div class="hs-body1 hs-is">
+      <ul>
+        <%= for minor_u <- minors do %>
+          <li>
+            <p>
+              <%=
+                body    = "#{ major_u }/#{ minor_u }"
+                precis  = get_precis(body)
+                title   = "Go to the #{ minor_u } index page."
+                url     = url_area(body)
+                link(minor_u, title: title, to: url)
+              %><br>
+              <%= precis %>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,43 @@
+# cat_sof|bridge_utils/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'bridge_utils'
+  title       = 'bridge-utils'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'connect multiple devices'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'Linux, Linux Ethernet bridge'
+  roles       = 'network bridge, utility'
+  standards   = 'Ethernet'
+
+[ about ]
+
+  precis      = 'utilities for configuring the Linux Ethernet bridge'
+
+  verbose     = '''
+> This package contains utilities for configuring the Linux Ethernet bridge
+in Linux.  The Linux Ethernet bridge can be used for connecting multiple
+Ethernet devices together.  The connecting is fully transparent: hosts
+connected to one Ethernet device see hosts connected to the other Ethernet
+devices directly.
+
+> -- [$url]{ext_pd|stretch/bridge-utils}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|Gandi/bridge-utils'
+
+[ address.web_site ]
+
+  main        = 'https://wiki.linuxfoundation.org/networking/bridge'

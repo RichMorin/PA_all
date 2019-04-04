@@ -1,0 +1,23 @@
+# cat_sof|MATE/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/x86_64/mate-desktop'
+  upstream    = 'http://mate-desktop.org'
+  wiki        = 'ext_awi|MATE'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/mate-desktop'
+  search      = 'ext_pd|search?keywords=mate-desktop'
+  track       = 'https://tracker.debian.org/pkg/mate-desktop'
+  wiki        = 'https://wiki.debian.org/Mate'
+
+  commands    = 'sudo apt-get install mate-desktop'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = '''
+MATE is included in the Raspberry VI distribution, but not in Raspbian.
+'''

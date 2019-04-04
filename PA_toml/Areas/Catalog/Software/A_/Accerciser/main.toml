@@ -1,0 +1,50 @@
+# cat_sof|Accerciser/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Accerciser'
+  title       = 'Accerciser'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'multiple formats'
+  impairments = 'blindness, low vision'
+  interfaces  = 'terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'GNOME, Python'
+  roles       = 'application, accessibility explorer'
+  standards   = 'DJVU, DVI, EPS, PDF, PS, XPS'
+
+[ about ]
+
+  precis      = 'an accessibility explorer for the GNOME desktop'
+
+  verbose     = '''
+> Accerciser is an interactive Python accessibility explorer
+for the GNOME desktop.
+It uses AT-SPI2 to inspect and control widgets,
+allowing you to check if an application is providing correct information
+to assistive technologies and automated test frameworks.
+Accerciser has a simple plugin framework which you can use
+to create custom views of accessibility information.
+
+> In essence, Accerciser is a next generation at-poke tool.
+
+> -- [$url]{https://github.com/GNOME/accerciser}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|GNOME/accerciser'
+
+[ address.web_site ]
+
+  _1          = 'https://help.gnome.org/users/'
+  help        = '_1|accerciser/stable/introduction.html.en'
+  main        = 'https://wiki.gnome.org/Apps/Accerciser'

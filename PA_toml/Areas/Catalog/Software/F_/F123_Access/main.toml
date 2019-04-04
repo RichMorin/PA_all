@@ -1,0 +1,50 @@
+# cat_sof|F123_Access/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'F123_Access'
+  title       = 'F123 Access'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  provider    = 'cat_gro|F123'
+
+[ meta.tags ]
+
+  features    = 'reformats website pages'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based, web'
+  licenses    = 'open source'
+  requires    = 'Chrome, Firefox, JAWS, NVDA, Orca, VoiceOver, Window Eyes'
+  roles       = 'application, extension'
+  standards   = 'HTML, HTTP'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'a web page reformatter for the visually impaired'
+
+  verbose     = '''
+> F123 Access (pronounced "F 1 2 3 Access") is software which reformats
+website pages so that these pages are more accessible to blind people.
+F123 Access is a web-browser "extension" which is installed in your
+Mozilla Firefox or Google Chrome browser.
+
+> F123 Access improves the formatting of pages for those with a visual
+impairment who use screen-reader software.
+
+> F123 Access is compatible with a wide variety of screen-readers,
+including JAWS, NVDA, Orca, VoiceOver, and Window Eyes.  The current
+version is designed for use with the Mozilla Firefox and Chrome browsers,
+although we hope to start work on a Microsoft Edge version soon.
+
+> -- [$url]{http://f123access.com/what-is-f123-access}
+'''
+
+[ address.web_site ]
+
+  faq         = 'main|/what-is-f123-access'
+  main        = 'http://f123access.com'

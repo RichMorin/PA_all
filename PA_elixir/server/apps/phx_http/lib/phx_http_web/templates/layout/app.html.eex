@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <%= render LayoutView, "_head.html", assigns %>
+  </head>
+
+  <%
+    import Common
+
+    path_str    = @conn.path_info     |> Enum.join("/")
+    query_str   = @conn.query_string
+    remote_ip   = @conn.remote_ip
+    router_ip   = { 192, 168, 1, 1 }
+
+    rel_url     = case query_str do
+      ""    -> "/#{ path_str }"
+      _     -> "/#{ path_str }?#{ query_str }"
+    end
+
+    edit_link   = (path_str == "item") &&
+                  String.starts_with?(@key, "Areas/Catalog/")
+
+    source_link = (path_str == "item") ||
+                  (path_str == "text")
+
+#   ii(run_mode(), "run_mode") #T
+#   ii(@item, "item") #T
+  %>
+
+  <body>
+    <header>
+      <h1>&nbsp;Pete's Alley</h1>
+
+      <nav>
+        &nbsp;
+        <%=
+          title   = "Go to: Home [local]"
+          link("Home", title: title, to: "/")
+        %>
+
+        &nbsp;
+        <%=
+          title   = "Go to: About [local]"
+          url     = "/text?key=_text/about.toml"
+          link("About", title: title, to: url)
+        %>
+
+        &nbsp;
+        <%=
+          title   = "Go to: Areas [local]"
+          link("Areas", title: title, to: "/area")
+        %>
+
+        &nbsp;
+        <%=
+          title   = "Go to: Search [local]"
+          link("Search", title: title, to: "/search/find")
+        %>
+
+        &nbsp;
+        <%=
+          title   = "Go to: Usage [local]"
+          url     = "/text?key=_text/usage.toml"
+          link("Usage", title: title, to: url)
+        %>
+      </nav>
+    </header>
+
+    <main>
+      <p class="alert alert-info"   role="alert"
+        ><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"
+        ><%= get_flash(@conn, :error) %></p>
+      <%= render @view_module, @view_template, assigns %>
+    </main>
+
+    <hr>
+
+    <footer>
+      <nav>
+        &nbsp;
+        <%=
+          title   = "Go to this item's Feedback page."
+          url     = "/mail/feed?url=#{ rel_url }"
+          link("Feedback", title: title, to: url)
+        %>
+
+        <%= if source_link do %>
+          &nbsp;
+          <%=
+            title   = "Go to this item's Source page."
+            url     = "/source?key=#{ @key }"
+            link("Source", title: title, to: url)
+          %>
+        <% end %>
+
+        <%= if edit_link do %>
+          &nbsp;
+          <%=
+            title   = "Go to this item's Edit page."
+            url     = "/item/edit?key=#{ @key }"
+            link("Edit", title: title, to: url)
+          %>
+        <% end %>
+
+        &nbsp;
+        <%=
+          title     = "Go to the site's Dashboard page."
+          link("Dashboard", title: title, to: "/dash")
+        %>
+
+        <%= unless remote_ip == router_ip do %>
+          &nbsp;
+          <%=
+            title   = "Reload the site's content."
+            url     = "/reload?redirect=#{ rel_url }"
+            link("Reload", title: title, to: url)
+          %>
+        <% end %>
+      </nav>
+    </footer>
+
+    <script type="text/javascript"
+            src="<%= Routes.static_path(@conn, "/js/app.js") %>"
+    ></script>
+  </body>
+</html>

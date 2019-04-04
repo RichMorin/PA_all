@@ -1,0 +1,73 @@
+# cat_gro|HIMS_Inc/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'HIMS_Inc'
+  title       = 'HIMS, Inc.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_gro|DAISY'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'video'
+  produces    = 'hardware, magnifier, notetaker, OCR, software'
+  products    = '''
+Braille EDGE, Braille Sense, Candy, E-bot, GoVision, Mezzo, Smart Beetle
+'''
+  roles       = 'company, hardware manufacturer'
+  standards   = 'braille, DAISY'
+  supports    = 'healthcare'
+
+[ about ]
+
+  precis      = 'provides technology for the blind and visually impaired'
+
+  verbose     = '''
+> HIMS, a global leader in the development of assistive technology for the
+blind and visually impaired, produces the GoVision read/write/distance and
+self-view magnifier with OCR, Mezzo compact desktop video magnifier, E-bot
+iPad-compatible distance magnifier with OCR, Braille Sense Polaris notetaker,
+Braille Sense U2 notetakers, Braille EDGE 40 and Smart Beetle Braille
+displays, Blaze EZ and ET DAISY players with OCR, and Candy 4.3' and 5'
+handheld video magnifiers. 
+
+> -- [$url]{http://www.hims-inc.com}
+'''
+
+[ address.email ]
+
+  info        = 'paul@hims-inc.com'
+  sales       = 'sales@hims-inc.com'
+
+[ address.phone ]
+
+  fax         = '+1 512 837 2011'
+  main        = '+1 888 520 4467'
+
+[ address.postal ]
+
+  main        = '''
+HIMS, Inc.
+4616 W Howard Lane, Suite 960
+Austin, TX 78728 USA
+'''
+
+[ address.related ]
+
+  facebook    = 'ext_fb|HIMSInc'
+  twitter     = 'ext_tw|HIMS_Inc'
+  youtube     = 'ext_yt|channel/UCgyB7qzqD1kXLTyDgN4YMdg'
+
+[ address.web_site ]
+
+  main        = 'http://www.hims-inc.com/'
+  zoo         = '''
+main|blindness,
+main|low-vision
+'''

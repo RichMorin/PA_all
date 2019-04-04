@@ -1,0 +1,62 @@
+# cat_gro|DO-IT/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'DO-IT'
+  title       = 'The DO-IT Center'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  roles       = 'organization'
+  supports    = 'education, workplace'
+
+[ about ]
+
+  precis      = 'Disabilities, Opportunities, Internetworking, and Technology'
+
+  verbose     = '''
+> The DO-IT (Disabilities, Opportunities, Internetworking, and Technology)
+Center is dedicated to empowering people with disabilities through
+technology and education.  It promotes awareness and accessibility --
+in both the classroom and the workplace -- to maximize the potential of
+individuals with disabilities and make our communities more vibrant,
+diverse, and inclusive.
+
+> -- [$url]{https://www.washington.edu/doit}
+'''
+
+[ address.email ]
+
+  main        = 'doit@uw.edu'
+
+[ address.phone ]
+
+  fax         = '+1 206 221 4171'
+  main        = '+1 206 221 4171, +1 888 972 3648'
+  tty         = '+1 206 221 4171, +1 888 972 3648'
+
+[ address.postal ]
+
+  main        = '''
+DO-IT
+University of Washington
+Box 354842
+Seattle, WA 98195-4842
+United States
+'''
+
+[ address.related ]
+
+  facebook    = 'ext_fb|doituw'
+  twitter     = 'ext_tw|doituw'
+  wikipedia   = 'ext_wp|The_DO-IT_Center'
+
+[ address.web_site ]
+
+  main        = 'https://www.washington.edu/doit'

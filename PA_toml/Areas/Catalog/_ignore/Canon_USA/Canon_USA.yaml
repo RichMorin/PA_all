@@ -1,0 +1,34 @@
+# Canon_USA.yam
+
+_meta:
+  author:         Rich_Morin
+  id:             Canon_USA
+  title:          Canon USA, Inc.
+
+about:            |
+  Canon U.S.A., Inc., is a leading provider of consumer, business-to-business,
+  and industrial digital imaging solutions to the United States and to Latin
+  America and the Caribbean (excluding Mexico) markets.  With approximately
+  $31 billion in global revenue, its parent company, Canon Inc. (NYSE:CAJ),
+  ranks third overall in U.S. patents granted in 2016. 
+
+address:
+  email:
+    info:         palbano@cusa.canon.com
+
+  phone:
+    fax:          "+1 631 330 5859"
+    main:         "+1 631 330 5000"
+
+  postal:
+    main:         |
+      Canon USA, Inc.
+      One Canon Park
+      Melville, NY 11747
+      United States	 
+
+  web_site:
+    main:         http://www.usa.canon.com
+
+tags: [ blindness, hardware, keyboard, learning disability, low vision,
+        mobility, telecom ]

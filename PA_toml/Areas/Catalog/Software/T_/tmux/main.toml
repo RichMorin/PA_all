@@ -1,0 +1,43 @@
+# cat_sof|tmux/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'tmux'
+  title       = 'tmux'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'multiple sessions, session management, virtual consoles'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'system software, terminal multiplexer, utility'
+
+[ about ]
+
+  precis      = 'a terminal session multiplexer'
+
+  verbose     = '''
+> tmux is a terminal multiplexer: it enables a number of terminals to be
+created, accessed, and controlled from a single screen.  tmux may be
+detached from a screen and continue running in the background, then later
+reattached.
+
+> -- [$url]{http://man.openbsd.org/OpenBSD-current/man1/tmux.1}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|tmux/tmux'
+  wikipedia   = 'ext_wp|Terminal_multiplexer, ext_wp|Tmux'
+
+[ address.web_site ]
+
+  main        = 'https://github.com/tmux/tmux/wiki'
+  man_page    = 'http://man.openbsd.org/OpenBSD-current/man1/tmux.1'

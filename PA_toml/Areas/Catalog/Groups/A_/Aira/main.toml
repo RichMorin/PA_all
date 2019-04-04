@@ -1,0 +1,67 @@
+# cat_gro|Aira/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Aira'
+  title       = 'Aira'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'web'
+  produces    = 'augmented reality, interpretation, service, software'
+  roles       = 'company'
+  supports    = 'daily living, mobility, navigation, workplace'
+
+[ about ]
+
+  precis      = 'provides a visual interpretation and navigation service'
+
+  verbose     = '''
+> Using augmented reality, Aira connects people who are blind or low
+vision to a trained professional agent who is dedicated to further
+enhancing their everyday experience – completely hands-free assistance
+at the touch of a button.
+
+> Our experts serve as visual interpreters and navigators for our users,
+helping them accomplish daily tasks and activities.  Aira also proudly
+partners with Employers, Campuses, and Destinations to provide Aira
+minutes free to their visitors within our Aira Network.  
+
+> -- [$url]{https://aira.io}
+'''
+
+[ address.email ]
+
+  support     = 'support@aira.io'
+
+[ address.phone ]
+
+  also        = '+1 858 876 2472'
+  main        = '+1 800 835 1934 (M-F 6a-6p PST, S/S 9a-2p PST)'
+
+[ address.postal ]
+
+  main        = '''
+Aira Tech Corp.
+4225 Executive Square Drive, #400
+La Jolla, CA 92037 USA
+'''
+
+[ address.related ]
+
+  facebook    = 'ext_fb|aira.io'
+  instagram   = 'ext_ig|aira.io/?hl=en'
+  linked_in   = 'ext_li|company/aira-inc-'
+  twitter     = 'ext_tw|airaio?lang=en'
+
+[ address.web_site ]
+
+  contact     = 'main|/contact-us'
+  main        = 'https://aira.io'

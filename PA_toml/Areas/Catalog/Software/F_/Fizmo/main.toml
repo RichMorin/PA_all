@@ -1,0 +1,48 @@
+# cat_sof|Fizmo/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Fizmo'
+  title       = 'Fizmo'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'ncurses, SDL2'
+  roles       = 'application, game interpreter, library'
+  standards   = 'Infocom, Inform, Z-code, Z-Machine'
+  supports    = 'games, interactive fiction, text adventures'
+
+[ about ]
+
+  precis      = 'a Z-Machine interpreter, written in plain C'
+
+  verbose     = '''
+> Fizmo provides a Z-Machine interpreter development library in plain C
+along with ncurses-, SDL2- and console-based frontends, supporting
+Z-Machine versions 1 to 5, 7, and 8.
+
+> That means it allows you to play interactive fiction, also known as
+text adventures, which were implemented either by Infocom or created
+using the Inform compiler on a terminal, or to develop your own
+interactive fiction front end in C or any C-related language like C++
+or Objective-C.
+
+> -- [$url]{https://fizmo.spellbreaker.org}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|chrender/fizmo'
+
+[ address.web_site ]
+
+  main        = 'https://fizmo.spellbreaker.org'

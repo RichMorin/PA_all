@@ -1,0 +1,58 @@
+# cat_gro|BAUM_USA/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'BAUM_USA'
+  title       = 'BAUM (USA) Inc.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'braille display, hardware, notetaker, software'
+  products    = 'VarioUltra, VisioBook, VisioDesk, VisioPro'
+  roles       = 'company, manufacturer'
+  standards   = 'braille'
+  supports    = 'daily living, education'
+
+[ about ]
+
+  precis      = 'provides braille and low vision solutions'
+
+  verbose     = '''
+> BAUM USA specializes in braille and low vision solutions.  Our braille
+solutions include the very smart VarioUltra, a combination braille display
+and notetaker which can connect simultaneously with up to five devices.
+Our low vision solutions include two portable solutions -- VisioBook and
+VisioDesk -- plus a new addition to the family: VisioPro.  If you're
+interested in braille or low vision solutions, you need to take a closer
+look at the solutions from BAUM Retec.
+
+> -- [$url]{http://www.baumusa.com}
+'''
+
+[ address.email ]
+
+  info        = 'dbradburn@baumusa.com'
+
+[ address.phone ]
+
+  main        = '+1 855 620 7985'
+
+[ address.postal ]
+
+  main        = '''
+BAUM (USA) Inc.
+13 Branch Street, Suite 205
+Methuen, MA 01844
+United States 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.baumusa.com'

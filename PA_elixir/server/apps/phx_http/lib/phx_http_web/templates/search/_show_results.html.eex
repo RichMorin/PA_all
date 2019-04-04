@@ -1,0 +1,26 @@
+<!-- templates/search/_show_results.html.eex -->
+
+<%
+  import Common
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+  alias  PhxHttpWeb.SearchView
+%>
+
+<h4><%= @header %></h4>
+
+<div class="hs-base1">
+  <p>
+    <%= add_s(@tally, "result") %> found.
+    <%=
+      hide_show("is:1/2",
+        "\"#{ @header }\" search results,
+         all \"#{ @header }\" search results")
+    %>
+  </p>
+
+  <div class="hs-body1 hs-is">
+    <%= for result <- @results do %>
+      <%= render SearchView, "_show_result.html", result: result %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+# con_ove|PA_Code_Tree/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PA_Code_Tree'
+  title       = "Pete's Alley - The Code Tree"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "an overview of the code tree used in Pete's Alley"
+
+  verbose     = '''
+The server code for Pete's Alley is written primarily in the
+[Elixir]{ext_wp|Elixir_(programming_language)} programming language,
+using the [Phoenix]{ext_wp|Phoenix_(web_framework)} web framework,
+the [Mix]{ext_wp|Mix_(build_tool)} build tool, etc.
+This combination, along with the fact that the server is structured
+as an "umbrella" application with several application sub-trees,
+determines the shape of the file tree.
+
+### File Tree
+
+Here is a rough summary of the file tree.
+
+    PA_elixir/                the code file tree
+    | server/                 server code for Pete's Alley
+    | | _build/...            compiled binary files, etc.
+    | | apps/                 applications and libraries
+    | | | common/             commonly-used functions
+    | | | info_files/...      provides info on file trees
+    | | | info_toml/...       provides info on TOML files
+    | | | info_web/...        provides info on web servers
+    | | | phx_http/...        Phoenix server code
+    | | | sample/...          sample generated application
+    | | config/...            configuration files
+    | | deps/...              top-level dependencies
+
+The `common` and `info_*` sub-trees have the following structure:
+
+    common/                   commonly-used functions
+    | _build/...              compiled binary files, etc.
+    | deps/...                top-level dependencies
+    | doc/...                 generated documentation files
+    | lib/...                 application library files
+    | | common/*.ex           implementation files
+    | | common.ex             interface file
+    | test/...                application test files
+
+The `phx_http` sub-tree is a bit more complicated:
+
+    phx_http/                 Phoenix (HTTP server) code
+    | _build/...              compiled binary files, etc.
+    | assets/...              CSS, JavaScript, etc.
+    | config/...              configuration files
+    | deps/...                top-level dependencies
+    | doc/...                 generated documentation files
+    | lib/...                 application library files
+    | | phx_http/*.ex         application.ex file, etc.
+    | | phx_http_web/         web-related files
+    | | | channels/...        support for web sockets, etc.
+    | | | controllers/...     request-handling code
+    | | | templates/...       embedded Elixir files
+    | | | views/...           template support functions
+    | priv/...                private (generated) files
+    | test/...                application test files
+'''
+
+[ zoo ]
+
+  snippets    = '...'

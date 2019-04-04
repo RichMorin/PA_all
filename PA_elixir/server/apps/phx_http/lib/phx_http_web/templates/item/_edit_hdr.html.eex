@@ -1,0 +1,17 @@
+<!-- templates/item/edit_hdr.html.eex -->
+
+<p>
+  Using this page, you can compose, edit, preview,
+  and/or submit an item for publication in Pete's Alley.
+  Be sure to put accurate values into the <code>email_addr</code>
+  and <code>full_name</code> fields in the <code>user</code> section
+  so we can contact you about proposed changes,
+  give you proper credit for your work, etc.
+</p><p>
+  Fill in and/or edit any other fields that seem appropriate,
+  then click the Preview button and inspect your results.
+  When you are satisfied, click the Submit button.
+  Typically, after we receive your submission,
+  we'll review it, possibly edit it a bit,
+  and send it back to you for confirmation or rework.
+</p>

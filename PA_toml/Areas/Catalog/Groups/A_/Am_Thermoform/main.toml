@@ -1,0 +1,58 @@
+# cat_gro|Am_Thermoform/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Am_Thermoform'
+  title       = 'American Thermoform Corporation'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'braille embossers, hardware, software, swell paper, thermoform'
+  products    = 'Braillo'
+  roles       = 'company, distributor, manufacturer'
+  standards   = 'braille'
+  supports    = 'daily living, education'
+
+[ about ]
+
+  precis      = 'manufacturer and distributor of braille-related products'
+
+  verbose     = '''
+> American Thermoform is a leading manufacturer and distributor of Braillo
+Production Braille Embossers, Braille Paper, Thermoform Duplicators,
+Brailon, Swell Form Tactile Graphics Machines, Swell Touch Paper,
+Translation Software, Braille Labels and more.  Braillo is the industry
+leader in production Braille embossers.
+
+> -- [$url]{http://www.americanthermoform.com}
+'''
+
+[ address.email ]
+
+  info        = 'pnunnelly@americanthermoform.com'
+
+[ address.phone ]
+
+  fax         = '+1 909 593 8001'
+  main        = '+1 909 593 6711'
+
+[ address.postal ]
+
+  main        = '''
+American Thermoform Corporation
+1758 Brackett Street
+La Verne, CA 91750
+United States
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.americanthermoform.com'
+  zoo         = 'http://www.braillo.com, http://www.braillepaper.com'

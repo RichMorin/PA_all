@@ -1,0 +1,60 @@
+# cat_gro|HumanWare/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'HumanWare'
+  title       = 'HumanWare'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'media'
+  produces    = 'audiobook, GPS, hardware, notetaker, software'
+  products    = 'BrailleNote Touch, Prodigi, Trekker Breeze, Victor Reader'
+  roles       = 'company, manufacturer'
+  standards   = 'braille'
+  supports    = 'education, reading, workplace'
+
+[ about ]
+
+  precis      = 'provides assistive technologies for the visually impaired'
+
+  verbose     = '''
+> HumanWare is the global leader in assistive technologies for people who are
+blind or have low vision.  HumanWare offers a wide range of innovative
+products, including the BrailleNote Touch, the leading productivity device
+for the blind in education, business, and for personal use; Victor Reader,
+the world's leading family of digital audiobook players; the unique Prodigi
+family of desktop and portable vision and reading systems, and Trekker
+Breeze, the all-in-one handheld talking GPS. 
+
+> -- [$url]{http://www.humanware.com}
+'''
+
+[ address.email ]
+
+  info        = 'emmanuelle.caya@humanware.com'
+
+[ address.phone ]
+
+  main        = '+1 800-722-3393 Ext. 385'
+
+[ address.postal ]
+
+  main        = '''
+HumanWare
+1 UPS Way
+P.O. Box 800
+Champlain, NY 12919
+United States
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.humanware.com'

@@ -1,0 +1,17 @@
+# cat_sof|WiringPi/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|wiringpi-git'
+  upstream    = 'http://wiringpi.com'
+
+[ os.debian ]
+
+# package     = 'none found, as of 2019.0310'
+
+  commands    = 'NA'
+  issues      = 'TBD'
+  origin      = 'Raspbian'
+  status      = 'Wiring Pi is included in the Raspbian distribution.'

@@ -1,0 +1,27 @@
+defmodule Common.Application do
+
+  use Application
+
+  @moduledoc """
+  This `application.ex_` file is inactive.  To enable it:
+  
+  - change the extension to `ex`
+  - edit `application/0` in `mix.exs`.
+  """
+
+  def start(_type, _args) do
+    import Supervisor.Spec, warn: false
+    
+    children = [
+#     worker(Common.Server, []),
+    ]
+    
+    options = [
+      name:     Common.Supervisor,
+      strategy: :one_for_one,
+    ]
+    
+    Supervisor.start_link(children, options)
+  end
+
+end

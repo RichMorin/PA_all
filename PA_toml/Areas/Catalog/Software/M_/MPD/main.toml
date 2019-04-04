@@ -1,0 +1,42 @@
+# cat_sof|MPD/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'MPD'
+  title       = 'MPD (Music Player Daemon)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_gro|DAISY'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'media'
+  licenses    = 'open source'
+  roles       = 'daemon, music server, system software'
+  standards   = 'DAISY'
+
+[ about ]
+
+  precis      = 'a server-side application for playing music'
+
+  verbose     = '''
+> Music Player Daemon (MPD) is a flexible, powerful, server-side application
+for playing music.  Through plugins and libraries it can play a variety of
+sound files while being controlled by its network protocol.
+
+> -- [$url]{https://www.musicpd.org}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Music_Player_Daemon'
+
+[ address.web_site ]
+
+  clients     = 'main|/clients'
+  main        = 'https://www.musicpd.org'

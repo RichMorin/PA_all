@@ -1,0 +1,45 @@
+# cat_sof|Fenrir/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Fenrir'
+  title       = 'Fenrir'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'configurable, driver-based, flexible, modular'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'Python 3'
+  roles       = 'application, screen reader'
+
+[ about ]
+
+  precis      = 'a modern, command-line screen reader'
+
+  verbose     = '''
+> Fenrir is a modern command line screen reader written in Python 3.
+
+> It has a modular structure, a flexible driver-based model, is highly
+configurable and easy to customize and extend...
+
+> -- [$url]{ext_gh|chrys87/fenrir}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|chrys87/fenrir'
+  zoo         = '''
+https://wiki.linux-a11y.org/doku.php?id=fenrir_user_manual&s%5B%5D=fenrir
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gh|chrys87/fenrir'

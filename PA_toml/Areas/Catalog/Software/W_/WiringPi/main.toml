@@ -1,0 +1,47 @@
+# cat_sof|WiringPi/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'WiringPi'
+  title       = 'WiringPi'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'PIN-based'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, GNU LGPLv3, open source'
+  produces    = 'hardware support'
+  requires    = 'C/C++, GPIO, Raspberry Pi, RTB (BASIC)'
+  roles       = 'library, system software'
+  standards   = 'BCM2835'
+
+[ about ]
+
+  precis      = 'a Pin-based GPIO access library for the Raspberry Pi'
+
+  verbose     = '''
+> WiringPi is a PIN based GPIO access library written in C for the BCM2835
+used in the Raspberry Pi.  It's released under the GNU LGPLv3 license and
+is usable from C, C++, and RTB (BASIC) as well as many other languages
+with suitable wrappers.  It's designed to be familiar to people who have
+used the Arduino "wiring" system.
+
+> -- [$url]{http://wiringpi.com}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|WiringPi'
+  # https://learn.sparkfun.com/tutorials/raspberry-gpio/c-wiringpi-setup
+
+[ address.web_site ]
+
+  download    = 'main|/download-and-install'
+  main        = 'http://wiringpi.com'
+  zoo         = 'main|/the-gpio-utility'

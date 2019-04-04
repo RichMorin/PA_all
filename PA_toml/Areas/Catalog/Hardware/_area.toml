@@ -1,0 +1,22 @@
+# Catalog/Hardware/_area.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Cat_Hardware_area'
+  title       = 'Catalog'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'contains information on hardware (e.g., computers, tools)'
+
+  verbose     = '''
+This section includes information on hardware
+(e.g., assistive devices, computers, tools).
+Obviously, some of these items may incorporate software.
+'''

@@ -1,0 +1,68 @@
+# cat_ser|CSUN_AT/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'CSUN_AT'
+  title       = 'CSUN Assistive Technology Conference'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  provider    = 'cat_gro|CSUN_COD'
+
+[ meta.tags ]
+
+  impairments = 'all'
+  roles       = 'trade show'
+  supports    = 'assistive technology'
+
+[ about ]
+
+  precis      = 'a massive conference and trade show on assistive technology'
+
+  verbose     = '''
+> For over 30 years, the Center on Disabilities, through the CSUN Assistive
+Technology Conference, has provided an inclusive setting for researchers,
+practitioners, exhibitors, end users, speakers and other participants to
+share knowledge and best practices in the field of assistive technology.
+In 2016, the conference drew more than 4,800 people to San Diego.  Known
+as a forum that showcases cutting edge technology and practical solutions
+that can be utilized to remove the barriers that prevent the full
+participation of persons with disabilities in educational, workplace and
+social settings, the conference is the largest of its kind in the world.
+
+> -- [$url]{https://www.csun.edu/cod/conference}
+'''
+
+[ address.email ]
+
+  main        = 'conference@csun.edu'
+
+[ address.phone ]
+
+  fax         = '+1 818 677 4929'
+  main        = '+1 818 677 2578'
+
+[ address.postal ]
+
+  main        = '''
+CSUN Assistive Technology Conference
+Bayramian Hall 110
+18111 Nordhoff Street
+Northridge, CA 91330-8340 USA
+'''
+
+[ address.related ]
+
+  facebook    = 'ext_fb|CSUNCOD'
+  google_p    = 'ext_gp|107368507246603008753'
+  instagram   = 'ext_ig|csun_edu'
+  twitter     = 'ext_tw|CSUNCOD'
+  youtube     = 'ext_yt|user/CSUNCOD'
+
+[ address.web_site ]
+
+  main        = 'https://www.csun.edu/cod/conference'
+  parent      = 'https://www.csun.edu'

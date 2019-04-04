@@ -1,0 +1,18 @@
+<!-- templates/item/_address.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  address   = @item.address
+  sections  = ~w(web_site related document email phone postal)a
+%>
+
+<div class="hs-base2">
+  <h3>Contact Information
+      <%= hide_show("is:2/2", "contact information for this item") %>
+  </h3>
+
+  <div class="hs-body2">
+    <%= for section <- sections, do: fmt_address(section, address) %>
+  </div>
+</div>

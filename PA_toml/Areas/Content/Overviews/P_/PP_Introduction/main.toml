@@ -1,0 +1,144 @@
+# con_ove|PP_Introduction/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_Introduction'
+  title       = "Perkian - Introduction"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "Perkian, an effort to make operating systems blind-friendly"
+
+  verbose     = '''
+This page discusses Perkian, a speculative project
+aimed at making operating systems (e.g., Linux) more blind-friendly.
+
+### Background
+
+Most [operating systems]{ext_wp|Operating_system}
+are optimized for use by sighted users.
+So, for example, they rely heavily on
+[graphical user interfaces]{ext_wp|Graphical_user_interface},
+which may or may not be accessible to users with
+[visual impairments]{ext_wp|Visual_impairment}.
+Even a mildly impaired user may have difficulty
+discerning the graphical elements.
+
+Fortunately, several blind-friendly operating systems
+have been developed and deployed or are currently in development.
+Here are the ones I know about (more suggestions welcome!):
+
+- [F123Light OS   ]{cat_sof|F123Light_OS}
+- [Knoppix        ]{cat_sof|Knoppix}
+- [Raspberry VI   ]{cat_sof|Raspberry_VI}
+- [Slint          ]{http://slint.fr/wiki/en/start}
+- [TalkingArch    ]{cat_sof|TalkingArch}
+- [Vinux          ]{cat_sof|Vinux}
+
+In general, these systems are based on a [Linux]{ext_wp|Linux} distribution
+such as [Arch]{ext_wp|Arch_Linux} or [Debian]{ext_wp|Debian}.
+So, they have the usual complement of Unixish text-based commands.
+They also fold in a [screen reader]{ext_wp|Screen_reader},
+support for [braille displays]{ext_wp|Refreshable_braille_display}, etc.
+In short, they provide a great starting point.
+However, they do not take full advantage of the wealth of software
+that has been developed in the [open source]{ext_wp|Open_source} community.
+
+It's theoretically possible for end users to add software to these systems,
+but this requires substantial amounts of skill, time, and effort.
+So, most users won't install and maintain much add-on software.
+This makes me wonder about building a suite of blind-friendly packages
+and even some "turn-key, batteries-included" versions of Linux.
+
+The impact of storing "extra" software is negligible:
+even a [microSD card]{ext_wp|Secure_Digital#Micro-cards}
+can store more than a hundred gigabytes.
+Apps don't use any runtime resources (e.g., CPU, I/O, RAM)
+when they aren't running, so they can't "slow the system down".
+In short, there isn't any practical limit on the number of apps
+and no particular reason to be parsimonious.
+
+The [Raspberry Pi]{ext_wp|Raspberry_Pi} and similar economical computers
+are tempting targets, but they are not the only interesting possibility.
+Billions of cell phones run [Android]{ext_wp|Android_(operating_system)},
+so all of them can run Linux applications.
+Many of these phones are outdated
+and consequently available for little money.
+So, I am [also investigating]{con_ove|PP_on_Android}
+porting Perkian to these devices.
+
+Some proprietary operating systems for personal computers (e.g., 
+[Apple's macOS]{ext_wp|MacOS},
+[Microsoft Windows]{ext_wp|Microsoft_Windows} are also of interest.
+As long as a system can be convinced to run a suite of Linux software
+(either directly or indirectly), it's a plausible target.
+However, these systems are inconvenient to carry around all day,
+so my primary focus at the moment is extreme portability.
+
+### Objectives
+
+Various users will have different, but largely compatible criteria
+for a blind-friendly portable computer.
+We all want something that's convenient and easy to use, economical,
+lightweight, small, etc.
+It should be usable on its own, but support keyboards, etc.
+[And a pony...]{https://blog.codinghorror.com/and-a-pony}
+
+It should have a simple, menu-based interface for casual and/or naive use
+(e.g., playing music, taking notes, sending messages).
+Something like [Xiki]{cat_sof|Xiki}
+might be a useful starting point for this.
+However, it should also have a selection of
+[command-line interfaces]{ext_wp|Command-line_interface}
+(e.g., the [Bash shell]{ext_wp|Bash_(Unix_shell)}, text-based commands)
+for expert users and/or complex tasks.
+
+The device should "boot up" very quickly.
+An ”always on” device would be ideal,
+but any continuous power drain will limit battery life.
+(A quiescent low-power mode might resolve this,
+but seems challenging to provide.)
+For the moment, users will need to recharge the battery on a regular basis
+(e.g., from an [AC adaptor]{ext_wp|AC_adapter} or a
+[power bank]{ext_wp|Battery_charger#Power_bank}”).
+Alternatively, they can simply put up with the booting delay.
+
+### Implementation
+
+Perkian (named after [Debian]{ext_wp|Debian},
+[Raspbian]{ext_wp|Raspbian}, and the
+[Perkins Brailler]{ext_wp|Perkins_Brailler})
+is my nascent effort to build such a system.
+It will start with an existing Linux distribution,
+then use Debian's [Advanced Package Tool]{ext_wp|APT_(Debian)} (APT)
+and/or other tools to fold in desired packages.
+First, however, we need to assemble a "wish list" of plausible inclusions
+and a [tool chain]{ext_wp|Toolchain} of porting and packaging commands.
+
+As it happens, Pete's Alley has already made a start on this.
+Our [Software]{cat_sof|:a} section contains several dozen items (and counting!)
+which would be plausible additions to a Perkian distribution.
+Each one is described, as usual, in its `main.toml` file.
+However, most of these items also have a `make.toml` file.
+These files, named after the [Unix]{ext_wp|Unix}
+[Make]{ext_wp|Make_(software)} command, will eventually contain
+enough porting information to drive a release building tool.
+
+I plan to start work on such a tool
+[Real Soon Now]{http://www.catb.org/jargon/html/R/Real-Soon-Now.html}.
+Meanwhile, the [Make dashboard]{/dash/make} summarizes several dozen packages.
+Finally, the [Make Schema]{_schemas/make.toml:s}
+is available for your edification and amusement.
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

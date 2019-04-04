@@ -1,0 +1,43 @@
+# cat_sof|Xpdf/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Xpdf'
+  title       = 'Xpdf'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'extensible, many formats'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, text extractor, viewer'
+  standards   = 'PDF'
+  supports    = 'document conversion'
+
+[ about ]
+
+  precis      = 'a PDF viewer and text extractor'
+
+  verbose     = '''
+> xpdf is a light-weight open source viewer for Portable Document Format
+(PDF) files (also called 'Adobe Acrobat' or 'Acrobat' files).  It includes
+a PDF text extractor (pdf2text).
+
+> -- [$url]{ext_pd|stretch/xpdf}
+'''
+
+[ address.related ]
+
+  freecode    = 'http://freecode.com/projects/xpdf'
+  wikipedia   = 'ext_wp|Xpdf'
+
+[ address.web_site ]
+
+  main        = 'https://www.xpdfreader.com/'

@@ -1,0 +1,57 @@
+# cat_gro|Amazon/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Amazon'
+  title       = 'Amazon'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'hardware, services, software'
+  products    = 'Alexa, Amazon Echo, Fire, Kindle'
+  roles       = 'manufacturer, marketplace'
+  supports    = 'daily living'
+
+[ about ]
+
+  precis      = 'a massive, web-based manufacturer and marketplace'
+
+  verbose     = '''
+> Amazon.com opened on the World Wide Web in July 1995.  The company is
+guided by four principles: customer obsession rather than competitor focus,
+passion for invention, commitment to operational excellence, and long-term
+thinking. Customer reviews, 1-Click shopping, personalized recommendations,
+Prime, Fulfillment by Amazon, AWS, Kindle Direct Publishing, Kindle, Fire
+tablets, Fire TV, Amazon Echo, and Alexa are some of the products and
+services pioneered by Amazon.
+
+> -- [$url]{http://www.amazon.com}
+'''
+
+[ address.email ]
+
+  info        = 'ryanfren@amazon.com'
+
+[ address.phone ]
+
+  main        = '+1 206 435 3520'
+
+[ address.postal ]
+
+  main        = '''
+Amazon
+2121 7th Ave.
+Seattle, WA 98121
+United States
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.amazon.com'

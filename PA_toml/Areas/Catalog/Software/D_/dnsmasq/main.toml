@@ -1,0 +1,47 @@
+# cat_sof|dnsmasq/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'dnsmasq'
+  title       = 'dnsmasq'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'Linux'
+  roles       = 'DHCP server, DNS forwarder, network software, system software'
+  standards   = 'BOOTP, DHCP, DNS, TFTP'
+
+[ about ]
+
+  precis      = 'a small caching DNS proxy and DHCP/TFTP server'
+
+  verbose     = '''
+> Dnsmasq is a lightweight, easy to configure, DNS forwarder and DHCP
+server.  It is designed to provide DNS and optionally, DHCP, to a small
+network.  It can serve the names of local machines which are not in the
+global DNS.  The DHCP server integrates with the DNS server and allows
+machines with DHCP-allocated addresses to appear in the DNS with names
+configured either in each host or in a central configuration file.
+Dnsmasq supports static and dynamic DHCP leases and BOOTP/TFTP for
+network booting of diskless machines.
+
+> -- [$url]{ext_pd|stretch/dnsmasq}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Dnsmasq'
+
+[ address.web_site ]
+
+  _1          = 'http://www.thekelleys.org.uk/dnsmasq'
+  main        = '_1|/doc.html'
+  manual      = '_1|/docs/dnsmasq-man.html'

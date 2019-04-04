@@ -1,0 +1,60 @@
+# cat_gro|Adaptive_Tech_Svcs/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Adaptive_Tech_Svcs'
+  title       = 'Adaptive Technology Services'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = '''
+computer services, configuration, consulting,
+evaluation, installation, training
+'''
+  roles       = 'company'
+  supports    = 'daily living, workplace'
+
+[ about ]
+
+  precis      = 'provides computer services for the visually impaired'
+
+  verbose     = '''
+> In business for 15 years, Adaptive Technology Services is the leading
+provider of computer technology services for people who are blind or
+visually impaired.  Our highly skilled team of specialists can provide
+the full range of services from evaluating the best adaptive technology
+solution to install, custom configuration, and training.  Our mission
+is to deliver the highest quality service to individuals who depend upon
+the use of adaptive technology to achieve professional and personal goals.  
+
+> -- [$url]{http://www.adaptivetec.com}
+'''
+
+[ address.email ]
+
+  info        = 'cdodds@adaptivetec.com'
+
+[ address.phone ]
+
+  fax         = '+1 415 358 4726'
+  main        = '+1 415 409 6650'
+
+[ address.postal ]
+
+  main        = '''
+Adaptive Technology Services
+629 Divisadero Street
+San Francisco, CA 94117
+United States
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.adaptivetec.com'

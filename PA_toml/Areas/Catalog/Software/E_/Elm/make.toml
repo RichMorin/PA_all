@@ -1,0 +1,7 @@
+# cat_sof|Elm/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+[ os.debian ]

@@ -1,0 +1,20 @@
+# cat_sof|Syncthing/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/x86_64/syncthing'
+  upstream    = 'http://syncthing.net'
+  wiki        = 'ext_awi|syncthing'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/syncthing'
+  search      = 'ext_pd|search?keywords=syncthing'
+  track       = 'https://tracker.debian.org/pkg/syncthing'
+
+  commands    = 'sudo apt-get install syncthing'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

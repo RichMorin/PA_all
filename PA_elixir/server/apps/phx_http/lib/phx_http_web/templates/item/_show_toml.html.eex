@@ -1,0 +1,17 @@
+<!-- templates/item/_show_toml.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+%>
+
+<div class="hs-base1">
+  <h2>Source Code
+      <%= hide_show("is:1/1", "TOML & Markdown source code") %>
+  </h2>
+
+  <div class="hs-body1">
+<pre>
+<%= @item_toml %>
+</pre>
+  </div>
+</div>

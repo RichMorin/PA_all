@@ -1,0 +1,54 @@
+# cat_gro|Kurzweil_Ed/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Kurzweil_Ed'
+  title       = 'Kurzweil Education'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, learning disability, low vision'
+  produces    = 'software'
+  roles       = 'company, software developer'
+  supports    = 'education, reading, test taking'
+
+[ about ]
+
+  precis      = 'provides multi-sensory approaches to teaching literacy'
+
+  verbose     = '''
+> At Kurzweil Education, we believe every learner deserves the opportunity
+to unlock their potential.  Our literacy technology offers multi-sensory
+approaches to reading, comprehension, study skills, writing, and
+test-taking so everyone can become independent, confident learners who
+can achieve rigorous academic goals.
+
+> -- [$url]{http://www.kurzweiledu.com}
+'''
+
+[ address.email ]
+
+  marketing   = 'KEMarketing@kurzweiledu.com'
+
+[ address.phone ]
+
+  main        = '+1 800 894 5374'
+
+[ address.postal ]
+
+  main        = '''
+Kurzweil Education
+17855 N. Dallas Pkwy., Suite 400
+Dallas, TX 75287
+United States
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.kurzweiledu.com'

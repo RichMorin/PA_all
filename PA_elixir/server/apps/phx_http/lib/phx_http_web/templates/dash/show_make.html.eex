@@ -1,0 +1,36 @@
+<!-- templates/dash/show_make.html.eex -->
+
+<%
+  alias  PhxHttpWeb.DashView
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+%>
+
+<div class="hs-base1">
+  <h2>
+    Make
+    <%= hide_show("is:1/2",
+          "tag-related section headings,
+           tag-related headings and content") %>
+  </h2>
+
+  <%= render DashView, "_path.html", assigns %>
+
+  <div class="hs-body1 hs-is">
+    <p>
+      The goal of the
+      <%=
+        url   = "/item?key=Areas/Content/Overviews/PP_Introduction/main.toml"
+        title = "Go to: Perkian"
+        link("Perkian", title: title, to: url)
+      %>
+      project is to generate blind-friendly distributions
+      of open source software.
+      The goal of the "Make" subproject (shared by Perkian and Pete's Alley)
+      is to collect and process build specifications.
+      Constructive comments and suggestions are welcome;
+      offers of assistance are even better!
+    </p>
+
+    <%= render DashView, "_make_pkgs.html", assigns %>
+  </div>
+</div>

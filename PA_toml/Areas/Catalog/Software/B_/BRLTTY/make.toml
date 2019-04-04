@@ -1,0 +1,22 @@
+# cat_sof|BRLTTY/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/x86_64/brltty'
+  upstream    = 'http://mielke.cc/brltty'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/brltty'
+  search      = 'ext_pd|search?keywords=brltty'
+  track       = 'https://tracker.debian.org/pkg/brltty'
+
+  commands    = '''
+sudo apt-get install brltty
+sudo apt-get install brltty-espeak
+'''
+  issues      = '?'
+  origin      = 'APT'
+  status      = 'BRLTTY is included in Ubuntu, but not in Raspbian.'

@@ -1,0 +1,31 @@
+# _schemas/forced.toml
+#
+# This file defines the map keys that are allowed in PA's `_config/forced.toml`
+# file, with terse descriptions of leaf nodes.
+
+# Required keys
+
+  _required = 'meta, meta.id_str, urls'
+
+# Allowed keys
+
+[ meta ]
+
+  id_str      = 'identification string for file'
+
+[ urls ]
+
+  code_403    = 'Forbidden'
+  code_404    = 'Not Found'
+  code_410    = 'Gone'
+  code_500    = 'Internal Server Error'
+  code_502    = 'Bad Gateway'
+  code_503    = 'Service Unavailable'
+  code_999    = 'LinkedIn filter'
+
+  closed      = '?'
+  invalid_redirection   = '?'
+  max_redirect_overflow = '?'
+  nxdomain    = 'non-existent domain'
+  timeout     = 'site took too long to respond'
+  tls_alert   = 'Transport Layer Security (TLS) alert'

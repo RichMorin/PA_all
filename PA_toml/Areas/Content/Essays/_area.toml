@@ -1,0 +1,20 @@
+# Content/Essays/_area.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Con_Essays_area'
+  title       = 'Essays'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'contains essays on miscellaneous accessibility-related topics'
+
+  verbose     = '''
+This section includes memoirs, polemics, speculation, etc.
+'''

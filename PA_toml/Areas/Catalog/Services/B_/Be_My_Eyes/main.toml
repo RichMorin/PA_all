@@ -1,0 +1,41 @@
+# cat_ser|Be_My_Eyes/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Be_My_Eyes'
+  title       = 'Be My Eyes'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'interpretation, visual assistance'
+  supports    = 'mobility, navigation'
+
+[ about ]
+
+  precis      = 'app that provides visual assistance via a video call'
+
+  verbose     = '''
+> Be My Eyes is a free app that connects blind and low vision people with
+sighted volunteers and company representatives for visual assistance
+through a live video call.
+
+> -- [$url]{https://www.bemyeyes.com}
+'''
+
+[ address.related ]
+
+  facebook    = 'ext_fb|bemyeyesapp'
+  instagram   = 'ext_ig|bemyeyesapp'
+  twitter     = 'ext_tw|BeMyEyes'
+  youtube     = 'ext_yt|bemyeyes'
+
+[ address.web_site ]
+
+  main        = 'https://www.bemyeyes.com'

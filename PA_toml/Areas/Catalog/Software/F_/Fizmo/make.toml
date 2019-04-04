@@ -1,0 +1,19 @@
+# cat_sof|Fizmo/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|fizmo'
+  upstream    = 'https://fizmo.spellbreaker.org'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/fizmo'
+  search      = 'ext_pd|search?keywords=fizmo'
+  track       = 'https://tracker.debian.org/pkg/fizmo'
+
+  commands    = 'sudo apt-get install fizmo-console fizmo-ncursesw'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

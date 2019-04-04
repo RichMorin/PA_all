@@ -1,0 +1,57 @@
+# cat_gro|Inside_Vision/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Inside_Vision'
+  title       = 'INSIDEVISION SAS'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, learning disability, low vision'
+  produces    = 'hardware, keyboard, software'
+  products    = 'insideONE'
+  standards   = 'braille'
+  supports    = 'education'
+
+[ about ]
+
+  precis      = 'provides digital products for the visually impaired'
+
+  verbose     = '''
+> Our company, which specializes in designing and manufacturing digital
+products for blind and visually impaired people, has created insideONE.
+The first tactile braille tablet in the world, giving access to all
+Windows applications, with its tactile braille keyboard and its haptic
+browsing.  Combined with its dedicated software suite inHome, insideONE
+redefines the digital future.  
+
+> -- [$url]{http://www.insidevision.fr}
+'''
+
+[ address.email ]
+
+  main        = 'contact@insidevision.fr'
+
+[ address.phone ]
+
+  fax         = '+33 1 83 53 51 06'
+  main        = '+33 1 83 53 51 00'
+
+[ address.postal ]
+
+  main        = '''
+INSIDEVISION SAS
+8 – 12 Avenue Emile Aillaud
+GRIGNY, 91350
+France 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.insidevision.fr'

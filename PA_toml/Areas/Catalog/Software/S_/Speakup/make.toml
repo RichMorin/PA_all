@@ -1,0 +1,42 @@
+# cat_sof|Speakup/make.toml
+
+[ meta ]
+
+  summary     = '''
+Speakup is included in the Raspberry VI distribution.
+
+Speakup is a kernel module that provides a text-to-speech interface
+at the kernel level.
+
+espeak is a popular software speech synthesizer.
+
+espeak-ng is the next generation version of espeak.
+
+espeakup is a terminal screen reader that utilizes speakup and espeak/espeak-ng.
+
+openMAX is a sound driver that bypasses the broken ALSA implementation
+to render sound using the Pi's GPU. This bypasses the faulty code that
+causes the stuttering.
+
+piespeakup is a fork of espeakup that utilizes OpenMAX.
+
+Speech-dispatcher serves as a go-between between screen readers and
+speech synthesizers.  Orca goes through Speech-dispatcher, hence the
+need for a speech-dispatcher module for OpenMAX to allow Orca to use it.
+'''
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/any/speakup-utils'
+  upstream    = 'http://linux-speakup.org'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/speakup'
+  search      = 'ext_pd|search?keywords=speakup'
+  track       = 'https://tracker.debian.org/pkg/speakup'
+
+  commands    = 'sudo apt-get install sic'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+

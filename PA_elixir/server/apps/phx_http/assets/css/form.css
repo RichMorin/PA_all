@@ -1,0 +1,21 @@
+/* form.css - support forms (eg, in item/_edit_some.html.eex) */
+
+/* Item Edit */
+
+div.item-edit,
+div.mail-edit code {
+  background:       none;
+}
+
+div.item-edit label,
+div.item-edit textarea,
+div.mail-edit label,
+div.mail-edit textarea {
+  font-family:      "Lucida Console", Monaco, monospace; 
+  font-size:        1rem;
+}
+
+div.item-edit textarea,
+div.mail-edit textarea {
+  padding:          1px 3px;
+}

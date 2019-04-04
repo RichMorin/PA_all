@@ -1,0 +1,40 @@
+# cat_sof|Bookworm/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Bookworm'
+  title       = 'Bookworm'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'multiple formats'
+  impairments = 'blindness, low vision'
+  interfaces  = 'terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, eBook reader'
+  standards   = 'CBR, CBZ, ePub, Mobi, PDF'
+
+[ about ]
+
+  precis      = 'a simple, focused eBook reader'
+
+  verbose     = '''
+> Read the books you love without having to worry about different format
+complexities like epub, pdf, mobi, cbr, etc.
+
+> -- [$url]{https://babluboy.github.io/bookworm}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|babluboy/bookworm'
+
+[ address.web_site ]
+
+  main        = 'https://babluboy.github.io/bookworm'

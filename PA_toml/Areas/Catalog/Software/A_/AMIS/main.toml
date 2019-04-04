@@ -1,0 +1,47 @@
+# cat_sof|AMIS/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'AMIS'
+  title       = 'AMIS (Adaptive Multimedia Information System)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_gro|DAISY'
+
+[ meta.tags ]
+
+  features    = 'speech generation'
+  impairments = 'blindness, low vision'
+  interfaces  = 'media'
+  licenses    = 'open source'
+  requires    = 'JAWS, MS Windows, SAPI'
+  roles       = 'application, DAISY reader'
+  standards   = 'DAISY'
+
+[ about ]
+
+  precis      = 'a self-voicing application to read DAISY books'
+
+  verbose     = '''
+> AMIS is a software program that you can use to read DAISY books.  It is
+self-voicing, meaning that no specialized screen-reading software is
+needed in order for it to be used by visually impaired people.  AMIS is
+open source software and is provided free of charge.
+
+> -- [$url]{http://www.daisy.org/amis/
+            amis-daisy-2.02-daisy-3-playback-software}
+'''
+
+[ address.web_site ]
+
+  download    = 'main|/download'
+  faq         = 'main|/amis-faq'
+  features    = 'main|/features'
+  forum       = 'parent|/forums/amis'
+  help        = 'main|/need-help-amis'
+  main        = 'http://www.daisy.org/amis'
+  parent      = 'http://www.daisy.org'

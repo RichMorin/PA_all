@@ -1,0 +1,19 @@
+# cat_sof|ii/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|ii'
+  upstream    = 'http://tools.suckless.org/ii'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/ii'
+  search      = 'ext_pd|search?keywords=ii'
+  track       = 'https://tracker.debian.org/pkg/ii'
+
+  commands    = 'sudo apt-get install ii'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

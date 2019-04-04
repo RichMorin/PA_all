@@ -1,0 +1,61 @@
+# cat_gro|IRIE_AT/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'IRIE_AT'
+  title       = 'IRIE-AT Inc'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, learning disability, low vision'
+  produces    = 'hardware, software, training'
+  products    = '''
+Acuity Speech, GuideReader, Helix HD, Readit Scholar HD,
+SmartVision 2, Supernova, Synapptic, V5
+'''
+  standards   = 'braille'
+  supports    = 'daily living, education, mobility'
+
+[ about ]
+
+  precis      = 'distributor of assistive technology products'
+
+  verbose     = '''
+> As US master distributor for Dolphin Computer Access, Rehan Electronics,
+INDEX Braille, VisionAid International, Synapptic, and Kapsys products,
+IRIE-AT brings the best assistive technology training and products to
+people with vision disabilities in order to enhance daily lives and create
+vocational opportunities.  Come see new products like the Acuity Speech,
+Supernova, GuideReader, SmartVision 2, Synapptic software, the Helix HD,
+Readit Scholar HD, and the V5 braille printer lineup from INDEX.  
+
+> -- [$url]{http://www.irie-at.com}
+'''
+
+[ address.email ]
+
+  info        = 'events@irie-at.com'
+
+[ address.phone ]
+
+  fax         = '+1 541 205 4400'
+  main        = '+1 888 308 0059'
+
+[ address.postal ]
+
+  main        = '''
+IRIE-AT Inc.
+1750 SW Third Street, Unit C
+Corvallis, OR 97333
+United States 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.irie-at.com'

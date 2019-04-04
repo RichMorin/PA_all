@@ -1,0 +1,32 @@
+<!-- templates/dash/show_tags.html.eex -->
+
+<%
+  alias  PhxHttpWeb.DashView
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+%>
+
+<div class="hs-base1">
+  <h2>
+    Tags
+    <%= hide_show("is:1/2",
+          "tag-related section headings,
+           tag-related headings and content") %>
+  </h2>
+
+  <%= render DashView, "_path.html", assigns %>
+
+  <div class="hs-body1 hs-is">
+    <p>
+      This is the dashboard page for tag
+      (i.e., searchable string) types and values.
+      Note that
+      <a href="/dash/refs"
+         title="Go to: Refs dashboard">refs</a>
+      (i.e., item references) are mapped into tags.
+    </p>
+
+    <%= render DashView, "_tags_dup.html", assigns %>
+    <%= render DashView, "_tags_odd.html", assigns %>
+    <%= render DashView, "_tags_type.html", assigns %>
+  </div>
+</div>

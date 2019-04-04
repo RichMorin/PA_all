@@ -1,0 +1,70 @@
+<!-- templates/item/_show_cat.html.eex -->
+
+<%
+  alias PhxHttpWeb.ItemView
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  about     = @item.about
+  meta      = @item.meta
+
+  access    = get_in(about, [:access])
+  address   = get_in(@item, [:address])
+  authors   = get_in(meta,  [:refs, :f_authors])
+%>
+
+<div class="hs-base1">
+  <h2>
+    <%= meta.title %>
+    <%=
+      hide_show("is:1/2",
+        "following headers,
+         following headers and content.")
+    %>
+  </h2>
+
+  <div class="hs-body1">
+    <p><%= fmt_authors(authors) %><p>
+
+    <%= fmt_path(@key) %>
+
+    <%= fmt_precis(about.precis) %>
+
+    <%= render ItemView, "_show_refs.html", assigns %>
+
+    <div class="hs-base2">
+      <h3>
+        Description
+        <%= hide_show("is:2/2", "descriptive text for this item") %>
+      </h3>
+
+      <div class="hs-body2">
+        <%= fmt_markdown(about.verbose) %>
+      </div>
+    </div>
+
+    <%= if access do %>
+      <div class="hs-base2">
+        <h3>
+          Access Notes
+          <%= hide_show("is:2/2", "notes on accessibility for this item") %>
+        </h3>
+
+        <div class="hs-body2">
+          <%= fmt_markdown(access) %>
+        </div>
+      </div>
+    <% end %>
+
+    <%=
+      if address do
+        render ItemView, "_address.html", assigns
+      end
+    %>
+
+    <%=
+      if @reviews do
+        render ItemView, "_reviews.html", assigns
+      end
+    %>
+  </div>
+</div>

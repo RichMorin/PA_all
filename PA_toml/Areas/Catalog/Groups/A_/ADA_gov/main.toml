@@ -1,0 +1,55 @@
+# cat_gro|/ADA_gov/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'ADA_gov'
+  title       = 'ADA (Americans with Disabilities Act)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'any'
+  produces    = 'enforcement, information, legal support'
+  roles       = 'government agency'
+  standards   = 'ADA'
+  supports    = 'legal rights'
+
+[ about ]
+
+  precis      = 'US DOJ agency responsible for enforcing the ADA'
+
+  verbose     = '''
+> The Disability Rights Section of the Civil Rights Division of the
+U.S. Department of Justice is responsible for enforcing the ADA
+(Americans with Disabilities Act).
+
+> -- [$url]{https://www.ada.gov/index.html}
+'''
+
+[ address.phone ]
+
+  main        = '+1 800 514 0301'
+  tty         = '+1 800 514 0383'
+
+[ address.postal ]
+
+  main        = '''
+U.S. Department of Justice
+950 Pennsylvania Avenue, NW
+Civil Rights Division
+Disability Rights Section - NYA 
+Washington, D.C. 20530 USA
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Americans_with_Disabilities_Act_of_1990'
+
+[ address.web_site ]
+
+  main        = 'https://www.ada.gov/index.html'

@@ -1,0 +1,59 @@
+# cat_gro|DAISY/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'DAISY'
+  title       = 'DAISY Consortium'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, dyslexia, low vision'
+  roles       = 'software developer, standards organization'
+  standards   = 'DAISY, DTB, EPUB3, MP3, SMIL, XML'
+  supports    = 'communication, education'
+
+[ about ]
+
+  precis      = 'the supporting organization for the DAISY standard'
+
+  verbose     = '''
+> The DAISY Consortium is a global consortium of organizations committed
+to a common vision and mission, which pools and coordinates resources
+to deliver worldwide change.
+
+> - We contribute expertise in standards working groups.
+
+> - We develop guidelines and checklists so that best practices
+are clear and widely available.
+
+> - We promote reading systems that ensure the best possible reading experience.
+
+> - We support open standards and help develop
+an inclusive publishing ecosystem for everybody.
+
+> -- [$url]{http://www.daisy.org/about-us}
+'''
+
+[ address.postal ]
+
+  main        = '''
+The DAISY Consortium
+Grubenstrasse 12
+8045 Zurich, Switzerland
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|DAISY_Digital_Talking_Book'
+
+[ address.web_site ]
+
+  about       = 'main|/about-us'
+  contact     = 'main|/contact'
+  main        = 'http://www.daisy.org'

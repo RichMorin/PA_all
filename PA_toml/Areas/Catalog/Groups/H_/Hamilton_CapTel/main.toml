@@ -1,0 +1,58 @@
+# cat_gro|Hamilton_CapTel/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Hamilton_CapTel'
+  title       = 'Hamilton CapTel'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'deafness'
+  interfaces  = 'telephone'
+  produces    = 'captions, software'
+  products    = 'Hamilton Relay'
+  roles       = 'company, manufacturer, software developer'
+  supports    = 'communication, telecom'
+
+[ about ]
+
+  precis      = 'provides text captioning technology for telephones'
+
+  verbose     = '''
+> Dedicated to delivering innovative solutions that make phone conversations
+simple and accessible for individuals with hearing loss, Hamilton CapTel
+makes it possible to listen while reading word-for-word captions of
+everything said to a user on the phone.  Available on CapTel phones,
+PC/Mac, Smartphones, Tablets and Cisco business phones!  Hamilton Relay
+also provides Telecommunications Relay Services for the State of California. 
+
+> -- [$url]{http://www.hamiltoncaptel.com}
+'''
+
+[ address.email ]
+
+  info        = 'info@hamiltoncaptel.com'
+
+[ address.phone ]
+
+  fax         = '+1 402 694 5037'
+  main        = '+1 888 514 7933'
+
+[ address.postal ]
+
+  main        = '''
+Hamilton CapTel
+1006 12th Street
+Aurora, NE 68818
+United States 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.hamiltoncaptel.com'

@@ -1,0 +1,58 @@
+# cat_gro|Attainment/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Attainment'
+  title       = 'Attainment Co., Inc.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, learning disability, low vision'
+  produces    = 'curriculum, hardware, software'
+  roles       = 'company, manufacturer, publisher'
+  supports    = 'daily living, education, workplace'
+
+[ about ]
+
+  precis      = 'provides instructional resources and assistive technologies'
+
+  verbose     = '''
+> Check out Attainment's instructional resources and assistive technologies.
+Are you looking for instructional technologies, core curriculum for
+elementary education, secondary education, or transitions programs?  Need
+life skill and vocational skill building?  Attainment Company materials
+will help increase student performance, build on student achievement, and
+produce positive outcomes, and with our communication devices and apps,
+enhance communication at home, school, work, or in the community.  
+
+> -- [$url]{http://www.attainmentcompany.com}
+'''
+
+[ address.email ]
+
+  info        = 'info@attainmentcompany.com'
+
+[ address.phone ]
+
+  fax         = '+1 800 942 3865'
+  main        = '+1 800 327 4269'
+
+[ address.postal ]
+
+  main        = '''
+Attainment Co., Inc.
+PO Box 930160
+504 Commerce Parkway
+Verona, WI 53593-0160
+United States 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.attainmentcompany.com'

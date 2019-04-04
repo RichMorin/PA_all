@@ -1,0 +1,7 @@
+<!-- templates/item/_reviews.html.eex -->
+
+<%= if !Enum.empty?(@reviews) do %>
+  <h3>Reviews</h3>
+
+  <%= for review <- @reviews, do: fmt_review(review) %>
+<% end %>

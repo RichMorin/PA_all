@@ -1,0 +1,46 @@
+# cat_sof|Orca/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Orca'
+  title       = 'Orca'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_sof|Dasher, cat_sof|GNOME'
+
+[ meta.tags ]
+
+  features    = 'extensible, flexible, speech synthesis'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  requires    = 'GNOME'
+  roles       = 'screen reader, utility'
+  standards   = 'AT-SPI, braille'
+  supports    = 'communication, reading'
+
+[ about ]
+
+  precis      = 'a graphical screen reader for GNOME'
+
+  verbose     = '''
+> Orca is a free and open source, flexible, extensible screen reader from
+the GNOME project for individuals who are blind or visually impaired.
+Using various combinations of speech synthesis and braille, Orca helps
+provide access to applications and toolkits that support the AT-SPI ...
+
+> -- [$url]{ext_wp|Orca_(assistive_technology)}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|GNOME, ext_wp|Orca_(assistive_technology)'
+
+[ address.web_site ]
+
+  main        = 'https://wiki.gnome.org/Projects/Orca'
+  parent      = 'https://www.gnome.org'

@@ -1,0 +1,36 @@
+# cat_sof|sbl/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'sbl'
+  title       = 'sbl'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'screen reader, speech synthesis'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'screen reader, utility'
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'a screenreader with support for braille and/or speech'
+
+  verbose     = '''
+> sbl is a screenreader with braille and speech support.  The user can
+configure the preferred output as speech, braille, or both
+
+> -- [$url]{http://www.unix.com/man-page/suse/8/sbl}
+'''
+
+[ address.web_site ]
+
+  man_page    = 'http://www.unix.com/man-page/suse/8/sbl'

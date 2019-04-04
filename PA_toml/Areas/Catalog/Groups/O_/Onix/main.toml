@@ -1,0 +1,61 @@
+# cat_gro|Onix/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Onix'
+  title       = 'Onix'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'software'
+  products    = 'Equidox'
+  roles       = 'company, software developer'
+  standards   = 'ADA, EPUB 2, HTML, PDF, WCAG 2.0 AA'
+  supports    = 'organizations'
+
+[ about ]
+
+  precis      = 'provides software to make PDFs more accessible'
+
+  verbose     = '''
+> Equidox by Onix empowers your organization to convert inaccessible PDFs
+into WCAG 2.0 AA-compliant HTML and accessible PDF and EPUB 2 content.
+You can use Equidox to convert the files in-house or have Onix consultants
+remediate your files using our PDF Conversion Services.  Onix can help you
+to mitigate risk with ADA compliance, allow the visually impaired access
+to your website and save resources and money.
+
+> -- [$url]{http://equidox.co}
+'''
+
+[ address.email ]
+
+  info        = 'pam@onixnet.com'
+  marketing   = 'marketing@onixnet.com'
+
+[ address.phone ]
+
+  fax         = '+1 216 529 3020'
+  main        = '+1 216 529 3000, +1 800 664 9638'
+
+[ address.postal ]
+
+  main        = '''
+Onix
+18519 Detroit Avenue
+Lakewood, OH 44107
+United States
+'''
+
+[ address.web_site ]
+
+  contact     = 'main|/contact-onix'
+  main        = 'http://equidox.co'
+

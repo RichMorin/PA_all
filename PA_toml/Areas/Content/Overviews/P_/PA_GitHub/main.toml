@@ -1,0 +1,83 @@
+# con_ove|PA_GitHub/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PA_GitHub'
+  title       = "Pete's Alley - GitHub"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "use of Git and GitHub by Pete's Alley"
+
+  verbose     = '''
+
+### Motivation
+
+Our motivation for using [GitHub]{ext_wp|GitHub} is a bit unusual,
+so a bit of explanation may be in order.
+Most GitHub projects contain code that is intended for distribution and reuse.
+Although anyone is welcome to copy and use our code, our expectation
+is that there will only be one "official" server for Pete's Alley;
+in any case, we don't expect others to start up competing servers.
+
+However, we'd like folks to be able to play with our code, improve it,
+and submit changes.
+In particular, having a published copy makes it far easier for folks
+to respond to our requests for assistance
+(e.g., on [Elixir Forum]{https://elixirforum.com}).
+We also expect that some folks will find GitHub useful
+as a way to inspect our Elixir and TOML files,
+submit additions and proposed changes, etc.
+
+### Git and Mix
+
+Although [Elixir]{ext_wp|Elixir_(programming_language)}'s
+[Mix]{ext_wp|Mix_(build_tool)} tooling
+does not _require_ the use of [Git]{ext_wp|Git},
+that certainly seems to be the expectation.
+For example, it automagically creates a `.gitignore` file
+in each new project and relies on this to prevent archiving
+of (possibly enormous) directory sub-trees such as
+`assets/node_modules`, `_build`, and `deps`.
+
+Our code is divided into a number of project directories,
+contained within a Mix [umbrella project]{
+https://elixir-lang.org/getting-started/mix-otp/
+dependencies-and-umbrella-projects.html}
+
+A single Git repo resides in the top-level (`PA_all`) directory,
+along with a tiny `.gitignore` file.
+Each project directory has its own `.gitignore` file (supplied by Mix).
+ 
+#### File Tree
+
+The file tree for Pete's Alley contains
+code (e.g., Elixir), data (e.g., [TOML]{ext_wp|TOML}),
+and documentation (e.g., [Markdown]{ext_wp|Markdown}).
+For details, see the [Code Tree]{con_ove|PA_Code_Tree} and
+[Data Tree]{con_ove|PA_Data_Tree} pages.
+
+### Distribution
+
+To be continued...
+
+### Resources
+
+- [gitignore - Specifies intentionally untracked files to ignore
+  ]{https://git-scm.com/docs/gitignore}
+
+- [Introduction to Mix
+  ]}https://elixir-lang.org/getting-started/mix-otp/introduction-to-mix.html}
+
+- [Pro Git]{https://git-scm.com/book/en/v2}
+'''
+
+[ zoo ]
+
+  snippets    = '...'

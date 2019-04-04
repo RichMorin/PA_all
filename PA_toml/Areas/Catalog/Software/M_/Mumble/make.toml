@@ -1,0 +1,13 @@
+# cat_sof|Mumble/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/x86_64/mumble'
+  upstream    = 'https://www.mumble.info'
+  wiki        = 'ext_awi|Mumble'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/mumble'

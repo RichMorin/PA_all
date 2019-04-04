@@ -1,0 +1,49 @@
+# _schemas/make.toml
+#
+# This file defines the map keys that are allowed in PA's `make.toml` files,
+# with terse descriptions of leaf nodes.  It also lists processing rules
+# (eg, required key paths).
+
+# Required keys
+
+  _required   = 'meta, os.arch, os.debian'
+
+# Allowed keys
+
+[ meta ]
+
+# file_key    = 'keyword path string for file'      # harvested
+# file_rel    = 'relative file path for file'       # generated
+# file_time   = 'modification time for file'        # harvested
+# id_num      = 'identification number for file'    # generated
+
+  summary     = 'summary of make status'
+
+[ os.arch ]
+
+  package     = 'package documentation'
+  upstream    = 'upstream URL'
+  wiki        = 'wiki page'
+
+[ os.debian ]
+
+  doc         = 'project documentation'
+  main        = 'main web page'
+  package     = 'package documentation'
+  search      = 'perform a search for item'
+  track       = 'track project status'
+  wiki        = 'Debian wiki for project'
+
+  commands    = 'how to build and install it'
+  issues      = 'problems and limitations'
+  origin      = 'archive site, etc.'
+  status      = 'is it ready for use?'
+
+[ os.zoo ]
+
+  package     = 'package documentation'
+
+  commands    = 'how to build and install it'
+  issues      = 'problems and limitations'
+  origin      = 'archive site, etc.'
+  status      = 'is it ready for use?'

@@ -1,0 +1,26 @@
+# cat_sof|speechd/make.toml
+
+[ meta ]
+
+  summary     = '''
+Speakup is included in the Raspberry VI distribution.
+
+Speech-dispatcher serves as a go-between between screen readers and
+speech synthesizers.  Orca goes through Speech-dispatcher, hence the
+need for a speech-dispatcher module for OpenMAX to allow Orca to use it.
+
+Mike Ray hopes to write a speech-dispatcher driver based on his new
+`libpiespeak` library.  This could let us avoid using USB audio and
+use `speechd.el` to connect Emacspeak to speech-dispatcher.
+'''
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/x86_64/speech-dispatcher'
+  upstream    = 'http://www.freebsoft.org/speechd'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/speechd'
+  search      = 'ext_pd|search?keywords=speechd'
+  track       = 'https://tracker.debian.org/pkg/speechd'

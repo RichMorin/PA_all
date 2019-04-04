@@ -1,0 +1,54 @@
+# cat_sof|BrailleBlaster/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'BrailleBlaster'
+  title       = 'BrailleBlaster'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'braille displays, text-based'
+  licenses    = 'freeware, gratis, proprietary'
+  requires    = 'Liblouis'
+  roles       = 'transcription program, utility'
+  standards   = 'BBX, BBZ, braille, EBAE, NIMAS, UEB'
+  supports    = 'communication, education'
+
+[ about ]
+
+  precis      = 'a braille transcription program'
+
+  verbose     = '''
+> BrailleBlaster is a braille transcription program developed by the
+[American Printing House for the Blind]{https://www.aph.org}
+to help transcribers provide blind students with braille textbooks
+on the first day of class.
+
+> BrailleBlaster takes advantage of the rich markup contained
+in NIMAS (National Instructional Materials Accessibility Standard) files
+to automate basic formatting and gives you tools
+to make advanced tasks quicker and easier.
+Designed primarily for editing textbooks that meet the specifications published
+by the Braille Authority of North America, the purpose of BrailleBlaster
+is to help braille producers ensure that every student
+has their braille textbooks on the first day of class.
+
+> BrailleBlaster relies on [Liblouis]{http://liblouis.org},
+a well-known open-source braille translator,
+for translating text and mathematics to braille.
+
+> -- [$url]{https://www.brailleblaster.org}
+'''
+
+[ address.web_site ]
+
+  also        = 'https://www.aph.org/brailleblaster'
+  download    = 'main|/download.php'
+  main        = 'https://www.brailleblaster.org'

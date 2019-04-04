@@ -1,0 +1,51 @@
+# cat_sof|BRLTTY/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'BRLTTY'
+  title       = 'BRLTTY'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'screen reader, speech generation'
+  impairments = 'blindness, low vision'
+  interfaces  = 'terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'braille display, espeak'
+  roles       = 'daemon, system software'
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'a daemon to support braille displays and speech output'
+  # daemon which provides access to the Linux/Unix console
+  # gives blind users access to the GNU/Linux console
+  # "refreshable braille display driver for Linux/Unix"
+  # "Access software for a blind person using a braille display"
+
+  verbose     = '''
+> BRLTTY is a background process (daemon) which provides access to the
+Linux/Unix console (when in text mode) for a blind person using a
+refreshable braille display.  It drives the braille display, and
+provides complete screen review functionality.  Some speech capability
+has also been incorporated.
+
+> -- [$url]{https://brltty.app}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|brltty/brltty'
+  mailman     = 'https://brltty.app/mailman/listinfo/brltty'
+
+[ address.web_site ]
+
+  contact     = 'main|/contact.html'
+  main        = 'https://brltty.app'
+  manual      = 'main|/doc/Manual-BRLTTY/English/BRLTTY.html'

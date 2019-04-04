@@ -1,0 +1,12 @@
+# cat_sof|Dasher/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|packages/dasher'
+  upstream    = 'http://www.gnome.org'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/dasher'

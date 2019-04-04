@@ -1,0 +1,23 @@
+# Catalog/People/_area.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Cat_People_area'
+  title       = 'People'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "contains information on active members of Pete's Alley" 
+
+  verbose     = '''
+This section includes information on Pete's Allies:
+contributing members of Pete's Alley (e.g., authors, editors).
+If you submit an addition or correction to our content,
+expect to be asked for an entry in this section!
+'''

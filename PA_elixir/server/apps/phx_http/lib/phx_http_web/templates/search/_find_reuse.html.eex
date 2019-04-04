@@ -1,0 +1,40 @@
+<!-- templates/search/_find_reuse.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  set_keys  = sort_keys(@sess_tag_sets)
+  set_cnt   = Enum.count(set_keys)
+%>
+
+<%= if set_cnt > 0 do %>
+  <div class="hs-base1">
+    <h3>Reuse search queries
+      <%= hide_show("ih:1/2", "tag types to be reused") %>
+    </h3>
+
+    <div class="hs-body1 hs-ih">
+      <p>
+        This part of the page lets you reuse previously defined queries,
+        based on (automatically-generated) names such as "a", "b", etc.
+        The radio buttons allow you to require that "all" or "any"
+        of the query's tags match.
+        To ignore the query entirely, use the "none" radio button. 
+      </p>
+
+      <%= for set_key <- set_keys do %>
+        <ul>
+          <%= tag_set = @sess_tag_sets[set_key]
+              fmt_tag_set(tag_set, set_key, :reuse) %>
+        </ul>
+      <% end %>
+
+      <p>
+        <b>Hint:</b>
+        If old searches are getting in your way, visit the
+        <a href="/search/clear">Clear Searches</a> page.
+      </p>
+
+    </div>
+  </div>
+<% end %>

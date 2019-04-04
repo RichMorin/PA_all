@@ -1,0 +1,13 @@
+# cat_sof|GNOME/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/x86_64/epiphany'
+  upstream    = 'https://wiki.gnome.org/Apps/Web'
+  wiki        = 'ext_awi|GNOME/Web'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/epiphany'

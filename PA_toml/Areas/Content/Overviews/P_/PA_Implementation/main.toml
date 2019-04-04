@@ -1,0 +1,166 @@
+# con_ove|PA_Implementation/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PA_Implementation'
+  title       = "Pete's Alley - Implementation"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "early implementation notes on Pete's Alley"
+
+  verbose     = '''
+This site is my third prototype of a server for Pete's Alley.
+Each prototype has taught me things about what the code needs to do
+and let me experiment with ways to meet those needs.
+There are still a lot of things that need to be done,
+but the current version seems ready for limited public viewing.
+
+### Initial Prototypes
+
+The first two prototypes used
+[Ruby]{ext_wp|Ruby_(programming_language)} scripts
+to process a tree of data files into a set of markup files.
+This approach allows humans to read and edit the data conveniently,
+which is a basic requirement.
+It also lets the system deal with a defined [data model]{ext_wp|Data_model},
+which is a huge win for error checking, indexing, and other processing needs.
+For example, schema files can be used to document the structure and semantics
+of data files, as well as supporting error detection.
+
+Initially, the data files were encoded in [YAML]{ext_wp|YAML},
+but I soon switched to [TOML]{ext_wp|TOML}.
+YAML's structuring approach relies on indentation,
+which isn't really blind-friendly.
+The language also has an extremely complicated specification,
+making life difficult for both its implementers and its users.
+More generally, TOML is a better fit for the data structure I'm using:
+a [tree]{ext_wp|Tree_(data_structure)} of
+[associative arrays]{ext_wp|Associative_array}
+(aka dictionaries, hashes, or maps)
+of [text strings]{ext_wp|String_(computer_science)}.
+In YAML, each level of the tree requires another level of indentation;
+in TOML, a section header (e.g., `[foo.bar]`) defines the current context.
+
+The first prototype used [Foswiki]{ext_wp|Foswiki}
+to process and present files of [wiki markup]{ext_wp|Wiki#Editing}.
+This was a successful "proof of concept", but the approach
+was inappropriate for even a moderate-scale production web server.
+Given that the wiki engine (written in [Perl]{ext_wp|Perl} 5)
+must interpret the markup file(s) for each web request,
+this approach is clearly not scalable.
+
+Also, although Foswiki markup is perfectly reasonable, it isn't very popular.
+[Markdown]{ext_wp|Markdown}, in contrast,
+has a great deal of documentation, tooling, and user support.
+So, for the second prototype I switched to Markdown,
+presented by [Hugo]{https://gohugo.io},
+a [static site generator]{ext_wp|Web_template_system#Static_site_generators}
+(written in [Go]{ext_wp|Go_(programming_language)}).
+This would have been a scalable approach,
+but I wanted to support all sorts of dynamic behavior.
+
+### Current Prototype
+
+Rather than add a dynamic subsystem to a Hugo-based web site,
+I decided to switch to a framework that offers scalable performance
+_and_ great support for dynamic behavior,
+including client applications, persistent sessions, etc.
+Specifically, I'm using the
+[Elixir]{ext_wp|Elixir_(programming_language)} programming language
+and the [Phoenix]{ext_wp|Phoenix_(web_framework)} web framework.
+These technologies are very well suited to building
+concurrent, distributed, failsoft, and performant software systems.
+So, Pete's Alley should be able to handle any expected needs and workloads.
+
+The web site's content is loaded (and reloaded) from a tree of text files,
+indexed in various ways, then made available by an Elixir process.
+I plan to add support for user accounts and online editing of content,
+but these features aren't needed for this stage in the process.
+The search interface is based on the selection and reuse of typed tags.
+So, for example, the user can search for items
+that have a value of "bar" for type "foo".
+This is an unusual (and possibly novel) approach; I would be happy
+to get feedback and/or learn about any other work of a similar nature.
+
+### Project Approach
+
+I have been [following]{http://wiki.cfcl.com/Projects/Elixir/Intro}
+the development of Elixir for years, but this is the first project
+I've actually done in the language.
+So far, the experience has been very positive.
+The language and tooling are flexible and powerful,
+the community is helpful and thoughtful, etc.
+That said, there has been (and continues to be) a substantial learning curve.
+Although Elixir and Phoenix are reminiscent of Ruby and
+[Rails]{ext_wp|Ruby_on_Rails}, many things are profoundly different.
+So, I've been forced to abandon some familiar programming idioms,
+while learning ones more suitable to functional programming, etc. 
+
+By and large, the Elixir and Phoenix aspects of my design approach
+are modeled on ideas presented by [Dave Thomas]{https://pragdave.me}
+in his Coding Gnome video course,
+[Elixir for Programmers]{https://codestool.coding-gnome.com/
+                         courses/elixir-for-programmers}.
+I keep the Phoenix portion as small as possible,
+using other apps for the business logic (e.g., searching).
+So, the Phoenix application only has to deal
+with presentation and user interaction.
+I also attempt to keep everything as simple as possible:
+each module and function tends to do only one thing,
+making the code easy to understand and modify.
+
+The coding style is also reminiscent of Avdi Grimm's
+[Confident Ruby]{https://pragprog.com/book/agcr/confident-ruby},
+in that functions call other functions without making checks beforehand,
+assuming that the called function will do what is needed (if anything).
+Elixir's function dispatching (based on pervasive pattern matching)
+and "Let it crash" philosophy
+(all inherited from [Erlang]{ext_wp|Erlang_(programming_language)})
+ make this a very natural approach.
+
+### Futures
+
+The presentation module (`phx_http`) talks to the data reporting modules
+(`info_files`, `info_toml`, `info_web`) by means of a rather _ad hoc_ API.
+This could be recast into [GraphQL]{ext_wp|GraphQL},
+allowing other back ends to be added or substituted.
+For example, [Neo4j]{ext_wp|Neo4j} could easily do many of the things
+(and far more) that we're currently doing in Elixir code.
+
+Adding user accounts to the system is an important short-term goal.
+Aside from supporting persistance of session and preference data,
+this would provide a solid foundation for online entry of data and text.
+The [Ueberauth]{ext_gh|ueberauth/ueberauth}
+and [Guardian]{ext_gh|ueberauth/guardian} libraries
+look like the Golden Path for this sort of thing.
+[This example]{ext_gh|/hassox/phoenix_guardian} seems apposite.
+It expects us to use Ecto and PostgreSQL,
+but if we already have GraphQL and Neo4j hooked up,
+we could use them for account-related information...
+'''
+
+[ zoo ]
+
+  snippets    = '''
+Here are some programmers who have served as inspirations to me.
+
+- [Avdi Grimm]{http://www.virtuouscode.com} - "Confident Ruby"
+
+- [Dave Thomas]{https://pragdave.me} - "Elixir for Rubyists"
+
+- [Jim Weirich]{ext_wp|Jim_Weirich} - Connascence
+
+- [José Valim]{}
+
+- [Rich Hickey]}https://www.infoq.com/profile/Rich-Hickey} - simplicity
+# https://purelyfunctional.tv/programmer-profiles/rich-hickey
+
+- Stuart Sierra - data all the things
+'''

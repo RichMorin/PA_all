@@ -1,0 +1,16 @@
+# cat_sof|sbl/make.toml
+
+[ meta ]
+
+  summary     = '''
+sbl is (or at least, was) part of SUSE Linux.
+The author's email bounces: Marco Skambraks <marco@suse.de>
+'''
+
+[ os.arch ]
+
+# package     = 'none found, as of 2019.0310'
+
+[ os.debian ]
+
+# package     = 'none found, as of 2019.0310'

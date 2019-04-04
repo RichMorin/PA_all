@@ -1,0 +1,59 @@
+# cat_gro|Designs_Vision/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Designs_Vision'
+  title       = 'Designs for Vision, Inc.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'glasses, magnifier, microscope, telescope'
+  products    = '''
+ClearImageII, E-Scoop, Politzer Telescope Series, Prismatic,
+Spiral Telescopes
+'''
+  roles       = 'company, manufacturer'
+
+[ about ]
+
+  precis      = 'provides assistive devices for the partially sighted'
+
+  verbose     = '''
+> Designs for Vision, Inc. is a manufacturer of Low Vision devices for the
+partially sighted.  Providing more cosmetically appealing options in
+telescopic and microscopic glasses.  We offer ClearImageII and Prismatic
+spectacles for near viewing, Bioptic, Full Diameter, and the Politzer
+Telescope Series for distance viewing and Spiral Telescopes for
+multi-tasking.  Exclusive Distributor of E-Scoop in the US.  
+
+> -- [$url]{http://www.designsforvision.com}
+'''
+
+[ address.email ]
+
+  info        = 'info@dvimail.com'
+
+[ address.phone ]
+
+  fax         = '+1 631 585 3166'
+  main        = '+1 631 585 3300'
+
+[ address.postal ]
+
+  main        = '''
+Designs for Vision, Inc.
+4000 Veterans Memorial Highway
+Bohemia, NY 11716
+United States 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.designsforvision.com'

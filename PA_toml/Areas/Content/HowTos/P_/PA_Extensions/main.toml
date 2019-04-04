@@ -1,0 +1,266 @@
+# con_how|PA_Extensions/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PA_Extensions'
+  title       = "Pete's Alley - Extensions"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "syntax extensions (and tweaks) used by Pete's Alley"
+
+  verbose     = '''
+Pete's Alley uses some minor extensions (and tweaks)
+to [Markdown]{ext_wp|Markdown} and [TOML]{ext_wp|TOML} syntax.
+This HowTo page attempts to cover all of the differences;
+please let me know if you run into anything I haven't covered.
+
+### URL Shorthand
+
+URL shortening is a common theme in this page,
+so let's handle that topic first.
+When URLs get long and complicated,
+they become difficult to remember and unwieldy to edit.
+So, we support several forms of shorthand notation.
+Mostly, this involves expansion of common prefixes,
+but we also play around a bit with suffixes.
+
+*Note:*
+The prefix configuration file
+([_config/prefix.toml]{_config/prefix.toml:s})
+contains definitive information on globally supported prefixes.
+
+#### External URLs
+
+We support a simple form of shorthand notation
+for frequently referenced external sites.
+This has the form `ext_foo|bar` and results in the expansion of common prefixes.
+For example:
+
+- <code>ext_gh</code><code>|foo/bar</code> becomes
+  `https://github.com/foo/bar`
+
+- <code>ext_wp</code><code>|Foo</code> becomes
+  `https://en.wikipedia.org/wiki/Foo`
+
+#### Internal URLs
+
+We support a more nuanced form of shorthand notation for internal URLs.
+This notation has the form `foo_bar|baz`;
+it results in the expansion of common prefixes
+and the addition of type-specific suffixes.
+For example:
+
+- <code>con|:a</code> becomes
+  `/area?key=Areas/Content/_area.toml`
+
+- <code>con_ove|:a</code> becomes
+  `/area?key=Areas/Content/Overviews/_area.toml`
+
+- <code>con_ove|Foo</code> becomes
+  `/item?key=Areas/Content/Overviews/Foo/main.toml`
+
+### Markdown
+
+The original
+[Markdown syntax]{https://daringfireball.net/projects/markdown/syntax},
+as defined by [John Gruber]{ext_wp|John_Gruber},
+generally serves us quite well as a [markup language]{ext_wp|Markup_language}.
+We use [Earmark]{ext_gh|pragdave/earmark}
+(written by [Dave Thomas]{ext_wp|Dave_Thomas_(programmer)})
+to transform this syntax into [HTML]{ext_wp|HTML}.
+However, the flavor of Markdown used in our TOML files
+differs in some minor respects from the text we send to Earmark.
+With luck, most of these additions and changes will make sense to you.
+
+#### Link Syntax
+
+Markdown's basic syntax for [hyperlinks]{ext_wp|Hyperlink}
+requires both link text and a URL.
+A [title attribute]{https://www.w3.org/TR/WCAG20-TECHS/H33.html}
+can also be added to explain the function of the link:
+
+    [<text>](<URL>)
+    [<text>](<URL> '<title>')
+
+Although this syntax is shorter and simpler than the corresponding HTML,
+it can still be tedious and error prone to edit manually.
+As discussed above, many URLs (such as ours!) are long enough to be awkward,
+particularly on a width-limited display.
+We also want most of our links to use title attributes,
+because these work well with [screen readers]{ext_wp|Screen_reader}.
+However, adding these attributes manually is a nuisance
+and can result in inconsistent results.
+
+Extending Markdown's link syntax would be tricky for us
+and possibly confusing for our users, so we leave it alone.
+Instead, we support a very similar syntax
+which we can easily recognize and convert to vanilla Markdown.
+The basic format is as follows:
+
+    [<text>]!{<URL shorthand>}
+
+If we want to display the URL as the link text,
+it would be silly to have to enter it twice.
+So, we support a `$url` shorthand for this case:
+
+    [$url]!{<URL shorthand>}
+
+Here are some examples, followed by the generated Markdown links.
+Careful Reader will recognize the use of URL shorthand, as described above:
+
+    [Foo Bar]!{ext_gh|foo/bar}
+    [Foo Bar](https://github.com/foo/bar 'Go to: github.com [site]')
+
+    [HTML]!{ext_wp|HTML}
+    [HTML](https://en.wikipedia.org/wiki/HTML 'Go to: HTML [WP]')
+
+    [$url]!{http://www.foo.com}
+    [http://www.foo.com](http://www.foo.com 'Go to: www.foo.com [site]')
+
+    [$url]!{ext_gh|foo/bar}
+    [Foo Bar](https://github.com/foo/bar 'Go to: github.com [site]')
+
+    [Catalog]!{cat|:a}
+    [Catalog](/area?key=Areas/Catalog/_area.toml 'Go to: Catalog [area]')"
+
+    [LHBVI]!{cat_gro|LHBVI}
+    [LHBVI](/item?key=Areas/.../LHBVI/main.toml 'Go to: LHBVI [item]')"
+
+    [LHBVI]!{cat_gro|LHBVI:s}
+    [LHBVI](/source?key=Areas/.../LHBVI/main.toml 'Go to: LHBVI [source]')"
+
+    [About]!{_text/about.toml}
+    [About](/text?key=_text/about.toml 'Go to: About [text]')"
+
+    [About]!{_text/about.toml:s}
+    [About](/source?key=_text/about.toml 'Go to: About [source]')"
+
+To ease formatting, we remove leading and trailing spaces from the link text
+and _all_ spaces from the generated URL.
+This, along with HTML's tolerance of internal spaces in link text,
+allows the use of almost any desired spacing,
+including absurd syntax such as:
+
+    [
+      One of Those Ridiculously Long Titles that Some Folks Use
+      for Blog Posts and Such
+    ]!{
+      http://www.foo.com/blog?id=123456789876543210/
+      one_of_those_ridiculously_long_urls_that_some_folks_use_
+      for_blog_posts_and_such.html
+    }
+
+#### Trailing Spaces
+
+When a Markdown processor encounters two or more trailing spaces
+on an input line, it is supposed to add a "hard break"
+(i.e., an HTML `br` tag).
+John Gruber explains the rationale for this behavior in
+[this note]{https://daringfireball.net/projects/markdown/syntax#p}.
+Although I understand his motivation, I think the decision was unfortunate.
+So, our code removes any trailing spaces it encounters;
+if you want to add a hard break,
+use an HTML `br` tag (e.g., <code>&lt;br&gt;</code>).
+
+##### Discussion
+
+Languages that change their behavior based on invisible syntax differences
+are (IMNSHO) setting the user up for failure.
+Specifically, they lead the user into "white space" errors
+which are typically invisible when displayed or printed.
+In addition, the spaces may not even be reported by a screen reader.
+Here are some examples I've encountered over the last four decades:
+
+- Assorted languages and utilities (e.g., 
+[Bash    ]{ext_wp|Bash_(Unix_shell)},
+[C       ]{ext_wp|C_(programming_language)},
+[Make    ]{ext_wp|Make_(software)},
+[Perl    ]{ext_wp|Perl_(programming_language)},
+[Python  ]{ext_wp|Python_(programming_language)})
+follow the [Unix]{ext_wp|Unix} tradition of allowing the use
+of a trailing backslash to cause line continuation.
+If any spaces follow the backslash, the continuation typically fails,
+causing mysterious (or worse, unreported) bugs.
+
+- Make requires certain lines to be indented by a single tab.
+Using spaces instead is probably the most common newbie error.
+
+- Python uses [indentation]{ext_wp|Python_syntax_and_semantics#Indentation}
+to control the program structure.
+Because it allows either spaces or tabs (and combinations!) to be used,
+a program may look fine on a text editor but fail in mysterious ways.
+
+### TOML
+
+TOML is a simple and concise language which is well tuned to our needs.
+So, the only extension we support is the expansion of certain values,
+for brevity and editing convenience.
+
+#### CSV Expansion
+
+Certain of our TOML fields may contain multiple values.
+We use a simplified version of
+[comma-separated value]{ext_wp|Comma-separated_values} syntax for this.
+Here's a (fairly ridiculous) example, for discussion:
+
+    ' , foo,  , bar  , baz,  '
+
+At runtime, we expand these comma-separated strings into lists of strings,
+trimming off any leading or trailing white space.
+We then discard any empty fields:
+
+    [ "foo", "bar", "baz" ]
+
+It is often convenient to enter lists of lengthy strings (e.g., URLs),
+each on its own line. 
+Because empty fields are discarded, we can have a comma on the last line.
+This regularity helps to prevent editing errors when lines are added or removed:
+
+    http://bar.com,
+    http://baz.com,
+
+It is extremely unusual (and bad practice, in general)
+for list items to require an embedded comma.
+Usually, there is a simple workaround,
+but in some cases there is no real alternative.
+For example, a URL can legally contain a comma.
+In this event, [escape]{ext_wp|Escape_character} the comma
+by preceding it with a pair of backslashes:
+
+    https://wiki.openstreetmap.org/wiki/Proposed_features/sidewalk_schema,
+    https://wiki.openstreetmap.org/wiki/Seattle\\,_Washington/Sidewalk_Import,
+
+#### URL Expansion
+
+We also expand external URLs, as discussed above.
+This is done on values which are expected to contain
+(single or multiple) URLs.
+So, for example:
+
+    wikipedia   = 'ext_wp|Linux'
+
+would be expanded to:
+
+    wikipedia   = 'https://en.wikipedia.org/wiki/Linux'
+
+In addition, we do one level of symbol substitution,
+using names in the same section of the file.
+We then remove any definitions whose name starts with an underscore.
+So, for example:
+
+    _1          = 'https://en.wikipedia.org/'
+    linux       = '_1|Linux'
+    naming      = 'linux|#Naming
+
+would be converted to:
+
+    linux       = 'https://en.wikipedia.org/Linux'
+    naming      = 'https://en.wikipedia.org/Linux#Naming
+'''

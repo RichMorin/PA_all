@@ -1,0 +1,30 @@
+# CIA.yam
+
+_meta:
+  action:         defer
+  author:         Rich_Morin
+  id:             CIA
+  title:          Central Intelligence Agency (CIA)
+
+about:            |
+  The CIA is the premier agency responsible for providing global intelligence
+  on the ever-changing political, social, economic, technological and military
+  environment in order to protect national security.  We achieve our greatest
+  accomplishments when we draw on the talents and abilities of all parts of
+  our society and bring diverse perspectives to our greatest challenges.
+
+address:
+  email:
+    info:         marytw1@ucia.gov
+
+  phone:
+    main:         "+1 703 482 4074"
+
+  postal:
+    main:         |
+      Central Intelligence Agency (CIA)
+      Washington, DC 20505
+      United States	 
+
+  web_site:
+    main:         http://www.cia.gov

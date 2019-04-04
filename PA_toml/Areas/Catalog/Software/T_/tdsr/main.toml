@@ -1,0 +1,44 @@
+# cat_sof|tdsr/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'tdsr'
+  title       = 'tdsr'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'screen reader, speech synthesis'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'Linux, macOS'
+  roles       = 'screen reader, system software'
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'a console-based screen reader'
+
+  verbose     = '''
+> This is a console-based screen reader.  It has been tested under macOS
+and Linux.  It might also run on FreeBSD and other *nix systems, but this
+hasn't been tested.
+
+> -- [$url]{ext_gh|tspivey/tdsr}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|tspivey/tdsr'
+
+[ address.web_site ]
+
+  _1          = 'https://www.applevis.com/blog/assistive-technology-macos-news'
+  about       = '_1|/announcing-tdsr-command-line-screen-reader-macintosh-and'
+  main        = 'https://github.com/tspivey/tdsr'

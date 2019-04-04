@@ -1,0 +1,43 @@
+# cat_sof|TTY_Prompt/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'TTY_Prompt'
+  title       = 'TTY::Prompt'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'error checking, format conversion, validation'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'Ruby'
+  roles       = 'API, library, user interface'
+  supports    = 'software development'
+
+[ about ]
+
+  precis      = 'an independent prompt component for the TTY toolkit'
+
+  verbose     = '''
+> A beautiful and powerful interactive command line prompt with a robust
+API for getting and validating complex inputs.
+
+> -- [$url]{ext_rg|tty-prompt}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|piotrmurach/tty-prompt'
+  rubydoc     = 'ext_rd|tty-prompt'
+  rubygems    = 'ext_rg|tty-prompt'
+
+[ address.web_site ]
+
+  main        = 'https://piotrmurach.github.io/tty'

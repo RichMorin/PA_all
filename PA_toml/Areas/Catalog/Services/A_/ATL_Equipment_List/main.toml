@@ -1,0 +1,44 @@
+# cat_ser|ATL_Equipment_List/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'ATL_Equipment_List'
+  title       = 'Adaptive Technology Lab Equipment and Software'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  roles       = 'catalog, document'
+  supports    = 'laboratory'
+
+[ about ]
+
+  precis      = 'a list of adaptive equipment and software for laboratories'
+
+  verbose     = '''
+> Adaptive Technology Lab Equipment and Software 
+
+> Serving Cleveland State University Students and Faculty with disabilities
+
+> Prepared by Masters of Occupational Therapy Students:
+Zavinta Maleckaite, Lisa Robbins, Divya Sandhu, Diana Starcic
+For Dr. Glenn Goodman, HSC 569; July, 2009
+
+> This list presents several dozen pieces of adaptive technology
+suitable for use in a laboratory.
+Each entry contains a bullet list and possibly an image.
+
+> -- [$url]{http://www.csuohio.edu/sites/default/files/
+            media/disability/documents/ATL_Equipment_List.pdf}
+'''
+
+[ address.document ]
+
+  _1          = 'http://www.csuohio.edu/sites/default/files/media'
+  main        = '_1|/disability/documents/ATL_Equipment_List.pdf'

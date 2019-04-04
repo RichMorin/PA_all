@@ -1,0 +1,41 @@
+# cat_sof|wcalc/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'wcalc'
+  title       = 'wcalc'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'hex/octal/binary, trig functions, unit conversions'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, calculator, language'
+  supports    = 'math'
+
+[ about ]
+
+  precis      = 'a flexible, command-line scientific calculator'
+
+  verbose     = '''
+> Wcalc is a very capable calculator.  It has standard functions (sin, asin,
+and sinh for example, in either radians or degrees), many pre-defined
+constants (pi, e, c, etc.), support for using variables, "active"
+variables, a command history, hex/octal/binary input and output, unit
+conversions, embedded comments, and an expandable expression entry field.
+It evaluates expressions using the standard order of operations.
+
+> -- [$url]{ext_pd|stretch/wcalc}
+'''
+
+[ address.web_site ]
+
+  main        = 'http://w-calc.sourceforge.net'
+  manual      = 'main|/manual.html'

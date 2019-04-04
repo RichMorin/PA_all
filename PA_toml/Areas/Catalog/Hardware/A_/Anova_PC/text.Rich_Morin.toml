@@ -1,0 +1,28 @@
+# text.Rich_Morin.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Anova_PC'
+  title       = 'Anova PC'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'works great for cooking frozen fish'
+
+  verbose     = '''
+The Anova Precision Cooker is an immersion sous-vide cooker
+with Bluetooth and Wi-Fi access.
+It can be used to cook vegetables, meat, etc.
+
+I use mine primarily to cook fish, which I then saute in a skillet.
+For example, two hours of immersion will thaw and then cook a slab
+of hard-frozen salmon or tuna from Trader Joes.
+The fish could then sit safely in the water bath for another hour or so,
+but it never does in my house!
+'''

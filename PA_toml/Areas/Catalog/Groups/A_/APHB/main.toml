@@ -1,0 +1,55 @@
+# cat_gro|APHB/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'APHB'
+  title       = 'American Printing House for the Blind, Inc.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'educational materials, software'
+  roles       = 'company, manufacturer, publisher'
+  standards   = 'braille'
+  supports    = 'daily living, education, reading'
+
+[ about ]
+
+  precis      = 'provides assistive products for the visually impaired'
+
+  verbose     = '''
+> American Printing House for the Blind, Inc. in Louisville, Kentucky was
+founded in 1858.  APH is the world's largest company devoted solely to
+making products for people who are visually impaired and is the official
+supplier of educational materials for blind students in the U.S.  
+
+> -- [$url]{http://www.aph.org}
+'''
+
+[ address.email ]
+
+  info        = 'info@aph.org'
+
+[ address.phone ]
+
+  fax         = '+1 502 899 2284'
+  main        = '+1 800 223 1839'
+
+[ address.postal ]
+
+  main        = '''
+American Printing House for the Blind
+1839 Frankfort Avenue
+Louisville, KY 40206
+United States
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.aph.org'

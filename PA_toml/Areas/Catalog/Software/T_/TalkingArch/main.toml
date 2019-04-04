@@ -1,0 +1,50 @@
+# cat_sof|TalkingArch/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'TalkingArch'
+  title       = 'TalkingArch'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'screen reader, speech generation'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, open source'
+  requires    = 'Linux, Raspberry Pi'
+  roles       = 'operating system'
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'a speech- and braille-enabled version of Arch Linux'
+
+  verbose     = '''
+> This is TalkingArch, a re-spin of the Arch Linux live ISO, modified to
+include speech and braille output for blind and visually impaired users.
+Arch Linux is designed to be simple, lightweight and flexible.  TalkingArch
+retains all the features of the Arch Linux live image, but adds speech and
+braille packages to make it possible for blind and visually impaired users
+to install Arch Linux eyes-free.
+
+> Feel free to visit our download page to grab the latest build of the ISO
+image, which will happily run from either a DVD or from a USB stick.
+Instructions for writing the image can be found at the CD Burning and
+USB Installation Media pages at the Arch Wiki.  Also, specific instructions
+for installing Arch Linux using the TalkingArch live media can be found
+at the TalkingArch wiki page.
+
+> -- [$url]{https://talkingarch.tk}
+'''
+
+[ address.web_site ]
+
+  about       = 'main|/about.php'
+  main        = 'https://talkingarch.tk'
+  # https://opensource.com/life/15/8/accessibility-linux-blind-disabled

@@ -1,0 +1,48 @@
+# cat_sof|Elixir/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Elixir'
+  title       = 'Elixir'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'concurrency, distribution, failsoft, macros'
+  licenses    = 'open source'
+  roles       = 'programming language'
+  supports    = 'development'
+
+[ about ]
+
+  precis      = 'functional, concurrent, programming language'
+
+  verbose     = '''
+> Elixir is a functional, concurrent, general-purpose programming language
+that runs on the Erlang virtual machine (BEAM).
+Elixir builds on top of Erlang and shares the same abstractions
+for building distributed, fault-tolerant applications.
+Elixir also provides productive tooling and an extensible design.
+The latter is supported by compile-time metaprogramming with macros
+and polymorphism via protocols.
+
+> -- [$url]{ext_wp|Elixir_(programming_language)}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|elixir-lang/elixir'
+  irc         = 'irc://irc.freenode.net/elixir-lang'
+  twitter     = 'ext_tw|elixirlang'
+  wikipedia   = 'ext_wp|Elixir_(programming_language)'
+
+[ address.web_site ]
+
+  download    = 'main|/install.html'
+  forum       = 'https://elixirforum.com'
+  main        = 'https://elixir-lang.org'

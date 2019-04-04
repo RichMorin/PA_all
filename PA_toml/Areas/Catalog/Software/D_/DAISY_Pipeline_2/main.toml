@@ -1,0 +1,57 @@
+# cat_sof|DAISY_Pipeline_2/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'DAISY_Pipeline_2'
+  title       = 'DAISY Pipeline 2'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_gro|DAISY'
+
+[ meta.tags ]
+
+  impairments = 'blindness, dyslexia, low vision'
+  interfaces  = 'terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, DAISY production suite'
+  standards   = 'DAISY, DTB, EPUB3, MP3, SMIL, XML'
+  supports    = 'communication, education'
+
+[ about ]
+
+  precis      = 'a framework for the processing of digital content'
+
+  verbose     = '''
+> The DAISY Pipeline 2 is an ongoing project to develop an open-source,
+cross-platform framework for the automated processing of digital content,
+supporting various input and output formats.
+It intends to facilitate the production and maintenance
+of accessible content for people with print disabilities.
+It is the follow-up and total redesign of the original DAISY Pipeline 1 project.
+
+> -- [$url]{http://www.daisy.org/pipeline2}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|DAISY_Digital_Talking_Book'
+
+  zoo         = '''
+http://www.daisy.org/pipeline,
+http://www.daisy.org/pipeline/gui,
+http://www.daisy.org/project/obi,
+http://www.daisy.org/tobi,
+http://www.daisy.org/tools/579,
+https://code.google.com/archive/p/daisy-validator,
+https://sourceforge.net/projects/daisydemon,
+https://sourceforge.net/projects/dbr,
+https://sourceforge.net/projects/pipeonline,
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.daisy.org/pipeline2'

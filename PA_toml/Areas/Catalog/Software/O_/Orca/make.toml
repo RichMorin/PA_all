@@ -1,0 +1,21 @@
+# cat_sof|Orca/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/any/orca/'
+  upstream    = 'https://wiki.gnome.org/Projects/Orca'
+  wiki        = 'ext_awi|Simple_Orca_Plugin_System'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/orca'
+  search      = 'ext_pd|search?keywords=orca'
+  track       = 'https://tracker.debian.org/pkg/orca'
+  wiki        = 'https://wiki.debian.org/Orca'
+
+  commands    = 'sudo apt-get install orca'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'Orca is included in the Raspberry VI and Ubuntu distributions.'

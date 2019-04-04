@@ -1,0 +1,18 @@
+# cat_sof|dosfstools/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|core/x86_64/dosfstools'
+  upstream    = 'ext_gh|dosfstools/dosfstools'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/dosfstools'
+  search      = 'ext_pd|search?keywords=dosfstools'
+  track       = 'https://tracker.debian.org/pkg/dosfstools'
+
+  commands    = 'sudo apt-get install dosfstools'
+  origin      = 'APT'
+  status      = 'dosfstools appears to be included in Raspbian Stretch'

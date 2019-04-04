@@ -1,0 +1,10 @@
+<!-- _hs_s_sa.html.eex - offers "show, show all" initially -->
+
+(<span class="hs-hide<%= @hs_level %> hs-ih hs-none"><a
+      href="#" title="Hide <%= @hs_t1 %>.">hide</a
+  ></span><span class="hs-show<%= @hs_level %> hs-is hs-none"><a
+      href="#" title="Show <%= @hs_t1 %>.">show</a></span>,
+<span class="hs-hide-all hs-ih hs-none"><a
+      href="#" title="Hide <%= @hs_t2 %>.">hide all</a
+  ></span><span class="hs-show-all hs-is hs-none"><a
+      href="#" title="Show <%= @hs_t2 %>.">show all</a></span>)

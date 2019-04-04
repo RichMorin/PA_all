@@ -1,0 +1,55 @@
+# cat_gro|JW_ORG/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'JW_ORG'
+  title       = 'JW.ORG'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'audio, large print, web'
+  roles       = 'organization'
+  standards   = 'braille, MP3, notetaker, RTF'
+  supports    = 'Bible education, daily living'
+
+[ about ]
+
+  precis      = "world's largest Bible-oriented educational website"
+
+  verbose     = '''
+> JW.ORG, the world's largest Bible educational website, makes spirituality
+accessible with RTF, Notetaker, MP3, and screen readers. Currently, free
+downloads are in over 900 languages with Braille literature in over 40
+languages.  Age appropriate large print, audio and Braille items are
+provided without charge, and encourage all to have a better quality of life. 
+
+> -- [$url]{http://www.jw.org}
+'''
+
+[ address.email ]
+
+  info        = 'rkmoyers@yahoo.com'
+
+[ address.phone ]
+
+  main        = '+1 845 744 6000'
+
+[ address.postal ]
+
+  main        = '''
+JW.ORG
+800 Red Mills Road
+Wallkill, NY 12589
+United States
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.jw.org'

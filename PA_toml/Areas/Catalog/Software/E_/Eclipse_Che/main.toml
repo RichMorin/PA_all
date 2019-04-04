@@ -1,0 +1,56 @@
+# cat_sof|Eclipse_Che/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Eclipse_Che'
+  title       = 'Eclipse Che'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'containerization, multi-user support'
+  impairments = 'blindness, low vision'
+  interfaces  = 'HTML'
+  licenses    = 'open source'
+  requires    = 'Docker'
+  roles       = 'application, IDE'
+  standards   = 'HTML'
+  supports    = 'development'
+
+[ about ]
+
+  precis      = 'developer workspace server and cloud IDE'
+
+  verbose     = '''
+> Eclipse Che is an open-source, Java based developer workspace server
+and cloud integrated development environment (IDE).
+It includes a multi-user remote development platform.
+The workspace server comes with a flexible RESTful webservice.
+It also contains a SDK for creating plug-ins for languages, frameworks,
+or tools.
+The main difference between Eclipse Che and the standard Eclipse IDE
+is its ability to create Docker containers to execute applications.
+Eclipse Che is an Eclipse Cloud Development (ECD) top-level project,
+allowing contributions from the user community.
+
+> -- [$url]{ext_wp|Eclipse_Che}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|eclipse/che'
+  wikipedia   = 'ext_wp|Eclipse_Che'
+
+  zoo         = '''
+https://eclipsesource.com/blogs/2018/12/03/eclipse-che-vs-eclipse-theia,
+https://www.eclipse.org/che/features,
+'''
+
+[ address.web_site ]
+
+  main        = 'https://www.eclipse.org/che'

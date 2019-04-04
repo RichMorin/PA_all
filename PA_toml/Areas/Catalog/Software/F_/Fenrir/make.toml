@@ -1,0 +1,12 @@
+# cat_sof|Fenrir/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|fenrir'
+  upstream    = 'https://linux-a11y.org/index.php?page=fenrir-screenreader'
+
+[ os.debian ]
+
+  package     = 'ext_pd|sid/admin/fenrir'

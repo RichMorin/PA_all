@@ -1,0 +1,10 @@
+# cat_sof|lios/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|lios-git'
+  upstream    = 'https://gitlab.com/groups/Nalin-x-Linux'
+
+[ os.debian ]

@@ -1,0 +1,56 @@
+# cat_sof|PINN/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'PINN'
+  title       = 'PINN (PINN is not NOOBS)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'Raspberry Pi'
+  roles       = 'installer, system software, utility'
+  supports    = 'SSH, USB stick'
+
+[ about ]
+
+  precis      = 'an enhanced Operating System installer for the Raspberry Pi'
+
+  verbose     = '''
+PINN (PINN is not NOOBS) is an enhanced Operating System installer
+for the Raspberry Pi.  Here are some of its features:
+
+- storage of OS images on a USB stick
+- OS installation from any web server
+- control file for OS installation
+- SSH access to the installer
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|procount/pinn'
+  sourceforge = 'ext_sf|projects/pinn'
+
+  zoo         = '''
+ext_gh|procount/pinn/issues/84,
+ext_gh|raspberrypi/noobs/wiki/NOOBS-partitioning-explained,
+ext_gh|raspberrypi/noobs/wiki/Standalone-partitioning-explained,
+ext_sf|projects/pinn/files/pinn-lite.zip/download,
+ext_rp|documentation/installation/sd-cards.md,
+ext_rp|documentation/installation/sdxc_formatting.md,
+ext_rp|downloads/noobs,
+http://www.raspberryvi.org/stories/writing-a-raspberry-pi-os-image-to-an-sd-card-on-linux.html,
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_sf|projects/pinn'
+
+# The latest version of PINN-lite can be downloaded from sourceforge.

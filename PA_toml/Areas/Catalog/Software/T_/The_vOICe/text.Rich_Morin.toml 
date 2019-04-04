@@ -1,0 +1,21 @@
+# text.Rich_Morin.toml 
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'The_vOICe'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'transforms digital images into audio'
+
+  verbose     = '''
+The vOICe transforms digital images into audio.  It is generally used for
+navigation and scene awareness, but it can also be used to render arbitrary
+digital images (e.g., photographs).
+'''

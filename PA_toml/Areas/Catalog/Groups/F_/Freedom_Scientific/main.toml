@@ -1,0 +1,44 @@
+# cat_gro|Freedom_Scientific/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Freedom_Scientific'
+  title       = 'Freedom Scientific'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_gro|Vispero, cat_gro|ZoomText'
+
+[ meta.tags ]
+
+  impairments = 'blindness, learning disability, low vision'
+  produces    = 'hardware, keyboard, software'
+  roles       = 'social enterprise, manufacturer, software developer'
+  supports    = 'education, workplace'
+
+[ about ]
+
+  precis      = 'provides assistive technology for vision and learning'
+
+  verbose     = '''
+> Freedom Scientific (part of Vispero) develops advanced assistive technology
+solutions for low vision, blindness, and learning disabilities.  Our
+innovative products can help students succeed at school, adults excel
+in the workplace, and individuals achieve more independence. 
+'''
+
+[ address.email ]
+
+  support     = 'support@vispero.com'
+
+[ address.phone ]
+
+  fax         = '+1 727 471 7931'
+  main        = '+1 800 444 4443 (9-5 EST)'
+
+[ address.web_site ]
+
+  main        = 'http://www.vispero.com'

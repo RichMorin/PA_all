@@ -1,0 +1,19 @@
+# cat_sof|sic/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|sic'
+  upstream    = 'http://tools.suckless.org/sic'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/sic'
+  search      = 'ext_pd|search?keywords=sic'
+  track       = 'https://tracker.debian.org/pkg/sic'
+
+  commands    = 'sudo apt-get install sic'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

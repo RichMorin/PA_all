@@ -1,0 +1,13 @@
+# cat_sof|Tesseract/make.toml
+
+[ meta ]
+
+  summary     = 'Tesseract is widely available.'
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/x86_64/tesseract'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/tesseract-ocr'

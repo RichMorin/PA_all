@@ -1,0 +1,43 @@
+<!-- templates/source/show.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  etc = if Enum.count(@items) > 1 do " and its sibling files" else "" end
+%>
+
+<h2>Source</h2>
+
+<p>
+  This page displays the content of <code><%= @key %></code><%= etc %>.
+</p>
+
+<%= for key <- keyss(@items) do %>
+  <%
+    %{
+      name_out:   name_out,
+      toml_text:  toml_text,
+    } = @items[key]
+
+    header  = String.replace(key, ~r{ ^ .* / }x, "")
+  %>
+
+  <div class="hs-base1">
+    <h3>
+      <code><%= header %></code>
+      <%= hide_show("is:1/1", "TOML & Markdown source code") %>
+    </h3>
+
+    <div class="hs-body1 hs-is">
+      <p>
+        You can <a href="/source/down?key=<%= key %>"
+                   download="<%= name_out %>">download</a>
+        a copy of the content below (as <code><%= name_out %></code>).
+
+<pre>
+<%= toml_text %>
+</pre>
+      </p>
+    </div>
+  </div>
+<% end %>

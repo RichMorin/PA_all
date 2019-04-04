@@ -1,0 +1,42 @@
+# cat_sof|lios/main.toml
+
+[ meta ]
+
+  actions     = '-build, -publish'
+  id_str      = 'lios'
+  title       = 'lios (Linux-intelligent-ocr-solution)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'image, text'
+  licenses    = 'open source'
+  roles       = 'application, OCR application'
+  standards   = 'PBX, RTP, SIP, VoIP'
+  supports    = 'communication, education'
+
+[ about ]
+
+  precis      = 'an accessible OCR application for the visually impaired'
+
+  verbose     = '''
+> Lios is free and open source software for converting print into text
+using either a scanner or a camera.
+It can also produce text out of scanned images from other sources
+such as PDF, Image, Folder containing Images, or screenshot.
+Program is given total accessibility for visually impaired.
+Lios is written in Python 3, and we release it under GPL-3 license.
+There are great many possibilities for this program.
+Feedback is the key to it, Expecting your feedback.
+
+> -- [$url]{https://gitlab.com/Nalin-x-Linux/lios-3}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://gitlab.com/Nalin-x-Linux/lios-3'

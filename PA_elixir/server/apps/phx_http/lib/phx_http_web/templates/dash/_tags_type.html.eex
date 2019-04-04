@@ -1,0 +1,64 @@
+<!-- templates/dash/_tags_type.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  main_cnt    = @data_info.cnts_by_name["main.toml"].file
+  kv_info     = @tag_info.kv_info
+  kv_cnts     = kv_info.kv_cnts
+  kv_descs    = kv_info.kv_descs
+  kv_map      = kv_info.kv_map
+  tag_types   = keyss(kv_map)
+  avg_cnts    = get_avg_cnts(main_cnt)
+  total_cnts  = get_total_cnts(tag_types, kv_map)
+%>
+
+<div class="hs-base2">
+  <h3>
+    Usage by Type
+    <%= hide_show("is:2/2", "statistics on tag usage by type") %>
+  </h3>
+
+  <div class="hs-body2 hs-is">
+    <p>
+      The statistics below are calculated as follows:
+    </p>
+    <ul>
+      <li>Items   - number of items that used this tag type</li>
+      <li>Total   - total number of unique values used for this type
+      <li>Average - number of values (per item) used for this type
+    </ul>
+
+    <table class="dash-vubt tablesorter">
+      <thead>
+        <tr>
+          <th width="20%" class="dash-vubt-left">Tag Type</th>
+          <th width="10%">Items</th>
+          <th width="10%">Total</th>
+          <th width="10%">Average</th>
+          <th width="50%"class="dash-vubt-desc">Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= for tag_type <- tag_types do %>
+          <%
+            avg_cnt   = avg_cnts[tag_type]
+            |> :erlang.float_to_binary([decimals: 2])
+
+            item_cnt  = kv_cnts[tag_type]
+            total_cnt = total_cnts[tag_type]
+            kv_desc   = kv_descs[tag_type]
+          %>
+          <tr>
+            <td class="dash-vubt-left"><%= tag_type %></td>
+            <td><%= item_cnt  %></td>
+            <td><%= total_cnt %></td>
+            <td><%= avg_cnt   %></td>
+            <td class="dash-vubt-desc"><%= kv_desc  %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

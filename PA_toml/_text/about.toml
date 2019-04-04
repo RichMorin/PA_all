@@ -1,0 +1,99 @@
+# _text/about.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'about'
+  title       = "About Pete's Alley"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'an online resource for the disabled community'
+
+  verbose     = '''
+This site is an online resource for the disabled community,
+including their friends, relatives, and other supporters.
+It will index and review resources, provide communication channels, etc.
+
+By way of explanation, although the word "alley" is meant to suggest
+an informal gathering spot, it's also a pun on "a11y"
+(popular shorthand for "[accessibility]{ext_wp|Accessibility}").
+In a similar vein, folks who contribute to the effort
+are known as "Pete's Allies".
+
+### Motivation
+
+Pete's Alley is named after Pete Ostrom, an intelligent and adventurous soul
+whom [Rich Morin]{cat_peo|Rich_Morin} met in the late 1960's.
+Despite Pete's [Muscular Dystrophy]{ext_wp|Muscular_dystrophy},
+Rich and Pete went on a number of excursions around California,
+typically in a (first-generation, underpowered)
+[Volkswagen Transporter]{ext_wp|Volkswagen_Transporter}
+with a homebrew (hinged plywood) loading ramp.
+
+In those pre-[ADA]{ext_wp|Americans_with_Disabilities_Act_of_1990} days,
+[curb cuts]{ext_wp|Curb_cut} and wheelchair ramps were few and far between.
+So, Rich mostly used brute force to haul Pete past any obstructions.
+Complicating matters still further,
+the wheelchairs themselves weren't very solidly constructed.
+For example, because the spokes on Pete's wheelchair kept breaking,
+he had to have his wheels [relaced]{ext_wp|Bicycle_wheel#Lacing}
+with motorcycle spokes.
+
+Pete would have loved the [World Wide Web]{ext_wp|World_Wide_Web}.
+He (and Isabell Ostrom, his very supportive mother)
+would also have benefited greatly from today's ever-increasing offerings
+in accessible technology.
+However, they might have been frustrated by the difficulty
+of discovering relevant resources and evaluating their suitability.
+
+Mass-market web sites such as [Amazon]{ext_wp|Amazon_(company)}
+list huge numbers of products.
+Some of these (e.g., walkers, wheelchairs, white canes)
+may be obviously relevant to someone with a particular disability.
+However, the relevance of other products may be less obvious.
+Bluetooth-enabled cooking devices, for example,
+can be very useful to the blind and vision-impaired.
+However, they are not marketed as assistive devices
+and no mention of this applicability will generally appear
+in product descriptions or reviews.
+
+It can also be difficult to find detailed information on resources.
+Even when a web site is accessible (and all too many are not),
+variations in approach and organization can be frustrating.
+Seemingly simple tasks such as finding contact or product information
+may take inordinate amounts of time.
+
+### Approach
+
+Pete's Alley addresses these issues in several ways, including:
+
+- a powerful, tag-based search facility
+- accessible and consistent page formats
+- content written with disabilities in mind
+
+Although there are a number of web sites that deal with disabilities,
+this site has its own unique approach and flavor.
+If you like what we've done so far,
+please consider helping us to extend and support it:
+contribute entries and reviews for our resource [Catalog]{cat|:a},
+along with long-form [Content]{con|:a}:
+[Essays]{con_ess|:a}, [HowTos]{con_how|:a}, and [Overviews]{con_ove|:a}.
+
+### Implementation
+
+The web site's pages are generated from a tree of human-editable files,
+containing a mixture of structured data and unstructured text.
+The online content is loaded (and updated) from this file tree,
+indexed in various ways, and converted to web pages on request.
+The server-side application code is implemented using the
+[Elixir]{ext_wp|Elixir_(programming_language)} programming language
+and the [Phoenix]{ext_wp|Phoenix_(web_framework)} web framework.
+For more information, visit
+[Pete's Alley - Implementation]{con_ove|PA_Implementation}.
+'''

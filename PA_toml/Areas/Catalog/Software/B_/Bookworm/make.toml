@@ -1,0 +1,10 @@
+# cat_sof|Bookworm/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/x86_64/bookworm'
+  upstream    = 'https://babluboy.github.io/bookworm'
+
+[ os.debian ]

@@ -1,0 +1,42 @@
+# cat_sof|ELinks/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'ELinks'
+  title       = 'ELinks'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based, web'
+  licenses    = 'open source'
+  roles       = 'application, browser'
+  standards   = 'HTML, HTTP'
+  supports    = 'communication, reading'
+
+[ about ]
+
+  precis      = 'a full-featured, text-based web browser'
+
+  verbose     = '''
+> ELinks is a feature-rich program for browsing the web in text mode. It
+is like enhanced Lynx and Links.
+
+> -- [$url]{ext_pd|stretch/elinks}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|ELinks, ext_wp|Links_(web_browser)'
+
+[ address.web_site ]
+
+  main        = 'http://elinks.or.cz'
+  man_page    = 'main|/documentation/manpages/elinks.1.html'
+  manual      = 'main|/documentation/manual.html'

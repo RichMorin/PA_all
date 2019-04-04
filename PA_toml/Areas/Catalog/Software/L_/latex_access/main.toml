@@ -1,0 +1,43 @@
+# cat_sof|latex_access/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'latex_access'
+  title       = 'latex-access'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'speech generation, realtime translation'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'braille display, BRLTTY, LaTeX'
+  roles       = 'application, braille translator'
+  standards   = 'braille, Nemeth, UEB'
+
+[ about ]
+
+  precis      = 'a program to translate LaTeX into (Nemeth or UEB) braille'
+
+  verbose     = '''
+> The latex-access project is designed to provide a realtime translation
+of a line of LaTeX into braille, using either the Nemeth or UEB code,
+which can be read on a refreshable braille display.  This will greatly
+improve the ease of use of LaTeX to blind mathematicians and scientists.
+The project also translates the current line into English speech, which
+is easier to listen to than LaTeX source.
+
+> -- [$url]{http://latex-access.sourceforge.net}
+'''
+
+[ address.web_site ]
+
+  code        = 'https://svn.code.sf.net/p/latex-access/code'
+  forum       = 'ext_sf|projects/latex-access/lists/latex-access-devel'
+  main        = 'http://latex-access.sourceforge.net'

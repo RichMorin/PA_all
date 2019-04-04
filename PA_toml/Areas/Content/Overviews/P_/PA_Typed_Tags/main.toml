@@ -1,0 +1,307 @@
+# con_ove|PA_Typed_Tags/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PA_Typed_Tags'
+  title       = "Pete's Alley - Typed Tags"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "how and why Pete's Alley uses typed tags"
+
+  verbose     = '''
+[Clay Shirky]{ext_wp|Clay_Shirky} has a great essay called
+[Ontology is Overrated - Categories, Links, and Tags
+]{http://www.shirky.com/writings/ontology_overrated.html}.
+In it, he contends that folksonomies (e.g., tags and searching)
+work better than ontologies (e.g., categories and relationships)
+for most Internet-scale collections of information.
+The following table attempts to summarize some of his thinking.
+For example, ontologies work better than folksonomies
+when clear distinctions are present:
+
+<table class="shirky tablesorter">
+  <tr>
+    <th>Characteristic</th>
+    <th>Ontologies</th>
+    <th>Folksonomies</th>
+  </tr>
+  <tr>
+    <td>clear distinctions</td>
+    <td>present</td>
+    <td>absent</td>
+  </tr>
+  <tr>
+    <td>coordination</td>
+    <td>present</td>
+    <td>absent</td>
+  </tr>
+  <tr>
+    <td>entity restrictions</td>
+    <td>present</td>
+    <td>absent</td>
+  </tr>
+  <tr>
+    <td>entity stability</td>
+    <td>present</td>
+    <td>absent</td>
+  </tr>
+  <tr>
+    <td>formal categories</td>
+    <td>present</td>
+    <td>absent</td>
+  </tr>
+  <tr>
+    <td>limited domain</td>
+    <td>present</td>
+    <td>absent</td>
+  </tr>
+  <tr>
+    <td>user expertise</td>
+    <td>present</td>
+    <td>absent</td>
+  </tr>
+</table>
+
+While we largely agree with his analysis,
+we feel that ontologies and folksonomies both offer advantages for our use case.
+So, we use a set of predefined "types"
+to provide a [controlled vocabulary]{ext_wp|Controlled_vocabulary}.
+Within each type, the [tag]{ext_wp|Tag_(metadata)} strings
+are user-definable, as in a [folksonomy]{ext_wp|Folksonomy}.
+This provides a useful amount of order,
+while allowing a great deal of flexibility.
+
+We currently use about twenty tag types,
+though suggestions for added or modified types are welcome.
+Here's a precis of the current tag types,
+with links to more detailed descriptions:
+
+<table class="types tablesorter">
+  <tr>
+    <td><a href="#aliases">aliases</a></td>
+    <td>alternative names for this item</td>
+  </tr><tr>
+    <td><a href="#directories">directories</a></td>
+    <td>directory nodes on item's path</td>
+  </tr><tr>
+    <td><a href="#features">features</a></td>
+    <td>noteworthy features of this item</td>
+  </tr><tr>
+    <td><a href="#impairments">impairments</a></td>
+    <td>relevant impairments for this item</td>
+  </tr><tr>
+    <td><a href="#interfaces">interfaces</a></td>
+    <td>ways to access or use this item</td>
+  </tr><tr>
+    <td><a href="#licenses">licenses</a></td>
+    <td>licenses imposed by this item</td>
+  </tr><tr>
+    <td><a href="#miscellany">miscellany</a></td>
+    <td>miscellaneous tags for this item</td>
+  </tr><tr>
+    <td><a href="#produces">produces</a></td>
+    <td>types of items produced by this item</td>
+  </tr><tr>
+    <td><a href="#products">products</a></td>
+    <td>trade names of this item's products</td>
+  </tr><tr>
+    <td><a href="#replaces">replaces</a></td>
+    <td>things that this item could replace</td>
+  </tr><tr>
+    <td><a href="#requires">requires</a></td>
+    <td>commands, libraries, etc.</td>
+  </tr><tr>
+    <td><a href="#roles">roles</a></td>
+    <td>roles which this item can play</td>
+  </tr><tr>
+    <td><a href="#runs_on">runs_on</a></td>
+    <td>platforms that this software runs on</td>
+  </tr><tr>
+    <td><a href="#skills">skills</a></td>
+    <td>skills which this individual claims</td>
+  </tr><tr>
+    <td><a href="#standards">standards</a></td>
+    <td>standards which this item follows</td>
+  </tr><tr>
+    <td><a href="#supports">supports</a></td>
+    <td>activities that this item supports</td>
+  </tr><tr>
+    <td><a href="#used_like">used_like</a></td>
+    <td>items that are used similarly</td>
+  </tr>
+</table>
+
+
+We also use several ref (reference) types.
+These show up as links on item pages
+and are also folded into the tags, for searching.
+Here's a precis of the current ref types,
+with links to more detailed descriptions:
+
+<table class="types tablesorter">
+  <tr>
+    <td><a href="#based_on">based_on</a></td>
+    <td>underlying items</td>
+  </tr><tr>
+    <td><a href="#f_authors">f_authors</a></td>
+    <td>authors of this file</td>
+  </tr><tr>
+    <td><a href="#f_editors">f_editors</a></td>
+    <td >editors of this file</td>
+  </tr><tr>
+    <td><a href="#f_reviews">f_reviews</a></td>
+    <td >catalog entry reviewers</td>
+  </tr><tr>
+    <td><a href="#provider">provider</a></td>
+    <td>providers of this item</td>
+  </tr><tr>
+    <td><a href="#provides">provides</a></td>
+    <td>items this item provides</td>
+  </tr><tr>
+    <td><a href="#see_also">see_also</a></td>
+    <td>strongly related items</td>
+  </tr>
+</table>
+
+### Type Descriptions
+
+#### <a name="directories">directories</a>
+
+The `directories` tags are the names of directories on the item's file path.
+So, for example, the TOML file for this page has the path
+`Areas/Content/Overviews/PA_Typed_Tags/main.toml`.
+The corresponding tag's value is a list,
+containing the strings `Areas`, `Content`, and `Overviews`.
+This information is harvested at load time,
+so it does not need to be present in the TOML source file.
+
+#### <a name="f_authors">f_authors</a>
+
+The `f_authors` type contains a list of IDs for the authors of the TOML file.
+For example, [Amanda Lacy]{cat_peo|Amanda_Lacy}
+has the ID `Amanda_Lacy`.
+
+#### <a name="f_editors">f_editors</a>
+
+The `f_editors` type contains a list of IDs for the editors of the TOML file.
+For example, [Rich Morin]{cat_peo|Rich_Morin}
+has the ID `Rich_Morin`.
+
+#### <a name="f_reviews">f_reviews</a>
+
+The `f_reviews` type contains a list of IDs for the reviewers of items
+in the Catalog area.
+For example, [Rich Morin]{cat_peo|Rich_Morin}
+has the ID `Rich_Morin`.
+
+#### <a name="features">features</a>
+
+The `features` type includes noteworthy features of this item.
+For example, the [Anova Precision Cooker]{cat_har|Anova_PC}
+has the feature `immersable`.
+
+#### <a name="impairments">impairments</a>
+
+The `impairments` type includes relevant impairments for this item.
+For example, the [Anova Precision Cooker]{cat_har|Anova_PC}
+has the impairments `blind` and `low vision`.
+
+#### <a name="interfaces">interfaces</a>
+
+The `interfaces` type includes ways to access or use this item.
+For example, the [Alpine]{cat_sof|Alpine} email client has the
+interfaces `command line`, `email`, `terminal-based`, and `text-based`.
+
+#### <a name="licenses">licenses</a>
+
+The `licenses` type includes licenses imposed by this item.
+For example, the [Alpine]{cat_sof|Alpine} email client has the
+licenses `Apache` and `open source`.
+
+#### <a name="miscellany">miscellany</a>
+
+The `miscellany` type includes miscellaneous tags for this item.
+The presence of tags in this type tends to be temporary,
+going away when an appropriate type has been defined.
+
+#### <a name="produces">produces</a>
+
+The `produces` type includes types of items produced by this item.
+For example, [Anova Culinary]{cat_gro|Anova}
+produces `appliances` and `hardware`.
+
+#### <a name="products">products</a>
+
+The `products` type includes trade names of this item's products.
+For example, [Anova Culinary]{cat_gro|Anova} has a `products` entry
+for the [Anova Precision Cooker]{cat_har|Anova_PC}.
+
+#### <a name="provider">provider</a>
+
+The `provider` type includes IDs for Group items.
+For example, the [Anova Precision Cooker]{cat_har|Anova_PC} has a
+`provider` entry for [Anova Culinary]{cat_gro|Anova}.
+
+#### <a name="provides">provides</a>
+
+The `provides` type includes IDs for items that this Group provides.
+For example, [Anova Culinary]{cat_gro|Anova} has a `provides` entry
+for the [Anova Precision Cooker]{cat_har|Anova_PC}.
+
+#### <a name="replaces">replaces</a>
+
+The `replaces` type includes things that this item could replace.
+For example, the [Clever Cutter]{cat_har|Clever_Cutter}
+replaces a `cutting board` and a `knife`.
+
+#### <a name="requires">requires</a>
+
+The `requires` type includes things (e.g., commands, libraries)
+which this item requires.
+For example, the [Sup]{cat_sof|Sup} email client
+requires an interpreter and environment
+for the [Ruby]{ext_wp|Ruby_(programming_language)} language.
+
+#### <a name="roles">roles</a>
+
+The `roles` type includes roles which this item can play.
+For example, [Anova Culinary]{cat_gro|Anova} is both
+a `company` and a `manufacturer`.
+
+#### <a name="see_also">see_also</a>
+
+The `see_also` type includes IDs for closely related items.
+For example, [F123Light]{cat_har|F123Light} has a
+`see_also` entry for [F123Light OS]{cat_gro|F123Light_OS}.
+
+#### <a name="skills">skills</a>
+
+The `skills` type includes skills which this individual claims.
+For example, [Rich Morin]{cat_peo|Rich_Morin} claims skills
+as an `author`, `computer programmer`, and `editor`.
+
+#### <a name="standards">standards</a>
+
+The `standards` type includes standards which this item follows.
+For example, the [Anova Precision Cooker]{cat_har|Anova_PC}
+supports the `Bluetooth` and `Wi-Fi` standards.
+
+#### <a name="supports">supports</a>
+
+The `supports` type includes activities that this item supports.
+For example, the [Alpine]{cat_sof|Alpine} email client
+supports `communication`.
+
+#### <a name="used_like">used_like</a>
+
+The `used_like` type includes items that are used similarly to this item.
+For example, the [Clever Cutter]{cat_har|Clever_Cutter}
+is used like (a pair of) `scissors`.
+'''

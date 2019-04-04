@@ -1,0 +1,45 @@
+# cat_gro|Royal_Med_Sols/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Royal_Med_Sols'
+  title       = 'Royal Medical Solutions, Inc.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  produces    = 'cane, grabber, hardware, reacher, walker'
+  supports    = 'bathroom, daily living, mobility'
+
+[ about ]
+
+  precis      = 'wholesale distributor of medical devices'
+
+  verbose     = '''
+> We are a wholesale distributor of quality medical devices, located in the
+USA.  We offer a wide variety of products ranging from Mobility, Patient
+Care, Blood Pressure, and Respiratory Care.  Our mission is to provide
+quality service in order to build your trust and become your primary
+wholesale distributor of popular and hard-to-find medical supplies
+designed for both children and adults.
+
+> -- [$url]{http://royalmedsolutions.com}
+'''
+
+[ address.email ]
+
+  sales       = 'sales@royalmedsolutions.com'
+
+[ address.phone ]
+
+  main        = '+1 855 342 6230'
+
+[ address.web_site ]
+
+  about       = 'main|/about-us'
+  main        = 'http://royalmedsolutions.com'

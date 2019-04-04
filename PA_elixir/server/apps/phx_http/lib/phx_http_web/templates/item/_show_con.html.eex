@@ -1,0 +1,25 @@
+<!-- templates/item/_show_con.html.eex -->
+
+<%
+  alias PhxHttpWeb.ItemView
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  about     = @item.about
+  meta      = @item.meta
+
+  authors   = get_in(meta,  [:refs, :f_authors])
+%>
+
+<div class="hs-base1">
+  <h2><%= meta.title %></h2>
+
+  <p><%= fmt_authors(authors) %><p>
+
+  <%= fmt_path(@key) %>
+
+  <%= fmt_precis(about.precis) %>
+  
+  <%= render ItemView, "_show_refs.html", assigns %>
+
+  <%= fmt_markdown(about.verbose) %>
+</div>

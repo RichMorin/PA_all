@@ -1,0 +1,54 @@
+# cat_gro|Ambutech/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Ambutech'
+  title       = 'Ambutech Inc.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'hardware'
+  roles       = 'company, manufacturer'
+  supports    = 'daily living, mobility, orientation'
+
+[ about ]
+
+  precis      = 'provides mobility products for the visually impaired'
+
+  verbose     = '''
+> Ambutech promotes the mobile way of life.  We are the leader in innovative
+mobility products for the blind and people with low vision.  We offer the
+widest product line of any manufacturer with a commitment to value and
+quality.  We are the leader in innovation and new products in orientation
+and mobility.
+
+> -- [$url]{http://www.ambutech.com}
+'''
+
+[ address.email ]
+
+  info        = 'ghudek@ambutech.com'
+
+[ address.phone ]
+
+  main        = '+1 204 654 8444'
+
+[ address.postal ]
+
+  main        = '''
+Ambutech Inc.
+34 DeBaets Street
+Winnipeg, R3L 1P9
+Canada
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.ambutech.com'

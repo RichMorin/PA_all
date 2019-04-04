@@ -1,0 +1,43 @@
+# cat_sof|ERC/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'ERC'
+  title       = 'ERC'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'chat, command line, terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  requires    = 'Emacs, Linux, Lisp'
+  roles       = 'application, IRC client'
+  standards   = 'IRC'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'a powerful, modular, and extensible Emacs IRC client'
+
+  verbose     = '''
+> ERC is an Internet Relay Chat (IRC) client integrated into GNU Emacs.
+It is written in Emacs Lisp.
+
+> -- [$url]{ext_wp|ERC_(software)}
+'''
+
+[ address.related ]
+
+  emacswiki   = 'https://www.emacswiki.org/emacs/ERC'
+  wikipedia   = 'ext_wp|ERC_(software)'
+
+[ address.web_site ]
+
+  main        = 'ext_gs|erc'
+  manual      = 'ext_gs|emacs/manual/html_mono/erc.html'

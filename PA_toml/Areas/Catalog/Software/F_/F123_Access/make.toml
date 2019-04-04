@@ -1,0 +1,11 @@
+# cat_sof|F123_Access/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+# package     = 'none found, as of 2019.0310'
+
+[ os.debian ]
+
+# package     = 'none found, as of 2019.0310'

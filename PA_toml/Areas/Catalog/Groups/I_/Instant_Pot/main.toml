@@ -1,0 +1,76 @@
+# cat_gro|Instant_Pot/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Instant_Pot'
+  title       = 'Instant Pot'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  provides    = 'cat_har|Instant_Pot_SB'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  products    = 'Instant Pot'
+  roles       = 'company, manufacturer'
+  supports    = 'cooking, daily living'
+
+[ about ]
+
+  access      = '''
+Bluetooth connectivity allows operation from a cell phone and/or personal
+computer.
+'''
+
+  precis      = 'provides a bluetooth-enabled smart cooker'
+
+  verbose     = '''
+> Instant Brands Inc. was founded in 2009 by a team of Canadian technology
+veterans who set out to explore the food preparation category based on
+their own personal life experiences.  Their objective was to find solutions
+that would enable busy families and professionals to prepare quality food
+in less time, promoting better eating and reducing the consumption of fast
+food.
+
+> In late 2010, after eighteen grueling months of research, design, and
+development, they introduced the Instant Pot CSG Multi-Use Programmable
+Pressure Cooker.  The product was developed with an advanced microprocessor
+and incorporated the functions of five cooking appliances into one:
+pressure cooker, slow cooker, rice cooker, steamer, and warmer.
+
+> -- [$url]{https://instantpot.com}
+'''
+
+[ address.email ]
+
+  marketing   = 'marketing@instantpot.com'
+  sales       = 'sales@instantpot.com'
+  support     = 'support@instantpot.com'
+
+[ address.phone ]
+
+  fax         = '+1 613 800 0726'
+  main        = '+1 800 828 7280 (M-F, 8:30am to 10:00pm EST)'
+
+[ address.postal ]
+
+  main        = '''
+11 - 300 Earl Grey Dr., Suite 383
+Ottawa, ON, K2T 1C1
+Canada
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Instant_Pot'
+
+[ address.web_site ]
+
+  about       = 'main|/about-instant-brands-inc-instant-pot'
+  faq         = 'main|/portfolio-item/smart-bluetooth-2'
+  main        = 'https://instantpot.com'
+  product     = 'main|/portfolio-item/smart-bluetooth'

@@ -1,0 +1,40 @@
+# cat_sof|Speakup/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Speakup'
+  title       = 'Speakup'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'speech synthesis'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'kernel module, system software'
+  supports    = 'communication, reading'
+
+[ about ]
+
+  precis      = 'a kernel module that provides a text-to-speech interface'
+
+  verbose     = '''
+Speakup is a kernel module that provides a text-to-speech interface
+at the kernel level.
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|comotion/sic' 
+
+[ address.web_site ]
+
+  about       = 'main|/speakup.html'
+  main        = 'http://www.linux-speakup.org'
+  projects    = 'main|/projects.html'

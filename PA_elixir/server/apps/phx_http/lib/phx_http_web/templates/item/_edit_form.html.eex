@@ -1,0 +1,91 @@
+<!-- templates/item/_edit_form.html.eex -->
+
+<%
+  alias PhxHttpWeb.ItemView
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+%>
+
+<%= form_for @conn, Routes.item_path(@conn, :edit_post), fn _fn -> %>
+
+  <input type="hidden" name="key" value="<%= @key %>">
+
+  <div class="hs-base1 item-edit">
+
+    <h3>Fields
+        <%=
+          hide_show("is:1/2",
+            "data field names,
+             data field names and values")
+        %>
+    </h3>
+
+    <div class="hs-body1">
+
+      <%                                  # [ user ]
+        user_schema   = %{
+          email_addr:   "author's email address",
+          full_name:    "author's full name",
+        }
+      %>
+
+      <%= if @preview do %>
+        <%=
+          gi_path     = [ :user ]
+
+          render ItemView, "_edit_flds.html",
+            keys:   ~w(email_addr full_name)a,
+            map_i:  get_in(@item, gi_path),
+            map_s:  user_schema,
+            title:  "user"
+        %>
+      <% else %>
+        <%=
+          render ItemView, "_edit_flds.html",
+            keys:   nil,
+            map_i:  nil,
+            map_s:  user_schema,
+            title:  "user"
+        %>    
+      <% end %>
+
+      <%=                                 # [ meta ]
+        gi_path     = [ :meta ]
+        meta_keys   = ~w(id_str provider provides title)a
+
+        render ItemView, "_edit_flds.html",
+          keys:   meta_keys,
+          map_i:  get_in(@item,   gi_path),
+          map_s:  get_in(@schema, gi_path),
+          title:  "meta"
+      %>
+
+      <%                                  # [ meta.tags ], ...
+        gi_paths  = [
+          [ :meta,    :tags     ],
+          [ :about              ],
+          [ :address, :document ],
+          [ :address, :email    ],
+          [ :address, :phone    ],
+          [ :address, :postal   ],
+          [ :address, :related  ],
+          [ :address, :web_site ],
+        ]
+      %>
+
+      <%= for gi_path <- gi_paths do %>
+        <%=
+          title   = Enum.join(gi_path, ".")
+
+          render ItemView, "_edit_flds.html",
+            keys:   nil,
+            map_i:  get_in(@item,   gi_path),
+            map_s:  get_in(@schema, gi_path),
+            title:  title
+        %>
+      <% end %>
+
+    </div>
+    <%= render ItemView, "_edit_btns.html" %>
+  </div>
+
+<% end %>

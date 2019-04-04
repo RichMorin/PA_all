@@ -1,0 +1,25 @@
+# Catalog/Groups/_area.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Cat_Groups_area'
+  title       = 'Groups'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'provides information on a wide range of organizations'
+
+  verbose     = '''
+This section includes information on
+a wide range of organizations, including
+academic institutions,
+commercial enterprises,
+government agencies,
+non-profit organizations, etc.
+'''

@@ -1,0 +1,63 @@
+# cat_gro|OXO/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'OXO'
+  title       = 'OXO'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'ergonomic'
+  impairments = 'dexterity'
+  produces    = 'utensils'
+  roles       = 'company, manufacturer'
+  supports    = 'cooking, daily living'
+
+[ about ]
+
+  precis      = 'provides innovative, ergonomic consumer products'
+
+  verbose     = '''
+> OXO is dedicated to providing innovative consumer products that make
+everyday living easier.  We study people -— lefties and righties,
+male and female, young and old -— interacting with products and we
+identify opportunities for meaningful improvement.  Our thoughtful,
+"question everything" process and relentless attention to detail
+uncover the best solutions for life's everyday tasks.
+
+> -- [$url]{https://www.oxo.com}
+'''
+
+[ address.phone ]
+
+  fax         = '+1 717 709 5350'
+  main        = '+1 800 545 4411 (M-F, 8am ET to 6pm ET)'
+
+[ address.postal ]
+
+  main        = '''
+OXO Consumer Care Center
+1331 South Seventh St, Second Floor
+Chambersburg, PA 17201 USA
+'''
+
+[ address.related ]
+
+  facebook    = 'ext_fb|OXO'
+  instagram   = 'ext_ig|oxo'
+  pinterest   = 'ext_pi|oxo'
+  twitter     = 'ext_tw|OXO'
+  wikipedia   = 'ext_wp|OXO_(kitchen_utensils_brand)'
+  youtube     = 'ext_yt|oxo'
+
+[ address.web_site ]
+
+  about       = 'main|/our-philosophy'
+  faq         = 'main|/faqs'
+  main        = 'https://www.oxo.com'

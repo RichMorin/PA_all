@@ -1,0 +1,53 @@
+<!-- templates/dash/_refs_odd.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  kv_info   = @ref_info.kv_info
+  kv_list   = kv_info.kv_list
+  odd_vals  = get_odd_vals(kv_list)
+%>
+
+<div class="hs-base2">
+  <h3>
+    Oddballs
+    <%= hide_show("is:2/2", "information on oddball refs") %>
+  </h3>
+
+  <p>
+    This section summarizes "oddball" refs,
+    which contain characters other than letters, numbers, minus or plus sign,
+    parentheses, period, sharp sign, slash, and underscore).
+  </p>
+
+  <%= if Enum.empty?(odd_vals) do %>
+    <p>
+      No oddball ref values were found.
+    </p>
+  <% else %>
+    <div class="hs-body2 hs-is">
+      <table class="dash-ovwt tablesorter">
+        <thead>
+          <tr>
+            <th class="dash-ovwt-val">Ref value</th>
+            <th class="dash-ovwt-list">Ref type</th>
+            <th class="dash-ovwt-list">Example</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%= for odd_val <- odd_vals do %>
+            <%
+              {ref_val, ref_type, item_key}  = odd_val
+            %>
+            <tr>
+              <td class="dash-ovwt-val"><%= ref_val  %></td>
+              <td class="dash-ovwt-list"><%= ref_type %></td>
+              <td class="dash-ovwt-list"><%= item_key %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>

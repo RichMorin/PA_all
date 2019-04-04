@@ -1,0 +1,12 @@
+<!-- templates/text/home.html.eex -->
+
+<%
+  meta      = @item.meta
+  title     = meta.title
+
+  about     = @item.about
+%>
+
+<h2><%= title %></h2>
+
+<%= fmt_markdown(about.verbose) %>

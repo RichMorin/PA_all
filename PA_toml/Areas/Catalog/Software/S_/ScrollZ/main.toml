@@ -1,0 +1,48 @@
+# cat_sof|ScrollZ/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'ScrollZ'
+  title       = 'ScrollZ'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'C-based, fast'
+  interfaces  = 'chat, command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'ircII'
+  roles       = 'application, chat client'
+  standards   = 'IRC'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'an advanced IRC client, based on ircII'
+
+  verbose     = '''
+> ScrollZ is an advanced IRC client based on ircII.  It incorporates many
+useful features found in all sorts of scripts.  The main difference
+between these scripts and ScrollZ is the code - whereas ircII scripts
+take a lot of disk and memory space and run slow, ScrollZ only takes a
+couple of extra kilobytes compared to stock ircII client yet runs faster
+than any ircII script.  This was accomplished by using C code instead of
+ircII scripting language.  This reduces memory and CPU usage and code
+tends to run way faster.
+
+> -- [$url]{http://www.scrollz.info/what.php}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|ScrollZ/ScrollZ' 
+
+[ address.web_site ]
+
+  about       = 'main|/what.php'
+  main        = 'http://www.scrollz.info'

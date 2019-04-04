@@ -1,0 +1,54 @@
+# cat_gro|Anyview/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Anyview'
+  title       = 'Anyview Company Limited'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'low vision'
+  interfaces  = 'video'
+  produces    = 'hardware, video magnifier'
+  roles       = 'company, distributor, manufacturer'
+
+[ about ]
+
+  precis      = 'provides low vision products and solutions'
+
+  verbose     = '''
+> Anyview Company Limited is the leading low vision products and high grade
+solution provider.  We focus on R&D, production, sales, and service of
+low vision products, including a handheld video magnifier, portable video
+magnifier, and desktop video magnifier.
+
+> -- [$url]{http://www.anyview-tech.com}
+'''
+
+[ address.email ]
+
+  info        = 'info@anyview-tech.com'
+
+[ address.phone ]
+
+  main        = '+852 5470 3296'
+
+[ address.postal ]
+
+  main        = '''
+Anyview Company Limited
+2105, Trend Centre
+29-31 Cheung Lee Street, Chai Wan
+Hong Kong, 072550
+China 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.anyview-tech.com'

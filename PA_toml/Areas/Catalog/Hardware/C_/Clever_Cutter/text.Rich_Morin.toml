@@ -1,0 +1,27 @@
+# text.Rich_Morin.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Clever_Cutter'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'safe, convenient tool for chopping up crunchy vegetables'
+
+  verbose     = '''
+The Clever Cutter is a safe, convenient tool
+for chopping up small, crunchy pieces of vegetables.
+It's kind of an oversized "anvil pruner", adapted for use in the kitchen.
+Squeezing the handles forces a 4" long blade against a plastic "anvil".
+
+It works well for crunchy vegetables such as carrots, celery, and potatoes.
+And, because the blade is quite dull, stray fingers are unlikely to be harmed.
+However, this also means that the Clever Cutter isn't a great tool
+for cutting up meat, slicing tomatoes, etc.
+'''

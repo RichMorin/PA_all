@@ -1,0 +1,7 @@
+# cat_sof|LibreOffice/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+[ os.debian ]

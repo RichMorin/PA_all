@@ -1,0 +1,58 @@
+# cat_gro|Cyxtera/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Cyxtera'
+  title       = 'Cyxtera'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, dyslexia, low vision'
+  interfaces  = 'web'
+  produces    = 'software'
+  products    = 'Compliance Sheriff'
+  roles       = 'company, manufacturer, software developer'
+  supports    = 'reading'
+
+[ about ]
+
+  precis      = 'provides a web accessibility checker and framework'
+
+  verbose     = '''
+> Compliance Sheriff, a Cyxtera solution, allows you to make your website
+accessible.  Cyxtera delivers web accessibility software and a comprehensive
+framework for web accessibility built upon extensive research and decades of
+global industry experience to develop a practical and robust accessibility
+model.  Our customers have leveraged Compliance Sheriff to shape customers'
+accessibility policies and practices. 
+
+> -- [$url]{http://compliancesheriff.com}
+'''
+
+[ address.email ]
+
+  info        = 'info@compliancesheriff.com'
+
+[ address.phone ]
+
+  fax         = '+1 857 327 9347'
+  main        = '+1 857 327 9347'
+
+[ address.postal ]
+
+  main        = '''
+Cyxtera
+130 Turner Street, Suite 610
+Waltham, MA 02453
+United States 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://compliancesheriff.com'

@@ -1,0 +1,14 @@
+# cat_sof|JOE/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/any/jupyter-notebook'
+  upstream    = 'ext_gh|jupyter/notebook'
+  wiki        = 'ext_awi|Jupyter'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch//jupyter-notebook'
+  wiki        = 'https://wiki.debian.org/Jupyter'

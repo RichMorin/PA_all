@@ -1,0 +1,11 @@
+# cat_sof|OCRdesktop/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|packages/ocrdesktop'
+  upstream    = 'http://linux-a11y.org'
+  wiki        = 'ext_awi|Ocrdesktop'
+
+[ os.debian ]

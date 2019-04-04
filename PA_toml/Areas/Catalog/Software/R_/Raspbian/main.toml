@@ -1,0 +1,51 @@
+# cat_sof|Raspbian_Lite/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Raspbian'
+  title       = 'Raspbian'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  based_on    = 'cat_sof|Debian'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, open source'
+  requires    = 'Linux, Raspberry Pi'
+  roles       = 'operating system'
+
+[ about ]
+
+  precis      = 'operating system for the Raspberry Pi'
+
+  verbose     = '''
+Raspbian is the Raspberry Pi Foundation’s official supported operating system.
+Raspbian Lite is the base for the Raspberry VI distribution.
+
+> The lite version of Raspbian Jessie is just like the normal Raspbian
+Jessie operating system but without any of the graphical desktop
+environment packages.  This means it's much, much smaller than the
+normal image -- it's only about 1.3 gigabytes in size vs. over 4
+gigabytes for the normal image!
+
+> -- [$url]{https://blog.adafruit.com/2015/12/01/
+            new-official-raspbian-jessie-lite-os-image}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Raspbian'
+  zoo = '''
+https://blog.adafruit.com/2015/12/01/new-official-raspbian-jessie-lite-os-image,
+https://www.raspberrypi.org/forums/viewtopic.php?t=127060,
+'''
+
+[ address.web_site ]
+
+  main        = 'https://www.raspberrypi.org/downloads/raspbian'

@@ -1,0 +1,19 @@
+# cat_sof|Xpdf/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/x86_64/xpdf'
+  upstream    = 'https://www.xpdfreader.com'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/xpdf'
+  search      = 'ext_pd|search?keywords=xpdf'
+  track       = 'https://tracker.debian.org/pkg/xpdf'
+
+  commands    = 'sudo apt-get install xpdf'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'Xpdf appears to be included in Raspbian.'

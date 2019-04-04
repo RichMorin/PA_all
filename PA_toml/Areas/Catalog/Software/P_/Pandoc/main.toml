@@ -1,0 +1,51 @@
+# cat_sof|Pandoc/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Pandoc'
+  title       = 'Pandoc'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'extensible, many formats'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'Haskell'
+  roles       = 'application, library'
+  standards   = 'HTML, Markdown'
+  supports    = 'document conversion'
+
+[ about ]
+
+  precis      = 'a universal document-conversion application and library'
+
+  verbose     = '''
+> Pandoc is a Haskell library for converting from one markup format to
+another, and a command-line tool that uses this library. It can read
+several dialects of Markdown and (subsets of) ...
+
+> In contrast to most existing tools for converting Markdown to HTML,
+pandoc has a modular design: it consists of a set of readers, which parse
+text in a given format and produce a native representation of the document,
+and a set of writers, which convert this native representation into a
+target format.  Thus, adding an input or output format requires only adding
+a reader or writer.
+
+> -- [$url]{ext_pd|stretch/pandoc}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|jgm/pandoc' 
+  wikipedia   = 'ext_wp|Pandoc'
+
+[ address.web_site ]
+
+  main        = 'http://pandoc.org'

@@ -1,0 +1,63 @@
+<!-- templates/search/show.html.eex -->
+
+<h2>Search Report</h2>
+
+<%
+  alias PhxHttpWeb.SearchView
+
+  base    = "<a href='https://en.wikipedia.org/wiki"
+  link_i  = "#{ base }/Intersection_(set_theory)'>intersection</a>" |> raw()
+  link_u  = "#{ base }/Union_(set_theory)'>union</a>"               |> raw()
+
+  n_results   = Enum.count(@results_i) + Enum.count(@results_u)
+  tally_i     = @results_i |> List.flatten() |> Enum.count
+  tally_u     = @results_u |> List.flatten() |> Enum.count
+%>
+
+<%= if n_results == 0 do %>
+
+  <p>
+    No results were found for this search.
+    Go back and make some selections!
+  </p>
+
+<% else %>
+
+  <div>
+    <h3>Queries</h3>
+
+    <p>
+      This part of the page displays the queries (defined and/or reused)
+      that were used in the search.
+    </p>
+
+    <%= render SearchView, "_show_defined.html", assigns %>
+    <%= render SearchView, "_show_reused.html",  assigns %>
+  </div>
+
+  <div>
+    <h3>
+      Results</h3>
+
+    <p>
+      This part of the page displays the results of the search.
+      Both the <%= link_i %> (all tags matched)
+      and the <%= link_u %> (any tags matched) are shown.
+    </p>
+
+    <%=
+      render SearchView, "_show_results.html",
+        header:   "Intersection (all tags matched)",
+        results:  @results_i,
+        tally:    tally_i
+    %>
+
+    <%=
+      render SearchView, "_show_results.html",
+        header:   "Union (any tag matched)",
+        results:  @results_u,
+        tally:    tally_u
+    %>
+  </div>
+
+<% end %>

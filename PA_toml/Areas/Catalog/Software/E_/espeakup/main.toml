@@ -1,0 +1,45 @@
+# cat_sof|espeakup/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'espeakup'
+  title       = 'espeakup'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'lets speakup use the eSpeak software synthesizer'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'eSpeak, speakup'
+  roles       = 'connector, daemon'
+
+[ about ]
+
+  precis      = 'a connector between speakup kernel modules and espeak'
+  # lets speakup use the espeak software synthesizer
+
+  verbose     = '''
+> Espeakup is a daemon that connects speakup kernel modules to the espeak
+software speech synthesizer through the /dev/softsynth device.
+
+> -- [$url]{ext_pd|sid/espeakup}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|williamh/espeakup'
+
+  #  https://launchpad.net/python-espeak
+
+[ address.web_site ]
+
+  forum       = 'https://groups.io/g/espeak-ng'
+  main        = 'ext_gh|williamh/espeakup'
+  man_page    = 'http://manpages.ubuntu.com/manpages/precise/man8/espeakup.8.html'

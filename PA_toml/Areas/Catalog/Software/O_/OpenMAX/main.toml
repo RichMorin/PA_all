@@ -1,0 +1,43 @@
+# cat_sof|OpenMAX/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'OpenMAX'
+  title       = 'OpenMAX (aka OMX)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_gro|DAISY'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'audio, images, media, video'
+  licenses    = 'open source'
+  roles       = 'API, standard'
+  standards   = 'DAISY'
+
+[ about ]
+
+  precis      = 'a API standard for processing of audio, video, and images'
+
+  verbose     = '''
+> OpenMAX (Open Media Acceleration), often shortened as "OMX", is a
+non-proprietary and royalty-free cross-platform set of C-language
+programming interfaces.  It provides abstractions for routines
+that are especially useful for processing of audio, video, and
+still images.
+
+> -- [$url]{ext_wp|OpenMAX}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|OpenMAX'
+
+[ address.web_site ]
+
+  main        = 'https://www.khronos.org/openmax'

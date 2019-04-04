@@ -1,0 +1,19 @@
+# cat_sof|Liblouis/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/x86_64/liblouis'
+  upstream    = 'http://liblouis.org'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/liblouis-data'
+  search      = 'ext_pd|search?keywords=liblouis-data'
+  track       = 'https://tracker.debian.org/pkg/liblouis-data'
+
+  commands    = 'sudo apt-get install liblouis-data'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

@@ -1,0 +1,41 @@
+# cat_sof|Irssi/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Irssi'
+  title       = 'Irssi'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'chat, command line, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, client, chat client'
+  standards   = 'ICB, IRC, SILC'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'a text mode, terminal based IRC client'
+  # Your text mode chatting application since 1999
+
+  verbose     = '''
+> Irssi is a terminal based IRC client for UNIX systems.  It also supports
+SILC and ICB protocols via plugins.
+
+> -- [$url]{ext_pd|stretch/irssi}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Irssi'
+
+[ address.web_site ]
+
+  main        = 'https://irssi.org'

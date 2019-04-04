@@ -1,0 +1,61 @@
+# cat_gro|247_Acc_Docs/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = '247_Acc_Docs'
+  title       = '247 Accessible Documents Pte Ltd'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, learning disability, low vision'
+  produces    = 'consulting, software'
+  products    = 'Accessible PDF, Accessible PowerPoint, Accessible Word'
+  standards   = '504, 508, ADA, AODA, Microsoft Word, PDF, PowerPoint, WCAG'
+  supports    = 'daily living, education, reading, workplace'
+
+[ about ]
+
+  precis      = 'promotes generation of accessible documents'
+
+  verbose     = '''
+> Aimed at making accessibility easy to achieve.
+
+> Making documents accessible to all!
+
+> Our Accessible PDF, Accessible Word, and Accessible PowerPoint services
+ensure that documents are accessible as per the accessibility standards
+and guidelines of the Americans with Disabilities Act (ADA), Section 504,
+Section 508, and Accessibility for Ontarians with Disabilities Act (AODA),
+Web Content Accessibility Guidelines (WCAG) etc. and tested by people with
+disabilities.
+
+> -- [$url]{http://www.247accessibledocuments.com}
+'''
+
+[ address.email ]
+
+  sales       = 'sales@247accessibledocuments.com'
+
+[ address.phone ]
+
+  main        = '+1 347 708 1524'
+
+[ address.postal ]
+
+  main        = '''
+247 Accessible Documents Pte Ltd
+100 Cecil Street #15-02
+The Globe
+Singapore, 069532
+Singapore 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.247accessibledocuments.com'

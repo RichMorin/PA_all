@@ -1,0 +1,23 @@
+# Content/Overviews/_area.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Con_Overviews_area'
+  title       = 'Overviews'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'contains introductory and survey material'
+
+  verbose     = '''
+This section is intended to include introductory and survey material
+on accessibility-related topics (e.g., white canes for the blind).
+At the moment, however, it mostly includes information on Pete's Alley
+and related efforts.  
+'''

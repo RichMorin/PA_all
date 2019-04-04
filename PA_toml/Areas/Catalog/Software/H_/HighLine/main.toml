@@ -1,0 +1,49 @@
+# cat_sof|HighLine/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'HighLine'
+  title       = 'HighLine'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'error checking, format conversion, validation'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'Ruby'
+  roles       = 'CLI, library, user interface'
+  supports    = 'software development'
+
+[ about ]
+
+  precis      = 'a higher-level, command-line oriented interface library'
+  # Ruby library for console-based I/O
+  # high-level interactive IO Ruby library
+
+  verbose     = '''
+> HighLine was designed to ease the tedious tasks of doing console input
+and output with low-level methods like gets and puts.  HighLine provides
+a robust system for requesting data from a user, without needing to code
+all the error checking and validation rules and without needing to convert
+the typed Strings into what your program really needs.  Just tell HighLine
+what you're after, and let it do all the work.
+
+> -- [$url]{ext_gh|JEG2/highline}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|JEG2/highline'
+  rubydoc     = 'http://www.rubydoc.info/github/JEG2/highline'
+  rubygems    = 'ext_rg|highline'
+
+[ address.web_site ]
+
+  main        = 'https://weechat.org'

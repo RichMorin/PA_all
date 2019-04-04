@@ -1,0 +1,45 @@
+# cat_sof|GNU_bc/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_bc'
+  title       = 'GNU bc'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'algebraic, arbitrary precision'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application, calculator, language'
+  standards   = 'POSIX 1003.2'
+  supports    = 'math'
+
+[ about ]
+
+  precis      = 'an interactive, arbitrary precision calculator and language'
+
+  verbose     = '''
+> GNU bc is an interactive algebraic language with arbitrary precision
+which follows the POSIX 1003.2 draft standard, with several extensions
+including multi-character variable names, an `else' statement, and full
+Boolean expressions.
+
+> -- [$url]{ext_pd|stretch/bc}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Bc_(programming_language)'
+  zoo         = 'https://www.systutorials.com/docs/linux/man/1p-bc'
+
+[ address.web_site ]
+
+  main        = 'ext_gs|bc'
+  manual      = 'ext_gs|bc/manual/html_mono/bc.html'

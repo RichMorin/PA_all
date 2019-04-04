@@ -1,0 +1,49 @@
+# cat_sof|Mutt/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Mutt'
+  title       = 'Mutt'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'encryption'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, email, terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  requires    = 'GPG, PGP'
+  roles       = 'application, email client'
+  standards   = 'GPG, MIME'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'a text-based email client for Unix-like systems'
+
+  verbose     = '''
+> Mutt is a text-based email client for Unix-like systems.  It was originally
+written by Michael Elkins in 1995 and released under the GNU General Public
+License version 2 or any later version.  The Mutt slogan is "All mail
+clients suck.  This one just sucks less."
+
+> -- [$url]{ext_wp|Mutt_(email_client)}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Mutt_(email_client)'
+  zoo = '''
+http://nongeekshandbook.blogspot.com/2009/02/mutt-email-client-that-sucks-less.html,
+http://www.sys-concept.com/Mutt-Quick-Reference-Letter.pdf
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.mutt.org'
+  wiki        = 'https://gitlab.com/muttmua/mutt/wikis/home'

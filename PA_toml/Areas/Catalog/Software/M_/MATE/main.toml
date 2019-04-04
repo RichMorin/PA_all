@@ -1,0 +1,45 @@
+# cat_sof|MATE/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'MATE'
+  title       = 'MATE'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'session management'
+  impairments = 'blindness, low vision'
+  interfaces  = 'GUI, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  requires    = 'GNOME 2'
+  roles       = 'desktop environment, system software'
+
+[ about ]
+
+  precis      = 'a desktop environment, based on GNOME 2'
+  # named after the South American plant yerba mate and its tea
+
+  verbose     = '''
+> MATE ... is a desktop environment forked from the now-unmaintained
+code base of GNOME 2.
+
+> -- [$url]{ext_wp|MATE_(software)}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|MATE_(software)'
+  zoo         = '''
+https://wiki.debian.org/accessibility#MATE,
+https://www.freedesktop.org/wiki/Accessibility/
+'''
+
+[ address.web_site ]
+
+  main        = 'https://mate-desktop.org'

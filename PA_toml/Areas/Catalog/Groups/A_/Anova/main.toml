@@ -1,0 +1,67 @@
+# cat_gro|Anova/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Anova'
+  title       = 'Anova Culinary'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  provides    = 'cat_har|Anova_PC'
+
+[ meta.tags ]
+
+  produces    = 'appliances, hardware'
+  products    = 'Anova Precision Cooker'
+  roles       = 'company, manufacturer'
+  supports    = 'cooking, daily living, sous vide'
+
+[ about ]
+
+  access      = '''
+Bluetooth connectivity allows operation from a cell phone and/or personal
+computer.
+'''
+
+  precis      = 'provider of smart kitchen appliances'
+
+  verbose     = '''
+> Founded in 2013, Anova is the world's leading provider of smart kitchen
+appliances.  Anova is changing the way people cook through its hardware
+devices and software platform, enabling the home cook to easily create
+restaurant-like experiences everyday.
+
+> -- [$url]{https://anovaculinary.com}
+'''
+
+[ address.email ]
+
+  support     = 'support@anovaculinary.com'
+
+[ address.phone ]
+
+  main        = '+1 855 421 8282 (M-F, 8:30am to 6:30pm PDT)'
+
+[ address.postal ]
+
+  main        = '''
+Anova Culinary
+667 Howard Street
+San Francisco, CA 94105 USA
+'''
+
+[ address.related ]
+
+  facebook    = 'ext_fb|AnovaSousVideCooking'
+  instagram   = 'ext_ig|anovaculinary'
+  linked_in   = 'ext_li|company/anova-culinary'
+  pinterest   = 'ext_pi|anovaculinary'
+  twitter     = 'ext_tw|anovaculinary'
+  wikipedia   = 'ext_wp|Anova_Culinary'
+
+[ address.web_site ]
+
+  main        = 'https://anovaculinary.com'

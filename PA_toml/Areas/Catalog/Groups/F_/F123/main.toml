@@ -1,0 +1,63 @@
+# cat_gro|F123/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'F123'
+  title       = 'F123'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  provides    = 'cat_sof|F123_Access, cat_har|F123Light'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'web'
+  produces    = 'hardware, operating system, software'
+  products    = 'F123 Access'
+  roles       = 'social enterprise, manufacturer, software developer'
+  supports    = 'daily living, education, employment'
+
+[ about ]
+
+  precis      = 'provides computer technology for the visually impaired'
+
+  verbose     = '''
+> F123 - Technology that enables
+
+> A scalable strategy for the education and employment of persons
+with disabilities
+
+> F123, a Brazilian social enterprise devoted to improving opportunities
+for education and employment for the blind and visually impaired, has
+developed a portable, affordable talking computer to help visually
+impaired people.  The idea is to help those suffering from blindness or
+partial vision by providing them with high-quality, low-cost, multi-lingual
+software that allows them to live with a degree of personal independence
+that they could not have otherwise.
+
+> F123 has produced F123 Access, a web browser extension that makes web sites
+more accessible to the blind.  They are working on a blind-accessible version
+of GNU/Linux, to be run on the Raspberry Pi and similar computers.
+
+> -- [$url]{http://f123.org/en}
+'''
+
+[ address.email ]
+
+  info        = 'information@f123.org'
+
+[ address.related ]
+
+  facebook    = 'ext_fb|F123.org'
+  google_p    = 'ext_gp|101435277630496590882/posts'
+  linked_in   = 'ext_li|in/f123org' 
+  twitter     = 'ext_tw|F123org'
+
+[ address.web_site ]
+
+  contact     = 'main|/contact'
+  main        = 'http://f123.org/en'

@@ -1,0 +1,19 @@
+# cat_sof|w3m/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/x86_64/w3m'
+  upstream    = 'https://salsa.debian.org/debian/w3m'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/w3m'
+  search      = 'ext_pd|search?keywords=w3m'
+  track       = 'https://tracker.debian.org/pkg/w3m'
+
+  commands    = 'sudo apt-get install w3m'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

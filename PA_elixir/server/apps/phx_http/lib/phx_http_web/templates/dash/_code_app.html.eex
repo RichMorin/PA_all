@@ -1,0 +1,46 @@
+<!-- templates/dash/_code_app.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  cnts_by_app = @code_info.cnts_by_app
+  app_names   = cnts_by_app |> keyss()
+  
+%>
+
+<div class="hs-base2">
+  <h3>
+    Counts by Application
+    <%= hide_show("is:2/2", "code statistics by application") %>
+  </h3>
+
+  <div class="hs-body2 hs-is">
+    <table class="dash-code tablesorter">
+      <thead>
+        <tr>
+          <th class="dash-code-left">Application</th>
+          <th>Files</th>
+          <th>Funcs</th>
+          <th>Lines</th>
+          <th>Chars</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= for app_name <- app_names do %>
+          <%
+            cnts  = cnts_by_app[app_name]
+            name  = String.replace_prefix(app_name, "|", "")
+          %>
+          <tr>
+            <td class="dash-code-left"><tt><%= name %></tt></td>
+            <td><%= cnts.file %></td>
+            <td><%= cnts.func %></td>
+            <td><%= cnts.line %></td>
+            <td><%= cnts.char %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

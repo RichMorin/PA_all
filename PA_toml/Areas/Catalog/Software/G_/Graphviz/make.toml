@@ -1,0 +1,12 @@
+# cat_sof|Graphviz/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/x86_64/graphviz'
+  wiki        = 'ext_awi|Graphviz'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/graphviz'

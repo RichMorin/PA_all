@@ -1,0 +1,56 @@
+# cat_gro|Altix/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Altix'
+  title       = 'Altix Sp. z o.o.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'game'
+  impairments = 'blindness, low vision'
+  produces    = 'games, maps, software'
+  roles       = 'company, manufacturer, publisher'
+  standards   = 'braille'
+  supports    = 'daily living, navigation, orientation'
+
+[ about ]
+
+  precis      = 'provides orientation maps of public buildings and spaces'
+
+  verbose     = '''
+> Altix provides a system of orientation maps of public buildings and spaces.
+The system is addressed to the needs of blind and low-vision people.
+It helps them to orientate in the building.  Altix is a producer of braille
+translating software - Euler and games for the blind: reversi, checkers, and
+Ludo.
+
+> -- [$url]{http://www.altix.pl}
+'''
+
+[ address.email ]
+
+  info        = 'adam.kalbarczyk@altix.pl'
+
+[ address.phone ]
+
+  main        = '+48 22 510 10 90'
+
+[ address.postal ]
+
+  main        = '''
+Altix Sp. z o.o.
+Modlińska 246C
+Warsaw, 03-152
+Poland
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.altix.pl'

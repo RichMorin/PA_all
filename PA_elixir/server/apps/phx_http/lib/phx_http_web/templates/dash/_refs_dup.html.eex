@@ -1,0 +1,46 @@
+<!-- templates/dash/_refs_dup.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  kv_info   = @ref_info.kv_info
+  kv_list   = kv_info.kv_list
+  dup_vals  = get_dup_vals(kv_list)
+  ref_vals  = keyss(dup_vals)
+%>
+
+<div class="hs-base2">
+  <h3>
+    Duplicates
+    <%= hide_show("is:2/2", "information on ref duplication") %>
+  </h3>
+
+  <div class="hs-body2 hs-is">
+    <p>
+      The table below summarizes ref duplication across types.
+      Although duplication is not necessarily a problem,
+      it may indicate semantic confusion.
+    </p>
+
+    <table class="dash-dvwt tablesorter">
+      <thead>
+        <tr>
+          <th class="dash-dvwt-val">Ref value</th>
+          <th class="dash-dvwt-list">Ref types, with counts</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= for ref_val <- ref_vals do %>
+          <%
+            type_str  = dup_vals[ref_val]
+          %>
+          <tr>
+            <td class="dash-dvwt-val"><%= ref_val  %></td>
+            <td class="dash-dvwt-list"><%= type_str %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

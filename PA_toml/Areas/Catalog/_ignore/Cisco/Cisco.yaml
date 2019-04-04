@@ -1,0 +1,31 @@
+# Cisco.yam
+
+_meta:
+  author:         Rich_Morin
+  id:             Cisco
+  title:          Cisco
+
+about:            |
+  Cisco is committed to designing and delivering accessible products and
+  technologies to meet the needs of your organization.  The Cisco
+  Accessibility Initiative is a company wide effort that stresses the
+  importance of creating accessible products.	 
+
+address:
+  email:
+    info:         sanjivk@cisco.com
+
+  phone:
+    main:         "+1 408 894 4484"
+
+  postal:
+    main:         |
+      Cisco
+      170 West Tasman Drive
+      San Jose, CA 95134
+      United States	 
+
+  web_site:
+    main:         http://www.cisco.com
+
+tags: [ blindness, hardware, low vision, software, telecom ]

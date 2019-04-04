@@ -1,0 +1,58 @@
+# cat_gro|iMerciv/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'iMerciv'
+  title       = 'iMerciv Inc'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'echolocation, ultrasound'
+  impairments = 'blindness, low vision'
+  produces    = 'hardware'
+  products    = 'BuzzClip'
+  roles       = 'company, manufacturer'
+  supports    = 'daily living, mobility'
+
+[ about ]
+
+  precis      = 'provides a wearable, ultrasonic object detection device'
+
+  verbose     = '''
+> The BuzzClip is a small and discreet wearable for people living with
+blindness or partial sight.  The device uses ultrasound to detect obstacles
+that may lie directly in one's path.  It then notifies the user of these
+obstacles through intuitive vibrations, allowing the user to safely
+navigate around any objects that they may encounter.  The BuzzClip offers
+essential head level obstacle detection and can be easily held or attached
+to many forms of clothing, making it a highly versatile and useful device. 
+
+> -- [$url]{http://www.imerciv.com}
+'''
+
+[ address.email ]
+
+  main        = 'info@imerciv.com'
+
+[ address.phone ]
+
+  main        = '+1 437 998 2243'
+
+[ address.postal ]
+
+  main        = '''
+iMerciv Inc
+112 College Street, Suite 411
+Toronto, M5G 1L6
+Canada\t 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.imerciv.com'

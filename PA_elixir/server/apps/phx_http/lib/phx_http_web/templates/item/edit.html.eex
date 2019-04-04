@@ -1,0 +1,15 @@
+<!-- templates/item/edit.html.eex -->
+
+<%
+  alias PhxHttpWeb.ItemView
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  my_assigns  = assigns
+  |> Map.put(:preview, nil)
+%>
+
+<h2>Edit</h2>
+
+<%= render ItemView, "_edit_hdr.html" %>
+
+<%= render ItemView, "_edit_form.html", my_assigns %>

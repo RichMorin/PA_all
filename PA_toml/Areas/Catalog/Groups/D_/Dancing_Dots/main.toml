@@ -1,0 +1,62 @@
+# cat_gro|Dancing_Dots/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Dancing_Dots'
+  title       = 'Dancing Dots'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'courses, magnifier, software'
+  products    = '''
+6Dot Braille Label Maker, Braille Education Remote Tool,
+Cosmo EBrailler, GOODFEEL, Lime Aloud, Lime Lighter
+'''
+  roles       = 'company, manufacturer, publisher'
+  standards   = 'braille'
+  supports    = 'daily living, education, music'
+
+[ about ]
+
+  precis      = 'provides support for blind and low vision musicians'
+
+  verbose     = '''
+> Inclusion in classroom, studio and stage for blind and low vision musicians.
+Lime Lighter magnifies music comfortably.  Scan/import print scores, listen
+to results or convert to braille music.  Play your musical ideas into your
+PC; Convert to print music, braille score, or audio CD.  Publisher of
+braille music courses.  GOODFEEL, Lime Aloud, and audio production technology.
+Learn braille music and our technology on-site or remotely.  6Dot Braille
+Label maker, Cosmo EBrailler.  Braille Education Remote Tool.
+
+> -- [$url]{http://www.dancingdots.com}
+'''
+
+[ address.email ]
+
+  info        = 'info@dancingdots.com'
+
+[ address.phone ]
+
+  fax         = '+1 610 500 5072'
+  main        = '+1 610 783 6692'
+
+[ address.postal ]
+
+  main        = '''
+Dancing Dots
+1754 Quarry Lane, Suite DD
+Phoenixville, PA 19460-4620
+United States 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.dancingdots.com'

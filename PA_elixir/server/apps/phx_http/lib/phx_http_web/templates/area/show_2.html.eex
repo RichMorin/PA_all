@@ -1,0 +1,24 @@
+<!-- templates/area/show_2.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+  about   = @item.about
+%>
+
+<h2><%= @name %></h2>
+
+<%= fmt_markdown(about.verbose) %>
+
+<%= for section <- @sections do %>
+  <h3>
+    <%= body    = "#{ @name }/#{ section }"
+        precis  = get_precis(body)
+        title   = "Go to the #{ section } index page."
+        url     = url_area(body)
+        link(section, title: title, to: url)
+    %>
+    (<%= @counts[section] || 0 %>)
+  </h3>
+
+  <p>This section contains <%= precis %>.</p>
+<% end %>

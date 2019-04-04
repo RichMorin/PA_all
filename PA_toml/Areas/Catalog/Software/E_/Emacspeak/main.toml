@@ -1,0 +1,53 @@
+# cat_sof|Emacspeak/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Emacspeak'
+  title       = 'Emacspeak'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'speech generation'
+  impairments = 'blindness, low vision'
+  interfaces  = 'audio, command line, terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  requires    = 'Emacs, Lisp'
+  roles       = '''
+application, audio desktop, IDE, speech interface, screen reader, software,
+text editor
+'''
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'a customizable (Lisp-based) text editor, IDE, etc.'
+  # "the extensible self-documenting text editor"
+
+  verbose     = '''
+> Emacspeak is a free computer application, a speech interface, and an audio
+desktop (as opposed to a screen reader). ... It is tightly integrated with
+Emacs, allowing it to render intelligible and useful content rather than
+parsing the graphics (hence it is sometimes referred to not as a separate
+program, but a subsystem of Emacs proper); ... Emacspeak is one of the most
+popular speech interfaces for Linux, bundled with most major distributions.
+
+> -- [$url]{ext_wp|Emacspeak}
+'''
+
+[ address.related ]
+
+  emacswiki   = 'https://www.emacswiki.org/emacs/EmacSpeak'
+  sourceforge = 'http://emacspeak.sourceforge.net'
+  wikipedia   = 'ext_wp|Emacspeak'
+
+[ address.web_site ]
+
+  doc         = 'ext_gs|emacs/documentation.html'
+  main        = 'ext_gs|emacs'
+  manual      = 'ext_gs|emacs/manual/emacs.html'

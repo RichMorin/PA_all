@@ -1,0 +1,26 @@
+# Catalog/_area.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Catalog_area'
+  title       = 'Catalog'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'a crowd-sourced, curated resource catalog'
+
+  verbose     = '''
+This area is a crowd-sourced, curated [web portal]{ext_wp|Web_portal},
+covering accessible and assistive technologies, related organizations, etc.
+It includes both items of specific and incidental interest to the disabled.
+For example, although the [Anova Precision Cooker]{cat_har|Anova_PC}
+isn't marketed as assistive technology,
+its [Bluetooth]{ext_wp|Bluetooth} and [Wi-Fi]{ext_wp|Wi-Fi} connectivity
+make it accessible to the blind.
+'''

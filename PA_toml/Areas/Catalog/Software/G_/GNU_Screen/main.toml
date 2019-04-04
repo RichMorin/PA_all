@@ -1,0 +1,50 @@
+# cat_sof|GNU_Screen/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_Screen'
+  title       = 'GNU Screen'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'multiple sessions, session management, virtual consoles'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'terminal multiplexer, utility'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'a program that lets users manage multiple login sessions'
+
+  verbose     = '''
+> GNU Screen is a terminal multiplexer, a software application that can be
+used to multiplex several virtual consoles, allowing a user to access
+multiple separate login sessions inside a single terminal window, or
+detach and reattach sessions from a terminal.  It is useful for dealing
+with multiple programs from a command line interface, and for separating
+programs from the session of the Unix shell that started the program,
+particularly so a remote process continues running even when the user is
+disconnected.
+
+> -- [$url]{ext_wp|GNU_Screen}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|GNU_Screen, ext_wp|Terminal_multiplexer'
+  zoo = '''
+https://savannah.gnu.org/git/?group=screen,
+http://www.linuxforums.org/articles/the-screen-program_55.html
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gs|screen'

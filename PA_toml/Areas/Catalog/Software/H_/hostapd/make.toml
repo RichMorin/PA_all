@@ -1,0 +1,19 @@
+# cat_sof|hostapd/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/x86_64/hostapd'
+  upstream    = 'https://w1.fi/hostapd'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/hostapd'
+  search      = 'ext_pd|search?keywords=hostapd'
+  track       = 'https://tracker.debian.org/pkg/hostapd'
+
+  commands    = 'sudo apt-get install hostapd'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

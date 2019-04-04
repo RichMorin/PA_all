@@ -1,0 +1,50 @@
+# cat_sof|The_vOICe/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'The_vOICe'
+  title       = 'The vOICe (aka Seeing with Sound)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'image-to-sound renderings, sensory substitution'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, library'
+
+[ about ]
+
+  precis      = 'an app which renders images (e.g., camera views) as sound'
+
+  verbose     = '''
+The vOICe vision technology for the totally blind offers the experience
+of live camera views through image-to-sound renderings.  Images are
+converted into sound by scanning them from left to right while associating
+elevation with pitch and brightness with loudness.
+
+In theory, this could lead to synthetic vision with truly visual sensations
+("qualia"), by exploiting the neural plasticity of the human brain through
+training.  The vOICe also acts as a research vehicle for the cognitive
+sciences to learn more about the dynamics of large-scale adaptive processes
+in the human brain.
+'''
+
+[ address.email ]
+
+  main        = 'feedback@seeingwithsound.com'
+
+[ address.related ]
+
+  twitter     = 'ext_tw|seeingwithsound'
+  wikipedia   = 'ext_wp|Sensory_substitution'
+
+[ address.web_site ]
+
+  main        = 'https://www.seeingwithsound.com'

@@ -1,0 +1,60 @@
+# cat_gro|ADA_NN/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'ADA_NN'
+  title       = 'ADA National Network'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'any'
+  produces    = 'guidance, information, training'
+  roles       = 'government agency, organization'
+  standards   = 'ADA'
+  supports    = 'legal rights'
+
+[ about ]
+
+  precis      = 'provides information, guidance, and training on the ADA'
+
+  verbose     = '''
+> The ADA National Network provides information, guidance, and training
+on how to implement the Americans with Disabilities Act (ADA) in order
+to support the mission of the ADA to "assure equality of opportunity,
+full participation, independent living, and economic self-sufficiency
+for individuals with disabilities."
+
+> Funded by the National Institute on Disability, Independent Living,
+and Rehabilitation Research (NIDILRR), the network consists of 10
+Regional ADA Centers located throughout the United States and an ADA
+Knowledge Translation Center (ADAKTC). 
+
+> Each Regional ADA Center focuses on its region's unique needs. This
+regional focus is critical to ensuring that ADA National Network
+services meet the needs of a diversity of populations and stakeholders
+throughout the country.
+
+> -- [$url]{https://adata.org/national-network}
+'''
+
+[ address.phone ]
+
+  main        = '+1 800 949 4232'
+  tty         = '+1 800 949 4232'
+
+[ address.related ]
+
+  facebook    = 'ext_fb|adanetwork'
+  linked_in   = 'ext_li|company/ada-national-network'
+  twitter     = 'ext_tw|ADANational'
+
+[ address.web_site ]
+
+  main        = 'https://adata.org'
+  zoo         = 'main|/national-network'

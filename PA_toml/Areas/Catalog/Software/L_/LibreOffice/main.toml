@@ -1,0 +1,55 @@
+# cat_sof|LibreOffice/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'LibreOffice'
+  title       = 'LibreOffice'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  licenses    = 'free, LGPL3, open source'
+  roles       = 'application, office suite'
+  standards   = 'odf'
+  supports    = 'communication, reading'
+
+[ about ]
+
+  precis      = 'a free and open-source office suite'
+
+  verbose     = '''
+> LibreOffice is a free and open-source office suite,
+a project of The Document Foundation. ...
+The LibreOffice suite comprises programs for word processing,
+the creation and editing of spreadsheets, slideshows, diagrams and drawings,
+working with databases, and composing mathematical formulae.
+It is available in 115 languages.
+
+> -- [$url]{ext_wp|LibreOffice}
+
+The suite includes several programs, including:
+
+- Base      - database management program
+- Calc      - spreadsheet program
+- Draw      - diagrammer and graphics editor
+- Impress   - presentation program
+- Math      - mathematical formula editor
+- Writer    - word processor
+'''
+
+[ address.related ]
+
+  wikipedia   = '''
+ext_wp|LibreOffice,
+ext_wp|OpenDocument,
+'''
+
+[ address.web_site ]
+
+  download    = 'main|/download'
+  main        = 'https://www.libreoffice.org'

@@ -1,0 +1,49 @@
+# cat_sof|Sup/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Sup'
+  title       = 'Sup'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'fast searching, multiple accounts, rich query language'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, email, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'Ruby'
+  roles       = 'application, email client'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'a console-based email client for people with a lot of email'
+
+  verbose     = '''
+> Sup is a console-based email client for people with a lot of email.
+
+> - GMail-like thread-centered archiving, tagging, and muting
+> - Handling mail from multiple mbox and Maildir sources
+> - Blazing fast full-text search with a rich query language
+> - Multiple accounts - pick the right one when sending mail
+> - Ruby-programmable hooks
+> - Automatically tracking recent contacts
+
+> -- [$url]{ext_rg|sup}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|sup-heliotrope/sup'
+  rubydoc     = 'ext_rd|sup'
+  rubygems    = 'ext_rg|sup'
+
+[ address.web_site ]
+
+  main        = 'http://sup-heliotrope.github.io'

@@ -1,0 +1,28 @@
+/*
+  Gene Dronek's CSS code for support of progressive disclosure.
+  See also ../js/more_or_less.js
+*/
+
+/* Adjust any initial or remainder CSS here. */
+
+div[more-or-less] > :nth-child(1)			        { background:       red; }
+div[more-or-less] > :nth-child(3)			        { background:       blue;
+                                                color:            #FFF; }
+
+/* static css */
+
+div[more-or-less] > meta             		      { display:          inline;
+                                                text-decoration:  underline; }
+div[more-or-less] > meta:hover        	      { font-style:       italic;
+                                                color:            blue;
+                                                font-size:        105%;
+                                                line-height:      95%; }
+div[more-or-less] >     :nth-child(1)		      { }
+div[more-or-less] > meta:nth-child(2)		      { }
+div[more-or-less] >     :nth-child(3)		      { display:          none; }
+div[more-or-less].whaa> :nth-child(3)		      { display:          inline; }
+div[more-or-less] > meta:nth-child(4)		      { }
+div.whaa          > meta:nth-child(2):before	{ content: ""; }
+div.whaa          > meta:nth-child(4):before	{ content: "...less"; }
+div:not(.whaa)    > meta:nth-child(2):before	{ content: "more..."; }
+div:not(.whaa)    > meta:nth-child(4):before	{ content: ""; }

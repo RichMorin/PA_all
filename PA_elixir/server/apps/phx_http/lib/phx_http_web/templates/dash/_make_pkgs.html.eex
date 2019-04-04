@@ -1,0 +1,64 @@
+<!-- templates/dash/_make_pkgs.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  f         = fn bool -> if bool do "Y" else "-" end end
+  pkg_cnt   = Enum.count(@packages)
+  pkg_keys  = keyss(@packages)
+%>
+
+<div class="hs-base2">
+  <h3>
+    Make Packages
+    <%= hide_show("is:2/2", "information on make packages") %>
+  </h3>
+
+  <p>
+    The following table summarizes <%= pkg_cnt %> software packages
+    which we are considering for inclusion in
+    <%=
+      url   = "/item?key=Areas/Content/Overviews/PP_Introduction/main.toml"
+      title = "Go to: Perkian"
+      link("Perkian", title: title, to: url)
+    %>.
+    A "Y" in the A (Arch), D (Debian), or O (Other) column indicates
+    that we have a link for an associated archive site.
+    The Precis column contains a short textual description.
+  </p>
+
+  <div class="hs-body2 hs-is">
+    <table class="dash-make tablesorter">
+      <thead>
+        <tr>
+          <th class="dash-make-tag" >Package</th>
+          <th class="dash-make-list">A</th>
+          <th class="dash-make-list">D</th>
+          <th class="dash-make-list">O</th>
+          <th class="dash-make-text">Precis</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= for pkg_key <- pkg_keys do %>
+          <%
+            pkg   = @packages[pkg_key]
+            main  = pkg.main
+            make  = pkg.make
+            name  = make.name
+            url   = "/item?key=#{ pkg.main.key }"
+            title = "Go to: #{ name }"
+            link  = link(name, to: url, title: title)
+          %>
+          <tr>
+            <td class="dash-make-tag" ><%= link %></td>
+            <td class="dash-make-list"><%= f.(make.arch)    %></td>
+            <td class="dash-make-list"><%= f.(make.debian)  %></td>
+            <td class="dash-make-list"><%= f.(make.other)   %></td>
+            <td class="dash-make-text"><%=    main.precis   %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

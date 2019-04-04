@@ -1,0 +1,47 @@
+# cat_sof|GNU_Emacs/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_Emacs'
+  title       = 'GNU Emacs'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'extensible'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  requires    = 'Lisp'
+  roles       = 'application, IDE, text editor'
+  standards   = 'POSIX 1003.2'
+  supports    = 'software development'
+
+[ about ]
+
+  precis      = 'a customizable (Lisp-based) text editor, IDE, etc.'
+  # "the extensible self-documenting text editor"
+
+  verbose     = '''
+> GNU Emacs is the most popular and most ported Emacs text editor.  ...
+In common with other varieties of Emacs, GNU Emacs is extensible using
+a Turing complete programming language.  GNU Emacs has been called "the
+most powerful text editor available today."
+
+> -- [$url]{ext_wp|GNU_Emacs}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Emacs, ext_wp|GNU_Emacs'
+
+[ address.web_site ]
+
+  doc         = 'ext_gs|emacs/documentation.html'
+  main        = 'ext_gs|emacs/'
+  manual      = 'ext_gs|emacs/manual/emacs.html'

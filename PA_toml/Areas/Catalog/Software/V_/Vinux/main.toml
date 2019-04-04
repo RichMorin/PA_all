@@ -1,0 +1,46 @@
+# cat_sof|Vinux/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Vinux'
+  title       = 'Vinux'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'screen reader, speech generation'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, open source'
+  requires    = 'eSpeak, GNOME, Intel, Linux, MATE, Ubuntu, Unity, Voxin'
+  roles       = 'operating system'
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'a blind-friendly Linux distribution, based on Ubuntu'
+
+  verbose     = '''
+> Vinux is an Ubuntu-derived distribution optimised for the needs of blind
+and partially sighted users.  By default, Vinux provides two screen
+readers, Braille display support, and an extremely friendly community.
+
+> Vinux is based on Ubuntu and only supports Intel-compatible hardware.
+Vinux provides three desktop environments: Unity, GNOME, and MATE.
+
+> We are now offering other speech engines for Vinux as an alternative to
+ESpeak, the default synthesizer.  At the moment, you can purchase Voxin,
+which is a speech synthesiser that sounds similar to Eloquence as used
+with JAWS for Windows.
+
+> -- [$url]{http://vinuxproject.org}
+'''
+
+[ address.web_site ]
+
+  main        = 'http://vinuxproject.org'

@@ -1,0 +1,10 @@
+# cat_sof|BitchX/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|bitchx-git'
+  upstream    = 'http://bitchx.sourceforge.net'
+
+[ os.debian ]

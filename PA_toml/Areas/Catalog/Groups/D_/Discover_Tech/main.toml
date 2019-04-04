@@ -1,0 +1,59 @@
+# cat_gro|Discover_Tech/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Discover_Tech'
+  title       = 'Discover Technologies'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'software'
+  products    = 'Discover Access for SharePoint'
+  requires    = 'SharePoint'
+  roles       = 'company, manufacturer, software developer'
+  standards   = 'Section 508, WCAG'
+  supports    = 'workplace'
+
+[ about ]
+
+  precis      = 'provides workplace software solutions for the blind'
+
+  verbose     = '''
+> IT services and software solutions company that develops software solutions
+that make it easier for people who are blind to do their jobs.  Discover
+Access for SharePoint makes SharePoint usable right out of the box.
+Discover Access for SharePoint also automatically remediates WCAG 2.0 AA
+and Section 508 errors associated with SharePoint Navigation as soon as
+it is installed.  We recently released a solution that makes K2 SmartForms
+accessible by people who are blind or visually impaired. 
+
+> -- [$url]{http://www.discovertechnologies.com}
+'''
+
+[ address.email ]
+
+  info        = 'bstover@discovertechnologies.com'
+
+[ address.phone ]
+
+  main        = '+1 703 288 9696'
+
+[ address.postal ]
+
+  main        = '''
+Discover Technologies
+13241 Woodland Park Road, Suite 610
+Herndon, VA 20171
+United States 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.discovertechnologies.com'

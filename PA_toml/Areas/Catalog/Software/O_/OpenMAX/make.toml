@@ -1,0 +1,9 @@
+# cat_sof|OpenMAX/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+[ os.debian ]
+
+# https://packages.debian.org/stretch/libomxil-bellagio-bin

@@ -1,0 +1,57 @@
+# cat_sof|GNOME_Web/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNOME_Web'
+  title       = 'GNOME Web'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_sof|GNOME'
+
+[ meta.tags ]
+
+  interfaces  = 'GUI'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application, web browser'
+
+[ about ]
+
+  precis      = 'a lightweight web browser for GNOME'
+
+  verbose     = '''
+> GNOME Web (originally called Epiphany until 2012)
+is a free and open-source lightweight web browser developed by GNOME only
+for Linux and Unix-like systems.
+
+> The browser was forked from Galeon, after developers' disagreements
+about Galeon's growing complexity.
+Since then Web has been developed as part of the GNOME project
+and uses most of GNOME's technology and settings when applicable.
+It is part of the GNOME Core Applications.
+As required by the GNOME Human Interface Guidelines (HIG),
+Web maintains a clean and simple graphical user interface
+with only a required minimum number of features exposed to users by default.
+The browser's functionality and configurability can be extended
+with official and third-party extensions.
+
+> -- [$url]{ext_wp|GNOME_Web}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|GNOME/epiphany'
+
+  wikipedia   = '''
+ext_wp|GNOME,
+ext_wp|GNOME_Web,
+ext_wp|The_GNOME_Project,
+'''
+
+[ address.web_site ]
+
+  contact     = 'main|/contact'
+  main        = 'https://wiki.gnome.org/Apps/Web'

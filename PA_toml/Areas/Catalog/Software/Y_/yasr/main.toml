@@ -1,0 +1,56 @@
+# cat_sof|yasr/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'yasr'
+  title       = 'yasr (Yet Another Screen Reader)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'screen reader, speech synthesis'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'Emacspeak'
+  roles       = 'screen reader, system software, utility'
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'a general-purpose, console-based screen reader'
+
+  verbose     = '''
+> Yasr is a general-purpose console screen reader for GNU/Linux and other
+Unix-like operating systems.  The name "yasr" is an acronym that can
+stand for either "Yet Another Screen Reader" or "Your All-purpose Screen
+Reader" (take your pick; it doesn't really matter much).
+
+> It supports a number of synthesizers, although interfacing issues exist
+with some of them at the moment.  Currently, yasr attempts to support the
+Speak-out, DEC-talk, BNS, Apollo, and DoubleTalk.  It is also able to
+communicate with Emacspeak servers and can thus be used with synthesizers
+not directly supported, such as Festival Lite (via eflite) or FreeTTS.
+
+> It is small enough to fit on a root disk if necessary (provided an
+Emacspeak server is not needed, of course). It is written in C and works
+by opening a pseudo-terminal and running a shell, intercepting all input
+and output.  It looks at the escape sequences being sent and maintains a
+virtual "window" containing what it believes to be on the screen.  It
+thus does not use any features specific to Linux and can be ported to
+other Unix-like operating systems without too much trouble.  The current
+version should also run under FreeBSD, NetBSD, and Solaris (thanks to
+Rich Burridge for the Solaris port).
+
+> -- [$url]{http://yasr.sourceforge.net}
+'''
+
+[ address.web_site ]
+
+  also        = 'ext_sf|p/yasr/git/ci/master/tree'
+  main        = 'http://yasr.sourceforge.net'

@@ -1,0 +1,42 @@
+# cat_sof|Ruby_GPIO/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Ruby_GPIO'
+  title       = 'ruby-gpio'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  produces    = 'hardware support'
+  requires    = 'GPIO, Raspberry Pi, Ruby, sysfs'
+  roles       = 'library, system software'
+
+[ about ]
+
+  precis      = 'a Ruby DSL to interface with the Raspberry Pi GPIO'
+
+  verbose     = '''
+> A Ruby DSL to interface with the Raspberry Pi GPIO.  It wraps around the
+Linux sysfs-based GPIO interface and provides features to set pins as
+input or output, pull pins to high or low, and also to asynchronously
+watch for changes to a pin, then trigger a handler to react to it.
+
+> -- [$url]{ext_gh|sausheong/ruby-gpio}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|sausheong/ruby-gpio'
+  rubydoc     = 'ext_rd|ruby-gpio/0.0.2/GPIO, ext_rd|ruby-gpio/0.0.2/GPIO/Pin'
+
+[ address.web_site ]
+
+  main        = 'ext_gh|sausheong/ruby-gpio'

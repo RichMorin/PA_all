@@ -1,0 +1,71 @@
+# cat_ser|OCW_MIT/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'OCW_MIT'
+  title       = 'Open CourseWare (OCW), MIT'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'web'
+  produces    = 'courseware'
+
+[ about ]
+
+  access      = '''
+Q: Is the MIT OpenCourseWare site compliant with W3C standards and
+accessibility requirements?
+
+Our webpage templates are both valid HTML 4.01 and meet Sec. 508 &
+WCAG AA Web Accessibility recommendations.  Our style guide includes
+validating and checking the accessibility of HTML as part of the
+authoring process.  Our standards require all images on our web pages
+to contain ALT attributes.  Our data tables contain heavy use of the
+scope and headers attributes that make it easier to navigate using
+screenreaders such as JAWS.
+
+To make our PDFs accessible, we replace any Type 3 or bitmapped fonts
+within the file, and use Adobe's "Make Accessible" plugin before
+finalizing the document.
+
+Videos with subtitles can be accessed directly through our Courses with
+Subtitled Audio/Video list.
+'''
+
+  precis      = "provides free and open material from thousands of courses"
+
+  verbose     = '''
+> OCW is a free and open publication of material from thousands of MIT
+courses, covering the entire MIT curriculum.  That's every MIT
+department and degree program, and ranging from the introductory to
+the most advanced graduate level.  Each OCW course includes a syllabus,
+some instructional material (such as lecture notes or a reading list),
+and some learning activities (such as assignments or exams).  Many
+courses also have complete video lectures, free online textbooks, and
+faculty teaching insights.  While some OCW content is custom-created
+for online use, most of it comes straight from the MIT classroom.
+
+> -- [$url]{https://ocw.mit.edu}
+'''
+
+[ address.related ]
+
+  facebook    = 'ext_fb|MITOCW'
+  twitter     = 'ext_tw|mitocw'
+  wikipedia   = 'ext_wp|OpenCourseWare'
+  wordpress   = 'https://mitopencourseware.wordpress.com'
+  youtube     = 'ext_yt|mitocw'
+
+[ address.web_site ]
+
+  begin       = 'main|/help/get-started-with-ocw'
+  courses     = 'main|/courses/subtitled'
+  faq         = 'main|/help/faq-technology'
+  main        = 'https://ocw.mit.edu'

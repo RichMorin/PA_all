@@ -1,0 +1,44 @@
+# cat_sof|sic/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'sic'
+  title       = 'sic (simple irc client)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'multiplexes traffic into one output'
+  interfaces  = 'chat, command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'ircII'
+  roles       = 'application, client'
+  standards   = 'IRC'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'an extremely fast, small, and simple IRC client'
+
+  verbose     = '''
+> sic is an extremely fast, small, and simple IRC client.  It reads commands
+from standard input and prints all server output to standard output.  It
+also multiplexes all channel traffic into one output.  That way you don't
+have to switch different channel buffers.  So that's actually a feature.
+
+> -- [$url]{ext_pd|stretch/sic}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|comotion/sic' 
+
+[ address.web_site ]
+
+  git         = 'http://git.suckless.org/sic'
+  main        = 'http://tools.suckless.org/sic'

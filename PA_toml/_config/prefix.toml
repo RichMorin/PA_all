@@ -1,0 +1,58 @@
+# _config/prefix.toml
+#
+# This file defines the URL expansion prefixes (eg, `ext_gh|`) that are
+# allowed in PA's content files.
+
+[ meta ]
+
+  id_str    = 'prefix'
+
+[ prefix ]
+
+# Usage:
+#
+#   'cat_peo|Rich_Morin' becomes
+#   'Areas/Catalog/People/Rich_Morin'
+
+  cat       = 'Areas/Catalog/'
+  cat_gro   = 'Areas/Catalog/Groups/'
+  cat_har   = 'Areas/Catalog/Hardware/'
+  cat_peo   = 'Areas/Catalog/People/'
+  cat_ser   = 'Areas/Catalog/Services/'
+  cat_sof   = 'Areas/Catalog/Software/'
+
+  con       = 'Areas/Content/'
+  con_ess   = 'Areas/Content/Essays/'
+  con_how   = 'Areas/Content/HowTos/'
+  con_ove   = 'Areas/Content/Overviews/'
+
+  # External
+
+# Usage:
+#
+#   'ext_gh|brltty/brltty' becomes
+#   'https://github.com/brltty/brltty'
+
+  ext_aop   = 'https://www.archlinux.org/packages/'
+  ext_aur   = 'https://aur.archlinux.org/packages/'
+  ext_awi   = 'https://wiki.archlinux.org/index.php/'
+  ext_fb    = 'https://www.facebook.com/'
+  ext_gh    = 'https://github.com/'
+  ext_gp    = 'https://plus.google.com/'
+  ext_gs    = 'https://www.gnu.org/software/'
+  ext_ig    = 'https://www.instagram.com/'
+  ext_li    = 'https://www.linkedin.com/'
+  ext_pd    = 'https://packages.debian.org/'
+  ext_pi    = 'https://www.pinterest.com/'
+  ext_rd    = 'https://www.rubydoc.info/gems/'
+  ext_rg    = 'https://rubygems.org/gems/'
+  ext_rp    = 'https://www.raspberrypi.org/'
+  ext_sf    = 'https://sourceforge.net/'
+  ext_so    = 'https://stackoverflow.com/'
+  ext_tw    = 'https://twitter.com/'
+  ext_wp    = 'https://en.wikipedia.org/wiki/'
+  ext_yt    = 'https://www.youtube.com/'
+
+  # Test
+
+  test   = 'Test/'

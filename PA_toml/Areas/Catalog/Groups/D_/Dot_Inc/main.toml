@@ -1,0 +1,55 @@
+# cat_gro|Dot_Inc/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Dot_Inc'
+  title       = 'Dot Incorporation'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, deafness, low vision'
+  supports    = 'telecom'
+
+[ about ]
+
+  precis      = 'provides innovations for the hearing- and vision-impaired'
+
+  verbose     = '''
+> We strive to be a pioneer in accessible and affordable innovations for the
+vision-impaired and the deafblind, to lead independent, fulfilling lives.
+We are a Seoul, Korea based company that specializes in providing
+never-before-seen, cutting-edge technology to grant mobility, confidence,
+and independence to those who live with daily challenges. 
+
+> -- [$url]{http://www.dotincorp.com}
+'''
+
+[ address.email ]
+
+  info        = 'dot@dotincorp.com'
+
+[ address.phone ]
+
+  fax         = '+82 2 864 1113'
+  main        = '+82 2 864 1113'
+
+[ address.postal ]
+
+  main        = '''
+Dot Incorporation
+#2002 Ace High-end Tower 7
+67 Gasan digital 2-ro
+Geumcheon-gu
+Seoul, 08588
+Korea, Republic of 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.dotincorp.com'

@@ -1,0 +1,51 @@
+# cat_har|Anova_PC/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Anova_PC'
+  title       = 'Anova Precision Cooker'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  provider    = 'cat_gro|Anova'
+
+[ meta.tags ]
+
+  features    = 'immersable'
+  impairments = 'blindness, low vision'
+  licenses    = 'open source'
+  roles       = 'kitchen appliance, sous vide cooker'
+  standards   = 'Bluetooth, Wi-Fi'
+  supports    = 'cooking, daily living'
+
+[ about ]
+
+  access      = '''
+Bluetooth and Wi-Fi connectivity allow operation from a cell phone and/or
+personal computer.
+'''
+
+  precis      = 'provides immersable devices for sous vide cooking'
+
+  verbose     = '''
+> _Sous vide_ (pronounced "sue-veed") is a cooking technique that makes it
+super simple to achieve professional-quality results at home.  The
+technique utilizes precise temperature control to deliver super-juicy,
+flavor-packed results from edge to edge, every time.  To cook _sous vide_,
+food is placed in a sealable bag and cooked in a water bath.
+
+> The Anova Precision Cooker circulates water around the pot.  The circulation
+prevents hot and cool spots from forming in the water to ensure an even
+temperature throughout your food.  Food never overcooks.  It's just how you
+like it, every time.
+
+> -- [$url]{https://anovaculinary.com}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://anovaculinary.com'
+  product     = 'main|/anova-precision-cooker'

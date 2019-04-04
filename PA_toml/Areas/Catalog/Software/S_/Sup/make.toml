@@ -1,0 +1,21 @@
+# cat_sof|Sup/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|sup'
+  upstream    = 'http://sup-heliotrope.github.io'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/sup-mail'
+  search      = 'ext_pd|search?keywords=sup-mail'
+  track       = 'https://tracker.debian.org/pkg/sup-mail'
+
+[ os.zoo ]
+
+  commands    = 'sudo gem install sup'
+  issues      = 'installs automagically'
+  origin      = 'RubyGems'
+  status      = 'Sup is available as a Ruby Gem.'

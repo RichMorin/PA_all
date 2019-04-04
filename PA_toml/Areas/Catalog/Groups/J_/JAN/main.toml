@@ -1,0 +1,59 @@
+# cat_gro|JAN/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'JAN'
+  title       = 'Job Accommodation Network (JAN)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'all'
+  produces    = 'consulting service'
+  roles       = 'government agency'
+  standards   = 'ADA'
+  supports    = 'employment'
+
+[ about ]
+
+  precis      = 'provides free consulting for disabled job applicants'
+
+  verbose     = '''
+> The Job Accommodation Network (JAN) is a no cost, national consulting
+service of the Office of Disability Employment Policy, US Department
+of Labor that provides:
+
+> 1.) worksite accommodations solutions
+> 2.) technical assistance regarding the ADA
+> 3.) self-employment options for individuals with disabilities
+
+> -- [$url]{http://askjan.org}
+'''
+
+[ address.email ]
+
+  main        = 'jan@askjan.org'
+
+[ address.phone ]
+
+  fax         = '+1 304 293 5407'
+  main        = '+1 800 526 7234'
+  tty         = '+1 877 781 9403'
+
+[ address.postal ]
+
+  main        = '''
+Job Accommodation Network
+PO Box 6080
+Morgantown, WV 26506-6080
+United States
+'''
+
+[ address.web_site ]
+
+  main        = 'http://askjan.org'

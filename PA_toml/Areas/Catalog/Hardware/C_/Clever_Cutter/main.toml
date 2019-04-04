@@ -1,0 +1,39 @@
+# cat_har|Clever_Cutter/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Clever_Cutter'
+  title       = 'Clever Cutter'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'ergonomic, safe'
+  impairments = 'blindness, low vision'
+  replaces    = 'cutting board, knife'
+  roles       = 'kitchen utensil, vegetable chopper'
+  supports    = 'cooking, food preparation'
+  used_like   = 'scissors'
+
+[ about ]
+
+  precis      = 'quickly and safely slices foods without the messy cleanup!'
+
+  verbose     = '''
+> Clever Cutter is the revolutionary 2-in-1 knife and cutting board that
+chops and slices your favorite foods in seconds!  The secret is the 2-in-1
+clever design with ergonomic power pressure handle, to effortlessly cut
+through food fast!  Clever Cutter's premium blade and extra wide mouth
+makes cutting fruits, veggies, meats and more fast, easy, and mess-free.
+
+> -- [$url]{https://www.buyclevercutter.com}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://www.buyclevercutter.com'

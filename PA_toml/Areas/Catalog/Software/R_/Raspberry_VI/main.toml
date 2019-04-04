@@ -1,0 +1,47 @@
+# cat_sof|Raspberry_VI/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Raspberry_VI'
+  title       = 'Raspberry VI'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  based_on    = 'cat_sof|Debian, cat_sof|Raspbian'
+
+[ meta.tags ]
+
+  features    = 'screen reader, speech generation'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, open source'
+  requires    = 'Linux, Raspberry Pi, Raspbian Lite'
+  roles       = 'operating system'
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'a blind-friendly version of the Raspbian Lite OS'
+
+  verbose     = '''
+Raspberry VI (Raspbian for the visually impaired) starts with Raspbian
+Lite, then adds several relevant features:
+
+- MATE            - desktop environment, based on GNOME 2
+- Orca            - graphical screen reader for GNOME
+- Piespeakup      - espeakup for the Raspberry Pi
+- Speakup         - console screen reader
+'''
+
+[ address.related ]
+
+  zoo         = 'https://www.raspberrypi.org'
+
+[ address.web_site ]
+
+  about       = 'main|/about.html'
+  download    = 'main|/downloads.html'
+  main        = 'https://www.raspberryvi.org'

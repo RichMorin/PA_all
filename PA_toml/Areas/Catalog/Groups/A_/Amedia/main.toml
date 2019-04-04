@@ -1,0 +1,58 @@
+# cat_gro|Amedia/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Amedia'
+  title       = 'Amedia Corporation'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'ICT, OCR, software'
+  roles       = 'company, distributor, manufacturer'
+  supports    = 'communication, daily living, education'
+
+[ about ]
+
+  precis      = 'provides assistive technology for the visually impaired'
+
+  verbose     = '''
+> For over 25 years, Amedia Corporation has been manufacturing and distributing
+assistive technology products designed to aid people with visual impairments.
+Our mission is to help people with disabilities lead more independent lives
+by means of cutting-edge ICT.  With an extensive knowledge and experience in
+developing OCR-related products, among others, we have helped improve the
+living and learning conditions of thousands of people across Japan and
+worldwide.
+
+> -- [$url]{http://www.amedia.co.jp/english}
+'''
+
+[ address.email ]
+
+  info        = 'trade@amedia.co.jp'
+
+[ address.phone ]
+
+  fax         = '+81 339947177'
+  main        = '+81 369158597'
+
+[ address.postal ]
+
+  main        = '''
+Amedia Corporation
+Akiyama No.10 Bldg. 1F
+1-15-6 Toyotamakami, Nerima-ku
+Tokyo, 176-0011
+Japan
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.amedia.co.jp/english'

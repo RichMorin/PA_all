@@ -1,0 +1,20 @@
+# cat_sof|Netatalk/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|netatalk'
+  upstream    = 'http://netatalk.sourceforge.net'
+  wiki        = 'ext_awi|Netatalk'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/netatalk'
+  search      = 'ext_pd|search?keywords=netatalk'
+  track       = 'https://tracker.debian.org/pkg/netatalk'
+
+  commands    = 'sudo apt-get install netatalk'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

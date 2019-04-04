@@ -1,0 +1,30 @@
+# BrailleBlaster/text.Rich_Morin.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'BrailleBlaster'
+  title       = 'BrailleBlaster PC'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'the distribution model is awkward and restrictive'
+
+  verbose     = '''
+Although BrailleBlaster is an important and valuable offering,
+the distribution model is awkward and unduly restrictive.
+Specifically, each user is required to provide an email address
+before s/he can download and install a binary copy of the utility.
+
+Apparently (I can't find any license documentation),
+the software is "free as in beer" (i.e., _gratis_),
+but not "free as in speech" (i.e., _libre_).
+If so, it cannot be distributed as a turn-key part of a larger system.
+This seems quite counter-productive, so I'm hoping for a change
+to an open source distribution and licensing model.
+'''

@@ -1,0 +1,58 @@
+# cat_gro|CaptionCall/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'CaptionCall'
+  title       = 'CaptionCall'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'deafness'
+  interfaces  = 'telephone'
+  produces    = 'captions, hardware, service'
+  roles       = 'company, manufacturer'
+  standards   = 'TIA-4953'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'provides a captioned telephone service'
+
+  verbose     = '''
+> CaptionCall is the Gold Standard in captioned telephone service.  With
+its sleek phone design, red carpet home installation, and superior
+captioning service -— all at no cost —- CaptionCall raises the bar.  It
+is the only phone that meets the strict amplification standards established
+by the Telecommunications Industry Association (TIA-4953) for your clients
+with hearing loss.  And it’s easier than ever to certify your clients for
+the phone!
+
+> -- [$url]{http://www.captioncall.com}
+'''
+
+[ address.email ]
+
+  support     = 'ccsupport@captioncall.com'
+
+[ address.phone ]
+
+  main        = '+1 801 293 6572'
+
+[ address.postal ]
+
+  main        = '''
+CaptionCall
+4215 S Riverboat Road
+Salt Lake City, UT 84123
+United States 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.captioncall.com'

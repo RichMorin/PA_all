@@ -1,0 +1,22 @@
+<!-- templates/search/_show_reused.html.eex -->
+
+<% import PhxHttpWeb.LayoutView, only: [hide_show: 2] %>
+
+<%= if !Enum.empty?(@queries_r) do %>
+  <div class="hs-base1">
+    <h4>
+      Reused
+      <%= hide_show("is:1/2", "reused selections in this search") %>
+    </h4>
+
+    <div class="hs-body1 hs-is">
+      <%=
+        for query <- @queries_r do %>
+        <ul>
+          <%= {settings, set_key, tag_set} = query
+              fmt_tag_set(tag_set, set_key, settings) %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+<% end %>

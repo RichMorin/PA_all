@@ -1,0 +1,43 @@
+# cat_sof|Netatalk/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Netatalk'
+  title       = 'Netatalk'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  licenses    = 'open source'
+  requires    = 'Linux, macOS'
+  roles       = '''
+daemon, file server, network software, print server,
+system software, time server
+'''
+  standards   = 'AFP'
+
+[ about ]
+
+  precis      = 'a daemon which implements the Apple Filing Protocol (AFP)'
+
+  verbose     = '''
+> Netatalk is a free, open-source implementation of the Apple Filing
+Protocol [AFP].  It allows Unix-like operating systems to serve as
+file, print, and time servers for Macintosh computers.
+
+> -- [$url]{ext_wp|Netatalk}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Netatalk'
+
+[ address.web_site ]
+
+  config      = 'main|/2.0/htmldocs/configuration.html'
+  main        = 'http://netatalk.sourceforge.net'

@@ -1,0 +1,8 @@
+# meta_tags.toml
+
+[ meta ]
+
+[ meta.tags ]
+
+  bar         = 'baz'
+

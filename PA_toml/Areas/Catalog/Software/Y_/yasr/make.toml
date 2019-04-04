@@ -1,0 +1,13 @@
+# cat_sof|yasr/make.toml
+
+[ meta ]
+
+  summary     = 'Version 0.6.9 is dated 2008.0202'
+
+[ os.arch ]
+
+# package     = 'none found, as of 2019.0307'
+
+[ os.debian ]
+
+  package     = 'ext_pd|jessie/admin/yasr'

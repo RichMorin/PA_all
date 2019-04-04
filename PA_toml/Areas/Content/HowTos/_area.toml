@@ -1,0 +1,21 @@
+# Content/HowTos/_area.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Con_HowTos_area'
+  title       = 'HowTos'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'contains ways to solve various (e.g., accessibility) problems'
+
+  verbose     = '''
+This section includes accessibility-related [HowTos]{ext_wp|How-to}:
+detailed descriptions about ways to solve various problems.
+'''

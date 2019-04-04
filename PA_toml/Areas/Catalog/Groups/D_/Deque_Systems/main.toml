@@ -1,0 +1,57 @@
+# cat_gro|Deque_Systems/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Deque_Systems'
+  title       = 'Deque Systems'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'services, software, testing'
+  products    = 'Amaze, aXe, WorldSpace'
+  roles       = 'company, consultant, manufacturer, software developer'
+  supports    = 'education'
+
+[ about ]
+
+  precis      = 'provides digital accessibility software and services'
+
+  verbose     = '''
+> Deque Systems, founded in 1999, is a leading provider of digital
+accessibility software and services.  Our product family includes the
+uniquely robust suite of WorldSpace accessibility testing tools, Amaze,
+and aXe: our open source accessibility rules library.  Deque's expert
+team consists of mission-driven thought leaders and innovators in
+accessibility and software development who work alongside our clients
+to help make meaningful progress towards digital equality.  
+
+> -- [$url]{http://www.deque.com}
+'''
+
+[ address.email ]
+
+  info        = 'caitlin.cashin@deque.com'
+
+[ address.phone ]
+
+  main        = '+1 703 225 0380'
+
+[ address.postal ]
+
+  main        = '''
+Deque Systems
+2121 Cooperative Way, Suite 210
+Herndon, VA 20171
+United States 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.deque.com'

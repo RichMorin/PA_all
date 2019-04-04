@@ -1,0 +1,22 @@
+# cat_sof|eSpeakNG/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/x86_64/espeak-ng/'
+  upstream    = 'ext_gh|espeak-ng/espeak-ng'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/espeak'
+  search      = 'ext_pd|search?keywords=espeak'
+  track       = 'https://tracker.debian.org/pkg/espeak'
+
+  commands    = 'sudo apt-get install espeak'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+
+  status      = '''
+eSpeak NG is included in the Raspberry VI distribution, but not in Raspbian.
+'''

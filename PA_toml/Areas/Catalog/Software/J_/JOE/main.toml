@@ -1,0 +1,47 @@
+# cat_sof|JOE/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'JOE'
+  title       = "JOE (Joe's Own Editor)"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'Unix integration'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'curses'
+  roles       = 'application, text editor'
+
+[ about ]
+
+  precis      = 'a user-friendly, full-screen text editor'
+
+  verbose     = '''
+> Joe, the Joe's Own Editor, has the feel of most PC text editors: the
+key sequences are reminiscent of WordStar and Turbo C editors, but
+the feature set is much larger than of those.  Joe has all of the
+features a Unix user should expect: full use of termcap/terminfo,
+complete VI-style Unix integration, a powerful configuration file,
+and regular expression search system.  It also has six help reference
+cards which are always available, and an intuitive, simple, and well
+thought-out user interface.
+
+> -- [$url]{ext_pd|stretch/joe}
+'''
+
+[ address.related ]
+
+  sourceforge = 'ext_sf|projects/joe-editor'
+  wikipedia   = 'ext_wp|Joe%27s_Own_Editor'
+
+[ address.web_site ]
+
+  main        = 'http://joe-editor.sourceforge.net'

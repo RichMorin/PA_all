@@ -1,0 +1,47 @@
+# cat_sof|Frotz/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Frotz'
+  title       = 'Frotz'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, game interpreter'
+  standards   = 'Infocom, Inform, Z-code, Z-Machine'
+  supports    = 'games, interactive fiction, text adventures'
+
+[ about ]
+
+  precis      = 'an interpreter for Z-code story-files'
+  # "A Portable Z-Machine Interpreter"
+  # "interpreter for all Infocom and other Z-machine games"
+  # "interpreter of Z-code story-files"
+
+  verbose     = '''
+> Frotz interprets Z-code story-files, which are usually text adventure
+games (although a few arcade-style Z-code games have been written).
+Examples of such story files include the adventure games published by
+Infocom, as well as any games produced by compilers to this format,
+such as Inform.
+
+> -- [$url]{ext_pd|stretch/frotz}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|DavidGriffith/frotz'
+  wikipedia   = 'ext_wp|Z-machine'
+
+[ address.web_site ]
+
+  main        = 'http://frotz.sourceforge.net'

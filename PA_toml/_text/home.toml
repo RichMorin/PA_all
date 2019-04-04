@@ -1,0 +1,27 @@
+# _text/home.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'home'
+  title       = "Welcome!"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'an online resource for the disabled community'
+
+  verbose     = '''
+This is an early prototype of Pete's Alley.
+The site is planned as an online resource for the disabled community,
+including their friends, relatives, and other supporters.
+It will index and review resources, provide communication channels, etc.
+
+Before trying to use the site for the first time, please skim the
+[About]{_text/about.toml} and [Usage]{_text/usage.toml} pages.
+They should help you to avoid confusion and get up to speed quickly.
+'''

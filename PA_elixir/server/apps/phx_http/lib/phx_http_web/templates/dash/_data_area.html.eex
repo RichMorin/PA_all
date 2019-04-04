@@ -1,0 +1,44 @@
+<!-- templates/dash/_data_dir.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  cnts_by_dir   = @data_info.cnts_by_dir
+  dir_names     = cnts_by_dir |> keyss()
+  
+%>
+
+<div class="hs-base2">
+  <h3>
+    Counts by Directory
+    <%= hide_show("is:2/2", "data statistics by Area") %>
+  </h3>
+
+  <div class="hs-body2 hs-is">
+    <table class="dash-code tablesorter">
+      <thead>
+        <tr>
+          <th class="dash-code-left">Area</th>
+          <th>Files</th>
+          <th>Lines</th>
+          <th>Chars</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= for dir_name <- dir_names do %>
+          <%
+            cnts  = cnts_by_dir[dir_name]
+            name  = String.replace_prefix(dir_name, "|", "")
+          %>
+          <tr>
+            <td class="dash-code-left"><tt><%= name %></tt></td>
+            <td><%= cnts.file %></td>
+            <td><%= cnts.line %></td>
+            <td><%= cnts.char %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

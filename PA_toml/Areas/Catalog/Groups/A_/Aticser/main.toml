@@ -1,0 +1,57 @@
+# cat_gro|Aticser/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Aticser'
+  title       = 'Aticser Serv. I Tec. de la inf.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'hardware, software'
+  products    = 'Box One4All'
+  supports    = 'communication, daily living, telecom'
+
+[ about ]
+
+  precis      = 'manufactures the Box One4All, a personal control device'
+
+  verbose     = '''
+> We believe that every person has the right to provide his full potential to
+the world.  Our conviction is that to achieve so, it is only necessary that
+each person gets the necessary tools to meet his specific needs.  We create
+cutting edge devices aimed to provide more autonomy to the persons with
+visual disabilities.
+
+> Tech4Freedom presents the Box One4All, a personal device providing the
+main daily life solutions that you can control by its sole button.
+
+> -- [$url]{http://www.tech4freedom.net}
+'''
+
+[ address.email ]
+
+  info        = 'jaume@tech4freedom.net'
+
+[ address.phone ]
+
+  main        = '+34 932 41 78 50'
+
+[ address.postal ]
+
+  main        = '''
+Aticser Serv. I Tec. de la inf.
+Travesera de Gracia 56
+Barcelona, 08021
+Spain 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.tech4freedom.net'

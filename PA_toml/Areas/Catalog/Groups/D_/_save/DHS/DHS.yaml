@@ -1,0 +1,32 @@
+# DHS.yam
+
+_meta:
+  action:         defer
+  author:         Rich_Morin
+  id:             DHS
+  title:          Department of Homeland Security, U.S. Secret Service
+
+about:            |
+  The Secret Service is a premier law enforcement organization with two
+  critical national security missions: protect our nation's leaders and to
+  conduct criminal investigations.  In the Secret Service, we serve the
+  country with duty, loyalty, justice, integrity, and courage.	 
+
+address:
+  email:
+    info:         TAD-ORB@usss.dhs.gov
+
+  phone:
+    fax:          "+1 202 406 6574"
+    main:         "+1 202 406 5305"
+
+  postal:
+    main:         |
+      Department of Homeland Security, U.S. Secret Service
+      9073 Center Street
+      Manassas, VA 20110
+      United States	 
+
+  web_site:
+    jobs:         main|/homeland-security-careers
+    main:         https://www.dhs.gov

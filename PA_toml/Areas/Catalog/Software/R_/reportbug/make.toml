@@ -1,0 +1,21 @@
+# cat_sof|reportbug/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|reportbug'
+  upstream    = 'ext_pd|sid/reportbug'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/reportbug'
+  search      = 'ext_pd|search?keywords=reportbug'
+  track       = 'https://tracker.debian.org/pkg/reportbug'
+  wiki        = 'https://wiki.debian.org/reportbug'
+  # https://www.debian.org/Bugs/Reporting
+
+  commands    = 'sudo apt-get install reportbug'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

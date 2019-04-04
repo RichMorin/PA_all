@@ -1,0 +1,32 @@
+<!-- templates/search/_show_result.html.eex -->
+
+<% import PhxHttpWeb.LayoutView, only: [hide_show: 2] %>
+
+<div class="hs-base2">
+  <h5>
+    <%=
+      {header, count}  = result_header(@result)
+      "#{ header }: #{ count }"
+    %>
+    <%= hide_show("is:2/2", "\"#{ header }\" results") %>
+  </h5>
+
+  <div class="hs-body2 hs-is">
+    <ul>
+      <%= for tuple <- @result do %>
+        <% {key, item_title, precis} = tuple %>
+        <li>
+          <p>
+            <%=
+              title   = "Go to the \"#{ item_title }\" item page."
+              url     = result_url(key)
+              link(item_title, title: title, to: url)
+            %>
+            <br>
+            <%= precis %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

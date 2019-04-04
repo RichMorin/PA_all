@@ -1,0 +1,61 @@
+# cat_gro|Wayfindr/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Wayfindr'
+  title       = 'Wayfindr'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'audio, speech'
+  produces    = 'software, standards'
+  roles       = 'non-profit, organization'
+  standards   = 'ITU-T F.921'
+  supports    = 'audio navigation, mobility, navigation'
+
+[ about ]
+
+  precis      = 'created an open standard for accessible audio navigation'
+
+  verbose     = '''
+> We are an award-winning social tech non-profit, with ambitions to help the
+world's 285 million blind people navigate indoor environments independently.
+
+> Our mission is to empower vision impaired people to travel independently,
+through inclusive and accessible audio navigation.  Formed in 2015 and
+based in London, we have developed the world's first internationally-approved
+standard for accessible audio navigation.
+
+> -- [$url]{https://wayfindr.net}
+'''
+
+[ address.phone ]
+
+  main        = '+44 7557 943608'
+
+[ address.postal ]
+
+  main        = '''
+Wayfindr
+52-58 Arcola Street, E8 2DJ
+London, England, UK
+'''
+
+[ address.related ]
+
+  _1          = 'https://www.itu.int/ITU-T/recommendations'
+  linked_in   = 'ext_li|company/wayfindr'
+  zoo         = '_1|/rec.aspx?rec=13185&lang=en'
+
+[ address.web_site ]
+
+  about       = 'main|/about-wayfindr'
+  contact     = 'main|/contact'
+  main        = 'https://wayfindr.net'

@@ -1,0 +1,21 @@
+# cat_sof|GNU_Screen/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/x86_64/screen'
+  upstream    = 'ext_gs|screen'
+  wiki        = 'ext_awi|GNU_Screen'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/screen'
+  search      = 'ext_pd|search?keywords=screen'
+  track       = 'https://tracker.debian.org/pkg/screen'
+  wiki        = 'https://wiki.debian.org/screen'
+
+  commands    = 'sudo apt-get install screen'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

@@ -1,0 +1,20 @@
+# cat_sof|tmux/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/x86_64/tmux'
+  upstream    = 'http://tmux.github.io'
+  wiki        = 'ext_awi|tmux'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/tmux'
+  search      = 'ext_pd|search?keywords=tmux'
+  track       = 'https://tracker.debian.org/pkg/tmux'
+
+  commands    = 'sudo apt-get install tmux'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

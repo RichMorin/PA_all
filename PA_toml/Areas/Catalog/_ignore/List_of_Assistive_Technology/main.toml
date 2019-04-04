@@ -1,0 +1,34 @@
+# cat_ign|List_of_Assistive_Technology/main.toml
+
+[ meta ]
+
+  actions     = 'hold; missing URL'
+  id_str      = 'List_of_Assistive_Technology'
+  title       = 'List of Assistive Technology'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  role        = 'catalog, document'
+
+[ about ]
+
+  precis      = '?'
+
+  verbose     = '''
+The purpose of this list is to provide you with resources and to
+support the products used or referenced in our presentation.  It is not
+a comprehensive list.  It does not endorse one product or vendor as being
+better than another.  Assistive technology is determined by the team and
+the student based on trialing and data results. 
+'''
+
+# URL is no longer valid.
+# [ address.document ]
+#
+#  _1        = 'http://www.aiu3.net/uploadedFiles/Teaching_and_Learning/'
+#  main      = '_1|IDEA_and_Training_Consultation/AT%20List%20for%20ATOPPT.pdf'

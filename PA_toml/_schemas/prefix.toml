@@ -1,0 +1,59 @@
+# _schemas/prefix.toml
+#
+# This file defines the map keys that are allowed in PA's `_config/prefix.toml`
+# file, with terse descriptions of leaf nodes.  It also lists processing rules
+# (eg, required key paths).
+
+# Required keys
+
+  _required   = 'meta, meta.id_str, prefix'
+
+# Allowed keys
+
+[ meta ]
+
+  id_str      = 'identification string for file'
+
+[ prefix ]
+
+  # Internal (eg, Areas)
+
+  _text     = 'Text Files'
+
+  cat       = 'Catalog'
+  cat_gro   = 'Catalog/Groups'
+  cat_har   = 'Catalog/Hardware'
+  cat_peo   = 'Catalog/People'
+  cat_ser   = 'Catalog/Services'
+  cat_sof   = 'Catalog/Software'
+
+  con       = 'Content'
+  con_ess   = 'Content/Essays'
+  con_how   = 'Content/HowTos'
+  con_ove   = 'Content/Overviews'
+
+  # External
+
+  ext_aop   = 'Arch Linux packages'
+  ext_aur   = 'Arch Linux AUR packages'
+  ext_awi   = 'Arch Linux wiki'
+  ext_fb    = 'Facebook'
+  ext_gh    = 'GitHub'
+  ext_gp    = 'Google+'
+  ext_gs    = 'GNU software'
+  ext_ig    = 'Instagram'
+  ext_li    = 'LinkedIn'
+  ext_pd    = 'Debian Packages'
+  ext_pi    = 'Pinterest'
+  ext_rd    = 'RubyDoc'
+  ext_rg    = 'RubyGems'
+  ext_rp    = 'Raspberry Pi'
+  ext_sf    = 'SourceForge'
+  ext_so    = 'Stack Overflow'
+  ext_tw    = 'Twitter'
+  ext_wp    = 'Wikipedia'
+  ext_yt    = 'YouTube'
+
+  # Test
+
+  test      = 'Test'

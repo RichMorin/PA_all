@@ -1,0 +1,41 @@
+# cat_sof|Links/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Links'
+  title       = 'Links'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based, web'
+  licenses    = 'open source'
+  roles       = 'application, browser'
+  standards   = 'HTML, HTTP'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'a text-mode web browser'
+
+  verbose     = '''
+> Links is a text mode WWW browser, similar to Lynx.  It displays tables,
+frames, downloads on background, uses HTTP/1.1 keepalive connections.
+
+> -- [$url]{ext_pd|stretch/links}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Links_(web_browser)'
+
+[ address.web_site ]
+
+  also        = 'main|/user_en.html'
+  main        = 'http://links.twibright.com'

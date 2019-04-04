@@ -1,0 +1,11 @@
+/* app.css - main application CSS */
+
+@import "./default.css";
+@import "./flash.css";
+@import "./form.css";
+@import "./print.css";
+@import "./table.css";
+
+/* Support progressive disclosure.  For details, see ../js/hide_show.js */
+
+.hs-none { display: none; }

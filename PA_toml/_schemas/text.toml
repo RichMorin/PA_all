@@ -1,0 +1,36 @@
+# _schemas/text.toml
+#
+# This file defines the map keys that are allowed in PA's `_text/*.toml` files,
+# with terse descriptions of leaf nodes.  It also lists processing rules
+# (eg, required key paths).
+
+  _required   = '''
+about, about.precis, about.verbose,
+meta, meta.actions, meta.id_str, meta.refs
+'''
+
+# Allowed keys
+
+[ meta ]
+
+  actions     = 'actions to perform on this file'
+# file_key    = 'keyword path string for file'      # harvested
+# file_rel    = 'relative file path for file'       # generated
+# file_time   = 'modification time for file'        # harvested
+# id_num      = 'identification number for file'    # generated
+  id_str      = 'identification string for file'
+  title       = 'human-readable title for content'
+
+[ meta.refs ]
+
+  f_authors   = 'IDs of the authors of this file'
+  f_editors   = 'IDs of the editors of this file'
+
+[ meta.tags ]
+
+  miscellany  = 'miscellaneous tags for this item'
+
+[ about ]
+
+  precis      = 'terse description'
+  verbose     = 'verbose description'

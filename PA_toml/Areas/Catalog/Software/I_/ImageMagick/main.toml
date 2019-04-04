@@ -1,0 +1,50 @@
+# cat_sof|ImageMagick/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'ImageMagick'
+  title       = 'ImageMagick'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'many formats'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, image processor, library'
+ 
+  standards   = '''
+DPX, EXR, JPEG, GIF, HEIC, PDF, PNG, PostScript, TIFF, WebP, SVG
+'''
+
+  supports    = 'communication, education'
+
+[ about ]
+
+  precis      = 'a massive image transformation system'
+
+  verbose     = '''
+> Use ImageMagick to create, edit, compose, or convert bitmap images.
+It can read and write images in a variety of formats (over 200) including PNG,
+JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, PostScript, PDF, and SVG.
+Use ImageMagick to resize, flip, mirror, rotate, distort, shear and transform
+images, adjust image colors, apply various special effects, or draw text,
+lines, polygons, ellipses, and Bézier curves.
+
+> -- [$url]{https://www.imagemagick.org}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|ImageMagick'
+
+[ address.web_site ]
+
+  download    = 'main|/script/download.php'
+  main        = 'https://www.imagemagick.org'
+  man_page    = 'https://linux.die.net/man/1/imagemagick'

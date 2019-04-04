@@ -1,0 +1,58 @@
+# cat_gro|Docsoft/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Docsoft'
+  title       = 'Docsoft, Inc.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'deafness'
+  interfaces  = 'audio, media, video'
+  produces    = 'captions, software, search, speech recognition'
+  roles       = 'company, manufacturer, software developer'
+  supports    = 'education, workplace'
+
+[ about ]
+
+  precis      = 'provides audio video search and closed captioning systems'
+
+  verbose     = '''
+> Docsoft is a custom software development firm which has provided numerous
+customers with a customized software solution designed specifically to
+interface with their unique environment.  Today, we are a leading provider
+of audio video (AV) search and closed captioning systems.  By leveraging
+the capabilities of automatic speech recognition, Docsoft provides software
+and hardware tools that allow customers to quickly and easily search spoken
+content within the digital audio and video files. 
+
+> -- [$url]{http://www.docsoft.com}
+'''
+
+[ address.email ]
+
+  info        = 'mike.robichaux@docsoft.com'
+
+[ address.phone ]
+
+  fax         = '+1 405 526 7564'
+  main        = '+1 405 236 2466'
+
+[ address.postal ]
+
+  main        = '''
+Docsoft, Inc.
+115 E. California Avenue, Suite 400
+Oklahoma City, OK 73104
+United States
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.docsoft.com'

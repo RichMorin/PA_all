@@ -1,0 +1,53 @@
+<!-- templates/search/clear.html.eex -->
+
+<%
+  set_keys = sort_keys(@sess_tag_sets)
+%>
+
+<h2>Clear Searches</h2>
+
+<p>
+  This page allows you to clear out unused search queries,
+  so that they don't get in your way.
+  If you don't want to clear any queries at this time,
+  go back to the previous page.
+  For a tutorial introduction to the search facility,
+  please visit the <a href="/text/usage">Usage</a> page.
+</p>
+
+<%= if Enum.count(set_keys) == 0 do %>
+  You don't seem to have any search queries to clear.
+  Nothing to see here; move along...
+
+  <% else %>
+    <%= form_for @conn,
+          Routes.search_path(@conn, :clear_post), fn _fn -> %>
+    <div>
+      <h3>
+        Clear search queries
+        <span class="hs-hide-all hs-none">(<a
+          href="#">hide all</a>)</span>
+        <span class="hs-show-all hs-none">(<a
+          href="#">show all</a>)</span>
+      </h3>
+
+      <p>
+        This part of the page lets you clear previously defined queries,
+        based on (automatically-generated) names such as "a", "b", etc.
+        Check boxes for any queries you wish to clear,
+        then click the "Submit" button.
+      </p>
+
+      <%= for set_key <- set_keys do %>
+        <ul>
+          <%=
+            tag_set = @sess_tag_sets[set_key]
+            fmt_tag_set(tag_set, set_key, :clear)
+          %>
+        </ul>
+      <% end %>
+    </div>
+ 
+    <input type="submit" value="Submit">
+  <% end %>
+<% end %>

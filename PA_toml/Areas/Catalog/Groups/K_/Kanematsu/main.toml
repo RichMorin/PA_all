@@ -1,0 +1,50 @@
+# cat_gro|Kanematsu/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Kanematsu'
+  title       = 'Kanematsu Corporation'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, learning disability, low vision'
+  products    = 'EasyTactix'
+  produces    = 'hardware'
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'manufactures a small, lightweight braille printer'
+
+  verbose     = '''
+World’s Smallest & most Lightweight Braille Embossing Printer, EasyTactix
+
+> -- [$url]{http://www.kanematsu.co.jp/en}
+'''
+
+[ address.email ]
+
+  info        = 'tetsuo_takamatsu@kanematsu.co.jp'
+
+[ address.phone ]
+
+  main        = '+81-3-5440-8468 (Japan), +1 732 271 7552 (USA)'
+
+[ address.postal ]
+
+  main        = '''
+Kanematsu Corporation
+1-2-1 Shibaura, Minato-ku
+Tokyo, 105-8005
+Japan 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.kanematsu.co.jp/en'

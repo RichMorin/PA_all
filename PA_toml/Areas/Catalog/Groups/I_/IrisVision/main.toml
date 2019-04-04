@@ -1,0 +1,51 @@
+# cat_gro|IrisVision/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'IrisVision'
+  title       = 'IrisVision'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'virtual reality'
+  impairments = 'blindness, low vision'
+  produces    = 'hardware, software'
+  supports    = 'daily living, mobility, navigation'
+
+[ about ]
+
+  precis      = 'provides virtual reality for the visually disabled'
+
+  verbose     = '''
+> IrisVision is revolutionizing VR technology to help low vision patients
+actually see.
+
+> -- [$url]{http://IrisVision.com}
+'''
+
+[ address.email ]
+
+  info        = 'zack@irisvision.com'
+
+[ address.phone ]
+
+  main        = '+1 925 202 5160'
+
+[ address.postal ]
+
+  main        = '''
+IrisVision
+5976 W Las Positas Blvd., Suite 126
+Pleasanton, CA 94588
+United States 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://IrisVision.com'

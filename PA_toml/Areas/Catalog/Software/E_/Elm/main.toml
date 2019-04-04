@@ -1,0 +1,43 @@
+# cat_sof|Elm/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Elm'
+  title       = 'Elm ME+'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, email, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, client'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'a text-based, interactive email client'
+
+  verbose     = '''
+> Elm is a text-based email client commonly found on Unix systems.
+First released in 1986, it became popular as one of the first email clients
+to use a text user interface, and as a utility with freely available source
+code. The name elm originated from the phrase ELectronic Mail.
+
+> -- [$url]{ext_wp|Elm_(email_client)}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Elm_(email_client)'
+
+[ address.web_site ]
+
+  also        = 'http://www.instinct.org/elm'
+  guide       = 'https://quark.phy.bnl.gov/www/docs/Users.guide.html'
+  main        = 'http://www.elmme-mailer.org'

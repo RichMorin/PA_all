@@ -1,0 +1,20 @@
+# cat_sof|dnsmasq/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/x86_64/dnsmasq'
+  upstream    = 'http://www.thekelleys.org.uk/dnsmasq/doc.html'
+  wiki        = 'ext_awi|dnsmasq'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/dnsmasq'
+  search      = 'ext_pd|search?keywords=dnsmasq'
+  track       = 'https://tracker.debian.org/pkg/dnsmasq'
+
+  commands    = 'sudo apt-get install dnsmasq'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

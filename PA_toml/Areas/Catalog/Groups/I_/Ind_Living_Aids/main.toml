@@ -1,0 +1,55 @@
+# cat_gro|Ind_Living_Aids/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Ind_Living_Aids'
+  title       = 'Independent Living Aids LLC'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, deafness, learning disability, low vision'
+  produces    = 'hardware, keyboard, software'
+  roles       = 'company, distributor'
+  supports    = 'communication, telecom'
+
+[ about ]
+
+  precis      = 'provides products for the sight and hearing impaired'
+
+  verbose     = '''
+> Independent Living Aids is the oldest, privately-held, direct marketing
+/ distribution company in the United States of products for the sight
+and hearing impaired.  For more than 40 years, ILA has provided these
+communities with quality products at reasonable prices with superb service
+helping people within these communities lead active, independent lives.
+
+> -- [$url]{http://www.independentliving.com}
+'''
+
+[ address.email ]
+
+  info        = 'cesar@independentliving.com'
+
+[ address.phone ]
+
+  fax         = '+1 516 937 3906'
+  main        = '+1 716 332 2971'
+
+[ address.postal ]
+
+  main        = '''
+Independent Living Aids LLC
+137 Rano Street
+Buffalo, NY 14207
+United States\t 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.independentliving.com'

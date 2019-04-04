@@ -1,0 +1,37 @@
+<!-- templates/item/preview.html.eex -->
+
+<%
+  alias PhxHttpWeb.ItemView
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  item_type  = if @key =~ ~r{ ^ Areas / Catalog / }x do
+    "cat"
+  else
+    "con"
+  end
+
+  my_assigns  = assigns
+  |> Map.put(:preview, true)
+  |> Map.put(:reviews, nil)
+%>
+
+<h2>Preview</h2>
+
+<p>
+  This page allows you to examine the results of your edits,
+  proceed with further edits, and/or submit the item.
+  The rendered content is displayed first,
+  followed by the <a href="#source_code">Source Code</a>
+  and finally the <a href="#edit_area">Edit Area</a>.
+</p>
+
+<hr>
+<%= render ItemView, "_show_#{ item_type }.html", my_assigns %>
+
+<a name="source_code"><hr></a>
+<%= render ItemView, "_show_toml.html", my_assigns %>
+
+<a name="edit_area"><hr></a>
+<h2>Edit Area</h2>
+<%= render ItemView, "_edit_form.html", my_assigns %>
+

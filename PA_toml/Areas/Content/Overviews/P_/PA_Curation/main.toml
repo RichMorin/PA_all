@@ -1,0 +1,67 @@
+# con_ove|PA_Curation/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PA_Curation'
+  title       = "Pete's Alley - Curation"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "how we perform curation for Pete's Alley"
+
+  verbose     = '''
+One of the major selling points of Pete's Alley is the fact that
+the content is "[curated]{https://www.merriam-webster.com/dictionary/curated}".
+In broad terms, this means that careful attention has been paid
+to ensuring that it is readable, reliable, etc.
+Getting to specifics, this means that the textual content should be
+clear, concise, relevant, and free of editorial problems.
+Technical content, such as hypertext links, should also be correct.
+Having set this as a goal, our next challenge is to implement it.
+
+As a crowd-sourced social media platform,
+we have three major resources at our disposal.
+The first is automation: if a program can detect a problem
+(e.g., a broken link), repairing it is generally trivial.
+The second is manual effort: an author and editor can collaborate
+to bring the writing up to our standards.
+The third is social policy: if an author cannot (or will not)
+contribute in an acceptable manner, their efforts will be rejected.
+
+### Automated Checks
+
+We perform a number of automated checks on our input files.  For example:
+
+- The Markdown and TOML are checked for syntactic correctness.
+- Field names (e.g., tag types) are checked against a schema.
+- Hypertext links are checked to determine whether they resolve.
+
+### Manual Checks
+
+Assuming that a contribution makes it past the automated checks,
+it still has to pass some manual checks.
+Basically, this means that an editor has to "sign off" on the
+content being free from errors in grammar, organization, punctuation,
+spelling, word choice, etc.
+There are also some site-level manual checks that need to be performed.
+For example, if a tag value appears for multiple types,
+it may need to be clarified.
+
+### Social Policy
+
+This is the trickiest part of the solution.
+If an author and editor can't work together productively,
+perhaps another editor will be willing to try.
+However, if a succession of editors gives up on an author,
+this may indicate that there is an unresolvable problem.
+'''
+
+[ zoo ]
+
+  snippets    = '...'

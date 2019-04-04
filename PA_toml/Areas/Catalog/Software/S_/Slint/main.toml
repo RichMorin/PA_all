@@ -1,0 +1,45 @@
+# cat_sof|Slint/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Slint'
+  title       = 'Slint'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'beginner friendly, multilingual'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, open source'
+  requires    = 'Linux'
+  roles       = 'operating system'
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'a blind-friendly Linux distribution, based on Slackware'
+
+  verbose     = '''
+> Originally the Slackware Internationalization project,
+Slint is now a Linux distribution derived from Slackware and Salix.
+It is polyglot, versatile, beginner friendly,
+and accessible for the visually impaired. 
+
+A full Slint installation is functional out of the box
+and can be tailored to fit most computing requirements.
+
+> -- [$url]{http://slint.fr/wiki/en/start}
+'''
+
+[ address.web_site ]
+
+  main        = 'http://slint.fr/wiki/en/start'
+  zoo         = '''
+http://slint.fr/wiki/en/accessibility
+'''

@@ -1,0 +1,21 @@
+# cat_sof|Alpine/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|alpine'
+  upstream    = 'http://repo.or.cz/alpine.git'
+  wiki        = 'ext_awi|Alpine'
+
+[ os.debian ]
+
+  doc         = 'ext_pd|stretch/alpine-doc'
+  package     = 'ext_pd|stretch/alpine'
+  search      = 'ext_pd|search?keywords=alpine'
+  track       = 'https://tracker.debian.org/pkg/alpine'
+
+  commands    = 'sudo apt-get install alpine'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

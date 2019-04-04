@@ -1,0 +1,55 @@
+# cat_sof|Piespeakup/main.toml
+
+[ meta ]
+
+  actions     = '-build, -publish'
+  id_str      = 'Piespeakup'
+  title       = 'Piespeakup'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'speech synthesis'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'eSpeak, Raspberry Pi, speakup'
+  roles       = 'connector, daemon, system software'
+  standards   = 'OpenMAX'
+
+[ about ]
+
+  precis      = 'an adaptation of espeakup for the Raspberry Pi'
+
+  verbose     = '''
+> This is an adaptation of the espeakup program specifically for the
+Raspberry Pi.  It lets speakup use the eSpeak software synthesizer.
+
+> It uses the OpenMAX Integration Layer Client library I have written
+to render text-to-speech directly on the Broadcom GPU and thus avoid
+ALSA, pulseaudio, etc.
+
+> I did this because at the time of writing the Broadcom sound-driver
+on the Raspberry Pi is seriously broken for eSpeak TTS.  It stutters
+very badly and regularly crashes the kernel.
+
+> -- [$url]{ext_gh|cromarty/ttsprojects/tree/master/raspberry-pi/piespeakup}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|cromarty/ttsprojects, ext_gh|williamh/espeakup' 
+  zoo         = '''
+https://groups.io/g/espeak-ng,
+https://packages.debian.org/search?keywords=espeakup,
+http://techesoterica.com/?p=935,
+http://www.raspberryvi.org/stories/downloads.html
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gh|cromarty/ttsprojects/tree/master/raspberry-pi/piespeakup'

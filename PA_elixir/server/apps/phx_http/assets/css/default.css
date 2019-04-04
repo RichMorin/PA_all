@@ -1,0 +1,66 @@
+/* default.css - default CSS */
+
+body { 
+  font-family:            'Times-Roman', serif;
+  font-size:              1.2em;
+}
+
+body {
+  margin:                 10px 10px 10px 10px;
+}
+
+.button, button,
+input[type='button'], input[type='reset'], input[type='submit'] { 
+  background-color:       #f0f0f0;
+  border-radius:          8px;
+  color:                  black;
+  padding:                10px 10px;
+  font-size:              20px;
+  cursor:                 pointer;
+}
+
+code {
+  background:             #fafafa;
+  border-radius:          4px;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+  font-weight:            bold;
+  letter-spacing:         0.07rem;
+  margin-bottom:          0.75rem;
+}
+
+/* Set h6 to a bit larger than body text; scale up by 1/6 for each level. */
+
+h1 { font-size:           2.597rem; }
+h2 { font-size:           2.225rem; }
+h3 { font-size:           1.907rem; }
+h4 { font-size:           1.634rem; }
+h5 { font-size:           1.400rem; }
+h6 { font-size:           1.200rem; }
+
+header {
+  background:             #f4f4f4;
+  border-radius:          4px;
+  font-size:              1.30rem;
+  padding:                5px 10px 10px 0;
+}
+
+header h1 { margin:       0 0 0 0; }
+
+header p {  font-size:    2.30rem; }
+
+hr { 
+  border-top:             0.10rem solid #000000;
+  margin:                 1rem 0
+}
+
+li {
+  margin:                 4px 0
+}
+
+pre {
+  background:             #fafafa;
+  border-radius:          4px;
+  padding:                10px 10px 10px 10px;
+}

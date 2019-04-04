@@ -1,0 +1,238 @@
+# con_how|PA_Submissions/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PA_Submissions'
+  title       = "Pete's Alley - Submissions"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "how to submit feedback (or content!) to Pete's Alley"
+
+  verbose     = '''
+I strongly encourage you to submit both feedback and content.
+Don't be shy: bouquets and brickbats are both fine.
+In fact, although it's nice to hear about things that people like,
+it's frequently more useful to hear about things that they don't.
+
+And, since crowd-sourced content is at the heart of Pete's Alley,
+I _really_ want you to submit item descriptions, reviews,
+and any long-form writing you think might be suitable.
+After a bit of back and forth, you might end up as a published
+(and credited) author on this oh-so-prestigious site!
+
+### Feedback
+
+_Please_ submit feedback about Pete's Alley.
+If you simply want to send in a comment or suggestion,
+just click the Feedback link at the end of a page.
+This will open up a page where you can edit your submission.
+There will also be a link that initiates a piece of outgoing email,
+complete with a proper address and a subject line
+that tells me which page you were visiting.
+
+If this is the first feedback you have submitted,
+tell me a bit about who you are,
+why you're visiting Pete's Alley, etc.
+The more I know about Pete's Allies,
+the better I can make Pete's Alley work for them.
+Besides, building a community is a large part of what we're doing.
+
+#### Bug Reports
+
+Try to pick a relevant page, if you can.
+It doesn't have to be the _only_ page that exhibits the bug,
+but ideally the bug should show up somewhere on the page. 
+Then, in the message body, tell me:
+
+- what you did to make the bug appear
+- what behavior you expected (or wanted)
+- what (lack of) behavior you observed
+
+If the behavior might be related to your client software
+(e.g., browser, operating system, screen reader),
+try to give me the relevant names and versions.
+This often helps greatly in reproducing the problem.
+
+I'll try to respond promptly (e.g., within a day or two),
+if only to thank you for your submission and confirm that I got it.
+If you don't hear back from me in fairly short order,
+don't be shy about resending the feedback.
+Things do get lost in the mail...
+
+After that, things may slow down while I try to replicate the problem
+and figure out what (if anything) I can do about it.
+I will try to keep you in the loop, however,
+so that you have some idea what's going on.
+
+#### Reviews
+
+If you have relevant experience with an item
+in our [Catalog]{cat|:a} area, consider submitting a review.
+What do you like (or dislike)?
+What gotchas and workarounds have you discovered?
+Depending on the nature of your comments, I may edit them into the item
+or include them in a Reviews section.
+Either way, if I use your work, it will be credited.
+
+If possible, your submission should use plain, unstyled text.
+Ideally, you should create the review in a [text editor]{ext_wp|Text_editor}
+and include the resulting file as an attachment.
+([Word processors]{ext_wp|Word_processor} and
+[email clients]{ext_wp|Email_client} tend to use wonky characters
+that I have to detect and remove.)
+That said, feel free to use [Markdown]{ext_wp|Markdown} syntax
+to add display lists, emphasis, links, and such to your "verbose" text.
+
+### Items
+
+If you want to submit substantial changes to an item
+or create an entirely new item (e.g., an article or catalog entry),
+there is more of a learning curve involved.
+(I'm working on making things easier, but it's still early days...)
+In the meanwhile, however, I'll be happy to help you get going.
+Here's a sketchy tutorial, to help you get started...
+
+The first thing to bear in mind is that we _both_
+want your content to be easy for folks to understand.
+Try to make it as clean and clear as possible,
+but don't worry if there are some minor errors;
+that's why we have an editing pass.
+Before you edit or create a Catalog item, be sure to read the
+[Typed Tags]{con_ove|PA_Typed_Tags} overview.
+Combinations of types and tags are essential to our Search facility.
+This will give you some background on why and how we use them.
+
+#### Getting Started
+
+Submitting changes to an existing item is a good way to begin.
+It lets you make additions and/or changes,
+while following a layout that is known to be valid.
+Once some of your changes have been accepted,
+you'll feel more confident about submitting a new item.
+To get started, navigate to an appropriate item.
+For changes, simply start with the item in question.
+For a new item, start with something similar.
+For example, if you want to submit a new item
+in the Catalog/Hardware section, you might start with the
+[Anova_PC]{cat_har|Anova_PC} page.
+
+#### Source Code (?!?!?)
+
+The pages in Pete's Alley are generated from "source code",
+encoded in a combination of (slightly extended forms of)
+[Markdown]{ext_wp|Markdown} and [TOML]{ext_wp|TOML}.
+Markdown is a popular [markup language]{ext_wp|Markup_language}
+which frees you from most of the pain of writing [HTML]{ext_wp|HTML}.
+TOML is an easy and popular way to encode structured data.
+Using TOML, you can enter text (e.g., lists of tags)
+in a manner that our server software can digest.
+For more information,
+visit [Pete's Alley - Extensions]{con_how|PA_Extensions}.
+
+If you aren't a "techie" (e.g., a computer programmer),
+you should probably begin by using our online editing facility.
+Although it may seem a bit tedious, it is designed to help you
+enter all the needed information in the correct format.
+You can then examine the resulting source code
+and learn about how we like to encode things.
+
+#### Online Editing
+
+There is an "Edit" link in the footer of each item page in `Areas/Catalog`.
+Using the resulting page, you can compose, edit, preview,
+and/or submit an item for publication in Pete's Alley.
+Be sure to put accurate values into the `email_addr` and `full_name` fields
+in the `user` section.
+This will let us contact you about proposed changes,
+give you proper credit for your work, etc.
+
+Fill in and/or edit any other fields that seem appropriate,
+then click the "Preview" button.
+The resulting page will display the rendered item,
+followed by the corresponding TOML/Markdown source code and an Edit Area.
+You can edit and preview your work as many times as you desire.
+
+When you are satisfied with the result, click the "Submit" button.
+On the resulting page, click the "Feedback" button
+and tell us a bit about your motivation, approach, etc.
+Typically, after we receive your submission, we'll review it,
+possibly edit it a bit, and send it back to you for confirmation or rework.
+
+#### Offline Editing
+
+If you're confident that you understand the relevant Schema file
+(e.g., `main.toml`, linked below)
+and are comfortable about using a text editor, you can:
+
+- download a copy of the source file
+- edit it on your personal computer
+- send it to me as an email enclosure
+
+To get access to a page's source code,
+click the "Source" link in the page footer.
+This will bring up a new page, displaying the page's source code
+and offering a "download" link.
+Scan the Markdown and TOML to get an idea of the general format.
+By comparing the source file with the formatted page,
+you should be able to get an idea of its syntax and semantics.
+
+Edit the file on your computer, preferably using a text editor.
+(Word processors tend to add weird characters and formatting!)
+Finally, be sure to send the file as an enclosure,
+lest the intervening mail software decide to "improve" it...
+
+#### Interaction
+
+You should expect a bit of email interaction, particularly at first.
+For example, I may need to edit your submission in various ways.
+If the edits are substantial, I'll send it back to you for review.
+Once everyone involved is satisfied,
+the submission will be published on the site.
+
+If you are a new submitter, I will also create a page for you
+in the `Catalog/People` section.
+This will let the site's other users know a bit about you
+(but you get to decide how much information to disclose).
+
+### Schema Files
+
+The "schema files" are the definitive reference
+to the syntax and semantics of our TOML files.
+Using a simple form of "Schema by Example",
+they control and document both acceptable and required content.
+Before attempting to create a TOML file for the site,
+you should examine the relevant schema file:
+
+- <code>[Area Schema]{_schemas/area.toml:s}</code> - `.../_area.toml`
+- <code>[Main Schema]{_schemas/main.toml:s}</code> - `.../main.toml`
+- <code>[Make Schema]{_schemas/make.toml:s}</code> - `.../make.toml`
+- <code>[Prefix Schema]{_schemas/prefix.toml:s}</code> - `_config/prefix.toml`
+
+Once you are on the "Source" page for a schema file,
+you can (and probably should) get a copy of the file
+by clicking the `download` link.
+Your browser will store the file in its downloads directory,
+using a name such as `PA__text_usage.toml`.
+Having this file around for reference (e.g., in your text editor)
+will help you figure out where fiddly bits of data need to go...
+
+#### Dashboard
+
+The schema files specify the constraints on legal TOML files
+(e.g., valid tag types), but they don't indicate which types
+are getting the most usage, which tags are showing up in more
+than one type, etc. 
+The [Dashboard]{/dash} pages contain a variety of informal
+quantitative information on the site's underlying code and data.
+Scanning its lists and tables will give you an idea of the way
+the site is coming along.
+In particular, the [Tags]{/dash/tags} dashboard's "Usage by Type" table
+is a handy way to find the most popular tag types.
+'''

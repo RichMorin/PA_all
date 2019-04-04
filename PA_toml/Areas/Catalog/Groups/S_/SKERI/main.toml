@@ -1,0 +1,64 @@
+# cat_gro|SKERI/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'SKERI'
+  title       = 'The Smith-Kettlewell Eye Research Institute'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'papers, software, studies'
+  roles       = 'organization, research institute'
+
+[ about ]
+
+  precis      = 'independent research institute on human vision'
+
+  verbose     = '''
+> Our mission is to create a unique environment for research on human
+vision -- basic scientific research to increase the understanding of
+normal vision in support of vision disorders, clinical research to
+develop new diagnostic procedures and treatments for visual and other
+sensory disorders, and engineering research to produce better techniques
+for aid and rehabilitation of the blind and partially sighted.
+
+> To this end, we will maintain an independent research institute which
+maximizes individual responsibility and innovation, which promotes a
+balance of laboratory, clinical and rehabilitation scientists, and
+which limits size in order to foster mutually supportive research
+collaborations.
+
+> -- [$url]{http://www.ski.org}
+'''
+
+[ address.phone ]
+
+  fax         = '+1 415 345 8455'
+  main        = '+1 415 345 2000'
+  tty         = '+1 415 345 2290'
+
+[ address.postal ]
+
+  main        = '''
+The Smith-Kettlewell Eye Research Institute
+2318 Fillmore Street
+San Francisco, CA 94115-1813 USA
+'''
+
+[ address.related ]
+
+  facebook    = 'ext_fb|smithkettlewell'
+  linked_in   = 'ext_li|company/the-smith-kettlewell-eye-research-institute'
+  pinterest   = 'ext_pi|smithkettlewell'
+  twitter     = 'ext_tw|SKERIResearch1'
+
+[ address.web_site ]
+
+  main        = 'http://www.ski.org'

@@ -1,0 +1,43 @@
+# cat_sof|Ubuntu/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Ubuntu'
+  title       = 'Ubuntu'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  based_on    = 'cat_sof|Debian'
+
+[ meta.tags ]
+
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, open source'
+  requires    = 'Linux'
+  roles       = 'operating system'
+
+[ about ]
+
+  precis      = 'a family of Linux distributions based on Debian'
+
+  verbose     = '''
+> Ubuntu ... is a free and open-source Linux distribution based on Debian.
+Ubuntu is officially released in three editions: Desktop, Server, and Core
+(for internet of things devices and robots).
+Ubuntu is a popular operating system for cloud computing,
+with support for OpenStack.
+
+> -- [$url]{ext_wp|Ubuntu}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Ubuntu'
+
+[ address.web_site ]
+
+  download    = 'main|#download'
+  main        = 'https://www.ubuntu.com'

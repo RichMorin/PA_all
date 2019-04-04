@@ -1,0 +1,49 @@
+# cat_gro|We_are_Colorblind/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'We_are_Colorblind'
+  title       = 'We are Colorblind'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'color blindness'
+  produces    = 'advocacy, consulting'
+  roles       = 'organization'
+  supports    = 'daily living'
+
+[ about ]
+
+  precis      = 'making the world a better place for the color blind'
+
+  verbose     = '''
+> About 4% of the world has some form of color blindness.
+The color blind have the inability
+to clearly distinguish between different colors;
+they tend to see colors in a limited range of hues.
+Because of this, color blind people experience difficulties and challenges
+in their daily life.
+
+> We are Colorblind is dedicated to making the world a better place
+for the color blind.
+
+> -- [$url]{https://wearecolorblind.com/about}
+'''
+
+[ address.related ]
+
+  facebook    = 'ext_fb|wearecolorblind'
+  twitter     = 'ext_tw|wearecolorblind'
+  linked_in   = 'ext_li|company/wearecolorblind'
+
+[ address.web_site ]
+
+  about       = 'main|/about'
+  contact     = 'main|/contact'
+  main        = 'https://wearecolorblind.com'

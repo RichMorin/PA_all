@@ -1,0 +1,54 @@
+# cat_ser|Bookshare/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Bookshare'
+  title       = 'Bookshare'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, dyslexia, low vision'
+  produces    = 'ebooks'
+
+[ about ]
+
+  access      = '''
+Bookshare provides materials in several formats, including EPUB3.  However,
+volumes may have inaccessible content (e.g., math notation, raster images),
+inoperable indexes, etc.
+'''
+
+  precis      = 'an online library of ebooks for the print disabled'
+
+  verbose     = '''
+> Bookshare is the world's largest online library of accessible ebooks
+for people with print disabilities.
+
+> Through its extensive collection of educational and popular titles,
+specialized book formats, and reading tools, Bookshare offers individuals
+who cannot read standard print materials the same ease of access that people
+without disabilities enjoy. ...
+
+> Bookshare is an initiative of Benetech, a Palo Alto, CA-based nonprofit
+that develops and uses technology to create positive social change.
+
+> -- [$url]{https://www.bookshare.org/cms}
+'''
+
+[ address.related ]
+
+  facebook    = 'ext_fb|bookshare'
+  pinterest   = 'ext_pi|bookshare'
+  twitter     = 'ext_tw|bookshare'
+  wikipedia   = 'ext_wp|Bookshare'
+  youtube     = 'ext_yt|user/BookshareTeam'
+
+[ address.web_site ]
+
+  main        = 'https://www.bookshare.org/cms'

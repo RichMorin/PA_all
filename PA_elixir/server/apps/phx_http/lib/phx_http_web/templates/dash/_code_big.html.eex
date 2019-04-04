@@ -1,0 +1,47 @@
+<!-- templates/dash/_code_big.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  pattern     = ~r{ ^ [^/]+/ [^/]+/ [^/]+/ }x
+  sort_fn     = fn {_key, map} -> -map.line end
+
+  biggies     = @code_info.cnts_by_path
+  |> Enum.sort_by(sort_fn)
+  |> Enum.take(20)  
+%>
+
+<div class="hs-base2">
+  <h3>
+    Biggest Files
+    <%= hide_show("is:2/2", "statistics of big code files") %>
+  </h3>
+
+  <div class="hs-body2 hs-is">
+    <table class="dash-code tablesorter">
+      <thead>
+        <tr>
+          <th>Lines</th>
+          <th>Chars</th>
+          <th>Funcs</th>
+          <th class="dash-code-left">File Path</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= for biggie <- biggies do %>
+          <%
+            {path, cnts}  = biggie
+            path  = path |> String.replace(pattern, "")
+          %>
+          <tr>
+            <td><%= cnts.line %></td>
+            <td><%= cnts.char %></td>
+            <td><%= cnts.func %></td>
+            <td class="dash-code-left"><tt><%= path %></tt></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

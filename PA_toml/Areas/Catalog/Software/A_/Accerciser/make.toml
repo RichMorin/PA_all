@@ -1,0 +1,12 @@
+# cat_sof|Accerciser/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/any/accerciser'
+  upstream    = 'https://wiki.gnome.org/Apps/Accerciser'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/accerciser'

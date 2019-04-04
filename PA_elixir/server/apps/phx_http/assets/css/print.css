@@ -1,0 +1,31 @@
+/* print.css - settings for printing */
+
+@media print {
+
+  main {
+    font-size:    smaller;
+  }
+
+  header, footer {
+    display:      none;
+  }
+
+  a {
+    color:        black;
+  }
+  
+  a[href^="http://"]::after,
+  a[href^="https://"]::after  {
+    content:      " [" attr(href) "]";
+    font-family:  "Lucida Console", Monaco, monospace;
+    font-size:    small;
+  }
+
+  code.inline {
+    font-family:  "Lucida Console", Monaco, monospace;
+    font-size:    smaller;
+    margin:       0 0;
+    padding:      0 0;
+  }
+
+}

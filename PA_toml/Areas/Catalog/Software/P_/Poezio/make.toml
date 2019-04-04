@@ -1,0 +1,12 @@
+# cat_sof|Poezio/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|poezio'
+  upstream    = 'https://poez.io'
+
+[ os.debian ]
+
+  package     = 'ext_pd|sid/poezio'

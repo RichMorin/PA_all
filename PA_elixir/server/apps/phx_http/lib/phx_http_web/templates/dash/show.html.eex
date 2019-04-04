@@ -1,0 +1,72 @@
+<!-- templates/dash/show.html.eex -->
+
+<%
+  alias PhxHttpWeb.DashView
+%>
+
+<h2>Dashboards</h2>
+
+<p>
+  This site has assorted dashboard pages, containing dynamic information
+  (e.g., bug reports, informal statistics) about Pete's Alley.
+  They are mostly here to help us keep track of things,
+  but you are welcome to examine them if you wish.
+</p>
+
+<h3>
+  <%=
+    title   = "Go to the Code Files page."
+    url     = "/dash/code"
+    link("Code Files", title: title, to: url)
+  %>
+</h3>
+<p>
+  This is the dashboard page for executable source code files
+  (e.g., Elixir, Phoenix templates).
+</p>
+
+<h3>
+  <%=
+    title   = "Go to the Data Files page."
+    url     = "/dash/data"
+    link("Data Files", title: title, to: url)
+  %>
+</h3>
+<p>
+  This is the dashboard page for reference data files (e.g., TOML).
+</p>
+
+<h3>
+  <%=
+    title   = "Go to the Make Dashboard page."
+    url     = "/dash/make"
+    link("Make", title: title, to: url)
+  %>
+</h3>
+<p>
+  This is the dashboard page for Make data (e.g., <code>make.toml</code> files).
+</p>
+
+<h3>
+  <%=
+    title   = "Go to the Refs page."
+    url     = "/dash/refs"
+    link("Refs", title: title, to: url)
+  %>
+</h3>
+<p>
+  This is the dashboard page for <code>meta.ref</code>
+  (i.e., item reference) types and values.
+</p>
+
+<h3>
+  <%=
+    title   = "Go to the Tags page."
+    url     = "/dash/tags"
+    link("Tags", title: title, to: url)
+  %>
+</h3>
+<p>
+  This is the dashboard page for <code>meta.tag</code>
+  (i.e., searchable string) types and values.
+</p>

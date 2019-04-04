@@ -1,0 +1,35 @@
+# cat_gro|CSUN_COD/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'CSUN_COD'
+  title       = 'CSUN Center on Disabilities'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  provides    = 'cat_ser|CSUN_AT'
+
+[ meta.tags ]
+
+  produces    = 'conference, trade show'
+  products    = 'CSUN AT'
+  roles       = 'organization'
+  supports    = 'assistive, disability'
+
+[ about ]
+
+  precis      = 'produces the CSUN AT (Assistive Technology) Conference'
+
+  verbose     = '''
+The CSUN Center on Disabilities produces the annual CSUN AT (Assistive
+Technology) Conference, typically in southern California.  This event
+includes numerous presentations and a large trade show.
+'''
+
+[ address.web_site ]
+
+  event       = 'main|/conference'
+  main        = 'https://www.csun.edu/cod'

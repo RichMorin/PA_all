@@ -1,0 +1,40 @@
+# cat_sof|Atril/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Atril'
+  title       = 'Atril'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'multiple formats'
+  impairments = 'blindness, low vision'
+  interfaces  = 'terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'MATE'
+  roles       = 'application, document viewer, eBook reader'
+  standards   = 'DJVU, DVI, EPS, PDF, PS, XPS'
+
+[ about ]
+
+  precis      = 'the official document viewer for MATE'
+
+  verbose     = '''
+> Atril is the official Document Viewer of the MATE Desktop Environment,
+it is a simple multi-page document viewer.  It can display and  print
+PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and
+Portable Document Format (PDF) files.
+
+> -- [$url]{https://github.com/mate-desktop/atril}
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gh|mate-desktop/atril'
+  man_page    = 'http://manpages.ubuntu.com/manpages/bionic/man1/atril.1.html'

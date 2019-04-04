@@ -1,0 +1,45 @@
+<!-- templates/dash/_code_ext.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  cnts_by_ext = @code_info.cnts_by_ext
+  file_exts   = keyss(cnts_by_ext)
+%>
+
+<div class="hs-base2">
+  <h3>
+    Counts by Extension
+    <%= hide_show("is:2/2", "code statistics by file extension") %>
+  </h3>
+
+  <div class="hs-body2 hs-is">
+    <table class="dash-code tablesorter">
+      <thead>
+        <tr>
+          <th class="dash-code-left">Extension</th>
+          <th>Files</th>
+          <th>Funcs</th>
+          <th>Lines</th>
+          <th>Chars</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= for file_ext <- file_exts do %>
+          <%
+            cnts  = cnts_by_ext[file_ext]
+            name  = String.replace_prefix(file_ext, "|", "")
+          %>
+          <tr>
+            <td class="dash-code-left"><tt><%= name %></tt></td>
+            <td><%= cnts.file %></td>
+            <td><%= cnts.func %></td>
+            <td><%= cnts.line %></td>
+            <td><%= cnts.char %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

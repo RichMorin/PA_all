@@ -1,0 +1,48 @@
+<!-- templates/mail/feed.html.eex -->
+
+<%
+  alias PhxHttpWeb.MailView
+  import PhxHttpWeb.LayoutView, only: [mailto_href: 1]
+
+  id        = "message"
+  rows      = 25
+  chars     = rows * 200
+  required  = "required"
+
+  starter   = """
+  email: ... valid email address ...
+  name:  ... your preferred name ...
+  url:   #{ @prev_url }
+  
+  ... feedback ...
+  """
+%>
+
+<h2>Feedback</h2>
+
+<p>
+  This page allows you to compose and send us a feedback message,
+  using either an email client or an online form.
+  If you prefer to use email, click
+  <a href="<%= mailto_href(@prev_url) %>"
+     target="_top">this link</a>.
+  If you prefer to edit your message online, use the folowing form.
+  Enter your name, a valid email address, and your feedback message;
+  click the Submit button when you're done.
+<p>
+
+<div class="mail-edit">
+<%= form_for @conn, Routes.mail_path(@conn, :feed_post), fn _fn -> %>
+  <input type="hidden" name="url" value="<%= @prev_url %>">
+
+  <p>
+    &nbsp;
+    <textarea id="<%= id %>" name="PA.<%= id %>"
+      rows="<%= rows %>" cols="75" maxlength="<%= chars %>"
+      <%= required %> placeholder="<%= required %>"
+      ><%= starter %></textarea>
+  </p>
+  <p></p>
+  <input type="submit" value="Submit">
+<% end %>
+</div>

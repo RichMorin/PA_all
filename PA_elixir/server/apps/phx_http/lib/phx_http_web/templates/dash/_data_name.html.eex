@@ -1,0 +1,43 @@
+<!-- templates/dash/_data_name.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  cnts_by_name  = @data_info.cnts_by_name
+  file_names    = keyss(cnts_by_name)
+%>
+
+<div class="hs-base2">
+  <h3>
+    Counts by File Name
+    <%= hide_show("is:2/2", "data statistics by file name") %>
+  </h3>
+
+  <div class="hs-body2 hs-is">
+    <table class="dash-code tablesorter">
+      <thead>
+        <tr>
+          <th class="dash-code-left">File Name</th>
+          <th>Files</th>
+          <th>Lines</th>
+          <th>Chars</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= for file_name <- file_names do %>
+          <%
+            cnts  = cnts_by_name[file_name]
+            name  = String.replace_prefix(file_name, "|", "")
+          %>
+          <tr>
+            <td class="dash-code-left"><tt><%= name  %></tt></td>
+            <td><%= cnts.file %></td>
+            <td><%= cnts.line %></td>
+            <td><%= cnts.char %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

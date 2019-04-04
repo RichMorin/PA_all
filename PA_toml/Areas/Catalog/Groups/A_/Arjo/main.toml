@@ -1,0 +1,58 @@
+# cat_gro|Arjo/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Arjo'
+  title       = 'Arjo Inc.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'medical, physical'
+  produces    = 'hardware'
+  products    = 'Sara Stedy'
+  roles       = 'company, manufacturer'
+  supports    = 'mobility'
+
+[ about ]
+
+  precis      = 'provides assistive devices for acute and long-term care'
+
+  verbose     = '''
+> Our operations are based on a genuine passion and extensive know-how in
+enabling care and improving the quality of life for people with reduced
+mobility and age-related health challenges, that has been built up over
+Arjo's 60-year history as a partner for the acute care and long-term
+care sector.
+
+> -- [$url]{https://www.arjo.com/en-us}
+'''
+
+[ address.phone ]
+
+  main        = '+1 800 323 1245'
+
+[ address.postal ]
+
+  main        = '''
+Arjo Inc.
+2349 W. Lake Street, Suite 250
+Addison, IL 60101
+United States
+'''
+
+[ address.related ]
+
+  facebook    = 'ext_fb|ArjoUS'
+  linked_in   = 'ext_li|company/arjo'
+  twitter     = 'ext_tw|Arjo_Global'
+
+[ address.web_site ]
+
+  main        = 'https://www.arjo.com/en-us'
+  product     = 'main|/products'

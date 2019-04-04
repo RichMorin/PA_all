@@ -1,0 +1,47 @@
+# cat_ser|ACMI_UCB/main.toml
+
+[ meta ]
+
+  actions       = 'publish'
+  id_str        = 'ACMI_UCB'
+  title         = 'Accessible Course Materials Initiative, UC Berkeley'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Amanda_Lacy'
+  f_editors   = 'cat_peo|Amanda_Lacy'
+
+[ meta.tags ]
+
+  impairments   = 'blindness, low vision'
+  produces      = 'consulting'
+  roles         = 'university department'
+  supports      = 'education'
+
+[ about ]
+
+  precis        = "helps make UCB's digital course materials more accessible"
+
+  verbose       = '''
+> The purpose of the Accessible Course Materials Initiative is to provide
+help and guidance to the campus community in ensuring that course
+materials delivered in digital form are accessible to all students.  In
+digital documents, the absence of document structure, image descriptions,
+color contrast, table navigation, etc. can pose major barriers to
+students, such as those who rely on screen readers or screen magnification.
+
+> Remediation and conversion of existing inaccessible course material is one
+approach to the problem.  A better approach is to design accessible content
+from the start.  This website provides help for both approaches.  Where
+possible, the guidance we offer on this website is in the spirit of
+Universal Design for Learning (UDL), a pedagogical framework that promotes
+flexibility in accommodating learners' individual needs and differences.
+
+> -- [$url]{https://accesscontent.berkeley.edu/about-us}
+'''
+
+[ address.web_site ]
+
+  about       = 'main|/about-us'
+  contact     = 'main|/available-support-options/contact-us'
+  main        = 'https://accesscontent.berkeley.edu'

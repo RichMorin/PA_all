@@ -1,0 +1,58 @@
+# cat_gro|ClickAndGo/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'ClickAndGo'
+  title       = 'Click & Go Wayfinding Maps'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'maps, accessible route data, service, software'
+  roles       = 'company, manufacturer, publisher'
+  standards   = 'IVR, MP3'
+  supports    = 'mobility, navigation, wayfinding'
+
+[ about ]
+
+  precis      = 'provides a wayfinding service for blind travelers'
+
+  verbose     = '''
+> ClickAndGo, a wayfinding service for blind travelers, creates accessible
+tactile and narrative maps for college, hotel, transit, and other sites.
+We offer indoor and outdoor step-by-step walking directions for blind
+travelers, and also accessible route data for wheelchair travelers.  Our
+data is free to users, and delivered via screenreader, IVR service, or via
+MP3 or text download.  We also deliver via app and support our wayfinding
+projects with on-site ibeacon messaging. 
+
+> -- [$url]{http://www.clickandgomaps.com}
+'''
+
+[ address.email ]
+
+  info        = 'joecioffi@mac.com'
+
+[ address.phone ]
+
+  fax         = '+1 917 621 3124'
+  main        = '+1 612 220 6657'
+
+[ address.postal ]
+
+  main        = '''
+Click & Go Wayfinding Maps
+3310 Nicollet Avenue, Unit 307
+Minneapolis, MN 55408
+United States 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.clickandgomaps.com'

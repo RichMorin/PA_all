@@ -1,0 +1,22 @@
+# Catalog/Services/_area.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Cat_Services_area'
+  title       = 'Services'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'contains information on conferences, web sites, etc.'
+
+  verbose     = '''
+This section includes information on computer-based services
+(e.g., assistive services, online catalogs, web sites),
+conferences, and more.
+'''

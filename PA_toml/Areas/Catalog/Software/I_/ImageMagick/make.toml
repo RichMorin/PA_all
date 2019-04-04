@@ -1,0 +1,13 @@
+# cat_sof|ii/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/x86_64/imagemagick/'
+  upstream    = 'http://tools.suckless.org/ii'
+  wiki        = 'https://wiki.archlinux.org/index.php/ImageMagick'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/imagemagick'

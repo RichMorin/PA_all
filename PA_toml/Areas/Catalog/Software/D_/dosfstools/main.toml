@@ -1,0 +1,35 @@
+# cat_sof|dosfstools/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'dosfstools'
+  title       = 'dosfstools'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'system software, utility'
+  standards   = 'DOS, FAT file system'
+  supports    = 'system administration'
+
+[ about ]
+
+  precis      = 'a utility to create, check, and label DOS FAT file systems'
+
+  verbose     = '''
+> `dosfstools` consists of the programs `mkfs.fat`, `fsck.fat`, and 
+`fatlabel` to create, check, and label file systems of the FAT family.
+
+> -- [$url]{ext_gh|dosfstools/dosfstools}
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gh|dosfstools/dosfstools'

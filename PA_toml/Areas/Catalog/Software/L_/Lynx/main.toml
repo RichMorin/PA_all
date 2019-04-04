@@ -1,0 +1,43 @@
+# cat_sof|Lynx/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Lynx'
+  title       = 'Lynx'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based, web'
+  licenses    = 'open source'
+  roles       = 'application, browser'
+  standards   = 'HTML, HTTP'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'a classic non-graphical (text-mode) web browser'
+
+  verbose     = '''
+> Lynx is a customizable text-based web browser for use on cursor-addressable
+character cell terminals.  As of May 2017, it is the oldest web browser
+still in general use and active development, having started in 1992.
+
+> -- [$url]{ext_wp|Lynx_(web_browser)}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Lynx_(web_browser)'
+
+[ address.web_site ]
+
+  guide       = 'main|/lynx_help/Lynx_users_guide.html'
+  help        = 'main|/lynx_help/lynx_help_main.html'
+  main        = 'https://lynx.invisible-island.net'

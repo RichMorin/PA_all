@@ -1,0 +1,7 @@
+<!-- templates/dash/_path.html.eex -->
+
+<b>Path:</b>&nbsp;
+
+<a href="/dash"
+   title="Go to: main Dashboard page"
+  >Dashboard</a>

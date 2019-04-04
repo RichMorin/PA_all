@@ -1,0 +1,12 @@
+# cat_sof|Linphone/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|linphone'
+  upstream    = 'http://www.linphone.org'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/sound/linphone'

@@ -1,0 +1,66 @@
+# cat_gro|OpenSidewalks/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'OpenSidewalks'
+  title       = 'OpenSidewalks'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision, mobility'
+  produces    = 'advocacy, data, software, standards'
+  roles       = 'organization'
+  standards   = 'OSM'
+  supports    = 'daily living, mobility'
+
+[ about ]
+
+  precis      = 'provides open data on transportation networks'
+
+  verbose     = '''
+> Sidewalks provide a primary mode of travel that supports nearly all other
+travel options, leisure, recreation and community activities.
+This project seeks to make pedestrian ways, particularly sidewalks,
+first class members of an open data transportation network.
+The OpenStreetMap (OSM) project has made available extensive,
+user-contributed open data on transportation networks,
+providing the basis for many use cases and downstream activities,
+including rich analytics, travel route optimization, city planning,
+and disaster relief.
+Some footways have been annotated in OSM as independent routes.
+However, sidewalks in the built environment have generally been treated
+an addendum to streets.
+
+> As a result, sidewalks in OSM have spotty coverage and an unintuitive
+implementation.
+The current standard makes user contribution difficult and fails to serve
+many use cases, including the needs of people with limited mobility.
+This project proposes to jumpstart an effort to generate an OSM-based
+pedestrian network with global coverage.
+
+> -- [$url]{https://www.opensidewalks.com}
+'''
+
+[ address.email ]
+
+  info        = 'info@opensidewalks.com'
+
+[ address.related ]
+
+  github      = 'ext_gh|OpenSidewalks'
+
+  zoo         = '''
+https://wiki.openstreetmap.org/wiki/Proposed_features/sidewalk_schema,
+https://wiki.openstreetmap.org/wiki/Seattle\\,_Washington/Sidewalk_Import,
+'''
+
+[ address.web_site ]
+
+  main        = 'https://www.opensidewalks.com'
+

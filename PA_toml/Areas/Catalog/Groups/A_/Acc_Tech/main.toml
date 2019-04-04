@@ -1,0 +1,38 @@
+# cat_gro|Acc_Tech/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Acc_Tech'
+  title       = 'Accessible Technology in the Workplace'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, dyslexia, low vision'
+  supports    = 'daily living, reading, workplace'
+
+[ about ]
+
+  precis      = 'promotes disabled participation in business and society'
+
+  verbose     = '''
+> Our mission is to promote full and unrestricted participation in business
+and society by persons with disabilities through the use of electronic
+information technology that is universally accessible.
+
+> -- [$url]{http://accessibletech.org}
+'''
+
+[ address.phone ]
+
+  main        = '+1 800 949 4232'
+  tty         = '+1 800 949 4232'
+
+[ address.web_site ]
+
+  main        = 'http://accessibletech.org'

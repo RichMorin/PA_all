@@ -1,0 +1,10 @@
+/* This file is for your main application css. */
+
+@import "./phoenix.css";      /* Default Phoenix CSS */
+@import "./override.css";     /* Site-wide overrides */
+@import "./print.css";        /* Print improvements  */
+@import "./tables.css";       /* Table support       */
+
+/* Support progressive disclosure.  For details, see ../js/hide_show.js */
+
+.hs-none { display: none; }

@@ -1,0 +1,17 @@
+<!-- templates/item/show.html.eex -->
+
+<%
+  alias PhxHttpWeb.ItemView
+
+  item_type  = if @key =~ ~r{ ^ Areas / Catalog / }x do
+    "cat"
+  else
+    "con"
+  end
+
+  my_assigns  = assigns
+  |> Map.put(:preview, nil)
+%>
+
+  <%= render ItemView, "_show_#{ item_type }.html", my_assigns %>
+  

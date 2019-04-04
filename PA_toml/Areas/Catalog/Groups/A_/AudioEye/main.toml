@@ -1,0 +1,57 @@
+# cat_gro|AudioEye/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'AudioEye'
+  title       = 'AudioEye Inc.'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'web'
+  produces    = 'software'
+  roles       = 'company, manufacturer, software developer'
+  standards   = 'ADA, Section 508, WCAG'
+  supports    = 'reading'
+
+[ about ]
+
+  precis      = 'provides a web accessibility platform and tool set'
+
+  verbose     = '''
+> AudioEye transforms how the world experiences digital content by providing
+every enterprise, from corporations to government agencies, technology to
+meet and exceed ADA, WCAG, and Section 508 digital accessibility compliance.
+The AudioEye managed solution platform and comprehensive set of tools,
+enable digital content providers to create experiences that are more
+accessible, and more usable, for more people.  
+
+> -- [$url]{http://www.audioeye.com}
+'''
+
+[ address.email ]
+
+  info        = 'info@audioeye.com'
+
+[ address.phone ]
+
+  main        = '+1 866 331 5324'
+
+[ address.postal ]
+
+  main        = '''
+AudioEye Inc.
+5210 East Williams Circle, Suite 750
+Tucson, AZ 85711
+United States 
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.audioeye.com'

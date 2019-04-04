@@ -1,0 +1,20 @@
+# cat_sof|Profanity/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|community/x86_64/profanity'
+  upstream    = 'http://www.profanity.im'
+
+[ os.debian ]
+
+  package     = 'ext_pd|jessie/profanity'
+  search      = 'ext_pd|search?keywords=profanity'
+  track       = 'https://tracker.debian.org/pkg/profanity'
+
+  commands    = 'sudo apt-get install profanity'
+  origin      = 'APT'
+  status      = '''
+As of 2017.0917, there is no "profanity" package for Raspbian Stretch.
+'''

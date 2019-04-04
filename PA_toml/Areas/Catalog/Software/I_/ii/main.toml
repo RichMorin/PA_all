@@ -1,0 +1,47 @@
+# cat_sof|ii/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'ii'
+  title       = 'ii (IRC It)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'filesystem-based'
+  interfaces  = 'chat, command line, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, IRC client, FIFO'
+  standards   = 'IRC'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'a minimalist IRC client, based on a FIFO and the filesystem'
+
+  verbose     = '''
+> ii (irc it) is a minimalist FIFO and filesystem-based IRC client. It
+creates an irc directory tree with server, channel and nickname
+directories.  In every directory, a FIFO in file and a normal out file
+is created.
+
+> The in file is used to communicate with the servers and the out files
+contain the server messages. For every channel and every nickname there
+are related in and out files created. This allows IRC communication from
+command line and adheres to the Unix philosophy.
+
+> -- [$url]{ext_pd|stretch/ii}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Ii_(IRC_client)'
+
+[ address.web_site ]
+
+  main        = 'http://tools.suckless.org/ii'

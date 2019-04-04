@@ -1,0 +1,73 @@
+# _config/forced.toml
+#
+# This file defines URLs which are forced to be considered valid, despite
+# any results reported by our web crawler.
+
+[ meta ]
+
+  id_str    = 'url_over'
+
+[ urls ]
+
+  closed    = '?'
+
+# 403 Forbidden
+
+  code_403  = 'https://lynx.invisible-island.net'
+
+# 404 Not Found
+
+  code_404  = '?'
+
+# 410 Gone
+
+  code_410  = '?'
+
+# 500 Internal Server Error
+
+  code_500  = 'http://vinuxproject.org, http://visioneers.org'
+
+# 502 Bad Gateway
+
+  code_502  = '?'
+
+# 503 Service Unavailable
+
+  code_503  = 'http://www.amazon.com'
+
+# 999 LinkedIn filter
+
+  code_999  = '''
+xhttps://www.linkedin.com/company/ada-national-network,
+https://www.linkedin.com/company/aira-inc-,
+https://www.linkedin.com/company/anova-culinary,
+https://www.linkedin.com/company/arjo,
+https://www.linkedin.com/company/the-smith-kettlewell-eye-research-institute,
+https://www.linkedin.com/company/wayfindr,
+https://www.linkedin.com/in/amanda-lacy-3100a020,
+https://www.linkedin.com/in/f123org,
+https://www.linkedin.com/in/richmorin,
+  '''
+
+  invalid_redirection   = 'https://www.youtube.com'
+
+  max_redirect_overflow = 'https://wiki.linuxfoundation.org/networking/bridge'
+
+  nxdomain  = '?'
+
+  timeout   = '?'
+
+  tls_alert = '''
+http://www.attainmentcompany.com,
+https://groups.io/g/espeak-ng,
+https://quark.phy.bnl.gov/www/docs/Users.guide.html,
+https://www.drivemedical.com,
+https://www.drivemedical.com/about-drive,
+https://www.drivemedical.com/contact-us,
+https://www.freedesktop.org/wiki/Accessibility/,
+https://www.gnome.org,
+https://www.raspberryvi.org,
+https://www.raspberryvi.org/about.html,
+https://www.raspberryvi.org/downloads.html,
+https://www.raspberryvi.org/stories/writing-a-raspberry-pi-os-image-to-an-sd-card-on-linux.html,
+  '''

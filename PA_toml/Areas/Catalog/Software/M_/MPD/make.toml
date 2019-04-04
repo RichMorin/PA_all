@@ -1,0 +1,20 @@
+# cat_sof|MPD/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/x86_64/mpd'
+  upstream    = 'https://www.musicpd.org'
+  wiki        = 'ext_awi|Music_Player_Daemon'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/mpd'
+  search      = 'ext_pd|search?keywords=mpd'
+  track       = 'https://tracker.debian.org/pkg/mpd'
+
+  commands    = 'sudo apt-get install mpd'
+  issues      = '?'
+  origin      = 'APT'
+  status      = 'ok'

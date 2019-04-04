@@ -1,0 +1,14 @@
+# cat_sof|Piespeakup/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+[ os.debian ]
+
+  status      = '''
+Piespeakup is included in the Raspberry VI distribution, but not in Raspbian.
+May no longer be needed...
+'''
+
+# http://www.raspberryvi.org/stories/stuttering.html

@@ -1,0 +1,182 @@
+# con_ove|PA_Splitting/main.toml
+
+[ meta ]
+
+  actions     = '-publish'
+  id_str      = 'PA_Splitting'
+  title       = "Pete's Alley - Code Splitting"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "splitting up an Elixir / Phoenix source code tree"
+
+  verbose     = '''
+I've been playing with splitting built and imported files out of a
+[Mix]{https://hexdocs.pm/mix/Mix.html} (e.g., Elixir, Phoenix) project tree.
+The results seem quite promising to me, but it's not clear how many other
+developers will be interested.
+
+### Motivation
+
+Although Mix works very nicely, its approach involves importing (or creating)
+a very large number of files in the project's file tree.
+In a Phoenix project, this can easily add up to several thousand files
+and hundreds of MB of disk space.  Consequently:
+
+- Copying the file tree is tedious and wastes a lot of space.
+- Transmitting the file tree is _extremely_ time consuming.
+- Code searching can be tedious and bring up false positives.
+
+Finally, I find mingling editable code with imported and generated code
+to be ugly and potentially confusing.
+I understand the rationale for keeping some things commingled.
+The `assets/{css,js}` directories are possible examples.
+However, keeping 166 MB of `node_modules` in my editable work space
+seems a bit much.
+To say nothing of several MB of `_build` and `dep` files...
+
+### Background
+
+My project structure follows (roughly) the approach suggested
+by Dave Thomas in his [Elixir for Programmers]{
+https://codestool.coding-gnome.com/courses/elixir-for-programmers} course.
+The `phx_http` project (and application) just contains user interface code.
+Essentially all of the "business logic" resides in the other projects.
+Here's the directory layout:
+
+    .../PA_all/
+    | PA_about/*          # Markdown files
+    | PA_elixir/          # Elixir project code
+    | | common/...        # common functions
+    | | info_files/...    # file tree analysis
+    | | info_toml/...     # PA_toml data analysis
+    | | phx_http/...      # Phoenix (HTTP) server
+    | PA_toml/...         # TOML reference data
+
+Each of the Elixir projects (`PA_elixir/*`) contains massive sub-trees
+that I don't need to edit, at least on any frequent basis.
+So, I'd like to move them out of my work area.
+However, this is too complex a procedure to do by hand (trust me :-).
+So, I wrote a Bash script (`pa_split`, shown later in this page) to:
+
+- Copy the `PA_all` file tree to a parallel tree named `.../PA_sym_x`.
+- Create `PA_sym_x/PA_lumps`, with sub-directories for `phx_http`, etc.
+- Move lumps of code (e.g., `phx_http/_build`) over to the sub-directories.
+- Create relative symbolic links to the (moved) lumps.
+
+In an earlier experiment, I discovered that the asset management code (?)
+doesn't like it when _some_ of the assets are moved.
+(In my case, the JavaScript code blew up.)
+So, I moved the entire `assets` directory, along with `_build` and `deps`.
+
+### Results
+
+This reduced the size of my `PA_elixir` tree by more than 99%,
+leaving me with about 4 MB (mostly TOML files) in my work area.
+Obviously, this can be copied and/or transmitted much more quickly:
+
+    $ du -sk *
+        44  PA_about
+      1100  PA_elixir
+    184620  PA_lumps
+      3168  PA_toml
+
+As far as I can tell, the resulting file tree works just fine.
+However, it's quite possible that I missed something
+or that someone else's setup would have problems that mine does not.
+It's also possible that a change in Mix or the asset-handling code
+might break something.  So, YMMV.
+
+Finally, the current approach leaves some editable files (e.g., CSS, JS)
+lying about in `PA_lumps/phx_http/assets`.
+I can live with this for the moment, but it seems unsanitary
+and could cause confusion and/or errors.
+
+#### Discussion
+
+I suspect that the current approach
+("put everything in one big file tree") stems from two factors.
+Because almost every Elixir developer uses Git,
+hadlly anyone _needs_ to copy or transmit project directory trees.
+And, given that everything is kept in one big tree,
+the Mix folks (et al) simply went with the flow.
+However, the approach is not without drawbacks, as discussed above.
+
+My "splitting" approach works well enough that I may employ it,
+but it's really just a "proof of concept".
+A Real Solution (TM) should allow editable files to be kept apart
+from imported or generated ones.
+Of course, this would have to come from the Elixir, Mix, and Phoenix folks.
+
+#### Details
+
+Unsurprisingly, most of the savings came from the `phx_http` project,
+some from the `info_toml` project (which I had executed separately),
+and none at all from the `common` and `info_code` projects (which had
+only been executed as dependencies of `phx_http`).
+
+    $ du -sk PA_elixir/*
+        92  PA_elixir/common
+        72  PA_elixir/info_code
+       144  PA_elixir/info_toml
+       780  PA_elixir/phx_http
+
+    $ du -sk PA_lumps/*
+         0  PA_lumps/common
+         0  PA_lumps/info_code
+       840  PA_lumps/info_toml
+    183780  PA_lumps/phx_http
+
+    $ du -sk PA_lumps/*/*
+       624  PA_lumps/info_toml/_build
+       216  PA_lumps/info_toml/deps
+     10648  PA_lumps/phx_http/_build
+    166516  PA_lumps/phx_http/assets
+      6568  PA_lumps/phx_http/deps
+        48  PA_lumps/phx_http/priv
+
+### Bash Script
+
+Here, for the brave, is the `pa_split` Bash script:
+
+    :
+    # pa_split - Copy PA_all to PA_sym, split up, and add symlinks.
+    #
+    # Written by Rich Morin, CFCL, 2018
+
+      set -v        # trace execution
+
+      E=    # echo
+
+      hax="$HOME/_Work/P_Elixir/PA_hax"
+      cd $hax
+
+      rm -rf PA_sym_x
+      cp -Rp PA_all PA_sym_x
+      cd PA_sym_x
+      $E mkdir PA_lumps
+
+      list_1=`ls PA_elixir`
+      for dir_1 in $list_1; do
+        $E
+        $E mkdir -p PA_lumps/$dir_1
+        list_2='_build deps assets'
+        for dir_2 in $list_2; do
+          src=PA_elixir/$dir_1/$dir_2
+          dst=PA_lumps/$dir_1/$dir_2
+          if [ -e $src ]; then
+            $E mv $src $dst
+            $E ln -s ../../$dst $src
+          fi
+        done
+      done
+'''
+
+[ zoo ]
+
+  snippets    = '...'

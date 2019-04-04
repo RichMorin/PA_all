@@ -1,0 +1,19 @@
+# cat_sof|JOE/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/x86_64/joe'
+  upstream    = 'https://joe-editor.sourceforge.io'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/joe'
+  search      = 'ext_pd|search?keywords=joe'
+  track       = 'https://tracker.debian.org/pkg/joe'
+
+  commands    = 'sudo apt-get install joe'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

@@ -1,0 +1,42 @@
+# cat_sof|Poezio/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Poezio'
+  title       = 'Poezio'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'chat, command line, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, chat client'
+  standards   = 'IRC, Jabber, XMPP'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'a console-based client for Jabber and XMPP'
+
+  verbose     = '''
+> Poezio is a console Jabber/XMPP client.  Its goal is to use anonymous
+connections to simply let the user join MultiUserChats.  This way, the
+user doesn't have to create a Jabber account, exactly like people are
+using IRC.  Poezio's commands are designed to be (if possible) like
+commonly used IRC clients (weechat, irssi, etc).
+
+> -- [$url]{ext_gh|poezio/poezio}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|poezio/poezio' 
+
+[ address.web_site ]
+
+  main        = 'https://poez.io/en'

@@ -1,0 +1,57 @@
+# cat_gro|HCL_America/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'HCL_America'
+  title       = 'HCL America'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'software'
+  roles       = 'company'
+  supports    = 'daily living, education, workplace'
+
+[ about ]
+
+  precis      = 'provides computer-based products for the visually impaired'
+
+  verbose     = '''
+> HCL – Hindustan Computer Limited operates from 32 countries across the
+Americas, Europe, Asia Pacific, Middle East, and Africa with a total of
+109,795 employees.  We realize that only a Relationship Beyond the Contract
+can capture what will change tomorrow.  The AUX - Accessibility and Usability
+Experts at HCL is a team of 200+ dedicated and passionate people.  Our goal
+is to change and enhance the accessibility industry, empower the disabled to
+accomplish any task at hand, and achieve the goal they desire. 
+
+> -- [$url]{https://www.hcltech.com}
+'''
+
+[ address.email ]
+
+  info        = 'shaun.foreman@hcl.com'
+
+[ address.phone ]
+
+  main        = '+1 425 891 5000'
+
+[ address.postal ]
+
+  main        = '''
+HCL America, Inc.
+14980 NE 31st Circle
+Redmond, WA 98052
+United States 
+'''
+
+[ address.web_site ]
+
+  about       = 'main|/about-us/about-hcl-enterprise'
+  main        = 'https://www.hcltech.com'

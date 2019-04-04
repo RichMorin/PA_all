@@ -1,0 +1,38 @@
+# cat_sof|speechd/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'speechd'
+  title       = 'speechd (Speech Dispatcher)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'device independent access, speech synthesis'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'access layer, library, system software'
+
+[ about ]
+
+  precis      = 'a library that provides a common interface to speech synthesis'
+
+  verbose     = '''
+> [The] Speech Dispatcher project provides a high-level device independent
+layer for access to speech synthesis through a simple, stable, and well
+documented interface.
+
+> -- [$url]{https://devel.freebsoft.org/speechd}
+'''
+
+[ address.web_site ]
+
+  _1          = 'https://devel.freebsoft.org'
+  doc         = '_1|/doc/speechd/speech-dispatcher.html'
+  main        = '_1|/speechd'

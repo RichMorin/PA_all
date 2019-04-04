@@ -1,0 +1,20 @@
+# cat_sof|Mutt/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/x86_64/mutt'
+  upstream    = 'http://www.mutt.org'
+  wiki        = 'ext_awi|mutt'
+
+[ os.debian ]
+
+  package     = 'ext_pd|stretch/mutt'
+  search      = 'ext_pd|search?keywords=mutt'
+  track       = 'https://tracker.debian.org/pkg/mutt'
+
+  commands    = 'sudo apt-get install mutt'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

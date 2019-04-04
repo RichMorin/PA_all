@@ -1,0 +1,61 @@
+# cat_gro|Alt_Comm_Svcs/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Alt_Comm_Svcs'
+  title       = 'Alternative Communication Services, LLC'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'deafness, hearing loss'
+  interfaces  = 'video'
+  produces    = '''
+captions, education, technical support, text interpreting, training,
+video interpreting
+'''
+  roles       = 'company'
+  standards   = 'CART'
+  supports    = 'education'
+
+[ about ]
+
+  precis      = 'provides communication solutions for the hearing impaired'
+
+  verbose     = '''
+> Alternative Communication Services, LLC provides communication text and
+interpreting solutions for students who are deaf or hard of hearing in
+education.  We not only provide remote CART captioning, Text Interpreting
+(TypeWell), and VRI (Video Remote Interpreting) for schools, we provide
+technical support, training, and education to everyone involved in the
+process.  Let us show you why we are the alternative!
+
+> -- [$url]{http://www.acscaptions.com}
+'''
+
+[ address.email ]
+
+  info        = 'info@acscaptions.com'
+
+[ address.phone ]
+
+  fax         = '+1 800 335 0911'
+  main        = '+1 800 335 0911'
+
+[ address.postal ]
+
+  main        = '''
+Alternative Communication Services, LLC
+PO Box 278
+Lombard, IL 60148
+United States
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.acscaptions.com'

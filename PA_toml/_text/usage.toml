@@ -1,0 +1,211 @@
+# _text/usage.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'usage'
+  title       = 'Usage'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "how to use Pete's Alley"
+
+  verbose     = '''
+This page is a tutorial walkthrough of the site's usage.
+For best results, skim the material first, then try things out.
+
+### Areas
+
+Pete's Alley stores its [curated]{con_ove|PA_Curation} "items"
+in two top-level [Areas]{/area}: [Catalog]{cat|:a} and [Content]{con|:a}.
+The Catalog area contains information on disability-related resources.
+It contains sections for [Groups]{cat_gro|:a}, [Hardware]{cat_har|:a},
+[People]{cat_peo|:a}, [Services]{cat_ser|:a}, and [Software]{cat_sof|:a}.
+The Content area is a collection of long-form written material,
+including [Essays]{con_ess|:a}, [HowTos]{con_how|:a}, and
+[Overviews]{con_ove|:a}.
+
+Each section has a detailed, alphabetical index page,
+providing the name and a precis of each indexed item.
+If you know the name of the item you want (or a plausible keyword),
+you should use your browser to search this page.
+However, if you don't know the name of the item you want,
+and don't want to scan long lists of possibilities,
+you may want to try our tag-based Search facility, described below.
+
+### Links
+
+Pete's Alley uses links in various ways:
+
+- action links   (e.g., initiate an email message)
+- control links  (e.g., hide or show page content)
+- external links (jump to a page on another site)
+- internal links (jump to another page on the site)
+- on-page links  (jump to another part of the page)
+
+In general, it should be possible to determine what a link will do
+by reading the link's text, tooltip, and/or URL.
+That said, if you don't know what a link does, just try it out!
+You won't hurt anything and you can always go back to the original page.
+
+### Progressive Disclosure
+
+Some of our pages contain a _lot_ of information.
+In order to make this less time-consuming to work with,
+we use a form of [progressive disclosure]{ext_wp|Progressive_disclosure}.
+The "hide" and "show" control links act as complementary
+[disclosure widgets]{ext_wp|Disclosure_widget},
+controlling a single level of content.
+The "hide all" and "show all" links control multiple levels,
+hiding or showing all subsidiary levels.
+
+To reduce clutter, some content starts out in "hide" mode.
+Click "show" or "show all" as needed
+to allow scanning, printing, and searching tasks.
+Certain sequences of clicks are also useful.
+For example, clicking "hide all" and then "show"
+will cause only the headings to be shown.
+
+### Navigation
+
+Pete's Alley makes heavy use of navigation links, both internal and external.
+(Internal links jump to another part of our web site;
+external links jump to other sites.)
+Our pages tend to be fairly small and our server is quite efficient,
+so following an internal link should be quite speedy.
+Of course, following an external link may take a bit longer...
+
+#### Page Header
+
+The page header contains several internal links:
+
+- [Home  ]{_text/home.toml}   - the home (landing) page
+- [About ]{_text/about.toml}  - background information
+- [Areas ]{/area}             - links to topical areas
+- [Search]{/search/find}      - tag-based search tool
+- [Usage ]{_text/usage.toml}  - tutorial on site usage
+
+#### Page Footer
+
+The page footer may contain additional links, including:
+
+- Dashboard   - display dynamic site information
+- Feedback    - create an email message template
+- Source      - display the source code for an item
+- Edit        - create or edit source code for an item
+
+#### Index Pages
+
+Some of the section index pages, such as [Groups]{cat_gro|:a},
+will eventually have large numbers of entries.
+To ease on-page navigation,
+there is a set of single-character "Index" links (e.g., 2, A, ...).
+Each of these jumps to the heading
+for entries whose titles begin with that character.
+Note that links can only jump to content that is being shown.
+
+#### Item Pages
+
+Item pages in the Catalog area are intended to help you find out
+about organizations, products, services, etc.
+Along with a precis and a description,
+they provide whatever contact information we've been able to find.
+So, they have many types of links, including:
+
+- area pages for the current path
+- item pages for each author
+- item pages for related items
+- official and related web sites
+- wikipedia links for terminology
+
+Item pages in the Content area have fewer fixed elements;
+each author gets to decide the manner and order of presentation.
+That said, these items will generally make use of common HTML elements
+such as headers, lists, and tables.
+
+### Search
+
+Our [Search]{/search/find} facility uses a powerful and flexible approach,
+based on combinations of tags.
+However, using the facility effectively requires a bit of skill,
+so let's go over the conceptual model and some
+of the operational details.
+
+Each item has a set of tags, organized by value within type.
+So, for example, values such as `immersable` or `speech generation`
+might appear under the `features` type.
+This helps to ease specification of tags, reduce ambiguity, etc.
+For a detailed discussion of this topic,
+visit [Pete's Alley - Typed Tags]{con_ove|PA_Typed_Tags}.
+
+The "Define a search" section of the Search page
+lets us specify any possible tag, using its type and value.
+After opening up the `features` type (using the `show` link),
+click the checkboxes for `algebraic` and `compact`,
+adding them to the search query.
+Finally, click the `Submit` button to process the search
+and display the "Search Results" page.
+
+The first section of this page, Selections,
+will show a set of Defined tags, labeled `a`.
+The next section, Results, will show items matching the
+[Intersection]{ext_wp|Intersection} and
+[Union]{ext_wp|Union_(set_theory)} of the selections.
+In this example, the Intersection area will display items
+for which _all_ of the `a` tags match and
+the Union area will display items
+for which _any_ of the `a` tags match.
+Typically, the Union section will contain far more items
+than the Intersection section does.
+
+Going back to the Search page, you'll notice that there
+is now a "Reuse a search" heading.
+This lets us combine previous queries with new selections.
+The query we just made (`a`) will be shown, along with a set
+of radio buttons (labeled `all`, `any`, and `none`).
+These let us specify whether and how to reuse the query.
+
+Click the `all` button on query `a`,
+then specify `roles: screen reader` (in "Define a search”)",
+and click `Submit`.
+The Selections area will now show both Defined and Reused.
+(e.g., `b` and `a: all`)
+Once again, it will display the Intersection and Union
+of the specified terms.
+
+The Intersection result now includes items that match
+all of the tags in selections `a` and `b`.
+The Union result includes
+items that match all of the tags in selection `a` or
+any of the tags in selection `b`.
+
+Selecting the version (`all` or `any`) of previously defined queries
+seems like a very general mechanism for composition.
+However, our implementation may need some polishing
+or added infrastructure to be really convenient.
+So, feedback (with use cases!) is earnestly requested.
+
+### Submissions
+
+You are strongly encouraged to submit feedback on Pete's Alley.
+If you simply want to send us a comment or suggestion,
+email is the recommended approach.
+Navigate to an appropriate page on Pete's Alley,
+then click the Feedback link at the end of the page.
+This should open up a piece of outgoing email,
+complete with proper address and subject information.
+Put your feedback (e.g., "please add the `foo:bar` tag")
+in the message body, then send the email off to us.
+
+If you want to submit substantial changes to a page
+or entirely new content (e.g., an article or review),
+there are better ways to do it.
+However, there is a bit more of a learning curve involved.
+For details, visit
+[Pete's Alley - Submissions]{con_how|PA_Submissions}.
+'''

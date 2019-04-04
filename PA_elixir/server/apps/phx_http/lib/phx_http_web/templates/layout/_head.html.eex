@@ -1,0 +1,41 @@
+<!-- _head.html.eex -->
+
+<%
+  # https://github.com/Mottie/tablesorter
+  # https://mottie.github.io/tablesorter/docs/
+  # also, .../example-widget-header-titles.html
+
+  cdnjs     = "https://cdnjs.cloudflare.com/ajax/libs"
+  jquery    = "#{ cdnjs }/jquery/3.3.1/jquery.min.js"
+  ts_base   = "#{ cdnjs }/jquery.tablesorter/2.31.1"
+
+  app_css   = Routes.static_path(@conn, "/css/app.css")
+  css4ts    = "#{ ts_base }/css/theme.default.min.css"
+  sorter    = "#{ ts_base }/js/jquery.tablesorter.min.js"
+  titles    = "#{ ts_base }/js/widgets/widget-headerTitles.min.js"
+  widgets   = "#{ ts_base }/js/jquery.tablesorter.widgets.min.js"
+
+  title     = get_title(@page_type, @key, @item, @title)
+%>
+
+<title><%= title %></title>
+
+<script src="<%= jquery  %>" ></script>
+<script src="<%= sorter  %>" ></script>
+<script src="<%= titles  %>" ></script>
+<script src="<%= widgets %>" ></script>
+
+<script>
+  $(function(){
+    $('table').tablesorter({
+      headerTitle_useAria   : true,
+      headerTitle_tooltip   : 'tooltip',
+      sortReset             : true,
+      sortRestart           : true,
+      widgets               : ['zebra', 'headerTitles']
+    });
+  });
+</script>
+
+<link rel="stylesheet" href="<%= app_css %>"/>
+<link rel="stylesheet" href="<%= css4ts %>"/>
