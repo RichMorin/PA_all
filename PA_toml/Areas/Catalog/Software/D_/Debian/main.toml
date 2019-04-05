@@ -1,0 +1,48 @@
+# cat_sof|Debian/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Debian'
+  title       = 'Debian'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, open source'
+  requires    = 'Linux'
+  roles       = 'operating system'
+
+[ about ]
+
+  precis      = 'the base for a family of Linux distributions'
+
+  verbose     = '''
+> Debian was begun in August 1993 by Ian Murdock, as a new distribution
+which would be made openly, in the spirit of Linux and GNU.
+Debian was meant to be carefully and conscientiously put together,
+and to be maintained and supported with similar care.
+It started as a small, tightly-knit group of Free Software hackers,
+and gradually grew to become a large, well-organized community
+of developers and users. See the detailed history.
+
+Since many people have asked, Debian is pronounced /ˈde.bi.ən/.
+It comes from the names of the creator of Debian, Ian Murdock,
+and his wife, Debra.
+
+> -- [$url]{https://www.debian.org/intro/about#why}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Debian'
+
+[ address.web_site ]
+
+  download    = 'main|/distrib'
+  main        = 'https://www.debian.org'
