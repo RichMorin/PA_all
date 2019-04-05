@@ -7,6 +7,8 @@ defmodule PhxHttp.Types do
   It doesn't contain any functions, just `@type` attributes.
   """
 
+# @spec - WIP
+
   defmacro __using__(_) do
     quote do
       # `address` is a map of maps of strings.

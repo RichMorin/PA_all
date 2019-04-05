@@ -1,6 +1,8 @@
 defmodule Server.MixProject do
   use Mix.Project
 
+# @spec - WIP
+
   def project do
     [
       apps_path:          "apps",
@@ -14,6 +16,9 @@ defmodule Server.MixProject do
   # the apps folder.
   #
   # Run "mix help deps" for examples and options.
+
+# @spec - WIP
+
   defp deps do
     []
   end

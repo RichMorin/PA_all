@@ -15,6 +15,8 @@ defmodule InfoWeb.External do
   use InfoWeb.Types
 
 
+# @spec - WIP
+
   def get_ext_list(external, forced) do
   #
   # Get a list of status tuples for external URLs.  The `forced` Map tells us

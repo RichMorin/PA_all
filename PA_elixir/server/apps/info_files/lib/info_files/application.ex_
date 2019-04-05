@@ -1,6 +1,4 @@
 defmodule InfoFiles.Application do
-#
-#   def  start/2
 
   use Application
 
@@ -10,6 +8,8 @@ defmodule InfoFiles.Application do
   - change the extension to `ex`
   - edit `application/0` in `mix.exs`.
   """
+
+# @spec - WIP
 
   def start(_type, _args) do
     import Supervisor.Spec, warn: false

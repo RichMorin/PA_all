@@ -56,6 +56,8 @@ defmodule PhxHttpWeb.Router do
   divider (= = = ...) on the console for each request.
   """
 
+# @spec - WIP
+
   def divider(conn, _opts) do # rdm
     if Common.run_mode() == :dev do #K
       prefix    = String.duplicate("= ", 5)

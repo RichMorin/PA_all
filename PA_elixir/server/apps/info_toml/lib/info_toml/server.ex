@@ -142,7 +142,6 @@ defmodule InfoToml.Server do
 
   def get_part(gi_list) do
     get_fn = fn toml_map -> get_in(toml_map, gi_list) end
-
     Agent.get(@me, get_fn)
   end
 
@@ -204,7 +203,8 @@ defmodule InfoToml.Server do
   Update an item in toml_map, given its key (eg, "_text/about.toml") and value.
   """
 
-  @spec put_item(String.t, item_map) :: [ String.t ]
+# @spec put_item(s, item_map) :: [ s ] when s: String.t
+  @spec put_item(s, map) :: atom when s: String.t
 
   def put_item(key, item), do: put_part(item, [:items, key])
 
@@ -213,7 +213,7 @@ defmodule InfoToml.Server do
   replace `toml_map` entirely.
   """
 
-  @spec put_part(any, [ map_key ] | nil) :: toml_map
+  @spec put_part(any, [ map_key ] | nil) :: atom
 
   def put_part(new_val, key_list \\ nil) do
     update_fn = fn toml_map ->
@@ -266,7 +266,8 @@ defmodule InfoToml.Server do
 
   # Private functions
 
-  @spec first_load() :: toml_map
+# @spec first_load() :: toml_map
+  @spec first_load() :: map
 
   defp first_load() do
   #
@@ -285,7 +286,8 @@ defmodule InfoToml.Server do
     end
   end
 
-  @spec toml_load(toml_maybe) :: {atom, [ String.t ], toml_map}
+# @spec toml_load(toml_maybe) :: {atom, [ String.t ], toml_map}
+  @spec toml_load(map | nil) :: {atom, [ String.t ], map}
 
   defp toml_load(old_map \\ nil) do
   #

@@ -77,7 +77,8 @@ defmodule InfoToml.LoadTree do
   Note: This function is only exposed as public to enable testing. 
   """
 
-  @spec do_file(String.t, integer, schemas) :: item_maybe
+# @spec do_file(String.t, integer, schemas) :: item_maybe
+  @spec do_file(s, integer, map) :: { s, any } when s: String.t
 
   def do_file(file_rel, id_num, schemas) do
  

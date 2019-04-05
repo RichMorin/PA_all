@@ -15,12 +15,13 @@ defmodule InfoToml.CheckTree do
   use InfoToml, :common
   use InfoToml.Types
 
-  @spec check_all(toml_map) :: {atom, [ String.t ] }
-
   @doc """
   Do some global sanity checks on a `toml_map` candidate.
   """
   
+# @spec check_all(toml_map) :: {atom, [ String.t ] }
+  @spec check_all(map) :: {atom, [ String.t ] }
+
   def check_all(toml_map) do
     results   = %{}
     results   = Map.put(results, :check_id_str, check_id_str(toml_map) )
@@ -42,7 +43,8 @@ defmodule InfoToml.CheckTree do
   Check for problematic duplication of `id_str` values.
   """
   
-  @spec check_id_str(toml_map) :: {atom, String.t }
+# @spec check_id_str(toml_map) :: {atom, String.t }
+  @spec check_id_str(map) :: {atom, String.t }
 
   def check_id_str(toml_map) do
     gi_path   = [ :meta, :id_str ]

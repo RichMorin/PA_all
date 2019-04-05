@@ -35,7 +35,8 @@ defmodule InfoToml.IndexTree do
   Create the set of indexes.
   """
 
-  @spec index(toml_map) :: ndx_map
+# @spec index(toml_map) :: ndx_map
+  @spec index(map) :: ndx_map
 
   def index(toml_map) do
     ndx     = %{

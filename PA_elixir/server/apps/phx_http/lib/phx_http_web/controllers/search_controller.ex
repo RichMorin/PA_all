@@ -51,7 +51,7 @@ defmodule PhxHttpWeb.SearchController do
   fills in a form.
   """
 
-  @spec clear_form(conn, params) :: conn
+  @spec clear_form(map, map) :: map
 
   def clear_form(conn, _params) do
     sess_tag_sets   = get_session(conn, :tag_sets) || []
@@ -118,7 +118,7 @@ defmodule PhxHttpWeb.SearchController do
   This function generates data for the Search Results (show) page.
   """
 
-  @spec show(conn, params) :: conn
+  @spec show(map, map) :: map
 
   def show(conn, params) do
     {tags_d, specs_r}   = params |> munge()
@@ -200,8 +200,9 @@ defmodule PhxHttpWeb.SearchController do
     tag_set |> Enum.map(map_fn)
   end
 
-  @spec get_queries(s_pair, %{ s => tag_set } ) ::
-          [ {s, s, tag_set } ] when s: String.t
+# @spec get_queries(s_pair, %{ s => tag_set } ) ::
+#         [ {s, s, tag_set } ] when s: String.t
+  @spec get_queries( [ {s, s} ], map ) :: [ { s, s, [s] } ] when s: String.t
 
   defp get_queries(reused, new_sets) do
   #
@@ -247,7 +248,8 @@ defmodule PhxHttpWeb.SearchController do
     {conn, tag_sets}
   end
 
-  @spec munge(params) :: {tag_set, s_pair}
+# @spec munge( {s, s} ) :: {tag_set, s_pair} when s: String.t
+  @spec munge( {s, s} ) :: { [s], [ {s,s} ]} when s: String.t
 
   defp munge(params) do
   #
@@ -263,7 +265,7 @@ defmodule PhxHttpWeb.SearchController do
 #   |> ii("munged")
   end
 
-  @spec munge_filter(params) :: {s_pairs, s_pairs}
+  @spec munge_filter( {s, s} ) :: {s_pairs, s_pairs} when s: String.t
 
   defp munge_filter(params) do
   #

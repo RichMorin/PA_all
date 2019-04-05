@@ -15,6 +15,9 @@ defmodule PhxHttpWeb.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
+
+# @spec - WIP
+
   def connect(_params, socket, _connect_info) do
     {:ok, socket}
   end
@@ -29,5 +32,8 @@ defmodule PhxHttpWeb.UserSocket do
   #     PhxHttpWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
+
+# @spec - WIP
+
   def id(_socket), do: nil
 end

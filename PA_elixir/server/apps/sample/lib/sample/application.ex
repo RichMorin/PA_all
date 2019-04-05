@@ -5,6 +5,8 @@ defmodule Sample.Application do
 
   use Application
 
+# @spec - WIP
+
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [

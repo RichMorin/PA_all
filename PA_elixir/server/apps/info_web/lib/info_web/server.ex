@@ -42,7 +42,7 @@ defmodule InfoWeb.Server do
   Update the data structure for a link, given its URL and a new value.
   """
 
-  @spec put_info(String.t, map) :: [ String.t ]
+  @spec put_info(String.t, map) :: atom
 
   def put_info(link_url, link_map) do
     put_fn = fn link_maps -> Map.put(link_maps, link_url, link_map) end

@@ -69,6 +69,8 @@ defmodule InfoFiles.CntCode do
 
   # Private functions
 
+# @spec - WIP
+
   defp add_cnts_by_app(file_info) do
   #
   # Add `:cnts_by_app` - number of lines of code (etc) by app name.

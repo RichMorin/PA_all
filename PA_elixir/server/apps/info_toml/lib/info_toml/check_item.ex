@@ -102,7 +102,8 @@ defmodule InfoToml.CheckItem do
     end
   end
 
-  @spec check_required(item_map, String.t, schemas) :: boolean
+# @spec check_required(item_map, String.t, schemas) :: boolean
+  @spec check_required(map, String.t, map) :: boolean
 
   defp check_required(inp_map, file_key, schemas) do
   #
@@ -191,7 +192,8 @@ defmodule InfoToml.CheckItem do
     |> List.flatten()
   end
 
-  @spec get_schema(schemas, s) :: s when s: String.t
+# @spec get_schema(schemas, s) :: s when s: String.t
+  @spec get_schema(map, s) :: map when s: String.t
 
   defp get_schema(schemas, file_key) do
   #
@@ -223,7 +225,7 @@ defmodule InfoToml.CheckItem do
     paths
   end
 
-  @spec leaf_paths_h({atom, any}, {item_path, item_paths}) :: [ item_part ]
+# @spec leaf_paths_h({atom, any}, {item_path, item_paths}) :: [ item_part ]
 
   defp leaf_paths_h({key, value}, {parent_path, paths}) when is_map(value), do:
     {parent_path, leaf_paths(value, [ key | parent_path ], paths) }

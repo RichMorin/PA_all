@@ -15,6 +15,8 @@ defmodule InfoWeb.Common do
   Make sure a URI has all the requisite fields.
   """
 
+# @spec - WIP
+
   def validate_uri(uri_str) do
   #
   # Adapted from https://stackoverflow.com/questions/30696761

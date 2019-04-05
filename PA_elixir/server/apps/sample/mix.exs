@@ -1,6 +1,8 @@
 defmodule Sample.MixProject do
   use Mix.Project
 
+# @spec - WIP
+
   def project do
     [
       app:                :sample,
@@ -18,6 +20,9 @@ defmodule Sample.MixProject do
   end
 
   # Run "mix help compile.app" to learn about applications.
+
+# @spec - WIP
+
   def application do
     [
       extra_applications: [:logger],
@@ -26,6 +31,9 @@ defmodule Sample.MixProject do
   end
 
   # Run "mix help deps" to learn about dependencies.
+
+# @spec - WIP
+
   defp deps do
     [
       # {:dep_from_hexpm, "~> 0.3.0"},

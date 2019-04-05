@@ -17,6 +17,8 @@ defmodule PhxHttpWeb do
   and import those modules here.
   """
 
+# @spec - WIP
+
   def controller do
     quote do
       use Phoenix.Controller, namespace: PhxHttpWeb
@@ -31,6 +33,8 @@ defmodule PhxHttpWeb do
       import PhxHttpWeb.ControllerHelpers
     end
   end
+
+# @spec - WIP
 
   def view do
     quote do
@@ -59,6 +63,8 @@ defmodule PhxHttpWeb do
     end
   end
 
+# @spec - WIP
+
   def router do
     quote do
       use Phoenix.Router
@@ -66,6 +72,8 @@ defmodule PhxHttpWeb do
       import Phoenix.Controller
     end
   end
+
+# @spec - WIP
 
   def channel do
     quote do
@@ -77,9 +85,14 @@ defmodule PhxHttpWeb do
   @doc """
   When used, dispatch to the appropriate controller/view/etc.
   """
+
+# @spec - WIP
+
   defmacro __using__(which) when is_atom(which) do
     apply(__MODULE__, which, [])
   end
+
+# @spec - WIP
 
   def get_calls(), do: Mix.Tasks.Xref.calls #D
 

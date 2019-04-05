@@ -17,6 +17,8 @@ defmodule InfoTomlTaggerTest do
     }
   end
 
+# @spec - WIP
+
   def do_tests(info) do
   #
   # Test whether `info` has the following shape:

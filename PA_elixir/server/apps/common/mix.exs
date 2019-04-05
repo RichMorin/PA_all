@@ -1,6 +1,8 @@
 defmodule Common.MixProject do
   use Mix.Project
 
+# @spec - WIP
+
   def project do
 #   IO.puts "Common.MixProject.project: Mix.env() == #{ Mix.env() }" #T
 
@@ -25,6 +27,8 @@ defmodule Common.MixProject do
 
   # Run "mix help compile.app" to learn about applications.
 
+# @spec - WIP
+
   def application do
     [
 #     mod: { Common.Application, [] },
@@ -33,6 +37,8 @@ defmodule Common.MixProject do
   end
 
   # Run "mix help deps" to learn about dependencies.
+
+# @spec - WIP
 
   defp deps do
     [

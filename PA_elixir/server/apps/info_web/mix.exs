@@ -1,6 +1,8 @@
 defmodule InfoWeb.MixProject do
   use Mix.Project
 
+# @spec - WIP
+
   def project do
 #   IO.puts "InfoWeb.MixProject.project: Mix.env() == #{ Mix.env() }" #T
 
@@ -25,6 +27,8 @@ defmodule InfoWeb.MixProject do
 
   # Run "mix help compile.app" to learn about applications.
 
+# @spec - WIP
+
   def application do
     [
       mod: { InfoWeb.Application, [] },
@@ -33,6 +37,8 @@ defmodule InfoWeb.MixProject do
   end
 
   # Run "mix help deps" to learn about dependencies.
+
+# @spec - WIP
 
   defp deps do
     [ # added

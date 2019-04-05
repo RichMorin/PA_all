@@ -15,5 +15,5 @@ Anyway, feel free to drop in!
 
 The project's files are divided into a pair of trees.
 `PA_elixir` contains the server code (mostly Elixir). 
-`PA_toml` contains reference data (mostly TOML)
+`PA_toml` contains reference data (mostly TOML).
 

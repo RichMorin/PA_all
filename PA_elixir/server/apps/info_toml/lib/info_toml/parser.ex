@@ -49,7 +49,7 @@ defmodule InfoToml.Parser do
 
   # Private functions
 
-  @spec filter( {atom, s | map}, any) :: any when s: String.t
+  @spec filter( {atom, s | map}, s) :: any when s: String.t
 
   # Filter the parsing results, reporting and removing cruft.
   # If a problem is detected, report it and return `nil`.
@@ -70,7 +70,7 @@ defmodule InfoToml.Parser do
   defp filter({:ok, data}, _), do: data
 
 
-  @spec parse_h1(String.t, atom) :: item_maybe
+  @spec parse_h1(s, atom) :: item_map | {atom, s} when s: String.t
 
   defp parse_h1(file_abs, atom_key) do
   #
@@ -85,7 +85,7 @@ defmodule InfoToml.Parser do
     end
   end
 
-  @spec parse_h2(String.t, atom) :: item_maybe
+  @spec parse_h2(String.t, atom) :: {atom, s} when s: String.t
 
   defp parse_h2(file_text, atom_key) do
   #

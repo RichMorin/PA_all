@@ -6,6 +6,8 @@ defmodule InfoToml.Application do
   Load the TOML file tree, then fold in the index.
   """
 
+# @spec - WIP
+
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
     

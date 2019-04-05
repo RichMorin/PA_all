@@ -42,6 +42,8 @@ defmodule InfoWeb.Internal do
   use InfoWeb,  :common
   use InfoWeb.Types
 
+# @spec - WIP
+
   def get_int_list(inp_list, url_base, known \\ %{}) do
   #
   # Iterate on the list until all local links are handled.
@@ -72,6 +74,8 @@ defmodule InfoWeb.Internal do
   end
 
   # Private functions
+
+# @spec - WIP
 
   def add_local(url_base, inp_urls, known) do
   #

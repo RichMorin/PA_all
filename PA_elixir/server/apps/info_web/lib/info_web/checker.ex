@@ -69,6 +69,8 @@ defmodule InfoWeb.Checker do
     }
   """
 
+# @spec - WIP
+
   def check_links(url_base \\ nil) do
   #
   # iex> t = InfoWeb.check_links("http://localhost:4000");1
@@ -105,6 +107,8 @@ defmodule InfoWeb.Checker do
 
   # Private functions
 
+# @spec - WIP
+
   defp get_forced() do
   #
   # Get a Map of "forced" external URLs.
@@ -118,6 +122,8 @@ defmodule InfoWeb.Checker do
 
     (forced ++ snapped) |> Enum.reduce(%{}, reduce_fn2)
   end
+
+# @spec - WIP
 
   defp mapper(inp_list) do
   #
@@ -134,6 +140,8 @@ defmodule InfoWeb.Checker do
     Enum.reduce(inp_list, %{}, reduce_fn)
   end
 
+# @spec - WIP
+
   def snap_load() do
   #
   # Load the most recent snapshot of the `result` Map.
@@ -149,6 +157,8 @@ defmodule InfoWeb.Checker do
 
     file_data.ext_ok |> str_list()
   end
+
+# @spec - WIP
 
   defp snap_save(result) do
   #

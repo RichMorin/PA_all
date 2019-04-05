@@ -93,7 +93,7 @@ defmodule PhxHttpWeb.SearchView do
       {"Areas/Catalog", 1}
   """
 
-  @spec result_header(results) :: String.t
+  @spec result_header( [ {s, s, s} ] ) :: {s, integer} when s: String.t
 
   def result_header(results) do
     base_patt = ~r{ ^ ( \w+ / \w+ ) / .* $ }x
@@ -141,7 +141,8 @@ defmodule PhxHttpWeb.SearchView do
 
   # Private functions
 
-  @spec fmt_tag_set_h(atom, s, s) :: safe_html when s: String.t
+# @spec fmt_tag_set_h(atom, s, s) :: safe_html when s: String.t
+  @spec fmt_tag_set_h(any, {}, {}) :: {}
 
   # Generate some HTML for `fmt_tag_set/3`.
 
