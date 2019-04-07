@@ -17,7 +17,7 @@ defmodule InfoTomlTaggerTest do
     }
   end
 
-# @spec - WIP
+  @spec do_tests(any) :: boolean
 
   def do_tests(info) do
   #

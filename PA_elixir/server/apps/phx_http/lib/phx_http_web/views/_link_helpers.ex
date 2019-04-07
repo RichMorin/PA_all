@@ -305,12 +305,12 @@ defmodule PhxHttpWeb.LinkHelpers do
     "[#{ out_1 }](#{ inp_2 } '#{ title }')"
   end
 
-  defp do_links_h2(_type, inp_1, inp_2) do
-  #
-  # Handle remaining (bogus!) links.
-
-    title     = "Go to: #{ inp_2 } [???]"
-    "[#{ inp_1 }](#{ inp_2 } '#{ title }')"
-  end
+#  defp do_links_h2(_type, inp_1, inp_2) do
+#  #
+#  # Handle remaining (bogus!) links.
+#
+#    title     = "Go to: #{ inp_2 } [???]"
+#    "[#{ inp_1 }](#{ inp_2 } '#{ title }')"
+#  end
 
 end

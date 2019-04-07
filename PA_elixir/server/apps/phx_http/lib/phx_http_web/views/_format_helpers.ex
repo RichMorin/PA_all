@@ -159,7 +159,7 @@ defmodule PhxHttpWeb.FormatHelpers do
   This function formats a reference from `meta.refs.*`.
   """
 
-# @spec fmt_ref(atom, item) :: safe_html #K
+  @spec fmt_ref(atom, map) :: {}
 
   def fmt_ref(ref_key, ref_val) do
     label     = ItemView.fmt_key(ref_key)

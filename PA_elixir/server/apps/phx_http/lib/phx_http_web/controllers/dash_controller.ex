@@ -30,28 +30,9 @@ defmodule PhxHttpWeb.DashController do
   This function generates the Dashboard index page.
   """
 
-  @spec show(conn, params) :: conn
+  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def show(conn, _params) do
-
-    if false do #D
-      # https://hexdocs.pm/mix/Mix.Tasks.Xref.html#calls/1
-      # https://hexdocs.pm/elixir/System.html#cmd/3
-
-      File.cd("/")
-      System.cmd("pwd", []) |> ii(:pwd_1)
-      
-      # These calls return an empty List.
-      Common.get_calls      |> Enum.count |> ii("Common")
-      InfoFiles.get_calls   |> Enum.count |> ii("InfoFiles")
-      InfoToml.get_calls    |> Enum.count |> ii("InfoToml")
-      InfoWeb.get_calls     |> Enum.count |> ii("InfoWeb")
-      PhxHttpWeb.get_calls  |> Enum.count |> ii("PhxHttpWeb")
-
-#     System.cmd("ls", ["-al"]) |> ii(:ls)
-      System.cmd("pwd", []) |> ii(:pwd_1)
-      System.cmd("pwd", [], cd: "/") |> ii(:pwd_2)
-    end
 
     conn
     |> assign(:item,            nil)
@@ -65,7 +46,7 @@ defmodule PhxHttpWeb.DashController do
   This function generates the Dashboard display page for code files.
   """
 
-  @spec show_code(conn, params) :: conn
+  @spec show_code(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def show_code(conn, _params) do
 
@@ -89,7 +70,7 @@ defmodule PhxHttpWeb.DashController do
   This function generates the Dashboard display page for data files.
   """
 
-  @spec show_data(conn, params) :: conn
+  @spec show_data(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def show_data(conn, _params) do
 
@@ -113,7 +94,7 @@ defmodule PhxHttpWeb.DashController do
   This function generates the Dashboard display page for Make.
   """
 
-  @spec show_make(conn, params) :: conn
+  @spec show_make(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def show_make(conn, _params) do
 
@@ -194,7 +175,7 @@ defmodule PhxHttpWeb.DashController do
   This function generates the Dashboard display page for Refs.
   """
 
-  @spec show_refs(conn, params) :: conn
+  @spec show_refs(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def show_refs(conn, _params) do
 
@@ -224,7 +205,7 @@ defmodule PhxHttpWeb.DashController do
   This function generates the Dashboard display page for Tags.
   """
 
-  @spec show_tags(conn, params) :: conn
+  @spec show_tags(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def show_tags(conn, _params) do
 

@@ -92,7 +92,7 @@ defmodule PhxHttpWeb.AreaController do
   tree.  In general, session information should still be retained and valid.
   """
 
-  @spec reload(conn, params) :: conn
+  @spec reload(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def reload(conn, params) do
   #
@@ -118,7 +118,7 @@ defmodule PhxHttpWeb.AreaController do
   This function displays a summary page for a specified part of the Areas tree.
   """
 
-  @spec show(conn, params) :: conn
+  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def show(conn, params) do
   #
@@ -165,7 +165,7 @@ defmodule PhxHttpWeb.AreaController do
     |> Enum.sort_by(sort_fn)
   end
 
-  @spec reload_h(conn, params) :: conn
+  @spec reload_h(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   defp reload_h(conn, params) do
   #
@@ -190,7 +190,7 @@ defmodule PhxHttpWeb.AreaController do
     |> redirect(to: prev_url)
   end
 
-  @spec show_h(conn, integer, String.t) :: conn
+  @spec show_h(Plug.Conn.t(), integer, String.t) :: Plug.Conn.t()
 
   defp show_h(conn, 1, key) do
   #
@@ -269,7 +269,7 @@ defmodule PhxHttpWeb.AreaController do
   #
   # Handle bogus levels.
 
-  @spec show_h3(conn, String.t, String.t, item_map) :: conn
+  @spec show_h3(Plug.Conn.t(), String.t, String.t, item_map) :: Plug.Conn.t()
 
   defp show_h3(conn, name, key, item) do
   #

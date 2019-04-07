@@ -15,16 +15,18 @@ defmodule InfoToml.CheckTree do
   use InfoToml, :common
   use InfoToml.Types
 
+  import PhxHttpWeb.PrefixHelpers, only: [ exp_prefix: 1 ]
+
   @doc """
   Do some global sanity checks on a `toml_map` candidate.
   """
   
-# @spec check_all(toml_map) :: {atom, [ String.t ] }
   @spec check_all(map) :: {atom, [ String.t ] }
 
   def check_all(toml_map) do
     results   = %{}
-    results   = Map.put(results, :check_id_str, check_id_str(toml_map) )
+    |> Map.put(:check_id_str, check_id_str(toml_map) )
+    |> Map.put(:check_refs,   check_refs(toml_map) )
 
     reduce_fn = fn {_checker, {status, message} }, acc ->
       {_acc_stat, acc_list} = acc
@@ -43,7 +45,6 @@ defmodule InfoToml.CheckTree do
   Check for problematic duplication of `id_str` values.
   """
   
-# @spec check_id_str(toml_map) :: {atom, String.t }
   @spec check_id_str(map) :: {atom, String.t }
 
   def check_id_str(toml_map) do
@@ -86,6 +87,64 @@ defmodule InfoToml.CheckTree do
       message = "problematic duplication(s) of id_str"
       IO.puts ">>> #{ message }\n"
       ii(dup_list, "dup_list") #T
+      IO.puts ""
+      { :error, message }
+    end
+  end
+
+  @doc """
+  Check for missing reference items.
+  """
+  
+  @spec check_refs(map) :: {atom, String.t }
+
+  def check_refs(toml_map) do
+    gi_path   = [ :meta, :refs ]
+
+    map_fn1a    = fn ref        -> "#{ ref }/main.toml" end
+    reduce_fn2  = fn key, acc   -> Map.put(acc, key, true) end 
+
+    reduce_fn1  = fn {_key, item}, acc ->   
+      ref_map   = get_in(item, gi_path)
+
+      map_fn1b  = fn {_type, ref_str} -> str_list(ref_str) end
+
+      if ref_map do
+        want_tmp  = ref_map               # %{ foo: "a|b, ..." }
+        |> Enum.map(map_fn1b)              # [ [ "a|b", "c|d", "..." ], ... ]
+        |> List.flatten()                 # [ "a|b", "c|d", "..." ]
+        |> Enum.map(&exp_prefix/1)        # [ ".../b", "..." ]
+        |> Enum.map(map_fn1a)             # [ ".../b/...", "..." ]
+        |> Enum.reduce(%{}, reduce_fn2)   # %{ ".../b/..." => true, "..." ]
+
+        Map.merge(acc, want_tmp)
+      else
+        acc
+      end
+    end
+
+    filter_fn1  = fn {key, _item} -> !String.starts_with?(key, "_schemas/") end
+
+    filter_fn2  = fn key ->
+      gi_path   = [ :items, key ]
+
+      !get_in(toml_map, gi_path)
+    end
+
+    map_fn2     = fn {key, _val} -> key end
+
+    want_list   = toml_map.items
+    |> Enum.filter(filter_fn1)
+    |> Enum.reduce(%{}, reduce_fn1)
+    |> Enum.map(map_fn2)
+    |> Enum.filter(filter_fn2)
+
+    if Enum.empty?(want_list) do
+      { :ok, "" }
+    else
+      message = "unmatched reference"
+      IO.puts ">>> #{ message }\n"
+      ii(want_list, "want_list") #T
       IO.puts ""
       { :error, message }
     end

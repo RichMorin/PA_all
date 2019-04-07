@@ -15,7 +15,7 @@ defmodule InfoWeb.Common do
   Make sure a URI has all the requisite fields.
   """
 
-# @spec - WIP
+  @spec validate_uri(String.t) :: {atom, map}
 
   def validate_uri(uri_str) do
   #
@@ -27,7 +27,7 @@ defmodule InfoWeb.Common do
       %URI{scheme:  nil}  -> {:error, uri}
       %URI{host:    nil}  -> {:error, uri}
       %URI{path:    nil}  -> {:error, uri}
-      uri                 -> {:ok, uri}
+      uri                 -> {:ok,    uri}
     end 
   end 
 

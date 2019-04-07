@@ -32,9 +32,6 @@ defmodule Common.Zoo do
 
   @doc """
   Get an atom indicating the current run mode.
-  
-      iex> run_mode()
-      :dev
 
   We normally pick this up from the `mix_env` (Unix) environment variable,
   defaulting to `:dev` if it isn't set.  Each Mix project's `mix.exs` file

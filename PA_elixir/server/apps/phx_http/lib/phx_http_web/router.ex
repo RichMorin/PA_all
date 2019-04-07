@@ -56,7 +56,7 @@ defmodule PhxHttpWeb.Router do
   divider (= = = ...) on the console for each request.
   """
 
-# @spec - WIP
+  @spec divider(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def divider(conn, _opts) do # rdm
     if Common.run_mode() == :dev do #K
@@ -65,6 +65,7 @@ defmodule PhxHttpWeb.Router do
 
       IO.puts "\n#{ prefix }=> #{ iso8601 }\n"
     end
+
     conn
   end
 

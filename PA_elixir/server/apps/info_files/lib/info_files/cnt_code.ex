@@ -69,7 +69,7 @@ defmodule InfoFiles.CntCode do
 
   # Private functions
 
-# @spec - WIP
+  @spec add_cnts_by_app(map) :: map
 
   defp add_cnts_by_app(file_info) do
   #

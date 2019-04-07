@@ -14,7 +14,7 @@ defmodule InfoTomlKeyValTest do
     { :ok, ndx: ndx }
   end
 
-# @spec - WIP
+  @spec do_tests({}, atom, atom) :: boolean
 
   defp do_tests(state, subset, inp_key) do
     context     = %{tracing: false}

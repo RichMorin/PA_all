@@ -92,9 +92,5 @@ defmodule PhxHttpWeb do
     apply(__MODULE__, which, [])
   end
 
-# @spec - WIP
-
-  def get_calls(), do: Mix.Tasks.Xref.calls #D
-
 end
 

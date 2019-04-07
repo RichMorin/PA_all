@@ -11,6 +11,8 @@ defmodule InfoToml.CheckItem do
 #     Check whether the map keys in `inp_map` are present in its schema.
 #   check_publish/3
 #     Check whether "publish" is present in `meta.actions`.
+#   check_refs_ok/2
+#     Check whether any ref is missing a prefix string.
 #   check_required/3
 #     Check whether all of the required map keys) are present.
 #   check_values/2
@@ -43,11 +45,13 @@ defmodule InfoToml.CheckItem do
   @spec check(item_map, String.t, schemas) :: boolean
 
   def check(inp_map, file_key, schemas) do
-    stat_ca   = check_allowed( inp_map, file_key, schemas)
-    stat_cp   = check_publish( inp_map, file_key, schemas)
-    stat_cr   = check_required(inp_map, file_key, schemas)
-    stat_cv   = check_values(inp_map, file_key)
-    stat_ca && stat_cp && stat_cr && stat_cv
+    allowed   = check_allowed( inp_map, file_key, schemas)
+    publish   = check_publish( inp_map, file_key, schemas)
+    refs_ok   = check_refs_ok( inp_map, file_key)
+    required  = check_required(inp_map, file_key, schemas)
+    values    = check_values(  inp_map, file_key)
+
+    allowed && publish && refs_ok && required && values
   end
 
 # Private functions
@@ -102,7 +106,48 @@ defmodule InfoToml.CheckItem do
     end
   end
 
-# @spec check_required(item_map, String.t, schemas) :: boolean
+  @spec check_refs_ok(map, String.t) :: boolean
+
+  defp check_refs_ok(inp_map, file_key) do
+  #
+  # Check whether any ref has a major syntax problem.  It would be better
+  # to check ref prefixes against `PhxHttpWeb.PrefixHelpers.exp_map/0`,
+  # but that runs into a startup sequencing conundrum.
+
+    gi_path     = [ :meta, :refs ]
+    refs_map    = get_in(inp_map, gi_path)
+
+    filter_fn   = fn field ->             # Retain invalid fields.
+      pattern   = ~r{ ^ [a-z_]+ [|] [A-Za-z0-9_]+ $ }x
+
+      !String.match?(field, pattern)
+    end
+
+    reject_fn   = fn {_type, ref_str} ->  # Retain invalid entries.
+      ref_str
+      |> str_list()
+      |> Enum.filter(filter_fn)
+      |> Enum.empty?()
+    end
+
+    cond do
+      String.starts_with?(file_key, "_schemas/") -> true
+
+      refs_map ->
+        bogons  = refs_map |> Enum.reject(reject_fn)
+
+        if Enum.empty?(bogons) do
+          true
+        else
+          IO.puts "\nIgnored: #{ file_key }"
+          IO.puts "Because: incomplete ref(s) - " <> inspect bogons
+          false
+        end
+
+      true -> true
+    end
+  end
+
   @spec check_required(map, String.t, map) :: boolean
 
   defp check_required(inp_map, file_key, schemas) do
@@ -175,7 +220,8 @@ defmodule InfoToml.CheckItem do
     Enum.reduce(result, true, reduce_fn)
   end
 
-  @spec check_values_h(map|s,(s->any),list) :: any when s: String.t #K
+  @spec check_values_h(map|s, (s, list -> any), list) ::
+    list when s: String.t #K
 
   defp check_values_h(inp_val, check_fn, gi_rev) do
   #
@@ -184,7 +230,7 @@ defmodule InfoToml.CheckItem do
 
     if is_map(inp_val) do
       for {key, val} <- inp_val do
-        check_values_h(val, check_fn, [key | gi_rev] )
+        check_values_h(val, check_fn, [key | gi_rev] ) #R
       end
     else
       check_fn.(inp_val, gi_rev)
@@ -192,7 +238,6 @@ defmodule InfoToml.CheckItem do
     |> List.flatten()
   end
 
-# @spec get_schema(schemas, s) :: s when s: String.t
   @spec get_schema(map, s) :: map when s: String.t
 
   defp get_schema(schemas, file_key) do

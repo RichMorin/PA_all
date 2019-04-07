@@ -82,7 +82,7 @@ defmodule InfoToml.KeyVal do
 #   |> ii("kv_cnts") #T
   end
 
-#D  @spec get_kv_descs(atom) :: tag_info
+  @spec get_kv_descs(atom) :: map
 
   defp get_kv_descs(subset) do
   #
@@ -102,7 +102,7 @@ defmodule InfoToml.KeyVal do
   # Get a Map of information on typed tags (kv).  If called without `inbt_map`,
   # it gets a copy on its own.
 
-#D @spec get_kv_info(atom) :: tag_info
+  @spec get_kv_info(atom) :: map
 
   defp get_kv_info(subset) do
     [:index, :id_nums_by_tag]
@@ -110,7 +110,7 @@ defmodule InfoToml.KeyVal do
     |> get_kv_info(subset)
   end
   
-#D  @spec get_kv_info(map, atom) :: tag_info
+  @spec get_kv_info(map, atom) :: map
 
   defp get_kv_info(inbt_map, subset) do
 
@@ -184,7 +184,7 @@ defmodule InfoToml.KeyVal do
     Enum.filter(input, filter_fn)
   end
 
-#D  @spec gkl_map( [ s ], tag_map) :: [ {s, s, integer} ] when s: String.t
+  @spec gkl_map([s], map) :: [{atom, s, integer}] when s: String.t
 
   defp gkl_map(tags, tag_map) do
   #

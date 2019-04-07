@@ -42,7 +42,7 @@ defmodule InfoWeb.Internal do
   use InfoWeb,  :common
   use InfoWeb.Types
 
-# @spec - WIP
+  @spec get_int_list([{}], String.t, map) :: list
 
   def get_int_list(inp_list, url_base, known \\ %{}) do
   #
@@ -75,7 +75,7 @@ defmodule InfoWeb.Internal do
 
   # Private functions
 
-# @spec - WIP
+  @spec add_local(String.t, list, map) :: list
 
   def add_local(url_base, inp_urls, known) do
   #

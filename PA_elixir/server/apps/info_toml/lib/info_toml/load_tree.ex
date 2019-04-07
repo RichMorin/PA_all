@@ -77,7 +77,6 @@ defmodule InfoToml.LoadTree do
   Note: This function is only exposed as public to enable testing. 
   """
 
-# @spec do_file(String.t, integer, schemas) :: item_maybe
   @spec do_file(s, integer, map) :: { s, any } when s: String.t
 
   def do_file(file_rel, id_num, schemas) do
@@ -90,13 +89,13 @@ defmodule InfoToml.LoadTree do
 
   # Private functions
 
-  @spec do_file_1(nil, String.t, any, any) :: tuple
+  @spec do_file_1(any, String.t, any, any) :: tuple
 
-  defp do_file_1(_file_data = nil, file_rel, _, _), do: {file_rel, nil}
+  defp do_file_1(file_data, file_rel, _, _) when file_data == %{} do
+    {file_rel, nil}
+  end
   #
-  # Bail out if `Parser.parse/2` returned `nil`.
-
-  @spec do_file_1(item_map, String.t, integer, schemas) :: tuple
+  # Bail out if `Parser.parse/2` returned an empty Map.
 
   defp do_file_1(file_data, file_rel, id_num, schemas) do
   #
@@ -116,9 +115,6 @@ defmodule InfoToml.LoadTree do
 
     {file_rel, nil}
   end
-
-# @spec do_file_2(item_map, String.t, String.t, any, integer) ::
-#         {String.t, item_map}
 
   defp do_file_2(file_data, file_key, file_rel, _file_stat, id_num) do
   #

@@ -27,7 +27,7 @@ defmodule PhxHttpWeb.DashView do
       true
   """
 
-# @spec get_avg_cnts(map) :: map #K
+  @spec get_avg_cnts(map) :: map
 
   def get_avg_cnts(main_cnt) do
 
@@ -79,7 +79,7 @@ defmodule PhxHttpWeb.DashView do
       nil
   """
 
-# @spec get_dup_vals(map) :: map #K
+  @spec get_dup_vals(map) :: map
 
   def get_dup_vals(kv_list) do
 
@@ -145,7 +145,7 @@ defmodule PhxHttpWeb.DashView do
       [{"bar?", :bar, 999}]
   """
 
-# @spec get_odd_vals(map) :: list #K
+  @spec get_odd_vals(map) :: list
 
   def get_odd_vals(kv_list) do
     odd_patt    = ~r{[^-+_\. (/#)A-Za-z0-9]}
@@ -189,7 +189,7 @@ defmodule PhxHttpWeb.DashView do
       %{foo: 1, bar: 1}
   """
 
-# @spec get_total_cnts(list, map) :: map #K
+  @spec get_total_cnts(list, map) :: map
 
   def get_total_cnts(tag_types, kv_map) do
     reduce_fn2  = fn tag_val, acc -> MapSet.put(acc, tag_val) end

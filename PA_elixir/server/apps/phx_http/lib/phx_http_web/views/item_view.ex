@@ -242,7 +242,7 @@ defmodule PhxHttpWeb.ItemView do
     |> Enum.reduce(%{}, reduce_fn)  # %{ main: "https:...", ... }
   end
 
-# @spec - WIP
+  @spec prep_map_h(s, map) :: s when s: String.t
 
   defp prep_map_h(inp_val, inp_map) do
   #

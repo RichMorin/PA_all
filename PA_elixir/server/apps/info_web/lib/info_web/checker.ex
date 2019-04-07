@@ -69,7 +69,7 @@ defmodule InfoWeb.Checker do
     }
   """
 
-# @spec - WIP
+  @spec check_links(String.t | nil) :: map
 
   def check_links(url_base \\ nil) do
   #
@@ -107,7 +107,7 @@ defmodule InfoWeb.Checker do
 
   # Private functions
 
-# @spec - WIP
+  @spec get_forced() :: map
 
   defp get_forced() do
   #
@@ -123,7 +123,7 @@ defmodule InfoWeb.Checker do
     (forced ++ snapped) |> Enum.reduce(%{}, reduce_fn2)
   end
 
-# @spec - WIP
+  @spec mapper(list) :: map
 
   defp mapper(inp_list) do
   #
@@ -140,25 +140,32 @@ defmodule InfoWeb.Checker do
     Enum.reduce(inp_list, %{}, reduce_fn)
   end
 
-# @spec - WIP
+  @spec snap_load() :: list
 
   def snap_load() do
   #
-  # Load the most recent snapshot of the `result` Map.
+  # Load a List containing the most recent snapshot of the `result` Map.
   
     link_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_links" #K
     glob_patt   = "#{ link_base }/*/*.toml"
 
-    file_data   =  glob_patt
+    file_path   =  glob_patt
     |> Path.wildcard()
     |> Enum.reverse()
     |> hd()
-    |> InfoToml.Parser.parse(:atoms)
 
-    file_data.ext_ok |> str_list()
+    file_data   = file_path |> InfoToml.Parser.parse(:atoms)
+
+    if Enum.empty?(file_data) do
+      file_data.ext_ok |> str_list()
+    else
+      message = "result file #{ file_path } not loaded"
+      IO.puts ">>> #{ message }\n"
+      []
+    end
   end
 
-# @spec - WIP
+  @spec snap_save(map) :: any
 
   defp snap_save(result) do
   #
@@ -185,4 +192,5 @@ defmodule InfoWeb.Checker do
 
     InfoToml.Emitter.emit_toml(link_base, toml_text)
   end
+
 end

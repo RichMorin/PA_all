@@ -1,7 +1,7 @@
 defmodule Server.MixProject do
   use Mix.Project
 
-# @spec - WIP
+  @spec project() :: list
 
   def project do
     [
@@ -17,7 +17,7 @@ defmodule Server.MixProject do
   #
   # Run "mix help deps" for examples and options.
 
-# @spec - WIP
+  @spec deps() :: list
 
   defp deps do
     []

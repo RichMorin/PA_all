@@ -3,13 +3,13 @@
 [ meta ]
 
   actions     = 'publish'
-  id_str      = 'cat_peo|Amanda_Lacy'
+  id_str      = 'Amanda_Lacy'
   title       = 'Amanda Lacy'
 
 [ meta.refs ]
 
-  f_authors   = 'Amanda_Lacy,Rich_Morin'
-  f_editors   = 'Amanda_Lacy,Rich_Morin'
+  f_authors   = 'cat_peo|Amanda_Lacy, cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Amanda_Lacy, cat_peo|Rich_Morin'
 
 [ meta.tags ]
 

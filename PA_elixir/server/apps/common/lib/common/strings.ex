@@ -30,8 +30,8 @@ defmodule Common.Strings do
 
   @spec add_s(integer, s) :: s when s: String.t
 
-  def add_s(n=1, string), do: "#{ n } #{ string }"
-  def add_s(n,   string), do: "#{ n } #{ string }s"
+  def add_s(1, string), do: "#{ 1 } #{ string }"
+  def add_s(n, string), do: "#{ n } #{ string }s"
 
   @doc """
   Generate an alphabetic ID string, using base-26 arithmetic.

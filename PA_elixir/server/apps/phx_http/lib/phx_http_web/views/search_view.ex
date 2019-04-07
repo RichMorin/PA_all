@@ -141,8 +141,7 @@ defmodule PhxHttpWeb.SearchView do
 
   # Private functions
 
-# @spec fmt_tag_set_h(atom, s, s) :: safe_html when s: String.t
-  @spec fmt_tag_set_h(any, {}, {}) :: {}
+  @spec fmt_tag_set_h(atom, {}, {}) :: {}
 
   # Generate some HTML for `fmt_tag_set/3`.
 

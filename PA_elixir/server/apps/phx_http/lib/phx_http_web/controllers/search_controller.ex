@@ -51,7 +51,7 @@ defmodule PhxHttpWeb.SearchController do
   fills in a form.
   """
 
-  @spec clear_form(map, map) :: map
+  @spec clear_form(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def clear_form(conn, _params) do
     sess_tag_sets   = get_session(conn, :tag_sets) || []
@@ -70,7 +70,7 @@ defmodule PhxHttpWeb.SearchController do
   to the Search page.
   """
 
-  @spec clear_post(conn, params) :: conn
+  @spec clear_post(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def clear_post(conn, params) do
     map_fn      = fn {key, _val} -> key end
@@ -98,7 +98,7 @@ defmodule PhxHttpWeb.SearchController do
   This function generates data for the Search (find) page.
   """
 
-  @spec find(conn, params) :: conn
+  @spec find(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def find(conn, _params) do
     tag_info        = InfoToml.get_tag_info()
@@ -118,7 +118,7 @@ defmodule PhxHttpWeb.SearchController do
   This function generates data for the Search Results (show) page.
   """
 
-  @spec show(map, map) :: map
+  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def show(conn, params) do
     {tags_d, specs_r}   = params |> munge()
@@ -200,8 +200,6 @@ defmodule PhxHttpWeb.SearchController do
     tag_set |> Enum.map(map_fn)
   end
 
-# @spec get_queries(s_pair, %{ s => tag_set } ) ::
-#         [ {s, s, tag_set } ] when s: String.t
   @spec get_queries( [ {s, s} ], map ) :: [ { s, s, [s] } ] when s: String.t
 
   defp get_queries(reused, new_sets) do
@@ -216,7 +214,7 @@ defmodule PhxHttpWeb.SearchController do
     |> Enum.map(map_fn)           # [ {"all", "a", [ "...", ... ] }, ... ]
   end
 
-  @spec get_tag_sets(conn, tag_set) :: {conn, tag_sets}
+  @spec get_tag_sets(Plug.Conn.t(), tag_set) :: {Plug.Conn.t(), tag_sets}
 
   defp get_tag_sets(conn, new_set) do
   #
@@ -248,8 +246,7 @@ defmodule PhxHttpWeb.SearchController do
     {conn, tag_sets}
   end
 
-# @spec munge( {s, s} ) :: {tag_set, s_pair} when s: String.t
-  @spec munge( {s, s} ) :: { [s], [ {s,s} ]} when s: String.t
+  @spec munge( [ {s, s} ] ) :: { [s], [ {s,s} ]} when s: String.t
 
   defp munge(params) do
   #
@@ -265,7 +262,7 @@ defmodule PhxHttpWeb.SearchController do
 #   |> ii("munged")
   end
 
-  @spec munge_filter( {s, s} ) :: {s_pairs, s_pairs} when s: String.t
+  @spec munge_filter( [ {s, s} ] ) :: {s_pairs, s_pairs} when s: String.t
 
   defp munge_filter(params) do
   #

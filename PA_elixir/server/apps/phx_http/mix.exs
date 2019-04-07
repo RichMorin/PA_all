@@ -1,7 +1,7 @@
 defmodule PhxHttp.MixProject do
   use Mix.Project
 
-# @spec - WIP
+  @spec project() :: list
 
   def project do
 #   IO.puts "PhxHttp.MixProject.project: Mix.env() == #{ Mix.env() }" #T
@@ -31,7 +31,7 @@ defmodule PhxHttp.MixProject do
   #
   # Type `mix help compile.app` for more information.
 
-# @spec - WIP
+  @spec application() :: list
 
   def application do
     [
@@ -42,7 +42,7 @@ defmodule PhxHttp.MixProject do
 
   # Specifies which paths to compile per environment.
 
-# @spec - WIP
+  @spec elixirc_paths(any) :: list
 
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_),     do: ["lib"]
@@ -51,7 +51,7 @@ defmodule PhxHttp.MixProject do
   #
   # Type `mix help deps` for examples and options.
 
-# @spec - WIP
+  @spec deps() :: list
 
   defp deps do
     [ # default

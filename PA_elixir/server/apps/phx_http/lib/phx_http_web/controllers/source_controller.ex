@@ -30,7 +30,7 @@ defmodule PhxHttpWeb.SourceController do
   This function implements the Source download action.
   """
 
-  @spec down(conn, params) :: conn
+  @spec down(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def down(conn, params) do
     key   = params["key"]
@@ -55,7 +55,7 @@ defmodule PhxHttpWeb.SourceController do
   This function generates the Source display page.
   """
 
-# @spec show(conn, params) :: conn #K
+  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def show(conn, params) do
     key     = params["key"]
@@ -91,7 +91,7 @@ defmodule PhxHttpWeb.SourceController do
     end
   end
 
-# @spec show_h(conn, main_key, main_item) :: conn #K
+  @spec show_h(Plug.Conn.t(), String.t, map) :: Plug.Conn.t()
 
   defp show_h(conn, main_key, main_item) do
   #

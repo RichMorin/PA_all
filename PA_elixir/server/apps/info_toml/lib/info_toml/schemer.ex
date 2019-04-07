@@ -50,7 +50,6 @@ defmodule InfoToml.Schemer do
 
   # Private functions
 
-# @spec do_file(s) :: {s, schema} when s: String.t
   @spec do_file(s) :: {s, map | nil} when s: String.t
 
   defp do_file(file_abs) do

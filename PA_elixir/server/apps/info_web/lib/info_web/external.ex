@@ -15,7 +15,7 @@ defmodule InfoWeb.External do
   use InfoWeb.Types
 
 
-# @spec - WIP
+  @spec get_ext_list([{}], map) :: list
 
   def get_ext_list(external, forced) do
   #

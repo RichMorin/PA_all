@@ -22,7 +22,7 @@ defmodule PhxHttpWeb.TextController do
   This function generates the Text display page.
   """
 
-  @spec show(conn, params) :: conn
+  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t()
 
   def show(conn, params) do
     key   = params["key"] || "_text/home.toml"

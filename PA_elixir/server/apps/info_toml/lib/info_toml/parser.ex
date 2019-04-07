@@ -24,9 +24,11 @@ defmodule InfoToml.Parser do
   Read and parse (aka decode) a TOML file, given an absolute path.
   The real work is done by `Toml.decode/2`, including the conversion
   of string-encoded keys into atoms, as directed by `atom_key`.
+
+  Returns an empty Map if the file is missing or unparseable.
   """
 
-  @spec parse(String.t, atom) :: item_maybe
+  @spec parse(String.t, atom) :: map
 
   def parse(file_abs, atom_key) do
     trim_path   = Regex.replace(~r{ ^ .* / PA_toml / }x, file_abs, ".../")
@@ -49,22 +51,29 @@ defmodule InfoToml.Parser do
 
   # Private functions
 
-  @spec filter( {atom, s | map}, s) :: any when s: String.t
+  @spec filter( {atom, s | map}, s) :: map when s: String.t
+
+  # apps/info_toml/lib/info_toml/parser.ex:70:pattern_match
+  # The pattern
+  # {:ok, _data}, _
+  #
+  # can never match the type
+  # {:error, binary()}, binary()
 
   # Filter the parsing results, reporting and removing cruft.
-  # If a problem is detected, report it and return `nil`.
+  # If a problem is detected, report it and return an empty Map.
   # Otherwise, return the parsed data.
 
   defp filter({:error, reason}, trim_path) do
     IO.puts "\nIgnored: " <> trim_path
     IO.puts "Because: " <> inspect(reason)
-    nil
+    %{}
   end
 
   defp filter({:ok, map}, trim_path) when map_size(map) == 0 do
     IO.puts "\nIgnored: " <> trim_path
     IO.puts "Because: No data harvested from file."
-    nil
+    %{}
   end
 
   defp filter({:ok, data}, _), do: data

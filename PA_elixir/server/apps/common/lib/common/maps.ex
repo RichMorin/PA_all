@@ -92,7 +92,7 @@ defmodule Common.Maps do
 
   # Private functions
 
-# @spec - WIP
+  @spec our_tree_h(map, b) :: b when b: boolean
 
   defp our_tree_h(input, strict) do
     reduce_fn   = fn {key, value}, acc ->

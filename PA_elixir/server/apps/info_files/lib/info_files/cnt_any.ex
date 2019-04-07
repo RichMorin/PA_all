@@ -31,7 +31,7 @@ defmodule InfoFiles.CntAny do
   output data should be stored.
   """
 
-#D @spec add_cnts(map, atom, any) :: map when
+  @spec add_cnts(map, atom, (s->s) ) :: map when s: String.t
 
   def add_cnts(file_info, file_type, map_fn) do
 

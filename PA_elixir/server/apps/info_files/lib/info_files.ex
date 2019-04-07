@@ -33,6 +33,4 @@ defmodule InfoFiles do
     apply(__MODULE__, which, [])
   end
 
-  def get_calls(), do: Mix.Tasks.Xref.calls #D
-
 end
