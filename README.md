@@ -15,5 +15,13 @@ Anyway, feel free to drop in!
 
 The project's files are divided into a pair of trees.
 `PA_elixir` contains the server code (mostly Elixir). 
-`PA_toml` contains reference data (mostly TOML).
+`PA_toml`   contains reference data (mostly TOML).
 
+## License
+
+The code and data files published by Pete's Alley
+are copyright (c) 2019 Rich Morin (rdm@cfcl.com) and their creators.
+The files are released under the Apache 2 License,
+as used by the [Elixir]{ext_wp|Elixir_(language)} community.
+For more information,
+please refer to the [NOTICE](NOTICE) and [LICENSE](LICENSE) files.

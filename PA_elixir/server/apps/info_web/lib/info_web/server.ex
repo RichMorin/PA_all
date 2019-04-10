@@ -19,7 +19,7 @@ defmodule InfoWeb.Server do
 
   @me __MODULE__
 
-  alias InfoWeb.{Checker}
+  alias InfoWeb.Checker
   use Common,   :common
   use InfoWeb, :common
   use InfoWeb.Types
