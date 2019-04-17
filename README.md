@@ -21,7 +21,7 @@ The project's files are divided into a pair of trees.
 
 The code and data files published by Pete's Alley
 are copyright (c) 2019 Rich Morin (rdm@cfcl.com) and their creators.
-The files are released under the Apache 2 License,
-as used by the [Elixir]{ext_wp|Elixir_(language)} community.
+The files are released under the Apache 2 License, as used by the
+[Elixir](https://en.wikipedia.org/wiki/Elixir_(language)) community.
 For more information,
 please refer to the [NOTICE](NOTICE) and [LICENSE](LICENSE) files.
