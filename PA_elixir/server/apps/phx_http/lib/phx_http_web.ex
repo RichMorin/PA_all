@@ -59,7 +59,6 @@ defmodule PhxHttpWeb do
       import PhxHttpWeb.FormatHelpers
       import PhxHttpWeb.KeyHelpers
       import PhxHttpWeb.LinkHelpers
-      import PhxHttpWeb.PrefixHelpers
     end
   end
 

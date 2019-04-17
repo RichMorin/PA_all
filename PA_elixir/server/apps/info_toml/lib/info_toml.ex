@@ -7,7 +7,7 @@ defmodule InfoToml do
   Note: It also sets up some infrastructure for code sharing.
   """
 
-  alias InfoToml.{Emitter,Reffer,Server,Tagger}
+  alias InfoToml.{Common, Emitter, Reffer, Server, Tagger}
 
   # Define the public interface.
 
@@ -16,6 +16,18 @@ defmodule InfoToml do
   ([`...Emitter.emit_toml/2`](InfoToml.Emitter.html#emit_toml/2))
   """
   defdelegate emit_toml(base_path, toml_text),      to: Emitter
+
+  @doc """
+  Expand prefixes (e.g., `cat_har|`, `ext_wp|`).
+  ([`...Common.exp_prefix/0`](InfoToml.Common.html#exp_prefix/0))
+  """
+  defdelegate exp_prefix(inp_str),                  to: Common
+
+  @doc """
+  Return the most relevant area key, given a bogus item key.
+  ([`...Common.get_area_key/1`](InfoToml.Common.html#get_area_key/1))
+  """
+  defdelegate get_area_key(item_key),               to: Common
 
   @doc """
   Return the data structure for an item, given its key.

@@ -110,9 +110,8 @@ defmodule InfoToml.CheckItem do
 
   defp check_refs_ok(inp_map, file_key) do
   #
-  # Check whether any ref has a major syntax problem.  It would be better
-  # to check ref prefixes against `PhxHttpWeb.PrefixHelpers.exp_map/0`,
-  # but that runs into a startup sequencing conundrum.
+  # Check whether any ref has a major syntax problem.
+  # ToDo:  Check ref prefixes against `InfoToml.Common.exp_map/0`.
 
     gi_path     = [ :meta, :refs ]
     refs_map    = get_in(inp_map, gi_path)

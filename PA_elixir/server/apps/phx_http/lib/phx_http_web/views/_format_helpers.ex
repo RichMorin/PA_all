@@ -30,10 +30,11 @@ defmodule PhxHttpWeb.FormatHelpers do
   Conveniences for formatting common page content.
   """
 
-  alias PhxHttpWeb.{ItemView, LinkHelpers, PrefixHelpers}
+  alias PhxHttpWeb.{ItemView, LinkHelpers}
 
   use Phoenix.HTML
   use PhxHttp.Types
+
   import Common
 
   @doc """
@@ -165,9 +166,7 @@ defmodule PhxHttpWeb.FormatHelpers do
     label     = ItemView.fmt_key(ref_key)
 
     map_fn1   = fn in_item -> 
-      key       = "#{ in_item }/main.toml"
-      |> PrefixHelpers.exp_prefix()
-
+      key       = "#{ in_item }/main.toml" |> InfoToml.exp_prefix()
       href      = "/item?key=#{ key }"
       link_text = InfoToml.get_item(key).meta.title
       title     = "Go to: #{ label } page"

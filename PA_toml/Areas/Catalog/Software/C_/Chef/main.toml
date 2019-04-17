@@ -1,0 +1,50 @@
+# cat_sof|Chef/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Chef'
+  title       = 'Chef'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'cross-platform'
+  interfaces  = 'terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'Ruby'
+  roles       = 'application, software, utility'
+  supports    = 'configuration, deployment, systems administration'
+
+[ about ]
+
+  precis      = 'a systems integration framework'
+
+  verbose     = '''
+> Chef is a company and the name of a configuration management tool
+written in Ruby and Erlang.
+It uses a pure-Ruby, domain-specific language (DSL) for writing
+system configuration "recipes".
+Chef is used to streamline the task of configuring
+and maintaining a company's servers,
+and can integrate with cloud-based platforms such as Internap, Amazon EC2,
+Google Cloud Platform, Oracle Cloud, OpenStack, SoftLayer, Microsoft Azure,
+and Rackspace to automatically provision and configure new machines.
+Chef contains solutions for both small and large scale systems,
+with features and pricing for the respective ranges.
+
+> -- [$url]{ext_wp|Chef_(software)}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|chef/chef'
+  wikipedia   = 'ext_wp|Chef_(software)'
+
+[ address.web_site ]
+
+  main        = 'https://www.chef.io'

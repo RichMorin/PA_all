@@ -109,18 +109,19 @@ For the moment, users will need to recharge the battery on a regular basis
 [power bank]{ext_wp|Battery_charger#Power_bank}”).
 Alternatively, they can simply put up with the booting delay.
 
-### Implementation
+### Status
 
 Perkian (named after [Debian]{ext_wp|Debian},
 [Raspbian]{ext_wp|Raspbian}, and the
 [Perkins Brailler]{ext_wp|Perkins_Brailler})
 is my nascent effort to build such a system.
-It will start with an existing Linux distribution,
-then use Debian's [Advanced Package Tool]{ext_wp|APT_(Debian)} (APT)
-and/or other tools to fold in desired packages.
-First, however, we need to assemble a "wish list" of plausible inclusions
-and a [tool chain]{ext_wp|Toolchain} of porting and packaging commands.
+The challenge is to assemble turn-key collections of ready-to-run packages.
+Each package must be downloaded, built, and configured,
+then folded into a distribution for use with a given operating system.
+A complete operating system distribution may also be produced.
 
+The first step is to assemble a "wish list" of plausible inclusions
+and a [tool chain]{ext_wp|Toolchain} of porting and packaging commands.
 As it happens, Pete's Alley has already made a start on this.
 Our [Software]{cat_sof|:a} section contains several dozen items (and counting!)
 which would be plausible additions to a Perkian distribution.
@@ -135,6 +136,39 @@ I plan to start work on such a tool
 Meanwhile, the [Make dashboard]{/dash/make} summarizes several dozen packages.
 Finally, the [Make Schema]{_schemas/make.toml:s}
 is available for your edification and amusement.
+
+#### Implementation
+
+Creating a collection of several dozen software packages is a lot of work.
+Creating collections for several operating systems multiplies the effort,
+because each OS has its own configuration and package management commands.
+For example, [Alacritty]{cat_sof|Alacritty}'s 
+[GitHub page]{ext_gh|jwilm/alacritty}
+lists about a dozen installation commands, including:
+
+| OS Variant   | Command                       |
+| ------------ | ----------------------------- |
+| Arch Linux   | `pacman -S alacritty`         |
+| Debian       | `apt install alacritty`       |
+| FreeBSD      | `pkg install alacritty`       |
+| Gentoo Linux | `emerge x11-terms/alacritty`  |
+| macOS        | `brew cask install alacritty` |
+| Mageia 7+    | `urpmi alacritty`             |
+| MS Windows   | `choco install alacritty`     |
+| NixOS        | `nix-env -iA nixos.alacritty` |
+| openSUSE     | `zypper in alacritty`         |
+| Solus        | `eopkg install alacritty`     |
+| Void Linux   | `xbps-install alacritty`      |
+
+To manage this [combinatorial explosion]{ext_wp|Combinatorial_explosion},
+I plan to use [Chef]{ext_wp|Chef_(software)},
+a [Ruby]{ext_wp|Ruby_(programming_language)}-based
+[configuration _management]{ext_wp|Configuration_management} tool.
+Information drawn from each package's `make.toml` file
+will be used to select appropriate Chef recipes,
+which will then use tools such as
+Debian's [Advanced Package Tool]{ext_wp|APT_(Debian)} (APT)
+to download software, etc.
 
 To be continued...
 '''

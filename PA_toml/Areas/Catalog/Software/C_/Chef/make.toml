@@ -1,0 +1,9 @@
+# cat_sof|Chef/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|chef-workstation'
+
+[ os.debian ]

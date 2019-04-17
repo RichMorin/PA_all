@@ -103,27 +103,84 @@ Although Elixir and Phoenix are reminiscent of Ruby and
 So, I've been forced to abandon some familiar programming idioms,
 while learning ones more suitable to functional programming, etc. 
 
-By and large, the Elixir and Phoenix aspects of my design approach
-are modeled on ideas presented by [Dave Thomas]{https://pragdave.me}
-in his Coding Gnome video course,
+#### Architecture
+
+[Dave Thomas]{https://pragdave.me} makes a number of excellent points
+in his [Keynote]{https://www.youtube.com/watch?v=6U7cLUygMeI},
+given at the 2018 [EMPEX]{https://empex.co} conference in New York City.
+He explains why he doesn't like Elixir's
+[GenServer](https://hexdocs.pm/elixir/GenServer.html) API,
+[Phoenix](https://phoenixframework.org)'s
+[contexts](https://hexdocs.pm/phoenix/contexts.html) and directory structure,
+[Mix]{https://elixir-lang.org/getting-started/mix-otp/
+  introduction-to-mix.html}'s
+[umbrella projects]{https://elixir-lang.org/getting-started/mix-otp/
+  dependencies-and-umbrella-projects.html#umbrella-projects}, and so forth.
+Basically, he contends that we're doing it all wrong
+and sketches out a way to do it better.
+
+He also explains that the term "Application" is highly overloaded
+and muddles our thinking.
+Instead, he suggests using "Library" for stateless modules
+and "Component" for stateful ones.
+He contends that we should be dynamically (and automagically)
+constructing and configuring "Assemblies" of Components and Libraries.
+Finally, he presents a description of Noddy,
+his first cut at infrastructure to support all this.
+It's a great talk: both entertaining and thought provoking.
+
+Unfortunately, although I love the ideas behind Noddy,
+the [noddy-test]{ext_gh|pragdave/noddy-test} GitHub repo
+is a _long_ way from being production infrastructure.
+So, I'm kind of stuck with the current Elixir, Mix, and Phoenix tooling.
+Fortunately, Dave has also presented some ideas on how to use these.
+In his Coding Gnome video course,
 [Elixir for Programmers]{https://codestool.coding-gnome.com/
-                         courses/elixir-for-programmers}.
-I keep the Phoenix portion as small as possible,
+  courses/elixir-for-programmers},
+Dave makes a number of useful architectural suggestions.
+By and large, my design approach is modeled on these ideas.
+
+I use an umbrella project, because Mix strongly promotes this approach.
+However, I eschew contexts and keep the Phoenix app (`phx_http`)
+as small as possible,
 using other apps for the business logic (e.g., searching).
-So, the Phoenix application only has to deal
-with presentation and user interaction.
+So, the Phoenix app only has to deal with presentation and user interaction.
 I also attempt to keep everything as simple as possible:
 each module and function tends to do only one thing,
 making the code easy to understand and modify.
 
-The coding style is also reminiscent of Avdi Grimm's
+The `phx_http` app uses the standard directory layout for Phoenix,
+but all of the other apps use an approach that Dave suggests.
+Each app has an interface file (e.g., `lib/foo.ex`)
+which uses a set of `defdelegate` calls to define the app's API.
+The implementation code is stored in a sibling directory
+(e.g., `lib/foo/bar.ex`).
+The implementation files tend to be modular and cohesive;
+they may also include testable "public" implementation functions
+which are not presented by the app's API.
+
+#### Coding Style
+
+The coding style is reminiscent of Avdi Grimm's
 [Confident Ruby]{https://pragprog.com/book/agcr/confident-ruby},
-in that functions call other functions without making checks beforehand,
-assuming that the called function will do what is needed (if anything).
+in that functions often call other functions without
+doing any checking beforehand.
+That is, they assume that the called function
+will do what is needed (if anything).
 Elixir's function dispatching (based on pervasive pattern matching)
 and "Let it crash" philosophy
 (all inherited from [Erlang]{ext_wp|Erlang_(programming_language)})
- make this a very natural approach.
+make this a very natural approach.
+
+Like Dave, I am unhappy with the current state of
+[mix format](https://hexdocs.pm/mix/master/Mix.Tasks.Format.html),
+the Elixir code formatter.
+I use a lot of inline spacing to make my code more readable.
+For example, I line up the values in data structure literals
+so that I can scan down the columns.
+I also use inline spacing to show parallel construction, etc.
+A code formatter which removes my carefully considered spacing
+is not one which I will use on my own projects.
 
 ### Futures
 

@@ -265,12 +265,18 @@ defmodule PhxHttpWeb.ItemController do
 
   defp show_h(conn, key) do
   #
-  # Handle requests with a key.
+  # Handle requests that have a key.  If the key doesn't match an item,
+  # redirect to the most appropriate Area page.
 
     item   = InfoToml.get_item(key)
 
     if item == nil do
-      key_ng(conn, key)
+      message   = "Sorry, I don't recognize that item. " <>
+                  "Please examine this Area page for alternatives."
+
+      conn
+      |> put_flash(:error, message)
+      |> redirect(to: "/area?key=#{ InfoToml.get_area_key(key) }")
     else
       item      = show_h2(item, key)
       reviews   = get_reviews(key)

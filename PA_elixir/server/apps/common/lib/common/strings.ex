@@ -71,7 +71,7 @@ defmodule Common.Strings do
       [ "foo", "a, b", "bar" ]
   """
 
-  @spec str_list(String.t) :: list
+  @spec str_list(s) :: [ s ] when s: String.t
 
   def str_list(in_str) do
     map_fn      = fn str -> String.replace(str, "\a", ",") end

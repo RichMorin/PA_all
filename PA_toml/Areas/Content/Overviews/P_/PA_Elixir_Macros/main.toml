@@ -73,7 +73,7 @@ and use these to generate functions that return lists of strings.
       end
     end
 
-## `PhxHttpWeb.PrefixHelpers.exp_map/0`
+## `InfoToml.Common.exp_map/0`
 
 For brevity and ease of editing,
 our [TOML]{ext_wp|TOML} files contain shorthand URL prefixes

@@ -7,7 +7,7 @@ defmodule InfoWeb do
   Note: It also sets up some infrastructure for code sharing.
   """
 
-  alias InfoWeb.{Checker}
+  alias InfoWeb.{Checker, Server}
 
   # Define the public interface.
 
@@ -27,7 +27,7 @@ defmodule InfoWeb do
   Update the data structure for a link, given its URL and a new value.
   ([`...Server.put_info/1`](InfoWeb.Server.put_info.html#put_info/1))
   """
-  defdelegate put_info(link_url),                   to: Server
+  defdelegate put_info(link_url, link_map),         to: Server
 
 
   @doc "Set up infrastructure for code sharing."

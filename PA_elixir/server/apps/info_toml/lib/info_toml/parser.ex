@@ -53,13 +53,6 @@ defmodule InfoToml.Parser do
 
   @spec filter( {atom, s | map}, s) :: map when s: String.t
 
-  # apps/info_toml/lib/info_toml/parser.ex:70:pattern_match
-  # The pattern
-  # {:ok, _data}, _
-  #
-  # can never match the type
-  # {:error, binary()}, binary()
-
   # Filter the parsing results, reporting and removing cruft.
   # If a problem is detected, report it and return an empty Map.
   # Otherwise, return the parsed data.

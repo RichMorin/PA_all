@@ -156,7 +156,7 @@ defmodule InfoWeb.Checker do
 
     file_data   = file_path |> InfoToml.Parser.parse(:atoms)
 
-    if Enum.empty?(file_data) do
+    if !Enum.empty?(file_data) do
       file_data.ext_ok |> str_list()
     else
       message = "result file #{ file_path } not loaded"

@@ -15,8 +15,6 @@ defmodule InfoToml.CheckTree do
   use InfoToml, :common
   use InfoToml.Types
 
-  import PhxHttpWeb.PrefixHelpers, only: [ exp_prefix: 1 ]
-
   @doc """
   Do some global sanity checks on a `toml_map` candidate.
   """

@@ -51,6 +51,7 @@ defmodule InfoWeb.MixProject do
 
       # local
       { :common,              in_umbrella: true },
+      { :info_toml,           in_umbrella: true },  # ???
     ]
   end
 end

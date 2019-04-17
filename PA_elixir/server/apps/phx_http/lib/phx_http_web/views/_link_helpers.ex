@@ -25,8 +25,6 @@ defmodule PhxHttpWeb.LinkHelpers do
 
   import Common
 
-  alias PhxHttpWeb.PrefixHelpers
-
   # Note: There are bugs in Version 1.3.1 of Earmark (the Markdown engine).
   # We need to dance around these until their fixes are available in Hex.pm.
   # See `.../phx_http/mix.exs` for details.
@@ -207,7 +205,7 @@ defmodule PhxHttpWeb.LinkHelpers do
   #
   # Handle external links to Wikipedia ("ext_wp|...").
 
-    out_2   = PrefixHelpers.exp_prefix(inp_2)
+    out_2   = exp_prefix(inp_2)
     out_1   = if inp_1 == "$url" do out_2 else inp_1 end
 
     tmp_2   = inp_2
@@ -223,7 +221,7 @@ defmodule PhxHttpWeb.LinkHelpers do
   #
   # Handle other external links ("ext_...|...").
 
-    out_2     = PrefixHelpers.exp_prefix(inp_2)
+    out_2     = exp_prefix(inp_2)
     out_1     = if inp_1 == "$url" do out_2 else inp_1 end
     pattern   = ~r{ ^ .* // ( [^/]+ ) .* $ }x
     site      = String.replace(out_2, pattern, "\\1")
@@ -237,7 +235,7 @@ defmodule PhxHttpWeb.LinkHelpers do
 
     out_2   = inp_2
     |> String.replace_trailing(":a", "")
-    |> PrefixHelpers.exp_prefix()
+    |> exp_prefix()
 
     title   = "Go to: #{ inp_1 } [area]"
     "[#{ inp_1 }](/area?key=#{ out_2 }_area.toml '#{ title }')"
@@ -247,7 +245,7 @@ defmodule PhxHttpWeb.LinkHelpers do
   #
   # Handle internal "item" links ("...|...").
 
-    out_2   = PrefixHelpers.exp_prefix(inp_2)
+    out_2   = exp_prefix(inp_2)
     title   = "Go to: #{ inp_1 } [item]"
     "[#{ inp_1 }](/item?key=#{ out_2 }/main.toml '#{ title }')"
   end
@@ -258,7 +256,7 @@ defmodule PhxHttpWeb.LinkHelpers do
 
     out_2   = inp_2
     |> String.replace_trailing(":s", "")
-    |> PrefixHelpers.exp_prefix()
+    |> exp_prefix()
     |> String.replace(~r{ ^ / (\w+) }x, "source")
 
     title   = "Go to: #{ inp_1 } [source]"
@@ -271,7 +269,7 @@ defmodule PhxHttpWeb.LinkHelpers do
 
     out_2   = inp_2
     |> String.replace_trailing(":s", "")
-    |> PrefixHelpers.exp_prefix()
+    |> exp_prefix()
     |> String.replace(~r{ ^ / (\w+) }x, "source")
 
     title   = "Go to: #{ inp_1 } [source]"
