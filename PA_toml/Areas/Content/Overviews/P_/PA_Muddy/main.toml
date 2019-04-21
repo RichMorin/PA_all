@@ -1,0 +1,231 @@
+# con_ove|PA_Muddy/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PA_Muddy'
+  title       = 'The Muddy Map Explorer'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "an overview of the Muddy Map Explorer"
+
+  verbose     = '''
+The Muddy Map Explorer ([Muddy]{http://wiki.cfcl.com/Projects/Muddy/WebHome})
+is an ongoing project in blind-accessible navigation and orientation,
+geographic gamification, etc.
+The current software is only a prototype, but I'm thinking about how
+to make an improved version available as part of Pete's Alley.
+(As usual, please let me know if you find this idea interesting.)
+
+### Muddy Progress
+
+In early 2017, [Amanda Lacy]{cat_peo|Amanda_Lacy} and
+I started discussing her wish for a text-based geographic exploration game.
+This program would let a blind user navigate around a neighborhood,
+learning about its topology and features.
+When [The DO-IT Center]{cat_gro|DO-IT} offered Amanda an internship,
+we decided to develop a "proof of concept" prototype of Muddy.
+This would be a single-user (command line) version of the game,
+written in [Ruby]{ext_wp|Ruby_(programming_language)}.
+
+Muddy's [user interface]{ext_wp|User_interface} is modeled after that
+of traditional, text-based, multi-user dungeon games ([MUDs]{ext_wp|MUD}).
+The user is presented with a small amount of contextual information
+(more is available on request), then expected to make navigational decisions,
+find treasure, slay monsters, etc.
+However, instead of a fictitious underlying environment,
+Muddy presents geographic information and annotations
+from OpenStreetMap ([OSM]{ext_wp|OpenStreetMap}).
+Because the exploration is virtual,
+the user can venture out in comfort and safety,
+with the usual "game-like" disregard for physical constraints.
+
+Although the prototype works (for some value of "work" :-),
+it is admittedly far from perfect.
+It handles simple neighborhoods quite well,
+but has problems with complex situations
+(divided boulevards, highway interchanges, ...)
+and uncharted areas (parking lots, shopping centers, ...).
+Still, it's already quite usable and could (we think)
+be turned into a useful online resource.
+
+### Muddy Visions
+
+There are many possibilities for improving Muddy's code
+and/or the data it relies on.
+Bearing in mind that much of this is speculation,
+let's leap off into the unknown...
+
+#### Sidewalks
+
+As its name implies, OpenStreetMap primarily collects information on streets.
+Roughly speaking, OSM considers a street to be an ordered collection of points
+on the surface of the Earth, specified by latitude and longitude coordinates.
+Buildings and other areas are represented by the collections of points
+that define their perimeters.
+Annotations can be added to either collections (buildings, streets, ...)
+or individual points.  In the case of streets, these might include:
+
+- Are sidewalks present?
+- How big is the street? 
+- How does it connect?
+- What addresses are on it?
+- What is the street named?
+- What points does it connect?
+
+This approach works well for sighted drivers, who can typically handle details
+such as intersections, lanes, and traffic signals for themselves.
+However, it often fails to provide information
+needed by pedestrians in general and disabled pedestrians in particular.
+For example, are the sidewalks continuous or intermittent?
+Are they obstructed by narrow passages, stairs, etc?
+Do they have crosswalks with curb cuts and access controls?
+
+Some individuals and projects are working on adding this sort of information,
+but it's a lot of work and progress has been slow.
+Also, the results can be inconsistent, creating problems
+for programs such as Muddy that need to interpret the data.
+Fortunately, a combination of [deep learning]{ext_wp|Deep_learning}
+and [crowd sourcing]{ext_wp|Crowdsourcing} can be applied to the problem.
+
+We start with an appropriate (current, high resolution, ...) set of image data.
+Street-level images can be downloaded from sources such as
+[Google Street View]{ext_wp|Google_Street_View} or
+[Mapillary]{cat_gro|Mapillary}.
+Aerial images for some areas can be downloaded from sources such as the
+[USGS EROS Archive]{https://www.usgs.gov/centers/eros/science/
+  usgs-eros-archive-aerial-photography-high-resolution-orthoimagery-hro},
+which contains "digital images of orthorectified aerial photographs
+with a pixel resolution of 1-meter or finer from across the United States".
+Alternatively, imagery can be captured by cameras on balloons or drones.
+
+Based on these images, an image recognition and classification program
+can suggest plausible candidates for obstructions, points of interest, etc.
+A sighted human can then assess relevant sets of images,
+confirm object identifications, clarify details, etc.
+This approach has been tried, with substantial success, by
+[Project Sidewalk]{https://makeabilitylab.cs.washington.edu/project/sidewalk}.
+A recent paper ([Project Sidewalk: A Web-based Crowdsourcing Tool
+for Collecting Sidewalk Accessibility Data at Scale]{
+https://makeabilitylab.cs.washington.edu/media/publications/
+Saha_ProjectSidewalkAWebBasedCrowdsourcingTool
+ForCollectingSidewalkAccessibilityDataAtScale_2019.pdf})
+summarizes the project's goals and results to date.
+
+Unfortunately, Project Sidewalk is based on imagery from Google Street View,
+so its results can't be added to OSM.
+And, although Google could change this situation with the stroke of a pen,
+I'm not holding my breath waiting for them to do so.
+Neither, fortunately, is the [OpenSidewalks]{cat_gro|OpenSidewalks} project.
+They are working along similar lines, with several differences:
+
+- They concentrate on finding accessible routes.
+- They treat sidewalks (etc.) as first-class entities.
+- They use imagery from free sources such as Mapillary.
+- Their results will be contributed back to OSM.
+
+In an ideal world, Muddy could collaborate with OpenSidewalks.
+For example, a Muddy user might request evaluation of their neighborhood
+or some other locality they plan to visit.
+Routes of interest would then be mapped out and verified,
+using either existing or newly captured imagery.
+Aside from serving the needs of the requesting user,
+the resulting information would be available
+to assist any future Muddy or OSM user.
+
+#### Spaces
+
+Enclosed public spaces (concert halls, shopping centers, ...)
+are typically poorly served by current mapping solutions.
+The contributing factors include, at a minimum:
+
+- administrative (e.g., security) concerns 
+- constraints on public distribution
+- lack of appropriate encoding standards
+- lack of relevant data and metadata
+- wild variations in data format
+
+Assuming that enough of these issues could be resolved,
+a specialized version of Muddy could be created for this use case.
+
+##### Standards
+
+Much of the problem has to do with a lack of broad, open standards
+that meet the needs of pedestrians.
+Although there are certainly standards for architectural data representation,
+they spend a lot of effort detailing information pedestrians don't need.
+For example, the location of beams, pipes, and wires should normally
+be of no concern to someone walking through a structure.
+
+Because OSM's data model is optimized for mapping streets,
+it is inherently two dimensional.
+So, it's quite awkward as a way to represent 3D structures.
+For example, multi-story buildings contain not only the floors,
+but also ways to navigate between them: elevators, ramps, staircases, etc.
+
+There is also the question of nomenclature (or lack thereof).
+The corridors in many buildings lack specific names,
+making them fit poorly into a model based on named streets.
+Pathways in open spaces (parks, parking lots, plazas, ...) are seldom mapped,
+let alone identified by name.
+Although standards are being developed for particular types of spaces
+(e.g., airports, stores), I don't know of any general standardization efforts.
+
+That said, we may get some applicable standards from
+the Augmented Reality ([AR]{ext_wp|Augmented_reality}) and
+Virtual Reality ([VR]{ext_wp|Virtual_reality}) communities.
+For example, the Augmented Reality Markup Language
+([ARML]{ext_wp|Augmented_Reality_Markup_Language}) offers
+an [XML]{ext_wp|XML}-based way to place objects in the environment.
+The [IEEE Digital Reality]{https://digitalreality.ieee.org/standards}
+project hopes to create and promote global standards related to
+"digital reality, AR, VR, human augmentation, and related areas".
+[OpenXR]{ext_wp|OpenXR} is an open, royalty-free standard
+for access to virtual reality and augmented reality platforms and devices.
+
+There is also some very promising standardization activity
+in the accessibility community.
+For example, [Wayfindr]{cat_gro|Wayfindr} has crafted
+"the world’s first internationally-approved standard
+for accessible audio navigation".
+The standard is short and readable (as such things go),
+but it is also rather short on specifics.
+So, it's mostly a set of definitions and guidelines.
+
+##### Data and Metadata
+
+Most large public spaces have substantial amounts of documentation.
+Plans are generated during the design and construction process
+and as a way to support ongoing maintenance.
+However, there may be legal, proprietary or security constraints
+that prevent some types of information from being made public.
+
+Writing code to analyze arbitrary plan formats is a non-starter;
+even if digital versions are availanle in documented data formats,
+the complexity and variations are simply overwhelming.
+Also, as noted above, much of the information the plans contain
+(e.g., construction details) is simply noise, from our point of view.
+
+Fortunately, the combination of deep learning and human assistance
+could be used here, as well.
+If all of the plans can be turned into high-resolution
+[raster images]{ext_wp|Raster_image},
+getting the locations and dimensions of internal spaces
+becomes an exercise in image recognation and annotation.
+
+The resulting documentation can also be supplemented by data collection.
+For example, simultaneous localization and mapping
+([SLAM]{ext_wp|Simultaneous_localization_and_mapping}) techniques
+(e.g., [3D scanning]{ext_wp|3D_scanning}, [Lidar]{ext_wp|Lidar})
+can be used to collect geometric information.
+This has the great benefit of providing current data,
+allowing us to verify that our information is still correct.
+
+To be continued...
+'''

@@ -15,7 +15,7 @@
 
   impairments = 'blindness, low vision'
   produces    = 'hardware, software, media player, watch'
-  standards   = 'braille, Daisy'
+  standards   = 'braille, DAISY'
   supports    = 'daily living'
 
 [ about ]
@@ -25,7 +25,7 @@
   verbose     = '''
 > Vinvision Technology is dedicated to providing cost effective assistive
 technology products to overseas markets.  Our main products include a
-Daisy player with/without Internet access feature, Braille watch,
+DAISY player with/without Internet access feature, Braille watch,
 Braille talking watch, talking watch, keychain clock, and so on. 
 
 > -- [$url]{http://www.vin-vision.com/html}

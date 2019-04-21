@@ -87,21 +87,30 @@ defmodule InfoToml.CheckItem do
 
   defp check_publish(inp_map, file_key, _schemas) do
   #
-  # Check whether "publish" is present in `meta.actions`.
+  # Check whether we should publish this item.  The logic is a bit arcane:
+  #
+  # - We always publish "_schemas/main.toml".
+  # - We always publish files other than ".../main.toml".
+  # - Otherwise, the "publish" flag must be present in `meta.actions`.
+  # - The "draft" flag must NOT be present if we're running on PORT 64000.
 
-    main_file  = String.ends_with?(file_key, "/main.toml")
+    http_port   = System.get_env("PORT") || "4000"
+    main_file   = String.ends_with?(file_key, "/main.toml")
 
-    publish     = inp_map             # %{ meta: %{...}, ... }
+    actions     = inp_map             # %{ meta: %{...}, ... }
     |> get_in([:meta, :actions])      # "publish, build"
     |> to_string()                    # handle nil, if need be
     |> str_list()                     # [ "publish", "build" ]
-    |> Enum.member?("publish")        # true or false
-    
+
+    has_draft   = Enum.member?(actions, "draft")
+    has_publish = Enum.member?(actions, "publish")
+    publish     = has_publish || (has_draft && http_port == "4000")
+
     if file_key == "_schemas/main.toml" || !main_file || publish do
       true
     else
       IO.puts "\nIgnored: #{ file_key }"
-      IO.puts "Because: 'publish' not found in meta.actions"
+      IO.puts "Because: item does not qualify for publication"
       false
     end
   end

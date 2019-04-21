@@ -37,8 +37,8 @@ Some footways have been annotated in OSM as independent routes.
 However, sidewalks in the built environment have generally been treated
 an addendum to streets.
 
-> As a result, sidewalks in OSM have spotty coverage and an unintuitive
-implementation.
+> As a result,
+sidewalks in OSM have spotty coverage and an unintuitive implementation.
 The current standard makes user contribution difficult and fails to serve
 many use cases, including the needs of people with limited mobility.
 This project proposes to jumpstart an effort to generate an OSM-based
@@ -55,12 +55,14 @@ pedestrian network with global coverage.
 
   github      = 'ext_gh|OpenSidewalks'
 
+  twitter     = 'ext_tw|opensidewalks'
+
   zoo         = '''
 https://wiki.openstreetmap.org/wiki/Proposed_features/sidewalk_schema,
 https://wiki.openstreetmap.org/wiki/Seattle\\,_Washington/Sidewalk_Import,
+https://2018.stateofthemap.us/program/inclusive-pedestrian-mapping-opensidewalks-accessmap-and-accessibility.html,
 '''
 
 [ address.web_site ]
 
   main        = 'https://www.opensidewalks.com'
-

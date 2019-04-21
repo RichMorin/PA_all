@@ -1,0 +1,55 @@
+# cat_gro|Project_Sidewalk/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Project_Sidewalk'
+  title       = 'Project_Sidewalk'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision, mobility'
+  produces    = 'advocacy, data, software, standards'
+  roles       = 'organization'
+  standards   = 'OSM'
+  supports    = 'daily living, mobility'
+
+[ about ]
+
+  precis      = 'improve data on sidewalks, streets, etc.'
+
+  verbose     = '''
+> Roughly 30.6 million individuals in the US have physical disabilities
+that affect their ambulatory activities; nearly half of those individuals
+report using an assistive aid such as a wheelchair, cane, crutches, or walker.
+Despite comprehensive civil rights legislation for Americans with disabilities,
+many city streets, sidewalks, and businesses remain inaccessible.
+The problem is not just that street-level accessibility affects where and how
+people travel in cities but also that there are few, if any, mechanisms
+to determine accessible areas of a city a priori.
+
+> This project describes a two-pronged vision:
+first, to develop scalable data collection methods
+for acquiring sidewalk accessibility information
+using a combination of crowdsourcing, computer vision, and online map imagery,
+and second, to use this new data to design, develop, and evaluate
+a novel set of navigation and map tools for accessibility.
+Our overarching goal is to transform the ways in which
+accessibility information is collected and visualized
+for every sidewalk, street, and building facade in America.
+
+> -- [$url]{https://makeabilitylab.cs.washington.edu/project/sidewalk}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|ProjectSidewalk'
+
+[ address.web_site ]
+
+  main        = 'https://makeabilitylab.cs.washington.edu/project/sidewalk'

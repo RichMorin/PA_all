@@ -45,13 +45,13 @@ defmodule InfoToml.Parser do
     end
 
     file_abs                            # "/.../.../*.toml"
-    |> read_fn.()                       # { <status>, <results> }%
+    |> read_fn.()                       # { <status>, <results> }
     |> filter(trim_path)                # nil || <results>
   end
 
   # Private functions
 
-  @spec filter( {atom, s | map}, s) :: map when s: String.t
+  @spec filter( {atom, any}, s) :: map when s: String.t
 
   # Filter the parsing results, reporting and removing cruft.
   # If a problem is detected, report it and return an empty Map.
@@ -107,7 +107,7 @@ defmodule InfoToml.Parser do
     if Enum.empty?(bogus_cps) do
       file_text
       |> String.replace(~r{ +$}m, "")     # Remove trailing spaces.
-      |> Toml.decode(keys: atom_key)      # { <status>, <results> }%
+      |> Toml.decode(keys: atom_key)      # { <status>, <results> }
     else
       { :error, "File string contains annoying codepoints." }
     end

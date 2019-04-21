@@ -36,6 +36,10 @@ standard for accessible audio navigation.
 > -- [$url]{https://wayfindr.net}
 '''
 
+[ address.email ]
+
+  main        = 'hello@wayfindr.net'
+
 [ address.phone ]
 
   main        = '+44 7557 943608'
@@ -52,7 +56,11 @@ London, England, UK
 
   _1          = 'https://www.itu.int/ITU-T/recommendations'
   linked_in   = 'ext_li|company/wayfindr'
-  zoo         = '_1|/rec.aspx?rec=13185&lang=en'
+
+  zoo         = '''
+_1|/rec.aspx?rec=13185&lang=en,
+https://www.itu.int/rec/T-REC-F.921-201808-I,
+'''
 
 [ address.web_site ]
 

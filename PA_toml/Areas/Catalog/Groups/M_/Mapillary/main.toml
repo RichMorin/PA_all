@@ -1,0 +1,54 @@
+# cat_gro|Mapillary/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Mapillary'
+  title       = 'Mapillary'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision, mobility'
+  produces    = 'data, imagery, services, software'
+  roles       = 'company, organization'
+  standards   = 'OSM'
+  supports    = 'daily living, mobility'
+
+[ about ]
+
+  precis      = 'collects and analyzes geographic image data'
+
+  verbose     = '''
+> Any person has the right to use Mapillary images
+for editing and deriving metadata for contributing content to OpenStreetMap.
+We’re making Mapillary images and the data extracted from them
+available for OpenStreetMap for free, always.
+We’re working closely with people and organizations in the OpenStreetMap network
+around building better tools for using Mapillary images and data,
+and anyone can contribute to this process.
+We’re committed to supporting OpenStreetMap now and always.
+
+> -- [$url]{https://www.mapillary.com/osm}
+'''
+
+[ address.email ]
+
+  main        = 'hello@mapillary.com'
+
+[ address.related ]
+
+  facebook    = 'ext_fb|mapillary'
+  github      = 'ext_gh|mapillary'
+  twitter     = 'ext_tw|mapillary'
+  wikipedia   = 'ext_wp|Mapillary'
+  youtube     = 'ext_yt|channel/UCG-qQGNLaE2elvupD6sTfRg'
+
+[ address.web_site ]
+
+  about       = 'main|/about'
+  main        = 'https://www.mapillary.com'

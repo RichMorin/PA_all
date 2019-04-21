@@ -22,7 +22,7 @@
 
 [ about ]
 
-  precis      = 'a API standard for processing of audio, video, and images'
+  precis      = 'an API standard for processing of audio, video, and images'
 
   verbose     = '''
 > OpenMAX (Open Media Acceleration), often shortened as "OMX", is a
