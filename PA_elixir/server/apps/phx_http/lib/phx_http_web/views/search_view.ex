@@ -141,7 +141,7 @@ defmodule PhxHttpWeb.SearchView do
 
   # Private functions
 
-  @spec fmt_tag_set_h(atom, {}, {}) :: {}
+  @spec fmt_tag_set_h(atom, t, t) :: t when t: tuple
 
   # Generate some HTML for `fmt_tag_set/3`.
 

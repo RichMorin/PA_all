@@ -42,7 +42,7 @@ defmodule InfoWeb.Internal do
   use InfoWeb,  :common
   use InfoWeb.Types
 
-  @spec get_int_list([{}], String.t, map) :: list
+  @spec get_int_list([tuple], String.t, map) :: list
 
   def get_int_list(inp_list, url_base, known \\ %{}) do
   #

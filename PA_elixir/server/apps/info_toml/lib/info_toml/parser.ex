@@ -51,26 +51,33 @@ defmodule InfoToml.Parser do
 
   # Private functions
 
-  @spec filter( {atom, any}, s) :: map when s: String.t
+  @spec filter( {atom, any}, String.t) :: map
 
+  defp filter( {status, payload}, trim_path) do
+  #
   # Filter the parsing results, reporting and removing cruft.
   # If a problem is detected, report it and return an empty Map.
   # Otherwise, return the parsed data.
 
-  defp filter({:error, reason}, trim_path) do
-    IO.puts "\nIgnored: " <> trim_path
-    IO.puts "Because: " <> inspect(reason)
-    %{}
+    cond do
+      status == :error ->
+        IO.puts "\nIgnored: " <> trim_path
+        IO.puts "Because: " <> inspect(payload)
+        %{}
+
+      !is_map(payload)  ->
+        IO.puts "\nIgnored: " <> trim_path
+        IO.puts "Because: Payload is not a Map."
+        %{}
+      
+      Enum.empty?(payload) ->
+        IO.puts "\nIgnored: " <> trim_path
+        IO.puts "Because: Payload is empty."
+        %{}
+
+      true -> payload
+    end
   end
-
-  defp filter({:ok, map}, trim_path) when map_size(map) == 0 do
-    IO.puts "\nIgnored: " <> trim_path
-    IO.puts "Because: No data harvested from file."
-    %{}
-  end
-
-  defp filter({:ok, data}, _), do: data
-
 
   @spec parse_h1(s, atom) :: item_map | {atom, s} when s: String.t
 

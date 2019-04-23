@@ -4,6 +4,7 @@
   alias PhxHttpWeb.MailView
   import PhxHttpWeb.LayoutView, only: [mailto_href: 1]
 
+  action    = Routes.mail_path(@conn, :feed_post)
   id        = "message"
   rows      = 25
   chars     = rows * 200
@@ -32,7 +33,7 @@
 <p>
 
 <div class="mail-edit">
-<%= form_for @conn, Routes.mail_path(@conn, :feed_post), fn _fn -> %>
+<%= form_for @conn, action, [], fn _fn -> %>
   <input type="hidden" name="url" value="<%= @prev_url %>">
 
   <p>

@@ -1,6 +1,10 @@
 <!-- templates/search/find.html.eex -->
 
-<% alias PhxHttpWeb.SearchView %>
+<%
+  alias PhxHttpWeb.SearchView
+
+  action  = Routes.search_path(@conn, :show)
+%>
 
 <h2>Search</h2>
 
@@ -12,7 +16,7 @@
   please visit the <a href="/text?key=_text/usage.toml">Usage</a> page.
 <p>
 
-<%= form_for @conn, Routes.search_path(@conn, :show), fn _fn -> %>
+<%= form_for @conn, action, [], fn _fn -> %>
   <%= render SearchView, "_find_define.html", assigns %>
   <%= render SearchView, "_find_reuse.html",  assigns %>
   <p></p>

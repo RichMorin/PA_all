@@ -32,7 +32,7 @@ defmodule InfoToml.Emitter do
   simply result in a concatenated set of entries.  Of course, if the IO
   subsystem decides to interleave the data, things could get ugly...
   """
-  @spec emit_toml(s, s) :: s when s: String.t
+  @spec emit_toml(s, any) :: s when s: String.t
 
   def emit_toml(base_path, toml_text) do
 

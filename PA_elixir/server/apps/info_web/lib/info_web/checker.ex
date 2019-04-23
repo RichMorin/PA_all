@@ -90,7 +90,7 @@ defmodule InfoWeb.Checker do
     |> External.get_ext_list(forced)
     |> mapper()
 
-    if true do #TG
+    if System.get_env("trace") == "yes" do #TG
       IO.puts ""
       ii(int_map[:ext_ng], :ext_ng)
       IO.puts ""
@@ -157,7 +157,8 @@ defmodule InfoWeb.Checker do
     file_data   = file_path |> InfoToml.Parser.parse(:atoms)
 
     if !Enum.empty?(file_data) do
-      file_data.ext_ok |> str_list()
+      ext_ok  = get_in(file_data, [:ext_ok]) || "" #K
+      str_list(ext_ok)
     else
       message = "result file #{ file_path } not loaded"
       IO.puts ">>> #{ message }\n"

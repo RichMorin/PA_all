@@ -148,7 +148,7 @@ defmodule PhxHttpWeb.ItemController do
 #   |> ii("gi_bases") #T
   end
 
-  @spec get_gi_pairs(map) :: { [atom], String.t }
+  @spec get_gi_pairs(any) :: [ { [atom], String.t } ]
 
   defp get_gi_pairs(params) do
   #

@@ -215,7 +215,7 @@ Also, as noted above, much of the information the plans contain
 Fortunately, the combination of deep learning and human assistance
 could be used here, as well.
 If all of the plans can be turned into high-resolution
-[raster images]{ext_wp|Raster_image},
+[raster images]{ext_wp|Raster_graphics},
 getting the locations and dimensions of internal spaces
 becomes an exercise in image recognation and annotation.
 
