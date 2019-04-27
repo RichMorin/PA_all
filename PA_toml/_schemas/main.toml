@@ -95,6 +95,7 @@ meta, meta.actions, meta.id_str, meta.refs
   facebook    = 'Facebook'
   freecode    = 'Freecode'
   github      = 'GitHub'
+  gitlab      = 'GitLab'
   google_p    = 'Google+'
   instagram   = 'Instagram'
   irc         = 'IRC'
@@ -131,6 +132,7 @@ meta, meta.actions, meta.id_str, meta.refs
   git         = 'Git repository'
   guide       = "user's guide"
   help        = 'help page'
+  issues      = 'issue tracking page'
   main        = 'main web page'
   man_page    = 'Unix-style manual page'
   manual      = 'usage manuals, etc.'

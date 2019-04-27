@@ -19,42 +19,60 @@ defmodule InfoWeb.Server do
 
   @me __MODULE__
 
-  alias InfoWeb.Checker
   use Common,   :common
   use InfoWeb, :common
   use InfoWeb.Types
 
+  alias InfoWeb.Snapshot
+
   # external API
 
   @doc """
-  Return the data structure for a link, given its URL.
+  Return the data structure for the latest snapshot.  Note that the keys
+  are strings, rather than atoms.
+
+      %{
+        "bins" => %{
+          "ext_ng" => [ [ "<url>", "<from>", "<status>" ], ... ],
+          "int_ng" => [ [ "<url>", "<from>", "<status>" ], ... ]
+        },
+        "counts" => %{
+          "ext" => %{ "<site>"  => <count>, ... },
+          "int" => %{ "<route>" => <count>, ... }
+        },
+        "raw" => %{
+          "ext_ok" => [ "<url>", ... ]
+        }
+      }
   """
 
-  @spec get_info(String.t) :: map | nil
+  @spec get_snap() :: map
 
-  def get_info(link_url) do
-    get_fn = fn link_maps -> link_maps[link_url] end
+  def get_snap() do
+    get_fn = fn snapshot -> snapshot end
 
     Agent.get(@me, get_fn)
   end
 
   @doc """
-  Update the data structure for a link, given its URL and a new value.
+  Reload from the snapshot file.
   """
 
-  @spec put_info(String.t, map) :: atom
+  @spec reload() :: any #K
 
-  def put_info(link_url, link_map) do
-    put_fn = fn link_maps -> Map.put(link_maps, link_url, link_map) end
+  def reload() do
+    snap_map    = Snapshot.snap_load()
+    update_fn   = fn _ignore -> snap_map end
 
-    Agent.update(@me, put_fn)
+    Agent.update(@me, update_fn)
+    {:info,  "Updated without problems."}
   end
 
   @doc """
   Start up the server Agent.
   """
 
-  @spec start_link() :: {atom, pid | String.t }
+  @spec start_link() :: {atom, pid | String.t } #W
 
   def start_link() do
     Agent.start_link(&first_load/0, name: @me)
@@ -62,13 +80,13 @@ defmodule InfoWeb.Server do
 
   # Private functions
 
-  @spec first_load() :: map
+  @spec first_load() :: map #W
 
   defp first_load() do
   #
   # Handle initial loading of data.
 
-    %{}   # WIP
+    Snapshot.snap_load()
   end
 
 end

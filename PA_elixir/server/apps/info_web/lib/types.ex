@@ -7,7 +7,7 @@ defmodule InfoWeb.Types do
   any functions, just `@type` attributes.
   """
 
-# @spec - WIP
+# @spec - ToDo
 
   defmacro __using__(_) do
     quote do

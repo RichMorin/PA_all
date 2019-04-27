@@ -4,7 +4,7 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|packages/dasher'
+  package     = 'ext_aur|dasher'
   upstream    = 'http://www.gnome.org'
 
 [ os.debian ]

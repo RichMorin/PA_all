@@ -27,7 +27,7 @@
     source_link = (path_str == "item") ||
                   (path_str == "text")
 
-#   ii(run_mode(), "run_mode") #T
+#   ii(get_run_mode(), "get_run_mode") #T
 #   ii(@item, "item") #T
   %>
 

@@ -58,7 +58,7 @@ defmodule PhxHttpWeb.LayoutView do
       "PA Foo"
   """
 
-  @spec get_title(atom, any, any, s) :: s when s: String.t
+  @spec get_title(atom, any, any, s) :: s when s: String.t #W
 
   def get_title(:area_2, key, _item, title) do
     field_2   = key_field(key, -2)
@@ -112,7 +112,7 @@ defmodule PhxHttpWeb.LayoutView do
       true
   """
 
-  @spec hide_show(s, s) :: safe_html when s: String.t
+  @spec hide_show(s, s) :: safe_html when s: String.t #W
 
   def hide_show("ih:1/1", t_str), do: hs("1", "s",     t_str)
   def hide_show("ih:1/2", t_str), do: hs("1", "s_sa",  t_str)
@@ -138,7 +138,7 @@ defmodule PhxHttpWeb.LayoutView do
       "Catalog"
   """
 
-  @spec key_field(s, integer) :: s when s: String.t
+  @spec key_field(s, integer) :: s when s: String.t #W
 
   def key_field(key, index) do #K
     key
@@ -158,7 +158,7 @@ defmodule PhxHttpWeb.LayoutView do
       true
   """
 
-  @spec mailto_href(s) :: s when s: String.t
+  @spec mailto_href(s) :: s when s: String.t #W
 
   def mailto_href(item_key) do
     address   = "Rich Morin <rdm@cfcl.com>"
@@ -170,7 +170,7 @@ defmodule PhxHttpWeb.LayoutView do
 
 # Private Functions
 
-  @spec hs(s, s, s) :: s when s: String.t
+  @spec hs(s, s, s) :: s when s: String.t #W
 
   defp hs(level, init_mode, inp_str) do
   #

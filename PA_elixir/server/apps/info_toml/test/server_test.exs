@@ -1,6 +1,6 @@
 # server_test.exs
 
-defmodule InfoTomlServerTest do
+defmodule InfoTomlTest.Server do
 
   use ExUnit.Case
   doctest InfoToml

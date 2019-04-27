@@ -1,6 +1,6 @@
 # emitter_test.exs
 
-defmodule InfoTomlEmitterTest do
+defmodule InfoTomlTest.Emitter do
 
   use ExUnit.Case
 

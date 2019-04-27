@@ -1,6 +1,6 @@
 # cnt_code_test.exs
 
-defmodule InfoFiles.CntCodeTest do
+defmodule InfoFilesTest.CntCode do
   use ExUnit.Case
 
   setup_all do

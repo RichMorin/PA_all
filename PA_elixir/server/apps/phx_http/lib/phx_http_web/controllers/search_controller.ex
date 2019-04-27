@@ -4,10 +4,6 @@ defmodule PhxHttpWeb.SearchController do
 #
 # Public functions
 #
-#   clear_form/2
-#     Generate data for the Clear Searches (form) page.
-#   clear_post/2
-#     Do any requested clearing, then redirect back to the Search page.
 #   find/2
 #     Generate data for the Search (find) page.
 #   show/2
@@ -47,58 +43,10 @@ defmodule PhxHttpWeb.SearchController do
   import Common
 
   @doc """
-  This function generates data for the Clear Searches page, where the user
-  fills in a form.
-  """
-
-  @spec clear_form(Plug.Conn.t(), any) :: Plug.Conn.t()
-
-  def clear_form(conn, _params) do
-    sess_tag_sets   = get_session(conn, :tag_sets) || []
-
-    conn
-    |> assign(:item,            nil)
-    |> assign(:key,             nil)
-    |> assign(:page_type,       :search_c)
-    |> assign(:sess_tag_sets,   sess_tag_sets)
-    |> assign(:title,           "PA Search")
-    |> render("clear.html")
-  end
-
-  @doc """
-  This function does any requested clearing of queries, then redirects back
-  to the Search page.
-  """
-
-  @spec clear_post(Plug.Conn.t(), any) :: Plug.Conn.t()
-
-  def clear_post(conn, params) do
-    map_fn      = fn {key, _val} -> key end
-
-    reject_fn_1 = fn {key, val} ->
-      String.starts_with?(key, "_") || val == "n"
-    end
-
-    remove  = params
-    |> Enum.reject(reject_fn_1)   # [ {"a", "y"}, ... ]
-    |> Enum.map(map_fn)           # [ "a", ... ]
-
-    reject_fn_2 = fn {key, _val} -> Enum.member?(remove, key) end
-
-    tag_sets    = conn
-    |> get_session(:tag_sets)
-    |> Enum.reject(reject_fn_2)
-    |> Enum.into(%{})
-
-    conn        = put_session(conn, :tag_sets, tag_sets) #D
-    redirect(conn, to: "/search/find")
-  end
-
-  @doc """
   This function generates data for the Search (find) page.
   """
 
-  @spec find(Plug.Conn.t(), any) :: Plug.Conn.t()
+  @spec find(Plug.Conn.t(), any) :: Plug.Conn.t() #W
 
   def find(conn, _params) do
     tag_info        = InfoToml.get_tag_info()
@@ -118,7 +66,7 @@ defmodule PhxHttpWeb.SearchController do
   This function generates data for the Search Results (show) page.
   """
 
-  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t()
+  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t() #W
 
   def show(conn, params) do
     {tags_d, specs_r}   = params |> munge()
@@ -148,7 +96,7 @@ defmodule PhxHttpWeb.SearchController do
     results_i   = retrieve(id_sets_m, path_map, inter_fn)
     results_u   = retrieve(id_sets_m, path_map, union_fn)
 
-    if false && run_mode() == :dev do #K TG
+    if false && get_run_mode() == :dev do #K TG
       IO.puts("")
       ii(cur_set,                 "cur_set")
 
@@ -187,7 +135,7 @@ defmodule PhxHttpWeb.SearchController do
 
   # Private Functions
 
-  @spec get_id_sets( [ String.t ] ) :: [ MapSet.t(integer) ]
+  @spec get_id_sets( [ String.t ] ) :: [ MapSet.t(integer) ] #W
 
   defp get_id_sets(tag_set) do
   #
@@ -200,7 +148,7 @@ defmodule PhxHttpWeb.SearchController do
     tag_set |> Enum.map(map_fn)
   end
 
-  @spec get_queries( [ {s, s} ], map ) :: [ { s, s, [s] } ] when s: String.t
+  @spec get_queries( [ {s, s} ], map ) :: [ { s, s, [s] } ] when s: String.t #W
 
   defp get_queries(reused, new_sets) do
   #
@@ -214,7 +162,7 @@ defmodule PhxHttpWeb.SearchController do
     |> Enum.map(map_fn)           # [ {"all", "a", [ "...", ... ] }, ... ]
   end
 
-  @spec get_tag_sets(Plug.Conn.t(), tag_set) :: {Plug.Conn.t(), tag_sets}
+  @spec get_tag_sets(Plug.Conn.t(), tag_set) :: {Plug.Conn.t(), tag_sets} #W
 
   defp get_tag_sets(conn, new_set) do
   #
@@ -238,7 +186,7 @@ defmodule PhxHttpWeb.SearchController do
       {conn, tag_sets}
     end
 
-    if run_mode() == :dev do #K TG
+    if get_run_mode() == :dev do #K TG
 #     ii(new_set,  "new_set")
       ii(tag_sets, "tag_sets")
     end
@@ -246,7 +194,7 @@ defmodule PhxHttpWeb.SearchController do
     {conn, tag_sets}
   end
 
-  @spec munge( [ {s, s} ] ) :: { [s], [ {s,s} ]} when s: String.t
+  @spec munge( [ {s, s} ] ) :: { [s], [ {s,s} ]} when s: String.t #W
 
   defp munge(params) do
   #
@@ -262,7 +210,7 @@ defmodule PhxHttpWeb.SearchController do
 #   |> ii("munged")
   end
 
-  @spec munge_filter( [ {s, s} ] ) :: {s_pairs, s_pairs} when s: String.t
+  @spec munge_filter( [ {s, s} ] ) :: {s_pairs, s_pairs} when s: String.t #W
 
   defp munge_filter(params) do
   #
@@ -288,7 +236,7 @@ defmodule PhxHttpWeb.SearchController do
     {params_d, params_r}
   end
 
-  @spec munge_map_d(s_pairs) :: [ String.t ]
+  @spec munge_map_d(s_pairs) :: [ String.t ] #W
 
   defp munge_map_d(input) do
   #
@@ -305,7 +253,7 @@ defmodule PhxHttpWeb.SearchController do
     |> Enum.sort()                # [ "roles:...", ... ] (sorted)
   end
 
-  @spec munge_map_r(s_pairs) :: s_pairs
+  @spec munge_map_r(s_pairs) :: s_pairs #W
 
   defp munge_map_r(input) do
   #
@@ -322,7 +270,7 @@ defmodule PhxHttpWeb.SearchController do
     |> Enum.map(map_fn)           # [ { "all", "a" }, ... ]
   end
 
-  @spec retrieve(id_sets, any, id_reduce) :: [ tuple ] #K
+  @spec retrieve(id_sets, any, id_reduce) :: [ tuple ] #K #W
 
   # Retrieve the requested data, based on the query.
   
@@ -344,7 +292,7 @@ defmodule PhxHttpWeb.SearchController do
     |> List.flatten()             # [ { "...", "...", "..." }, ... ]
   end
 
-  @spec structure( [ tuple ] ) :: [ [ tuple ] ] #K
+  @spec structure( [ tuple ] ) :: [ [ tuple ] ] #K #W
 
   defp structure(results) do
   #

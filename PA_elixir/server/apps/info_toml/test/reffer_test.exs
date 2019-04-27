@@ -1,6 +1,6 @@
 # reffer_test.exs
 
-defmodule InfoTomlRefferTest do
+defmodule InfoTomlTest.Reffer do
 
   @moduledoc """
   This module's testing is handled by `InfoTomlTaggerTest`.

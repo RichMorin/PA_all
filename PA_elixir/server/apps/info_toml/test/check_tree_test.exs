@@ -1,6 +1,6 @@
 # check_tree_test.exs
 
-defmodule InfoTomlCheckTreeTest do
+defmodule InfoTomlTest.CheckTree do
 
   @moduledoc """
   This module's testing is handled by `InfoTomlServerTest`.

@@ -94,7 +94,7 @@ defmodule InfoToml.CheckTree do
   Check for missing reference items.
   """
   
-  @spec check_refs(map) :: {atom, String.t }
+  @spec check_refs(map) :: {atom, String.t}
 
   def check_refs(toml_map) do
     gi_path   = [ :meta, :refs ]

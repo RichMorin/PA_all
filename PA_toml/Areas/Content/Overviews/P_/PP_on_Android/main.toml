@@ -184,6 +184,18 @@ which have limited storage (32 GB) and no SD card.
 - [$url]{https://github.com/maruos/maruos/wiki/FAQ}
 - [$url]{https://maruos.com}
 
+#### postmarketOS
+
+This project, based on Alpine Linux, hopes to provide a Linux release
+that can work on a wide range of "obsolete" Android cell phones.
+It is still in Alpha stage and has no current efforts toward accessibility.
+
+- https://postmarketos.org
+- https://postmarketos.org/blog/2017/05/26/intro/
+- https://postmarketos.org/faq.html
+- https://wiki.postmarketos.org/wiki/Main_Page
+= https://wiki.postmarketos.org/wiki/Contributing
+
 #### PRoot
 
 > PRoot is a user-space implementation of `chroot`, `mount --bind`,

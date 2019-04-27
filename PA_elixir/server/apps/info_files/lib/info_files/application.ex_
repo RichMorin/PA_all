@@ -9,7 +9,7 @@ defmodule InfoFiles.Application do
   - edit `application/0` in `mix.exs`.
   """
 
-# @spec - WIP
+# @spec - ToDo
 
   def start(_type, _args) do
     import Supervisor.Spec, warn: false

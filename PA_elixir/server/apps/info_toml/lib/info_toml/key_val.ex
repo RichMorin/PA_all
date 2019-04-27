@@ -141,7 +141,7 @@ defmodule InfoToml.KeyVal do
     }
   end
 
-  @spec get_kv_list(map) :: list
+  @spec get_kv_list(map) :: [tuple]
 
   defp get_kv_list(inp_map) do
   #
@@ -155,7 +155,7 @@ defmodule InfoToml.KeyVal do
 #   |> ii("kv_list") #T
   end
 
-  @spec get_kv_map( [ String.t ]) :: map
+  @spec get_kv_map([ String.t ]) :: map
 
   defp get_kv_map(kv_list) do
   #

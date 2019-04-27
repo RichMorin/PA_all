@@ -7,6 +7,10 @@ defmodule InfoToml.Parser do
 #
 # Private functions
 #
+#   decode/2
+#     Wrapper for Toml.decode/1; allows :string as `atom_key`.
+#   filter/2
+#     Filter the parsing results, reporting and removing cruft.
 #   parse_h1/2
 #     Read the file, check for valid Unicode, and (maybe) parse it.
 #   parse_h2/2
@@ -31,7 +35,8 @@ defmodule InfoToml.Parser do
   @spec parse(String.t, atom) :: map
 
   def parse(file_abs, atom_key) do
-    trim_path   = Regex.replace(~r{ ^ .* / PA_toml / }x, file_abs, ".../")
+    trim_patt   = ~r{ ^ .* / PA_toml / }x
+    trim_path   = Regex.replace(trim_patt, file_abs, ".../")
 
     read_fn     = fn file_abs ->
       if File.exists?(file_abs) do
@@ -51,9 +56,23 @@ defmodule InfoToml.Parser do
 
   # Private functions
 
-  @spec filter( {atom, any}, String.t) :: map
+  @spec decode(String.t, atom) :: tuple
 
-  defp filter( {status, payload}, trim_path) do
+  defp decode(inp_str, atom_key) do
+  #
+  # Wrapper for Toml.decode/1; allows :string as `atom_key`.
+
+    if atom_key == :string do
+      Toml.decode(inp_str)                    # { <status>, <results> }
+    else
+      Toml.decode(inp_str, keys: atom_key)    # { <status>, <results> }
+    end
+  end
+
+  @spec filter({atom, any}, String.t) :: map #W
+# @spec filter( {:ok | :error, any}, String.t) :: map
+
+  defp filter({status, payload}, trim_path) do
   #
   # Filter the parsing results, reporting and removing cruft.
   # If a problem is detected, report it and return an empty Map.
@@ -65,12 +84,12 @@ defmodule InfoToml.Parser do
         IO.puts "Because: " <> inspect(payload)
         %{}
 
-      !is_map(payload)  ->
+      not(is_map(payload))  ->
         IO.puts "\nIgnored: " <> trim_path
         IO.puts "Because: Payload is not a Map."
         %{}
       
-      Enum.empty?(payload) ->
+      Enum.empty?(payload)  ->
         IO.puts "\nIgnored: " <> trim_path
         IO.puts "Because: Payload is empty."
         %{}
@@ -94,7 +113,7 @@ defmodule InfoToml.Parser do
     end
   end
 
-  @spec parse_h2(String.t, atom) :: {atom, s} when s: String.t
+  @spec parse_h2(s, atom) :: {atom, s} when s: String.t
 
   defp parse_h2(file_text, atom_key) do
   #
@@ -114,7 +133,7 @@ defmodule InfoToml.Parser do
     if Enum.empty?(bogus_cps) do
       file_text
       |> String.replace(~r{ +$}m, "")     # Remove trailing spaces.
-      |> Toml.decode(keys: atom_key)      # { <status>, <results> }
+      |> decode(atom_key)                 # { <status>, <results> }
     else
       { :error, "File string contains annoying codepoints." }
     end

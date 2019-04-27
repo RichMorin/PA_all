@@ -1,6 +1,6 @@
 # tagger_test.exs
 
-defmodule InfoTomlTaggerTest do
+defmodule InfoTomlTest.Tagger do
 
   use ExUnit.Case
   use InfoToml, :common
@@ -17,7 +17,7 @@ defmodule InfoTomlTaggerTest do
     }
   end
 
-  @spec do_tests(any) :: boolean
+  @spec do_tests(tuple) :: boolean #W - not getting checked!
 
   def do_tests(info) do
   #
@@ -41,7 +41,6 @@ defmodule InfoTomlTaggerTest do
     assert  is_list       info.kv_info.kv_list
     assert  is_map        info.kv_info.kv_map
   end
-
 
   test "returns right shape of data for ref and tag info", state do
     state.info |> Enum.map(&do_tests/1)

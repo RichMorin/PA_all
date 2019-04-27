@@ -1,6 +1,6 @@
 # load_tree_test.exs
 
-defmodule InfoTomlLoadTreeTest do
+defmodule InfoTomlTest.LoadTree do
 
   use ExUnit.Case
   use InfoToml, :common

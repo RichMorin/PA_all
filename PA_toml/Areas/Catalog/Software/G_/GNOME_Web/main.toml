@@ -51,7 +51,15 @@ ext_wp|GNOME_Web,
 ext_wp|The_GNOME_Project,
 '''
 
+[ address.related ]
+
+  gitlab      = 'https://gitlab.gnome.org/GNOME/epiphany'
+  irc         = 'irc://irc.gnome.org/%23epiphany'
+  mailman     = 'https://mail.gnome.org/mailman/listinfo/epiphany-list'
+  twitter     = 'ext_tw|gnomeweb'
+
 [ address.web_site ]
 
-  contact     = 'main|/contact'
+  contact     = 'main|/Contact'
+  issues      = 'https://gitlab.gnome.org/GNOME/epiphany/issues'
   main        = 'https://wiki.gnome.org/Apps/Web'

@@ -1,6 +1,6 @@
 # key_val_test.exs
 
-defmodule InfoTomlKeyValTest do
+defmodule InfoTomlTest.KeyVal do
 
   use ExUnit.Case
 
@@ -14,7 +14,7 @@ defmodule InfoTomlKeyValTest do
     { :ok, ndx: ndx }
   end
 
-  @spec do_tests({}, atom, atom) :: boolean
+  @spec do_tests(tuple, atom, atom) :: boolean #W - not getting checked!
 
   defp do_tests(state, subset, inp_key) do
     context     = %{tracing: false}

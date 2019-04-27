@@ -1,0 +1,53 @@
+# cat_sof|BRL-CAD/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'BRL-CAD'
+  title       = 'BRL-CAD'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'interactive geometry editing, ray-tracing'
+  interfaces  = 'C language, GUI, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, library, 3D design software'
+  supports    = 'education, engineering'
+
+[ about ]
+
+  precis      = 'a cross-platform solid modeling system'
+
+  verbose     = '''
+> BRL-CAD is a powerful cross-platform Open Source combinatorial Constructive
+Solid Geometry (CSG) solid modeling system that includes
+interactive 3D solid geometry editing,
+high-performance ray-tracing support for rendering and geometric analysis,
+network-distributed framebuffer support,
+image and signal-processing tools,
+path-tracing and photon mapping support for realistic image synthesis,
+a system performance analysis benchmark suite,
+an embedded scripting interface, and libraries
+for robust high-performance geometric representation and analysis.
+
+> -- [$url]{https://brlcad.org/d/about}
+'''
+
+[ address.related ]
+
+  wikipedia   = '''
+ext_wp|BRL-CAD,
+ext_wp|Constructive_solid_geometry,
+'''
+
+[ address.web_site ]
+
+  about       = 'main|/d/about'
+  download    = 'ext_sf|projects/brlcad/files'
+  main        = 'https://brlcad.org'
+  wiki        = 'http://brlcad.org/wiki'

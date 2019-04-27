@@ -23,6 +23,7 @@ defmodule PhxHttpWeb.Router do
     get   "/dash",            DashController,     :show
     get   "/dash/code",       DashController,     :show_code
     get   "/dash/data",       DashController,     :show_data
+    get   "/dash/links",      DashController,     :show_links
     get   "/dash/make",       DashController,     :show_make
     get   "/dash/refs",       DashController,     :show_refs
     get   "/dash/tags",       DashController,     :show_tags
@@ -36,8 +37,8 @@ defmodule PhxHttpWeb.Router do
 
     get   "/search/find",     SearchController,   :find
     post  "/search/show",     SearchController,   :show
-    get   "/search/clear",    SearchController,   :clear_form
-    post  "/search/clear",    SearchController,   :clear_post
+    get   "/search/clear",    ClearController,    :clear_form
+    post  "/search/clear",    ClearController,    :clear_post
 
     get   "/source",          SourceController,   :show
     get   "/source/down",     SourceController,   :down
@@ -56,10 +57,10 @@ defmodule PhxHttpWeb.Router do
   divider (= = = ...) on the console for each request.
   """
 
-  @spec divider(Plug.Conn.t(), any) :: Plug.Conn.t()
+  @spec divider(Plug.Conn.t(), any) :: Plug.Conn.t() #W
 
   def divider(conn, _opts) do # rdm
-    if Common.run_mode() == :dev do #K
+    if Common.get_run_mode() == :dev do #K
       prefix    = String.duplicate("= ", 5)
       iso8601   = DateTime.utc_now() |> DateTime.to_iso8601()
 

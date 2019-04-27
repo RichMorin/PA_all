@@ -5,7 +5,7 @@ defmodule PhxHttp.Application do
 
   use Application
 
-# @spec - WIP
+# @spec - ToDo
 
   def start(_type, _args) do
     # List all child processes to be supervised
@@ -22,7 +22,7 @@ defmodule PhxHttp.Application do
     Supervisor.start_link(children, opts)
   end
 
-# @spec - WIP
+# @spec - ToDo
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.

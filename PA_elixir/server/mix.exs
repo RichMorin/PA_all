@@ -1,9 +1,9 @@
 defmodule Server.MixProject do
   use Mix.Project
 
-  @spec project() :: list
+  @spec project() :: [key: atom]
 
-  def project do
+  def project() do
     [
       apps_path:          "apps",
       start_permanent:    Mix.env() == :prod,
@@ -17,9 +17,9 @@ defmodule Server.MixProject do
   #
   # Run "mix help deps" for examples and options.
 
-  @spec deps() :: list
+  @spec deps() :: [ tuple ]
 
-  defp deps do
+  defp deps() do
     []
   end
 end

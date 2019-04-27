@@ -15,11 +15,11 @@ defmodule InfoWeb.External do
   use InfoWeb.Types
 
 
-  @spec get_ext_list([{}], map) :: list
+  @spec get_ext_list([tuple], map) :: [tuple]
 
   def get_ext_list(external, forced) do
   #
-  # Get a list of status tuples for external URLs.  The `forced` Map tells us
+  # Get a List of status Tuples for external URLs.  The `forced` Map tells us
   # which URLs should be forced to verify as OK.
   #
   # See https://hexdocs.pm/httpoison/HTTPoison.Request.html for details.
@@ -43,6 +43,8 @@ defmodule InfoWeb.External do
       if forced[link_url] do
         {:ext_ok, "forced", from_page, link_url}
       else
+        ii(link_url, :link_url) #T
+
         {call_status, response}  = HTTPoison.get(link_url, headers, options)
 
         if call_status == :ok do
@@ -56,8 +58,7 @@ defmodule InfoWeb.External do
           end
 
         else
-          inspect   = inspect(response)
-          note      = "call status: #{ call_status }, inspect: #{ inspect }"
+          note      = "call status: #{ call_status }"
           {:ext_ng, note, from_page, link_url}
         end
       end

@@ -1,6 +1,6 @@
 # index_tree_test.exs
 
-defmodule InfoTomlIndexTreeTest do
+defmodule InfoTomlTest.IndexTree do
 
   use ExUnit.Case
 

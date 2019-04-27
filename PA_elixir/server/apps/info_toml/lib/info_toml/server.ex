@@ -132,7 +132,7 @@ defmodule InfoToml.Server do
   return all of `toml_map`.
   """
 
-  @spec get_part( [ atom | String.t ] ) :: any | nil
+  @spec get_part( [ atom | String.t ] ) :: any
 
   def get_part([]) do
     get_fn = fn toml_map -> toml_map end
@@ -149,7 +149,7 @@ defmodule InfoToml.Server do
   Return the TOML source code, given its key (eg, "_text/about.toml").
   """
 
-  @spec get_toml(String.t) :: String.t
+  @spec get_toml(s) :: s when s: String.t #W
 
   def get_toml(item_key) do
     gi_path   = [:meta, :file_rel]
@@ -174,7 +174,7 @@ defmodule InfoToml.Server do
   a tag name prefix).
   """
 
-  @spec keys_by_tag(String.t) :: [ String.t ]
+  @spec keys_by_tag(s) :: [s] when s: String.t
 
   def keys_by_tag(tag_val) do
     get_fn  = fn toml_map ->
@@ -265,7 +265,7 @@ defmodule InfoToml.Server do
 
   # Private functions
 
-  @spec first_load() :: map
+  @spec first_load() :: map #W
 
   defp first_load() do
   #

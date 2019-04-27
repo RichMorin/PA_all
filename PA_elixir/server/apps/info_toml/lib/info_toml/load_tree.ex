@@ -77,7 +77,7 @@ defmodule InfoToml.LoadTree do
   Note: This function is only exposed as public to enable testing. 
   """
 
-  @spec do_file(s, integer, map) :: { s, any } when s: String.t
+  @spec do_file(s, integer, map) :: {s, any} when s: String.t
 
   def do_file(file_rel, id_num, schemas) do
  
@@ -89,7 +89,7 @@ defmodule InfoToml.LoadTree do
 
   # Private functions
 
-  @spec do_file_1(any, String.t, any, any) :: tuple
+  @spec do_file_1(any, String.t, integer, map) :: tuple
 
   defp do_file_1(file_data, file_rel, _, _) when file_data == %{} do
     {file_rel, nil}
@@ -107,7 +107,7 @@ defmodule InfoToml.LoadTree do
     do_file_2(file_data, file_key, file_rel, file_stat, id_num)
   end
 
-  @spec do_file_2(any, any, String.t, boolean, any) :: tuple
+  @spec do_file_2(any, any, String.t, boolean, integer) :: tuple
 
   defp do_file_2(_, _, file_rel, _file_stat = false, _) do
   #
@@ -181,7 +181,7 @@ defmodule InfoToml.LoadTree do
     |> Enum.filter(filter_fn)   # discard nil results
   end
 
-  @spec file_paths(String.t) :: [ String.t ]
+  @spec file_paths(s) :: [ s ] when s: String.t
 
   defp file_paths(tree_abs) do
   #
@@ -208,7 +208,7 @@ defmodule InfoToml.LoadTree do
     |> Enum.map(map_fn)           # [ "_text/about.toml", ... ]
     |> Enum.reject(reject_fn_1)   # Reduce number of files.
 
-    case run_mode() do
+    case get_run_mode() do
       :test -> rare_paths
       _     -> rare_paths
                |> Enum.reject(reject_fn_2)
@@ -225,7 +225,7 @@ defmodule InfoToml.LoadTree do
     Regex.replace(~r{/[A-Z]_/}, file_rel, "/")
   end
 
-  @spec path_prep([ String.t ], item_maybe) :: [ {String.t, integer} ]
+  @spec path_prep([ s ], item_maybe) :: [ {s, integer} ] when s: String.t
 
   # Convert a list of file paths into a list of numbered tuples.
   # If inp_map is nil, generate new IDs.  Otherwise, use existing
@@ -272,7 +272,7 @@ defmodule InfoToml.LoadTree do
     id_map |> Map.to_list()
   end
 
-  @spec path_prep_max( %{String.t => integer} ) :: integer
+  @spec path_prep_max( %{String.t => i} ) :: i when i: integer
 
   def path_prep_max(inp_map) do
   #

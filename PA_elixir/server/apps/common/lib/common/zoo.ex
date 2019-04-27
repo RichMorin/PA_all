@@ -2,10 +2,12 @@ defmodule Common.Zoo do
 #
 # Public functions
 #
+#   get_http_port/0
+#     Get a string indicating the current HTTP PORT.
+#   get_run_mode/0
+#     Get an Atom indicating the current run mode.
 #   get_tree_base/0
 #     Get the absolute file path for the base directory.
-#   run_mode/0
-#     Get an Atom indicating the current run mode.
 #   type_of/1
 #     Get an Atom indicating the data type of the argument.
 
@@ -14,6 +16,36 @@ defmodule Common.Zoo do
   """
 
   import Common.Tracing
+
+  @doc """
+  Get a string indicating the current HTTP PORT.
+  """
+
+  @spec get_http_port() :: String.t
+
+  def get_http_port() do #K
+    System.get_env("PORT") || "4000"
+  end
+
+  @doc """
+  Get an Atom indicating the current run mode.
+
+  We normally pick this up from the `mix_env` (Unix) environment variable,
+  defaulting to `:dev` if it isn't set.  Each Mix project's `mix.exs` file
+  should set this at the start of the `project` function, as:
+  
+      if !System.get_env("mix_env") do
+        System.put_env("mix_env", "#{ Mix.env() }") #K
+      end
+  """
+
+  @spec get_run_mode() :: atom
+
+  def get_run_mode() do #K
+    ( System.get_env("mix_env") || "dev")
+    |> String.to_atom()
+#   |> IO.inspect(label: "get_run_mode")
+  end
 
   @doc """
   Get the absolute file path for the base directory (eg, `.../PA_all`).
@@ -28,26 +60,6 @@ defmodule Common.Zoo do
 
     Path.expand(base_rel)
 #   |> ii("tree_base") #T
-  end
-
-  @doc """
-  Get an atom indicating the current run mode.
-
-  We normally pick this up from the `mix_env` (Unix) environment variable,
-  defaulting to `:dev` if it isn't set.  Each Mix project's `mix.exs` file
-  should set this at the start of the `project` function, as:
-  
-      if !System.get_env("mix_env") do
-        System.put_env("mix_env", "#{ Mix.env() }") #K
-      end
-  """
-
-  @spec run_mode() :: atom
-
-  def run_mode() do #K
-    ( System.get_env("mix_env") || "dev")
-    |> String.to_atom()
-#   |> IO.inspect(label: "run_mode")
   end
 
   @doc """

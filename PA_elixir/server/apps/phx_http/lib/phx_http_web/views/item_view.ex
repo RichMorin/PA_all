@@ -53,7 +53,7 @@ defmodule PhxHttpWeb.ItemView do
       true
   """
 
-  @spec fmt_address(atom, address) :: safe_html
+  @spec fmt_address(atom, address) :: safe_html #W
 
   def fmt_address(section, address) do
     case address[section] do
@@ -66,12 +66,14 @@ defmodule PhxHttpWeb.ItemView do
   Format the Map key (handle special cases, then capitalize the rest).
   """
 
-  @spec fmt_key(atom) :: String.t
+  @spec fmt_key(atom) :: String.t #W
 
   def fmt_key(:emacswiki),     do: "EmacsWiki"
   def fmt_key(:faq),           do: "FAQ"
   def fmt_key(:github),        do: "GitHub"
+  def fmt_key(:gitlab),        do: "GitLab"
   def fmt_key(:google_p),      do: "Google+"
+  def fmt_key(:irc),           do: "IRC"
   def fmt_key(:linked_in),     do: "LinkedIn"
   def fmt_key(:man_page),      do: "Manual Page"
   def fmt_key(:rubydoc),       do: "RubyDoc"
@@ -97,7 +99,7 @@ defmodule PhxHttpWeb.ItemView do
       true
   """
 
-  @spec fmt_review(String.t) :: safe_html
+  @spec fmt_review(String.t) :: safe_html #W
 
   def fmt_review(rev_key) do
     rev_item    = InfoToml.get_item(rev_key)
@@ -125,7 +127,7 @@ defmodule PhxHttpWeb.ItemView do
 
   # Private Functions
 
-  @spec fa1(atom, map) :: safe_html
+  @spec fa1(atom, map) :: safe_html #W
 
   # fmt_address helper functions: fa[123], fa2h
   #
@@ -145,7 +147,7 @@ defmodule PhxHttpWeb.ItemView do
   defp fa1(:review,     map),  do: fa2(:text, "Phone Numbers",      map)
   defp fa1(:web_site,   map),  do: fa2(:site, "Web Pages",          map)
 
-  @spec fa2(atom, String.t, map) :: safe_html
+  @spec fa2(atom, String.t, map) :: safe_html #W
 
   defp fa2(:post, heading, map) do
     item_fn = fn key ->
@@ -195,7 +197,7 @@ defmodule PhxHttpWeb.ItemView do
     fa3(heading, map, item_fn)
   end
 
-  @spec fa3(s, map, (s -> [ s ] ) ) :: safe_html when s: String.t
+  @spec fa3(s, map, (s -> [ s ] ) ) :: safe_html when s: String.t #W
 
   defp fa3(heading, map, item_fn) do
     items = map                 # %{ main: url, ... }
@@ -211,7 +213,7 @@ defmodule PhxHttpWeb.ItemView do
     """
   end
 
-  @spec prep_map(addr_sec) :: addr_sec
+  @spec prep_map(addr_sec) :: addr_sec #W
 
   defp prep_map(inp_map) do
   #
@@ -242,7 +244,7 @@ defmodule PhxHttpWeb.ItemView do
     |> Enum.reduce(%{}, reduce_fn)  # %{ main: "https:...", ... }
   end
 
-  @spec prep_map_h(s, map) :: s when s: String.t
+  @spec prep_map_h(s, map) :: s when s: String.t #W
 
   defp prep_map_h(inp_val, inp_map) do
   #

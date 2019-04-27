@@ -41,7 +41,7 @@ defmodule PhxHttpWeb.FormatHelpers do
   This function formats author information, sets up links, etc.
   """
 
-  @spec fmt_authors(String.t) :: safe_html
+  @spec fmt_authors(String.t) :: safe_html #W
 
   def fmt_authors(f_authors) do
     map_fn  = fn ref_str ->
@@ -72,7 +72,7 @@ defmodule PhxHttpWeb.FormatHelpers do
   prefix strings.
   """
 
-  @spec fmt_markdown(String.t) :: safe_html
+  @spec fmt_markdown(String.t) :: safe_html #W
 
   def fmt_markdown(md_inp) do
     md_exp  = LinkHelpers.do_links(md_inp)
@@ -97,7 +97,7 @@ defmodule PhxHttpWeb.FormatHelpers do
   This function formats the file path for display.
   """
 
-  @spec fmt_path(String.t) :: safe_html
+  @spec fmt_path(String.t) :: safe_html #W
 
   def fmt_path(key) do
     # Generates three links of these forms:
@@ -150,7 +150,7 @@ defmodule PhxHttpWeb.FormatHelpers do
       { :safe, "<p><b>Precis:</b>&nbsp; precis</p>" }
   """
 
-  @spec fmt_precis(String.t) :: safe_html
+  @spec fmt_precis(String.t) :: safe_html #W
 
   def fmt_precis(precis) do
     "<p><b>Precis:</b>&nbsp; #{ precis }</p>" |> raw()
@@ -160,7 +160,7 @@ defmodule PhxHttpWeb.FormatHelpers do
   This function formats a reference from `meta.refs.*`.
   """
 
-  @spec fmt_ref(atom, String.t) :: tuple
+  @spec fmt_ref(atom, String.t) :: tuple #W
 
   def fmt_ref(ref_key, ref_val) do
     label     = ItemView.fmt_key(ref_key)
@@ -200,7 +200,7 @@ defmodule PhxHttpWeb.FormatHelpers do
       [ "a", "ab", "b" ]
   """
 
-  @spec sort_keys(tag_sets) :: [ String.t ]
+  @spec sort_keys(tag_sets) :: [ String.t ] #W
 
   def sort_keys(tag_sets) do
     letters = ~w(a b c d e f g h i j k l m n o p q r s t u v w x y z)
@@ -224,7 +224,7 @@ defmodule PhxHttpWeb.FormatHelpers do
 
   # Private Functions
 
-  @spec join_list( [ s ] ) :: s when s: String.t
+  @spec join_list( [ s ] ) :: s when s: String.t #W
 
   defp join_list(a),       do: jl(a)
   #
@@ -239,14 +239,14 @@ defmodule PhxHttpWeb.FormatHelpers do
   #   formatting-a-list-of-strings-am-i-missing-anything/18593/10
   # Interesting discussion and really great help!
 
-  @spec jl(list) :: String.t
+  @spec jl(list) :: String.t #W
 
   defp jl([]),            do: ""
   defp jl([a]),           do: "#{ a }"
   defp jl([a, b]),        do: "#{ a } and #{ b }"
   defp jl(list),          do: jl(list, [])
 
-  @spec jl(list, [ String.t ] ) :: String.t
+  @spec jl(list, [ String.t ] ) :: String.t #W
 
   defp jl([last], strl),  do: to_string( [ strl, 'and ', "#{ last }" ] )
   defp jl([h | t], strl), do: jl(t, [ strl, "#{ h }", ', '] )

@@ -17,7 +17,7 @@ defmodule Common.Tracing do
   - make floats print with only two decimal places
   """
 
-  @spec ii(any, atom | String.t) :: any #K
+  @spec ii(any, atom | String.t) :: any
 
   def ii(float, label) when is_float(float) do
     float_str   = :erlang.float_to_binary(float, [decimals: 2])

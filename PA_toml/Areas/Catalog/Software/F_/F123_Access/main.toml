@@ -42,9 +42,16 @@ version is designed for use with the Mozilla Firefox and Chrome browsers,
 although we hope to start work on a Microsoft Edge version soon.
 
 > -- [$url]{http://f123access.com/what-is-f123-access}
+
+> The F123 Access service is no longer available due to funding constraints.
+We apologize for this interruption in service to our users
+in more than 70 countries.
+
+> -- [$url]{https://www.google.com/search?q=F123+Access}
+
 '''
 
-[ address.web_site ]
+# [ address.web_site ]
 
-  faq         = 'main|/what-is-f123-access'
-  main        = 'http://f123access.com'
+#  faq         = 'main|/what-is-f123-access'
+#  main        = 'http://f123access.com'

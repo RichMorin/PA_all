@@ -47,7 +47,7 @@ defmodule Common.Strings do
     "aa"
   """
 
-  @spec base_26(integer, (s | nil)) :: s when s: String.t
+  @spec base_26(integer, s) :: s when s: String.t
 
   def base_26(ndx_inp, letters \\ "")
   def base_26(ndx_inp, _letters) when ndx_inp <  0, do: "?"

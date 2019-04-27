@@ -1,0 +1,66 @@
+# cat_sof|Anyplace/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Anyplace'
+  title       = 'Anyplace'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'crowdsourced, multiple formats'
+  interfaces  = 'image, text, web'
+  licenses    = 'MIT, open source'
+  roles       = 'application, document viewer, eBook reader'
+  standards   = 'GIF, JPG, JSON, PNG'
+
+[ about ]
+
+  precis      = 'a cross-platform web app for indoor navigation'
+
+  verbose     = '''
+> People do most of their activities, business, commerce, entertainment,
+and socializing indoors.
+As all of these are increasingly aided by online services and indoor spaces
+are becoming bigger and more complex,
+there is a growing need for cost-effective indoor localization, mapping,
+navigation, and information services.
+In this paper, we present a complete Indoor Information Service,
+coined Anyplace, which has an open, modular, extensible,
+and scalable architecture, making it ideal for a wide range of applications.
+
+> Our service features three highly desirable properties, namely
+crowdsourcing, scalability, and accuracy.
+Anyplace implements a set of crowdsourcing-supportive mechanisms
+to handle the enormous amount of crowd-sensed data,
+filter incorrect user contributions, and exploit Wi-Fi data
+from heterogeneous mobile devices.
+Moreover, it uses a big-data architecture
+for efficient storage and retrieval of localization and mapping data.
+Finally, our service relies on the abundance of sensory data on smartphones
+(e.g., Wi-Fi signal strength and inertial measurements)
+to deliver reliable indoor geolocation information...
+
+> -- [$url]{http://www.cs.ucy.ac.cy/~dzeina/papers/mdm15-anyplace-demo.pdf}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|dmsl/anyplace'
+  twitter     = 'ext_tw|anyplaceucy'
+
+[ address.web_site ]
+
+  main        = 'https://anyplace.cs.ucy.ac.cy'
+
+  zoo         = '''
+https://www.sigspatial.org/wp-content/uploads/special-issues/9/2/04-Paper01_Anatomy.pdf,
+https://anyplace.cs.ucy.ac.cy/~dzeina/papers/ic16-iin.pdf,
+https://anyplace.cs.ucy.ac.cy/~dzeina/papers/mdm15-anyplace-demo.pdf,
+https://anyplace.cs.ucy.ac.cy/publications,
+'''

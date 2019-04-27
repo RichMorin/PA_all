@@ -28,6 +28,18 @@ defmodule Common do
   defdelegate base_26(n, letters),    to: Strings
 
   @doc """
+  Get a string indicating the current HTTP PORT.
+  ([`...Zoo.get_http_port/0`](Common.Zoo.html#get_http_port/0))
+  """
+  defdelegate get_http_port(),        to: Zoo
+
+  @doc """
+  Get an Atom indicating the current run mode.
+  ([`...Zoo.get_run_mode/0`](Common.Zoo.html#get_run_mode/0))
+  """
+  defdelegate get_run_mode(),         to: Zoo
+
+  @doc """
   Get the absolute file path for the base directory.
   ([`...Zoo.get_tree_base/0`](Common.Zoo.html#get_tree_base/0))
   """
@@ -56,12 +68,6 @@ defmodule Common do
   ([`...Maps.our_tree/2`](Common.Maps.html#our_tree/2))
   """
   defdelegate our_tree(map, strict),  to: Maps
-
-  @doc """
-  Get an Atom indicating the current run mode.
-  ([`...Zoo.run_mode/0`](Common.Zoo.html#run_mode/0))
-  """
-  defdelegate run_mode(),             to: Zoo
 
   @doc """
   Split a comma-delimited string into a list of trimmed strings.

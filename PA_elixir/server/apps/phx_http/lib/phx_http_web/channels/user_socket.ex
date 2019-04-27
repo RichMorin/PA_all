@@ -16,7 +16,7 @@ defmodule PhxHttpWeb.UserSocket do
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
 
-# @spec - WIP
+# @spec - ToDo
 
   def connect(_params, socket, _connect_info) do
     {:ok, socket}
@@ -33,7 +33,7 @@ defmodule PhxHttpWeb.UserSocket do
   #
   # Returning `nil` makes this socket anonymous.
 
-# @spec - WIP
+# @spec - ToDo
 
   def id(_socket), do: nil
 end

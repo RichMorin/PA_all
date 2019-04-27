@@ -1,9 +1,9 @@
 defmodule Sample.MixProject do
   use Mix.Project
 
-  @spec project() :: list
+  @spec project() :: [key: atom]
 
-  def project do
+  def project() do
     [
       app:                :sample,
       version:            "0.1.0",
@@ -21,9 +21,9 @@ defmodule Sample.MixProject do
 
   # Run "mix help compile.app" to learn about applications.
 
-  @spec application() :: list
+  @spec application() :: [key: atom]
 
-  def application do
+  def application() do
     [
       extra_applications: [:logger],
       mod: {Sample.Application, []}
@@ -32,9 +32,9 @@ defmodule Sample.MixProject do
 
   # Run "mix help deps" to learn about dependencies.
 
-  @spec deps() :: list
+  @spec deps() :: [ tuple ]
 
-  defp deps do
+  defp deps() do
     [
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},

@@ -19,7 +19,7 @@ defmodule PhxHttpWeb.ErrorHelpers do
   This function generates a tag for inlined form input errors.
   """
 
-# @spec - WIP
+# @spec - ToDo
 
   def error_tag(form, field) do
     Enum.map(Keyword.get_values(form.errors, field), fn error ->
@@ -31,7 +31,7 @@ defmodule PhxHttpWeb.ErrorHelpers do
   This function translates an error message using `gettext`.
   """
 
-# @spec - WIP
+# @spec - ToDo
 
   def translate_error({msg, opts}) do
     # When using gettext, we typically pass the strings we want

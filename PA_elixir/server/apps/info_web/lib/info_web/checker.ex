@@ -2,6 +2,8 @@ defmodule InfoWeb.Checker do
 #
 # Public functions
 #
+#   check_links/0
+#     Crawl the default web site, checking any links found on it.
 #   check_links/1
 #     Crawl the specified web site, checking any links found on it.
 #
@@ -11,10 +13,6 @@ defmodule InfoWeb.Checker do
 #     Get a list of "forced" external URLs.
 #   mapper/1
 #     Construct a Map of links, binned by their status.
-#   snap_load/0
-#     Load a snapshot of the `result` Map.
-#   snap_save/1
-#     Save a snapshot of the `result` Map.
 
   @moduledoc """
   This module is a home-grown, special-purpose web crawler and link checker
@@ -56,28 +54,39 @@ defmodule InfoWeb.Checker do
   use Common,   :common
   use InfoWeb,  :common
   use InfoWeb.Types
-  alias InfoWeb.{External, Internal}
+
+  alias InfoWeb.{External, Internal, Server, Snapshot}
 
   @doc """
   This function checks both internal and external links on Pete's Alley.
   The returned value is a Map of the form:
   
     %{
-      bins: %{
-        <status>: [ { note, from_path, page_url } ]
+      bins:     %{
+        <status>: [ { note, from_path, page_url }, ... ]
       }
+      forced:   [ <url>, ... ]
     }
   """
 
-  @spec check_links(String.t | nil) :: map
+  @spec check_links() :: map
 
-  def check_links(url_base \\ nil) do
+  def check_links() do
   #
-  # iex> t = InfoWeb.check_links("http://localhost:4000");1
+  # $ iex -S mix
+  # iex> t = InfoWeb.check_links;1
+  # iex> t = InfoWeb.get_snap;1
 
     domain      = "http://localhost" #K
-    http_port   = System.get_env("PORT") || "4000"
-    url_base    = url_base || "#{ domain }:#{ http_port }"
+    http_port   = get_http_port()
+    url_base    = "#{ domain }:#{ http_port }"
+
+    check_links(url_base)
+  end
+
+  @spec check_links(String.t) :: map
+
+  defp check_links(url_base) do
 
     base_list   = [ { :seen, "root page", nil, "/" } ]
     forced      = get_forced()
@@ -90,19 +99,16 @@ defmodule InfoWeb.Checker do
     |> External.get_ext_list(forced)
     |> mapper()
 
-    if System.get_env("trace") == "yes" do #TG
-      IO.puts ""
-      ii(int_map[:ext_ng], :ext_ng)
-      IO.puts ""
-      ii(int_map[:int_ng], :int_ng)
-      IO.puts ""
-    end
+    result  = %{
+      bins:     Map.merge(ext_map, int_map),
+      forced:   forced,
+    }
 
-    bins    = Map.merge(int_map, ext_map)
-    result  = %{ bins: bins }
-    snap_save(result)
+    Snapshot.snap_save(result)
+    Server.reload()
 
     result
+#   |> ii(:result) #T
   end
 
   # Private functions
@@ -118,12 +124,14 @@ defmodule InfoWeb.Checker do
     |> Enum.reduce([], reduce_fn1)
 
     reduce_fn2  = fn key, acc -> Map.put(acc, key, :true) end
-    snapped     = snap_load()
+    snap_map    = Snapshot.snap_load()
+    gi_list     = ["raw", "ext_ok"]
+    ext_ok      = get_in(snap_map, gi_list)
 
-    (forced ++ snapped) |> Enum.reduce(%{}, reduce_fn2)
+    (forced ++ ext_ok) |> Enum.reduce(%{}, reduce_fn2)
   end
 
-  @spec mapper(list) :: map
+  @spec mapper([tuple]) :: map
 
   defp mapper(inp_list) do
   #
@@ -138,60 +146,6 @@ defmodule InfoWeb.Checker do
     end
 
     Enum.reduce(inp_list, %{}, reduce_fn)
-  end
-
-  @spec snap_load() :: list
-
-  def snap_load() do
-  #
-  # Load a List containing the most recent snapshot of the `result` Map.
-  
-    link_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_links" #K
-    glob_patt   = "#{ link_base }/*/*.toml"
-
-    file_path   =  glob_patt
-    |> Path.wildcard()
-    |> Enum.reverse()
-    |> hd()
-
-    file_data   = file_path |> InfoToml.Parser.parse(:atoms)
-
-    if !Enum.empty?(file_data) do
-      ext_ok  = get_in(file_data, [:ext_ok]) || "" #K
-      str_list(ext_ok)
-    else
-      message = "result file #{ file_path } not loaded"
-      IO.puts ">>> #{ message }\n"
-      []
-    end
-  end
-
-  @spec snap_save(map) :: any
-
-  defp snap_save(result) do
-  #
-  # Save a snapshot of the `result` Map.
-  
-    link_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_links" #K
-    ok_urls     = result.bins.ext_ok
-
-    toml_list   = for ok_url <- ok_urls do
-      {_status, _from_page, ext_url} = ok_url
-
-      "#{ ext_url },"
-    end
-    |> Enum.sort()
-    |> Enum.join("\n")
-
-    toml_text   = """
-    # PA_links
-
-      ext_ok  = '''
-    #{ toml_list }
-      '''
-    """
-
-    InfoToml.Emitter.emit_toml(link_base, toml_text)
   end
 
 end

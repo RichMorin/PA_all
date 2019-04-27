@@ -13,7 +13,7 @@ defmodule Sample do
 
   """
 
-# @spec - WIP
+# @spec - ToDo
 
   def hello do
     :world

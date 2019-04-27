@@ -32,14 +32,32 @@ features a full suite of support for mail protocols like IMAP and SMTP
 and security protocols like TLS.  It uses curses for its interface.
 
 > -- [$url]{ext_pd|stretch/alpine}
+
+> The purpose of this page is to offer a collection of patches
+for the mail and news program Alpine,
+in order to add new or missing features or fix small bugs.
+Alpine used to be developed until 2008 by the University of Washington,
+but this site provides updates to that software.
+The latest update was version 2.21.
+Usual disclaimers about suitability for any purpose or any express guarantee
+apply. This means that you have to use these patches at your own risk.
+Having said that, I use and actively support most of the patches
+in this web page.
+
+> -- [$url]{http://alpine.x10host.com/alpine}
 '''
+
+[ address.email ]
+
+  main        = 'alpine.chappa@gmx.com'
 
 [ address.related ]
 
   wikipedia   = 'ext_wp|Alpine_(email_client)'
+  zoo         = 'https://opensource.com/article/18/8/love-alpine'
 
 [ address.web_site ]
 
-  faq         = 'main|/faq/'
-  main        = 'https://www.washington.edu/alpine'
-  man_page    = 'main|/mans.html'
+# faq         = 'main|/faq/'
+  main        = 'http://alpine.x10host.com/alpine'
+# man_page    = 'main|/mans.html'

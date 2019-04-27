@@ -279,7 +279,7 @@ a `company` and a `manufacturer`.
 
 The `see_also` type includes IDs for closely related items.
 For example, [F123Light]{cat_har|F123Light} has a
-`see_also` entry for [F123Light OS]{cat_gro|F123Light_OS}.
+`see_also` entry for [F123Light OS]{cat_sof|F123Light_OS}.
 
 #### <a name="skills">skills</a>
 

@@ -1,6 +1,6 @@
 # schemer_test.exs
 
-defmodule InfoTomlSchemerTest do
+defmodule InfoTomlTest.Schemer do
 
   @moduledoc """
   This module's testing is handled by `InfoTomlLoadTreeTest`.

@@ -1,0 +1,69 @@
+# cat_gro|Linux_a11y/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Linux_a11y'
+  title       = 'Linux Accessibility Community'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  provides    = 'cat_sof|Fenrir, cat_sof|OCRdesktop'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  produces    = 'software'
+  roles       = 'organization'
+
+[ about ]
+
+  precis      = 'assists blind individuals around the world'
+
+  verbose     = '''
+> Welcome on our homepage.
+ 
+> The user and development community for Linux accessibility.
+Linux is a good alternative for people with disabilities.
+Needed software is often expensive.
+We think everyone should been able to use a computer.
+Currently there are many good tools and toolkits under Linux
+that can assist you using a computer.
+Sometimes things are missing, buggy or can improve in anyway.
+We try to do exact this.
+This is not limited to problems problems for visual impaired,
+but any kind of disability.
+If you want to help or just want to have a good time with us
+does not matter to us.
+Everyone is welcome.
+ 
+> You are not a developer but you are interested in?
+This is not a problem.
+We will to coach you to learning this.
+Are you good in grammar or just have fun in writing documentation?
+ 
+> If you want to help or just hang around with new friends?
+See [here]{https://linux-a11y.org/index.php?page=join-us}.
+
+> -- [$url]{https://linux-a11y.org}
+'''
+
+[ address.email ]
+
+  main        = 'info@linux-a11y.org'
+
+[ address.related ]
+
+  irc         = 'https://chat.linux-a11y.org'
+
+[ address.web_site ]
+
+  main        = 'https://linux-a11y.org'
+  wiki        = 'https://wiki.linux-a11y.org'
+
+  zoo         = '''
+main|/index.php?page=join-us,
+main|/index.php?page=mailing-list,
+'''

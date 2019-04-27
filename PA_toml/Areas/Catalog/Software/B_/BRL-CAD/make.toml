@@ -1,0 +1,10 @@
+# cat_sof|BRL-CAD/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aur|brlcad'
+  upstream    = 'https://brlcad.org'
+
+[ os.debian ]

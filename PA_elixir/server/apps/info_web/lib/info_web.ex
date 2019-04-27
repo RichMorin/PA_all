@@ -12,22 +12,22 @@ defmodule InfoWeb do
   # Define the public interface.
 
   @doc """
-  Crawl the specified web site, checking any links found on it.
-  ([`...Checker.check_links/1`](InfoWeb.Checker.check_links.html#check_links/1))
+  Crawl the web site, checking any links found on it.
+  ([`...Checker.check_links/0`](InfoWeb.Checker.check_links.html#check_links/0))
   """
-  defdelegate check_links(base_url),                to: Checker
+  defdelegate check_links(),                        to: Checker
 
   @doc """
-  Return the data structure for a link, given its URL.
-  ([`...Server.get_info/1`](InfoWeb.Server.get_info.html#get_info/1))
+  Return the data structure for the latest snapshot.
+  ([`...Server.get_snap/0`](InfoWeb.Server.get_snap.html#get_snap/0))
   """
-  defdelegate get_info(link_url),                   to: Server
+  defdelegate get_snap(),                           to: Server
 
   @doc """
-  Update the data structure for a link, given its URL and a new value.
-  ([`...Server.put_info/1`](InfoWeb.Server.put_info.html#put_info/1))
+  Reload from the snapshot file.
+  ([`...Server.reload/0`](InfoWeb.Server.reload.html#reload/0))
   """
-  defdelegate put_info(link_url, link_map),         to: Server
+  defdelegate reload(),                             to: Server
 
 
   @doc "Set up infrastructure for code sharing."

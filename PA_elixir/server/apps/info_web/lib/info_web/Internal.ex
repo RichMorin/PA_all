@@ -2,6 +2,8 @@ defmodule InfoWeb.Internal do
 #
 # Public functions
 #
+#   get_int_list/2
+#     Wrapper for get_int_list/3.
 #   get_int_list/3
 #     Iterate on the list until all local links are handled.
 #
@@ -9,6 +11,10 @@ defmodule InfoWeb.Internal do
 #
 #   add_local/3
 #     Add local URLs to the input list.
+#   add_local_h/3
+#     Return a List of link Tuples for the URL.
+#   discard/2
+#     Discard "duplicate" and "time sink" URLs.
 
   @moduledoc """
   This module crawls the Pete's Alley web site, extracting links and binning
@@ -35,16 +41,27 @@ defmodule InfoWeb.Internal do
   To reduce the workload, we trim the working list, discarding:
   
   - all but one instance of each status/URL combination
-  - a variety of "rathole" internal URLs (e.g., "/reload?")
+  - a variety of "time sink" internal URLs (e.g., "/reload?")
   """
 
   use Common,   :common
   use InfoWeb,  :common
   use InfoWeb.Types
 
-  @spec get_int_list([tuple], String.t, map) :: list
+# @spec get_int_list([tuple], String.t) :: [tuple]
+  @spec get_int_list(list, String.t) :: list
 
-  def get_int_list(inp_list, url_base, known \\ %{}) do
+  def get_int_list(inp_list, url_base) do #D
+  #
+  # Wrapper for get_int_list/3.
+
+    get_int_list(inp_list, url_base, %{})
+  end
+
+# @spec get_int_list([tuple], String.t, map) :: [tuple]
+  @spec get_int_list(list, String.t, map) :: list
+
+  def get_int_list(inp_list, url_base, known) do
   #
   # Iterate on the list until all local links are handled.
 
@@ -75,9 +92,9 @@ defmodule InfoWeb.Internal do
 
   # Private functions
 
-  @spec add_local(String.t, list, map) :: list
+  @spec add_local(s, [tuple], map) :: [tuple] when s: String.t
 
-  def add_local(url_base, inp_urls, known) do
+  defp add_local(url_base, inp_urls, known) do
   #
   # Add local URLs to the input list.
 
@@ -89,62 +106,84 @@ defmodule InfoWeb.Internal do
 
         String.starts_with?(page_url, "http") -> tuple
 
-        true ->
-          full_url  = url_base <> page_url
-
-          uri_ok    = if String.starts_with?(page_url, "/") do
-            {status, _uri} = validate_uri(full_url)
-            status == :ok
-          else
-            false
-          end
- 
-          if uri_ok do
-            response  = HTTPoison.get!(full_url)
-
-            if response.status_code == 200 do
-              reduce_fn   = fn link_url, acc ->
-                status  = if link_url =~ ~r{^http} do :ext else :seen end
-
-                tuple   = { status, "", page_url, link_url }
-                [ tuple | acc ]
-              end
-
-              links   = response.body
-              |> Floki.parse()
-              |> Floki.attribute("a", "href")
-              |> Enum.reduce([], reduce_fn)
-
-              [ { :int_ok, "", from_url, page_url } | links ]
-            else
-              { :int_ng, "", from_url, page_url }
-            end
-          else
-            { :int_ng, "", from_url, page_url }
-          end
+        true -> add_local_h(from_url, page_url, url_base)
       end
-    end
-
-    reject_fn   = fn { _status, _note, _page_url, link_url } ->
-      test_url  = String.replace_prefix(link_url, url_base, "")
-
-      String.starts_with?(test_url, "#")              ||
-      String.starts_with?(test_url, "/item/edit?")    ||
-      String.starts_with?(test_url, "/mail/feed?")    ||
-      String.starts_with?(test_url, "/reload?")       ||
-      String.starts_with?(test_url, "/search/")       ||
-      String.starts_with?(test_url, "/source?")       ||
-      String.starts_with?(test_url, "/source/down?")
-    end
-
-    uniq_fn   = fn { status, _note, _page_url, link_url } ->
-      "#{ status } #{ link_url }"
     end
 
     inp_urls
     |> Enum.map(map_fn)
     |> List.flatten()
     |> Enum.sort()
+    |> discard(url_base)
+  end
+
+  @spec add_local_h(s, s, s) :: [tuple] when s: String.t
+
+  defp add_local_h(from_url, page_url, url_base) do
+  #
+  # Return a List of link Tuples for the URL.
+
+    full_url  = url_base <> page_url
+
+    uri_ok    = if String.starts_with?(page_url, "/") do
+      {status, _uri} = validate_uri(full_url)
+      status == :ok
+    else
+      false
+    end
+
+    if uri_ok do
+      response  = HTTPoison.get!(full_url)
+
+      if response.status_code == 200 do
+        reduce_fn   = fn link_url, acc ->
+          status  = if link_url =~ ~r{^http} do :ext else :seen end
+
+          tuple   = { status, "", page_url, link_url }
+          [ tuple | acc ]
+        end
+
+        links   = response.body
+        |> Floki.parse()
+        |> Floki.attribute("a", "href")
+        |> Enum.reduce([], reduce_fn)
+
+        [ { :int_ok, "", from_url, page_url } | links ]
+      else
+        [ { :int_ng, "", from_url, page_url } ]
+      end
+    else
+      [ { :int_ng, "", from_url, page_url } ]
+    end
+  end
+
+  @spec discard([tuple], String.t) :: [tuple]
+
+  defp discard(tuples, url_base) do
+  #
+  # Discard duplicate and problematic (e.g., recursive, time sink) URLs.
+
+    reject_fn = fn {_status, _note, _page_url, link_url } ->
+      test_url  = String.replace_prefix(link_url, url_base, "")
+
+      ssw_fn    = fn url -> String.starts_with?(test_url, url) end
+
+      ssw_fn.("/item?key=Areas/Catalog/")   ||  # D - comment to speed up
+      ssw_fn.("#")                          ||  # section of same page
+      ssw_fn.("/dash/links")                ||  # recursive, in a way
+      ssw_fn.("/item/edit?")                ||  # time sink
+      ssw_fn.("/mail/feed?")                ||  # time sink
+      ssw_fn.("/reload?")                   ||  # time sink
+      ssw_fn.("/search/")                   ||  # time sink
+      ssw_fn.("/source?")                   ||  # time sink
+      ssw_fn.("/source/down?")
+    end
+
+    uniq_fn   = fn { status, _note, _page_url, link_url } ->
+      "#{ status } #{ link_url }"
+    end
+
+    tuples
     |> Enum.uniq_by(uniq_fn)
     |> Enum.reject(reject_fn)
   end

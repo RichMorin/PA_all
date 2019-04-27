@@ -94,7 +94,7 @@ defmodule InfoToml.CheckItem do
   # - Otherwise, the "publish" flag must be present in `meta.actions`.
   # - The "draft" flag must NOT be present if we're running on PORT 64000.
 
-    http_port   = System.get_env("PORT") || "4000"
+    http_port   = get_http_port()
     main_file   = String.ends_with?(file_key, "/main.toml")
 
     actions     = inp_map             # %{ meta: %{...}, ... }
@@ -229,7 +229,7 @@ defmodule InfoToml.CheckItem do
   end
 
   @spec check_values_h(map|s, (s, list -> any), list) ::
-    list when s: String.t #K
+    [tuple] when s: String.t
 
   defp check_values_h(inp_val, check_fn, gi_rev) do
   #
@@ -267,18 +267,19 @@ defmodule InfoToml.CheckItem do
   # from a reply by Peer Reynders (peerreynders) to a help request on the
   # Elixir Forum: `https://elixirforum.com/t/17715`.
 
-  @spec leaf_paths(item_map)       :: l when l: list
+  @spec leaf_paths(item_map) :: [ [ atom | String.t ] ]
 
   defp leaf_paths(tree), do: leaf_paths(tree, [], [])
 
-  @spec leaf_paths(item_map, l, l) :: l when l: list
+  @spec leaf_paths(item_map, l, l) :: l when l: [ [ atom | String.t ] ]
 
   defp leaf_paths(tree, parent_path, paths) do
     {_, paths} = Enum.reduce(tree, {parent_path, paths}, &leaf_paths_h/2)
     paths
   end
 
-# @spec leaf_paths_h({atom, any}, {item_path, item_paths}) :: [ item_part ]
+  @spec leaf_paths_h({atom, any}, {item_path, item_paths}) ::
+    {String.t, [ item_part ] }
 
   defp leaf_paths_h({key, value}, {parent_path, paths}) when is_map(value), do:
     {parent_path, leaf_paths(value, [ key | parent_path ], paths) }

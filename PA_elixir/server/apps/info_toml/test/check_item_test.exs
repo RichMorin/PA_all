@@ -1,6 +1,6 @@
 # check_item_test.exs
 
-defmodule InfoTomlCheckItemTest do
+defmodule InfoTomlTest.CheckItem do
 
   use ExUnit.Case
   import ExUnit.CaptureIO

@@ -1,6 +1,6 @@
 # common_test.exs
 
-defmodule InfoTomlCommonTest do
+defmodule InfoTomlTest.Common do
 
   use ExUnit.Case
 

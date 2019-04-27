@@ -43,7 +43,7 @@ defmodule PhxHttpWeb.SearchView do
       true
   """
 
-  @spec fmt_tag_set(tag_set, String.t, atom) :: safe_html
+  @spec fmt_tag_set(tag_set, String.t, atom) :: safe_html #W
 
   def fmt_tag_set(tag_set, set_key, settings) do
     chunk_fn  = fn [type, _val] -> type end 
@@ -93,7 +93,7 @@ defmodule PhxHttpWeb.SearchView do
       {"Areas/Catalog", 1}
   """
 
-  @spec result_header( [ {s, s, s} ] ) :: {s, integer} when s: String.t
+  @spec result_header( [ {s, s, s} ] ) :: {s, integer} when s: String.t #W
 
   def result_header(results) do
     base_patt = ~r{ ^ ( \w+ / \w+ ) / .* $ }x
@@ -113,7 +113,7 @@ defmodule PhxHttpWeb.SearchView do
       "/item?key=Areas/Catalog/People/Rich_Morin/main.toml"
   """
 
-  @spec result_url(s) :: s when s: String.t
+  @spec result_url(s) :: s when s: String.t #W
 
   def result_url(key), do: "/item?key=#{ key }"
 
@@ -128,7 +128,7 @@ defmodule PhxHttpWeb.SearchView do
       [:replaces]
   """
 
-  @spec tag_types(tag_info) :: [ String.t ]
+  @spec tag_types(tag_info) :: [ String.t ] #W
 
   def tag_types(kv_map) do
     exclude     = ~w(miscellany requires see_also)a #D - is this complete?
@@ -141,7 +141,7 @@ defmodule PhxHttpWeb.SearchView do
 
   # Private functions
 
-  @spec fmt_tag_set_h(atom, t, t) :: t when t: tuple
+  @spec fmt_tag_set_h(atom, t, t) :: t when t: tuple #W
 
   # Generate some HTML for `fmt_tag_set/3`.
 
@@ -171,7 +171,7 @@ defmodule PhxHttpWeb.SearchView do
     """
   end
 
-  @spec select(atom, s) :: s when s: String.t
+  @spec select(atom, s) :: s when s: String.t #W
 
   defp select(:c, set_key) do
   #

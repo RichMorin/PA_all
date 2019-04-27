@@ -198,6 +198,10 @@ The standard is short and readable (as such things go),
 but it is also rather short on specifics.
 So, it's mostly a set of definitions and guidelines.
 
+There are also some _de facto_ standards,
+such as the JSON file provided by [Anyplace]{cat_sof|Anyplace},
+a cross-platform, crowdsourced web app for indoor navigation.
+
 ##### Data and Metadata
 
 Most large public spaces have substantial amounts of documentation.

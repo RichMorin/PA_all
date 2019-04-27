@@ -1,7 +1,7 @@
-<!-- templates/search/clear.html.eex -->
+<!-- templates/clear/clear.html.eex -->
 
 <%
-  action    = Routes.search_path(@conn, :clear_post)
+  action    = Routes.clear_path(@conn, :clear_post)
   set_keys  = sort_keys(@sess_tag_sets)
 %>
 

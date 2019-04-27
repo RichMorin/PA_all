@@ -4,7 +4,7 @@
   alias PhxHttpWeb.DashView
 %>
 
-<h2>Dashboards</h2>
+<h2>Dashboard Index</h2>
 
 <p>
   This site has assorted dashboard pages, containing dynamic information
@@ -35,6 +35,20 @@
 <p>
   This is the dashboard page for reference data files (e.g., TOML).
 </p>
+
+<%= if get_http_port() == "4000" do %>
+  <h3>
+    <%=
+      title   = "Go to the Links Dashboard page."
+      url     = "/dash/links"
+      link("Links", title: title, to: url)
+    %>
+  </h3>
+  <p>
+    This is the dashboard page for link
+    (i.e., HTML <code>href</code>) issues.
+  </p>
+<% end %>
 
 <h3>
   <%=

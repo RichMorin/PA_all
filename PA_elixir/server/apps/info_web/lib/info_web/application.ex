@@ -6,7 +6,7 @@ defmodule InfoWeb.Application do
   WIP - Load the link status file.
   """
 
-# @spec - WIP
+# @spec - ToDo
 
   def start(_type, _args) do
     import Supervisor.Spec, warn: false

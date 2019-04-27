@@ -116,7 +116,7 @@ defmodule PhxHttpWeb.LinkHelpers do
     "[Search](/search/find 'Go to: Search [local]')"
   """
 
-  @spec do_links(s) :: s when s: String.t
+  @spec do_links(s) :: s when s: String.t #W
 
   def do_links(inp_str) do
     replace_fn  = fn _match, inp_1, inp_2 ->
@@ -144,7 +144,7 @@ defmodule PhxHttpWeb.LinkHelpers do
 
   # Private functions
 
-  @spec do_links_h1(s, s, list) :: s when s: String.t
+  @spec do_links_h1(s, s, list) :: s when s: String.t #W
 
   defp do_links_h1(trim_1, trim_2, list_2 = [ head_2, tail_2 ]) do
   #
@@ -199,7 +199,7 @@ defmodule PhxHttpWeb.LinkHelpers do
 #   |> trace_fn.() #T
   end
 
-  @spec do_links_h2(atom, s, s) :: s when s: String.t
+  @spec do_links_h2(atom, s, s) :: s when s: String.t #W
 
   defp do_links_h2(:ext_wp, inp_1, inp_2) do
   #

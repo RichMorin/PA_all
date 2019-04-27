@@ -44,6 +44,7 @@ https://opensource.com/article/18/5/termux,
 
 [ address.web_site ]
 
-  faq         = 'main|/wiki/FAQ'
+  _1          = 'https://wiki.termux.com/wiki'
+  faq         = '_1|/FAQ'
   main        = 'https://termux.com'
-  wiki        = 'main|/wiki/Main_Page'
+  wiki        = '_1|/Main_Page'

@@ -53,7 +53,7 @@ defmodule InfoToml.Emitter do
   equal signs (=) and use `gi_bases` to control the order of presentation.
   """
 
-  @spec get_item_toml([ [atom] ], map) :: list
+  @spec get_item_toml([ [atom] ], map) :: [String.t]
 
   def get_item_toml(gi_bases, item_map) do
 
@@ -145,7 +145,7 @@ defmodule InfoToml.Emitter do
 #   |> ii("file_path") #T
   end
 
-  @spec reorder_bases(l) :: l when l: list
+  @spec reorder_bases(l) :: l when l: [String.t]
 
   defp reorder_bases(inp_bases) do
   #
@@ -153,7 +153,7 @@ defmodule InfoToml.Emitter do
 
     filter_fn = fn gi_path ->
       base_string   = gi_path |> Enum.join(".")
-      front_list  = ~w(meta meta.tags user)
+      front_list    = ~w(meta meta.tags user)
       Enum.member?(front_list, base_string)
     end
 

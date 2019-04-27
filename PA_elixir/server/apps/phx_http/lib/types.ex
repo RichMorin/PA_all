@@ -7,7 +7,7 @@ defmodule PhxHttp.Types do
   It doesn't contain any functions, just `@type` attributes.
   """
 
-# @spec - WIP
+# @spec - ToDo
 
   defmacro __using__(_) do
     quote do

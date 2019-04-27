@@ -23,7 +23,7 @@ defmodule PhxHttpWeb.MailController do
   This function generates the feedback composing and sending page.
   """
 
-  @spec feed_form(Plug.Conn.t(), any) :: Plug.Conn.t()
+  @spec feed_form(Plug.Conn.t(), any) :: Plug.Conn.t() #W
 
   def feed_form(conn, params) do
 
@@ -42,7 +42,7 @@ defmodule PhxHttpWeb.MailController do
   This function sends the feedback, then redisplays the page.
   """
 
-  @spec feed_post(Plug.Conn.t(), any) :: Plug.Conn.t()
+  @spec feed_post(Plug.Conn.t(), any) :: Plug.Conn.t() #W
 
   def feed_post(conn, params) do
 

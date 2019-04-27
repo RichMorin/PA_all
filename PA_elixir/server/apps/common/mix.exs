@@ -1,9 +1,9 @@
 defmodule Common.MixProject do
   use Mix.Project
 
-  @spec project() :: list
+  @spec project() :: [key: atom]
 
-  def project do
+  def project() do
 #   IO.puts "Common.MixProject.project: Mix.env() == #{ Mix.env() }" #T
 
     if !System.get_env("mix_env") do
@@ -27,9 +27,9 @@ defmodule Common.MixProject do
 
   # Run "mix help compile.app" to learn about applications.
 
-  @spec application() :: list
+  @spec application() :: [key: atom]
 
-  def application do
+  def application() do
     [
 #     mod: { Common.Application, [] },
 #     extra_applications:     [:logger],
@@ -38,9 +38,9 @@ defmodule Common.MixProject do
 
   # Run "mix help deps" to learn about dependencies.
 
-  @spec deps() :: list
+  @spec deps() :: [ tuple ]
 
-  defp deps do
+  defp deps() do
     [
       { :dialyxir,            "~> 1.0.0-rc.4",
         only: [:dev], runtime: false },

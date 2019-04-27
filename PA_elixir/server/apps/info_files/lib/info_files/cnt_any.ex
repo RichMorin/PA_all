@@ -118,7 +118,7 @@ defmodule InfoFiles.CntAny do
     tree base strings (e.g., `PA_elixir/common`) in `file_info[:tree_bases`].
   """
 
-  @spec add_tree_bases(map, list) :: map  # WIP
+  @spec add_tree_bases(map, [String.t] ) :: map
 
   def add_tree_bases(file_info, dir_names) do
 

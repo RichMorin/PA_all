@@ -22,7 +22,7 @@ defmodule PhxHttpWeb.ControllerHelpers do
   flash and redirects to the home page.
   """
 
-  @spec key_ng(Plug.Conn.t(), String.t) :: Plug.Conn.t()
+  @spec key_ng(Plug.Conn.t(), String.t) :: Plug.Conn.t() #W
 
   def key_ng(conn, key) do
     message = "That key (#{ key }) was not recognized."
@@ -34,7 +34,7 @@ defmodule PhxHttpWeb.ControllerHelpers do
   sets up an error flash and redirects to the home page.
   """
 
-  @spec nastygram(Plug.Conn.t(), String.t) :: Plug.Conn.t()
+  @spec nastygram(Plug.Conn.t(), String.t) :: Plug.Conn.t() #W
 
   def nastygram(conn, message) do
     IO.puts "!!!> " <> message

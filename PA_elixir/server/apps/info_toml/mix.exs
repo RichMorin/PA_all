@@ -1,9 +1,9 @@
 defmodule InfoToml.MixProject do
   use Mix.Project
 
-  @spec project() :: list
+  @spec project() :: [key: atom]
 
-  def project do
+  def project() do
 #   IO.puts "InfoToml.MixProject.project: Mix.env() == #{ Mix.env() }" #T
 
     if !System.get_env("mix_env") do
@@ -20,6 +20,7 @@ defmodule InfoToml.MixProject do
       lockfile:           "../../mix.lock",
 
       elixir:             "~> 1.8",
+      elixirc_paths:      elixirc_paths(Mix.env()),
       start_permanent:    Mix.env() == :prod,
       deps:               deps()
     ]
@@ -27,20 +28,27 @@ defmodule InfoToml.MixProject do
 
   # Run "mix help compile.app" to learn about applications.
 
-  @spec application() :: list
+  @spec application() :: [key: atom]
 
-  def application do
+  def application() do
     [
       mod: { InfoToml.Application, [] },
       extra_applications:     [:logger]
     ]
   end
 
+  # Specifies which paths to compile per environment.
+
+  @spec elixirc_paths(any) :: [ String.t ]
+
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_),     do: ["lib"]
+
   # Run "mix help deps" to learn about dependencies.
 
-  @spec deps() :: list
+  @spec deps() :: [ tuple ]
 
-  defp deps do
+  defp deps() do
     [ # added
       { :dialyxir,            "~> 1.0.0-rc.4",
         only: [:dev], runtime: false },

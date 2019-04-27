@@ -42,7 +42,7 @@ defmodule PhxHttpWeb.ItemController do
   This function generates the `edit_form` page.
   """
 
-  @spec edit_form(Plug.Conn.t(), any) :: Plug.Conn.t()
+  @spec edit_form(Plug.Conn.t(), any) :: Plug.Conn.t() #W
 
   def edit_form(conn, params) do
     schema    = "_schemas/main.toml" |> InfoToml.get_item()
@@ -70,7 +70,7 @@ defmodule PhxHttpWeb.ItemController do
   This function handles the `edit_post` action.
   """
 
-  @spec edit_post(Plug.Conn.t(), any) :: Plug.Conn.t()
+  @spec edit_post(Plug.Conn.t(), any) :: Plug.Conn.t() #W
 
   def edit_post(conn, params) do
 
@@ -117,7 +117,7 @@ defmodule PhxHttpWeb.ItemController do
   This function displays a specified item.
   """
 
-  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t()
+  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t() #W
 
   def show(conn, params) do
     key    = params["key"]
@@ -127,7 +127,7 @@ defmodule PhxHttpWeb.ItemController do
 
   # Private Functions
 
-  @spec get_gi_bases([ {} ]) :: [ [atom] ]
+  @spec get_gi_bases([ {} ]) :: [ [atom] ] #W
 
   defp get_gi_bases(gi_pairs) do
   #
@@ -148,7 +148,7 @@ defmodule PhxHttpWeb.ItemController do
 #   |> ii("gi_bases") #T
   end
 
-  @spec get_gi_pairs(any) :: [ { [atom], String.t } ]
+  @spec get_gi_pairs(any) :: [ { [atom], String.t } ] #W
 
   defp get_gi_pairs(params) do
   #
@@ -176,7 +176,7 @@ defmodule PhxHttpWeb.ItemController do
 #   |> ii("gi_pairs") #T
   end
 
-  @spec get_gi_path(String.t) :: [atom]
+  @spec get_gi_path(String.t) :: [atom] #W
 
   defp get_gi_path(dot_path) do
   #
@@ -191,7 +191,7 @@ defmodule PhxHttpWeb.ItemController do
 #   |> ii("gi_path") #T
   end
 
-  @spec get_item_map([ [atom] ], [ {} ]) :: map
+  @spec get_item_map([ [atom] ], [ {} ]) :: map #W
 
   def get_item_map(gi_bases, gi_pairs) do
   #
@@ -218,7 +218,7 @@ defmodule PhxHttpWeb.ItemController do
 #   |> ii("item_map") #T
   end
 
-  @spec get_make(String.t) :: map | nil
+  @spec get_make(String.t) :: map | nil #W
 
   defp get_make(key) do
   #
@@ -230,7 +230,7 @@ defmodule PhxHttpWeb.ItemController do
     InfoToml.get_item(make_key)
   end
 
-  @spec get_reviews(String.t) :: [ String.t ]
+  @spec get_reviews(String.t) :: [ String.t ] #W
 
   defp get_reviews(key) do
   #
@@ -251,7 +251,7 @@ defmodule PhxHttpWeb.ItemController do
     |> Enum.map(fn x -> elem(x,0) end)
   end
 
-  @spec show_h(Plug.Conn.t(), nil) :: Plug.Conn.t()
+  @spec show_h(Plug.Conn.t(), nil) :: Plug.Conn.t() #W
 
   defp show_h(conn, nil) do
   #
@@ -261,7 +261,7 @@ defmodule PhxHttpWeb.ItemController do
     nastygram(conn, message)
   end
 
-  @spec show_h(Plug.Conn.t(), String.t) :: Plug.Conn.t()
+  @spec show_h(Plug.Conn.t(), String.t) :: Plug.Conn.t() #W
 
   defp show_h(conn, key) do
   #
@@ -291,7 +291,7 @@ defmodule PhxHttpWeb.ItemController do
     end
   end
 
-  @spec show_h2(map, String.t) :: map
+  @spec show_h2(map, String.t) :: map #W
 
   defp show_h2(item, key) do
   #

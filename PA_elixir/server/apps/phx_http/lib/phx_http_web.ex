@@ -17,7 +17,7 @@ defmodule PhxHttpWeb do
   and import those modules here.
   """
 
-# @spec - WIP
+# @spec - ToDo
 
   def controller do
     quote do
@@ -34,7 +34,7 @@ defmodule PhxHttpWeb do
     end
   end
 
-# @spec - WIP
+# @spec - ToDo
 
   def view do
     quote do
@@ -62,7 +62,7 @@ defmodule PhxHttpWeb do
     end
   end
 
-# @spec - WIP
+# @spec - ToDo
 
   def router do
     quote do
@@ -72,7 +72,7 @@ defmodule PhxHttpWeb do
     end
   end
 
-# @spec - WIP
+# @spec - ToDo
 
   def channel do
     quote do
@@ -85,7 +85,7 @@ defmodule PhxHttpWeb do
   When used, dispatch to the appropriate controller/view/etc.
   """
 
-# @spec - WIP
+# @spec - ToDo
 
   defmacro __using__(which) when is_atom(which) do
     apply(__MODULE__, which, [])

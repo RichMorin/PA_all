@@ -1,9 +1,9 @@
 defmodule PhxHttp.MixProject do
   use Mix.Project
 
-  @spec project() :: list
+  @spec project() :: [key: atom]
 
-  def project do
+  def project() do
 #   IO.puts "PhxHttp.MixProject.project: Mix.env() == #{ Mix.env() }" #T
 
     if !System.get_env("mix_env") do
@@ -20,7 +20,7 @@ defmodule PhxHttp.MixProject do
       lockfile:           "../../mix.lock",
 
       elixir:             "~> 1.8",
-      elixirc_paths:      elixirc_paths(Mix.env()), #?
+      elixirc_paths:      elixirc_paths(Mix.env()),
       compilers:          [:phoenix, :gettext] ++ Mix.compilers(), #?
       start_permanent:    Mix.env() == :prod,
       deps:               deps()
@@ -31,9 +31,9 @@ defmodule PhxHttp.MixProject do
   #
   # Type `mix help compile.app` for more information.
 
-  @spec application() :: list
+  @spec application() :: [key: atom]
 
-  def application do
+  def application() do
     [
       mod:                    {PhxHttp.Application, []},
       extra_applications:     [:logger, :runtime_tools],
@@ -42,7 +42,7 @@ defmodule PhxHttp.MixProject do
 
   # Specifies which paths to compile per environment.
 
-  @spec elixirc_paths(any) :: list
+  @spec elixirc_paths(any) :: [ String.t ]
 
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_),     do: ["lib"]
@@ -51,13 +51,19 @@ defmodule PhxHttp.MixProject do
   #
   # Type `mix help deps` for examples and options.
 
-  @spec deps() :: list
+  @spec deps() :: [ tuple ]
 
-  defp deps do
+  defp deps() do
     [ # default
       { :phoenix,              "~> 1.4.0" },
       { :phoenix_pubsub,       "~> 1.1" },
+
       { :phoenix_html,         "~> 2.11" },
+
+# Test redirect to determine whether Dialyzer fix works for us.
+#     { :phoenix_html, override: true,
+#       git: "https://github.com/phoenixframework/phoenix_html.git" },
+
       { :phoenix_live_reload,  "~> 1.2", only: :dev },
       { :gettext,              "~> 0.11" },
       { :jason,                "~> 1.0" },
@@ -71,7 +77,7 @@ defmodule PhxHttp.MixProject do
 
 # Temporary redirect until Hex.pm gets a new version of Earmark...
 #     { :earmark, override: true,
-#         git: "https://github.com/pragdave/earmark.git" },
+#       git: "https://github.com/pragdave/earmark.git" },
 
       { :ex_doc,               "~> 0.19", only: :dev },
 

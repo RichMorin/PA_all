@@ -1,0 +1,67 @@
+<!-- templates/dash/_links_com.html.eex -->
+
+<%
+  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+
+  filter_fn   = fn {_site, count} -> count > 1 end
+  sort_fn     = fn {_site, count} -> -count end
+
+  counts  = @link_info["counts"][@pre]
+  |> Enum.filter(filter_fn)
+  |> Enum.sort_by(sort_fn)
+
+  sets      = @link_info["bins"]["#{ @pre }_ng"]
+  type_lc   = "#{ @pre }ernal"            # eg, external
+  type_cap  = String.capitalize(type_lc)  # eg, External
+%>
+
+<div class="hs-base2">
+  <h3>
+    <%= type_cap %> Counts
+    <%= hide_show("is:2/2", "count information for #{ type_lc } links") %>
+  </h3>
+
+  <div class="hs-body2 hs-is">
+    <table class="tablesorter">
+      <thead>
+        <tr>
+          <th>Uses</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= for {site, count} <- counts do %>
+          <tr>
+            <td><%= count %></td>
+            <tt><td><%= site %></td></tt>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="hs-base2">
+  <h3>
+    <%= type_cap %> Issues
+    <%= hide_show("is:2/2", "error information for #{ type_lc } links") %>
+  </h3>
+
+  <div class="hs-body2 hs-is">
+    <%= if Enum.empty?(sets) do %>
+      No error information was found for <%= type_lc %> links.
+    <% else %>
+      <%= for set <- sets do %>
+        <% [ page, from, status ] = set %>
+        <ul>
+          <li><tt>
+            <a href="<%= page %>"><%= page %></a><br>
+            <a href="<%= from %>"><%= from %></a><br>
+            <%= status %>
+          </tt></li>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+</div>

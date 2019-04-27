@@ -68,7 +68,7 @@ defmodule InfoFiles.CntData do
 
   # Private functions
 
-  @spec add_cnts_by_dir(map) :: map  # WIP
+  @spec add_cnts_by_dir(map) :: map
 
   defp add_cnts_by_dir(file_info) do
   #

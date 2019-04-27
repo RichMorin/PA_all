@@ -45,8 +45,8 @@ defmodule Common.Maps do
   @doc """
   Check whether this is (our style of) a tree of Maps.  Specifically,
   the keys should all be Atoms or Strings and the values should either
-  be compliant Maps or something else.  If `strict` is true, something
-  else should be Booleans, Numbers, or Strings
+  be compliant Maps or something else.  If `strict` is true, "something
+  else" must be a Boolean, Number, or String.
   
       iex> our_tree nil
       false

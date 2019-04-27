@@ -4,7 +4,7 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|packages/ocrdesktop'
+  package     = 'ext_aur|ocrdesktop'
   upstream    = 'http://linux-a11y.org'
   wiki        = 'ext_awi|Ocrdesktop'
 

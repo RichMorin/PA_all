@@ -41,7 +41,7 @@ defmodule PhxHttpWeb.AreaController do
 
   # Private macros
 
-  @spec get_areas() :: [ String.t ]
+  @spec get_areas() :: [ String.t ] #W
 
   defmacrop get_areas() do
   #
@@ -60,7 +60,7 @@ defmodule PhxHttpWeb.AreaController do
     end
   end
 
-  @spec get_areas(s) :: s when s: [ String.t ]
+  @spec get_areas(s) :: s when s: [ String.t ] #W
 
   defmacrop get_areas(area) do
   #
@@ -92,16 +92,16 @@ defmodule PhxHttpWeb.AreaController do
   tree.  In general, session information should still be retained and valid.
   """
 
-  @spec reload(Plug.Conn.t(), any) :: Plug.Conn.t()
+  @spec reload(Plug.Conn.t(), any) :: Plug.Conn.t() #W
 
   def reload(conn, params) do
   #
-  #K Checking `run_mode/0` and the remote (really, router) IP address
+  #K Checking `get_run_mode/0` and the remote (really, router) IP address
   # is a hack.  If used with public access, this should check the user ID.
 
     if conn.remote_ip != { 192, 168, 1, 1 } do
 
-      if run_mode() == :dev do #K
+      if get_run_mode() == :dev do #K
         reload_h(conn, params)
       else
         message = "Reloading is only supported in development mode."
@@ -118,7 +118,7 @@ defmodule PhxHttpWeb.AreaController do
   This function displays a summary page for a specified part of the Areas tree.
   """
 
-  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t()
+  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t() #W
 
   def show(conn, params) do
   #
@@ -135,7 +135,7 @@ defmodule PhxHttpWeb.AreaController do
 
   # Private Functions
 
-  @spec get_area_name(String.t) :: String.t
+  @spec get_area_name(String.t) :: String.t #W
 
   defp get_area_name(key) do
   #
@@ -145,7 +145,7 @@ defmodule PhxHttpWeb.AreaController do
     String.replace(key, pattern, "\\1")
   end
 
-  @spec get_items(String.t) :: list
+  @spec get_items(String.t) :: list #W
 
   defp get_items(key) do
   #
@@ -165,7 +165,7 @@ defmodule PhxHttpWeb.AreaController do
     |> Enum.sort_by(sort_fn)
   end
 
-  @spec reload_h(Plug.Conn.t(), any) :: Plug.Conn.t()
+  @spec reload_h(Plug.Conn.t(), any) :: Plug.Conn.t() #W
 
   defp reload_h(conn, params) do
   #
@@ -174,23 +174,27 @@ defmodule PhxHttpWeb.AreaController do
   #K This is a hack; it should probably check user ID or somesuch...
 
     time_1      = Time.utc_now()
-    {status_r, message_r} = InfoToml.reload()
+    { status_it,  message_it} = InfoToml.reload()
+    {_status_iw, _message_iw} = InfoWeb.reload()
     time_2      = Time.utc_now()
+
     millisecs   = Time.diff(time_2, time_1, :millisecond)
     message_d   = "Duration was #{ millisecs } ms."
-    message_f   = "#{ message_r } #{ message_d }"
+    message_c   = "#{ message_it } #{ message_d }"
 
     prev_url = case params["redirect"] do
       nil   ->  "/"
       path  ->  path
     end
 
+    status_c = status_it  #K #ToDo - check for InfoWeb issues.
+
     conn
-    |> put_flash(status_r, message_f)
+    |> put_flash(status_c, message_c)
     |> redirect(to: prev_url)
   end
 
-  @spec show_h(Plug.Conn.t(), integer, String.t) :: Plug.Conn.t()
+  @spec show_h(Plug.Conn.t(), integer, String.t) :: Plug.Conn.t() #W
 
   defp show_h(conn, 1, key) do
   #
@@ -269,7 +273,7 @@ defmodule PhxHttpWeb.AreaController do
   #
   # Handle bogus levels.
 
-  @spec show_h3(Plug.Conn.t(), String.t, String.t, item_map) :: Plug.Conn.t()
+  @spec show_h3(Plug.Conn.t(), String.t, String.t, item_map) :: Plug.Conn.t() #W
 
   defp show_h3(conn, name, key, item) do
   #

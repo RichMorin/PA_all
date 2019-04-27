@@ -39,7 +39,7 @@ defmodule PhxHttpWeb.KeyHelpers do
       "contains information on hardware (e.g., computers, tools)"
   """
 
-  @spec get_precis(s) :: s when s: String.t
+  @spec get_precis(s) :: s when s: String.t #W
 
   def get_precis(key_frag) do
     key_frag
@@ -55,7 +55,7 @@ defmodule PhxHttpWeb.KeyHelpers do
     "Areas/Catalog/Hardware/_area.toml"
   """
 
-  @spec key_area(s) :: s when s: String.t
+  @spec key_area(s) :: s when s: String.t #W
 
   def key_area(body), do: "Areas/#{ body }/_area.toml"
 
@@ -66,7 +66,7 @@ defmodule PhxHttpWeb.KeyHelpers do
     "Areas/Catalog/Hardware/Anova_PC/main.toml"
   """
 
-  @spec key_item(s) :: s when s: String.t
+  @spec key_item(s) :: s when s: String.t #W
 
   def key_item(body), do: "Areas/#{ body }/main.toml"
 
@@ -77,7 +77,7 @@ defmodule PhxHttpWeb.KeyHelpers do
     "/area?key=Areas/Catalog/Hardware/Anova_PC/_area.toml"
   """
 
-  @spec url_area(s) :: s when s: String.t
+  @spec url_area(s) :: s when s: String.t #W
 
   def url_area(body), do: "/area?key=#{ key_area(body) }"
 
@@ -88,7 +88,7 @@ defmodule PhxHttpWeb.KeyHelpers do
     "/item?key=Areas/Catalog/Hardware/Anova_PC/main.toml"
   """
 
-  @spec url_item(s) :: s when s: String.t
+  @spec url_item(s) :: s when s: String.t #W
 
   def url_item(body), do: "/item?key=#{ key_item(body) }"
 
