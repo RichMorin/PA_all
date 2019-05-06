@@ -6,7 +6,7 @@
 
   meta      = @item.meta
   about     = @item.about
-  access    = about.access
+  access    = about[:access]
   address   = get_in(@item, [:address])
   authors   = get_in(meta,  [:refs, :f_authors])
 %>

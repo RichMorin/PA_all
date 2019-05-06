@@ -53,13 +53,14 @@ it makes sense to encode the necessary data in that format.
 Let's assume that we're building a distribution based on
 [Debian]{ext_wp|Debian} and that we wish
 to include the [Atril]{cat_sof|Atril} package.
-All of the needed information should be available in the item's
-`main.toml` and `make.toml` files.
+All of the needed information should be available
+in the item's `main.toml` and `make.toml` files.
 Here are some (science fiction!) entries
 for our TOML control file (e.g., `debian.toml`):
 
     [ 'Atril' ]
 
+      actions     = 'build, publish'
       package     = 'ext_pd|stretch/atril'
       precis      = 'the official document viewer for MATE'
 
