@@ -2,7 +2,6 @@
 
 <%
   alias PhxHttpWeb.ItemView
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
 
   my_assigns  = assigns
   |> Map.put(:preview, nil)

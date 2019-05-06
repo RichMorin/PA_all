@@ -1,11 +1,6 @@
+# info_toml/common.ex
+
 defmodule InfoToml.Common do
-#
-# Macros
-#
-#   exp_map/0 do
-#     Generates a Map of prefix expansions from `_config/prefix.toml`.
-#   get_tree_abs/0
-#     Calculate the absolute path to PA_toml.
 #
 # Public functions
 #
@@ -15,6 +10,13 @@ defmodule InfoToml.Common do
 #     Return the most relevant area key, given a bogus item key.
 #   get_file_abs/1
 #     Convert a relative TOML file path into an absolute path.
+#   get_tree_abs/0
+#     Calculate the absolute path to PA_toml.
+#
+# Private functions
+#
+#   exp_map/0 do
+#     Retrieves a Map of prefix expansions.
 
   @moduledoc """
   This module contains general purpose functions and macros.
@@ -22,23 +24,35 @@ defmodule InfoToml.Common do
 
   use InfoToml.Types
 
-  # Macros
-
-  @spec exp_map() :: %{ atom => String.t }
-
-  defmacrop exp_map() do
-  #
-  # Generates a Map of prefix expansions from `_config/prefix.toml`.
-
-    quote do
-      "_config/prefix.toml"
-      |> get_file_abs                     # "/.../_config/prefix.toml"
-      |> InfoToml.Parser.parse(:atoms)    # %{ meta: %{...}, ... }
-      |> Map.get(:prefix)                 # %{ ext_wp: "...", ... }
-    end
-  end
-
   # Public functions
+
+  @doc """
+  Expand prefixes (e.g., `cat_har|`, `ext_wp|`), as used in our TOML.
+
+    iex> exp_prefix("ext_gh|foo/bar")
+    "https://github.com/foo/bar"
+
+    iex> exp_prefix("cat_har|Anova_PC")
+    "Areas/Catalog/Hardware/Anova_PC"
+
+    iex> exp_prefix("[Anova PC](cat_har|Anova_PC)")
+    "[Anova PC](Areas/Catalog/Hardware/Anova_PC)"
+  """
+
+  @spec exp_prefix(s) :: s when s: String.t
+
+  def exp_prefix(inp_str) do
+  #
+  # Traverse a list of expansion tuples, replacing prefixes in inp_str.
+
+    exp_list  = exp_map() |> Map.to_list()
+
+    reduce_fn = fn { inp, out }, acc ->
+      String.replace(acc, "#{ inp }|", out)
+    end
+
+    Enum.reduce(exp_list, inp_str, reduce_fn)
+  end
 
   @doc """
   This function handles redirects for unrecognized item keys in a graceful
@@ -91,58 +105,6 @@ defmodule InfoToml.Common do
   end
 
   @doc """
-  Get the absolute file path for the TOML tree.
-  
-      iex> ta = get_tree_abs()
-      iex> ta =~ ~r{ ^ / .* / PA_all / PA_toml $ }x
-      true
-  """
-
-  @spec get_tree_abs() :: String.t
-
-  defmacro get_tree_abs() do
-  #
-  # Calculate the absolute path to PA_toml, then generate a hard-coded
-  # function to return it.
-  #
-  # Note: This defmacro must precede the get_file_abs/0 definition!
-
-    offset    = String.duplicate("/..", 7)
-    tree_rel  = "#{ __ENV__.file }#{ offset }/PA_toml"
-    Path.expand(tree_rel)
-  end
-
-  # Public functions
-
-  @doc """
-  Expand prefixes (e.g., `cat_har|`, `ext_wp|`), as used in our TOML.
-
-    iex> exp_prefix("ext_gh|foo/bar")
-    "https://github.com/foo/bar"
-
-    iex> exp_prefix("cat_har|Anova_PC")
-    "Areas/Catalog/Hardware/Anova_PC"
-
-    iex> exp_prefix("[Anova PC](cat_har|Anova_PC)")
-    "[Anova PC](Areas/Catalog/Hardware/Anova_PC)"
-  """
-
-  @spec exp_prefix(s) :: s when s: String.t
-
-  def exp_prefix(inp_str) do
-  #
-  # Traverse a list of expansion tuples, replacing prefixes in inp_str.
-
-    exp_list  = exp_map() |> Map.to_list()
-
-    reduce_fn = fn { inp, out }, acc ->
-      String.replace(acc, "#{ inp }|", out)
-    end
-
-    Enum.reduce(exp_list, inp_str, reduce_fn)
-  end
-
-  @doc """
   Convert a relative TOML file path into an absolute path.
 
       iex> fa = get_file_abs("foo")
@@ -153,5 +115,37 @@ defmodule InfoToml.Common do
   @spec get_file_abs(s) :: s when s: String.t
 
   def get_file_abs(file_rel), do: "#{ get_tree_abs() }/#{ file_rel }"
+
+  @doc """
+  Get the absolute file path for the TOML tree.
+  
+      iex> ta = get_tree_abs()
+      iex> ta =~ ~r{ ^ / .* / PA_all / PA_toml $ }x
+      true
+  """
+
+  @spec get_tree_abs() :: String.t
+
+  def get_tree_abs() do
+  #
+  # Calculate and return the absolute path to PA_toml.
+  #
+  # Note: This function must precede the get_file_abs/0 definition!
+
+    offset    = String.duplicate("/..", 7)
+    tree_rel  = "#{ __ENV__.file }#{ offset }/PA_toml"
+    Path.expand(tree_rel)
+  end
+
+  # Private functions
+
+  @spec exp_map() :: %{ atom => String.t }
+
+  defp exp_map() do
+  #
+  # Retrieves a Map of prefix expansions.
+
+    InfoToml.get_part([:prefix])
+  end
 
 end

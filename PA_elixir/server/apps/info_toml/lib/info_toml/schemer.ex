@@ -1,7 +1,11 @@
+# info_toml/schemer.ex
+
 defmodule InfoToml.Schemer do
 #
 # Public functions
 #
+#   get_prefix/0
+#     Load the prefix file (.../config/prefix.toml).
 #   get_schemas/1
 #     Load schemas for a tree of TOML files.
 #
@@ -15,14 +19,28 @@ defmodule InfoToml.Schemer do
 #     Get a list of absolute paths to TOML schema files.
 
   @moduledoc """
-  This module generates a collective "schema" data structure, based on a
-  schema (`_schema/*.toml`) file.
+  This module generates a collective "schemas" data structure,
+  based on a collection of schema files (`_schema/*.toml`).
   """
 
-  alias InfoToml.Parser
-  use Common,   :common
-  use InfoToml, :common
   use InfoToml.Types
+
+  import InfoToml.Common, only: [get_file_abs: 1]
+
+  alias InfoToml.Parser
+
+  @doc """
+  Load the prefix file (.../config/prefix.toml).
+  """
+
+  @spec get_prefix() :: schemas
+
+  def get_prefix() do
+    "_config/prefix.toml"
+    |> get_file_abs()                   # "/.../_config/prefix.toml"
+    |> InfoToml.Parser.parse(:atoms)    # %{ meta: %{...}, ... }
+    |> Map.get(:prefix)                 # %{ ext_wp: "...", ... }
+  end
 
   @doc """
   Load schemas for a tree of TOML files, given an absolute base path.

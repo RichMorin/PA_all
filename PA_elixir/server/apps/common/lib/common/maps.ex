@@ -1,3 +1,5 @@
+# common/maps.ex
+
 defmodule Common.Maps do
 #
 # Public functions
@@ -12,11 +14,13 @@ defmodule Common.Maps do
 #   our_tree_h/1
 #     Crawl the Map tree for our_tree/2.
 
-  import Common.Tracing
-
   @moduledoc """
   This module contains Map-handling functions for common use.
   """
+
+# import Common, only: [ii: 2]
+
+  # Public functions
 
   @doc """
   Return the keys to a Map and return them in sorted order.

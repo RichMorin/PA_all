@@ -1,3 +1,5 @@
+# info_files.ex
+
 defmodule InfoFiles do
 
   @moduledoc """
@@ -20,17 +22,5 @@ defmodule InfoFiles do
   ([`...CntData.get_data_info/1`](InfoFiles.CntData.html#get_data_info/1))
   """
   defdelegate get_data_info(tree_base),             to: CntData
-
-  @doc "Set up infrastructure for code sharing."
-  def common do
-    quote do
-      import InfoFiles.Common
-    end
-  end
-
-  @doc "Dispatch to the appropriate module."
-  defmacro __using__(which) when is_atom(which) do
-    apply(__MODULE__, which, [])
-  end
 
 end

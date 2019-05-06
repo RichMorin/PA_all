@@ -1,3 +1,5 @@
+# info_toml/key_val.ex
+
 defmodule InfoToml.KeyVal do
 #
 # Public functions
@@ -26,11 +28,12 @@ defmodule InfoToml.KeyVal do
   This module implements key/value usage analysis for InfoToml.
   """
 
-  use InfoToml, :common
-  use Common,   :common
   use InfoToml.Types
 
-  # external API
+# import Common, only: [ii: 2]
+  import Common, only: [keyss: 1]
+
+  # Public functions
 
   @doc """
   Add a Map of key/value information.
@@ -100,7 +103,7 @@ defmodule InfoToml.KeyVal do
   end
 
   # Get a Map of information on typed tags (kv).  If called without `inbt_map`,
-  # it gets a copy on its own.
+  # it gets a copy on its own.  #K - currently unused
 
   @spec get_kv_info(atom) :: map
 

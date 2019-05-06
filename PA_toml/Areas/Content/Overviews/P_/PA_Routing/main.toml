@@ -35,6 +35,7 @@ macro, as it wouldn't help much and it would obscure the basic structure:
     get   "/dash",            DashController,     :show
     get   "/dash/code",       DashController,     :show_code
     get   "/dash/data",       DashController,     :show_data
+    get   "/dash/links",      DashController,     :show_links
     get   "/dash/make",       DashController,     :show_make
     get   "/dash/refs",       DashController,     :show_refs
     get   "/dash/tags",       DashController,     :show_tags
@@ -48,8 +49,8 @@ macro, as it wouldn't help much and it would obscure the basic structure:
 
     get   "/search/find",     SearchController,   :find
     post  "/search/show",     SearchController,   :show
-    get   "/search/clear",    SearchController,   :clear_form
-    post  "/search/clear",    SearchController,   :clear_post
+    get   "/search/clear",    ClearController,    :clear_form
+    post  "/search/clear",    ClearController,    :clear_post
 
     get   "/source",          SourceController,   :show
     get   "/source/down",     SourceController,   :down
@@ -81,6 +82,7 @@ macro, as it wouldn't help much and it would obscure the basic structure:
 
     get   "/dash/code",       DashController,     :show_code
     get   "/dash/data",       DashController,     :show_data
+    get   "/dash/links",      DashController,     :show_links
     get   "/dash/make",       DashController,     :show_make
     get   "/dash/refs",       DashController,     :show_refs
     get   "/dash/tags",       DashController,     :show_tags

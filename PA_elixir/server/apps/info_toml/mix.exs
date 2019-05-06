@@ -1,5 +1,10 @@
+# info_toml/mix.exs
+
 defmodule InfoToml.MixProject do
+
   use Mix.Project
+
+  # Public functions
 
   @spec project() :: [key: atom]
 

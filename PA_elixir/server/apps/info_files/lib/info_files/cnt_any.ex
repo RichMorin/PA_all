@@ -1,3 +1,5 @@
+# info_files/cnt_any.ex
+
 defmodule InfoFiles.CntAny do
 #
 # Public functions
@@ -16,12 +18,14 @@ defmodule InfoFiles.CntAny do
 #   sum_cols/1
 #     Summation helper  - adds a set of "Totals" to `cnts_by_x`.
 
-  import Common
-
   @moduledoc """
   This module implements generic file tree counting for InfoFiles.  It counts files,
   functions, lines, and characters.
   """
+
+  import Common
+
+  # Public functions
 
   @doc """
   Add a specified sub-Map of counts to `file_info`, using a generated key

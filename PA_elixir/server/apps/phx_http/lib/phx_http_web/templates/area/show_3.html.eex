@@ -2,14 +2,13 @@
 
 <%
   import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-  about     = @item.about
 %>
 
 <h2><%= @name %></h2>
 
 <%= fmt_path(@key) %>
 
-<%= fmt_markdown(about.verbose) %>
+<%= fmt_markdown(@item, [:about, :verbose]) %>
 
 <div class="hs-base1">
   <h3>

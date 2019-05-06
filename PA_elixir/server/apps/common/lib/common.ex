@@ -1,3 +1,5 @@
+# common.ex
+
 defmodule Common do
 
   @moduledoc """
@@ -80,18 +82,5 @@ defmodule Common do
   ([`...Zoo.type_of/1`](Common.Zoo.html#type_of/1))
   """
   defdelegate type_of(thing),         to: Zoo
-
-
-  @doc "Set up infrastructure for code sharing."
-  def common do
-    quote do
-      import Common
-    end
-  end
-
-  @doc "Dispatch to the appropriate module (e.g., `use Common, :common`)."
-  defmacro __using__(which) when is_atom(which) do
-    apply(__MODULE__, which, [])
-  end
 
 end

@@ -1,3 +1,5 @@
+# info_toml/check_tree.ex
+
 defmodule InfoToml.CheckTree do
 #
 # Public functions
@@ -11,9 +13,13 @@ defmodule InfoToml.CheckTree do
   This module runs tests on a prospective toml_map.
   """
 
-  use Common,   :common
-  use InfoToml, :common
   use InfoToml.Types
+
+  import Common, only: [ii: 2, str_list: 1]
+
+  alias InfoToml.Schemer
+
+  # Public functions
 
   @doc """
   Do some global sanity checks on a `toml_map` candidate.
@@ -98,20 +104,33 @@ defmodule InfoToml.CheckTree do
 
   def check_refs(toml_map) do
     gi_path   = [ :meta, :refs ]
+    pre_list  = Schemer.get_prefix() |> Map.to_list()
 
     map_fn1a    = fn ref        -> "#{ ref }/main.toml" end
     reduce_fn2  = fn key, acc   -> Map.put(acc, key, true) end 
 
     reduce_fn1  = fn {_key, item}, acc ->   
+    #K
+    # This function is almost identical to exp_prefix/1, but it uses a local
+    # copy of the lookup Map in order to avoid a cyclic dependency.
+
       ref_map   = get_in(item, gi_path)
 
       map_fn1b  = fn {_type, ref_str} -> str_list(ref_str) end
 
+      map_fn1c  = fn inp_str ->
+        reduce_fn = fn { inp, out }, acc ->
+          String.replace(acc, "#{ inp }|", out)
+        end
+
+        Enum.reduce(pre_list, inp_str, reduce_fn)
+      end
+
       if ref_map do
         want_tmp  = ref_map               # %{ foo: "a|b, ..." }
-        |> Enum.map(map_fn1b)              # [ [ "a|b", "c|d", "..." ], ... ]
+        |> Enum.map(map_fn1b)             # [ [ "a|b", "c|d", "..." ], ... ]
         |> List.flatten()                 # [ "a|b", "c|d", "..." ]
-        |> Enum.map(&exp_prefix/1)        # [ ".../b", "..." ]
+        |> Enum.map(map_fn1c)             # [ ".../b", "..." ]
         |> Enum.map(map_fn1a)             # [ ".../b/...", "..." ]
         |> Enum.reduce(%{}, reduce_fn2)   # %{ ".../b/..." => true, "..." ]
 

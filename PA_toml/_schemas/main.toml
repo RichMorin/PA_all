@@ -21,6 +21,8 @@ meta, meta.actions, meta.id_str, meta.refs
 # file_time   = 'modification time for file'        # harvested
 # id_num      = 'identification number for file'    # generated
   id_str      = 'identification string for file'
+# o_access    = 'line number offset for access'     # harvested  
+# o_verbose   = 'line number offset for verbose'    # harvested  
   title       = 'human-readable title for content'
 
 [ meta.refs ]
@@ -46,11 +48,11 @@ meta, meta.actions, meta.id_str, meta.refs
   replaces    = 'things that this item could replace'
   requires    = 'commands, libraries, etc.'
   roles       = 'roles which this item can play'
+  runs_on     = 'platforms that this software runs on'
   skills      = 'skills which this individual claims'
   standards   = 'standards which this item follows'
   supports    = 'activities that this item supports'
   used_like   = 'things that are used similarly'
-  runs_on     = 'platforms that this software runs on'
 
 [ about ]
 

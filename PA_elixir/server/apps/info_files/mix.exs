@@ -1,5 +1,10 @@
+# info_files/mix.ex
+
 defmodule InfoFiles.MixProject do
+
   use Mix.Project
+
+  # Public functions
 
   @spec project() :: [key: atom]
 

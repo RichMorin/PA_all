@@ -1,4 +1,4 @@
-# views/clear_view.ex
+# phx_http_web/views/clear_view.ex
 
 defmodule PhxHttpWeb.ClearView do
 #
@@ -22,13 +22,14 @@ defmodule PhxHttpWeb.ClearView do
   This module contains functions to format parts of a Search page.
   """
 
+  use InfoToml.Types
   use Phoenix.HTML
   use PhxHttpWeb, :view
   use PhxHttp.Types
-  use InfoToml, :common
-  use InfoToml.Types
 
-  alias  PhxHttpWeb.LayoutView
+  alias PhxHttpWeb.LayoutView
+
+  # Public functions
 
   @doc """
   Format a set of tags for display.

@@ -19,6 +19,7 @@ meta, meta.actions, meta.id_str, meta.refs
 # file_time   = 'modification time for file'        # harvested
 # id_num      = 'identification number for file'    # generated
   id_str      = 'identification string for file'
+# o_verbose   = 'line number offset for verbose'    # harvested  
   title       = 'human-readable title for content'
 
 [ meta.refs ]

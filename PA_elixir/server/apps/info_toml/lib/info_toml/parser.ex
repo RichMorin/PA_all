@@ -1,3 +1,5 @@
+# info_toml/parser.ex
+
 defmodule InfoToml.Parser do
 #
 # Public functions
@@ -7,6 +9,8 @@ defmodule InfoToml.Parser do
 #
 # Private functions
 #
+#   add_offsets/2
+#     Add line number offsets for `access` and `verbose` data.
 #   decode/2
 #     Wrapper for Toml.decode/1; allows :string as `atom_key`.
 #   filter/2
@@ -20,9 +24,11 @@ defmodule InfoToml.Parser do
   This module handles reading and parsing of data from a TOML file.
   """
 
-  use Common,   :common
-  use InfoToml, :common
   use InfoToml.Types
+
+# import Common, only: [ii: 2]
+
+  # Public functions
 
   @doc """
   Read and parse (aka decode) a TOML file, given an absolute path.
@@ -42,9 +48,9 @@ defmodule InfoToml.Parser do
       if File.exists?(file_abs) do
         parse_h1(file_abs, atom_key)
       else
-        ii(file_abs, "file_abs") #T
-        trace = Process.info(self(), :current_stacktrace)
-        ii(trace, "trace") #T
+#       ii(file_abs, "file_abs") #T
+#       trace = Process.info(self(), :current_stacktrace)
+#       ii(trace, "trace") #T
         { :error, "File not found." }
       end
     end
@@ -55,6 +61,32 @@ defmodule InfoToml.Parser do
   end
 
   # Private functions
+
+  @spec add_offsets(String.t, map) :: map
+
+  defp add_offsets(file_text, payload) do
+  #
+  # Add line number offsets for `access` and `verbose` data.
+
+    reduce_fn = fn {line, ndx}, acc ->
+      cond do
+        line =~ ~r{ ^ \s+ access  \s+ = \s+ }x ->
+          gi_list   = [ :meta, :o_access ]
+          put_in(acc, gi_list, "#{ ndx }")
+
+        line =~ ~r{ ^ \s+ verbose \s+ = \s+ }x ->
+          gi_list   = [ :meta, :o_verbose ]
+          put_in(acc, gi_list, "#{ ndx }")
+
+        true -> acc
+      end
+    end
+
+    file_text
+    |> String.split("\n")
+    |> Enum.with_index()
+    |> Enum.reduce(payload, reduce_fn)
+  end
 
   @spec decode(String.t, atom) :: tuple
 
@@ -70,7 +102,6 @@ defmodule InfoToml.Parser do
   end
 
   @spec filter({atom, any}, String.t) :: map #W
-# @spec filter( {:ok | :error, any}, String.t) :: map
 
   defp filter({status, payload}, trim_path) do
   #
@@ -81,24 +112,24 @@ defmodule InfoToml.Parser do
     cond do
       status == :error ->
         IO.puts "\nIgnored: " <> trim_path
-        IO.puts "Because: " <> inspect(payload)
+        IO.puts "Because (#{ status }): " <> inspect(payload)
         %{}
 
-      not(is_map(payload))  ->
+      status != :ok ->
         IO.puts "\nIgnored: " <> trim_path
-        IO.puts "Because: Payload is not a Map."
+        IO.puts "Because (#{ status }): " <> inspect(payload)
         %{}
-      
+
       Enum.empty?(payload)  ->
         IO.puts "\nIgnored: " <> trim_path
-        IO.puts "Because: Payload is empty."
+        IO.puts "Because (#{ status }): Payload is empty."
         %{}
 
       true -> payload
     end
   end
 
-  @spec parse_h1(s, atom) :: item_map | {atom, s} when s: String.t
+  @spec parse_h1(s, atom) :: {atom, item_map|s} when s: String.t
 
   defp parse_h1(file_abs, atom_key) do
   #
@@ -107,13 +138,20 @@ defmodule InfoToml.Parser do
     file_text   = file_abs |> File.read!()      # "<TOML file text>"
 
     if String.valid?(file_text) do
-      parse_h2(file_text, atom_key)
+      {status, payload} = tuple = parse_h2(file_text, atom_key)
+
+      if status == :ok do
+        { status, add_offsets(file_text, payload) }
+      else
+        tuple
+      end
+
     else
       { :error, "File string is not valid Unicode." }
     end
   end
 
-  @spec parse_h2(s, atom) :: {atom, s} when s: String.t
+  @spec parse_h2(s, atom) :: {atom, item_map|s} when s: String.t
 
   defp parse_h2(file_text, atom_key) do
   #

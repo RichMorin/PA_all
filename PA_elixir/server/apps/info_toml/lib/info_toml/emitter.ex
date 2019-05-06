@@ -1,3 +1,5 @@
+# info_toml/emitter.ex
+
 defmodule InfoToml.Emitter do
 #
 # Public functions
@@ -18,9 +20,12 @@ defmodule InfoToml.Emitter do
   This module emits Maps (e.g., for items) in our flavor of TOML.
   """
 
-  use Common,   :common
-  use InfoToml, :common
   use InfoToml.Types
+
+# import Common, only: [ii: 2]
+  import Common, only: [keyss: 1]
+
+  # Public functions
 
   @doc """
   Emit a TOML file.  Return the absolute file path.

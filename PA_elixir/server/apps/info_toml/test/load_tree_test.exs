@@ -1,12 +1,12 @@
-# load_tree_test.exs
+# info_toml/test/load_tree_test.exs
 
 defmodule InfoTomlTest.LoadTree do
 
   use ExUnit.Case
-  use InfoToml, :common
-  import Common
 
-  alias     InfoToml.{Common, LoadTree, Schemer}
+  import Common, only: [our_tree: 2]
+
+  alias InfoToml.{Common, LoadTree, Schemer}
 
   @moduledoc """
   The `load/1` function in `InfoToml.LoadTree` isn't well suited for testing,

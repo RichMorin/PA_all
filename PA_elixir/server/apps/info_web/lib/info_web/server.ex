@@ -1,3 +1,5 @@
+# info_web/server.ex
+
 defmodule InfoWeb.Server do
 #
 # Public functions
@@ -11,6 +13,8 @@ defmodule InfoWeb.Server do
 #
 # Private functions
 #
+#   first_load/0
+#     Handle initial loading of data.
 
   @moduledoc """
   This module implements both the external API (eg, `get_info/1`) and the
@@ -19,13 +23,11 @@ defmodule InfoWeb.Server do
 
   @me __MODULE__
 
-  use Common,   :common
-  use InfoWeb, :common
   use InfoWeb.Types
 
   alias InfoWeb.Snapshot
 
-  # external API
+  # Public functions
 
   @doc """
   Return the data structure for the latest snapshot.  Note that the keys

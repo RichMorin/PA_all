@@ -14,8 +14,11 @@ defmodule PhxHttpWeb.ControllerHelpers do
   This module contains helper functions for controllers. 
   """
 
-  import Phoenix.Controller
   use PhxHttp.Types
+
+  import Phoenix.Controller
+
+  # Public functions
 
   @doc """
   This function is called when a key is not recognized.  It sets up an error

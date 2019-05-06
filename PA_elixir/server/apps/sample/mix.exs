@@ -1,5 +1,10 @@
+# sample/mix.exs
+
 defmodule Sample.MixProject do
+
   use Mix.Project
+
+  # Public functions
 
   @spec project() :: [key: atom]
 

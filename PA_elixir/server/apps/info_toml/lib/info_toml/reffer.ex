@@ -1,3 +1,5 @@
+# info_toml/reffer.ex
+
 defmodule InfoToml.Reffer do
 #
 # Public functions
@@ -9,13 +11,11 @@ defmodule InfoToml.Reffer do
   This module implements ref usage analysis for InfoToml.
   """
 
-  import InfoToml.KeyVal
-
-  use InfoToml, :common
-  use Common,   :common
   use InfoToml.Types
 
-  # external API
+  alias InfoToml.KeyVal
+
+  # Public functions
 
   @doc """
   Return a Map describing ref usage in the TOML files, e.g.
@@ -47,7 +47,7 @@ defmodule InfoToml.Reffer do
     }
 
     ref_info
-    |> add_kv_info(inbt_map, :refs)
+    |> KeyVal.add_kv_info(inbt_map, :refs)
   end
  
 end

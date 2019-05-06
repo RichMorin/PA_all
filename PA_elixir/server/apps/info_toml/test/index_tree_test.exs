@@ -1,4 +1,4 @@
-# index_tree_test.exs
+# info_toml/test/index_tree_test.exs
 
 defmodule InfoTomlTest.IndexTree do
 

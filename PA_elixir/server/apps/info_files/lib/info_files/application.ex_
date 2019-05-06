@@ -1,6 +1,6 @@
-defmodule InfoFiles.Application do
+# info_files/application.ex_
 
-  use Application
+defmodule InfoFiles.Application do
 
   @moduledoc """
   This `application.ex_` file is inactive.  To enable it:
@@ -8,6 +8,10 @@ defmodule InfoFiles.Application do
   - change the extension to `ex`
   - edit `application/0` in `mix.exs`.
   """
+
+  use Application
+
+  # Public functions
 
 # @spec - ToDo
 

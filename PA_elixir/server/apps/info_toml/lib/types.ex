@@ -1,4 +1,4 @@
-# .../lib/types.ex
+# info_toml/lib/types.ex
 
 defmodule InfoToml.Types do
 

@@ -1,4 +1,7 @@
+# phx_http_web/gettext.ex
+
 defmodule PhxHttpWeb.Gettext do
+
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 

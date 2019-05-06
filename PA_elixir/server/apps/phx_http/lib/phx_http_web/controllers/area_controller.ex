@@ -2,13 +2,6 @@
 
 defmodule PhxHttpWeb.AreaController do
 #
-# Private macros
-#
-#   get_areas/0
-#     Returns a list of Area names, eg: [ "Catalog", ... ]
-#   get_areas/1
-#     Returns a list of Section names, eg: [ "Groups", ... ]
-#
 # Public functions
 #
 #   reload/2
@@ -20,6 +13,10 @@ defmodule PhxHttpWeb.AreaController do
 #
 #   get_area_name(key) do
 #     Get the name of an Area, given a key in it.
+#   get_areas/0
+#     Returns a list of Area names, eg: [ "Catalog", ... ]
+#   get_areas/1
+#     Returns a list of Section names, eg: [ "Groups", ... ]
 #   get_items/1
 #     Get a sorted (by title) and filtered list of items, given a key.
 #   reload_h/2
@@ -32,58 +29,9 @@ defmodule PhxHttpWeb.AreaController do
   of the `toml_map`.  It also handles reloading of the InfoToml server.
   """
 
-  use InfoToml, :common
   use InfoToml.Types
   use PhxHttp.Types
   use PhxHttpWeb, :controller
-
-  import Common
-
-  # Private macros
-
-  @spec get_areas() :: [ String.t ] #W
-
-  defmacrop get_areas() do
-  #
-  # Returns a list of Area names: [ "Catalog", ... ]
-
-    quote do
-      reject_fn = fn key ->
-        key =~ ~r{ ^ _ }x || key =~ ~r{ \. toml $ }x
-      end
-
-      map_fn  = fn key -> key |> String.replace(~r{ ^ .* / }x, "") end
-
-      InfoToml.get_keys(2)
-      |> Enum.reject(reject_fn)
-      |> Enum.map(map_fn)
-    end
-  end
-
-  @spec get_areas(s) :: s when s: [ String.t ] #W
-
-  defmacrop get_areas(area) do
-  #
-  # Given "Content", returns [ "HowTos", ... ]
-
-    quote do
-      test_str   = "Areas/#{ unquote(area) }"
-
-      filter_fn = fn key ->
-        String.starts_with?(key, test_str)  &&
-        !( key =~ ~r{ \. toml $ }x )
-      end
-
-      map_fn  = fn key ->
-        key
-        |> String.replace(~r{ ^ .* / }x, "")
-      end
-
-      InfoToml.get_keys(3)
-      |> Enum.filter(filter_fn)
-      |> Enum.map(map_fn)
-    end
-  end
 
   # Public functions
 
@@ -143,6 +91,46 @@ defmodule PhxHttpWeb.AreaController do
 
     pattern   = ~r{ ^ .* / ( \w+ ) / [^/]+ $ }x
     String.replace(key, pattern, "\\1")
+  end
+
+  @spec get_areas() :: [ String.t ] #W
+
+  defp get_areas() do #K - unused
+  #
+  # Returns a list of Area names: [ "Catalog", ... ]
+
+    reject_fn = fn key ->
+      key =~ ~r{ ^ _ }x || key =~ ~r{ \. toml $ }x
+    end
+
+    map_fn  = fn key -> key |> String.replace(~r{ ^ .* / }x, "") end
+
+    InfoToml.get_keys(2)
+    |> Enum.reject(reject_fn)
+    |> Enum.map(map_fn)
+  end
+
+  @spec get_areas(s) :: [s] when s: String.t #W
+
+  defp get_areas(area) do #K - unused
+  #
+  # Given "Content", returns [ "HowTos", ... ]
+
+    test_str  = "Areas/#{ area }"
+
+    filter_fn = fn key ->
+      String.starts_with?(key, test_str)  &&
+      !( key =~ ~r{ \. toml $ }x )
+    end
+
+    map_fn  = fn key ->
+      key
+      |> String.replace(~r{ ^ .* / }x, "")
+    end
+
+    InfoToml.get_keys(3)
+    |> Enum.filter(filter_fn)
+    |> Enum.map(map_fn)
   end
 
   @spec get_items(String.t) :: list #W

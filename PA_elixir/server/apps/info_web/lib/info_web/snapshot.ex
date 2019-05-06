@@ -1,3 +1,5 @@
+# info_web/snapshot.ex
+
 defmodule InfoWeb.Snapshot do
 #
 # Public functions
@@ -17,9 +19,11 @@ defmodule InfoWeb.Snapshot do
   This module handles reading and writing of TOML snapshot files.
   """
 
-  use Common,   :common
-  use InfoWeb,  :common
   use InfoWeb.Types
+
+  import Common, only: [ii: 2]
+
+  # Public functions
 
   @doc """
   Count links to external sites, format as TOML.
@@ -158,8 +162,8 @@ defmodule InfoWeb.Snapshot do
       %{}
 
     else
-      file_path = Enum.reverse(file_paths) |> hd()
-      file_data = file_path |> InfoToml.Parser.parse(:string)
+      file_path = file_paths  |> List.last()
+      file_data = file_path   |> InfoToml.Parser.parse(:string)
 
       if !Enum.empty?(file_data) do
         file_data

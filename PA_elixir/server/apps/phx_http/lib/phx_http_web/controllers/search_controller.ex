@@ -35,12 +35,11 @@ defmodule PhxHttpWeb.SearchController do
   portion of the `toml_map`.
   """
 
+  use InfoToml.Types
   use PhxHttp.Types
   use PhxHttpWeb, :controller
-  use InfoToml, :common
-  use InfoToml.Types
 
-  import Common
+  # Public functions
 
   @doc """
   This function generates data for the Search (find) page.

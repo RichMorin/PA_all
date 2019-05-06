@@ -1,10 +1,10 @@
-# tagger_test.exs
+# info_toml/test/tagger_test.exs
 
 defmodule InfoTomlTest.Tagger do
 
   use ExUnit.Case
-  use InfoToml, :common
-  import Common
+
+  import Common, only: [our_tree: 2]
 
   alias     InfoToml.{Reffer, Tagger}
 

@@ -9,15 +9,15 @@ defmodule PhxHttpWeb.MailController do
 #   feed_post/2
 #     Send the feedback, then redisplay the page.
 
-
   @moduledoc """
   This module contains controller actions (etc) for editing and sending email.
   """
 
-  use InfoToml, :common
   use InfoToml.Types
   use PhxHttp.Types
   use PhxHttpWeb, :controller
+
+  # Public functions
 
   @doc """
   This function generates the feedback composing and sending page.

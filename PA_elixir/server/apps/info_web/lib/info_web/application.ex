@@ -1,6 +1,10 @@
+# info_web/application.ex
+
 defmodule InfoWeb.Application do
 
   use Application
+
+  # Public functions
 
   @doc """
   WIP - Load the link status file.

@@ -1,3 +1,5 @@
+# info_web/internal.ex
+
 defmodule InfoWeb.Internal do
 #
 # Public functions
@@ -44,9 +46,11 @@ defmodule InfoWeb.Internal do
   - a variety of "time sink" internal URLs (e.g., "/reload?")
   """
 
-  use Common,   :common
-  use InfoWeb,  :common
   use InfoWeb.Types
+
+  import InfoWeb.Common, only: [validate_uri: 1]
+
+  # Public functions
 
 # @spec get_int_list([tuple], String.t) :: [tuple]
   @spec get_int_list(list, String.t) :: list

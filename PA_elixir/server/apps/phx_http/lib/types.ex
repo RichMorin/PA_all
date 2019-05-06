@@ -1,4 +1,4 @@
-# lib/types.ex
+# phx_http/lib/types.ex
 
 defmodule PhxHttp.Types do
 

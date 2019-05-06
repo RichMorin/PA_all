@@ -1,3 +1,5 @@
+# info_web.ex
+
 defmodule InfoWeb do
 
   @moduledoc """
@@ -28,20 +30,5 @@ defmodule InfoWeb do
   ([`...Server.reload/0`](InfoWeb.Server.reload.html#reload/0))
   """
   defdelegate reload(),                             to: Server
-
-
-  @doc "Set up infrastructure for code sharing."
-  def common do
-    quote do
-      import InfoWeb.Common
-    end
-  end
-
-  @doc """
-  Dispatch to the appropriate module (e.g., `use InfoWeb, :common`).
-  """
-  defmacro __using__(which) when is_atom(which) do
-    apply(__MODULE__, which, [])
-  end
 
 end

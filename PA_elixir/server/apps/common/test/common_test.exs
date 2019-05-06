@@ -1,6 +1,7 @@
 # common_test.exs
 
 defmodule CommonTest do
+
   use ExUnit.Case
 
   import Common

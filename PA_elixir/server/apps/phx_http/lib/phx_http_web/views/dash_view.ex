@@ -1,4 +1,4 @@
-# views/dash_view.ex
+# phx_http_web/views/dash_view.ex
 
 defmodule PhxHttpWeb.DashView do
 #
@@ -15,7 +15,9 @@ defmodule PhxHttpWeb.DashView do
 
   use PhxHttpWeb, :view
 
-  use Common, :common
+# import Common, only: [ii: 2]
+
+  # Public functions
 
   @doc """
   Get a Map of the average number of values used for each tag type, eg:

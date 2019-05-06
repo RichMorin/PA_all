@@ -1,6 +1,7 @@
 # cnt_data_test.exs
 
 defmodule InfoFilesTest.CntData do
+
   use ExUnit.Case
 
   setup_all do

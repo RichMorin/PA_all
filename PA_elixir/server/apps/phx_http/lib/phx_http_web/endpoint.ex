@@ -1,4 +1,7 @@
+# phx_http_web/endpoint.ex
+
 defmodule PhxHttpWeb.Endpoint do
+
   use Phoenix.Endpoint, otp_app: :phx_http
 
   socket "/socket", PhxHttpWeb.UserSocket,

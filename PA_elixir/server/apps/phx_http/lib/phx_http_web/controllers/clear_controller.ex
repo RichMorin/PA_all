@@ -16,7 +16,7 @@ defmodule PhxHttpWeb.ClearController do
   use PhxHttp.Types
   use PhxHttpWeb, :controller
 
-  import Common
+  # Public functions
 
   @doc """
   This function generates data for the Clear Searches page, where the user

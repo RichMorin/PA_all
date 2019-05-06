@@ -1,4 +1,4 @@
-# views/_link_helpers.ex
+# phx_http_web/views/_link_helpers.ex
 
 defmodule PhxHttpWeb.LinkHelpers do
 #
@@ -20,10 +20,10 @@ defmodule PhxHttpWeb.LinkHelpers do
 
   use Phoenix.HTML
   use PhxHttp.Types
-  use InfoToml, :common
   use InfoToml.Types
 
-  import Common
+  import Common,   only: [ii: 2]
+  import InfoToml, only: [exp_prefix: 1]
 
   # Note: There are bugs in Version 1.3.1 of Earmark (the Markdown engine).
   # We need to dance around these until their fixes are available in Hex.pm.
@@ -34,6 +34,8 @@ defmodule PhxHttpWeb.LinkHelpers do
   #
   #   Handling of link title syntax gets confused
   #   https://github.com/pragdave/earmark/issues/224
+
+  # Public functions
 
   @doc """
   Transform links, as used in our flavor of Markdown, into vanilla syntax.

@@ -1,4 +1,4 @@
-# views/_format_helpers.ex
+# phx_http_web/views/_format_helpers.ex
 
 defmodule PhxHttpWeb.FormatHelpers do
 #
@@ -6,7 +6,7 @@ defmodule PhxHttpWeb.FormatHelpers do
 #
 #   fmt_authors/1
 #     Format author information, set up links, etc.
-#   fmt_markdown/1
+#   fmt_markdown/2
 #     Convert Markdown to HTML.
 #   fmt_path/1
 #     Format the file path for display.
@@ -19,8 +19,8 @@ defmodule PhxHttpWeb.FormatHelpers do
 #
 # Private functions
 #
-#   fmt_provide_h/2
-#     Generic helper function for fmt_provide/2
+#   fmt_markdown_h/3
+#     Format error text for fmt_markdown/2.
 #   join_list/1
 #     Join a list of strings into a (mostly) comma-delimited string.
 #   jl/[12]
@@ -36,6 +36,8 @@ defmodule PhxHttpWeb.FormatHelpers do
   use PhxHttp.Types
 
   import Common
+
+  # Public functions
 
   @doc """
   This function formats author information, sets up links, etc.
@@ -72,22 +74,17 @@ defmodule PhxHttpWeb.FormatHelpers do
   prefix strings.
   """
 
-  @spec fmt_markdown(String.t) :: safe_html #W
+  @spec fmt_markdown(map, [atom]) :: safe_html #W
 
-  def fmt_markdown(md_inp) do
+  def fmt_markdown(inp_map, gi_list) do
+    md_inp  = get_in(inp_map, gi_list)
     md_exp  = LinkHelpers.do_links(md_inp)
-
-    fmt_fn  = fn {type, ndx, text} -> 
-        "<p>#{ type } (#{ ndx }): #{ text }</p>"
-    end
 
     case Earmark.as_html(md_exp) do
       {:ok, html, []} -> html
 
       {:error, _input, err_list} ->
-        err_list                  # [ {:warning, 1, "..."}, ... ]
-        |> Enum.map(fmt_fn)       # [ "<p>warning (1): ...</p>", ... ]
-        |> Enum.join(",<br>\n")   # "<p>warning (1): ...</p>,<br>\n..."
+        fmt_markdown_h(inp_map, gi_list, err_list)
 
 #     unknown -> "<p>#{ inspect(unknown) }</p>"   #D
     end |> raw()
@@ -223,6 +220,45 @@ defmodule PhxHttpWeb.FormatHelpers do
   end
 
   # Private Functions
+
+  @spec fmt_markdown_h(map, [atom], list) :: String.t
+
+  defp fmt_markdown_h(inp_map, gi_list, err_list) do
+  #
+  # Format error text for fmt_markdown/2.
+
+    last_key  = List.last(gi_list)
+    off_key   = "o_#{ last_key }" |> String.to_atom()
+
+    off_int   = inp_map
+    |> get_in([:meta, off_key])
+    |> String.to_integer()
+    
+    fmt_fn  = fn {type, ndx_raw, message} -> 
+
+      ndx_rare    = ndx_raw + off_int
+
+      line_text   = inp_map
+      |> get_in(gi_list)
+      |> String.split("\n")
+      |> Enum.fetch!(ndx_raw-2)
+
+      """
+      <p>
+        <b>Earmark #{ type }:</b>
+        <pre>
+          diagnostic:   "#{ message }"
+          get_in list:  #{ inspect(gi_list) }
+          line number:  #{ ndx_rare }
+          line text:    "#{ line_text }"</pre>
+      </p>
+      """
+    end
+
+    err_list             # [ {:warning, 1, "..."}, ... ]
+    |> Enum.map(fmt_fn)  # [ "<p>...</p>", ... ]
+    |> Enum.join("\n")   # "<p>...</p>\n..."
+  end
 
   @spec join_list( [ s ] ) :: s when s: String.t #W
 

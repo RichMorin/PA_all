@@ -2,12 +2,11 @@
 
 <%
   import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-  about   = @item.about
 %>
 
 <h2>Areas</h2>
 
-<%= fmt_markdown(about.verbose) %>
+<%= fmt_markdown(@item, [:about, :verbose]) %>
 
 <%= for {major_u, minors} <- @tuples do %>
   <h3>

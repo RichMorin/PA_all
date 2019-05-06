@@ -1,3 +1,5 @@
+# info_web/checker.ex
+
 defmodule InfoWeb.Checker do
 #
 # Public functions
@@ -51,11 +53,14 @@ defmodule InfoWeb.Checker do
   know to be valid, saving both human and machine time.
   """
 
-  use Common,   :common
-  use InfoWeb,  :common
   use InfoWeb.Types
 
+# import Common, only: [ii: 2]
+  import Common, only: [get_http_port: 0, str_list: 1]
+
   alias InfoWeb.{External, Internal, Server, Snapshot}
+
+  # Public functions
 
   @doc """
   This function checks both internal and external links on Pete's Alley.

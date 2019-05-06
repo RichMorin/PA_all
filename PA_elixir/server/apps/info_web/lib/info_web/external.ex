@@ -1,3 +1,5 @@
+# info_web/external.ex
+
 defmodule InfoWeb.External do
 #
 # Public functions
@@ -10,10 +12,11 @@ defmodule InfoWeb.External do
   such as missing pages, redirects, etc.
   """
 
-  use Common,   :common
-  use InfoWeb,  :common
   use InfoWeb.Types
 
+  import Common, only: [ii: 2]
+
+  # Public functions
 
   @spec get_ext_list([tuple], map) :: [tuple]
 

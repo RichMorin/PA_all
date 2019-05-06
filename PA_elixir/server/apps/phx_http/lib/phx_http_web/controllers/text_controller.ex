@@ -13,10 +13,11 @@ defmodule PhxHttpWeb.TextController do
   of the `toml_map`.
   """
 
+  use InfoToml.Types
   use PhxHttp.Types
   use PhxHttpWeb, :controller
-  use InfoToml, :common
-  use InfoToml.Types
+
+  # Public functions
 
   @doc """
   This function generates the Text display page.

@@ -1,3 +1,5 @@
+# info_files/cnt_data.ex
+
 defmodule InfoFiles.CntData do
 #
 # Public functions
@@ -12,14 +14,15 @@ defmodule InfoFiles.CntData do
 #   add_cnts_by_ext/1
 #     Add :cnts_by_ext  - number of lines of code (etc) by file extension.
 
-  import Common
-  import InfoFiles.CntAny
-
   @moduledoc """
   This module implements data file tree counting for InfoFiles, using CntAny
   for the heavy lifting.  At the moment, it counts files, functions (dummied),
   lines, and characters.
   """
+
+  alias InfoFiles.CntAny
+
+  # Public functions
 
   @doc """
   Return a Map describing a tree of TOML files, eg:
@@ -59,9 +62,9 @@ defmodule InfoFiles.CntData do
     file_exts     = ~w(toml)
 
     file_info
-    |> add_tree_bases(dir_names)
-    |> add_file_paths(dir_patt, file_exts)
-    |> add_cnts_by_path()
+    |> CntAny.add_tree_bases(dir_names)
+    |> CntAny.add_file_paths(dir_patt, file_exts)
+    |> CntAny.add_cnts_by_path()
     |> add_cnts_by_dir()
     |> add_cnts_by_name()
    end
@@ -97,7 +100,7 @@ defmodule InfoFiles.CntData do
       end
     end
 
-    add_cnts(file_info, :dir, map_fn)
+    CntAny.add_cnts(file_info, :dir, map_fn)
   end
 
   @spec add_cnts_by_name(map) :: map
@@ -120,7 +123,7 @@ defmodule InfoFiles.CntData do
       |> String.replace(patt_2, repl_2)
     end
 
-    add_cnts(file_info, :name, map_fn)
+    CntAny.add_cnts(file_info, :name, map_fn)
   end
 
 end

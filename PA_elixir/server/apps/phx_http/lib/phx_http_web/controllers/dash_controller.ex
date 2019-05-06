@@ -28,10 +28,11 @@ defmodule PhxHttpWeb.DashController do
   This module contains controller actions (etc) for printing the dashboards.
   """
 
-  use InfoToml, :common
   use InfoToml.Types
   use PhxHttp.Types
   use PhxHttpWeb, :controller
+
+  # Public functions
 
   @doc """
   This function generates the Dashboard index page.

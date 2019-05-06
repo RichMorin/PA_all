@@ -1,4 +1,4 @@
-# views/layout_view.ex
+# phx_http_web/views/layout_view.ex
 
 defmodule PhxHttpWeb.LayoutView do
 #
@@ -22,13 +22,14 @@ defmodule PhxHttpWeb.LayoutView do
   This module contains functions to format the overall page.
   """
 
+  use InfoToml.Types
   use Phoenix.HTML
   use PhxHttpWeb, :view
   use PhxHttp.Types
-  use InfoToml, :common
-  use InfoToml.Types
 
   alias  PhxHttpWeb.LayoutView
+
+  # Public functions
 
   @doc """
   Generate the (HTML HEAD) title string for the page.

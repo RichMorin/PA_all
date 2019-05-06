@@ -1,4 +1,4 @@
-# views/search_view.ex
+# phx_http_web/views/search_view.ex
 
 defmodule PhxHttpWeb.SearchView do
 #
@@ -22,11 +22,10 @@ defmodule PhxHttpWeb.SearchView do
   This module contains functions to format parts of a Search page.
   """
 
+  use InfoToml.Types
   use Phoenix.HTML
   use PhxHttpWeb, :view
   use PhxHttp.Types
-  use InfoToml, :common
-  use InfoToml.Types
 
   alias  PhxHttpWeb.LayoutView
 

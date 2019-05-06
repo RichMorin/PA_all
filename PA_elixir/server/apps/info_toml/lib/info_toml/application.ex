@@ -1,6 +1,10 @@
+# info_toml/application.ex
+
 defmodule InfoToml.Application do
 
   use Application
+
+  # Public functions
 
   @doc """
   Load the TOML file tree, then fold in the index.

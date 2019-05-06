@@ -1,7 +1,12 @@
+# sample.ex
+
 defmodule Sample do
+
   @moduledoc """
   Documentation for Sample.
   """
+
+  # Public functions
 
   @doc """
   Hello world.

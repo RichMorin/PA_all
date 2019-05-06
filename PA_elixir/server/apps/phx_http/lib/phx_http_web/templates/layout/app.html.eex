@@ -9,7 +9,7 @@
   </head>
 
   <%
-    import Common
+#   import Common, only: [ii: 2]
 
     path_str    = @conn.path_info     |> Enum.join("/")
     query_str   = @conn.query_string

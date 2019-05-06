@@ -1,3 +1,5 @@
+# common/strings.ex
+
 defmodule Common.Strings do
 #
 # Public functions
@@ -9,11 +11,13 @@ defmodule Common.Strings do
 #   str_list/1
 #     Split a comma-delimited string into a list of trimmed strings.
 
-  import Common, only: [ii: 2]
-
   @moduledoc """
   This module contains String-handling functions for common use.
   """
+
+# import Common, only: [ii: 2]
+
+  # Public functions
 
   @doc """
   Perform naive pluralization on a noun, adding "s" if the number is 1.

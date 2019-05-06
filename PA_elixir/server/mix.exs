@@ -1,5 +1,10 @@
+# server/mix.exs
+
 defmodule Server.MixProject do
+
   use Mix.Project
+
+  # Public functions
 
   @spec project() :: [key: atom]
 

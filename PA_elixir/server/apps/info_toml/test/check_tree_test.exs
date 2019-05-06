@@ -1,4 +1,4 @@
-# check_tree_test.exs
+# info_toml/test/check_tree_test.exs
 
 defmodule InfoTomlTest.CheckTree do
 

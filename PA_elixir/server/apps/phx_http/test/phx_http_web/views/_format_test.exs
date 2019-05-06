@@ -5,6 +5,7 @@ defmodule PhxHttpWeb.FormatViewTest do
   use ExUnit.Case
 
   import  PhxHttpWeb.FormatHelpers
+
   doctest PhxHttpWeb.FormatHelpers
 
   test "formats a single link as desired" do

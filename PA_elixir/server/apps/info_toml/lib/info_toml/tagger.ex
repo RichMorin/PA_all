@@ -1,3 +1,5 @@
+# info_toml/tagger.ex
+
 defmodule InfoToml.Tagger do
 #
 # Public functions
@@ -9,13 +11,11 @@ defmodule InfoToml.Tagger do
   This module implements tag usage analysis for InfoToml.
   """
 
-  import InfoToml.KeyVal
-
-  use InfoToml, :common
-  use Common,   :common
   use InfoToml.Types
 
-  # external API
+  alias InfoToml.KeyVal
+
+  # Public functions
 
   @doc """
   Return a Map describing tag usage in the TOML files, e.g.
@@ -47,7 +47,7 @@ defmodule InfoToml.Tagger do
     }
 
     tag_info
-    |> add_kv_info(inbt_map, :tags)
+    |> KeyVal.add_kv_info(inbt_map, :tags)
   end
 
 end

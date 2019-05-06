@@ -1,5 +1,10 @@
+# info_web/mix.exs
+
 defmodule InfoWeb.MixProject do
+
   use Mix.Project
+
+  # Public functions
 
   @spec project() :: [key: atom]
 

@@ -1,3 +1,5 @@
+# info_files/server.ex
+
 defmodule InfoFiles.Server do
 
   @moduledoc """
@@ -6,7 +8,7 @@ defmodule InfoFiles.Server do
 
   @me __MODULE__
 
-  # setup ceremony
+  # Public functions
 
   @spec start_link() :: {atom, pid | String.t }
 

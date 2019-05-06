@@ -1,4 +1,4 @@
-# reffer_test.exs
+# info_toml/test/reffer_test.exs
 
 defmodule InfoTomlTest.Reffer do
 

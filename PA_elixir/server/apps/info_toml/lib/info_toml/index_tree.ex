@@ -1,3 +1,5 @@
+# info_toml/index_tree.ex
+
 defmodule InfoToml.IndexTree do
 #
 # Public functions
@@ -27,9 +29,11 @@ defmodule InfoToml.IndexTree do
   prevent IEx from displaying ID lists as strings.
   """
 
-  use Common,   :common
-  use InfoToml, :common
   use InfoToml.Types
+
+  import Common, only: [keyss: 1, str_list: 1]
+
+  # Public functions
 
   @doc """
   Create the set of indexes.

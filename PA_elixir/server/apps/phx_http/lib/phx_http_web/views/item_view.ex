@@ -1,4 +1,4 @@
-# views/item_view.ex
+# phx_http_web/views/item_view.ex
 
 defmodule PhxHttpWeb.ItemView do
 #
@@ -28,13 +28,16 @@ defmodule PhxHttpWeb.ItemView do
   This module contains functions to format parts of an item map for display.
   """
 
+  use InfoToml.Types
   use Phoenix.HTML
   use PhxHttpWeb, :view
   use PhxHttp.Types
-  use InfoToml, :common
-  use InfoToml.Types
+
+  import InfoToml, only: [exp_prefix: 1]
 
   alias  PhxHttpWeb.LayoutView
+
+  # Public functions
 
   @doc """
   Format an address for display.  If the address type (eg, :related) is not
@@ -105,7 +108,7 @@ defmodule PhxHttpWeb.ItemView do
     rev_item    = InfoToml.get_item(rev_key)
     f_authors   = rev_item.meta.refs.f_authors
     precis      = rev_item.about.precis
-    verbose     = fmt_markdown(rev_item.about.verbose)
+    verbose     = fmt_markdown(rev_item, [:about, :verbose])
     auth_out    = fmt_authors(f_authors)
 
     ~E"""

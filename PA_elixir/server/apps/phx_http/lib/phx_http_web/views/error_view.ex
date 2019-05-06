@@ -1,4 +1,4 @@
-# views/error_view.ex
+# phx_http_web/views/error_view.ex
 
 defmodule PhxHttpWeb.ErrorView do
 #
@@ -18,6 +18,8 @@ defmodule PhxHttpWeb.ErrorView do
   # By default, Phoenix returns the status message from
   # the template name. For example, "404.html" becomes
   # "Not Found".
+
+  # Public functions
 
 # @spec - ToDo
 

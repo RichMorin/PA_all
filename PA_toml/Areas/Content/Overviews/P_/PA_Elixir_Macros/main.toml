@@ -18,109 +18,24 @@
   verbose     = '''
 The [Elixir]{ext_wp|Elixir_(programming_language)} programming language
 supports [hygienic macros]{ext_wp|Hygienic_macro} (an enhanced form of
-[syntactic macros]{ext_wp|Macro_(computer_science)#Syntactic_macros)}.
-Pete's Alley employs a few (very simple) macros,
-in order to support [late binding]{ext_wp|Late_binding}
-of information about the project's file tree.
+[syntactic macros]{ext_wp|Macro_(computer_science)#Syntactic_macros}).
+Pete's Alley employs very few macros, at present.
 
-## `PhxHttpWeb.AreaController.get_areas/{0,1}`
+### `__using__(which)`
 
-The TOML tree contains areas (e.g., `Content`) and sections
-(e.g., `Overviews`).
-We collect these at startup time and use them (later)
-to generate the `Areas` pages.
-Specifically, `InfoToml` creates a tree of maps at its startup time.
-A bit later, these macros get lists of keys from `InfoToml.get_keys/1`
-and use these to generate functions that return lists of strings.
+This macro comes along as part of Phoenix.
+It is used to dispatch to the appropriate controller, view, etc.
 
-    defmacrop get_areas() do
-    #
-    # Given nothing, returns [ "Catalog", ... ]
-
-      quote do
-        reject_fn = fn key ->
-          key =~ ~r{ ^ _ }x || key =~ ~r{ \. toml $ }x
-        end
-
-        map_fn  = fn key -> key |> String.replace(~r{ ^ .* / }x, "") end
-
-        InfoToml.get_keys(2)
-        |> Enum.reject(reject_fn)
-        |> Enum.map(map_fn)
-      end
+    defmacro __using__(which) when is_atom(which) do
+      apply(__MODULE__, which, [])
     end
 
-    defmacrop get_areas(area) do
-    #
-    # Given "Content", returns [ "HowTos", ... ]
-
-      quote do
-        test_str   = "Areas/#{ unquote(area) }"
-
-        filter_fn = fn key ->
-          String.starts_with?(key, test_str)  &&
-          !( key =~ ~r{ \. toml $ }x )
-        end
-
-        map_fn  = fn key ->
-          key
-          |> String.replace(~r{ ^ .* / }x, "")
-        end
-
-        InfoToml.get_keys(3)
-        |> Enum.filter(filter_fn)
-        |> Enum.map(map_fn)
-      end
-    end
-
-## `InfoToml.Common.exp_map/0`
-
-For brevity and ease of editing,
-our [TOML]{ext_wp|TOML} files contain shorthand URL prefixes
-(e.g., <code>cat_har\|</code>, <code>ext_wp\|</code>).
-We define these in the `_config/prefix.toml` file,
-read them in at compile time, and generate a function to return them as a map.
-
-    defmacrop exp_map() do
-      quote do
-        "_config/prefix.toml"
-        |> get_file_abs                     # "/.../_config/prefix.toml"
-        |> InfoToml.Parser.parse(:atoms)    # %{meta: %{...}, ...}
-        |> Map.get(:prefix)                 # %{ext_wp: "...", ...}
-      end
-    end
-
-The `exp_prefix/1` function uses this map to support prefix expansion:
-
-    def exp_prefix(inp_str) do
-
-      exp_list  = exp_map() |> Map.to_list()
-
-      reduce_fn = fn { inp, out }, acc ->
-        String.replace(acc, "#{ inp }|", out)
-      end
-
-      Enum.reduce(exp_list, inp_str, reduce_fn)
-    end
-
-## `InfoToml.Common.get_tree_abs/0`
-
-Our TOML tree resides in a fixed position, relative to the Elixir code.
-So, we can calculate the absolute path to `/.../PA_toml` at compile time
-and generate a function to return it as a string.
-
-    defmacro get_tree_abs() do
-      tree_rel = "#{ __ENV__.file }/../../../../../PA_toml"
-      Path.expand(tree_rel)
-    end
-
-## `InfoToml.Types`
+### `__using__(_)`
 
 We use a lot of compound data types
 (e.g., trees of maps, with atoms as keys and strings as leaf values).
 [Dialyxir]{https://hex.pm/packages/dialyxir} lets us document these
 and check their usage.
-
 However, keeping our `@spec` attributes tidy means
 that we need to define a lot of `@type` attributes.
 And, in order to keep our code [DRY]{ext_wp|Don't_repeat_yourself},
@@ -128,9 +43,10 @@ we need to define these in one place and use them everywhere.
 
 Because attributes aren't brought in by `import`,
 we need another way to make them available.
-This macro-based hack
+A macro-based hack
 (adapted from [this posting]{ext_so|questions/37713244})
-lets us do this by means of `use InfoToml.Types`:
+lets us do this by means of `use <Module>.Types`.
+For example:
 
     defmodule InfoToml.Types do
       ...

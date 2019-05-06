@@ -2,11 +2,9 @@
 
 <%
   alias PhxHttpWeb.ItemView
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
 
-  about     = @item.about
   meta      = @item.meta
-
+  about     = @item.about
   authors   = get_in(meta,  [:refs, :f_authors])
 %>
 
@@ -21,5 +19,5 @@
   
   <%= render ItemView, "_show_refs.html", assigns %>
 
-  <%= fmt_markdown(about.verbose) %>
+  <%= fmt_markdown(@item, [:about, :verbose]) %>
 </div>

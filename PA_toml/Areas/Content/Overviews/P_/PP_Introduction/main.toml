@@ -75,7 +75,7 @@ porting Perkian to these devices.
 
 Some proprietary operating systems for personal computers (e.g., 
 [Apple's macOS]{ext_wp|MacOS},
-[Microsoft Windows]{ext_wp|Microsoft_Windows} are also of interest.
+[Microsoft Windows]{ext_wp|Microsoft_Windows}) are also of interest.
 As long as a system can be convinced to run a suite of Linux software
 (either directly or indirectly), it's a plausible target.
 However, these systems are inconvenient to carry around all day,
@@ -106,7 +106,7 @@ but any continuous power drain will limit battery life.
 but seems challenging to provide.)
 For the moment, users will need to recharge the battery on a regular basis
 (e.g., from an [AC adaptor]{ext_wp|AC_adapter} or a
-[power bank]{ext_wp|Battery_charger#Power_bank}”).
+"[power bank]{ext_wp|Battery_charger#Power_bank}").
 Alternatively, they can simply put up with the booting delay.
 
 ### Status
@@ -133,42 +133,11 @@ enough porting information to drive a release building tool.
 
 I plan to start work on such a tool
 [Real Soon Now]{http://www.catb.org/jargon/html/R/Real-Soon-Now.html}.
+I've even started a (somewhat speculative) page
+on [implementation]{con_ove|PP_Implementation}.
 Meanwhile, the [Make dashboard]{/dash/make} summarizes several dozen packages.
 Finally, the [Make Schema]{_schemas/make.toml:s}
 is available for your edification and amusement.
-
-#### Implementation
-
-Creating a collection of several dozen software packages is a lot of work.
-Creating collections for several operating systems multiplies the effort,
-because each OS has its own configuration and package management commands.
-For example, [Alacritty]{cat_sof|Alacritty}'s 
-[GitHub page]{ext_gh|jwilm/alacritty}
-lists about a dozen installation commands, including:
-
-| OS Variant   | Command                       |
-| ------------ | ----------------------------- |
-| Arch Linux   | `pacman -S alacritty`         |
-| Debian       | `apt install alacritty`       |
-| FreeBSD      | `pkg install alacritty`       |
-| Gentoo Linux | `emerge x11-terms/alacritty`  |
-| macOS        | `brew cask install alacritty` |
-| Mageia 7+    | `urpmi alacritty`             |
-| MS Windows   | `choco install alacritty`     |
-| NixOS        | `nix-env -iA nixos.alacritty` |
-| openSUSE     | `zypper in alacritty`         |
-| Solus        | `eopkg install alacritty`     |
-| Void Linux   | `xbps-install alacritty`      |
-
-To manage this [combinatorial explosion]{ext_wp|Combinatorial_explosion},
-I plan to use [Chef]{ext_wp|Chef_(software)},
-a [Ruby]{ext_wp|Ruby_(programming_language)}-based
-[configuration _management]{ext_wp|Configuration_management} tool.
-Information drawn from each package's `make.toml` file
-will be used to select appropriate Chef recipes,
-which will then use tools such as
-Debian's [Advanced Package Tool]{ext_wp|APT_(Debian)} (APT)
-to download software, etc.
 
 To be continued...
 '''

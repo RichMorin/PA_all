@@ -1,7 +1,6 @@
 <!-- templates/mail/feed.html.eex -->
 
 <%
-  alias PhxHttpWeb.MailView
   import PhxHttpWeb.LayoutView, only: [mailto_href: 1]
 
   action    = Routes.mail_path(@conn, :feed_post)

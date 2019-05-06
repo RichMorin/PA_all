@@ -1,3 +1,5 @@
+# common/server.ex
+
 defmodule Common.Server do
 
   @moduledoc """
@@ -6,10 +8,7 @@ defmodule Common.Server do
 
   @me __MODULE__
 
-  # external API
-
-
-  # setup ceremony
+  # Public functions
 
   @spec start_link() :: {atom, pid | String.t }
 

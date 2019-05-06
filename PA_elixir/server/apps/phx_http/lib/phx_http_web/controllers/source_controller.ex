@@ -21,10 +21,13 @@ defmodule PhxHttpWeb.SourceController do
   source files for items in the "Areas/..." portion of the `toml_map`.
   """
 
+  use InfoToml.Types
   use PhxHttp.Types
   use PhxHttpWeb, :controller
-  use InfoToml, :common
-  use InfoToml.Types
+
+  import InfoToml.Common, only: [get_file_abs: 1]
+
+  # Public functions
 
   @doc """
   This function implements the Source download action.

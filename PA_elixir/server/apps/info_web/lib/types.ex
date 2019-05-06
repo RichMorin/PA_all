@@ -1,4 +1,4 @@
-# .../lib/types.ex
+# info_web/lib/types.ex
 
 defmodule InfoWeb.Types do
 

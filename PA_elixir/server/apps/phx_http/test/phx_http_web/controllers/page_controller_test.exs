@@ -3,6 +3,7 @@
 defmodule PhxHttpWeb.PageControllerTest do
 
   use PhxHttpWeb.ConnCase
+
   import ExUnit.CaptureIO
 
   test "GET /", %{conn: conn} do

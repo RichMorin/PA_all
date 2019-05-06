@@ -1,13 +1,8 @@
 <!-- templates/area/show_2.html.eex -->
 
-<%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-  about   = @item.about
-%>
-
 <h2><%= @name %></h2>
 
-<%= fmt_markdown(about.verbose) %>
+<%= fmt_markdown(@item, [:about, :verbose]) %>
 
 <%= for section <- @sections do %>
   <h3>

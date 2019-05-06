@@ -1,3 +1,5 @@
+# info_web/common.ex
+
 defmodule InfoWeb.Common do
 #
 # Public functions
@@ -10,6 +12,8 @@ defmodule InfoWeb.Common do
   """
 
   use InfoWeb.Types
+
+  # Public functions
 
   @doc """
   Make sure a URI has all the requisite fields.

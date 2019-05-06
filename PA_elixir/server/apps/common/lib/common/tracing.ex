@@ -1,3 +1,5 @@
+# common/tracing.ex
+
 defmodule Common.Tracing do
 #
 # Public functions
@@ -8,6 +10,8 @@ defmodule Common.Tracing do
   @moduledoc """
   This module contains tracing functions for common use.
   """
+
+  # Public functions
 
   @doc """
   Wrap `IO.inspect/2`, making it less painful to use.  Specifically:

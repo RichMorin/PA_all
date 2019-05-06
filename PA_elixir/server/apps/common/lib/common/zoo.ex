@@ -1,3 +1,5 @@
+# common/zoo.ex
+
 defmodule Common.Zoo do
 #
 # Public functions
@@ -15,7 +17,9 @@ defmodule Common.Zoo do
   This module contains miscellaneous functions for common use.
   """
 
-  import Common.Tracing
+# import Common, only: [ii: 2]
+
+  # Public functions
 
   @doc """
   Get a string indicating the current HTTP PORT.

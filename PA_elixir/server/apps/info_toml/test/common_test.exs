@@ -1,4 +1,4 @@
-# common_test.exs
+# info_toml/test/common_test.exs
 
 defmodule InfoTomlTest.Common do
 

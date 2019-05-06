@@ -1,3 +1,5 @@
+# info_toml/server.ex
+
 defmodule InfoToml.Server do
 #
 # Public functions
@@ -37,12 +39,15 @@ defmodule InfoToml.Server do
 
   @me __MODULE__
 
-  alias InfoToml.{CheckTree, IndexTree, LoadTree}
-  use Common,   :common
-  use InfoToml, :common
   use InfoToml.Types
 
-  # external API
+  import InfoToml.Common, only: [get_file_abs: 1]
+# import Common,          only: [ii: 2]
+  import Common,          only: [keyss: 1]
+
+  alias InfoToml.{CheckTree, IndexTree, LoadTree, Schemer}
+
+  # Public functions
 
   @doc """
   Return the data structure for an item, given its key (eg, "_text/about.toml").
@@ -295,7 +300,12 @@ defmodule InfoToml.Server do
 
     toml_map    = LoadTree.load(old_map)
     toml_ndx    = IndexTree.index(toml_map)
-    toml_map    = Map.put(toml_map, :index, toml_ndx)
+    toml_pre    = Schemer.get_prefix()
+
+    toml_map    = toml_map
+    |> Map.put(:index,  toml_ndx)
+    |> Map.put(:prefix, toml_pre)
+
     {status, messages} = CheckTree.check_all(toml_map)
 
 #   ii(keyss(toml_map), "keyss(toml_map)") #T

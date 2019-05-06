@@ -1,4 +1,4 @@
-# check_item_test.exs
+# info_toml/test/check_item_test.exs
 
 defmodule InfoTomlTest.CheckItem do
 

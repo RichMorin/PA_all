@@ -4,10 +4,9 @@
   alias PhxHttpWeb.ItemView
   import PhxHttpWeb.LayoutView, only: [hide_show: 2]
 
-  about     = @item.about
   meta      = @item.meta
-
-  access    = get_in(about, [:access])
+  about     = @item.about
+  access    = about.access
   address   = get_in(@item, [:address])
   authors   = get_in(meta,  [:refs, :f_authors])
 %>
@@ -38,7 +37,7 @@
       </h3>
 
       <div class="hs-body2">
-        <%= fmt_markdown(about.verbose) %>
+        <%= fmt_markdown(@item, [:about, :verbose]) %>
       </div>
     </div>
 
@@ -50,7 +49,7 @@
         </h3>
 
         <div class="hs-body2">
-          <%= fmt_markdown(access) %>
+          <%= fmt_markdown(@item, [:about, :access]) %>
         </div>
       </div>
     <% end %>

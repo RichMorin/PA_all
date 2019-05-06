@@ -1,3 +1,5 @@
+# info_toml/check_item.ex
+
 defmodule InfoToml.CheckItem do
 #
 # Public functions
@@ -30,9 +32,11 @@ defmodule InfoToml.CheckItem do
   This module checks maps that were loaded from a TOML file.
   """
 
-  use Common,   :common
-  use InfoToml, :common
   use InfoToml.Types
+
+  import Common, only: [get_http_port: 0, str_list: 1]
+
+  # Public functions
 
   @doc """
   Check for problems with Map elements.  For example, an item might:

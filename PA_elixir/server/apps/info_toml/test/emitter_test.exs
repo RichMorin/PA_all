@@ -1,4 +1,4 @@
-# emitter_test.exs
+# info_toml/test/emitter_test.exs
 
 defmodule InfoTomlTest.Emitter do
 

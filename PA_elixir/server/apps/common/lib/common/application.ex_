@@ -1,6 +1,6 @@
-defmodule Common.Application do
+# common.application.ex_
 
-  use Application
+defmodule Common.Application do
 
   @moduledoc """
   This `application.ex_` file is inactive.  To enable it:
@@ -9,7 +9,11 @@ defmodule Common.Application do
   - edit `application/0` in `mix.exs`.
   """
 
-# @spec - ToDo
+  use Application
+
+  # Public functions
+
+  # @spec - ToDo
 
   def start(_type, _args) do
     import Supervisor.Spec, warn: false

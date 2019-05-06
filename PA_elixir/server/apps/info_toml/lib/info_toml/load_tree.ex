@@ -1,3 +1,5 @@
+# info_toml/load_tree.ex
+
 defmodule InfoToml.LoadTree do
 #
 # Public functions
@@ -31,10 +33,14 @@ defmodule InfoToml.LoadTree do
   loading and checking against the schema.
   """
 
-  alias InfoToml.{CheckItem, Parser, Schemer}
-  use Common,   :common
-  use InfoToml, :common
   use InfoToml.Types
+
+  import Common,          only: [get_run_mode: 0]
+  import InfoToml.Common, only: [get_file_abs: 1, get_tree_abs: 0]
+
+  alias InfoToml.{CheckItem, Parser, Schemer}
+
+  # Public functions
 
   @doc """
   Load a map from the tree of TOML files, given an (optional) absolute path

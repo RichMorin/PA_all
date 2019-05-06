@@ -1,4 +1,4 @@
-# views/_key_helpers.ex
+# phx_http_web/views/_key_helpers.ex
 
 defmodule PhxHttpWeb.KeyHelpers do
 #
@@ -21,12 +21,11 @@ defmodule PhxHttpWeb.KeyHelpers do
 
   use Phoenix.HTML
   use PhxHttp.Types
-  use InfoToml, :common
   use InfoToml.Types
 
-  import Common
   import InfoToml, only: [get_item: 1]
 
+  # Public functions
 
   @doc """
   Get the "precis" string for this area key fragment

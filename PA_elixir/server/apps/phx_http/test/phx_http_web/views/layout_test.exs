@@ -2,10 +2,10 @@
 
 defmodule PhxHttpWeb.LayoutViewTest do
 
+  use ExUnit.Case
   use PhxHttpWeb.ConnCase, async: true
 
-  use ExUnit.Case
-
   import  PhxHttpWeb.LayoutView
+
   doctest PhxHttpWeb.LayoutView
 end

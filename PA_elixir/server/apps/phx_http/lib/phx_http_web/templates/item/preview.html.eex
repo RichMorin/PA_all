@@ -2,7 +2,6 @@
 
 <%
   alias PhxHttpWeb.ItemView
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
 
   item_type  = if @key =~ ~r{ ^ Areas / Catalog / }x do
     "cat"

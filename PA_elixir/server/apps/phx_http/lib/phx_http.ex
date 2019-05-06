@@ -1,4 +1,7 @@
+# phx_http.ex
+
 defmodule PhxHttp do
+
   @moduledoc """
   PhxHttp keeps the contexts that define your domain
   and business logic.

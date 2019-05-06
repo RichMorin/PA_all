@@ -2,10 +2,10 @@
 
 defmodule PhxHttpWeb.SearchViewTest do
 
+  use ExUnit.Case
   use PhxHttpWeb.ConnCase, async: true
 
-  use ExUnit.Case
-
   import  PhxHttpWeb.SearchView
+
   doctest PhxHttpWeb.SearchView
 end

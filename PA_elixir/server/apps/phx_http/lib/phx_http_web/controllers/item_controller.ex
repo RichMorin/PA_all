@@ -33,10 +33,11 @@ defmodule PhxHttpWeb.ItemController do
   items in the "Areas/..." portion of the `toml_map`.
   """
 
-  use InfoToml, :common
   use InfoToml.Types
   use PhxHttp.Types
   use PhxHttpWeb, :controller
+
+  # Public functions
 
   @doc """
   This function generates the `edit_form` page.

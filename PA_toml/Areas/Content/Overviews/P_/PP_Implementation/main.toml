@@ -1,0 +1,129 @@
+# con_ove|PP_Implementation/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_Implementation'
+  title       = "Perkian - Implementation"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "Perkian implementation notes"
+
+  verbose     = '''
+For purposes of simplicity, this page concentrates
+on the Linux family of operating systems.
+Although it has hundreds of members,
+but they are closely related and tend to be similar in many respects.
+The difficulty of adding other target systems to the mix
+(e.g., [macOS]{ext_wp|MacOS}, [Windows]{ext_wp|Microsoft_Windows})
+can be left to the reader's imagination.
+
+### Challenges
+
+Creating a collection of several dozen software packages is a lot of work.
+Creating collections for several operating systems multiplies the effort,
+for a variety of reasons.
+For example, each OS will have its own:
+
+- default packages
+- package management
+- system environment
+
+#### Default Packages
+
+Any given Linux variant may include some of Perkian's packages.
+However, the versions and configurations will vary,
+causing both a support challenge and an uneven user experience.
+So, our plan is to provide our own set of packages,
+in addition to any that the OS may provide.
+
+#### Package Management
+
+There are a variety of package management archives, commands, etc.
+For example, [Alacritty]{cat_sof|Alacritty}'s 
+[GitHub page]{ext_gh|jwilm/alacritty} lists about a dozen commands,
+including `apt`, `brew`, `choco`, `emerge`, `eopkg`, `nix-env`,
+`pacman`, `pkg`, `urpmi`, `xbps-install`, and `zypper`.
+Although a [configuration management]{ext_wp|Configuration_management} tool
+such as [Chef]{ext_wp|Chef_(software)} can call the right command
+with appropriate parameters, that's only the tip of the iceberg.
+
+If the target OS doesn't have a current and correct set
+of installation and configuration code for a package,
+we'd need to resolve this deficiency.
+Each package management system has its own notion of how to specify
+installation and configuration details.
+
+#### System Environment
+
+All Linux distributions have basically the same
+[kernel]{ext_wp|Kernel_(operating_system)},
+default [libraries]{ext_wp|Library_(computing)}, and
+[utilities]{ext_wp|Utility_software}.
+However, that doesn't mean that they have the same runtime environment,
+whether for [deployment]{ext_wp|Deployment_environment} or
+[development]{ext_wp|Deployment_environment#Development}.
+The available compilers and libraries may vary,
+along with the file tree layout, configuration files, I/O devices,
+processor architecture, etc.
+
+#### Summary
+
+In a number of ways, we're faced with an uncomfortable
+(and unmanageable) amount of development, testing, and support.
+Fortunately, there are ways to manage this
+[combinatorial explosion]{ext_wp|Combinatorial_explosion}.
+
+### Approach
+
+The planned approach will leverage several existing tools,
+including:
+
+- [APT]{ext_wp|APT_(Debian)}
+- [Chef]{ext_wp|Chef_(software)}
+- [Docker]{ext_wp|Docker_(software)}
+
+[Debian]{ext_wp|Debian}'s Advanced Package Toolkit (APT)
+is well known as a reliable way to install software packages.
+Given that there are tens of thousands of packages in the archive,
+installation for most packages we want will "Just Work".
+Finally, numerous versions of Linux (e.g.,
+[Raspbian]{ext_wp|Raspbian}, [Ubuntu]{ext_wp|Ubuntu})
+are derived from Debian,
+so they inherit APT and many other design details.
+
+Chef is a [Ruby]{ext_wp|Ruby_(programming_language)}-based
+[configuration _management]{ext_wp|Configuration_management} tool
+which abstracts the specifics of tasks such as
+building, configuring, downloading, and installing packages.
+So, any task which is done for multiple packages or targets
+only needs to be described once.
+
+Docker is an
+[OS-level virtualisation]{ext_wp|OS-level_virtualisation} ecosystem
+which addresses a number of deployment issues.
+Lightweight "containers" can be created for a single OS (e.g., Debian)
+and deployed on systems ranging from personal computers
+through embedded systems to cloud-based servers.
+[Android OS]{ext_wp|Android_(operating_system)}, sadly,
+is a conspicuous exception to this coverage,
+though it still can benefit from APT and Chef.
+
+Stitching these tools together will be a job for custom code
+(e.g., [Elixir]{ext_wp|Elixir_(programming_language)},
+[Ruby]{ext_wp|Ruby_(programming_language)})
+and data files (e.g., [TOML]{ext_wp|TOML}).
+See [Perkian - Chef Notes]{con_ove|PP_Chef} for details.
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

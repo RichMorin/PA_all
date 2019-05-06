@@ -13,6 +13,8 @@
   sets      = @link_info["bins"]["#{ @pre }_ng"]
   type_lc   = "#{ @pre }ernal"            # eg, external
   type_cap  = String.capitalize(type_lc)  # eg, External
+  targets   = if @pre == "ext" do   "external web sites"
+                               else "internal routes" end
 %>
 
 <div class="hs-base2">
@@ -22,6 +24,9 @@
   </h3>
 
   <div class="hs-body2 hs-is">
+    <p>
+      The table below shows <%= targets %> that we link to more than once.
+    </p>
     <table class="tablesorter">
       <thead>
         <tr>

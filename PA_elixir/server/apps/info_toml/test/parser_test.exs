@@ -1,4 +1,4 @@
-# parser_test.exs
+# info_toml/test/parser_test.exs
 
 defmodule InfoTomlTest.Parser do
 

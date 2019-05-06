@@ -1,4 +1,7 @@
+# phx_http_web.ex
+
 defmodule PhxHttpWeb do
+
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
@@ -16,6 +19,8 @@ defmodule PhxHttpWeb do
   below. Instead, define any helper function in modules
   and import those modules here.
   """
+
+  # Public functions
 
 # @spec - ToDo
 

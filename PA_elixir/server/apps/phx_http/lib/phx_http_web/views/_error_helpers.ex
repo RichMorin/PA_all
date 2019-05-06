@@ -1,4 +1,4 @@
-# views/error_helpers.ex
+# phx_http_web/views/error_helpers.ex
 
 defmodule PhxHttpWeb.ErrorHelpers do
 #
@@ -14,6 +14,8 @@ defmodule PhxHttpWeb.ErrorHelpers do
   """
 
   use Phoenix.HTML
+
+  # Public functions
 
   @doc """
   This function generates a tag for inlined form input errors.
