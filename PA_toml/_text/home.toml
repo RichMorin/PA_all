@@ -16,12 +16,19 @@
   precis      = 'an online resource for the disabled community'
 
   verbose     = '''
-This is an early prototype of Pete's Alley.
 The site is planned as an online resource for the disabled community,
 including their friends, relatives, and other supporters.
 It will index and review resources, provide communication channels, etc.
 
-Before trying to use the site for the first time, please skim the
-[About]{_text/about.toml} and [Usage]{_text/usage.toml} pages.
+### Advice to New Users
+
+This is an early prototype, in limited public release.
+So, some problems are to be expected.
+Please report any errors or accessibility issues you encounter,
+using the Feedback link at the end of the affected page.
+This will alert us to problems, so that they can be addressed.
+
+More generally, before trying to make serious use of the web site,
+skim the [About]{_text/about.toml} and [Usage]{_text/usage.toml} pages.
 They should help you to avoid confusion and get up to speed quickly.
 '''

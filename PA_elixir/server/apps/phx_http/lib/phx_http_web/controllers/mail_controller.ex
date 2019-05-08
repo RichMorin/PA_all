@@ -58,7 +58,7 @@ defmodule PhxHttpWeb.MailController do
       '''
     """
 
-    save_path   = InfoToml.emit_toml(feed_base, feed_toml)
+    save_path   = InfoToml.emit_toml(feed_base, ".feed", feed_toml)
     save_name   = String.replace(save_path, ~r{ ^ .+ / }x, "")
 
     message     = """

@@ -18,51 +18,57 @@
   verbose     = '''
 Our current prototyping path concentrates
 on [Docker]{ext_wp|Docker_(software)} containers, which provide
-[OS-level virtualisation]{ext_wp|OS-level_virtualisation}.
-So, [Chef]{ext_wp|Chef_(software)} is not critically needed at the moment.
-However, we expect to investigate it, for a couple of reasons.
-Clearly, we'll need it to support "native" installation
-on multiple target platforms.
-The [Docker Cookbook]{ext_gh|chef-cookbooks/docker}
-should be able to generate any containers we need,
-so we might be able to create nearly a univeral set of tooling.
+[OS-level virtualisation]{ext_wp|OS-level_virtualisation}
+of runtime considerations.
+Because the Docker ecosystem has a surfeit of tooling,
+we don't _need_ to use [Chef]{ext_wp|Chef_(software)}
+for container generation, installation, etc.
+However, we still expect to use it, for a couple of reasons.
+
+First, Docker isn't appropriate for all of our use cases.
+It isn't even available for Android,
+which is an [important target]{con_ove|PP_on_Android} for us.
+It might also be too heavyweight an approach
+for (say) a cell phone or a [Raspberry Pi]{ext_wp|Raspberry_Pi}.
+So, supporting "native" installation on multiple target platforms
+is clearly an important long-term objective.
+Chef cookbooks and/or recipes would let us handle this gracefully,
+dealing with the inevitable platform-specific "build" variations.
+
+Second, because Chef can also delegate tasks to Docker
+(e.g., via the [Docker Cookbook]{ext_gh|chef-cookbooks/docker}),
+we should be able to use Chef for the entire range of target distributions.
+However capable Docker's container-creation tooling might be,
+we'd rather not need to become expert in its use...
 
 ### Approach
 
 Chef cookbooks and recipes are fairly complex pieces of infrastructure;
-we certainly don't want to create one for each combination
-of package, OS distribution, etc.
+we certainly don't want to large numbers of them.
 Still, we'd like Chef to provide a layer of abstraction
-between the list of packages and the OS commands required to install them.
-Fortunately, one of the answers to the
-[Parameterize chef recipe]{https://stackoverflow.com/questions/
-  21910547/parameterize-chef-recipe} question on
-[StackOverflow]{https://stackoverflow.com} hints at a way to do this.
-The basic idea is to feed in a data structure with the variable data
-and have the recipe generate and run the appropriate commands.
-
-In the answer, the data is encoded as a [JSON]{ext_wp|JSON} text string
-which is stored in `default['config']` and retrieved from `node['config']`.
-However, the information could just as easily be read from a file
-and the encoding could use any desired serialization format.
-Since we're using [TOML]{ext_wp|TOML} heavily in Pete's Alley,
-it makes sense to encode the necessary data in that format.
+between the list of packages and the required OS commands.
+So, our plan is to generate data files with the needed information,
+then have our Chef recipes read and act on them.
+Since we're already using [TOML]{ext_wp|TOML} in Pete's Alley,
+it makes sense to encode the data in that format.
 
 ### Example
 
 Let's assume that we're building a distribution based on
 [Debian]{ext_wp|Debian} and that we wish
 to include the [Atril]{cat_sof|Atril} package.
-All of the needed information should be available
-in the item's `main.toml` and `make.toml` files.
-Here are some (science fiction!) entries
-for our TOML control file (e.g., `debian.toml`):
+All of the needed information can be harvested
+from the item's `main.toml` and `make.toml` files.
+Indeed, we already have [Elixir]{ext_wp|Elixir_(programming_language)} code
+in Pete's Alley to generate control files (e.g., `debian.toml`)
+of the following form:
 
     [ 'Atril' ]
 
       actions     = 'build, publish'
       package     = 'ext_pd|stretch/atril'
       precis      = 'the official document viewer for MATE'
+      title       = 'Atril'
 
 A naive recipe for adding native packages to a Debian-based distribution
 might look something like this:
@@ -80,13 +86,12 @@ might look something like this:
 
 ### Complications
 
-In practice, I expect things to be quite a bit more complicated.
-For example, there may be other commands or recipes
+In practice, things will be quite a bit more complicated.
+For example, there may be commands and/or recipes
 that will need to be run before or after the package installation.
 In some cases, such as [GitHub]{ext_wp|GitHub} repositories or
 [RubyGems]{ext_wp|RubyGems}, there may not _be_ a Debian package.
-Finally, as mentioned above, we may be creating Docker containers
-that _contain_ a given package.
+We may also be creating containers that contain more than one package.
 Still, it should be possible to create appropriate recipes,
 assuming that we can find out what needs to be done.
 

@@ -202,7 +202,7 @@ defmodule InfoWeb.Snapshot do
     #{ raw_ext_urls(result) }
     """
 
-    InfoToml.Emitter.emit_toml(link_base, toml_text)
+    InfoToml.Emitter.emit_toml(link_base, ".links", toml_text)
   end
 
 end

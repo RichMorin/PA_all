@@ -96,7 +96,7 @@ defmodule PhxHttpWeb.ItemController do
         |> render("preview.html")
 
       "Submit" ->
-        save_path = InfoToml.emit_toml(item_base, item_toml)
+        save_path = InfoToml.emit_toml(item_base, ".item", item_toml)
         save_name = String.replace(save_path, ~r{ ^ .+ / }x, "")
         message   = """
         Your submission has been saved as "#{ save_name }".

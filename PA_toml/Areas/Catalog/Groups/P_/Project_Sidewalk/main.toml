@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'Project_Sidewalk'
-  title       = 'Project_Sidewalk'
+  title       = 'Project Sidewalk'
 
 [ meta.refs ]
 

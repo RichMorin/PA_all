@@ -6,6 +6,8 @@ defmodule Common.Tracing do
 #
 #   ii/2
 #     Wrap IO.inspect/2, making it less painful to use.
+#   lts/1
+#     Print a labeled time stamp.
 
   @moduledoc """
   This module contains tracing functions for common use.
@@ -29,5 +31,26 @@ defmodule Common.Tracing do
   end
 
   def ii(thing, label), do: IO.inspect(thing, label: label)
+
+  @doc """
+  Print a labeled time stamp, eg:
+  
+      lts>> PhxHttpWeb.TextController.show/2 @ 40.97
+  """
+
+  @spec lts(String.t) :: any
+
+  def lts(label) do
+    iso8601   = DateTime.utc_now()
+    |> DateTime.to_iso8601()            # 2019-05-08T14:09:22.837127Z
+
+    pattern   = ~r< ^ [^:]+ : \d\d : (.{5}) .* $ >x
+    trimmed   = iso8601
+    |> String.replace(pattern, "\\1")   # 22.837
+
+#   IO.puts "lts>> #{ label } @ #{ trimmed } (#{ iso8601 })"
+#   IO.puts "lts>> #{ label } @ #{ trimmed }"
+    IO.puts "lts>> #{ trimmed } - #{ label }"
+  end
 
 end

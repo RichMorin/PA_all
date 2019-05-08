@@ -55,8 +55,8 @@ defmodule InfoWeb.Checker do
 
   use InfoWeb.Types
 
-# import Common, only: [ii: 2]
-  import Common, only: [get_http_port: 0, str_list: 1]
+  import Common, only: [ # ii: 2,
+    get_http_port: 0, str_list: 1]
 
   alias InfoWeb.{External, Internal, Server, Snapshot}
 

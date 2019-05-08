@@ -1,7 +1,7 @@
 # .../PA_elixir/.gitignore
 
-# working notes.
-/PA_about/
+# draft articles, working notes, etc.
+/_ignored/
 
 # Chef code. (WIP)
 /PA_chef/

@@ -30,8 +30,8 @@ defmodule InfoToml.KeyVal do
 
   use InfoToml.Types
 
-# import Common, only: [ii: 2]
-  import Common, only: [keyss: 1]
+  import Common, only: [ # ii: 2,
+    keyss: 1]
 
   # Public functions
 

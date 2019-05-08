@@ -42,8 +42,8 @@ defmodule InfoToml.Server do
   use InfoToml.Types
 
   import InfoToml.Common, only: [get_file_abs: 1]
-# import Common,          only: [ii: 2]
-  import Common,          only: [keyss: 1]
+  import Common, only: [ # ii: 2,
+    keyss: 1]
 
   alias InfoToml.{CheckTree, IndexTree, LoadTree, Schemer}
 
@@ -296,7 +296,7 @@ defmodule InfoToml.Server do
   # Load and index a set of TOML files.
   # Used by both `first_load/0` and `reload/0`.
 
-    IO.puts "\n>>> Begin loading TOML files..."
+    Common.lts "Begin loading of TOML files." #T
 
     toml_map    = LoadTree.load(old_map)
     toml_ndx    = IndexTree.index(toml_map)
@@ -311,7 +311,7 @@ defmodule InfoToml.Server do
 #   ii(keyss(toml_map), "keyss(toml_map)") #T
 #   ii(toml_ndx, "toml_ndx") #T
 
-    IO.puts "\n>>> End loading TOML files...\n"
+    Common.lts "End loading of TOML files." #T
 
     {status, messages, toml_map}
   end

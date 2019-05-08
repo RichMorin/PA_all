@@ -4,13 +4,19 @@ defmodule InfoToml.Emitter do
 #
 # Public functions
 #
+#   chef_save/1
+#     Save a file of Chef control data, in TOML format.
 #   emit_toml/2
 #     Emit a TOML file.  Return path to the file.
+#   get_chef_toml/2
+#     Generate an IO list containing TOML for a Chef build.
 #   get_item_toml/2
 #     Generate an IO list containing TOML for `item_map`.
 #
 # Private functions
 #
+#   fmt_leaf/2
+#     Format a leaf node for output.
 #   get_file_path/1
 #     Generate a file name, based on the current date and time.
 #   reorder_bases/1
@@ -22,10 +28,28 @@ defmodule InfoToml.Emitter do
 
   use InfoToml.Types
 
-# import Common, only: [ii: 2]
-  import Common, only: [keyss: 1]
+  import Common, only: [ ii: 2,
+    keyss: 1]
 
   # Public functions
+
+  @doc """
+  Save a file of Chef control data, in TOML format.
+  """
+
+  @spec chef_save(atom) :: s when s: String.t
+
+  def chef_save(target) do
+  #
+  # iex> InfoToml.Emitter.chef_save(:arch)
+  # iex> InfoToml.Emitter.chef_save(:debian)
+
+    toml_text   = get_chef_toml(target)
+    base_path   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_chef" #K
+    insert      = ".chef.#{ target }"
+    emit_toml(base_path, insert, toml_text)
+    |> ii(:chef_save) #T
+  end
 
   @doc """
   Emit a TOML file.  Return the absolute file path.
@@ -37,18 +61,73 @@ defmodule InfoToml.Emitter do
   simply result in a concatenated set of entries.  Of course, if the IO
   subsystem decides to interleave the data, things could get ugly...
   """
-  @spec emit_toml(s, any) :: s when s: String.t
+  @spec emit_toml(s, s, any) :: s when s: String.t
 
-  def emit_toml(base_path, toml_text) do
+  def emit_toml(base_path, insert, toml_text) do
 
-    file_path   = get_file_path(base_path)
+    file_path   = get_file_path(base_path, insert)
+    file_name   = String.replace(file_path, ~r{ ^ .* / }x, "")
+    heading     = "# #{ file_name }\n\n"
     toml_out    = "#{ toml_text }\n\n\n"
 
     {:ok, file} = File.open(file_path, [:write, :append])
-    IO.binwrite(file, toml_out)
+    IO.binwrite(file, heading <> toml_out)
     File.close(file)
 
     file_path
+  end
+
+  @doc """
+  Generate a TOML string for use in controlling a build.  A sample entry
+  should look something like this:
+  
+      [ 'Atril' ]
+
+        actions     = 'build, publish'
+        package     = 'ext_pd|stretch/atril'
+        precis      = 'the official document viewer for MATE'
+        title       = 'Atril'
+  """
+
+  @spec get_chef_toml(atom) :: [ String.t ]
+
+  def get_chef_toml(target) do
+
+    reduce_fn   = fn {main_key, title, precis}, acc ->
+      main_data   = InfoToml.get_item(main_key)
+      meta        = main_data.meta
+      actions     = meta.actions
+      id_str      = meta.id_str
+
+      make_data   = main_key
+      |> String.replace_suffix("/main.toml", "/make.toml")
+      |> InfoToml.get_item()
+
+      gi_list     = [ :os, target, :package ]
+      package     = get_in(make_data, gi_list) || ""
+
+      item_str = """
+      [ '#{ id_str }' ]
+      
+      #{ fmt_leaf("actions",  actions) <>
+         fmt_leaf("package",  package) <>
+         fmt_leaf("precis",   precis)  <>
+         fmt_leaf("title",    title) }
+      """
+
+      [ item_str | acc ]
+    end
+
+    filter_fn   = fn {key, _title, _precis} ->
+      String.ends_with?(key, "/main.toml")
+    end
+
+    "Areas/Catalog/Software/"
+    |> InfoToml.get_items()         # [ {key, title, precis}, ... ]
+    |> Enum.filter(filter_fn)       # Only keep ".../main.toml"
+    |> Enum.reverse()               # Item tuples,  in reverse order.
+    |> Enum.reduce([], reduce_fn)   # Item strings, in reverse order.
+    |> Enum.reverse()               # Item strings, in forward order.
   end
 
   @doc """
@@ -74,22 +153,7 @@ defmodule InfoToml.Emitter do
         if is_map(leaf_val) do
           acc
         else
-          padded_key  = String.pad_trailing(key_str, 11)
-          key_etc     = "  #{ padded_key } = "
-          val_etc     = cond do
-            String.contains?(leaf_val, "\n") ->
-              tidied  = leaf_val
-              |> String.replace(~r{ \r }x, "")
-              |> String.trim_trailing()
-
-              "'''\n#{ tidied }\n'''\n"
-            String.contains?(leaf_val, "'") ->
-              "\"#{ leaf_val }\"\n"
-            true  ->
-              "'#{ leaf_val }'\n"
-          end
-
-          [ val_etc, key_etc | acc ]
+          [ fmt_leaf(key_str, leaf_val) | acc ]
         end
       end
 
@@ -116,9 +180,33 @@ defmodule InfoToml.Emitter do
 
   # Private Functions
 
-  @spec get_file_path(s) :: s when s: String.t
+  @spec fmt_leaf(s, s) :: s when s: String.t
 
-  defp get_file_path(base_path) do
+  defp fmt_leaf(key_str, leaf_val) do
+  #
+  # Format a leaf node for output.
+
+    padded_key  = String.pad_trailing(key_str, 11)
+    key_etc     = "  #{ padded_key } = "
+    val_etc     = cond do
+      String.contains?(leaf_val, "\n") ->
+        tidied  = leaf_val
+        |> String.replace(~r{ \r }x, "")
+        |> String.trim_trailing()
+
+        "'''\n#{ tidied }\n'''\n"
+      String.contains?(leaf_val, "'") ->
+        "\"#{ leaf_val }\"\n"
+      true  ->
+        "'#{ leaf_val }'\n"
+    end
+
+    key_etc <> val_etc
+  end
+
+  @spec get_file_path(s, s) :: s when s: String.t
+
+  defp get_file_path(base_path, insert) do
   #
   # Generate a file name (eg, `2019-02-23T04:44:36.315737Z.toml`), based
   # on the current (ISO 8601) date and time.  If need be, generate a
@@ -146,7 +234,7 @@ defmodule InfoToml.Emitter do
       end
     end
 
-    "#{ dir_path }/#{ iso8601 }.toml"
+    "#{ dir_path }/#{ iso8601 }#{ insert }.toml"
 #   |> ii("file_path") #T
   end
 

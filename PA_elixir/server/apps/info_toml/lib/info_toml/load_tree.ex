@@ -18,7 +18,7 @@ defmodule InfoToml.LoadTree do
 #   do_tree/2
 #     Traverse the TOML file tree, attempting to load each file.
 #   file_paths/1
-#     Get a list of relative paths to TOML files.
+#     Get a sorted list of relative paths to TOML files.
 #   get_key/1
 #     Convert a relative TOML file path into a map key.
 #   path_prep/2
@@ -175,6 +175,7 @@ defmodule InfoToml.LoadTree do
   # Traverse the TOML file tree, attempting to load each file.
 
     file_fn   = fn {file_rel, id_num} ->
+#     Common.ii(file_rel, :file_rel) #T
       do_file(file_rel, id_num, schemas)
     end
 
@@ -191,11 +192,13 @@ defmodule InfoToml.LoadTree do
 
   defp file_paths(tree_abs) do
   #
-  # Get a list of relative paths to TOML files.
+  # Get a sorted list of relative paths to TOML files.
   # Ignore files in `_tests` unless we're being run in `:test` mode.
 
     glob_patt   = "#{ tree_abs }/**/*.toml"
-    raw_paths   = Path.wildcard(glob_patt)
+    raw_paths   = glob_patt
+    |> Path.wildcard()
+    |> Enum.sort()
 
     map_fn      = fn file_abs ->
       rel_path(tree_abs, file_abs)

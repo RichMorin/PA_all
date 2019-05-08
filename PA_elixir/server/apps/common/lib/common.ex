@@ -60,6 +60,12 @@ defmodule Common do
   defdelegate keyss(map),             to: Maps
 
   @doc """
+  Print a labeled time stamp.
+  ([`...Tracing.lts/1`](Common.Tracing.html#lts/1))
+  """
+  defdelegate lts(label),             to: Tracing
+
+  @doc """
   Is this our sort of Map tree?
   ([`...Maps.our_tree/1`](Common.Maps.html#our_tree/1))
   """

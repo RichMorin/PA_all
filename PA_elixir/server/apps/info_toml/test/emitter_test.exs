@@ -29,18 +29,22 @@ defmodule InfoTomlTest.Emitter do
   test "emits file and returns file path" do
     base_path   = "/tmp"
     toml_text   = "This is a text.\nThis is only a text."
-    file_path   = Emitter.emit_toml(base_path, toml_text)
+    file_path   = Emitter.emit_toml(base_path, ".test", toml_text)
+    # "/tmp/2019-03-20T03/2019-03-20T03:18:43.276976Z.test.toml"
 
-    # "/tmp/2019-03-20T03/2019-03-20T03:18:43.276976Z.toml"
     pattern     = ~r<
       ^ /tmp/
       (\d{4}-\d{2}-\d{2}T\d{2}) /
-      \1 :\d{2}:\d{2}\.\d{6}Z\.toml $
+      \1 :\d{2}:\d{2}\.\d{6}Z\.test.toml $
     >x
     assert file_path =~ pattern
 
+    file_name   = String.replace(file_path, ~r{ ^ .* / }x, "")
+    # "2019-03-20T03:18:43.276976Z.test.toml"
+
     file_data   = File.read!(file_path)
-    assert file_data == toml_text <> "\n\n\n"
+    test_data   = "# #{ file_name }\n\n#{ toml_text }\n\n\n"
+    assert file_data == test_data
   end
 
   test "generates TOML", state do
@@ -52,11 +56,11 @@ defmodule InfoTomlTest.Emitter do
         "# id_str/main.toml\n",
         [
           [ "\n[ meta ]\n\n",
-            "  actions     = ", "'actions'\n",
-            "  id_str      = ", "'id_str'\n" ],
+            "  actions     = 'actions'\n",
+            "  id_str      = 'id_str'\n" ],
           [ "\n[ about ]\n\n",
-            "  precis      = ", "'precis'\n",
-            "  verbose     = ", "'verbose'\n" ]
+            "  precis      = 'precis'\n",
+            "  verbose     = 'verbose'\n" ]
         ],
         "\n"
       ]
