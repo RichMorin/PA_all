@@ -6,6 +6,8 @@ defmodule Common.Zoo do
 #
 #   get_http_port/0
 #     Get a string indicating the current HTTP PORT.
+#   get_rel_path/2
+#     Convert an absolute file path into a relative path.
 #   get_run_mode/0
 #     Get an Atom indicating the current run mode.
 #   get_tree_base/0
@@ -17,7 +19,7 @@ defmodule Common.Zoo do
   This module contains miscellaneous functions for common use.
   """
 
-# import Common, only: [ii: 2]
+  import Common, warn: false, only: [ii: 2]
 
   # Public functions
 
@@ -29,6 +31,20 @@ defmodule Common.Zoo do
 
   def get_http_port() do #K
     System.get_env("PORT") || "4000"
+  end
+
+  @doc """
+  Convert an absolute file path into a relative path.
+  """
+
+  @spec get_rel_path(s, s) :: s when s: String.t
+
+  def get_rel_path(tree_abs, file_abs) do
+
+    base_len  = byte_size(tree_abs) + 1
+    trim_len  = byte_size(file_abs) - base_len
+
+    file_abs |> binary_part(base_len, trim_len)
   end
 
   @doc """

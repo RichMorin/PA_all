@@ -1,10 +1,10 @@
-<!-- templates/item/_edit_form.html.eex -->
+<!-- templates/edit/_edit_form.html.eex -->
 
 <%
-  alias PhxHttpWeb.ItemView
+  alias PhxHttpWeb.EditView
   import PhxHttpWeb.LayoutView, only: [hide_show: 2]
 
-  action  = Routes.item_path(@conn, :edit_post)
+  action  = Routes.edit_path(@conn, :edit_post)
 %>
 
 <%= form_for @conn, action, [], fn _fn -> %>
@@ -34,7 +34,7 @@
         <%=
           gi_path     = [ :user ]
 
-          render ItemView, "_edit_flds.html",
+          render EditView, "_edit_flds.html",
             keys:   ~w(email_addr full_name)a,
             map_i:  get_in(@item, gi_path),
             map_s:  user_schema,
@@ -42,7 +42,7 @@
         %>
       <% else %>
         <%=
-          render ItemView, "_edit_flds.html",
+          render EditView, "_edit_flds.html",
             keys:   nil,
             map_i:  nil,
             map_s:  user_schema,
@@ -52,25 +52,18 @@
 
       <%=                                 # [ meta ]
         gi_path     = [ :meta ]
-        meta_keys   = ~w(id_str provider provides title)a
+        meta_keys   = ~w(id_str title)a
 
-        render ItemView, "_edit_flds.html",
+        render EditView, "_edit_flds.html",
           keys:   meta_keys,
           map_i:  get_in(@item,   gi_path),
           map_s:  get_in(@schema, gi_path),
           title:  "meta"
       %>
 
-      <%                                  # [ meta.tags ], ...
+      <%                                  # [ meta.refs ], ...
         gi_paths  = [
-          [ :meta,    :tags     ],
-          [ :about              ],
-          [ :address, :document ],
-          [ :address, :email    ],
-          [ :address, :phone    ],
-          [ :address, :postal   ],
-          [ :address, :related  ],
-          [ :address, :web_site ],
+          [ :meta,      :refs       ],
         ]
       %>
 
@@ -78,7 +71,32 @@
         <%=
           title   = Enum.join(gi_path, ".")
 
-          render ItemView, "_edit_flds.html",
+          render EditView, "_edit_flds.html",
+            keys:   nil,
+            map_i:  get_in(@item,   gi_path),
+            map_s:  get_in(@schema, gi_path),
+            title:  title
+        %>
+      <% end %>
+
+      <%                                  # [ meta.tags ], ...
+        gi_paths  = [
+          [ :meta,      :tags       ],
+          [ :about                  ],
+          [ :address,   :document   ],
+          [ :address,   :email      ],
+          [ :address,   :phone      ],
+          [ :address,   :postal     ],
+          [ :address,   :related    ],
+          [ :address,   :web_site   ],
+        ]
+      %>
+
+      <%= for gi_path <- gi_paths do %>
+        <%=
+          title   = Enum.join(gi_path, ".")
+
+          render EditView, "_edit_flds.html",
             keys:   nil,
             map_i:  get_in(@item,   gi_path),
             map_s:  get_in(@schema, gi_path),
@@ -87,7 +105,7 @@
       <% end %>
 
     </div>
-    <%= render ItemView, "_edit_btns.html" %>
+    <%= render EditView, "_edit_btns.html" %>
   </div>
 
 <% end %>

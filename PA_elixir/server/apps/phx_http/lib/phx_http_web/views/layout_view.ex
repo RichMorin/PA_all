@@ -22,7 +22,7 @@ defmodule PhxHttpWeb.LayoutView do
   This module contains functions to format the overall page.
   """
 
-  use InfoToml.Types
+  use Common.Types
   use Phoenix.HTML
   use PhxHttpWeb, :view
   use PhxHttp.Types
@@ -178,7 +178,7 @@ defmodule PhxHttpWeb.LayoutView do
   # Render the appropriate `hs_*.html` file.
 
     t_str   = inp_str <> ", ???" #K
-    titles  = str_list(t_str)
+    titles  = csv_split(t_str)
 
     assigns = %{
       hs_level:   level,

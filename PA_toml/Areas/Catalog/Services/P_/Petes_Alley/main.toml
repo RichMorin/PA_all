@@ -1,0 +1,47 @@
+# cat_ser|Petes_Alley/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Petes_Alley'
+  title       = "Pete's Alley"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'web'
+  produces    = 'articles, catalog'
+
+[ about ]
+
+  access      = '''
+Pete's Alley attempts to follow [best practices]{ext_wp|Best_practice}
+in accessible and inclusive web design.
+See [Pete's Alley - Accessibility]{con_voe|PA_Accessibility} for details.
+'''
+
+  precis      = "an online resource for the disabled community"
+
+  verbose     = '''
+> This site is an online resource for the disabled community,
+including their friends, relatives, and other supporters.
+It will index and review resources, provide communication channels, etc.
+
+> By way of explanation,
+although the word “alley” is meant to suggest an informal gathering spot,
+it’s also a pun on “a11y” (popular shorthand for “accessibility”).
+In a similar vein, folks who contribute to the effort
+are known as “Pete’s Allies”.
+
+> -- [$url]{/text?key=_text/about.toml}
+'''
+
+[ address.web_site ]
+
+  about       = '/text?key=_text/about.toml'
+  main        = '/'

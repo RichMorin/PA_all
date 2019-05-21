@@ -28,10 +28,9 @@ defmodule InfoToml.KeyVal do
   This module implements key/value usage analysis for InfoToml.
   """
 
-  use InfoToml.Types
+  use Common.Types
 
-  import Common, only: [ # ii: 2,
-    keyss: 1]
+  import Common, warn: false, only: [ ii: 2, keyss: 1 ]
 
   # Public functions
 

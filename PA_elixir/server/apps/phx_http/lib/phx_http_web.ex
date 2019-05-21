@@ -33,8 +33,9 @@ defmodule PhxHttpWeb do
       alias PhxHttpWeb.Router.Helpers, as: Routes
 
       # Bring in shared helpers
-      import Common
-#     import InfoToml.Common
+
+      import Common, only: [ base_26: 1, csv_split: 1,
+        get_http_port: 0, get_run_mode: 0, get_tree_base: 0, keyss: 1 ]
       import PhxHttpWeb.ControllerHelpers
     end
   end
@@ -59,8 +60,9 @@ defmodule PhxHttpWeb do
       alias PhxHttpWeb.Router.Helpers, as: Routes
 
       # Bring in shared helpers
-      import Common
-#     import InfoToml.Common
+
+      import Common, only: [ add_s: 2, csv_join: 1, csv_split: 1,
+        get_http_port: 0, keyss: 1 ]
       import PhxHttpWeb.FormatHelpers
       import PhxHttpWeb.KeyHelpers
       import PhxHttpWeb.LinkHelpers

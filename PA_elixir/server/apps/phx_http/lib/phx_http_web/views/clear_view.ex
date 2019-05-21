@@ -22,7 +22,7 @@ defmodule PhxHttpWeb.ClearView do
   This module contains functions to format parts of a Search page.
   """
 
-  use InfoToml.Types
+  use Common.Types
   use Phoenix.HTML
   use PhxHttpWeb, :view
   use PhxHttp.Types

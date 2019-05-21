@@ -24,9 +24,9 @@ defmodule InfoToml.Parser do
   This module handles reading and parsing of data from a TOML file.
   """
 
-  use InfoToml.Types
+  use Common.Types
 
-# import Common, only: [ii: 2]
+  import Common, warn: false, only: [ii: 2]
 
   # Public functions
 

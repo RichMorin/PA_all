@@ -21,6 +21,28 @@ defmodule PhxHttpWeb.ControllerHelpers do
   # Public functions
 
   @doc """
+  This function performs several base assigns:
+  
+  - :item       - item map, if any
+  - :key        - item key, if any
+  - :page_type  - page type atom
+  - :title      - page title string
+  """
+
+  @spec base_assigns(pc, atom, s, map|nil, s|nil) :: pc
+    when pc: Plug.Conn.t(), s: String.t #W
+
+  def base_assigns(conn, page_type, title, item \\ nil, key \\ nil) do
+    import Plug.Conn, only: [ assign: 3 ]
+
+    conn
+    |> assign(:item,      item)
+    |> assign(:key,       key)
+    |> assign(:page_type, page_type)
+    |> assign(:title,     title)
+  end
+
+  @doc """
   This function is called when a key is not recognized.  It sets up an error
   flash and redirects to the home page.
   """

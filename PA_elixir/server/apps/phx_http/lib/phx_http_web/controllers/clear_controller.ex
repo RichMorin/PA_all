@@ -29,11 +29,9 @@ defmodule PhxHttpWeb.ClearController do
     sess_tag_sets   = get_session(conn, :tag_sets) || []
 
     conn
-    |> assign(:item,            nil)
-    |> assign(:key,             nil)
+    |> base_assigns(:search_c, "PA Clear")
     |> assign(:page_type,       :search_c)
     |> assign(:sess_tag_sets,   sess_tag_sets)
-    |> assign(:title,           "PA Clear")
     |> render("clear.html")
   end
 

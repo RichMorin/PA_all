@@ -16,25 +16,20 @@ defmodule InfoToml.CheckItem do
 #   check_refs_ok/2
 #     Check whether any ref is missing a prefix string.
 #   check_required/3
-#     Check whether all of the required map keys) are present.
+#     Check whether all of the required map keys are present.
 #   check_values/2
 #     Check the values (ie, leaf nodes) for problems.
 #   check_values_h/3
 #     Recurse through an item, checking values.
-#   get_schema/2
-#     Select the appropriate schema.
-#   leaf_paths/[13]
-#     Get a list of access paths for the leaf nodes of a tree of maps.
-#   leaf_paths_h/2
-#     Recursive helpers for leaf_paths/3
 
   @moduledoc """
   This module checks maps that were loaded from a TOML file.
   """
 
-  use InfoToml.Types
+  use Common.Types
 
-  import Common, only: [get_http_port: 0, str_list: 1]
+  import Common, only: [ csv_split: 1, get_http_port: 0, leaf_paths: 1 ]
+  import InfoToml.Schemer, only: [ get_schema: 2 ]
 
   # Public functions
 
@@ -104,7 +99,7 @@ defmodule InfoToml.CheckItem do
     actions     = inp_map             # %{ meta: %{...}, ... }
     |> get_in([:meta, :actions])      # "publish, build"
     |> to_string()                    # handle nil, if need be
-    |> str_list()                     # [ "publish", "build" ]
+    |> csv_split()                    # [ "publish", "build" ]
 
     has_draft   = Enum.member?(actions, "draft")
     has_publish = Enum.member?(actions, "publish")
@@ -123,7 +118,7 @@ defmodule InfoToml.CheckItem do
 
   defp check_refs_ok(inp_map, file_key) do
   #
-  # Check whether any ref has a major syntax problem.
+  # Check whether any meta.ref value has a major syntax problem.
   # ToDo:  Check ref prefixes against `InfoToml.Common.exp_map/0`.
 
     gi_path     = [ :meta, :refs ]
@@ -137,7 +132,7 @@ defmodule InfoToml.CheckItem do
 
     reject_fn   = fn {_type, ref_str} ->  # Retain invalid entries.
       ref_str
-      |> str_list()
+      |> csv_split()
       |> Enum.filter(filter_fn)
       |> Enum.empty?()
     end
@@ -180,7 +175,7 @@ defmodule InfoToml.CheckItem do
     end
 
     bogons  = schema[:_required]        # "meta, meta.actions, ..."
-    |> str_list()                       # [ "meta", "meta.actions", ...]
+    |> csv_split()                      # [ "meta", "meta.actions", ...]
     |> Enum.filter(bogon_fn)            # [ "meta", "meta.actions", ...]
 
     if Enum.empty?(bogons) do
@@ -249,46 +244,5 @@ defmodule InfoToml.CheckItem do
     end
     |> List.flatten()
   end
-
-  @spec get_schema(map, s) :: map when s: String.t
-
-  defp get_schema(schemas, file_key) do
-  #
-  # Work around file system naming vagaries to select the appropriate schema.
-
-    schema_key = cond do
-      file_key =~ ~r{ ^ .* / text \. \w+ \. toml $ }x ->  "_schemas/text.toml"
-      file_key =~ ~r{ _text / \w+ \. toml $ }x        ->  "_schemas/text.toml"
-      file_key =~ ~r{ / _area \. toml $ }x            ->  "_schemas/area.toml"
-      true    ->  String.replace(file_key, ~r{ ^ .+ / }x, "_schemas/")
-    end
-
-    schemas[schema_key]
-  end
-
-  # Get a list of data structure access paths, as used in `get_in/2`, for
-  # the leaf nodes of a tree of maps.  The code below was adapted slightly
-  # from a reply by Peer Reynders (peerreynders) to a help request on the
-  # Elixir Forum: `https://elixirforum.com/t/17715`.
-
-  @spec leaf_paths(item_map) :: [ [ atom | String.t ] ]
-
-  defp leaf_paths(tree), do: leaf_paths(tree, [], [])
-
-  @spec leaf_paths(item_map, l, l) :: l when l: [ [ atom | String.t ] ]
-
-  defp leaf_paths(tree, parent_path, paths) do
-    {_, paths} = Enum.reduce(tree, {parent_path, paths}, &leaf_paths_h/2)
-    paths
-  end
-
-  @spec leaf_paths_h({atom, any}, {item_path, item_paths}) ::
-    {String.t, [ item_part ] }
-
-  defp leaf_paths_h({key, value}, {parent_path, paths}) when is_map(value), do:
-    {parent_path, leaf_paths(value, [ key | parent_path ], paths) }
-
-  defp leaf_paths_h({key, _value}, {parent_path, paths}), do:
-    {parent_path, [ :lists.reverse( [ key | parent_path ] ) | paths ] }
 
 end

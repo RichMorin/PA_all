@@ -1,0 +1,61 @@
+# cat_gro|AccessMap/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'AccessMap'
+  title       = 'AccessMap'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision, mobility'
+  produces    = 'advocacy, data, software, standards'
+  roles       = 'organization'
+  standards   = 'OSM'
+  supports    = 'daily living, mobility'
+
+[ about ]
+
+  precis      = 'assist people with disabilities in route planning'
+
+  verbose     = '''
+The AccessMap team is building a mapping application
+that creates interactive map displays of the physical environment
+in and around pedestrian ways.
+Our aim is to enhance representations to assist people with disabilities
+in planning their routes.
+The application incorporates mapping, GIS data, municipality-specific data,
+transportation information, and eventually weather and other state-specific
+information like construction. 
+
+> -- [$url]{https://vip.uw.edu/teams/accessmap}
+'''
+
+[ address.email ]
+
+  info        = 'accessmap.info@gmail.com'
+
+[ address.related ]
+
+  github      = 'ext_gh|AccessMap'
+
+  twitter     = 'ext_tw|accessmapsea'
+
+  youtube     = 'ext_yt|watch?v=Brm4Fps9Dhw'
+
+  zoo         = '''
+https://wiki.openstreetmap.org/wiki/Seattle\\,_Washington/Sidewalk_Import
+'''
+
+[ address.web_site ]
+
+  main        = 'https://www.accessmap.io'
+
+  zoo         = '''
+https://vip.uw.edu/teams/accessmap
+'''

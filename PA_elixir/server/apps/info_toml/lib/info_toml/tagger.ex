@@ -11,7 +11,7 @@ defmodule InfoToml.Tagger do
   This module implements tag usage analysis for InfoToml.
   """
 
-  use InfoToml.Types
+  use Common.Types
 
   alias InfoToml.KeyVal
 

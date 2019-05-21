@@ -15,7 +15,8 @@ defmodule PhxHttpWeb.DashView do
 
   use PhxHttpWeb, :view
 
-# import Common, only: [ii: 2]
+  import Common, warn: false,
+    only: [ csv_split: 1, get_http_port: 0, ii: 2, keyss: 1 ]
 
   # Public functions
 
@@ -43,7 +44,7 @@ defmodule PhxHttpWeb.DashView do
 
       reduce_fn1a = fn {tag_type, tag_str}, acc ->
         tag_cnt   = tag_str
-        |> str_list()
+        |> csv_split()
         |> Enum.count()
 
         Map.put(acc, tag_type, tag_cnt)

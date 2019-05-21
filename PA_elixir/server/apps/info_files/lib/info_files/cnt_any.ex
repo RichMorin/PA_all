@@ -23,7 +23,7 @@ defmodule InfoFiles.CntAny do
   functions, lines, and characters.
   """
 
-  import Common
+  import Common, only: [ii: 2]
 
   # Public functions
 

@@ -1,10 +1,10 @@
-# info_toml/lib/types.ex
+# common/lib/types.ex
 
-defmodule InfoToml.Types do
+defmodule Common.Types do
 
   @moduledoc """
-  This module defines types for use throughout `InfoToml`.  It doesn't contain
-  any functions, just `@type` attributes.
+  This module defines types for use throughout Pete's Alley.  It doesn't
+  contain any functions, just `@type` attributes.
   """
 
 # @spec - ToDo

@@ -23,6 +23,9 @@ defmodule PhxHttpWeb.Router do
     get   "/area",            AreaController,     :show
     get   "/reload",          AreaController,     :reload
 
+    get   "/clear",           ClearController,    :clear_form
+    post  "/clear",           ClearController,    :clear_post
+
     get   "/dash",            DashController,     :show
     get   "/dash/code",       DashController,     :show_code
     get   "/dash/data",       DashController,     :show_data
@@ -31,17 +34,16 @@ defmodule PhxHttpWeb.Router do
     get   "/dash/refs",       DashController,     :show_refs
     get   "/dash/tags",       DashController,     :show_tags
 
+    get   "/edit",            EditController,     :edit_form
+    post  "/edit",            EditController,     :edit_post
+
     get   "/item",            ItemController,     :show
-    get   "/item/edit",       ItemController,     :edit_form
-    post  "/item/edit",       ItemController,     :edit_post
 
     get   "/mail/feed",       MailController,     :feed_form
     post  "/mail/feed",       MailController,     :feed_post
 
     get   "/search/find",     SearchController,   :find
     post  "/search/show",     SearchController,   :show
-    get   "/search/clear",    ClearController,    :clear_form
-    post  "/search/clear",    ClearController,    :clear_post
 
     get   "/source",          SourceController,   :show
     get   "/source/down",     SourceController,   :down

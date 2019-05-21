@@ -28,12 +28,12 @@ defmodule PhxHttpWeb.ItemView do
   This module contains functions to format parts of an item map for display.
   """
 
-  use InfoToml.Types
+  use Common.Types
   use Phoenix.HTML
   use PhxHttpWeb, :view
   use PhxHttp.Types
 
-  import InfoToml, only: [exp_prefix: 1]
+  import InfoToml, only: [ exp_prefix: 1 ]
 
   alias  PhxHttpWeb.LayoutView
 
@@ -170,7 +170,7 @@ defmodule PhxHttpWeb.ItemView do
 
     items_fn  = fn key ->
       links = out_map[key]      # "url, ..."
-      |> str_list()             # [ "url", ... ]
+      |> csv_split()            # [ "url", ... ]
       |> Enum.map(item_fn)      # [ "<a href='url'>url</a>", ... ]
 
       if Enum.count(links) == 1 do
@@ -229,7 +229,7 @@ defmodule PhxHttpWeb.ItemView do
 
     reduce_fn   = fn ({key, inp_val}, acc) ->
       out_val  = inp_val
-      |> str_list()
+      |> csv_split()
       |> Enum.map(map_fn)
       |> Enum.join(", ")
 

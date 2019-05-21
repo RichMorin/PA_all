@@ -19,9 +19,9 @@ defmodule PhxHttpWeb.KeyHelpers do
   Handle tasks related to `toml_map` keys.
   """
 
+  use Common.Types
   use Phoenix.HTML
   use PhxHttp.Types
-  use InfoToml.Types
 
   import InfoToml, only: [get_item: 1]
 

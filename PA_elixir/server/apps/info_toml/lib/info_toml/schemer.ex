@@ -6,6 +6,8 @@ defmodule InfoToml.Schemer do
 #
 #   get_prefix/0
 #     Load the prefix file (.../config/prefix.toml).
+#   get_schema/2
+#     Work around file system naming vagaries to select the appropriate schema.
 #   get_schemas/1
 #     Load schemas for a tree of TOML files.
 #
@@ -23,7 +25,7 @@ defmodule InfoToml.Schemer do
   based on a collection of schema files (`_schema/*.toml`).
   """
 
-  use InfoToml.Types
+  use Common.Types
 
   import InfoToml.Common, only: [get_file_abs: 1]
 
@@ -40,6 +42,24 @@ defmodule InfoToml.Schemer do
     |> get_file_abs()                   # "/.../_config/prefix.toml"
     |> InfoToml.Parser.parse(:atoms)    # %{ meta: %{...}, ... }
     |> Map.get(:prefix)                 # %{ ext_wp: "...", ... }
+  end
+
+  @doc """
+  Work around file system naming vagaries to select the appropriate schema.
+  """
+
+  @spec get_schema(map, s) :: map when s: String.t
+
+  def get_schema(schemas, file_key) do
+
+    schema_key = cond do
+      file_key =~ ~r{ ^ .* / text \. \w+ \. toml $ }x ->  "_schemas/text.toml"
+      file_key =~ ~r{ _text / \w+ \. toml $ }x        ->  "_schemas/text.toml"
+      file_key =~ ~r{ / _area \. toml $ }x            ->  "_schemas/area.toml"
+      true    ->  String.replace(file_key, ~r{ ^ .+ / }x, "_schemas/")
+    end
+
+    schemas[schema_key]
   end
 
   @doc """

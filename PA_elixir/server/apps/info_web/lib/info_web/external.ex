@@ -14,7 +14,7 @@ defmodule InfoWeb.External do
 
   use InfoWeb.Types
 
-  import Common, only: [ii: 2]
+  import Common, only: [ ii: 2 ]
 
   # Public functions
 

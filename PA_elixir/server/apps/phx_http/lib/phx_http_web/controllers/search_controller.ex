@@ -17,14 +17,6 @@ defmodule PhxHttpWeb.SearchController do
 #     Return a list of query tuples.
 #   get_tag_sets/2
 #     Save the new tag set in the session; return all tag sets.
-#   munge/1
-#     Filter params, shard by form section, then rework the results.
-#   munge_filter/1
-#     Discard extraneous and meaningless params, then shard by type.
-#   munge_map_d/1
-#     Map the "defined" parameters into a list of tags, then sort it.
-#   munge_map_r/1
-#     Map the "reused" parameters into a list of specifications.
 #   retrieve/3
 #     Retrieve the requested data, based on the query.
 #   structure/1
@@ -35,9 +27,12 @@ defmodule PhxHttpWeb.SearchController do
   portion of the `toml_map`.
   """
 
-  use InfoToml.Types
+  use Common.Types
   use PhxHttp.Types
   use PhxHttpWeb, :controller
+
+  import Common, only: [ base_26: 1, get_run_mode: 0, ii: 2 ]
+  import PhxHttpWeb.SearchMunger, only: [ munge: 1 ]
 
   # Public functions
 
@@ -52,12 +47,9 @@ defmodule PhxHttpWeb.SearchController do
     sess_tag_sets   = get_session(conn, :tag_sets) || %{}
 
     conn
-    |> assign(:item,            nil)
-    |> assign(:key,             nil)
-    |> assign(:page_type,       :search_f)
+    |> base_assigns(:search_f, "PA Search")
     |> assign(:sess_tag_sets,   sess_tag_sets)
     |> assign(:tag_info,        tag_info)
-    |> assign(:title,           "PA Search")
     |> render("find.html")
   end
 
@@ -120,15 +112,12 @@ defmodule PhxHttpWeb.SearchController do
     end
 
     conn
+    |> base_assigns(:search_r, "PA Search")
     |> assign(:cur_set,     cur_set)
-    |> assign(:item,        nil)
-    |> assign(:key,         nil)
-    |> assign(:page_type,   :search_r)
     |> assign(:queries_r,   queries_r)
     |> assign(:results_i,   structure(results_i))
     |> assign(:results_u,   structure(results_u))
     |> assign(:tags_d,      tags_d)
-    |> assign(:title,       "PA Search")
     |> render("show.html")
   end
 
@@ -193,82 +182,6 @@ defmodule PhxHttpWeb.SearchController do
     {conn, tag_sets}
   end
 
-  @spec munge( [ {s, s} ] ) :: { [s], [ {s,s} ]} when s: String.t #W
-
-  defp munge(params) do
-  #
-  # Filter params, shard by form section, then rework the structures
-  # into defined tags (tags_d) and reuse specifications (specs_r).
-
-    {params_d, params_r}  = munge_filter(params)
-
-    tags_d    = params_d |> munge_map_d()
-    specs_r   = params_r |> munge_map_r()
-
-    {tags_d, specs_r}
-#   |> ii("munged")
-  end
-
-  @spec munge_filter( [ {s, s} ] ) :: {s_pairs, s_pairs} when s: String.t #W
-
-  defp munge_filter(params) do
-  #
-  # Discard extraneous and meaningless params, then shard by type.
-
-    filter_fn_d = fn {_key, val} -> String.starts_with?(val, "d:") end
-    filter_fn_r = fn {_key, val} -> String.starts_with?(val, "r:") end
-
-    reject_fn = fn {key, val} ->
-      String.starts_with?(key, "_")       ||
-      String.starts_with?(val, "d:n:")    ||
-      String.starts_with?(val, "r:none")
-    end
-
-    my_params   = params    |> Enum.reject(reject_fn)
-
-    params_d    = my_params
-    |> Enum.filter(filter_fn_d)   # [ {"f_authors__...", "d:y:f_authors:..."} ]
-
-    params_r    = my_params
-    |> Enum.filter(filter_fn_r)   # [ {"r_a", "r:any"} ]
-
-    {params_d, params_r}
-  end
-
-  @spec munge_map_d(s_pairs) :: [ String.t ] #W
-
-  defp munge_map_d(input) do
-  #
-  # Map the "defined" parameters into a list of tags, then sort it.
-
-    map_fn      = fn {_key, val} ->
-      trim_patt = ~r{ ^ [a-z] : [a-z]+ : }x
-      trim_fn   = fn val -> String.replace(val, trim_patt, "") end
-      trim_fn.(val)
-    end
-
-    input                         # [ { "...", "..." }, ... ]
-    |> Enum.map(map_fn)           # [ "roles:...", ... ]
-    |> Enum.sort()                # [ "roles:...", ... ] (sorted)
-  end
-
-  @spec munge_map_r(s_pairs) :: s_pairs #W
-
-  defp munge_map_r(input) do
-  #
-  # Map the "reused" parameters into a list of specifications.
-
-    map_fn     = fn {inp_name, inp_sel} ->
-      out_name = inp_name |> String.replace_prefix("r_", "")
-      out_sel  = inp_sel  |> String.replace_prefix("r:", "")
-
-      {out_sel, out_name}
-    end
-  
-    input
-    |> Enum.map(map_fn)           # [ { "all", "a" }, ... ]
-  end
-
   @spec retrieve(id_sets, any, id_reduce) :: [ tuple ] #K #W
 
   # Retrieve the requested data, based on the query.
@@ -282,7 +195,7 @@ defmodule PhxHttpWeb.SearchController do
   # Convert id_sets (a list of MapSets) to a single MapSet, using
   # reduce_fn to get the intersection or union, then flatten the result. 
 
-    map_fn    = fn id -> InfoToml.get_items(path_map[id]) end
+    map_fn    = fn id -> InfoToml.get_item_tuples(path_map[id]) end
 
     id_sets                       # [ #MapSet<[1011]>, #MapSet<[1078]> ]                   
     |> Enum.reduce(reduce_fn)     # #MapSet<[1011, 1078]>

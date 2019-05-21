@@ -51,4 +51,10 @@ We’re committed to supporting OpenStreetMap now and always.
 [ address.web_site ]
 
   about       = 'main|/about'
+  forum       = 'https://forum.mapillary.com'
   main        = 'https://www.mapillary.com'
+
+  zoo         = '''
+https://www.mapillary.com/developer,
+https://www.mapillary.com/developer/api-documentation,
+'''

@@ -21,21 +21,17 @@ defmodule PhxHttpWeb.FormatHelpers do
 #
 #   fmt_markdown_h/3
 #     Format error text for fmt_markdown/2.
-#   join_list/1
-#     Join a list of strings into a (mostly) comma-delimited string.
-#   jl/[12]
-#     Helper functions for join_list/1
 
   @moduledoc """
   Conveniences for formatting common page content.
   """
 
-  alias PhxHttpWeb.{ItemView, LinkHelpers}
-
   use Phoenix.HTML
   use PhxHttp.Types
 
-  import Common
+  import Common, only: [ csv_join: 1, csv_split: 1 ]
+
+  alias PhxHttpWeb.{ItemView, LinkHelpers}
 
   # Public functions
 
@@ -46,6 +42,7 @@ defmodule PhxHttpWeb.FormatHelpers do
   @spec fmt_authors(String.t) :: safe_html #W
 
   def fmt_authors(f_authors) do
+
     map_fn  = fn ref_str ->
       id_str  = String.replace_prefix(ref_str, "cat_peo|", "")
       key     = "Areas/Catalog/People/#{ id_str }/main.toml"
@@ -62,9 +59,9 @@ defmodule PhxHttpWeb.FormatHelpers do
     wrap_fn = fn line -> "by\n#{ line }" end
 
     f_authors                 # "cat_peo|Rich_Morin, ..."
-    |> str_list()             # [ "cat_peo|Rich_Morin", ... ]
+    |> csv_split()            # [ "cat_peo|Rich_Morin", ... ]
     |> Enum.map(map_fn)       # [ <link to Rich_Morin's page>, ... ]
-    |> join_list()            # "<link1>, <link2>, and ..."
+    |> csv_join()             # "<link1>, <link2>, and ..."
     |> wrap_fn.()             # "by <link>, ..."
     |> raw()                  # { :safe, "by <link>, ..." }
   end
@@ -180,11 +177,11 @@ defmodule PhxHttpWeb.FormatHelpers do
     wrap_fn   = fn link_str -> "<b>#{ label }:</b>&nbsp; #{ link_str }" end
 
     ref_val                   # "cat_sof|F123_Access, ..."
-    |> str_list()             # [ "cat_sof|F123_Access", ... ]
+    |> csv_split()            # [ "cat_sof|F123_Access", ... ]
     |> Enum.map(map_fn1)      # [ {<link>, <title>}, ... ]
     |> Enum.sort_by(sort_fn)  # ditto, but sorted by title
     |> Enum.map(map_fn2)      # [ <link>, ... ]
-    |> join_list()            # "<link>, <link>, and ..."
+    |> csv_join()             # "<link>, <link>, and ..."
     |> wrap_fn.()             # "<label>: <link>, ..."
     |> raw()
   end
@@ -259,32 +256,5 @@ defmodule PhxHttpWeb.FormatHelpers do
     |> Enum.map(fmt_fn)  # [ "<p>...</p>", ... ]
     |> Enum.join("\n")   # "<p>...</p>\n..."
   end
-
-  @spec join_list( [ s ] ) :: s when s: String.t #W
-
-  defp join_list(a),       do: jl(a)
-  #
-  # Join a list of strings into a (mostly) comma-delimited string.
-  # Include "and" where appropriate. 
-  #
-  # Note: If and when we internationalize the site, we might want to
-  # to consider using Cldr (https://github.com/kipcole9/cldr) for
-  # this sort of thing (specifically, cldr_lists).  Finally, anyone
-  # who is interested in this as a programming challenge should visit
-  # the Elixir Forum topic Rich started: https://elixirforum.com/t/
-  #   formatting-a-list-of-strings-am-i-missing-anything/18593/10
-  # Interesting discussion and really great help!
-
-  @spec jl(list) :: String.t #W
-
-  defp jl([]),            do: ""
-  defp jl([a]),           do: "#{ a }"
-  defp jl([a, b]),        do: "#{ a } and #{ b }"
-  defp jl(list),          do: jl(list, [])
-
-  @spec jl(list, [ String.t ] ) :: String.t #W
-
-  defp jl([last], strl),  do: to_string( [ strl, 'and ', "#{ last }" ] )
-  defp jl([h | t], strl), do: jl(t, [ strl, "#{ h }", ', '] )
 
 end

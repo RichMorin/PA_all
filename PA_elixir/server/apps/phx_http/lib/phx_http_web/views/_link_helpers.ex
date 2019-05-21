@@ -18,12 +18,11 @@ defmodule PhxHttpWeb.LinkHelpers do
   Handle transformation of our link syntax into vanilla Markdown, etc.
   """
 
+  use Common.Types
   use Phoenix.HTML
   use PhxHttp.Types
-  use InfoToml.Types
 
-  import Common,   only: [ii: 2]
-  import InfoToml, only: [exp_prefix: 1]
+  import InfoToml, only: [ exp_prefix: 1 ]
 
   # Note: There are bugs in Version 1.3.1 of Earmark (the Markdown engine).
   # We need to dance around these until their fixes are available in Hex.pm.
@@ -148,7 +147,7 @@ defmodule PhxHttpWeb.LinkHelpers do
 
   @spec do_links_h1(s, s, list) :: s when s: String.t #W
 
-  defp do_links_h1(trim_1, trim_2, list_2 = [ head_2, tail_2 ]) do
+  defp do_links_h1(trim_1, trim_2, _list_2 = [ head_2, tail_2 ]) do
   #
   # Handle links with prefixes.
 
@@ -160,22 +159,10 @@ defmodule PhxHttpWeb.LinkHelpers do
       true                              ->  :int_item     # "...|..."
     end
 
-    _trace_fn  = fn out ->
-      IO.puts ""
-      ii(trim_1, "trim_1")
-      ii(trim_2, "trim_2")
-      ii(list_2, "list_2")
-      ii(head_2, "head_2")
-      ii(tail_2, "tail_2")
-      ii(type,   "type")
-      ii(out,    "out")
-    end
-
     do_links_h2(type, trim_1, trim_2)
-#   |> trace_fn.() #T
   end
 
-  defp do_links_h1(trim_1, trim_2, list_2) do
+  defp do_links_h1(trim_1, trim_2, _list_2) do
   #
   # Handle links without prefixes.
   # Note that we don't have any current use case for `:local_u`.
@@ -188,17 +175,7 @@ defmodule PhxHttpWeb.LinkHelpers do
       true                                    ->  :remote     # "..."
     end
 
-    _trace_fn  = fn out ->
-      IO.puts ""
-      ii(trim_1, "trim_1")
-      ii(trim_2, "trim_2")
-      ii(list_2, "list_2")
-      ii(type,   "type")
-      ii(out,    "out")
-    end
-
     do_links_h2(type, trim_1, trim_2)
-#   |> trace_fn.() #T
   end
 
   @spec do_links_h2(atom, s, s) :: s when s: String.t #W
@@ -304,13 +281,5 @@ defmodule PhxHttpWeb.LinkHelpers do
     title     = "Go to: #{ site } [site]"
     "[#{ out_1 }](#{ inp_2 } '#{ title }')"
   end
-
-#  defp do_links_h2(_type, inp_1, inp_2) do
-#  #
-#  # Handle remaining (bogus!) links.
-#
-#    title     = "Go to: #{ inp_2 } [???]"
-#    "[#{ inp_1 }](#{ inp_2 } '#{ title }')"
-#  end
 
 end

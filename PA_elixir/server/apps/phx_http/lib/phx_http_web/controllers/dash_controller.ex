@@ -28,9 +28,12 @@ defmodule PhxHttpWeb.DashController do
   This module contains controller actions (etc) for printing the dashboards.
   """
 
-  use InfoToml.Types
+  use Common.Types
   use PhxHttp.Types
   use PhxHttpWeb, :controller
+
+  import Common,
+    only: [ csv_split: 1, get_http_port: 0, get_tree_base: 0, ii: 2, keyss: 1 ]
 
   # Public functions
 
@@ -43,10 +46,7 @@ defmodule PhxHttpWeb.DashController do
   def show(conn, _params) do
 
     conn
-    |> assign(:item,            nil)
-    |> assign(:key,             nil)
-    |> assign(:page_type,       :dashboard)
-    |> assign(:title,           "PA Dashboard")
+    |> base_assigns(:dashboard, "PA Dashboard")
     |> render("show.html")
   end
 
@@ -66,11 +66,8 @@ defmodule PhxHttpWeb.DashController do
     end
 
     conn
-    |> assign(:code_info,       code_info)
-    |> assign(:item,            nil)
-    |> assign(:key,             nil)
-    |> assign(:page_type,       :dashboard)
-    |> assign(:title,           "PA Code")
+    |> base_assigns(:dashboard, "PA Code")
+    |> assign(:code_info, code_info)
     |> render("show_code.html")
   end
 
@@ -90,11 +87,8 @@ defmodule PhxHttpWeb.DashController do
     end
 
     conn
-    |> assign(:data_info,       data_info)
-    |> assign(:item,            nil)
-    |> assign(:key,             nil)
-    |> assign(:page_type,       :dashboard)
-    |> assign(:title,           "PA Data")
+    |> base_assigns(:dashboard, "PA Data")
+    |> assign(:data_info, data_info)
     |> render("show_data.html")
   end
 
@@ -149,7 +143,7 @@ defmodule PhxHttpWeb.DashController do
         gi_path   = [ :meta, :actions ]
 
         get_in(main_data, gi_path)
-        |> str_list()
+        |> csv_split()
         |> Enum.member?("build")
       end
 
@@ -180,18 +174,15 @@ defmodule PhxHttpWeb.DashController do
     end
 
     packages  = "Areas/Catalog/Software/"
-    |> InfoToml.get_items()         # [ {key, title, precis}, ... ]
+    |> InfoToml.get_item_tuples()   # [ {key, title, precis}, ... ]
     |> Enum.filter(filter_fn1)      # keep items with ".../main.toml" keys
     |> Enum.map(map_fn)             # [ { key, title, precis, map }, ... ]
     |> Enum.filter(filter_fn2)      # keep plausible items
     |> Enum.reduce(%{}, reduce_fn)
 
     conn
-    |> assign(:item,            nil)
-    |> assign(:key,             nil)
-    |> assign(:packages,        packages)
-    |> assign(:page_type,       :dashboard)
-    |> assign(:title,           "PA Make")
+    |> base_assigns(:dashboard, "PA Make")
+    |> assign(:packages, packages)
     |> render("show_make.html")
   end
 
@@ -216,12 +207,9 @@ defmodule PhxHttpWeb.DashController do
     end
 
     conn
-    |> assign(:data_info,       data_info)
-    |> assign(:item,            nil)
-    |> assign(:key,             nil)
-    |> assign(:page_type,       :dashboard)
-    |> assign(:ref_info,        ref_info)
-    |> assign(:title,           "PA Refs")
+    |> base_assigns(:dashboard, "PA Refs")
+    |> assign(:data_info, data_info)
+    |> assign(:ref_info,  ref_info)
     |> render("show_refs.html")
   end
 
@@ -246,16 +234,14 @@ defmodule PhxHttpWeb.DashController do
     end
 
     conn
-    |> assign(:data_info,       data_info)
-    |> assign(:item,            nil)
-    |> assign(:key,             nil)
-    |> assign(:page_type,       :dashboard)
-    |> assign(:tag_info,        tag_info)
-    |> assign(:title,           "PA Tags")
+    |> base_assigns(:dashboard, "PA Tags")
+    |> assign(:data_info, data_info)
+    |> assign(:tag_info,  tag_info)
     |> render("show_tags.html")
   end
 
   # Private functions
+
 
   @spec show_links_h(Plug.Conn.t(), any) :: Plug.Conn.t() #W
 
@@ -282,11 +268,8 @@ defmodule PhxHttpWeb.DashController do
     """
 
     conn
-    |> assign(:item,            nil)
-    |> assign(:key,             nil)
-    |> assign(:link_info,       link_info)
-    |> assign(:page_type,       :dashboard)
-    |> assign(:title,           "PA Links")
+    |> base_assigns(:dashboard, "PA Links")
+    |> assign(:link_info, link_info)
     |> render("show_links.html")
   end
 

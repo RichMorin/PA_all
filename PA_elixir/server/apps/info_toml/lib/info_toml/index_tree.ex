@@ -29,9 +29,9 @@ defmodule InfoToml.IndexTree do
   prevent IEx from displaying ID lists as strings.
   """
 
-  use InfoToml.Types
+  use Common.Types
 
-  import Common, only: [keyss: 1, str_list: 1]
+  import Common, only: [ csv_split: 1, keyss: 1 ]
 
   # Public functions
 
@@ -99,7 +99,7 @@ defmodule InfoToml.IndexTree do
     gi_path   = [:meta, :tags, tag_type]
     tag_strs  = item                    # %{ meta: %{ tags: %{ ? }, ? } }
     |> get_in(gi_path)                  # [ " foo, bar ", ? ]
-    |> str_list                         # [ "foo", "bar", ? ]
+    |> csv_split                        # [ "foo", "bar", ? ]
 
     {tag_type, tag_strs}
   end

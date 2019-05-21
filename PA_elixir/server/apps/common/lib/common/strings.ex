@@ -8,14 +8,19 @@ defmodule Common.Strings do
 #     Perform naive pluralization: "0 cats", "1 cat", "2 cats", ...
 #   base_26/2
 #     Generate an alphabetic ID string, using base-26 arithmetic.
-#   str_list/1
+#   csv_join/1
+#     Join a list of strings into a (mostly) comma-delimited string.
+#   csv_split/1
 #     Split a comma-delimited string into a list of trimmed strings.
+#
+# Private functions
+#
+#   jl/[12]
+#     Helper functions for csv_join/1
 
   @moduledoc """
   This module contains String-handling functions for common use.
   """
-
-# import Common, only: [ii: 2]
 
   # Public functions
 
@@ -66,18 +71,35 @@ defmodule Common.Strings do
   end
 
   @doc """
+  Join a list of strings into a (mostly) comma-delimited string.
+  Include "and" where appropriate. 
+  """
+
+  @spec csv_join( [ s ] ) :: s when s: String.t #W
+
+  def csv_join(str_list), do: jl(str_list)
+  #
+  # Note: If and when we internationalize the site, we might want
+  # to consider using Cldr (https://github.com/kipcole9/cldr) for
+  # this sort of thing (specifically, cldr_lists).  Finally, anyone
+  # who is interested in this as a programming challenge should visit
+  # the Elixir Forum topic Rich started: https://elixirforum.com/t/
+  #   formatting-a-list-of-strings-am-i-missing-anything/18593/10
+  # Interesting discussion and really great help!
+
+  @spec csv_split(s) :: [ s ] when s: String.t
+
+  @doc """
   Split a comma-delimited string into a list of trimmed strings, discarding any
   empty strings.
 
       iex> s = " , foo,  , a\\\\, b  , bar,  "
       " , foo,  , a\\\\, b  , bar,  "
-      iex> str_list(s)
+      iex> csv_split(s)
       [ "foo", "a, b", "bar" ]
   """
 
-  @spec str_list(s) :: [ s ] when s: String.t
-
-  def str_list(in_str) do
+  def csv_split(in_str) do
     map_fn      = fn str -> String.replace(str, "\a", ",") end
     reject_fn   = fn str -> str == "" end
 
@@ -88,5 +110,19 @@ defmodule Common.Strings do
     |> Enum.map(map_fn)               # [ "", "foo", "", "a, b", "bar", "" ]
     |> Enum.reject(reject_fn)         # [ "foo", "a, b", "bar" ]
   end
+
+  # Private functions
+
+  @spec jl(list) :: String.t #W
+
+  defp jl([]),            do: ""
+  defp jl([a]),           do: "#{ a }"
+  defp jl([a, b]),        do: "#{ a } and #{ b }"
+  defp jl(list),          do: jl(list, [])
+
+  @spec jl(list, [ String.t ] ) :: String.t #W
+
+  defp jl([last], strl),  do: to_string( [ strl, 'and ', "#{ last }" ] )
+  defp jl([h | t], strl), do: jl(t, [ strl, "#{ h }", ', '] )
 
 end

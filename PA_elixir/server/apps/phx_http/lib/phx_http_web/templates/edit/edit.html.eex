@@ -1,0 +1,14 @@
+<!-- templates/edit/edit.html.eex -->
+
+<%
+  alias PhxHttpWeb.EditView
+
+  my_assigns  = assigns
+  |> Map.put(:preview, nil)
+%>
+
+<h2>Edit</h2>
+
+<%= render EditView, "_edit_hdr.html" %>
+
+<%= render EditView, "_edit_form.html", my_assigns %>

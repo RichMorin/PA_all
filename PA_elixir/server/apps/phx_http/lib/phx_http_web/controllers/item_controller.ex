@@ -4,23 +4,19 @@ defmodule PhxHttpWeb.ItemController do
 #
 # Public functions
 #
-#   edit_form/2
-#     Generate the edit_form page.
-#   edit_post/2
-#     Handle the edit_post action.
+#   get_gi_bases/1
+#     Get a sorted, unique list of "base paths" from the `gi_pairs` list.
+#   get_gi_pairs/1
+#     Get a list of `{gi_path, value}` pairs.
+#   get_item_map/2
+#     Generate an "item map", based on `gi_bases` and `gi_pairs`.
 #   show/2
 #     Display a specified item.
 #
 # Private functions
 #
-#   get_gi_bases/1
-#     Get a sorted, unique list of "base paths" from the `gi_pairs` list.
-#   get_gi_pairs/1
-#     Get a list of `{gi_path, value}` pairs.
 #   get_gi_path/1
 #     Get a `gi_path`, based on a `dot_path`
-#   get_item_map/2
-#     Generate an "item map", based on `gi_bases` and `gi_pairs`.
 #   get_make/1
 #     Get any `make.toml` information.
 #   show_h/2
@@ -33,107 +29,20 @@ defmodule PhxHttpWeb.ItemController do
   items in the "Areas/..." portion of the `toml_map`.
   """
 
-  use InfoToml.Types
+  use Common.Types
   use PhxHttp.Types
   use PhxHttpWeb, :controller
 
   # Public functions
 
   @doc """
-  This function generates the `edit_form` page.
+  Get a sorted, unique list of "base paths" from the `gi_pairs` list.
+  (This is used by `get_item_map/2` to pre-populate interior map nodes.)
   """
-
-  @spec edit_form(Plug.Conn.t(), any) :: Plug.Conn.t() #W
-
-  def edit_form(conn, params) do
-    schema    = "_schemas/main.toml" |> InfoToml.get_item()
-    key       = params["key"]
-    item      = InfoToml.get_item(key)
-
-    conn  = if (key != nil) && (item == nil) do
-      message = "Sorry, the specified key (#{ key }) was not found, " <>
-                "so no data was loaded."
-      put_flash(conn, :error, message) 
-    else
-      conn
-    end
-
-    conn
-    |> assign(:item,        item)
-    |> assign(:key,         key)
-    |> assign(:page_type,   :edit_f)
-    |> assign(:schema,      schema)
-    |> assign(:title,       "PA Edit")
-    |> render("edit.html")
-  end
-
-  @doc """
-  This function handles the `edit_post` action.
-  """
-
-  @spec edit_post(Plug.Conn.t(), any) :: Plug.Conn.t() #W
-
-  def edit_post(conn, params) do
-
-    gi_pairs    = get_gi_pairs(params)
-    gi_bases    = get_gi_bases(gi_pairs)
-    item_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_items" #K
-    item_key    = params["key"]
-    item_map    = get_item_map(gi_bases, gi_pairs)
-    item_toml   = InfoToml.get_item_toml(gi_bases, item_map)
-#   item        = InfoToml.get_item(item_key)
-    schema      = "_schemas/main.toml" |> InfoToml.get_item()
-
-    case params["button"] do
-      "Preview" ->
-        conn
-        |> assign(:item,        item_map)
-        |> assign(:item_toml,   item_toml)
-        |> assign(:key,         item_key)
-        |> assign(:page_type,   :edit_p)
-        |> assign(:schema,      schema)
-        |> assign(:title,       "PA Edit")
-        |> render("preview.html")
-
-      "Submit" ->
-        save_path = InfoToml.emit_toml(item_base, ".item", item_toml)
-        save_name = String.replace(save_path, ~r{ ^ .+ / }x, "")
-        message   = """
-        Your submission has been saved as "#{ save_name }".
-        Feel free to use this Edit page as a new starting point.
-        """
-
-        conn
-        |> put_flash(:info,     message)
-        |> assign(:item,        item_map)
-        |> assign(:key,         item_key)
-        |> assign(:page_type,   :edit_s)
-        |> assign(:schema,      schema)
-        |> assign(:title,       "PA Edit")
-        |> render("edit.html")
-    end
-  end
-
-  @doc """
-  This function displays a specified item.
-  """
-
-  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t() #W
-
-  def show(conn, params) do
-    key    = params["key"]
-
-    show_h(conn, key)
-  end
-
-  # Private Functions
 
   @spec get_gi_bases([ {} ]) :: [ [atom] ] #W
 
-  defp get_gi_bases(gi_pairs) do
-  #
-  # Get a sorted, unique list of "base paths" from the `gi_pairs` list.
-  # (This is used by `get_item_map/2` to pre-populate interior map nodes.)
+  def get_gi_bases(gi_pairs) do
 
     map_fn    = fn    #K Handles only three levels of maps.
       { [a, _],       _val }  -> [ [a] ]
@@ -149,12 +58,14 @@ defmodule PhxHttpWeb.ItemController do
 #   |> ii("gi_bases") #T
   end
 
+  @doc """
+  Get a list of `{gi_path, value}` pairs, where `gi_path`
+  is an access path list, as used by `get_in/2`.
+  """
+
   @spec get_gi_pairs(any) :: [ { [atom], String.t } ] #W
 
-  defp get_gi_pairs(params) do
-  #
-  # Get a list of `{gi_path, value}` pairs, where `gi_path`
-  # is an access path list, as used by `get_in/2`.
+  def get_gi_pairs(params) do
 
     prefix      = ~r{ ^ PA \. }x
 
@@ -177,28 +88,16 @@ defmodule PhxHttpWeb.ItemController do
 #   |> ii("gi_pairs") #T
   end
 
-  @spec get_gi_path(String.t) :: [atom] #W
+  @doc """
+  Generate an "item map", based on:
 
-  defp get_gi_path(dot_path) do
-  #
-  # Get a `gi_path` (an access path list, as used by `get_in/2`),
-  # based on a `dot_path` (a dot-separated list of names), eg:
-  #
-  #   "foo.bar.baz" -> `[:foo, :bar, :baz]`.
-
-    dot_path                          # "foo.bar.baz"
-    |> String.split(".")              # [ "foo", "bar", "baz" ]
-    |> Enum.map(&String.to_atom/1)    # [ :foo, :bar, :baz ]
-#   |> ii("gi_path") #T
-  end
+  - `gi_bases` - a list of interior (ie, base) `gi_path` lists
+  - `gi_pairs` - a list of key/value tuples, eg: `{gi_path, val}`
+  """
 
   @spec get_item_map([ [atom] ], [ {} ]) :: map #W
 
   def get_item_map(gi_bases, gi_pairs) do
-  #
-  # Generate an "item map", based on:
-  # - `gi_bases` - a list of interior (ie, base) `gi_path` lists
-  # - `gi_pairs` - a list of key/value tuples, eg: `{gi_path, val}`
   #
   # TODO: Detect and handle wonky (non-UTF8) characters.
 
@@ -217,6 +116,35 @@ defmodule PhxHttpWeb.ItemController do
     gi_pairs                              # [ { <gi_path>, <value> }, ... ]
     |> Enum.reduce(base_map, reduce_fn2)  # %{ meta: %{ id_str: <value> }, ... }
 #   |> ii("item_map") #T
+  end
+
+  @doc """
+  This function displays a specified item.
+  """
+
+  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+
+  def show(conn, params) do
+    key    = params["key"]
+
+    show_h(conn, key)
+  end
+
+  # Private Functions
+
+  @spec get_gi_path(String.t) :: [atom] #W
+
+  defp get_gi_path(dot_path) do
+  #
+  # Get a `gi_path` (an access path list, as used by `get_in/2`),
+  # based on a `dot_path` (a dot-separated list of names), eg:
+  #
+  #   "foo.bar.baz" -> `[:foo, :bar, :baz]`.
+
+    dot_path                          # "foo.bar.baz"
+    |> String.split(".")              # [ "foo", "bar", "baz" ]
+    |> Enum.map(&String.to_atom/1)    # [ :foo, :bar, :baz ]
+#   |> ii("gi_path") #T
   end
 
   @spec get_make(String.t) :: map | nil #W
@@ -246,7 +174,7 @@ defmodule PhxHttpWeb.ItemController do
 
     key
     |> String.replace_trailing("/main.toml", "/")
-    |> InfoToml.get_items()
+    |> InfoToml.get_item_tuples()
     |> Enum.filter(filter_fn)
     |> Enum.sort_by(sort_fn)
     |> Enum.map(fn x -> elem(x,0) end)
@@ -283,11 +211,8 @@ defmodule PhxHttpWeb.ItemController do
       reviews   = get_reviews(key)
 
       conn
-      |> assign(:item,        item)
-      |> assign(:key,         key)
-      |> assign(:page_type,   :item)
+      |> base_assigns(:item, "PA Item", item, key)
       |> assign(:reviews,     reviews)
-      |> assign(:title,       "PA Item")
       |> render("show.html")
     end
   end

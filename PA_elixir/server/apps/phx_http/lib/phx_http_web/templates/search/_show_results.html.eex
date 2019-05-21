@@ -1,8 +1,8 @@
 <!-- templates/search/_show_results.html.eex -->
 
 <%
-  import Common
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+  import PhxHttpWeb.LayoutView, only: [ hide_show: 2 ]
+
   alias  PhxHttpWeb.SearchView
 %>
 

@@ -48,7 +48,7 @@ A macro-based hack
 lets us do this by means of `use <Module>.Types`.
 For example:
 
-    defmodule InfoToml.Types do
+    defmodule Common.Types do
       ...
       defmacro __using__(_) do
         quote do

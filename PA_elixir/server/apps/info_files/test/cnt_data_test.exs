@@ -5,14 +5,14 @@ defmodule InfoFilesTest.CntData do
   use ExUnit.Case
 
   setup_all do
-    import Common
+    import Common, only: [ get_tree_base: 0 ]
 
     tree_base   = get_tree_base()
     { :ok, file_info: InfoFiles.CntData.get_data_info(tree_base) }
   end
 
   test "creates expected data structure", state do
-    import Common
+    import Common, only: [ keyss: 1 ]
 
     file_info   = state.file_info
     assert is_map(file_info)

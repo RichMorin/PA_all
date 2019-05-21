@@ -2,6 +2,7 @@
 
 <%
   alias PhxHttpWeb.ItemView
+
   import PhxHttpWeb.LayoutView, only: [hide_show: 2]
 
   meta      = @item.meta

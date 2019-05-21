@@ -13,7 +13,7 @@ defmodule PhxHttpWeb.MailController do
   This module contains controller actions (etc) for editing and sending email.
   """
 
-  use InfoToml.Types
+  use Common.Types
   use PhxHttp.Types
   use PhxHttpWeb, :controller
 
@@ -30,11 +30,8 @@ defmodule PhxHttpWeb.MailController do
     prev_url  = params["url"] || "???"
 
     conn
-    |> assign(:item,            nil)
-    |> assign(:key,             nil)
-    |> assign(:page_type,       :mail_edit)
+    |> base_assigns(:mail_edit, "PA Feedback")
     |> assign(:prev_url,        prev_url)
-    |> assign(:title,           "PA Feedback")
     |> render("feed.html")
   end
 
@@ -68,11 +65,8 @@ defmodule PhxHttpWeb.MailController do
 
     conn
     |> put_flash(:info,         message)
-    |> assign(:item,            nil)
-    |> assign(:key,             nil)
-    |> assign(:page_type,       :mail_edit)
+    |> base_assigns(:mail_edit, "PA Feedback")
     |> assign(:prev_url,        prev_url)
-    |> assign(:title,           "PA Feedback")
     |> render("feed.html")
   end
 

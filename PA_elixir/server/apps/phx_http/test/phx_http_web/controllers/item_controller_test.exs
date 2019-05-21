@@ -4,7 +4,5 @@ defmodule PhxHttpWeb.ItemControllerTest do
 
   use ExUnit.Case
 
-  import PhxHttpWeb.ItemController
-
   doctest PhxHttpWeb.ItemController
 end

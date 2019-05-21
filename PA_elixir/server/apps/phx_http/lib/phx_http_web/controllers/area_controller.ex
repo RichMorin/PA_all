@@ -11,14 +11,8 @@ defmodule PhxHttpWeb.AreaController do
 #
 # Private functions
 #
-#   get_area_name(key) do
-#     Get the name of an Area, given a key in it.
-#   get_areas/0
-#     Returns a list of Area names, eg: [ "Catalog", ... ]
-#   get_areas/1
-#     Returns a list of Section names, eg: [ "Groups", ... ]
-#   get_items/1
-#     Get a sorted (by title) and filtered list of items, given a key.
+#   get_tidy_tuples/1
+#     Get a sorted (by title) and filtered list of item tuples.
 #   reload_h/2
 #     Helper for reload/2 - actually performs the reload
 #   show_h/3
@@ -29,9 +23,12 @@ defmodule PhxHttpWeb.AreaController do
   of the `toml_map`.  It also handles reloading of the InfoToml server.
   """
 
-  use InfoToml.Types
+  use Common.Types
   use PhxHttp.Types
   use PhxHttpWeb, :controller
+
+  import InfoToml,
+    only: [ get_area_name: 1, get_area_names: 0, get_area_names: 1 ]
 
   # Public functions
 
@@ -83,61 +80,11 @@ defmodule PhxHttpWeb.AreaController do
 
   # Private Functions
 
-  @spec get_area_name(String.t) :: String.t #W
+  @spec get_tidy_tuples(String.t) :: list #W
 
-  defp get_area_name(key) do
+  defp get_tidy_tuples(key) do
   #
-  # Get the name of an Area, given a key in it.
-
-    pattern   = ~r{ ^ .* / ( \w+ ) / [^/]+ $ }x
-    String.replace(key, pattern, "\\1")
-  end
-
-  @spec get_areas() :: [ String.t ] #W
-
-  defp get_areas() do #K - unused
-  #
-  # Returns a list of Area names: [ "Catalog", ... ]
-
-    reject_fn = fn key ->
-      key =~ ~r{ ^ _ }x || key =~ ~r{ \. toml $ }x
-    end
-
-    map_fn  = fn key -> key |> String.replace(~r{ ^ .* / }x, "") end
-
-    InfoToml.get_keys(2)
-    |> Enum.reject(reject_fn)
-    |> Enum.map(map_fn)
-  end
-
-  @spec get_areas(s) :: [s] when s: String.t #W
-
-  defp get_areas(area) do #K - unused
-  #
-  # Given "Content", returns [ "HowTos", ... ]
-
-    test_str  = "Areas/#{ area }"
-
-    filter_fn = fn key ->
-      String.starts_with?(key, test_str)  &&
-      !( key =~ ~r{ \. toml $ }x )
-    end
-
-    map_fn  = fn key ->
-      key
-      |> String.replace(~r{ ^ .* / }x, "")
-    end
-
-    InfoToml.get_keys(3)
-    |> Enum.filter(filter_fn)
-    |> Enum.map(map_fn)
-  end
-
-  @spec get_items(String.t) :: list #W
-
-  defp get_items(key) do
-  #
-  # Get a sorted (by title) and filtered list of items, given a key.
+  # Get a sorted (by title) and filtered list of item tuples, given a key.
 
     filter_fn   = fn {path, _title, _precis} ->
       text_patt   = ~r{ / main \. toml $ }x
@@ -148,7 +95,7 @@ defmodule PhxHttpWeb.AreaController do
 
     key
     |> String.replace_trailing("/_area.toml", "")
-    |> InfoToml.get_items()
+    |> InfoToml.get_item_tuples()
     |> Enum.filter(filter_fn)
     |> Enum.sort_by(sort_fn)
   end
@@ -191,19 +138,16 @@ defmodule PhxHttpWeb.AreaController do
     item  = InfoToml.get_item(key)
 
     reduce_fn = fn (x, acc) ->
-      tuple = { x, get_areas(x) }
+      tuple = { x, get_area_names(x) }
       [ tuple | acc ]
     end
 
-    tuples  = get_areas()
+    tuples  = get_area_names()
     |> Enum.reduce([], reduce_fn)
     |> Enum.reverse()
 
     conn
-    |> assign(:item,        item)
-    |> assign(:key,         key)
-    |> assign(:page_type,   :area_1)
-    |> assign(:title,       "PA Areas")
+    |> base_assigns(:area_1, "PA Areas", item, key)
     |> assign(:tuples,      tuples)
     |> render("show_1.html")
   end
@@ -225,20 +169,17 @@ defmodule PhxHttpWeb.AreaController do
       end
 
       counts  = key
-      |> get_items()
+      |> get_tidy_tuples()
       |> Enum.reduce(%{}, reduce_fn)
 
       name      = get_area_name(key)
-      sections  = get_areas(name)
+      sections  = get_area_names(name)
 
       conn
+      |> base_assigns(:area_2, "PA Areas", item, key)
       |> assign(:counts,      counts)
-      |> assign(:item,        item)
-      |> assign(:key,         key)
       |> assign(:name,        name)
-      |> assign(:page_type,   :area_2)
       |> assign(:sections,    sections)
-      |> assign(:title,       "PA Areas")
       |> render("show_2.html")
     end
   end
@@ -267,7 +208,7 @@ defmodule PhxHttpWeb.AreaController do
   #
   # Help out show_h/3 at level 3.
 
-    real_items  = get_items(key)
+    real_items  = get_tidy_tuples(key)
     item_cnt    = Enum.count(real_items)
 
     map_fn1     = fn {_, title, _} ->
@@ -289,14 +230,11 @@ defmodule PhxHttpWeb.AreaController do
     sort_items  = (fake_items ++ real_items) |> Enum.sort_by(sort_fn)
 
     conn
+    |> base_assigns(:area_3, "PA Areas", item, key)
     |> assign(:first_chars,   first_chars)
-    |> assign(:item,          item)
     |> assign(:item_cnt,      item_cnt)
-    |> assign(:key,           key)
     |> assign(:name,          name)
-    |> assign(:page_type,     :area_3)
     |> assign(:sort_items,    sort_items)
-    |> assign(:title,         "PA Areas")
     |> render("show_3.html")
   end
 

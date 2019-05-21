@@ -21,7 +21,7 @@ defmodule InfoWeb.Snapshot do
 
   use InfoWeb.Types
 
-  import Common, only: [ii: 2]
+  import Common, warn: false, only: [ ii: 2 ]
 
   # Public functions
 
@@ -41,7 +41,7 @@ defmodule InfoWeb.Snapshot do
     reduce_fn   = fn key, acc -> Map.update(acc, key, 1, &(&1+1)) end
 
     tuples = result.bins.ext_ok
-    |> ii(:ext_ok)
+#   |> ii(:ext_ok) #T
     |> Enum.map(map_fn)
     |> Enum.reduce(%{}, reduce_fn)
 
@@ -72,7 +72,7 @@ defmodule InfoWeb.Snapshot do
     reduce_fn   = fn key, acc -> Map.update(acc, key, 1, &(&1+1)) end
 
     tuples = result.bins.int_ok
-    |> ii(:int_ok)
+#   |> ii(:int_ok) #T
     |> Enum.map(map_fn)
     |> Enum.reduce(%{}, reduce_fn)
 

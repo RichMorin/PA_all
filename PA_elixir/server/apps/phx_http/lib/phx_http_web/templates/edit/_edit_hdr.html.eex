@@ -1,4 +1,4 @@
-<!-- templates/item/edit_hdr.html.eex -->
+<!-- templates/edit/edit_hdr.html.eex -->
 
 <p>
   Using this page, you can compose, edit, preview,

@@ -1,0 +1,100 @@
+# con_ove|PA_Accessibility/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PA_Accessibility'
+  title       = "Pete's Alley - Accessibility"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "notes on our approach to accessibility"
+
+  verbose     = '''
+The goals of Pete's Alley do not require fancy layouts
+or much in the way of interactive widgets.
+All we really need is clean and predictable organization,
+supported by appropriate [HTML]{ext_wp|HTML} tags
+and a small amount of [CSS]{ext_wp|Cascading_Style_Sheets}
+and [JavaScript]{ext_wp|JavaScript}.
+This means that we can use a simple (some might say boring) approach
+to web design.
+
+Although I'm neither an expert on accessibility nor an expert web designer,
+I've been creating web pages and using markup languages for decades.
+Based on this experience,
+I'm attempting to follow [best practices]{ext_wp|Best_practice}
+in accessible and inclusive web design.
+[Accessible Technology at the UW]{http://www.washington.edu/accessibility}
+does a nice job of laying out the major objectives;
+please let me know of any ways in which the site falls short.
+
+### Page Generation
+
+Most of the pages in Pete's Alley, like this one,
+are generated from [TOML]{ext_wp|TOML} files
+with [Markdown]{ext_wp|Markdown} inclusions.
+The actual page rendering is performed
+by [Elixir]{ext_wp|Elixir_(programming_language)} code
+(e.g., [Earmark]{ext_gh|pragdave/earmark}
+and the [Phoenix Framework]{ext_wp|Phoenix_(web_framework)}.
+This approach allows global changes to be made quickly and easily,
+while still keeping the rendering latency under control.
+
+#### Sanity Checks
+
+As each page is loaded, assorted sanity checks are performed.
+Failure of any of these checks causes the page to be ignored.
+For example:
+
+- Are all of the map keys present in the schema?
+- Are all of the required map keys present?
+- Do any values contain <code>??</code> or only white space?
+- Is any `meta.ref` value missing a prefix string?
+- Is the `publish` value present in `meta.actions`?
+
+After all of the pages have been loaded,
+more checks are performed to ensure inter-page consistency.
+Failure of any of these checks cancels the load.
+For example:
+
+- Check for duplicate `id_str` values.
+- Check for missing reference items.
+
+Finally, a special-purpose web crawler is used on occasion
+to ensure that both internal and external links resolve,
+headings don't skip over levels, etc.
+
+### Page Structure
+
+All of the pages use the same basic layout:
+
+- `header`  - initial banner, primary navigation links
+- `main`    - main content of the page
+- `footer`  - secondary navigation links
+
+The `main` section uses headings, lists, and tables extensively.
+
+### Markdown Links
+
+Many of the links in Pete's Alley are expanded from our flavor
+of Markdown syntax into vanilla Markdown and then into HTML.
+In the process, we generate and add `title` attributes.
+For example, `[TOML]!{ext_wp|TOML}` turns into:
+
+    <a href="https://en.wikipedia.org/wiki/TOML"
+       title="Go to: TOML [WP]">TOML</a>
+
+See [Pete's Alley - Extensions]{con_how|PA_Extensions} for details.
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

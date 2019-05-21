@@ -50,6 +50,8 @@ defmodule InfoWeb.Internal do
 
   import InfoWeb.Common, only: [validate_uri: 1]
 
+  alias InfoWeb.{Headings, Links}
+
   # Public functions
 
 # @spec get_int_list([tuple], String.t) :: [tuple]
@@ -140,17 +142,12 @@ defmodule InfoWeb.Internal do
       response  = HTTPoison.get!(full_url)
 
       if response.status_code == 200 do
-        reduce_fn   = fn link_url, acc ->
-          status  = if link_url =~ ~r{^http} do :ext else :seen end
 
-          tuple   = { status, "", page_url, link_url }
-          [ tuple | acc ]
-        end
+        html_tree   = response.body |> Floki.parse()
 
-        links   = response.body
-        |> Floki.parse()
-        |> Floki.attribute("a", "href")
-        |> Enum.reduce([], reduce_fn)
+        links       = html_tree
+        |> Headings.do_headings(page_url)
+        |> Links.do_links(page_url)
 
         [ { :int_ok, "", from_url, page_url } | links ]
       else

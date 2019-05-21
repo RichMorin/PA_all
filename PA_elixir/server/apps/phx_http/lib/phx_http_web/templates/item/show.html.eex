@@ -3,15 +3,13 @@
 <%
   alias PhxHttpWeb.ItemView
 
-  item_type  = if @key =~ ~r{ ^ Areas / Catalog / }x do
-    "cat"
-  else
-    "con"
-  end
+  pattern     = ~r{ ^ Areas / Catalog / }x
+  item_type   = if @key =~ pattern do "cat" else "con" end
+  show_path   = "_show_#{ item_type }.html"
 
   my_assigns  = assigns
   |> Map.put(:preview, nil)
 %>
 
-  <%= render ItemView, "_show_#{ item_type }.html", my_assigns %>
+  <%= render ItemView, show_path, my_assigns %>
   

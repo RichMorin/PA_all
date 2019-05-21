@@ -28,8 +28,7 @@ defmodule PhxHttp.Types do
 
       # A map key is (generally) an atom or a string.
 
-      #K I'd prefer to bring in `map_key` from `InfoToml.Types`,
-      # but I don't know how to do that.  (Sigh)
+      #K I'd prefer to bring in `map_key` from `Common.Types`.)
 
       @type map_key_ph  :: atom | String.t
 

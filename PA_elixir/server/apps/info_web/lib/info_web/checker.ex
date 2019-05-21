@@ -4,10 +4,10 @@ defmodule InfoWeb.Checker do
 #
 # Public functions
 #
-#   check_links/0
-#     Crawl the default web site, checking any links found on it.
-#   check_links/1
-#     Crawl the specified web site, checking any links found on it.
+#   check_pages/0
+#     Crawl the default web site, checking any pages found on it.
+#   check_pages/1
+#     Crawl the specified web site, checking any pages found on it.
 #
 # Private functions
 #
@@ -17,13 +17,19 @@ defmodule InfoWeb.Checker do
 #     Construct a Map of links, binned by their status.
 
   @moduledoc """
-  This module is a home-grown, special-purpose web crawler and link checker
+  This module is a home-grown, special-purpose web crawler and sanity checker
   for the Pete's Alley web site.  It uses HTTPoison to retrieve web pages
-  and Floki to extract link information.
+  and Floki to extract information from their HTML.
   
-  The goal is to detect broken links, so that we can (manually) eliminate
-  them.  So, although there may be multiple instances of a broken link, we
-  only need to report a single instance, along with its `from_page`.
+  The scanning has several goals, including:
+  
+  - Detecting broken links, so that we can (manually) eliminate them.
+    Although there may be multiple instances of a broken link, we
+    only need to report a single instance, along with its `from_page`.
+
+  - Detecting missing `title` attributes.
+  
+  - Detecting jumps in heading levels.
 
   # Data Structures
   
@@ -55,8 +61,8 @@ defmodule InfoWeb.Checker do
 
   use InfoWeb.Types
 
-  import Common, only: [ # ii: 2,
-    get_http_port: 0, str_list: 1]
+  import Common, warn: false,
+    only: [ csv_split: 1, ii: 2, get_http_port: 0 ]
 
   alias InfoWeb.{External, Internal, Server, Snapshot}
 
@@ -74,24 +80,24 @@ defmodule InfoWeb.Checker do
     }
   """
 
-  @spec check_links() :: map
+  @spec check_pages() :: map
 
-  def check_links() do
+  def check_pages() do
   #
   # $ iex -S mix
-  # iex> t = InfoWeb.check_links;1
+  # iex> t = InfoWeb.check_pages;1
   # iex> t = InfoWeb.get_snap;1
 
     domain      = "http://localhost" #K
     http_port   = get_http_port()
     url_base    = "#{ domain }:#{ http_port }"
 
-    check_links(url_base)
+    check_pages(url_base)
   end
 
-  @spec check_links(String.t) :: map
+  @spec check_pages(String.t) :: map
 
-  defp check_links(url_base) do
+  defp check_pages(url_base) do
 
     base_list   = [ { :seen, "root page", nil, "/" } ]
     forced      = get_forced()
@@ -124,7 +130,7 @@ defmodule InfoWeb.Checker do
   #
   # Get a Map of "forced" external URLs.
 
-    reduce_fn1  = fn {_key, val}, acc -> str_list(val) ++ acc end
+    reduce_fn1  = fn {_key, val}, acc -> csv_split(val) ++ acc end
     forced      = InfoToml.get_item("_config/forced.toml").urls
     |> Enum.reduce([], reduce_fn1)
 

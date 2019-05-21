@@ -4,7 +4,6 @@ defmodule InfoTomlTest.Emitter do
 
   use ExUnit.Case
 
-  import Common
   alias  InfoToml.Emitter
 
   setup_all do

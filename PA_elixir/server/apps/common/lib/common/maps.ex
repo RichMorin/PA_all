@@ -4,13 +4,19 @@ defmodule Common.Maps do
 #
 # Public functions
 #
+#   get_map_max/1
+#     Get the maximum value of a map.
 #   keyss/1
 #     Get the keys to a Map and return them in sorted order.
+#   leaf_paths/[13]
+#     Get a list of access paths for the leaf nodes of a tree of maps.
 #   our_tree/[12]
 #     Check whether this is (our style of) a tree of Maps.
 #
 # Private functions
 #
+#   leaf_paths_h/2
+#     Recursive helpers for leaf_paths/3
 #   our_tree_h/1
 #     Crawl the Map tree for our_tree/2.
 
@@ -18,9 +24,23 @@ defmodule Common.Maps do
   This module contains Map-handling functions for common use.
   """
 
-# import Common, only: [ii: 2]
+  use Common.Types
+
+  import Common, warn: false, only: [ii: 2]
 
   # Public functions
+
+  @doc """
+  Get the maximum value of a map.
+  """
+  @spec get_map_max( %{String.t => i} ) :: i when i: integer
+
+  def get_map_max(inp_map) do
+
+    reduce_fn   = fn ({_key, val}, acc) -> max(val, acc) end
+
+    inp_map |> Enum.reduce(0, reduce_fn)
+  end
 
   @doc """
   Return the keys to a Map and return them in sorted order.
@@ -44,6 +64,25 @@ defmodule Common.Maps do
     map                           # %{ C: 3, b: 2, a: 1 }
     |> Map.keys()                 # [ :C, :b, :a ]
     |> Enum.sort_by(sort_fn)      # [ :a, :b, :C ]
+  end
+
+  @doc """
+  Get a list of data structure access paths, as used in `get_in/2`,
+  for the leaf nodes of a tree of maps.
+  """
+  
+  # The code below was adapted from a reply by Peer Reynders (peerreynders)
+  # to a help request on the Elixir Forum: `https://elixirforum.com/t/17715`.
+
+  @spec leaf_paths(item_map) :: [ [ atom | String.t ] ]
+
+  def leaf_paths(tree), do: leaf_paths(tree, [], [])
+
+  @spec leaf_paths(item_map, l, l) :: l when l: [ [ atom | String.t ] ]
+
+  def leaf_paths(tree, parent_path, paths) do
+    {_, paths} = Enum.reduce(tree, {parent_path, paths}, &leaf_paths_h/2)
+    paths
   end
 
   @doc """
@@ -95,6 +134,15 @@ defmodule Common.Maps do
   end
 
   # Private functions
+
+  @spec leaf_paths_h({atom, any}, {item_path, item_paths}) ::
+    {String.t, [ item_part ] }
+
+  defp leaf_paths_h({key, value}, {parent_path, paths}) when is_map(value), do:
+    {parent_path, leaf_paths(value, [ key | parent_path ], paths) }
+
+  defp leaf_paths_h({key, _value}, {parent_path, paths}), do:
+    {parent_path, [ :lists.reverse( [ key | parent_path ] ) | paths ] }
 
   @spec our_tree_h(map, b) :: b when b: boolean
 

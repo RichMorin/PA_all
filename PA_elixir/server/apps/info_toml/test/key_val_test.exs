@@ -4,8 +4,6 @@ defmodule InfoTomlTest.KeyVal do
 
   use ExUnit.Case
 
-  import Common
-
   alias  InfoToml.{IndexTree, KeyVal}
 
   setup_all do

@@ -21,7 +21,7 @@ defmodule PhxHttpWeb.SourceController do
   source files for items in the "Areas/..." portion of the `toml_map`.
   """
 
-  use InfoToml.Types
+  use Common.Types
   use PhxHttp.Types
   use PhxHttpWeb, :controller
 
@@ -127,16 +127,13 @@ defmodule PhxHttpWeb.SourceController do
     end
     
     items   = item_base
-    |> InfoToml.get_items()
+    |> InfoToml.get_item_tuples()
     |> Enum.map(map_fn)
     |> Enum.reduce(base, reduce_fn)
 
     conn
-    |> assign(:item,        main_item)
+    |> base_assigns(:source, "PA Source", main_item, main_key)
     |> assign(:items,       items)
-    |> assign(:key,         main_key)
-    |> assign(:page_type,   :source)
-    |> assign(:title,       "PA Source")
     |> render("show.html")
   end
 

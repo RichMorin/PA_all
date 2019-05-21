@@ -11,7 +11,7 @@ defmodule InfoTomlTest.Server do
   @test_tags [ "Rich_Morin", "f_authors:Rich_Morin" ]
 
   setup_all do
-    { :ok, toml_map: InfoToml.Server.get_map() }
+    { :ok, toml_map: InfoToml.AccessData.get_map() }
   end
 
   test "loads TOML data", state do

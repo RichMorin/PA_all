@@ -26,10 +26,9 @@ defmodule InfoToml.Emitter do
   This module emits Maps (e.g., for items) in our flavor of TOML.
   """
 
-  use InfoToml.Types
+  use Common.Types
 
-  import Common, only: [ ii: 2,
-    keyss: 1]
+  import Common, only: [ ii: 2, keyss: 1]
 
   # Public functions
 
@@ -123,7 +122,7 @@ defmodule InfoToml.Emitter do
     end
 
     "Areas/Catalog/Software/"
-    |> InfoToml.get_items()         # [ {key, title, precis}, ... ]
+    |> InfoToml.get_item_tuples()   # [ {key, title, precis}, ... ]
     |> Enum.filter(filter_fn)       # Only keep ".../main.toml"
     |> Enum.reverse()               # Item tuples,  in reverse order.
     |> Enum.reduce([], reduce_fn)   # Item strings, in reverse order.

@@ -13,9 +13,9 @@ defmodule InfoToml.CheckTree do
   This module runs tests on a prospective toml_map.
   """
 
-  use InfoToml.Types
+  use Common.Types
 
-  import Common, only: [ii: 2, str_list: 1]
+  import Common, only: [ csv_split: 1, ii: 2 ]
 
   alias InfoToml.Schemer
 
@@ -116,7 +116,7 @@ defmodule InfoToml.CheckTree do
 
       ref_map   = get_in(item, gi_path)
 
-      map_fn1b  = fn {_type, ref_str} -> str_list(ref_str) end
+      map_fn1b  = fn {_type, ref_str} -> csv_split(ref_str) end
 
       map_fn1c  = fn inp_str ->
         reduce_fn = fn { inp, out }, acc ->

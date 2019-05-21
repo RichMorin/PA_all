@@ -9,7 +9,7 @@
   </head>
 
   <%
-#   import Common, only: [ii: 2]
+    import Common, warn: false, only: [ ii: 2 ]
 
     path_str    = @conn.path_info     |> Enum.join("/")
     query_str   = @conn.query_string
@@ -102,7 +102,7 @@
           &nbsp;
           <%=
             title   = "Go to this item's Edit page."
-            url     = "/item/edit?key=#{ @key }"
+            url     = "/edit?key=#{ @key }"
             link("Edit", title: title, to: url)
           %>
         <% end %>

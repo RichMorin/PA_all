@@ -11,7 +11,7 @@ defmodule InfoToml.Reffer do
   This module implements ref usage analysis for InfoToml.
   """
 
-  use InfoToml.Types
+  use Common.Types
 
   alias InfoToml.KeyVal
 

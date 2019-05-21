@@ -13,7 +13,7 @@ defmodule PhxHttpWeb.TextController do
   of the `toml_map`.
   """
 
-  use InfoToml.Types
+  use Common.Types
   use PhxHttp.Types
   use PhxHttpWeb, :controller
 
@@ -37,10 +37,7 @@ defmodule PhxHttpWeb.TextController do
       title   = name |> String.capitalize()
 
       conn
-      |> assign(:item,        item)
-      |> assign(:key,         key)
-      |> assign(:page_type,   :text)
-      |> assign(:title,       "PA #{ title }")
+      |> base_assigns(:text, "PA #{ title }", item, key)
       |> render("#{ name }.html")
     end
   end

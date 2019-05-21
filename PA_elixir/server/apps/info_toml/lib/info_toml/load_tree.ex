@@ -19,24 +19,20 @@ defmodule InfoToml.LoadTree do
 #     Traverse the TOML file tree, attempting to load each file.
 #   file_paths/1
 #     Get a sorted list of relative paths to TOML files.
-#   get_key/1
-#     Convert a relative TOML file path into a map key.
 #   path_prep/2
 #     Convert a list of file paths into a list of numbered tuples.
-#   path_prep_max/1
-#     Get the maximum value of a map.
-#   rel_path/2
-#     Convert an absolute TOML file path into a relative path.
 
   @moduledoc """
   This module handles loading of data from a TOML file tree, including
   loading and checking against the schema.
   """
 
-  use InfoToml.Types
+  use Common.Types
 
-  import Common,          only: [get_run_mode: 0]
-  import InfoToml.Common, only: [get_file_abs: 1, get_tree_abs: 0]
+  import Common,
+    only: [ get_map_max: 1, get_rel_path: 2, get_run_mode: 0 ]
+  import InfoToml.Common,
+    only: [ get_file_abs: 1, get_map_key: 1, get_tree_abs: 0 ]
 
   alias InfoToml.{CheckItem, Parser, Schemer}
 
@@ -60,7 +56,7 @@ defmodule InfoToml.LoadTree do
 
     reduce_fn   = fn (x, acc) ->
       { file_rel, file_data }  = x;
-      file_key  = get_key(file_rel)
+      file_key  = get_map_key(file_rel)
       Map.put(acc, file_key, file_data)
     end
 
@@ -107,7 +103,7 @@ defmodule InfoToml.LoadTree do
   #
   # Unless the key starts with "_", check `file_data` against `schema`.
 
-    file_key  = get_key(file_rel)
+    file_key  = get_map_key(file_rel)
     file_stat = file_data |> CheckItem.check(file_key, schemas)
 
     do_file_2(file_data, file_key, file_rel, file_stat, id_num)
@@ -201,7 +197,7 @@ defmodule InfoToml.LoadTree do
     |> Enum.sort()
 
     map_fn      = fn file_abs ->
-      rel_path(tree_abs, file_abs)
+      get_rel_path(tree_abs, file_abs)
     end
 
     reject_fn_1 = fn path ->
@@ -224,16 +220,6 @@ defmodule InfoToml.LoadTree do
     end
   end
 
-  @spec get_key(s) :: s when s: String.t
-
-  defp get_key(file_rel) do
-  #
-  # Convert a relative TOML file path into a map key, removing any
-  # alphabetical sharding directories (eg, "/A_/").
-
-    Regex.replace(~r{/[A-Z]_/}, file_rel, "/")
-  end
-
   @spec path_prep([ s ], item_maybe) :: [ {s, integer} ] when s: String.t
 
   # Convert a list of file paths into a list of numbered tuples.
@@ -253,12 +239,12 @@ defmodule InfoToml.LoadTree do
     id_map      = inp_map.items
     |> Enum.reduce(%{}, reduce_fn1)
 
-    max_id    = path_prep_max(id_map)
+    max_id    = get_map_max(id_map)
 
     reduce_fn2 = fn (inp_path, inp_acc) ->
       { max_id, id_map } = inp_acc
 
-      item_key  = get_key(inp_path)
+      item_key  = get_map_key(inp_path)
       gi_path   = [:items, item_key]
       item_val  = get_in(inp_map, gi_path)
 
@@ -279,29 +265,6 @@ defmodule InfoToml.LoadTree do
     { _max_id, id_map } = reduced
 
     id_map |> Map.to_list()
-  end
-
-  @spec path_prep_max( %{String.t => i} ) :: i when i: integer
-
-  def path_prep_max(inp_map) do
-  #
-  # Get the maximum value of a map.
-
-    reduce_fn   = fn ({_key, val}, acc) -> max(val, acc) end
-
-    inp_map |> Enum.reduce(0, reduce_fn)
-  end
-
-  @spec rel_path(s, s) :: s when s: String.t
-
-  defp rel_path(tree_abs, file_abs) do
-  #
-  # Convert an absolute TOML file path into a relative path.
-
-    base_len  = byte_size(tree_abs) + 1
-    trim_len  = byte_size(file_abs) - base_len
-
-    file_abs |> binary_part(base_len, trim_len)
   end
 
 end
