@@ -26,8 +26,9 @@ defmodule Common.Tracing do
   @spec ii(any, atom | String.t) :: any
 
   def ii(float, label) when is_float(float) do
-    float_str   = :erlang.float_to_binary(float, [decimals: 2])
-    ii(float_str, label)
+    float
+    |> :erlang.float_to_binary(decimals: 2)
+    |> ii(label)
   end
 
   def ii(thing, label), do: IO.inspect(thing, label: label)
@@ -35,7 +36,12 @@ defmodule Common.Tracing do
   @doc """
   Print a labeled time stamp, eg:
   
-      lts>> PhxHttpWeb.TextController.show/2 @ 40.97
+      lts>> 22.83 - PhxHttpWeb.TextController.show/2
+
+  The full ISO 8601 time stamp (e.g., `2019-05-08T14:09:22.837127Z`)
+  is unambiguous, but also long and complicated.  So, it's difficult
+  to digest in a single glance.  Printing seconds and milliseconds
+  (e.g., 22.837) works much better for informal timing analysis.
   """
 
   @spec lts(String.t) :: any
@@ -44,12 +50,10 @@ defmodule Common.Tracing do
     iso8601   = DateTime.utc_now()
     |> DateTime.to_iso8601()            # 2019-05-08T14:09:22.837127Z
 
-    pattern   = ~r< ^ [^:]+ : \d\d : (.{5}) .* $ >x
+    pattern   = ~r< ^ [^:]+ : \d\d : (.{6}) .* $ >x
     trimmed   = iso8601
     |> String.replace(pattern, "\\1")   # 22.837
 
-#   IO.puts "lts>> #{ label } @ #{ trimmed } (#{ iso8601 })"
-#   IO.puts "lts>> #{ label } @ #{ trimmed }"
     IO.puts "lts>> #{ trimmed } - #{ label }"
   end
 
