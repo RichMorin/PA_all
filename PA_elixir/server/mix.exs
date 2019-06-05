@@ -25,6 +25,8 @@ defmodule Server.MixProject do
   @spec deps() :: [ tuple ]
 
   defp deps() do
-    []
+    [
+      { :doctor,              "~> 0.5.0" }
+    ]
   end
 end
