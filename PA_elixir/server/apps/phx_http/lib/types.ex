@@ -11,48 +11,75 @@ defmodule PhxHttp.Types do
 
   defmacro __using__(_) do
     quote do
-      # `address` is a map of maps of strings.
 
-      @type addr_sec    :: %{atom => String.t}
-      @type address     :: %{atom => addr_sec}
+      @doc """
+      An `addr_part` is a Map of Strings.
+      """
 
-      # `Plug.Conn` is a struct with a bazillion entries.
+      @type addr_part   :: %{atom => String.t}
+
+      @doc """
+      An `address` is a Map of Maps of Strings.
+      """
+
+      @type address     :: %{atom => addr_part}
+
+      @doc """
+      A `Plug.Conn` is a Struct with a bazillion entries.
+      """
 
       @type conn        :: Plug.Conn.t
 
-      # `id_sets` is a list containing `MapSet` instances.
+      @doc """
+      An `id_set` is a MapSet of Integer Item IDs.
+      """
 
-      @type id_reduce   :: (id_sets, id_set -> id_set)
-      @type id_sets     :: [ id_set ]
       @type id_set      :: MapSet.t(integer)
 
-      # A map key is (generally) an atom or a string.
-
-      #K I'd prefer to bring in `map_key` from `Common.Types`.)
-
-      @type map_key_ph  :: atom | String.t
-
-      # `params` is a map populated by a GET or POST request.
+      @doc """
+      A `params` Map is populated by Phoenix from a GET or POST request.
+      """
 
       @type params      :: %{ String.t => String.t }
 
-      # `safe_html` is guaranteed to be safe to emit.
+      @doc """
+      An `s_pair` (String pair) is a two-String Tuple.
+      """
+
+      @type s_pair      :: {String.t, String.t}
+
+      @doc """
+      `safe_html` is HTML that is guaranteed to be safe to emit.
+      """
 
       @type safe_html   :: {:safe, iolist | String.t} | String.t
 
-      # `tag_map` is a map containing `MapSet` instances.
+
+      @doc """
+      A `tag_info` Map contains Maps of Strings to Integers.
+      """
 
       @type tag_info    :: %{ String.t => %{ String.t => integer } }
-      @type tag_map     :: %{ map_key_ph => MapSet.t(tag_val) }
-      @type tag_val     :: integer | String.t
 
-      # A `tag_set` is a list of `type:tag` strings.
-      # `tag_sets` is a map of `tag_set` values by ID string (eg, "a").
+      @doc """
+      A `tag_map` is a Map containing MapSet instances.
+      """
 
-      @type s_pair      :: {String.t, String.t}
-      @type s_pairs     :: [ s_pair ]
+      @type tag_map     :: %{ (atom | String.t) => MapSet.t(tag_val) }
+
+      @doc """
+      A `tag_set` is a List of `type:tag` strings.
+      """
+
       @type tag_set     :: [ String.t ]
+
+      @doc """
+      `tag_sets` is a Map of `tag_set` values by ID string (eg, "a").
+      """
+
       @type tag_sets    :: %{ String.t => tag_set }
+
+      @typep tag_val     :: integer | String.t
     end
   end
 

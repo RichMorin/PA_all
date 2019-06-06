@@ -35,7 +35,7 @@ defmodule InfoToml.Schemer do
   Load the prefix file (.../config/prefix.toml).
   """
 
-  @spec get_prefix() :: schemas
+  @spec get_prefix() :: schema_map
 
   def get_prefix() do
     "_config/prefix.toml"
@@ -50,7 +50,7 @@ defmodule InfoToml.Schemer do
 
   @spec get_schema(map, s) :: map when s: String.t
 
-  def get_schema(schemas, file_key) do
+  def get_schema(schema_map, file_key) do
 
     schema_key = cond do
       file_key =~ ~r{ ^ .* / text \. \w+ \. toml $ }x ->  "_schemas/text.toml"
@@ -59,14 +59,14 @@ defmodule InfoToml.Schemer do
       true    ->  String.replace(file_key, ~r{ ^ .+ / }x, "_schemas/")
     end
 
-    schemas[schema_key]
+    schema_map[schema_key]
   end
 
   @doc """
   Load schemas for a tree of TOML files, given an absolute base path.
   """
 
-  @spec get_schemas(String.t) :: schemas
+  @spec get_schemas(String.t) :: schema_map
 
   def get_schemas(tree_abs) do
     base_len    = byte_size(tree_abs) + 1

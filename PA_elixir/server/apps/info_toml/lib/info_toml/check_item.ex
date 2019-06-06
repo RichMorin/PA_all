@@ -41,13 +41,13 @@ defmodule InfoToml.CheckItem do
   - omit a key that is required by the relevant schema
   - have a value that fails some validity check
   """
-  @spec check(item_map, String.t, schemas) :: boolean
+  @spec check(item_map, String.t, schema_map) :: boolean
 
-  def check(inp_map, file_key, schemas) do
-    allowed   = check_allowed( inp_map, file_key, schemas)
-    publish   = check_publish( inp_map, file_key, schemas)
+  def check(inp_map, file_key, schema_map) do
+    allowed   = check_allowed( inp_map, file_key, schema_map)
+    publish   = check_publish( inp_map, file_key, schema_map)
     refs_ok   = check_refs_ok( inp_map, file_key)
-    required  = check_required(inp_map, file_key, schemas)
+    required  = check_required(inp_map, file_key, schema_map)
     values    = check_values(  inp_map, file_key)
 
     allowed && publish && refs_ok && required && values
@@ -55,9 +55,9 @@ defmodule InfoToml.CheckItem do
 
 # Private functions
 
-  @spec check_allowed(item_map, String.t, schemas) :: boolean
+  @spec check_allowed(item_map, String.t, schema_map) :: boolean
 
-  defp check_allowed(inp_map, file_key, schemas) do
+  defp check_allowed(inp_map, file_key, schema_map) do
   #
   # Check whether all of the map keys in inp_map are present in the relevant
   # schema (eg, main, make, text, type, zoo).
@@ -66,7 +66,7 @@ defmodule InfoToml.CheckItem do
   # then removing all of them that are present in the schema.  Extra keys
   # (ie, bogons) indicate a problem in the input map.
 
-    schema    = get_schema(schemas, file_key)
+    schema    = get_schema(schema_map, file_key)
     bogon_fn  = fn path -> get_in(schema, path) == nil end
 
     bogons  = inp_map           # %{ meta: %{...}, ...}
@@ -82,9 +82,9 @@ defmodule InfoToml.CheckItem do
     end
   end
 
-  @spec check_publish(item_map, String.t, schemas) :: boolean
+  @spec check_publish(item_map, String.t, schema_map) :: boolean
 
-  defp check_publish(inp_map, file_key, _schemas) do
+  defp check_publish(inp_map, file_key, _schema_map) do
   #
   # Check whether we should publish this item.  The logic is a bit arcane:
   #
@@ -155,16 +155,16 @@ defmodule InfoToml.CheckItem do
     end
   end
 
-  @spec check_required(map, String.t, map) :: boolean
+  @spec check_required(map, String.t, schema_map) :: boolean
 
-  defp check_required(inp_map, file_key, schemas) do
+  defp check_required(inp_map, file_key, schema_map) do
   #
   # Check whether all of the required map keys (from the schema) are present.
   # We do this by generating a list of required map keys, then attempting to
   # find them in the target file.  Missing keys (ie, bogons) indicate a
   # problem in the input map.
 
-    schema    = get_schema(schemas, file_key)
+    schema    = get_schema(schema_map, file_key)
 
     bogon_fn  = fn path_str ->
       gi_path   = path_str              # "meta.actions"

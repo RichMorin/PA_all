@@ -26,7 +26,9 @@ defmodule Server.MixProject do
 
   defp deps() do
     [
-      { :doctor,              "~> 0.5.0" }
+      { :doctor,              "~> 0.5.0" },
+      { :inch_ex,             github: "rrrene/inch_ex",
+        only: [:dev, :test] },
     ]
   end
 end

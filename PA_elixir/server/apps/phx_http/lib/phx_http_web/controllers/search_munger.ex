@@ -49,7 +49,7 @@ defmodule PhxHttpWeb.SearchMunger do
 
   # Private Functions
 
-  @spec munge_filter( [ {s, s} ] ) :: {s_pairs, s_pairs} when s: String.t #W
+  @spec munge_filter( [ {s, s} ] ) :: {sp, sp} when s: String.t, sp: [s_pair] #W
 
   defp munge_filter(params) do
   #
@@ -75,7 +75,7 @@ defmodule PhxHttpWeb.SearchMunger do
     {params_d, params_r}
   end
 
-  @spec munge_map_d(s_pairs) :: [ String.t ] #W
+  @spec munge_map_d( [s_pair] ) :: [ String.t ] #W
 
   defp munge_map_d(input) do
   #
@@ -92,7 +92,7 @@ defmodule PhxHttpWeb.SearchMunger do
     |> Enum.sort()                # [ "roles:...", ... ] (sorted)
   end
 
-  @spec munge_map_r(s_pairs) :: s_pairs #W
+  @spec munge_map_r(sp) :: sp when sp: [s_pair] #W
 
   defp munge_map_r(input) do
   #

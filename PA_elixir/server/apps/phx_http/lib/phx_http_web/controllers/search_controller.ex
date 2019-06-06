@@ -182,7 +182,7 @@ defmodule PhxHttpWeb.SearchController do
     {conn, tag_sets}
   end
 
-  @spec retrieve(id_sets, any, id_reduce) :: [ tuple ] #K #W
+  @spec retrieve([is], any, ([is], is->is) ) :: [tuple] when is: id_set #K #W
 
   # Retrieve the requested data, based on the query.
   

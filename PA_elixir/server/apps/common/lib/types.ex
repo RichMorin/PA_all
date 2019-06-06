@@ -12,41 +12,74 @@ defmodule Common.Types do
   defmacro __using__(_) do
     quote do
 
+      @doc """
+      With very few exceptions, we use Atoms and Strings as Map keys.
+      The `map_key` type formalizes this practice. 
+      """
+
       @type map_key     :: atom | String.t
 
-      # An item is a tree of maps, with strings at the leaves.
+      @doc """
+      An `item_map` is a tree of Maps, with Strings at the leaves.
+      """
 
       @type item_map    :: %{ map_key => item_part }
-      @type item_maybe  :: item_map | nil
-      @type item_part   :: %{ map_key => item_part | String.t }
 
-      # Define path lists, as used by `get_in/2`, for items.
+      @doc """
+      The `item_maybe` type allows for missing item data (e.g., in pipelines).
+      """
+
+      @type item_maybe  :: item_map | nil
+
+      @doc """
+      The `item_part` type implements the `item_map` tree structure.
+      """
+
+      @type item_part   :: %{ map_key => item_part | String.t } #R
+
+      @doc """
+      An `item_path` is a path list (as used by `get_in/2`) for items.
+      """
 
       @type item_path   :: [ atom ]
-      @type item_paths  :: [ item_path ]
 
-      # An ndx_map is an inverted index into `toml_map[:items]`.
+      @doc """
+      The keys for `ndx_map` can be atoms, integers, or strings.
+      """
 
       @type ndx_key     :: integer | map_key
-      @type ndx_map     :: %{ atom => ndx_sec }
-      @type ndx_sec     :: %{ ndx_key => ndx_vals }
+
+      @doc """
+      An `ndx_map` is an inverted index into `toml_map[:items]`.
+      """
+
+      @type ndx_map     :: %{ atom => %{ ndx_key => MapSet.t(ndx_val) } }
+
+      @doc """
+      The leaf values for `ndx_map` can be integers or strings.
+      """
+
       @type ndx_val     :: integer | String.t
-      @type ndx_vals    :: MapSet.t(ndx_val)
 
-      # A result is a tuple.
-
-      @type result      :: {String.t, String.t, String.t}
-      @type results     :: [ result ]
-
-      # A schema is like an item, but allows strings as top-level-values.
+      @doc """
+      A schema is like an `item_map`, except that it allows Strings
+      as top-level values.
+      """
 
       @type schema      :: %{ atom => item_part | String.t }
-      @type schemas     :: %{ atom => schema }
 
-      # A toml_map is a map of items (loaded from a tree of TOML files).
+      @doc """
+      A `schema_map` is a Map of schemas.
+      """
+
+      @type schema_map  :: %{ atom => schema }
+
+      @doc """
+      A `toml_map` is a Map of `item_map` structures.
+      (e.g., loaded from a tree of TOML files).
+      """
 
       @type toml_map    :: %{ String.t => item_map }
-      @type toml_maybe  :: toml_map | nil
     end
   end
 

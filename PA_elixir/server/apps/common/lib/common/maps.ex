@@ -135,7 +135,7 @@ defmodule Common.Maps do
 
   # Private functions
 
-  @spec leaf_paths_h({atom, any}, {item_path, item_paths}) ::
+  @spec leaf_paths_h({atom, any}, {item_path, [ item_path ] } ) ::
     {String.t, [ item_part ] }
 
   defp leaf_paths_h({key, value}, {parent_path, paths}) when is_map(value), do:

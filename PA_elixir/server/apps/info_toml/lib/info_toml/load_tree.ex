@@ -79,19 +79,19 @@ defmodule InfoToml.LoadTree do
   Note: This function is only exposed as public to enable testing. 
   """
 
-  @spec do_file(s, integer, map) :: {s, any} when s: String.t
+  @spec do_file(s, integer, schema_map) :: {s, any} when s: String.t
 
-  def do_file(file_rel, id_num, schemas) do
+  def do_file(file_rel, id_num, schema_map) do
  
     file_rel
     |> get_file_abs()
     |> Parser.parse(:atoms!)  # require atom predefinition
-    |> do_file_1(file_rel, id_num, schemas)
+    |> do_file_1(file_rel, id_num, schema_map)
   end
 
   # Private functions
 
-  @spec do_file_1(any, String.t, integer, map) :: tuple
+  @spec do_file_1(any, String.t, integer, schema_map) :: tuple
 
   defp do_file_1(file_data, file_rel, _, _) when file_data == %{} do
     {file_rel, nil}
@@ -99,12 +99,12 @@ defmodule InfoToml.LoadTree do
   #
   # Bail out if `Parser.parse/2` returned an empty Map.
 
-  defp do_file_1(file_data, file_rel, id_num, schemas) do
+  defp do_file_1(file_data, file_rel, id_num, schema_map) do
   #
   # Unless the key starts with "_", check `file_data` against `schema`.
 
     file_key  = get_map_key(file_rel)
-    file_stat = file_data |> CheckItem.check(file_key, schemas)
+    file_stat = file_data |> CheckItem.check(file_key, schema_map)
 
     do_file_2(file_data, file_key, file_rel, file_stat, id_num)
   end
@@ -164,15 +164,15 @@ defmodule InfoToml.LoadTree do
     { file_rel, file_data }
   end
 
-  @spec do_tree(schemas, toml_maybe) :: [ toml_map ]
+  @spec do_tree(schema_map, toml_map | nil) :: [ toml_map ]
 
-  defp do_tree(schemas, old_map) do
+  defp do_tree(schema_map, old_map) do
   #
   # Traverse the TOML file tree, attempting to load each file.
 
     file_fn   = fn {file_rel, id_num} ->
 #     Common.ii(file_rel, :file_rel) #T
-      do_file(file_rel, id_num, schemas)
+      do_file(file_rel, id_num, schema_map)
     end
 
     filter_fn = fn x -> x end

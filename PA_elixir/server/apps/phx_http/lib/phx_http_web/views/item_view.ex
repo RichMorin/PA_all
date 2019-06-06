@@ -216,7 +216,7 @@ defmodule PhxHttpWeb.ItemView do
     """
   end
 
-  @spec prep_map(addr_sec) :: addr_sec #W
+  @spec prep_map(addr_part) :: addr_part #W
 
   defp prep_map(inp_map) do
   #
