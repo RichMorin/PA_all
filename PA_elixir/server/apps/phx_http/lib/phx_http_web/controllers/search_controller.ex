@@ -130,10 +130,13 @@ defmodule PhxHttpWeb.SearchController do
   # Get a list of MapSets (of ID numbers) matching the input tags.
 
     map_fn    = fn val ->
-      [:index, :id_nums_by_tag, val ] |>  InfoToml.get_part()
+      tmp_val   = val |> String.replace_prefix("_:", "")
+
+      [:index, :id_nums_by_tag, tmp_val ] |>  InfoToml.get_part()
     end
 
-    tag_set |> Enum.map(map_fn)
+    tag_set
+    |> Enum.map(map_fn)
   end
 
   @spec get_queries( [ {s, s} ], map ) :: [ { s, s, [s] } ] when s: String.t #W
@@ -195,13 +198,26 @@ defmodule PhxHttpWeb.SearchController do
   # Convert id_sets (a list of MapSets) to a single MapSet, using
   # reduce_fn to get the intersection or union, then flatten the result. 
 
-    map_fn    = fn id -> InfoToml.get_item_tuples(path_map[id]) end
+    ii(id_sets,  :id_sets) #T
 
-    id_sets                       # [ #MapSet<[1011]>, #MapSet<[1078]> ]                   
-    |> Enum.reduce(reduce_fn)     # #MapSet<[1011, 1078]>
-    |> MapSet.to_list()           # [ 1011, 1078 ]
-    |> Enum.map(map_fn)           # [ [ { "...", "...", "..." }, ... ], ... ]
-    |> List.flatten()             # [ { "...", "...", "..." }, ... ]
+    filter_fn = fn set -> set end
+    map_fn    = fn id  -> InfoToml.get_item_tuples(path_map[id]) end
+
+    filtered = id_sets              # [ #MapSet<[1011]>, #MapSet<[1078]> ]                   
+    |> Enum.filter(filter_fn)       # discard nil sets
+
+    if Enum.empty?(filtered) do
+      IO.puts "--> retrieve/3 issue" #T
+#     ii(path_map, :path_map)
+
+      [] #D
+    else
+      filtered
+      |> Enum.reduce(reduce_fn)     # #MapSet<[1011, 1078]>
+      |> MapSet.to_list()           # [ 1011, 1078 ]
+      |> Enum.map(map_fn)           # [ [ { "...", "...", "..." }, ... ], ... ]
+      |> List.flatten()             # [ { "...", "...", "..." }, ... ]
+    end
   end
 
   @spec structure( [ tuple ] ) :: [ [ tuple ] ] #K #W

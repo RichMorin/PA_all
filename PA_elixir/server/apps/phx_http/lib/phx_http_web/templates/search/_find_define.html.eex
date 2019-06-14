@@ -10,14 +10,23 @@
 
 <div class="hs-base1">
 
-  <h3>Define a search query
+  <h3>Define a search query</h3>
+  <p>
+    This part of the page lets you define a search query,
+    based on tag types and values.
+    These may be entered via the following text area
+    and/or selected by means of the relevant checkboxes.
+  </p>
+
+  <b><label for="search_text">Search Text:</label></b>
+  <input type="search" name="search_text" maxlength="60" size="60">
+
+  <h4>Make search selections
     <%= hide_show("ih:1/2", "tag types to be defined") %>
-  </h3>
+  </h4>
 
   <div class="hs-body1 hs-ih">
     <p>
-      This part of the page lets you define a search query,
-      based on tag types and values.
       First, "show" an appropriate tag type (e.g., "directories").
       The parenthesized number following each tag value indicates
       the number of items that it applies to.

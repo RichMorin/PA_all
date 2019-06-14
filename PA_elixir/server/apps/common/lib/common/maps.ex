@@ -33,6 +33,7 @@ defmodule Common.Maps do
   @doc """
   Get the maximum value of a map.
   """
+
   @spec get_map_max( %{String.t => i} ) :: i when i: integer
 
   def get_map_max(inp_map) do
@@ -80,7 +81,7 @@ defmodule Common.Maps do
 
   @spec leaf_paths(item_map, l, l) :: l when l: [ [ atom | String.t ] ]
 
-  def leaf_paths(tree, parent_path, paths) do
+  defp leaf_paths(tree, parent_path, paths) do
     {_, paths} = Enum.reduce(tree, {parent_path, paths}, &leaf_paths_h/2)
     paths
   end
@@ -121,6 +122,10 @@ defmodule Common.Maps do
   @spec our_tree(any) :: boolean
 
   def our_tree(input), do: our_tree(input, true)
+
+  @doc """
+  Like `our_tree/1`, but allows non-strict checking.
+  """
 
   @spec our_tree(any, b) :: b when b: boolean
 

@@ -27,6 +27,8 @@ defmodule PhxHttpWeb.SearchView do
   use PhxHttpWeb, :view
   use PhxHttp.Types
 
+  import Common #D
+
   alias  PhxHttpWeb.LayoutView
 
   @doc """
@@ -68,7 +70,7 @@ defmodule PhxHttpWeb.SearchView do
     |> Enum.map(map_fn_2)       # [ "<li>...</li>", ... ]
     |> Enum.join("\n")          # "<li>...</li>\n..."
     |> raw()                    # { :safe, "<li>...</li>\n..." }
- 
+
     header = case settings do
       :clear    ->
         "#{ select(:c, set_key) }&nbsp;<b>Query #{ set_key }</b>"

@@ -38,13 +38,24 @@ defmodule PhxHttpWeb.SearchMunger do
 
   def munge(params) do
 
+    map_fn    = fn tag ->
+      if String.contains?(tag, ":") do tag
+      else "_:#{ tag }"
+      end
+    end
+        
+    tags_t    = (params["search_text"] || "")
+    |> String.split()
+    |> Enum.map(map_fn)
+
     {params_d, params_r}  = munge_filter(params)
 
     tags_d    = params_d |> munge_map_d()
+    tags_all  = (tags_t ++ tags_d) |> Enum.sort()
     specs_r   = params_r |> munge_map_r()
 
-    {tags_d, specs_r}
-#   |> ii("munged")
+    {tags_all, specs_r}
+#   |> ii("munged") #T
   end
 
   # Private Functions
@@ -64,7 +75,8 @@ defmodule PhxHttpWeb.SearchMunger do
       String.starts_with?(val, "r:none")
     end
 
-    my_params   = params    |> Enum.reject(reject_fn)
+    my_params   = params
+    |> Enum.reject(reject_fn)
 
     params_d    = my_params
     |> Enum.filter(filter_fn_d)   # [ {"f_authors__...", "d:y:f_authors:..."} ]

@@ -143,8 +143,18 @@ This helps to ease specification of tags, reduce ambiguity, etc.
 For a detailed discussion of this topic,
 visit [Pete's Alley - Typed Tags]{con_ove|PA_Typed_Tags}.
 
-The "Define a search" section of the Search page
-lets us specify any possible tag, using its type and value.
+#### Define a search
+
+One or more tags may be used to define a search,
+using textual entry and/or interactive selection.
+If you know what tag(s) you're looking for,
+simply type them into the "Search Text" text area,
+then click the `Submit` button.
+For example, you could enter `algebraic` or (for more precision)
+`features:algebraic`.
+
+If you don't know the type or value of the tag you need,
+try using the interactive selection approach.
 After opening up the `features` type (using the `show` link),
 click the checkboxes for `algebraic` and `compact`,
 adding them to the search query.
@@ -162,6 +172,8 @@ the Union area will display items
 for which _any_ of the `a` tags match.
 Typically, the Union section will contain far more items
 than the Intersection section does.
+
+#### Reuse a search
 
 Going back to the Search page, you'll notice that there
 is now a "Reuse a search" heading.

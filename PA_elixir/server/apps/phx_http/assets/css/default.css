@@ -60,6 +60,11 @@ hr {
   margin:                 1rem 0
 }
 
+input[type="search"] {
+  margin:                 0 7rem;
+  transform:              scale(1.5);
+}
+
 li {
   margin:                 4px 0
 }

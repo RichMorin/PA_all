@@ -242,10 +242,9 @@ defmodule PhxHttpWeb.DashController do
 
   # Private functions
 
-
   @spec show_links_h(Plug.Conn.t(), any) :: Plug.Conn.t() #W
 
-  def show_links_h(conn, _params) do
+  defp show_links_h(conn, _params) do
 
     link_info   = InfoWeb.get_snap()
 

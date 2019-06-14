@@ -54,6 +54,10 @@ defmodule InfoWeb.Internal do
 
   # Public functions
 
+  @doc """
+  Iterate on the List until all local links are handled.
+  """
+
 # @spec get_int_list([tuple], String.t) :: [tuple]
   @spec get_int_list(list, String.t) :: list
 
@@ -62,38 +66,6 @@ defmodule InfoWeb.Internal do
   # Wrapper for get_int_list/3.
 
     get_int_list(inp_list, url_base, %{})
-  end
-
-# @spec get_int_list([tuple], String.t, map) :: [tuple]
-  @spec get_int_list(list, String.t, map) :: list
-
-  def get_int_list(inp_list, url_base, known) do
-  #
-  # Iterate on the list until all local links are handled.
-
-    out_list    = add_local(url_base, inp_list, known)
-
-    filter_fn1  = fn {status, _, _, _} -> status == :seen end
-    seen_list   = out_list |> Enum.filter(filter_fn1)
-
-    filter_fn2  = fn {status, _, _, _} -> status != :seen end
-    reduce_fn   = fn { _, _, _, url }, acc -> Map.put(acc, url, true) end
-
-    known       = out_list
-    |> Enum.filter(filter_fn2)
-    |> Enum.reduce(known, reduce_fn)
-
-    reject_fn1  = fn { _, _, _, url }     -> known[url] end
-    reject_fn2  = fn { status, _, _, _ }  -> status == :seen end
-
-    todo_list   = seen_list |> Enum.reject(reject_fn1)
-
-    if Enum.empty?(todo_list) do
-      out_list
-    else
-      get_int_list(out_list, url_base, known) #R
-    end
-    |> Enum.reject(reject_fn2)
   end
 
   # Private functions
@@ -187,6 +159,38 @@ defmodule InfoWeb.Internal do
     tuples
     |> Enum.uniq_by(uniq_fn)
     |> Enum.reject(reject_fn)
+  end
+
+# @spec get_int_list([tuple], String.t, map) :: [tuple]
+  @spec get_int_list(list, String.t, map) :: list
+
+  defp get_int_list(inp_list, url_base, known) do
+  #
+  # Iterate on the list until all local links are handled.
+
+    out_list    = add_local(url_base, inp_list, known)
+
+    filter_fn1  = fn {status, _, _, _} -> status == :seen end
+    seen_list   = out_list |> Enum.filter(filter_fn1)
+
+    filter_fn2  = fn {status, _, _, _} -> status != :seen end
+    reduce_fn   = fn { _, _, _, url }, acc -> Map.put(acc, url, true) end
+
+    known       = out_list
+    |> Enum.filter(filter_fn2)
+    |> Enum.reduce(known, reduce_fn)
+
+    reject_fn1  = fn { _, _, _, url }     -> known[url] end
+    reject_fn2  = fn { status, _, _, _ }  -> status == :seen end
+
+    todo_list   = seen_list |> Enum.reject(reject_fn1)
+
+    if Enum.empty?(todo_list) do
+      out_list
+    else
+      get_int_list(out_list, url_base, known) #R
+    end
+    |> Enum.reject(reject_fn2)
   end
 
 end
