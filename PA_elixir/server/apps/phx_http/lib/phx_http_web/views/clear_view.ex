@@ -132,7 +132,8 @@ defmodule PhxHttpWeb.ClearView do
   @spec tag_types(tag_info) :: [ String.t ] #W
 
   def tag_types(kv_map) do
-    exclude     = ~w(miscellany requires see_also)a #D - is this complete?
+    exclude     = ~w(miscellany requires see_also)a #D
+    exclude     = ~w( )a
     reject_fn   = fn tag_type -> Enum.member?(exclude, tag_type) end
 
     kv_map

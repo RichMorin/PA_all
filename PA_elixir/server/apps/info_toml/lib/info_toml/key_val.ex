@@ -42,7 +42,7 @@ defmodule InfoToml.KeyVal do
 
   def add_kv_info(context, inbt_map, subset) do
   #
-  # Add a Map of kv type information to the context Map.
+  # Add a Map of key/value (kv) type information to the context Map.
 
     kv_info  = get_kv_info(inbt_map, subset)
     Map.put(context, :kv_info, kv_info)
@@ -92,17 +92,26 @@ defmodule InfoToml.KeyVal do
 
     schema    = InfoToml.get_item("_schemas/main.toml")
     gi_path   = [:meta, subset]
-    kv_descs  = get_in(schema, gi_path)
+    kv_tags   = get_in(schema, gi_path)
 
     if subset == :tags do
-      Map.put(kv_descs, :directories, "directory nodes on item's path") #K
+      gi_path   = [:meta, :refs]
+      kv_refs   = get_in(schema, gi_path)
+      kv_harv   = %{
+        _:            "tags of any type",
+        directories:  "directory nodes on item's path",
+      }
+
+      kv_tags
+      |> Map.merge(kv_refs) #K - fold in meta.ref
+      |> Map.merge(kv_harv) #K - fold in harvested
     else
-      kv_descs
+      kv_tags
     end
   end
 
   # Get a Map of information on typed tags (kv).  If called without `inbt_map`,
-  # it gets a copy on its own.  #K - currently unused
+  # it gets a copy on its own.  (`get_kv_info/1` is currently unused.)
 
   @spec get_kv_info(atom) :: map
 
@@ -154,7 +163,6 @@ defmodule InfoToml.KeyVal do
     |> keyss()                      # [ "<type>:...", ... ]
     |> gkl_filter()                 # [ "<type>", ... ]
     |> gkl_map(inp_map)             # [ { :<type>, "<tag>", <cnt> }, ... ]
-#   |> ii("kv_list") #T
   end
 
   @spec get_kv_map([ String.t ]) :: map
@@ -171,7 +179,8 @@ defmodule InfoToml.KeyVal do
       Map.update(acc, tag_type, initial, update_fn)
     end
 
-    Enum.reduce(kv_list, %{}, reduce_fn)
+    kv_list
+    |> Enum.reduce(%{}, reduce_fn)
   end
 
   @spec gkl_filter( [ s ] ) :: [ s ] when s: String.t

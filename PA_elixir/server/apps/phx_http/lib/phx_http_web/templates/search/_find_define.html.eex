@@ -47,7 +47,7 @@
 
             <ul>
               <%
-                sub_map   = kv_map[tag_type]
+                sub_map   = get_sub_map(kv_map, tag_type)
                 tag_vals  = keyss(sub_map)
               %>
               

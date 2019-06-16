@@ -153,6 +153,11 @@ then click the `Submit` button.
 For example, you could enter `algebraic` or (for more precision)
 `features:algebraic`.
 
+*Note:*
+Typeless tags are displayed with the type `_`.
+So, for example, `foo` is displayed as `_:foo`.
+Feel free to enter typeless tags in either format.
+
 If you don't know the type or value of the tag you need,
 try using the interactive selection approach.
 After opening up the `features` type (using the `show` link),

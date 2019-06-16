@@ -86,6 +86,33 @@ defmodule PhxHttpWeb.SearchView do
   end
 
   @doc """
+  Get a Map of tag values for the specified type.
+  If the type is `_`, return a merged Map for all tag values.
+
+      iex> kv_map = %{ t1: %{ a: 1, b: 2 }, t2: %{ b: 10, c: 3 } }
+      iex> get_sub_map(kv_map, :_)
+      %{a: 1, b: 12, c: 3}
+      iex> get_sub_map(kv_map, :t1)
+      %{a: 1, b: 2}
+  """
+
+  @spec get_sub_map(map, s) :: map when s: String.t #W
+
+  def get_sub_map(kv_map, :_) do
+
+    merge_fn    = fn _k, v1, v2 -> v1 + v2 end
+
+    reduce_fn   = fn {_type, sub_map}, acc ->
+      Map.merge(acc, sub_map, merge_fn)
+    end
+
+    kv_map                          # %{ t1: %{a: 1, b: 2}, t2: %{b: 10, c: 3} }
+    |> Enum.reduce(%{}, reduce_fn)  # %{ a: 1, b: 12, c: 3 }
+  end
+
+  def get_sub_map(kv_map, tag_type), do: kv_map[tag_type]
+
+  @doc """
   Generate header text for a result set.
 
       iex> path     = "Areas/Catalog/People/Rich_Morin/main.toml"
@@ -123,21 +150,23 @@ defmodule PhxHttpWeb.SearchView do
 
       iex> kv_map = %{
       iex>   replaces: %{ "cutting board"   => 1 },
-      iex>   requires: %{ "braille display" => 2 }
       iex> }
       iex> tag_types(kv_map)
-      [:replaces]
+      [:_, :replaces]
   """
 
   @spec tag_types(tag_info) :: [ String.t ] #W
 
   def tag_types(kv_map) do
-    exclude     = ~w(miscellany requires see_also)a #D - is this complete?
+#   exclude     = ~w(miscellany requires see_also)a #D
+    exclude     = ~w( )a #D
     reject_fn   = fn tag_type -> Enum.member?(exclude, tag_type) end
 
-    kv_map
+    tmp   = kv_map
     |> keyss()
     |> Enum.reject(reject_fn)
+
+    [ :_ | tmp ]
   end
 
   # Private functions
