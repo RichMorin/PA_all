@@ -14,7 +14,7 @@ defmodule InfoWeb.Checker do
 #   get_forced/0
 #     Get a list of "forced" external URLs.
 #   mapper/1
-#     Construct a Map of links, binned by their status.
+#     Construct a map of links, binned by their status.
 
   @moduledoc """
   This module is a home-grown, special-purpose web crawler and sanity checker
@@ -33,12 +33,12 @@ defmodule InfoWeb.Checker do
 
   # Data Structures
   
-  The working data structure is a List of Tuples, each of which contains
+  The working data structure is a list of tuples, each of which contains
   information on an HTML link:
 
     [ { status, note, from_path, page_url } ]
 
-  The status may be one of the following Atoms:
+  The status may be one of the following atoms:
 
   - :ext      - external link
   - :ext_ng   - external link with an error
@@ -49,8 +49,8 @@ defmodule InfoWeb.Checker do
 
   # Data Flow
 
-  First, we crawl the internal pages, generating a Map of Lists of Tuples.
-  The Map keys are `:ext`, `:int_ng`, and `:int_ok`.   Then, we crawl the
+  First, we crawl the internal pages, generating a map of lists of tuples.
+  The map keys are `:ext`, `:int_ng`, and `:int_ok`.   Then, we crawl the
   `:ext` entries, determining whether their URLs are valid.
   
   If an external URL is listed in either the `_config/forced.toml` file or
@@ -70,7 +70,7 @@ defmodule InfoWeb.Checker do
 
   @doc """
   This function checks both internal and external links on Pete's Alley.
-  The returned value is a Map of the form:
+  The returned value is a map of the form:
   
     %{
       bins:     %{
@@ -128,13 +128,25 @@ defmodule InfoWeb.Checker do
 
   defp get_forced() do
   #
-  # Get a Map of "forced" external URLs.
+  # Get a map of "forced" external URLs.
 
-    reduce_fn1  = fn {_key, val}, acc -> csv_split(val) ++ acc end
+    reduce_fn1  = fn {_key, val}, acc ->
+    #
+    # ?
+
+     csv_split(val) ++ acc
+    end
+
     forced      = InfoToml.get_item("_config/forced.toml").urls
     |> Enum.reduce([], reduce_fn1)
 
-    reduce_fn2  = fn key, acc -> Map.put(acc, key, :true) end
+    reduce_fn2  = fn key, acc ->
+    #
+    # ?
+
+      Map.put(acc, key, :true)
+    end
+
     snap_map    = Snapshot.snap_load()
     gi_list     = ["raw", "ext_ok"]
     ext_ok      = get_in(snap_map, gi_list)
@@ -146,9 +158,12 @@ defmodule InfoWeb.Checker do
 
   defp mapper(inp_list) do
   #
-  # Construct a Map from a List of links, binned by their status.
+  # Construct a map from a list of links, binned by their status.
 
     reduce_fn = fn { status, note, page_url, link_url }, acc ->
+    #
+    # Generate and store a map entry.
+
       out_item    = { note, page_url, link_url }
       initial     = [ out_item ]
       update_fn   = fn current -> [ out_item | current ] end

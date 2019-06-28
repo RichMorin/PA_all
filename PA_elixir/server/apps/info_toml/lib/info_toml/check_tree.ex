@@ -32,7 +32,11 @@ defmodule InfoToml.CheckTree do
     |> Map.put(:check_id_str, check_id_str(toml_map) )
     |> Map.put(:check_refs,   check_refs(toml_map) )
 
-    reduce_fn = fn {_checker, {status, message} }, acc ->
+    err_acc_fn  = fn {_checker, {status, message} }, acc ->
+    #
+    # Return either the default (:ok) tuple or an error tuple containing
+    # a list of error messages.
+
       {_acc_stat, acc_list} = acc
 
       case status do
@@ -42,7 +46,7 @@ defmodule InfoToml.CheckTree do
     end
 
     default   = {:ok, []}
-    results |> Enum.reduce(default, reduce_fn) 
+    results |> Enum.reduce(default, err_acc_fn) 
   end
 
   @doc """
@@ -52,17 +56,29 @@ defmodule InfoToml.CheckTree do
   @spec check_id_str(map) :: {atom, String.t }
 
   def check_id_str(toml_map) do
-    gi_path   = [ :meta, :id_str ]
 
-    reduce_fn = fn {key, item}, acc ->   
+    reduce_fn = fn {key, item}, acc ->
+    #
+    # Accumulate a map containing lists of item keys, indexed by ID strings.
+ 
+      gi_path     = [ :meta, :id_str ]
       id_str      = get_in(item, gi_path) 
       initial     = [ key ]
-      update_fn   = fn val -> [ key | val ] end
+
+      update_fn   = fn curr_val ->
+      #
+      # Add the new item key to the current map value.
+
+        [ key | curr_val ]
+      end
 
       Map.update(acc, id_str, initial, update_fn)
     end
 
-    reject_fn1  = fn {key, _item}    ->
+    reject_fn   = fn {key, _item} ->
+    #
+    # Return true for make, review, and schema files.
+
       force   =
 #       key =~ ~r{ / Clever_Cutter / }x ||  #D uncomment to enable
         false
@@ -75,15 +91,25 @@ defmodule InfoToml.CheckTree do
       by_key && !force
     end
       
-    reject_fn2  = fn {_id_str, keys} -> Enum.count(keys) == 1 end
+    filter_fn   = fn {_id_str, keys} ->
+    #
+    # Return true if the id_str has been used more than once.
 
-    sort_fn     = fn {id_str, _list} -> String.downcase(id_str) end
+      Enum.count(keys) > 1
+    end
 
-    dup_list    = toml_map.items
-    |> Enum.reject(reject_fn1)
-    |> Enum.reduce(%{}, reduce_fn)
-    |> Enum.reject(reject_fn2)
-    |> Enum.sort_by(sort_fn)
+    sort_fn     = fn {id_str, _list} ->
+    #
+    # Sort the ID strings in a case-insensitive manner.
+
+      String.downcase(id_str)
+    end
+
+    dup_list    = toml_map.items    # Get all items in the TOML map.
+    |> Enum.reject(reject_fn)       # Reject make, review, and schema files.
+    |> Enum.reduce(%{}, reduce_fn)  # Build a map of id_str usage.
+    |> Enum.filter(filter_fn)       # Retain cases of duplicate usage. 
+    |> Enum.sort_by(sort_fn)        # Sort results by their ID strings.
 
     if Enum.empty?(dup_list) do
       { :ok, "" }
@@ -103,65 +129,88 @@ defmodule InfoToml.CheckTree do
   @spec check_refs(map) :: {atom, String.t}
 
   def check_refs(toml_map) do
-    gi_path   = [ :meta, :refs ]
+  #
+  #K This function uses a local copy of the lookup list (pre_list)
+  # in order to avoid a cyclic dependency with exp_prefix/1.
+
     pre_list  = Schemer.get_prefix() |> Map.to_list()
 
-    map_fn1a    = fn ref        -> "#{ ref }/main.toml" end
-    reduce_fn2  = fn key, acc   -> Map.put(acc, key, true) end 
+    wanted_fn = fn {_key, item}, acc ->   
+    #
+    # Accumulate a list of "wanted" item keys.
 
-    reduce_fn1  = fn {_key, item}, acc ->   
-    #K
-    # This function is almost identical to exp_prefix/1, but it uses a local
-    # copy of the lookup Map in order to avoid a cyclic dependency.
+      fields_fn   = fn {_type, ref_str} ->
+      #
+      # Return a list of fields from the reference string.
 
-      ref_map   = get_in(item, gi_path)
-
-      map_fn1b  = fn {_type, ref_str} -> csv_split(ref_str) end
-
-      map_fn1c  = fn inp_str ->
-        reduce_fn = fn { inp, out }, acc ->
-          String.replace(acc, "#{ inp }|", out)
-        end
-
-        Enum.reduce(pre_list, inp_str, reduce_fn)
+        csv_split(ref_str)
       end
 
-      if ref_map do
-        want_tmp  = ref_map               # %{ foo: "a|b, ..." }
-        |> Enum.map(map_fn1b)             # [ [ "a|b", "c|d", "..." ], ... ]
-        |> List.flatten()                 # [ "a|b", "c|d", "..." ]
-        |> Enum.map(map_fn1c)             # [ ".../b", "..." ]
-        |> Enum.map(map_fn1a)             # [ ".../b/...", "..." ]
-        |> Enum.reduce(%{}, reduce_fn2)   # %{ ".../b/..." => true, "..." ]
+      prefix_fn_h  = fn { inp, out }, acc ->
+      #
+      # Expand a single prefix in the input string.
 
-        Map.merge(acc, want_tmp)
+        String.replace(acc, "#{ inp }|", out)
+      end
+
+      prefix_fn   = fn inp_str ->
+      #
+      # Expand all prefix usage in the input string.
+
+        pre_list
+        |> Enum.reduce(inp_str, prefix_fn_h)
+      end
+
+      suffix_fn   = fn ref ->
+      #
+      # Add a file name suffix, converting the reference to an item key string.
+
+        "#{ ref }/main.toml"
+      end
+
+      gi_path   = [ :meta, :refs ]
+      ref_map   = get_in(item, gi_path)
+
+      if ref_map do
+        item_keys  = ref_map          # %{ foo: "a|b, ..." }
+        |> Enum.map(fields_fn)        # [ [ "a|b", "c|d", ... ], ... ]
+        |> List.flatten()             # [ "a|b", "c|d", ... ]
+        |> Enum.map(prefix_fn)        # [ ".../b", ... ]
+        |> Enum.map(suffix_fn)        # [ ".../b/main.toml", ... ]
+
+        acc ++ item_keys
       else
         acc
       end
     end
 
-    filter_fn1  = fn {key, _item} -> !String.starts_with?(key, "_schemas/") end
+    defined_fn  = fn key ->
+    #
+    # True if this item is defined in the TOML map.
 
-    filter_fn2  = fn key ->
       gi_path   = [ :items, key ]
-
-      !get_in(toml_map, gi_path)
+      get_in(toml_map, gi_path)
     end
 
-    map_fn2     = fn {key, _val} -> key end
+    schema_fn   = fn {key, _item} ->
+    #
+    # True if this item is a schema.
 
-    want_list   = toml_map.items
-    |> Enum.filter(filter_fn1)
-    |> Enum.reduce(%{}, reduce_fn1)
-    |> Enum.map(map_fn2)
-    |> Enum.filter(filter_fn2)
+      String.starts_with?(key, "_schemas/")
+    end
 
-    if Enum.empty?(want_list) do
+    undef_list  = toml_map.items      # Get all items in the TOML map.
+    |> Enum.reject(schema_fn)         # Discard the schema files.
+    |> Enum.reduce([], wanted_fn)     # Get a list of "wanted" item keys.
+    |> Enum.uniq()                    # Discard duplicate keys.
+    |> Enum.reject(defined_fn)        # Discard defined keys.
+
+    if Enum.empty?(undef_list) do
       { :ok, "" }
     else
-      message = "unmatched reference"
+      message = "reference to undefined item"
       IO.puts ">>> #{ message }\n"
-      ii(want_list, "want_list") #T
+      ii(undef_list, :undef_list) #T
       IO.puts ""
       { :error, message }
     end

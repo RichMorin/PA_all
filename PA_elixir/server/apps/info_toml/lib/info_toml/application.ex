@@ -4,6 +4,10 @@ defmodule InfoToml.Application do
 
   use Application
 
+  @moduledoc """
+  This module starts up the InfoToml agent.
+  """
+
   # Public functions
 
   @doc """

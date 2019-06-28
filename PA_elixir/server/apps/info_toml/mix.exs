@@ -55,9 +55,10 @@ defmodule InfoToml.MixProject do
 
   defp deps() do
     [ # added
-      { :dialyxir,            "~> 1.0.0-rc.4",
+      { :dialyxir,            "~> 1.0.0-rc.6",
         only: [:dev], runtime: false },
-      { :ex_doc,              "~> 0.19", only: :dev },
+      { :ex_doc,              "~> 0.20.2",
+        only: :dev },
       { :toml,                "~> 0.5.2" },
 
       # local

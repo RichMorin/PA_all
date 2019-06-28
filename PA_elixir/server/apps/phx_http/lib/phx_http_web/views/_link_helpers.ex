@@ -120,16 +120,19 @@ defmodule PhxHttpWeb.LinkHelpers do
   @spec do_links(s) :: s when s: String.t #W
 
   def do_links(inp_str) do
-    replace_fn  = fn _match, inp_1, inp_2 ->
+
+    expand_fn   = fn _match, inp_1, inp_2 ->
+    #
+    # Return the expanded form of the link.
 
       # Remove surrounding white space from the link text.
       # Remove all white space from the link URL.
       # Split the link URL into a list.
+      # Generate the conventional form of the link.
 
       trim_1  = String.trim(inp_1)
       trim_2  = String.replace(inp_2, ~r{\s}, "")
       list_2  = String.split(trim_2, "|")
-
       do_links_h1(trim_1, trim_2, list_2)
     end
 
@@ -139,7 +142,7 @@ defmodule PhxHttpWeb.LinkHelpers do
     pattern   = ~r< \[ ( [^\]]+ ) \]        # `[...]`
                     \{ ( [^\}]+ ) \} >x     # `{...}`
 
-    Regex.replace(pattern, inp_str, replace_fn)
+    Regex.replace(pattern, inp_str, expand_fn)
     |> String.replace("]!{", "]{")
   end
 
@@ -168,7 +171,7 @@ defmodule PhxHttpWeb.LinkHelpers do
   # Note that we don't have any current use case for `:local_u`.
 
     type    = cond do
-      String.ends_with?(trim_2, ":s")         ->  :int_src2   # "...:s"
+      String.ends_with?(  trim_2, ":s")       ->  :int_src2   # "...:s"
       String.starts_with?(trim_2, "/")        ->  :local_s    # "/..."
       String.starts_with?(trim_2, "_text/")   ->  :int_text   # "_text/..."
 #     String.starts_with?(trim_2, "_")        ->  :local_u    # "_..."

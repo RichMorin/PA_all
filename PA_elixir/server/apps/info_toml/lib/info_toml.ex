@@ -85,13 +85,13 @@ defmodule InfoToml do
   defdelegate get_part(key_list),                       to: AccessData
 
   @doc """
-  Return a Map describing ref usage in the TOML files.
+  Return a map describing ref usage in the TOML files.
   ([`...Tagger.get_ref_info/0`](InfoToml.Reffer.html#get_ref_info/0))
   """
   defdelegate get_ref_info(),                           to: Reffer
 
   @doc """
-  Return a Map describing tag usage in the TOML files.
+  Return a map describing tag usage in the TOML files.
   ([`...Tagger.get_tag_info/0`](InfoToml.Tagger.html#get_tag_info/0))
   """
   defdelegate get_tag_info(),                           to: Tagger

@@ -14,7 +14,7 @@ defmodule InfoWeb.Internal do
 #   add_local/3
 #     Add local URLs to the input list.
 #   add_local_h/3
-#     Return a List of link Tuples for the URL.
+#     Return a list of link tuples for the URL.
 #   discard/2
 #     Discard "duplicate" and "time sink" URLs.
 
@@ -55,7 +55,7 @@ defmodule InfoWeb.Internal do
   # Public functions
 
   @doc """
-  Iterate on the List until all local links are handled.
+  Iterate on the list until all local links are handled.
   """
 
 # @spec get_int_list([tuple], String.t) :: [tuple]
@@ -76,7 +76,10 @@ defmodule InfoWeb.Internal do
   #
   # Add local URLs to the input list.
 
-    map_fn    = fn tuple = { status, _note, from_url, page_url } ->
+    tuple_fn  = fn tuple = { status, _note, from_url, page_url } ->
+    #
+    # Return the input tuple or generate a list of tuples.
+
       cond do
         known[page_url]                       -> tuple
 
@@ -89,7 +92,7 @@ defmodule InfoWeb.Internal do
     end
 
     inp_urls
-    |> Enum.map(map_fn)
+    |> Enum.map(tuple_fn)
     |> List.flatten()
     |> Enum.sort()
     |> discard(url_base)
@@ -99,7 +102,7 @@ defmodule InfoWeb.Internal do
 
   defp add_local_h(from_url, page_url, url_base) do
   #
-  # Return a List of link Tuples for the URL.
+  # Return a list of link tuples for the URL.
 
     full_url  = url_base <> page_url
 
@@ -137,22 +140,33 @@ defmodule InfoWeb.Internal do
   # Discard duplicate and problematic (e.g., recursive, time sink) URLs.
 
     reject_fn = fn {_status, _note, _page_url, link_url } ->
+    #
+    # ?
+
       test_url  = String.replace_prefix(link_url, url_base, "")
 
-      ssw_fn    = fn url -> String.starts_with?(test_url, url) end
+      usw_fn    = fn url ->
+      #
+      # Return true if the URL starts with any of several strings.
 
-      ssw_fn.("/item?key=Areas/Catalog/")   ||  # D - comment to speed up
-      ssw_fn.("#")                          ||  # section of same page
-      ssw_fn.("/dash/links")                ||  # recursive, in a way
-      ssw_fn.("/item/edit?")                ||  # time sink
-      ssw_fn.("/mail/feed?")                ||  # time sink
-      ssw_fn.("/reload?")                   ||  # time sink
-      ssw_fn.("/search/")                   ||  # time sink
-      ssw_fn.("/source?")                   ||  # time sink
-      ssw_fn.("/source/down?")
+        String.starts_with?(test_url, url)
+      end
+
+      usw_fn.("/item?key=Areas/Catalog/")   ||  # D - comment to speed up
+      usw_fn.("#")                          ||  # section of same page
+      usw_fn.("/dash/links")                ||  # recursive, in a way
+      usw_fn.("/item/edit?")                ||  # time sink
+      usw_fn.("/mail/feed?")                ||  # time sink
+      usw_fn.("/reload?")                   ||  # time sink
+      usw_fn.("/search/")                   ||  # time sink
+      usw_fn.("/source?")                   ||  # time sink
+      usw_fn.("/source/down?")
     end
 
     uniq_fn   = fn { status, _note, _page_url, link_url } ->
+    #
+    # Return a text string that can be used to produce a unique list.
+
       "#{ status } #{ link_url }"
     end
 
@@ -170,27 +184,41 @@ defmodule InfoWeb.Internal do
 
     out_list    = add_local(url_base, inp_list, known)
 
-    filter_fn1  = fn {status, _, _, _} -> status == :seen end
-    seen_list   = out_list |> Enum.filter(filter_fn1)
+    seen_fn     = fn {status, _, _, _} ->
+    #
+    # Return true if this URL has already been seen.
 
-    filter_fn2  = fn {status, _, _, _} -> status != :seen end
-    reduce_fn   = fn { _, _, _, url }, acc -> Map.put(acc, url, true) end
+      status == :seen
+    end
+
+    seen_list   = out_list |> Enum.filter(seen_fn)
+
+    reduce_fn   = fn { _, _, _, url }, acc ->
+    #
+    # Generate a map with URLs as keys and true for all values.
+
+      Map.put(acc, url, true)
+    end
 
     known       = out_list
-    |> Enum.filter(filter_fn2)
+    |> Enum.reject(seen_fn)
     |> Enum.reduce(known, reduce_fn)
 
-    reject_fn1  = fn { _, _, _, url }     -> known[url] end
-    reject_fn2  = fn { status, _, _, _ }  -> status == :seen end
+    known_fn    = fn { _, _, _, url } ->
+    #
+    # Return true if this is a known URL.
 
-    todo_list   = seen_list |> Enum.reject(reject_fn1)
+      known[url]
+    end
+
+    todo_list   = seen_list |> Enum.reject(known_fn)
 
     if Enum.empty?(todo_list) do
       out_list
     else
       get_int_list(out_list, url_base, known) #R
     end
-    |> Enum.reject(reject_fn2)
+    |> Enum.reject(seen_fn)
   end
 
 end

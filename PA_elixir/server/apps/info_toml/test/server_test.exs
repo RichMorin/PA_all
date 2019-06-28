@@ -40,14 +40,17 @@ defmodule InfoTomlTest.Server do
     item_key  = toml_ndx.key_by_id_num[id_num]
     assert is_binary(item_key)
 
-    enum_fn = fn tag ->
+    test_fn = fn tag ->
+    #
+    # Run tests on each tag.
+
       id_nums   = toml_ndx.id_nums_by_tag[tag]
       assert is_map(id_nums)
       assert MapSet.member?(id_nums, id_num)
     end
 
     tags      = [ "Rich_Morin", "f_authors:Rich_Morin" ]
-    Enum.each(tags, enum_fn)
+    Enum.each(tags, test_fn)
   end
 
   test "serves TOML item data" do
@@ -59,16 +62,18 @@ defmodule InfoTomlTest.Server do
   end
 
   test "serves TOML main file data" do
-    expected    = "Areas/Catalog/Software/Emacspeak/main.toml"
+    test_fn   = fn tag ->
+    #
+    # Run tests on each tag.
 
-    enum_fn   = fn tag ->
+      expected    = "Areas/Catalog/Software/Emacspeak/main.toml"
       item_keys   = InfoToml.keys_by_tag(tag)
       assert is_list(item_keys)
       assert is_binary(hd(item_keys))
       assert Enum.member?(item_keys, expected)
     end
     
-    Enum.each(@test_tags, enum_fn)
+    Enum.each(@test_tags, test_fn)
   end
 
 end

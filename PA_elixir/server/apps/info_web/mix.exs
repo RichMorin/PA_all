@@ -55,10 +55,11 @@ defmodule InfoWeb.MixProject do
 
   defp deps() do
     [ # added
-      { :dialyxir,            "~> 1.0.0-rc.4",
+      { :dialyxir,            "~> 1.0.0-rc.6",
         only: [:dev], runtime: false },
-      { :ex_doc,              "~> 0.19", only: :dev },
-      { :floki,               "~> 0.20.4" },
+      { :ex_doc,              "~> 0.20.2",
+        only: :dev },
+      { :floki,               "~> 0.21" },
       { :httpoison,           "~> 1.5" },
       { :toml,                "~> 0.5.2" },
 

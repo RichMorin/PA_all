@@ -23,7 +23,7 @@ defmodule InfoToml.Emitter do
 #     Reorder the bases, so that `meta` (etc) move to the front.
 
   @moduledoc """
-  This module emits Maps (e.g., for items) in our flavor of TOML.
+  This module emits maps (e.g., for items) in our flavor of TOML.
   """
 
   use Common.Types
@@ -92,7 +92,10 @@ defmodule InfoToml.Emitter do
 
   def get_chef_toml(target) do
 
-    reduce_fn   = fn {main_key, title, precis}, acc ->
+    item_fn   = fn {main_key, title, precis}, acc ->
+    #
+    # Return a chef-specific TOML string for this item.
+
       main_data   = InfoToml.get_item(main_key)
       meta        = main_data.meta
       actions     = meta.actions
@@ -117,15 +120,18 @@ defmodule InfoToml.Emitter do
       [ item_str | acc ]
     end
 
-    filter_fn   = fn {key, _title, _precis} ->
+    main_fn   = fn {key, _title, _precis} ->
+    #
+    # Return true if this is the main file for an item.
+
       String.ends_with?(key, "/main.toml")
     end
 
     "Areas/Catalog/Software/"
     |> InfoToml.get_item_tuples()   # [ {key, title, precis}, ... ]
-    |> Enum.filter(filter_fn)       # Only keep ".../main.toml"
+    |> Enum.filter(main_fn)         # Only keep ".../main.toml" tuples.
     |> Enum.reverse()               # Item tuples,  in reverse order.
-    |> Enum.reduce([], reduce_fn)   # Item strings, in reverse order.
+    |> Enum.reduce([], item_fn)     # Item strings, in reverse order.
     |> Enum.reverse()               # Item strings, in forward order.
   end
 
@@ -140,12 +146,18 @@ defmodule InfoToml.Emitter do
 
   def get_item_toml(gi_bases, item_map) do
 
-    map_fn    = fn gi_base ->
+    leaf_fn     = fn gi_base ->
+    #
+    # Fold in formatted TOML for leaf nodes
+
       base_str  = Enum.join(gi_base, ".")
       part_hdr  = [ "\n[ #{ base_str } ]\n\n" ]
       part_map  = get_in(item_map, gi_base)
 
       reduce_fn = fn key_atom, acc ->
+      #
+      # Return a list of formatted TOML for a leaf node.
+
         leaf_val  = part_map[key_atom]
         key_str   = to_string(key_atom)
         
@@ -162,14 +174,19 @@ defmodule InfoToml.Emitter do
       |> Enum.reverse()
     end
 
-    reject_fn   = fn gi_base -> gi_base == [ :address ] end
+    reject_fn   = fn gi_base ->
+    #
+    # Return true for the :address base.
 
-    toml_body   = gi_bases
-    |> reorder_bases()
-    |> Enum.reject(reject_fn)
-    |> Enum.reverse()
-    |> Enum.map(map_fn)
-    |> Enum.reverse()
+      gi_base == [ :address ]
+    end
+
+    toml_body   = gi_bases      # Get a list of get_in-style bases.
+    |> reorder_bases()          # Reorder the list, to taste.
+    |> Enum.reject(reject_fn)   # Discard :address
+    |> Enum.reverse()           # Reverse the order.
+    |> Enum.map(leaf_fn)        # Fold in (reversed) additions.
+    |> Enum.reverse()           # Reverse the order back again.
 
     id_str      = get_in(item_map, [:meta, :id_str])
     toml_hdr    = "# #{ id_str }/main.toml\n"
@@ -187,6 +204,7 @@ defmodule InfoToml.Emitter do
 
     padded_key  = String.pad_trailing(key_str, 11)
     key_etc     = "  #{ padded_key } = "
+
     val_etc     = cond do
       String.contains?(leaf_val, "\n") ->
         tidied  = leaf_val
@@ -243,14 +261,17 @@ defmodule InfoToml.Emitter do
   #
   # Reorder the bases, so that `meta` (etc) move to the front.
 
-    filter_fn = fn gi_path ->
+    front_fn  = fn gi_path ->
+    #
+    # Return true if the base string is in front_list.
+
       base_string   = gi_path |> Enum.join(".")
       front_list    = ~w(meta meta.tags user)
       Enum.member?(front_list, base_string)
     end
 
-    part_1  = Enum.filter(inp_bases, filter_fn)
-    part_2  = Enum.reject(inp_bases, filter_fn)
+    {part_1, part_2}  = Enum.split_with(inp_bases, front_fn)
+
     part_1 ++ part_2
   end
 

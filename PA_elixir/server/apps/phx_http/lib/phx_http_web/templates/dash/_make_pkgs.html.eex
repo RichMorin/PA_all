@@ -3,7 +3,10 @@
 <%
   import PhxHttpWeb.LayoutView, only: [hide_show: 2]
 
-  f         = fn bool -> if bool do "Y" else "-" end end
+  fmt_fn    = fn status -> if status do "Y" else "-" end end
+  #
+  # Format the status value.
+
   pkg_cnt   = Enum.count(@packages)
   pkg_keys  = keyss(@packages)
 %>
@@ -52,10 +55,10 @@
           %>
           <tr>
             <td class="dash-make-tag" ><%= link %></td>
-            <td class="dash-make-list"><%= f.(make.arch)    %></td>
-            <td class="dash-make-list"><%= f.(make.debian)  %></td>
-            <td class="dash-make-list"><%= f.(make.other)   %></td>
-            <td class="dash-make-text"><%=    main.precis   %></td>
+            <td class="dash-make-list"><%= fmt_fn.(make.arch)    %></td>
+            <td class="dash-make-list"><%= fmt_fn.(make.debian)  %></td>
+            <td class="dash-make-list"><%= fmt_fn.(make.other)   %></td>
+            <td class="dash-make-text"><%=         main.precis   %></td>
           </tr>
         <% end %>
       </tbody>

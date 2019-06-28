@@ -23,6 +23,8 @@ defmodule PhxHttpWeb.ItemController do
 #     Handle item requests, with and without a key.
 #   show_h2/2
 #     Fold some `make.toml` info into the item.
+#   show_h3/4
+#     Gather up some `make.toml` info.
 
   @moduledoc """
   This module contains controller actions (etc) for displaying specified
@@ -44,14 +46,19 @@ defmodule PhxHttpWeb.ItemController do
 
   def get_gi_bases(gi_pairs) do
 
-    map_fn    = fn    #K Handles only three levels of maps.
+    bases_fn  = fn
+    #
+    # Return a list of gi_base lists.
+    #
+    #K Handles only three levels of maps.
+
       { [a, _],       _val }  -> [ [a] ]
       { [a, b, _],    _val }  -> [ [a], [a, b] ]
       { [a, b, c, _], _val }  -> [ [a], [a, b], [a, b, c] ]
     end
 
     gi_pairs                      # [ { [:a, :b, :c], "42" }, ... ]
-    |> Enum.map(map_fn)           # [ [[:a]], [[:a, :b]], ... ]
+    |> Enum.map(bases_fn)         # [ [[:a]], [[:a, :b]], ... ]
     |> Enum.concat()              # [ [:a], [:a, :b], ... ]
     |> Enum.sort()                # ditto, but sorted
     |> Enum.uniq()                # ditto, but unique
@@ -69,9 +76,17 @@ defmodule PhxHttpWeb.ItemController do
 
     prefix      = ~r{ ^ PA \. }x
 
-    filter_fn   = fn {key,  val} -> key =~ prefix && val != "" end
+    filter_fn   = fn {key,  val} ->
+    #
+    # Return true for non-empty "PA.*" params.
 
-    map_fn      = fn {key, val} ->
+      key =~ prefix && val != ""
+    end
+
+    tuple_fn    = fn {key, val} ->
+    #
+    # Return a tuple, composed of a gi_path and an id_str.
+
       gi_path = key                     # "PA.meta.id_str"
       |> String.replace(prefix, "")     # "meta.id_str"
       |> get_gi_path()                  # [ :meta, :id_str ]
@@ -80,10 +95,12 @@ defmodule PhxHttpWeb.ItemController do
     end
 
     sort_fn     = fn {gi_path, _val} -> gi_path end
+    #
+    # Support sorting by gi_path.
 
     params                        # [ { "PA.meta.id_str", "Alot" }, ... ]
     |> Enum.filter(filter_fn)     # keep only non-empty "PA.*" params
-    |> Enum.map(map_fn)           # [ { [:meta, :id_str], "Alot" }, ... ]
+    |> Enum.map(tuple_fn)         # [ { [:meta, :id_str], "Alot" }, ... ]
     |> Enum.sort_by(sort_fn)      # sort by gi_path, eg: [:meta, :id_str]
 #   |> ii("gi_pairs") #T
   end
@@ -99,22 +116,32 @@ defmodule PhxHttpWeb.ItemController do
 
   def get_item_map(gi_bases, gi_pairs) do
   #
-  # TODO: Detect and handle wonky (non-UTF8) characters.
+  # ToDo: Detect and handle wonky (non-UTF8) characters.
 
     # Create the interior nodes.
 
-    reduce_fn1  = fn gi_list, acc -> put_in(acc, gi_list, %{}) end
+    base_fn   = fn gi_list, acc ->
+    #
+    # Create the base map.
+
+      put_in(acc, gi_list, %{})
+    end
 
     base_map    = gi_bases            # [ { <gi_path>, <value> }, ... ]
-    |> Enum.reduce(%{}, reduce_fn1)   # %{ meta: %{}, ... }
+    |> Enum.reduce(%{}, base_fn)      # %{ meta: %{}, ... }
 #   |> ii("base_map") #T
-
-    reduce_fn2  = fn {gi_list, val}, acc -> put_in(acc, gi_list, val) end
 
     # Fold in the exterior nodes.
 
+    augment_fn  = fn {gi_list, val}, acc ->
+    #
+    # Augment the base map with exterior nodes.
+
+      put_in(acc, gi_list, val)
+    end
+
     gi_pairs                              # [ { <gi_path>, <value> }, ... ]
-    |> Enum.reduce(base_map, reduce_fn2)  # %{ meta: %{ id_str: <value> }, ... }
+    |> Enum.reduce(base_map, augment_fn)  # %{ meta: %{ id_str: <value> }, ... }
 #   |> ii("item_map") #T
   end
 
@@ -125,7 +152,7 @@ defmodule PhxHttpWeb.ItemController do
   @spec show(Plug.Conn.t(), any) :: Plug.Conn.t() #W
 
   def show(conn, params) do
-    key    = params["key"]
+    key   = params["key"]
 
     show_h(conn, key)
   end
@@ -153,7 +180,7 @@ defmodule PhxHttpWeb.ItemController do
   #
   # Get any some `make.toml` information.
 
-    make_key    = key
+    make_key  = key
     |> String.replace_suffix("/main.toml", "/make.toml")
 
     InfoToml.get_item(make_key)
@@ -165,19 +192,24 @@ defmodule PhxHttpWeb.ItemController do
   #
   # Get a list of keys for review items.
 
-    filter_fn   = fn {path, _title, _precis} ->
+    review_fn   = fn {path, _title, _precis, _foo} ->
+    #
+    # Return true for review items.
+
       text_patt   = ~r{ / text \. \w+ \. toml $ }x
       String.match?(path, text_patt)
     end
 
     sort_fn     = fn {path, _title, _precis} -> path end
+    #
+    # Support sorting by path.
 
     key
     |> String.replace_trailing("/main.toml", "/")
     |> InfoToml.get_item_tuples()
-    |> Enum.filter(filter_fn)
+    |> Enum.filter(review_fn)
     |> Enum.sort_by(sort_fn)
-    |> Enum.map(fn x -> elem(x,0) end)
+    |> Enum.map(fn x -> elem(x, 0) end)
   end
 
   @spec show_h(Plug.Conn.t(), nil) :: Plug.Conn.t() #W
@@ -197,7 +229,7 @@ defmodule PhxHttpWeb.ItemController do
   # Handle requests that have a key.  If the key doesn't match an item,
   # redirect to the most appropriate Area page.
 
-    item   = InfoToml.get_item(key)
+    item    = InfoToml.get_item(key)
 
     if item == nil do
       message   = "Sorry, I don't recognize that item. " <>
@@ -228,22 +260,6 @@ defmodule PhxHttpWeb.ItemController do
     if make_item == nil do
       item
     else
-      make_fn   = fn item, path_inp, path_out ->
-        value   = get_in(make_item, path_inp)
-        if value do
-          gi_path   = ~w(address related)a
-          item      = if get_in(item, gi_path) do
-            item
-          else
-            put_in(item, gi_path, %{})
-          end
-
-          put_in(item, path_out, value)
-        else
-          item
-        end
-      end
-
       arch_pi   = ~w(os arch package)a
       arch_po   = ~w(address related arch)a
 
@@ -251,8 +267,30 @@ defmodule PhxHttpWeb.ItemController do
       deb_po    = ~w(address related debian)a
 
       item
-      |> make_fn.(arch_pi, arch_po)
-      |> make_fn.(deb_pi,  deb_po)
+      |> show_h3(make_item, arch_pi, arch_po)
+      |> show_h3(make_item, deb_pi,  deb_po)
+    end
+  end
+
+  @spec show_h3(map, map, [atom], [atom]) :: map #W
+
+  defp show_h3(item, make_item, path_inp, path_out) do
+  #
+  # Gather up some `make.toml` info.
+
+    value   = get_in(make_item, path_inp)
+
+    if value do
+      gi_path   = ~w(address related)a
+      item      = if get_in(item, gi_path) do
+        item
+      else
+        put_in(item, gi_path, %{})
+      end
+
+      put_in(item, path_out, value)
+    else
+      item
     end
   end
 

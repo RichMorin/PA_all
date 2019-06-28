@@ -100,17 +100,19 @@ defmodule PhxHttpWeb.SourceController do
   #
   # Does the heavy lifting for the show/2 function.
 
-    base        = %{ main_key => main_item}
+    base_map  = %{ main_key => main_item}
 
-    map_fn      = fn { key, _title, _precis } -> key end
+    item_fn   = fn {key, _title, _precis}, acc ->
+    #
+    # Build a map of item entries.
 
-    reduce_fn   = fn key, acc ->
       item  = case acc[key] do
         nil   -> InfoToml.get_item(key)
         _     -> acc[key]
       end
 
       toml_text   = InfoToml.get_toml(key)
+
       sub_map     = %{
         item:       item,
         name_out:   get_out_name(key),
@@ -120,20 +122,19 @@ defmodule PhxHttpWeb.SourceController do
       Map.put(acc, key, sub_map)
     end
 
-    item_base   = if String.starts_with?(main_key, "_") do
+    base_key    = if String.starts_with?(main_key, "_") do
       main_key
     else
       main_key |> String.replace_suffix("/main.toml", "/")
     end
     
-    items   = item_base
-    |> InfoToml.get_item_tuples()
-    |> Enum.map(map_fn)
-    |> Enum.reduce(base, reduce_fn)
+    items   = base_key
+    |> InfoToml.get_item_tuples()       # [ {<key>, <title>, <precis>}, ... ]
+    |> Enum.reduce(base_map, item_fn)   # [ %{...}, ... ]
 
     conn
     |> base_assigns(:source, "PA Source", main_item, main_key)
-    |> assign(:items,       items)
+    |> assign(:items, items)
     |> render("show.html")
   end
 

@@ -18,7 +18,7 @@ defmodule InfoToml.Common do
 # Private functions
 #
 #   exp_map/0
-#     Retrieves a Map of prefix expansions.
+#     Retrieves a map of prefix expansions.
 
   @moduledoc """
   This module contains general purpose functions and macros.
@@ -49,11 +49,14 @@ defmodule InfoToml.Common do
 
     exp_list  = exp_map() |> Map.to_list()
 
-    reduce_fn = fn { inp, out }, acc ->
+    prefix_fn = fn { inp, out }, acc ->
+    #
+    # Expand all uses of a prefix in the input string.
+
       String.replace(acc, "#{ inp }|", out)
     end
 
-    Enum.reduce(exp_list, inp_str, reduce_fn)
+    Enum.reduce(exp_list, inp_str, prefix_fn)
   end
 
   @doc """
@@ -117,7 +120,7 @@ defmodule InfoToml.Common do
 
   defp exp_map() do
   #
-  # Retrieves a Map of prefix expansions.
+  # Retrieves a map of prefix expansions.
 
     InfoToml.get_part([:prefix])
   end

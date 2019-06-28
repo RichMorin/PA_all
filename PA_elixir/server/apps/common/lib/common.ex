@@ -60,7 +60,7 @@ defmodule Common do
   defdelegate get_rel_path(tree_abs, file_abs),   to: Zoo
 
   @doc """
-  Get an Atom indicating the current run mode.
+  Get an atom indicating the current run mode.
   ([`...Zoo.get_run_mode/0`](Common.Zoo.html#get_run_mode/0))
   """
   defdelegate get_run_mode(),                     to: Zoo
@@ -78,7 +78,7 @@ defmodule Common do
   defdelegate ii(thing, label),                   to: Tracing
 
   @doc """
-  Get the keys to a Map and return them in sorted order.
+  Get the keys to a map and return them in sorted order.
   ([`...Maps.keyss/1`](Common.Maps.html#keyss/1))
   """
   defdelegate keyss(map),                         to: Maps
@@ -102,13 +102,13 @@ defmodule Common do
   defdelegate our_tree(map),                      to: Maps
 
   @doc """
-  Is this our sort of Map tree?
+  Is this our sort of map tree?
   ([`...Maps.our_tree/2`](Common.Maps.html#our_tree/2))
   """
   defdelegate our_tree(map, strict),              to: Maps
 
   @doc """
-  Get an Atom indicating the data type of the argument.
+  Get an atom indicating the data type of the argument.
   ([`...Zoo.type_of/1`](Common.Zoo.html#type_of/1))
   """
   defdelegate type_of(thing),                     to: Zoo

@@ -48,7 +48,10 @@ defmodule InfoToml.IndexTree do
       id_nums_by_tag:   %{},
     }
 
-    item_fn   = fn (key, ndx) ->
+    item_fn   = fn key, ndx ->
+    #
+    # Create index entries for a single item.
+
       item        = get_in(toml_map, [:items, key])
       id_num      = get_in(item, [:meta, :id_num])
       gi_path_1   = [:id_num_by_key, key  ]
@@ -58,8 +61,14 @@ defmodule InfoToml.IndexTree do
       |> put_in(gi_path_1, id_num)
       |> put_in(gi_path_2, key)
 
-      tags_fn     = fn ({tag_key, tag_info}, ndx) ->
-        tag_fn      = fn (tag_val, ndx) ->
+      tags_fn     = fn {tag_key, tag_info}, ndx ->
+      #
+      # Add all tags from an item to the index.
+
+        tag_fn      = fn tag_val, ndx ->
+        #
+        # Add typed and typeless tags to the index.
+
           tks_val   = "#{ tag_key }:#{ tag_val }"
 
           ndx
@@ -77,6 +86,9 @@ defmodule InfoToml.IndexTree do
     end
 
     filter_fn   = fn key ->
+    #
+    # Return true if this is the main file for an item.
+
       pattern   = ~r{ ^ Areas / .* / main \. toml $ }x
       String.match?(key, pattern)       # "Areas/**/main.toml"
     end
@@ -110,7 +122,12 @@ defmodule InfoToml.IndexTree do
   #
   # Get a list of { tag_type, tag_strs } tuples from item.
 
-    map_fn  = fn tag_type -> get_tag_info(tag_type, item) end
+    map_fn  = fn tag_type ->
+    #
+    # Get all tags for the specified type from this item.
+
+      get_tag_info(tag_type, item)
+    end
 
     gi_path   = [:meta, :tags]
     item                                # %{ meta: %{ tags: %{...}, ...} }

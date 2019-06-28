@@ -1,6 +1,6 @@
 # Sample
 
-**TODO: Add description**
+**ToDo: Add description**
 
 ## Installation
 

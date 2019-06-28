@@ -1,4 +1,4 @@
-# controllers/_controller_helpers.ex
+# controllers/_helpers.ex
 
 defmodule PhxHttpWeb.ControllerHelpers do
 #

@@ -7,21 +7,21 @@ defmodule Common.Maps do
 #   get_map_max/1
 #     Get the maximum value of a map.
 #   keyss/1
-#     Get the keys to a Map and return them in sorted order.
+#     Get the keys to a map and return them in sorted order.
 #   leaf_paths/[13]
 #     Get a list of access paths for the leaf nodes of a tree of maps.
 #   our_tree/[12]
-#     Check whether this is (our style of) a tree of Maps.
+#     Check whether this is (our style of) a tree of maps.
 #
 # Private functions
 #
 #   leaf_paths_h/2
 #     Recursive helpers for leaf_paths/3
 #   our_tree_h/1
-#     Crawl the Map tree for our_tree/2.
+#     Crawl the map tree for our_tree/2.
 
   @moduledoc """
-  This module contains Map-handling functions for common use.
+  This module contains map-handling functions for common use.
   """
 
   use Common.Types
@@ -31,21 +31,27 @@ defmodule Common.Maps do
   # Public functions
 
   @doc """
-  Get the maximum value of a map.
+  Get the maximum value of a map (assuming that all values are non-negative
+  integers).
   """
 
   @spec get_map_max( %{String.t => i} ) :: i when i: integer
 
   def get_map_max(inp_map) do
 
-    reduce_fn   = fn ({_key, val}, acc) -> max(val, acc) end
+    max_val_fn  = fn {_key, val}, acc -> 
+    #
+    # Determine the maximum value in the map.
 
-    inp_map |> Enum.reduce(0, reduce_fn)
+      max(val, acc)
+    end
+
+    inp_map |> Enum.reduce(0, max_val_fn)
   end
 
   @doc """
-  Return the keys to a Map and return them in sorted order.
-  The keys are sorted by the downcased String interpretation.
+  Return the keys to a map and return them in sorted order.
+  The keys are sorted by the downcased string interpretation.
   
       iex> m = %{ C: 3, b: 2, a: 1 }
       %{ C: 3, a: 1, b: 2 }
@@ -60,7 +66,13 @@ defmodule Common.Maps do
   @spec keyss(map) :: list
 
   def keyss(map) do
-    sort_fn   = fn inp -> "#{ inp }" |> String.downcase() end
+
+    sort_fn   = fn key ->
+    #
+    # Support a case-insensitive sort on stringified keys.
+
+      "#{ key }" |> String.downcase()
+    end
  
     map                           # %{ C: 3, b: 2, a: 1 }
     |> Map.keys()                 # [ :C, :b, :a ]
@@ -87,9 +99,9 @@ defmodule Common.Maps do
   end
 
   @doc """
-  Check whether this is (our style of) a tree of Maps.  Specifically,
-  the keys should all be Atoms or Strings and the values should either
-  be compliant Maps or something else.  If `strict` is true, "something
+  Check whether this is (our style of) a tree of maps.  Specifically,
+  the keys should all be atoms or strings and the values should either
+  be compliant maps or something else.  If `strict` is true, "something
   else" must be a Boolean, Number, or String.
   
       iex> our_tree nil
@@ -151,33 +163,35 @@ defmodule Common.Maps do
 
   @spec our_tree_h(map, b) :: b when b: boolean
 
-  defp our_tree_h(input, strict) do
-    reduce_fn   = fn {key, value}, acc ->
+  defp our_tree_h(input, strict) when is_map(input) do
+
+    acc_chk_fn  = fn {key, value}, acc ->
+    #
+    # Accumulate checks for the tree.  (Return false if any check fails.)
+
       cond do
-        is_atom(key)    -> acc && !!our_tree_h(value, strict)
-        is_binary(key)  -> acc && !!our_tree_h(value, strict)
+        is_atom(key)    -> acc && !!our_tree_h(value, strict) #R
+        is_binary(key)  -> acc && !!our_tree_h(value, strict) #R
         true            -> false
       end
     end
 
-    cond do
-      is_map(input)     ->
-        if Enum.empty?(input) do
-          false
-        else
-          Enum.reduce(input, true, reduce_fn)
-        end
-
-      strict            ->
-        cond do
-          is_binary(input)    -> true
-          is_boolean(input)   -> true
-          is_number(input)    -> true
-          true                -> false
-        end
-
-      true                    -> true
+    if Enum.empty?(input) do
+      false
+    else
+      Enum.reduce(input, true, acc_chk_fn)
     end
   end
+
+  defp our_tree_h(input, true) do
+    cond do
+      is_binary(input)    -> true
+      is_boolean(input)   -> true
+      is_number(input)    -> true
+      true                -> false
+    end
+  end
+
+  defp our_tree_h(_input, _strict), do: true
 
 end

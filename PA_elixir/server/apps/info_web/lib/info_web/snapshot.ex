@@ -11,9 +11,9 @@ defmodule InfoWeb.Snapshot do
 #   raw_ext_urls/1
 #     Format `ext_ok` data (OK external URLs).
 #   snap_load/0
-#     Load a snapshot of the `result` Map.
+#     Load a snapshot of the `result` map.
 #   snap_save/1
-#     Save a (reworked) snapshot of the `result` Map, in TOML format.
+#     Save a (reworked) snapshot of the `result` map, in TOML format.
 
   @moduledoc """
   This module handles reading and writing of TOML snapshot files.
@@ -26,24 +26,32 @@ defmodule InfoWeb.Snapshot do
   # Public functions
 
   @doc """
-  Count links to external sites, format as TOML.
+  Count links to external sites; format as sorted TOML.
   """
 
   @spec counts_ext(map) :: String.t
 
   def counts_ext(result) do
-    pattern   = ~r{ ^ .* // ( [^/]+ ) .* $ }x
 
-    map_fn    = fn {_status, _from_page, ext_url} ->
+    site_fn   = fn {_status, _from_page, ext_url} ->
+    #
+    # Extract the name of the web site (e.g., foo.com) from the URL.
+
+      pattern   = ~r{ ^ .* // ( [^/]+ ) .* $ }x
       String.replace(ext_url, pattern, "\\1")
     end
 
-    reduce_fn   = fn key, acc -> Map.update(acc, key, 1, &(&1+1)) end
+    counts_fn   = fn site, acc ->
+    #
+    # Build a map of web site usage counts.
+
+      Map.update(acc, site, 1, &(&1+1))
+    end
 
     tuples = result.bins.ext_ok
 #   |> ii(:ext_ok) #T
-    |> Enum.map(map_fn)
-    |> Enum.reduce(%{}, reduce_fn)
+    |> Enum.map(site_fn)
+    |> Enum.reduce(%{}, counts_fn)
 
     out_lines  = for {site, count} <- tuples do
       "  '#{ site }' = #{ count }"
@@ -65,16 +73,25 @@ defmodule InfoWeb.Snapshot do
   @spec counts_int(map) :: String.t
 
   def counts_int(result) do
-    map_fn      = fn {_status, _from_page, int_url} ->
+
+    abridge_fn    = fn {_status, _from_page, int_url} ->
+    #
+    # Remove any query from the URL.
+
       String.replace(int_url, ~r{\?.*}, "")
     end
 
-    reduce_fn   = fn key, acc -> Map.update(acc, key, 1, &(&1+1)) end
+    counts_fn   = fn url, acc ->
+    #
+    # Build a map of internal page usage counts.
+
+      Map.update(acc, url, 1, &(&1+1))
+    end
 
     tuples = result.bins.int_ok
 #   |> ii(:int_ok) #T
-    |> Enum.map(map_fn)
-    |> Enum.reduce(%{}, reduce_fn)
+    |> Enum.map(abridge_fn)
+    |> Enum.reduce(%{}, counts_fn)
 
     out_lines  = for {route, count} <- tuples do
       "  '#{ route }' = #{ count }"
@@ -97,7 +114,10 @@ defmodule InfoWeb.Snapshot do
 
   def fmt_bins(result, key) do  
 
-    map_fn  = fn {status, from_page, url} ->
+    fmt_fn  = fn {status, from_page, url} ->
+    #
+    # Format the tuple as TOML.
+
       """
           [ '#{ url  }',
             '#{ from_page  }',
@@ -106,12 +126,14 @@ defmodule InfoWeb.Snapshot do
     end
 
     sort_fn = fn {_status, _from_page, url} -> url end
+    #
+    # Sort tuples by the URL component.
 
     bin_list  = result.bins[key] || []
 
     out_list  = bin_list
     |> Enum.sort_by(sort_fn)
-    |> Enum.map(map_fn)
+    |> Enum.map(fmt_fn)
     |> Enum.join("\n")
 
     """
@@ -129,13 +151,21 @@ defmodule InfoWeb.Snapshot do
 
   def raw_ext_urls(result) do  
 
-    map_fn1   = fn {_status, _from_page, url} -> url end
-    map_fn2   = fn url -> "    \"#{ url }\"," end   #K - urlencode?
+    url_fn   = fn {_status, _from_page, url} -> url end
+    #
+    # Extract the URL component from the tuple.
+
+    fmt_fn    = fn url ->
+    #
+    # Format the URL as TOML.
+
+      "    \"#{ url }\","
+    end   #K - urlencode?
 
     out_list  = result.bins.ext_ok    # [ {<status>, <from_page>, <url>}, ... ]
-    |> Enum.map(map_fn1)              # [ <url>, ... ]
+    |> Enum.map(url_fn)               # [ <url>, ... ]
     |> Enum.sort()                    # same, but sorted
-    |> Enum.map(map_fn2)              # [ "    '<url>',", ... ]
+    |> Enum.map(fmt_fn)               # [ "    '<url>',", ... ]
     |> Enum.join("\n")                # "    '<url>',\n, ... "
 
     """
@@ -146,7 +176,7 @@ defmodule InfoWeb.Snapshot do
   end
 
   @doc """
-  Load a Map containing the most recent snapshot of the `result` Map.
+  Load a map containing the most recent snapshot of the `result` map.
   """
 
   @spec snap_load() :: map
@@ -165,18 +195,18 @@ defmodule InfoWeb.Snapshot do
       file_path = file_paths  |> List.last()
       file_data = file_path   |> InfoToml.Parser.parse(:string)
 
-      if !Enum.empty?(file_data) do
-        file_data
-      else
+      if Enum.empty?(file_data) do
         message = "result snapshot file #{ file_path } not loaded"
         IO.puts ">>> #{ message }\n"
         %{}
+      else
+        file_data
       end
     end
   end
 
   @doc """
-  Save a (reworked) snapshot of the `result` Map, in TOML format.
+  Save a (reworked) snapshot of the `result` map, in TOML format.
   """
 
   @spec snap_save(map) :: String.t

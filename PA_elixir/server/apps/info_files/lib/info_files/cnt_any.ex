@@ -28,7 +28,7 @@ defmodule InfoFiles.CntAny do
   # Public functions
 
   @doc """
-  Add a specified sub-Map of counts to `file_info`, using a generated key
+  Add a specified sub-map of counts to `file_info`, using a generated key
   (`cnts_by_<file_type>`).  For each file, count files, functions, lines, and
   characters.  The file path is mapped to a sub-key by the function `map_fn`.
   This lets us specify how the input data should be binned and where the
@@ -41,7 +41,9 @@ defmodule InfoFiles.CntAny do
 
     cnts_key    = "cnts_by_#{ file_type }" |> String.to_atom()
 
-    reduce_fn   = fn {file_path, file_cnt}, acc ->
+    tally_fn    = fn {file_path, file_cnt}, acc ->
+    #
+    # Tally counts, across files.
 
       initial     = %{
         char:  file_cnt.char,
@@ -53,6 +55,9 @@ defmodule InfoFiles.CntAny do
       map_key     = map_fn.(file_path)   
 
       update_fn   = fn curr_val ->
+      #
+      # Update the current value in the map.
+
         %{
           char:  curr_val.char + file_cnt.char,
           file:  curr_val.file + 1,
@@ -64,8 +69,10 @@ defmodule InfoFiles.CntAny do
       Map.update(acc, map_key, initial, update_fn)
     end
 
-    cnt_map     = file_info.cnts_by_path |> Enum.reduce(%{}, reduce_fn)
-    counts      = cnt_map |> sum_cols()
+    cnt_map   = file_info.cnts_by_path
+    |> Enum.reduce(%{}, tally_fn)
+
+    counts    = cnt_map |> sum_cols()
 
     if file_info.tracing do #TG
       ii(counts, cnts_key)
@@ -75,25 +82,33 @@ defmodule InfoFiles.CntAny do
   end
 
   @doc """
-  Store a sub-Map of counts in `file_info[:cnts_by_path`].
+  Store a sub-map of counts in `file_info[:cnts_by_path`].
   For each file path, count files, functions, lines, and characters.
   """
 
   @spec add_cnts_by_path(map) :: map
 
   def add_cnts_by_path(file_info) do
-    tree_base   = file_info.tree_base
-    def_patt    = ~r{ ^ \s+ (def|defp) \s }x
 
-    filter_fn   = fn line -> String.match?(line, def_patt) end
+    func_fn     = fn line ->
+    #
+    # Return true if the line is a function definition.
 
-    reduce_fn   = fn file_path, acc ->
+      def_patt  = ~r{ ^ \s+ (def|defp) \s }x
+      String.match?(line, def_patt)
+    end
+
+    count_fn    = fn file_path, acc ->
+    #
+    # Count characters, functions, and lines.
+
+      tree_base   = file_info.tree_base
       file_text   = "#{ tree_base }/#{ file_path }" |> File.read!()
       file_lines  = file_text  |> String.split("\n")
 
       char_cnt    = file_text  |> String.codepoints()     |> Enum.count()
       line_cnt    = file_lines                            |> Enum.count()
-      func_cnt    = file_lines |> Enum.filter(filter_fn)  |> Enum.count()
+      func_cnt    = file_lines |> Enum.filter(func_fn)    |> Enum.count()
 
       file_cnts   = %{
         char:   char_cnt,
@@ -104,8 +119,8 @@ defmodule InfoFiles.CntAny do
       Map.put(acc, file_path, file_cnts)
     end
 
-    cnts_by_path = file_info.file_paths
-    |> Enum.reduce(%{}, reduce_fn)
+    cnts_by_path  = file_info.file_paths
+    |> Enum.reduce(%{}, count_fn)
 
     if file_info.tracing do #TG
       path_tuples   = cnts_by_path |> Map.to_list()
@@ -118,16 +133,14 @@ defmodule InfoFiles.CntAny do
   end
 
   @doc """
-    Given a List of directory names (e.g., `PA_elixir`), store a List of
+    Given a list of directory names (e.g., `PA_elixir`), store a list of
     tree base strings (e.g., `PA_elixir/common`) in `file_info[:tree_bases`].
   """
 
   @spec add_tree_bases(map, [String.t] ) :: map
 
   def add_tree_bases(file_info, dir_names) do
-
-    tree_base   = file_info.tree_base
-    prefix      = "#{ tree_base }/"
+    prefix      = "#{ file_info.tree_base }/"
     name_cnt    = Enum.count(dir_names)
 
     dir_patt    = if name_cnt > 1 do
@@ -136,12 +149,18 @@ defmodule InfoFiles.CntAny do
       dir_names
     end
 
+    abridge_fn  = fn path ->
+    #
+    # Abridge the path by removing the prefix string.
+
+      String.replace_prefix(path, prefix, "")
+    end
+
     glob_patt   = "#{ prefix }#{ dir_patt }/*"
-    map_fn      = fn path -> String.replace_prefix(path, prefix, "") end
 
     tree_bases  = glob_patt
     |> Path.wildcard()
-    |> Enum.map(map_fn)
+    |> Enum.map(abridge_fn)
 
     if file_info.tracing do #TG
       ii(tree_bases, "tree_bases")
@@ -151,21 +170,28 @@ defmodule InfoFiles.CntAny do
   end
 
   @doc """
-  Store a List of relative file paths (e.g., `PA_elixir/common/lib/common.ex`)
-  in `file_info[:file_paths`].  A pattern String (`dir_patt`) and a List of
+  Store a list of relative file paths (e.g., `PA_elixir/common/lib/common.ex`)
+  in `file_info[:file_paths`].  A pattern String (`dir_patt`) and a list of
   file extensions (e.g., `exs`) are used to construct the globbing pattern.
   """
   @spec add_file_paths(map, s, [ s ]) :: map when s: String.t
 
   def add_file_paths(file_info, dir_patt, file_exts) do
+    prefix      = "#{ file_info.tree_base }/"
 
-    tree_base   = file_info.tree_base
-    prefix      = "#{ tree_base }/"
-    file_patt   = "*.{#{ Enum.join(file_exts, ",") }}"
+    abridge_fn  = fn path ->
+    #
+    # Abridge the path by removing the prefix string.
 
-    map_fn      = fn path -> String.replace_prefix(path, prefix, "") end
+      String.replace_prefix(path, prefix, "")
+    end
 
-    reduce_fn   = fn tree_base2, acc ->
+    glob_fn     = fn tree_base2, acc ->
+    #
+    # Collect a list of file path globbing results.
+
+      file_patt   = "*.{#{ Enum.join(file_exts, ",") }}"
+
       glob_patt   = "#{ prefix }#{ tree_base2 }/#{ dir_patt }" <>
                     "**/#{ file_patt }"
 
@@ -175,8 +201,8 @@ defmodule InfoFiles.CntAny do
     end
 
     file_paths  = file_info.tree_bases
-    |> Enum.reduce([], reduce_fn)
-    |> Enum.map(map_fn)
+    |> Enum.reduce([], glob_fn)
+    |> Enum.map(abridge_fn)
 
     if file_info.tracing do #TG
       file_paths |> hd() |> ii("file_paths (first)")
@@ -194,7 +220,10 @@ defmodule InfoFiles.CntAny do
   # Summation helper - adds a set of "Totals" to `cnts_by_x`.
   # Used by some `add_cnts_by_...` functions in this module.
 
-    reduce_fn   = fn {_key, val}, acc ->
+    tally_fn   = fn {_key, val}, acc ->
+    #
+    # Tally (i.e., aggregate) the counts.
+
       acc
       |> Map.put(:char, acc.char + val.char)
       |> Map.put(:file, acc.file + val.file)
@@ -203,7 +232,7 @@ defmodule InfoFiles.CntAny do
     end
 
     base_map  = %{ char: 0, file: 0, func: 0, line: 0 }
-    totals    = cnts_by_x |> Enum.reduce(base_map, reduce_fn)
+    totals    = cnts_by_x |> Enum.reduce(base_map, tally_fn)
     final     = cnts_by_x |> Map.merge( %{ "|Totals" => totals } )
 
     final

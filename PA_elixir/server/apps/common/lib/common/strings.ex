@@ -19,7 +19,7 @@ defmodule Common.Strings do
 #     Helper functions for csv_join/1
 
   @moduledoc """
-  This module contains String-handling functions for common use.
+  This module contains string-handling functions for common use.
   """
 
   # Public functions
@@ -90,8 +90,8 @@ defmodule Common.Strings do
   @spec csv_split(s) :: [ s ] when s: String.t
 
   @doc """
-  Split a comma-delimited string into a list of trimmed strings, discarding any
-  empty strings.
+  Split a comma-delimited string into a list of trimmed field strings,
+  discarding any empty strings.  Honor backslash-based escaping of commas.
 
       iex> s = " , foo,  , a\\\\, b  , bar,  "
       " , foo,  , a\\\\, b  , bar,  "
@@ -100,15 +100,27 @@ defmodule Common.Strings do
   """
 
   def csv_split(in_str) do
-    map_fn      = fn str -> String.replace(str, "\a", ",") end
-    reject_fn   = fn str -> str == "" end
+
+    comma_fn    = fn str ->
+    #
+    # Convert BEL characters (escaped commas) to commas.
+
+      String.replace(str, "\a", ",")
+    end
+
+    empty_fn    = fn str ->
+    #
+    # Discard empty strings.
+
+      str == ""
+    end
 
     in_str                            # " , foo,  , a\\, b  , bar,  "
     |> String.replace("\\,", "\a")    # " , foo,  , a\a b  , bar,  "
     |> String.split(",")              # [ " ", " foo", "  ", " a\a b  ", ... ]
     |> Enum.map(&String.trim/1)       # [ "", "foo", "", "a\a b", "bar", "" ]
-    |> Enum.map(map_fn)               # [ "", "foo", "", "a, b", "bar", "" ]
-    |> Enum.reject(reject_fn)         # [ "foo", "a, b", "bar" ]
+    |> Enum.map(comma_fn)             # [ "", "foo", "", "a, b", "bar", "" ]
+    |> Enum.reject(empty_fn)          # [ "foo", "a, b", "bar" ]
   end
 
   # Private functions

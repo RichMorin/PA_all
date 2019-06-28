@@ -5,7 +5,7 @@ defmodule InfoToml.Reffer do
 # Public functions
 #
 #   get_ref_info/0
-#     Return a Map describing ref usage in the TOML files.
+#     Return a map describing ref usage in the TOML files.
 
   @moduledoc """
   This module implements ref usage analysis for InfoToml.
@@ -18,7 +18,7 @@ defmodule InfoToml.Reffer do
   # Public functions
 
   @doc """
-  Return a Map describing ref usage in the TOML files, e.g.
+  Return a map describing ref usage in the TOML files, e.g.
 
       %{
         tracing:    false,

@@ -33,7 +33,9 @@ defmodule PhxHttpWeb.DashController do
   use PhxHttpWeb, :controller
 
   import Common,
-    only: [ csv_split: 1, get_http_port: 0, get_tree_base: 0, ii: 2, keyss: 1 ]
+    only: [ get_http_port: 0, get_tree_base: 0, ii: 2, keyss: 1 ]
+
+  alias PhxHttpWeb.DashMake
 
   # Public functions
 
@@ -116,69 +118,7 @@ defmodule PhxHttpWeb.DashController do
 
   def show_make(conn, _params) do
 
-    filter_fn1  = fn {key, _title, _precis} ->
-      String.ends_with?(key, "/main.toml")
-    end
-
-    filter_fn2  = fn map ->
-      make    = map.make
-
-      make.main || make.arch || make.debian || make.other
-    end
-
-    map_fn      = fn {main_key, title, precis} ->
-
-      main_data   = main_key |> InfoToml.get_item()
-
-      make_data   = main_key
-      |> String.replace_suffix("/main.toml", "/make.toml")
-      |> InfoToml.get_item()
-
-      make_fn     = fn os_key ->
-        gi_path     = [ :os, os_key, :package ]
-        get_in(make_data, gi_path) |> is_binary()
-      end
-
-      main_fn     = fn ->
-        gi_path   = [ :meta, :actions ]
-
-        get_in(main_data, gi_path)
-        |> csv_split()
-        |> Enum.member?("build")
-      end
-
-      pattern   = ~r{ \s+ \( .* $ }x
-      name      = main_data.meta.title
-      |> String.replace(pattern, "")
-
-      %{
-        main:  %{  #D
-          key:      main_key,
-          precis:   precis,
-          title:    title,
-        },
-
-        make:  %{  #D
-          arch:     make_fn.(:arch),
-          debian:   make_fn.(:debian),
-          main:     main_fn.(),
-          name:     name,
-          other:    make_fn.(:zoo),
-        }
-      }
-    end
-
-    reduce_fn   = fn inp_map, acc ->
-      name    = inp_map.make.name
-      Map.put(acc, name, inp_map)
-    end
-
-    packages  = "Areas/Catalog/Software/"
-    |> InfoToml.get_item_tuples()   # [ {key, title, precis}, ... ]
-    |> Enum.filter(filter_fn1)      # keep items with ".../main.toml" keys
-    |> Enum.map(map_fn)             # [ { key, title, precis, map }, ... ]
-    |> Enum.filter(filter_fn2)      # keep plausible items
-    |> Enum.reduce(%{}, reduce_fn)
+    packages  = DashMake.packages()
 
     conn
     |> base_assigns(:dashboard, "PA Make")

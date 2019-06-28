@@ -29,7 +29,7 @@ defmodule PhxHttpWeb.SearchMunger do
 
   # Public functions
 
-  @spec munge( [ {s, s} ] ) :: { [s], [ {s,s} ]} when s: String.t #W
+  @spec munge( [ {s, s} ] ) :: { [s], [ {s, s} ]} when s: String.t #W
 
   @doc """
   Filter params, shard by form section, then rework the structures
@@ -38,15 +38,20 @@ defmodule PhxHttpWeb.SearchMunger do
 
   def munge(params) do
 
-    map_fn    = fn tag ->
-      if String.contains?(tag, ":") do tag
+    type_fn   = fn tag ->
+    #
+    # Add a type wildcard ("_:"), if need be.
+
+      if   String.contains?(tag, ":") do tag
       else "_:#{ tag }"
       end
     end
         
-    tags_t    = (params["search_text"] || "")
-    |> String.split()
-    |> Enum.map(map_fn)
+    inp_text  = (params["search_text"] || "")
+
+    tags_t    = inp_text    # "foo:bar baz"
+    |> String.split()       # [ "foo:bar", "baz" ]
+    |> Enum.map(type_fn)    # [ "foo:bar", "_:baz" ]
 
     {params_d, params_r}  = munge_filter(params)
 
@@ -66,23 +71,37 @@ defmodule PhxHttpWeb.SearchMunger do
   #
   # Discard extraneous and meaningless params, then shard by type.
 
-    filter_fn_d = fn {_key, val} -> String.starts_with?(val, "d:") end
-    filter_fn_r = fn {_key, val} -> String.starts_with?(val, "r:") end
+    defined_fn  = fn {_key, val} ->
+    #
+    # Return true if this is a "defined" parameter.
 
-    reject_fn = fn {key, val} ->
+      String.starts_with?(val, "d:")
+    end
+
+    reused_fn   = fn {_key, val} ->
+    #
+    # Return true if this is a "reused" parameter.
+
+      String.starts_with?(val, "r:")
+    end
+
+    noise_fn  = fn {key, val} ->
+    #
+    # Return true if parameter is extraneous or meaningless.
+
       String.starts_with?(key, "_")       ||
       String.starts_with?(val, "d:n:")    ||
       String.starts_with?(val, "r:none")
     end
 
     my_params   = params
-    |> Enum.reject(reject_fn)
+    |> Enum.reject(noise_fn)
 
     params_d    = my_params
-    |> Enum.filter(filter_fn_d)   # [ {"f_authors__...", "d:y:f_authors:..."} ]
+    |> Enum.filter(defined_fn)  # [ {"f_authors__...", "d:y:f_authors:..."} ]
 
     params_r    = my_params
-    |> Enum.filter(filter_fn_r)   # [ {"r_a", "r:any"} ]
+    |> Enum.filter(reused_fn)   # [ {"r_a", "r:any"} ]
 
     {params_d, params_r}
   end
@@ -93,14 +112,16 @@ defmodule PhxHttpWeb.SearchMunger do
   #
   # Map the "defined" parameters into a list of tags, then sort it.
 
-    map_fn      = fn {_key, val} ->
+    tag_fn    = fn {_key, val} ->
+    #
+    # Retrieve the (typed) tag from the parameter value.
+
       trim_patt = ~r{ ^ [a-z] : [a-z]+ : }x
-      trim_fn   = fn val -> String.replace(val, trim_patt, "") end
-      trim_fn.(val)
+      String.replace(val, trim_patt, "")
     end
 
-    input                         # [ { "...", "..." }, ... ]
-    |> Enum.map(map_fn)           # [ "roles:...", ... ]
+    input                         # [ { "...", "d:y:roles:..." }, ... ]
+    |> Enum.map(tag_fn)           # [ "roles:...", ... ]
     |> Enum.sort()                # [ "roles:...", ... ] (sorted)
   end
 
@@ -108,9 +129,12 @@ defmodule PhxHttpWeb.SearchMunger do
 
   defp munge_map_r(input) do
   #
-  # Map the "reused" parameters into a list of specifications.
+  # Map the "reused" parameters into a list of specification tuples.
 
-    map_fn     = fn {inp_name, inp_sel} ->
+    spec_fn   = fn {inp_name, inp_sel} ->
+    #
+    # Return a specification tuple.
+
       out_name = inp_name |> String.replace_prefix("r_", "")
       out_sel  = inp_sel  |> String.replace_prefix("r:", "")
 
@@ -118,7 +142,7 @@ defmodule PhxHttpWeb.SearchMunger do
     end
   
     input
-    |> Enum.map(map_fn)           # [ { "all", "a" }, ... ]
+    |> Enum.map(spec_fn)          # [ { "all", "a" }, ... ]
   end
 
 end

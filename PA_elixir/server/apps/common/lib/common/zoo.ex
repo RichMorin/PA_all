@@ -9,11 +9,11 @@ defmodule Common.Zoo do
 #   get_rel_path/2
 #     Convert an absolute file path into a relative path.
 #   get_run_mode/0
-#     Get an Atom indicating the current run mode.
+#     Get an atom indicating the current run mode.
 #   get_tree_base/0
 #     Get the absolute file path for the base directory.
 #   type_of/1
-#     Get an Atom indicating the data type of the argument.
+#     Get an atom indicating the data type of the argument.
 
   @moduledoc """
   This module contains miscellaneous functions for common use.
@@ -48,7 +48,7 @@ defmodule Common.Zoo do
   end
 
   @doc """
-  Get an Atom indicating the current run mode.
+  Get an atom indicating the current run mode.
 
   We normally pick this up from the `mix_env` (Unix) environment variable,
   defaulting to `:dev` if it isn't set.  Each Mix project's `mix.exs` file
@@ -83,7 +83,7 @@ defmodule Common.Zoo do
   end
 
   @doc """
-  Get an Atom indicating the data type of the argument.
+  Get an atom indicating the data type of the argument.
   
   The clauses below define a (partial) set of type-checking functions.
   The returned values are as specific as possible.  So, for example,

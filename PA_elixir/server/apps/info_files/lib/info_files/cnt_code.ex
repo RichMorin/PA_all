@@ -5,7 +5,7 @@ defmodule InfoFiles.CntCode do
 # Public functions
 #
 #   get_code_info/0
-#     Return a Map describing the PA_elixir file tree.
+#     Return a map describing the PA_elixir file tree.
 #
 # Private functions
 #
@@ -25,7 +25,7 @@ defmodule InfoFiles.CntCode do
   # Public functions
 
   @doc """
-  Return a Map describing a tree of code files, eg:
+  Return a map describing a tree of code files, eg:
 
       %{
         cnts_by_app:    %{ "<app>"  => %{...}, ... },
@@ -37,7 +37,7 @@ defmodule InfoFiles.CntCode do
         tracing:        false,
       }
 
-  The Map items are defined as follows:
+  The map items are defined as follows:
   
   - `:cnts_by_app`  - counts by application name (e.g., `InfoFiles`)
   - `:cnts_by_ext`  - counts by file extension (e.g., `toml`)
@@ -78,14 +78,15 @@ defmodule InfoFiles.CntCode do
   #
   # Add `:cnts_by_app` - number of lines of code (etc) by app name.
 
-    map_fn    = fn file_path -> 
+    app_fn    = fn file_path ->
+    #
+    # Convert a file path to the application name.
+ 
       pattern     = ~r{ ^ \w+ /server/apps/ (\w+) / .+ $ }x
-      replacer    = "\\1"                         # "<app>"
-
-      String.replace(file_path, pattern, replacer)
+      String.replace(file_path, pattern, "\\1")
     end
 
-    CntAny.add_cnts(file_info, :app, map_fn)
+    CntAny.add_cnts(file_info, :app, app_fn)
   end
 
   @spec add_cnts_by_ext(map) :: map
@@ -94,14 +95,15 @@ defmodule InfoFiles.CntCode do
   #
   # Add `:cnts_by_ext` - number of lines of code (etc) by file extension.
 
-    map_fn    = fn file_path -> 
-      pattern     = ~r{ ^ .+ \. }x                # "...<ext>"
-      replacer    = ""                            # "<ext>"
-
-      String.replace(file_path, pattern, replacer)
+    ext_fn    = fn file_path -> 
+    #
+    # Remove everything but the file extension.
+ 
+      pattern   = ~r{ ^ .+ \. }x                # "...<ext>"
+      String.replace(file_path, pattern, "")    # "<ext>"
     end
 
-    CntAny.add_cnts(file_info, :ext, map_fn)
+    CntAny.add_cnts(file_info, :ext, ext_fn)
   end
 
 end

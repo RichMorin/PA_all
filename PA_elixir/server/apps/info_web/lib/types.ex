@@ -13,7 +13,7 @@ defmodule InfoWeb.Types do
     quote do
 
       @doc """
-      With very few exceptions, we use Atoms and Strings as Map keys.
+      With very few exceptions, we use atoms and strings as map keys.
       The `map_key` type formalizes this practice. 
       """
 

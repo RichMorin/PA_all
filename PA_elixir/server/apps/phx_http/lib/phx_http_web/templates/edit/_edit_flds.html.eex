@@ -6,23 +6,29 @@
   keys      = @keys || keyss(@map_s)
 
   req_fn    = fn name ->
-    cond do
-      name =~ ~r{ ^ meta \. title $ }x       -> "required"
-      name =~ ~r{ ^ user \. email_addr $ }x  -> "required"
-      name =~ ~r{ ^ user \. full_name $ }x   -> "required"
-      true  -> ""
+  #
+  # Flag required fields.
+
+    case name do
+      ~r{ ^ meta \. title      $ }x -> "required"
+      ~r{ ^ user \. email_addr $ }x -> "required"
+      ~r{ ^ user \. full_name  $ }x -> "required"
+      _  -> ""
     end
   end
 
   size_fn   = fn name ->
-    rows  = cond do
-      name =~ ~r{^ about \. access $ }x     -> 10
-      name =~ ~r{^ about \. verbose $ }x    -> 25
-      name =~ ~r{^ address \. postal \. }x  -> 10
-      true  -> 2
+  #
+  # Estimate the size (number of rows and characters) we'll need.
+
+    rows  = case name do
+      ~r{^ about   \. access  $  }x -> 10
+      ~r{^ about   \. verbose $  }x -> 25
+      ~r{^ address \. postal  \. }x -> 10
+      _  -> 2
     end
 
-    {rows, rows*200}
+    {rows, rows * 200}
   end
 %>
 

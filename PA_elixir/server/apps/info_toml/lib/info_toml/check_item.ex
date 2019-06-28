@@ -34,7 +34,7 @@ defmodule InfoToml.CheckItem do
   # Public functions
 
   @doc """
-  Check for problems with Map elements.  For example, an item might:
+  Check for problems with map elements.  For example, an item might:
   
   - use a key that is not present in the relevant schema
   - have no `publish` value in `meta.actions`
@@ -63,15 +63,21 @@ defmodule InfoToml.CheckItem do
   # schema (eg, main, make, text, type, zoo).
   #
   # We do this by generating a list of all leaf paths used in inp_map,
-  # then removing all of them that are present in the schema.  Extra keys
-  # (ie, bogons) indicate a problem in the input map.
+  # then removing all of them that are present in the schema.  Undefined keys
+  # (i.e., bogons) indicate a problem in the input map.
 
-    schema    = get_schema(schema_map, file_key)
-    bogon_fn  = fn path -> get_in(schema, path) == nil end
+    schema     = get_schema(schema_map, file_key)
+
+    filter_fn  = fn path ->
+    #
+    # Return true if the path is not defined in the schema.
+
+      get_in(schema, path) == nil
+    end
 
     bogons  = inp_map           # %{ meta: %{...}, ...}
     |> leaf_paths()             # [ [ :meta, :actions ], ... ]
-    |> Enum.filter(bogon_fn)    # [ :meta, :bar ], ... ]
+    |> Enum.filter(filter_fn)   # [ :meta, :bar ], ... ]
 
     if Enum.empty?(bogons) do
       true
@@ -124,13 +130,19 @@ defmodule InfoToml.CheckItem do
     gi_path     = [ :meta, :refs ]
     refs_map    = get_in(inp_map, gi_path)
 
-    filter_fn   = fn field ->             # Retain invalid fields.
+    filter_fn   = fn field ->
+    #
+    # Return true if the field has invalid syntax.
+
       pattern   = ~r{ ^ [a-z_]+ [|] [A-Za-z0-9_]+ $ }x
 
       !String.match?(field, pattern)
     end
 
-    reject_fn   = fn {_type, ref_str} ->  # Retain invalid entries.
+    reject_fn   = fn {_type, ref_str} ->
+    #
+    # Return true if any field has invalid syntax.
+
       ref_str
       |> csv_split()
       |> Enum.filter(filter_fn)
@@ -161,12 +173,15 @@ defmodule InfoToml.CheckItem do
   #
   # Check whether all of the required map keys (from the schema) are present.
   # We do this by generating a list of required map keys, then attempting to
-  # find them in the target file.  Missing keys (ie, bogons) indicate a
+  # find them in the target file.  Undefined keys (i.e., bogons) indicate a
   # problem in the input map.
 
     schema    = get_schema(schema_map, file_key)
 
-    bogon_fn  = fn path_str ->
+    filter_fn   = fn path_str ->
+    #
+    # Return true if the path string is not defined in the input map.
+
       gi_path   = path_str              # "meta.actions"
       |> String.split(".")              # [ "meta", "actions" ]
       |> Enum.map(&String.to_atom/1)    # [ :meta, :actions ]
@@ -174,9 +189,9 @@ defmodule InfoToml.CheckItem do
       get_in(inp_map, gi_path) == nil
     end
 
-    bogons  = schema[:_required]        # "meta, meta.actions, ..."
-    |> csv_split()                      # [ "meta", "meta.actions", ...]
-    |> Enum.filter(bogon_fn)            # [ "meta", "meta.actions", ...]
+    bogons  = schema[:_required]        # "foo, meta, meta.actions, ..."
+    |> csv_split()                      # [ "foo", "meta", "meta.actions", ...]
+    |> Enum.filter(filter_fn)           # [ "foo", ...]
 
     if Enum.empty?(bogons) do
       true
@@ -191,40 +206,48 @@ defmodule InfoToml.CheckItem do
 
   defp check_values(inp_map, file_key) do
   #
-  # Check the values (ie, leaf nodes) for problems.
+  # Check the values (i.e., leaf nodes) of inp_map for problems.
 
     checks_fn   = fn
-      1, gi, str ->
-        if str =~ ~r{ ^ \s* $ }x, do: { "warning: blank string",        gi }
-      2, gi, str ->
-        if str =~ ~r{ \? \? }x,   do: { "error: string contains '??'",  gi }
+    #
+    # Return a tuple based on the specified check_id (e.g., 1).
+
+      1, gi_path, str ->
+        if str =~ ~r{ ^ \s* $ }x,
+          do: { "warning: blank string",        gi_path }
+
+      2, gi_path, str ->
+        if str =~ ~r{ \? \? }x,
+          do: { "error: string contains '??'",  gi_path }
     end
 
-    check_ids   = [ 1, 2 ]
+    err_chk_fn  = fn { message, _gi_path}, acc ->
+    #
+    # Return true if an error was detected.
 
-    reduce_fn   = fn { message, _gi_path}, acc ->
       String.starts_with?(message, "error:") && acc
     end
 
-    reject_fn   = fn x -> x == nil end
-
     check_fn    = fn inp, gi_rev ->
+    #
+    # Perform a set of checks on item values; return a list of error tuples.
+
       gi_path   = Enum.reverse(gi_rev)
 
-      for check_id <- check_ids do
+      for check_id <- [1, 2] do
         checks_fn.(check_id, gi_path, inp)
       end
-      |> Enum.reject(reject_fn)
+      |> Enum.filter( &( &1 ) )
     end
 
     result = check_values_h(inp_map, check_fn, [])
 
     if result != [] do
       IO.puts "\n#{ file_key }"
-      IO.inspect result
+      IO.inspect(result, label: :result)
     end
 
-    Enum.reduce(result, true, reduce_fn)
+    Enum.reduce(result, true, err_chk_fn)
   end
 
   @spec check_values_h(map|s, (s, list -> any), list) ::
@@ -232,7 +255,7 @@ defmodule InfoToml.CheckItem do
 
   defp check_values_h(inp_val, check_fn, gi_rev) do
   #
-  # Recurse through an item (ie, a tree of Maps).  Check each value, using
+  # Recurse through an item (i.e., a tree of maps).  Check each value, using
   # check_fn.  Return a list of nastygram tuples.
 
     if is_map(inp_val) do

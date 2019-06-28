@@ -87,15 +87,24 @@ defmodule InfoToml.AccessKeys do
 
   def get_area_names() do #K - unused
 
-    reject_fn = fn key ->
-      key =~ ~r{ ^ _ }x || key =~ ~r{ \. toml $ }x
+    abridge_fn  = fn key ->
+    #
+    # Remove all leading path elements.
+
+      key |> String.replace(~r{ ^ .* / }x, "")
     end
 
-    map_fn  = fn key -> key |> String.replace(~r{ ^ .* / }x, "") end
+    reject_fn = fn key ->
+    #
+    # Reject any name that starts with an underscore or ends in `.toml`.
+
+      key =~ ~r{ ^ _ }x ||
+      key =~ ~r{ \. toml $ }x
+    end
 
     InfoToml.get_keys(2)
     |> Enum.reject(reject_fn)
-    |> Enum.map(map_fn)
+    |> Enum.map(abridge_fn)
   end
 
   @doc """
@@ -111,19 +120,24 @@ defmodule InfoToml.AccessKeys do
 
     test_str  = "Areas/#{ area }"
 
-    filter_fn = fn key ->
-      String.starts_with?(key, test_str)  &&
-      !( key =~ ~r{ \. toml $ }x )
+    abridge_fn  = fn key ->
+    #
+    # Remove all leading path elements.
+
+      key |> String.replace(~r{ ^ .* / }x, "")
     end
 
-    map_fn  = fn key ->
-      key
-      |> String.replace(~r{ ^ .* / }x, "")
+    filter_fn = fn key ->
+    #
+    # Return true if the key starts with `test_str` and doesn't end with `.toml`.
+
+      String.starts_with?(key, test_str) &&
+      !( key =~ ~r{ \. toml $ }x )
     end
 
     InfoToml.get_keys(3)
     |> Enum.filter(filter_fn)
-    |> Enum.map(map_fn)
+    |> Enum.map(abridge_fn)
   end
 
   @doc """
@@ -141,7 +155,10 @@ defmodule InfoToml.AccessKeys do
   def get_keys(levels) do
     max_ndx = levels - 1
 
-    map_fn = fn key ->
+    abridge_fn = fn key ->
+    #
+    # Discard trailing nodes.
+
       key
       |> String.split("/")
       |> Enum.slice(0..max_ndx)
@@ -149,9 +166,12 @@ defmodule InfoToml.AccessKeys do
     end
 
     get_fn = fn toml_map ->
+    #
+    # Retrieve a sorted list of deduplicated, abridged keys.
+
       toml_map.items
       |> keyss()
-      |> Enum.map(map_fn)
+      |> Enum.map(abridge_fn)
       |> Enum.dedup()
     end
 
@@ -166,16 +186,25 @@ defmodule InfoToml.AccessKeys do
   @spec keys_by_tag(s) :: [s] when s: String.t
 
   def keys_by_tag(tag_val) do
+
     get_fn  = fn toml_map ->
+    #
+    # Retrieve a list of key strings by tag value.
+
       map_fn  = fn id_num ->
+      #
+      # Retrieve a list of key strings by ID number.
+
         gi_path   = [:index, :key_by_id_num, id_num]
+
         toml_map
-        |> get_in(gi_path)      # [1024, 1042, ...]
+        |> get_in(gi_path)      # ["Catalog/...", ...]
       end
 
       gi_path   = [:index, :id_nums_by_tag, tag_val]
 
       map_set   = get_in(toml_map, gi_path)
+
       if map_set do
         map_set                 # #MapSet<[1024, 1042, ...]>
         |> MapSet.to_list()       # [1024, 1042, ...]

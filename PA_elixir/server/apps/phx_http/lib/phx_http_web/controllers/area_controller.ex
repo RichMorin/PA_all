@@ -86,17 +86,25 @@ defmodule PhxHttpWeb.AreaController do
   #
   # Get a sorted (by title) and filtered list of item tuples, given a key.
 
-    filter_fn   = fn {path, _title, _precis} ->
+    main_fn   = fn {path, _title, _precis} ->
+    #
+    # Return true if this is the main file for an item.
+
       text_patt   = ~r{ / main \. toml $ }x
       String.match?(path, text_patt)
     end
 
-    sort_fn     = fn {_path, title, _precis} -> String.downcase(title) end
+    sort_fn     = fn {_path, title, _precis} ->
+    #
+    # Support sorting by the item title, ignoring case.
+
+      String.downcase(title)
+    end
 
     key
     |> String.replace_trailing("/_area.toml", "")
     |> InfoToml.get_item_tuples()
-    |> Enum.filter(filter_fn)
+    |> Enum.filter(main_fn)
     |> Enum.sort_by(sort_fn)
   end
 
@@ -137,18 +145,21 @@ defmodule PhxHttpWeb.AreaController do
 
     item  = InfoToml.get_item(key)
 
-    reduce_fn = fn (x, acc) ->
-      tuple = { x, get_area_names(x) }
+    section_fn = fn area, acc ->
+    #
+    # Build a list of sections for this area.
+
+      tuple = { area, get_area_names(area) }
       [ tuple | acc ]
     end
 
     tuples  = get_area_names()
-    |> Enum.reduce([], reduce_fn)
+    |> Enum.reduce([], section_fn)
     |> Enum.reverse()
 
     conn
     |> base_assigns(:area_1, "PA Areas", item, key)
-    |> assign(:tuples,      tuples)
+    |> assign(:tuples, tuples)
     |> render("show_1.html")
   end
 
@@ -157,12 +168,15 @@ defmodule PhxHttpWeb.AreaController do
   # Summarize the site's areas at level 2 (eg, `Areas/Content`).
 
     item      = InfoToml.get_item(key)
-    patt      = ~r{ ^ [^/]+ / [^/]+ / ( [^/]+ ) / .+ $ }x
 
     if item == nil do
       key_ng(conn, key)
     else
-      reduce_fn = fn {path, _title, _precis}, acc ->
+      count_fn  = fn {path, _title, _precis}, acc ->
+      #
+      # Build a map of counts, indexed by section name.
+
+        patt      = ~r{ ^ [^/]+ / [^/]+ / ( [^/]+ ) / .+ $ }x
         section   = String.replace(path, patt, "\\1")
 
         Map.update(acc, section, 1, &(&1 + 1) )
@@ -170,7 +184,7 @@ defmodule PhxHttpWeb.AreaController do
 
       counts  = key
       |> get_tidy_tuples()
-      |> Enum.reduce(%{}, reduce_fn)
+      |> Enum.reduce(%{}, count_fn)
 
       name      = get_area_name(key)
       sections  = get_area_names(name)
@@ -211,23 +225,38 @@ defmodule PhxHttpWeb.AreaController do
     real_items  = get_tidy_tuples(key)
     item_cnt    = Enum.count(real_items)
 
-    map_fn1     = fn {_, title, _} ->
+    heading_fn  = fn {_, title, _} ->
+    #
+    # Extract an upper-cased heading character (e.g., "A") from the title.
+
       title
       |> String.first()
       |> String.upcase()
     end
 
-    map_fn2     = fn ltr -> {nil, ltr, nil} end
-
     first_chars = real_items
-    |> Enum.map(map_fn1)
+    |> Enum.map(heading_fn)
     |> Enum.sort()
     |> Enum.uniq()
 
-    fake_items  = first_chars |> Enum.map(map_fn2)
+    tuple_fn    = fn title ->
+    #
+    # Fake up a tuple, using a letter for the title component.
 
-    sort_fn     = fn {_path, title, _precis} -> String.downcase(title) end
-    sort_items  = (fake_items ++ real_items) |> Enum.sort_by(sort_fn)
+      {nil, title, nil}
+    end
+
+    fake_items  = first_chars |> Enum.map(tuple_fn)
+
+    sort_fn     = fn {_path, title, _precis} ->
+    #
+    # Support sorting of tuples by the title component, ignoring case.
+
+      String.downcase(title)
+    end
+
+    sort_items  = (fake_items ++ real_items)
+    |> Enum.sort_by(sort_fn)
 
     conn
     |> base_assigns(:area_3, "PA Areas", item, key)

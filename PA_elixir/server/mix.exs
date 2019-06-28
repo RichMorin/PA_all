@@ -26,9 +26,14 @@ defmodule Server.MixProject do
 
   defp deps() do
     [
-      { :doctor,              "~> 0.6.0" },
+      { :credo,               "~> 1.1",
+        only: [:dev, :test], runtime: false},
+      { :doctor,              "~> 0.8" },
+      { :inch_ex,             "~> 2.0",
+        only: [:dev, :test] },
+
 #     { :doctor,    github: "akoutmos/doctor", only: [:dev, :test] },
-      { :inch_ex,   github: "rrrene/inch_ex",  only: [:dev, :test] },
+#     { :inch_ex,   github: "rrrene/inch_ex",  only: [:dev, :test] },
     ]
   end
 end

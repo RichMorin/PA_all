@@ -13,14 +13,14 @@ defmodule Common.Types do
     quote do
 
       @doc """
-      With very few exceptions, we use Atoms and Strings as Map keys.
+      With very few exceptions, we use atoms and strings as map keys.
       The `map_key` type formalizes this practice. 
       """
 
       @type map_key     :: atom | String.t
 
       @doc """
-      An `item_map` is a tree of Maps, with Strings at the leaves.
+      An `item_map` is a tree of maps, with strings at the leaves.
       """
 
       @type item_map    :: %{ map_key => item_part }
@@ -69,13 +69,13 @@ defmodule Common.Types do
       @type schema      :: %{ atom => item_part | String.t }
 
       @doc """
-      A `schema_map` is a Map of schemas.
+      A `schema_map` is a map of schemas.
       """
 
       @type schema_map  :: %{ atom => schema }
 
       @doc """
-      A `toml_map` is a Map of `item_map` structures.
+      A `toml_map` is a map of `item_map` structures.
       (e.g., loaded from a tree of TOML files).
       """
 

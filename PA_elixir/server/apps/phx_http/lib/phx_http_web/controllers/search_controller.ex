@@ -69,10 +69,13 @@ defmodule PhxHttpWeb.SearchController do
     path_map    = [:index, :key_by_id_num] |> InfoToml.get_part()
     queries_r   = get_queries(specs_r, tag_sets)
 
-    inter_fn    = fn items, acc -> MapSet.intersection(acc, items) end
-    union_fn    = fn items, acc -> MapSet.union(       acc, items) end
+    inter_fn    = &MapSet.intersection/2
+    union_fn    = &MapSet.union/2
 
-    map_fn  = fn {set_op, _set_id, tags_r} ->
+    set_fn  = fn {set_op, _set_id, tags_r} ->
+    #
+    # Return the intersection or union of id_sets, depending on set_op.
+
       id_sets   = get_id_sets(tags_r)
       case set_op do
         "all"   -> Enum.reduce(id_sets, inter_fn)
@@ -81,7 +84,7 @@ defmodule PhxHttpWeb.SearchController do
     end
 
     id_sets_r  = queries_r  # [ { "all", "a", [ "type:value", ... ] } ]
-    |> Enum.map(map_fn)     # [ #MapSet<[1002, 1234]>, ... ]
+    |> Enum.map(set_fn)     # [ #MapSet<[1002, 1234]>, ... ]
 
     id_sets_m   = id_sets_d ++ id_sets_r
     results_i   = retrieve(id_sets_m, path_map, inter_fn)
@@ -91,10 +94,16 @@ defmodule PhxHttpWeb.SearchController do
       IO.puts("")
       ii(cur_set,                 "cur_set")
 
-      pm_fn = fn x -> String.ends_with?(x, "/main.toml") end
+      main_fn = fn x ->
+      #
+      # Return true if this item is a "main" file.
+
+        String.ends_with?(x, "/main.toml")
+      end
+
       path_map
       |> Map.values
-      |> Enum.reject(pm_fn)
+      |> Enum.reject(main_fn)
       |> ii("path_map")
 
       ii(queries_r,               "queries_r")
@@ -129,14 +138,17 @@ defmodule PhxHttpWeb.SearchController do
   #
   # Get a list of MapSets (of ID numbers) matching the input tags.
 
-    map_fn    = fn val ->
-      tmp_val   = val |> String.replace_prefix("_:", "")
+    lookup_fn   = fn inp_tag ->
+    #
+    # Look up the tag, masking off the wildcard ("_:") type.
 
-      [:index, :id_nums_by_tag, tmp_val ] |>  InfoToml.get_part()
+      tmp_tag   = inp_tag |> String.replace_prefix("_:", "")
+
+      [:index, :id_nums_by_tag, tmp_tag ] |>  InfoToml.get_part()
     end
 
     tag_set
-    |> Enum.map(map_fn)
+    |> Enum.map(lookup_fn)
   end
 
   @spec get_queries( [ {s, s} ], map ) :: [ { s, s, [s] } ] when s: String.t #W
@@ -146,11 +158,15 @@ defmodule PhxHttpWeb.SearchController do
   # Return a list of tuples, containing a set operation ("all", "any"),
   # the name of a saved query (eg, "a"), and a tag set (eg, ["foo:bar"].
 
-    map_fn = fn {inp_sel, inp_name} ->
-      { inp_sel, inp_name, new_sets[inp_name] } end
+    query_fn = fn {inp_sel, inp_name} ->
+    #
+    # Return a query tuple.
+
+      { inp_sel, inp_name, new_sets[inp_name] }
+    end
 
     reused                        # [ {"all", "a"}, {"any", "b"} ]
-    |> Enum.map(map_fn)           # [ {"all", "a", [ "...", ... ] }, ... ]
+    |> Enum.map(query_fn)         # [ {"all", "a", [ "...", ... ] }, ... ]
   end
 
   @spec get_tag_sets(Plug.Conn.t(), tag_set) :: {Plug.Conn.t(), tag_sets} #W
@@ -195,16 +211,20 @@ defmodule PhxHttpWeb.SearchController do
 
   defp retrieve(id_sets, path_map, reduce_fn) do
   #
-  # Convert id_sets (a list of MapSets) to a single MapSet, using
-  # reduce_fn to get the intersection or union, then flatten the result. 
+  # Convert id_sets (a list of MapSets) to a single MapSet.  Use reduce_fn
+  # to get the intersection or union, then flatten the result. 
 
     ii(id_sets,  :id_sets) #T
 
-    filter_fn = fn set -> set end
-    map_fn    = fn id  -> InfoToml.get_item_tuples(path_map[id]) end
+    tuple_fn    = fn id ->
+    #
+    # Return a list of result tuples.
+
+      path_map[id] |> InfoToml.get_item_tuples()
+    end
 
     filtered = id_sets              # [ #MapSet<[1011]>, #MapSet<[1078]> ]                   
-    |> Enum.filter(filter_fn)       # discard nil sets
+    |> Enum.filter( &(&1) )         # discard nil sets
 
     if Enum.empty?(filtered) do
       IO.puts "--> retrieve/3 issue" #T
@@ -215,7 +235,7 @@ defmodule PhxHttpWeb.SearchController do
       filtered
       |> Enum.reduce(reduce_fn)     # #MapSet<[1011, 1078]>
       |> MapSet.to_list()           # [ 1011, 1078 ]
-      |> Enum.map(map_fn)           # [ [ { "...", "...", "..." }, ... ], ... ]
+      |> Enum.map(tuple_fn)         # [ [ { "...", "...", "..." }, ... ], ... ]
       |> List.flatten()             # [ { "...", "...", "..." }, ... ]
     end
   end
@@ -227,11 +247,25 @@ defmodule PhxHttpWeb.SearchController do
   # Sort and chunk the results for display.
 
     pattern   = ~r{ / \w+ / \w+ \. toml $ }x
-    base_fn   = fn path -> String.replace(path, pattern, "") end
 
-    chunk_fn  = fn {path, _title, _precis} -> base_fn.(path) end
+    base_fn   = fn path ->
+    #
+    # ?
+
+      String.replace(path, pattern, "")
+    end
+
+    chunk_fn  = fn {path, _title, _precis} ->
+    #
+    # ?
+
+       base_fn.(path)
+    end
       
     sort_fn   = fn {path, title, _precis} ->
+    #
+    # ?
+
       "#{ base_fn.(path) } #{ String.downcase(title) }"
     end
 

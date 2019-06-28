@@ -4,7 +4,10 @@
   import PhxHttpWeb.LayoutView, only: [hide_show: 2]
 
   pattern     = ~r{ ^ [^/]+/ [^/]+/ [^/]+/ }x
+
   sort_fn     = fn {_key, map} -> -map.line end
+  #
+  # Support sorting by line count, in descending order.
 
   biggies     = @code_info.cnts_by_path
   |> Enum.sort_by(sort_fn)

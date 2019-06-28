@@ -5,7 +5,7 @@ defmodule InfoToml.Tagger do
 # Public functions
 #
 #   get_tag_info/0
-#     Return a Map describing tag usage in the TOML files.
+#     Return a map describing tag usage in the TOML files.
 
   @moduledoc """
   This module implements tag usage analysis for InfoToml.
@@ -18,7 +18,7 @@ defmodule InfoToml.Tagger do
   # Public functions
 
   @doc """
-  Return a Map describing tag usage in the TOML files, e.g.
+  Return a map describing tag usage in the TOML files, e.g.
 
       %{
         tracing:    false,

@@ -51,9 +51,8 @@ defmodule InfoWeb.Server do
   @spec get_snap() :: map
 
   def get_snap() do
-    get_fn = fn snapshot -> snapshot end
 
-    Agent.get(@me, get_fn)
+    Agent.get(@me, &(&1) )
   end
 
   @doc """
@@ -64,7 +63,10 @@ defmodule InfoWeb.Server do
 
   def reload() do
     snap_map    = Snapshot.snap_load()
+
     update_fn   = fn _ignore -> snap_map end
+    #
+    # Return new snapshot, ignoring the current one.
 
     Agent.update(@me, update_fn)
     {:info,  "Updated without problems."}

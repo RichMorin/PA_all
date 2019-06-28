@@ -43,21 +43,32 @@ defmodule PhxHttpWeb.ClearController do
   @spec clear_post(Plug.Conn.t(), any) :: Plug.Conn.t() #W
 
   def clear_post(conn, params) do
-    map_fn      = fn {key, _val} -> key end
 
-    reject_fn_1 = fn {key, val} ->
+    key_fn      = fn {key, _val} -> key end
+    #
+    # Extract the key from a map tuple.
+
+    noise_fn    = fn {key, val} ->
+    #
+    # Return true for "noise" parameters.
+
       String.starts_with?(key, "_") || val == "n"
     end
 
-    remove  = params
-    |> Enum.reject(reject_fn_1)   # [ {"a", "y"}, ... ]
-    |> Enum.map(map_fn)           # [ "a", ... ]
+    clear       = params
+    |> Enum.reject(noise_fn)      # [ {"a", "y"}, ... ]
+    |> Enum.map(key_fn)           # [ "a", ... ]
 
-    reject_fn_2 = fn {key, _val} -> Enum.member?(remove, key) end
+    clear_fn   = fn {key, _val} ->
+    #
+    # Return true for queries the user wants to clear.
+
+      Enum.member?(clear, key)
+    end
 
     tag_sets    = conn
     |> get_session(:tag_sets)
-    |> Enum.reject(reject_fn_2)
+    |> Enum.reject(clear_fn)
     |> Enum.into(%{})
 
     conn        = put_session(conn, :tag_sets, tag_sets) #D

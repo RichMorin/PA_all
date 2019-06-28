@@ -43,7 +43,7 @@ defmodule PhxHttp.Types do
       @type params      :: %{ String.t => String.t }
 
       @doc """
-      An `s_pair` (String pair) is a two-String Tuple.
+      An `s_pair` (String pair) is a two-string Tuple.
       """
 
       @type s_pair      :: {String.t, String.t}
@@ -68,7 +68,7 @@ defmodule PhxHttp.Types do
       @type tag_map     :: %{ (atom | String.t) => MapSet.t(tag_val) }
 
       @doc """
-      A `tag_set` is a List of `type:tag` strings.
+      A `tag_set` is a list of `type:tag` strings.
       """
 
       @type tag_set     :: [ String.t ]

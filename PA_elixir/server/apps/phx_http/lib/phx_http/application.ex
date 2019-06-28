@@ -11,9 +11,9 @@ defmodule PhxHttp.Application do
 # @spec - ToDo
 
   def start(_type, _args) do
-    # List all child processes to be supervised
+    # List all child processes to be supervised.
     children = [
-      # Start the endpoint when the application starts
+      # Start the endpoint when the application starts.
       PhxHttpWeb.Endpoint
       # Starts a worker by calling: PhxHttp.Worker.start_link(arg)
       # {PhxHttp.Worker, arg},

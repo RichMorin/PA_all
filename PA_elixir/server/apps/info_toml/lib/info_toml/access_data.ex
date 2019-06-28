@@ -48,14 +48,23 @@ defmodule InfoToml.AccessData do
   @spec get_item_tuples(s) :: { s, s, s } when s: String.t
 
   def get_item_tuples(key_base) do
+
+    filter_fn   = fn item_key ->
+    #
+    # Return true if the item key starts with the provided key base.
+
+      is_binary(item_key) &&
+      String.starts_with?(item_key, key_base)
+    end
+
     map_fn     = fn toml_map ->
+    #
+    # Generate a sorted list of matching item tuples.
 
-      filter_fn   = fn item_key ->
-        is_binary(item_key) &&
-        String.starts_with?(item_key, key_base)
-      end
+      tuple_fn  = fn item_key, acc ->
+      #
+      # Generate a list of item tuples.
 
-      reduce_fn = fn (item_key, acc) ->
         precis  = get_in(toml_map, [:items, item_key, :about, :precis])
         title   = get_in(toml_map, [:items, item_key, :meta,  :title])
         tuple   = {item_key, title, precis}
@@ -65,7 +74,7 @@ defmodule InfoToml.AccessData do
       toml_map.items                  # map containing item data
       |> keyss()                      # sorted list of item keys
       |> Enum.filter(filter_fn)       # keys with the specified base
-      |> Enum.reduce([], reduce_fn)   # [ {item_key, title, precis}, ... ]
+      |> Enum.reduce([], tuple_fn)    # [ {item_key, title, precis}, ... ]
     end
 
     Agent.get(@me, map_fn)
@@ -78,7 +87,12 @@ defmodule InfoToml.AccessData do
   @spec get_map() :: toml_map
 
   def get_map() do
-    get_fn  = fn toml_map -> toml_map end
+    get_fn  = fn toml_map ->
+    #
+    # Return the entire TOML map.
+
+      toml_map
+    end
 
     Agent.get(@me, get_fn)
   end
@@ -90,14 +104,17 @@ defmodule InfoToml.AccessData do
 
   @spec get_part( [ atom | String.t ] ) :: any
 
-  def get_part([]) do
-    get_fn = fn toml_map -> toml_map end
-
-    Agent.get(@me, get_fn)
-  end
+  def get_part([]), do: get_map()
 
   def get_part(gi_list) do
-    get_fn = fn toml_map -> get_in(toml_map, gi_list) end
+
+    get_fn = fn toml_map ->
+    #
+    # Return the specified portion of the TOML map.
+
+      get_in(toml_map, gi_list)
+    end
+
     Agent.get(@me, get_fn)
   end
 
@@ -109,6 +126,7 @@ defmodule InfoToml.AccessData do
 
   def get_toml(item_key) do
     gi_path   = [:meta, :file_rel]
+
     file_rel  = item_key      # "_text/about.toml"
     |> get_item()             # %{about: %{...}, ...}
     |> get_in(gi_path)        # "/.../_text/about.toml"
@@ -141,7 +159,11 @@ defmodule InfoToml.AccessData do
   @spec put_part(any, [ map_key ] | nil) :: atom
 
   def put_part(new_val, key_list \\ nil) do
+
     update_fn = fn toml_map ->
+    #
+    # Replace the specified portion of the TOML map.
+
       if key_list == nil do
         new_val
       else

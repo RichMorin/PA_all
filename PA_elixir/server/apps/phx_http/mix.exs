@@ -60,22 +60,22 @@ defmodule PhxHttp.MixProject do
 
   defp deps() do
     [ # default
-      { :phoenix,              "~> 1.4.0" },
+      { :phoenix,              "~> 1.4" },
       { :phoenix_pubsub,       "~> 1.1" },
 
-      { :phoenix_html,         "~> 2.11" },
+      { :phoenix_html,         "~> 2.13" },
 
 # Test redirect to determine whether Dialyzer fix works for us.
 #     { :phoenix_html, override: true,
 #       git: "https://github.com/phoenixframework/phoenix_html.git" },
 
       { :phoenix_live_reload,  "~> 1.2", only: :dev },
-      { :gettext,              "~> 0.11" },
-      { :jason,                "~> 1.0" },
+      { :gettext,              "~> 0.16" },
+      { :jason,                "~> 1.1" },
       { :plug_cowboy,          "~> 2.0" },
 
       # added
-      { :dialyxir,             "~> 1.0.0-rc.4",
+      { :dialyxir,             "~> 1.0.0-rc.6",
         only: [:dev], runtime: false },
 
       { :earmark,              "~> 1.3.2" },
@@ -84,7 +84,7 @@ defmodule PhxHttp.MixProject do
 #     { :earmark, override: true,
 #       git: "https://github.com/pragdave/earmark.git" },
 
-      { :ex_doc,               "~> 0.19", only: :dev },
+      { :ex_doc,               "~> 0.20.2", only: :dev },
 
       # local
       { :common,               in_umbrella: true },

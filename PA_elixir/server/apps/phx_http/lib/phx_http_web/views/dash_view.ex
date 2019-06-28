@@ -5,13 +5,13 @@ defmodule PhxHttpWeb.DashView do
 # Public functions
 #
 #   get_avg_cnts/1
-#     Get a Map of the average number of values used for each tag type.
+#     Get a map of the average number of values used for each tag type.
 #   get_dup_vals/1
-#     Get a Map of duplicate ref or tag values with associates types and counts.
+#     Get a map of duplicate ref or tag values with associates types and counts.
 #   get_odd_vals/1
-#     Get a List of odd ref or tag values and associated types.
+#     Get a list of odd ref or tag values and associated types.
 #   get_total_cnts/2
-#     Get a Map of the total number of values used for this tag type.
+#     Get a map of the total number of values used for this tag type.
 
   use PhxHttpWeb, :view
 
@@ -21,7 +21,7 @@ defmodule PhxHttpWeb.DashView do
   # Public functions
 
   @doc """
-  Get a Map of the average number of values used for each tag type, eg:
+  Get a map of the average number of values used for each tag type, eg:
 
       %{ miscellany: 0.22, ... }
 
@@ -36,13 +36,28 @@ defmodule PhxHttpWeb.DashView do
 
     items       = [ :items ] |> InfoToml.get_part()
 
-    filter_fn   = fn {key, _item} -> String.ends_with?(key, "/main.toml") end
+    filter_fn   = fn {key, _item} ->
+    #
+    # ?
 
-    merge_fn    = fn _k, v1, v2 -> v1 + v2 end
+      String.ends_with?(key, "/main.toml")
+    end
+
+    merge_fn    = fn _k, v1, v2 ->
+    #
+    # ?
+
+      v1 + v2
+    end
 
     reduce_fn1  = fn {_key, item}, acc ->
+    #
+    # ?
 
       reduce_fn1a = fn {tag_type, tag_str}, acc ->
+      #
+      # ?
+
         tag_cnt   = tag_str
         |> csv_split()
         |> Enum.count()
@@ -57,6 +72,9 @@ defmodule PhxHttpWeb.DashView do
     end
 
     reduce_fn2  = fn {tag_type, tag_cnt}, acc ->
+    #
+    # ?
+
       avg_cnt   = tag_cnt / main_cnt
 
       Map.put(acc, tag_type, avg_cnt)        
@@ -69,7 +87,7 @@ defmodule PhxHttpWeb.DashView do
   end
 
   @doc """
-  Get a Map of duplicate tag values with associated types and counts, eg:
+  Get a map of duplicate tag values with associated types and counts, eg:
 
       %{ <tag>        => "<type>   (<cnt>), ..." }
       %{ "trade show" => "produces (1),     roles (1)", ...}
@@ -88,9 +106,17 @@ defmodule PhxHttpWeb.DashView do
 
     punt_list   = ~w(f_authors f_editors)a
 
-    punt_fn     = fn {type, _cnt}   -> Enum.member?(punt_list, type) end
+    punt_fn     = fn {type, _cnt} ->
+    #
+    # ?
+
+      Enum.member?(punt_list, type)
+    end
     
     filter_fn   = fn {_tag, tuples} ->
+    #
+    # ?
+
       cnt_keep  = tuples |> Enum.reject(punt_fn) |> Enum.count()
       cnt_punt  = tuples |> Enum.filter(punt_fn) |> Enum.count()
       
@@ -99,6 +125,9 @@ defmodule PhxHttpWeb.DashView do
     end
 
     reduce_fn1  = fn {type, tag, cnt}, acc ->
+    #
+    # ?
+
       tuple       = {type, cnt}
       initial     = [ tuple ]
       update_fn   = fn old_val -> [ tuple | old_val ] end
@@ -106,11 +135,27 @@ defmodule PhxHttpWeb.DashView do
       Map.update(acc, tag, initial, update_fn)
     end
 
-    map_fn1     = fn {type, cnt}  -> "#{ type } (#{ cnt })" end
-    reduce_fn2  = fn {tag, type_str}, acc -> Map.put(acc, tag, type_str) end
+    map_fn1     = fn {type, cnt}  ->
+    #
+    # ?
+
+      "#{ type } (#{ cnt })"
+    end
+
+    reduce_fn2  = fn {tag, type_str}, acc ->
+    #
+    # ?
+
+      Map.put(acc, tag, type_str)
+    end
 
     sort_fn1    = fn {tag, _list} -> tag  end
+    #
+    # ?
+
     sort_fn2    = fn {type, _cnt} -> type end
+    #
+    # ?
 
     map_fn2     = fn {tag, type_list} ->
       type_str = type_list
@@ -131,7 +176,7 @@ defmodule PhxHttpWeb.DashView do
   end
 
   @doc """
-  Get a List of odd tag values and associated tag types.
+  Get a mist of odd tag values and associated tag types.
   That is, values which contain characters other than:
 
   - alphanumeric characters (A-Z, a-z, 0-9)
@@ -152,9 +197,18 @@ defmodule PhxHttpWeb.DashView do
 
   def get_odd_vals(kv_list) do
     odd_patt    = ~r{[^-+_\. (/#)A-Za-z0-9]}
-    filter_fn   = fn {_type, tag, _cnt} -> tag =~ odd_patt end
 
-    map_fn      = fn {type, tag, _cnt}  ->
+    filter_fn   = fn {_type, tag, _cnt} ->
+    #
+    # ?
+
+      tag =~ odd_patt
+    end
+
+    map_fn      = fn {type, tag, _cnt} ->
+    #
+    # ?
+
       keys      = InfoToml.keys_by_tag(tag)
 
       if Enum.empty?(keys) do
@@ -165,6 +219,8 @@ defmodule PhxHttpWeb.DashView do
     end
 
     sort_fn     = fn {tag, _type, _key} -> tag end
+    #
+    # ?
 
     kv_list                           # [ {:miscellany, "CLI", 1}, ...]
     |> Enum.filter(filter_fn)         # ditto, but filtered
@@ -174,7 +230,7 @@ defmodule PhxHttpWeb.DashView do
   end
 
   @doc """
-  Get a Map of the total number of values used for this tag type.
+  Get a map of the total number of values used for this tag type.
 
       iex> tag_types = [ :foo ]
       iex> kv_map = %{ foo: %{ "bar" => 42 } }
@@ -195,9 +251,18 @@ defmodule PhxHttpWeb.DashView do
   @spec get_total_cnts(list, map) :: map #W
 
   def get_total_cnts(tag_types, kv_map) do
-    reduce_fn2  = fn tag_val, acc -> MapSet.put(acc, tag_val) end
+
+    reduce_fn2  = fn tag_val, acc ->
+    #
+    # ?
+
+      MapSet.put(acc, tag_val)
+    end
 
     reduce_fn1  = fn tag_type, acc ->
+    #
+    # ?
+
       total_cnt   = kv_map[tag_type]
       |> Map.keys()
       |> Enum.reduce(%MapSet{}, reduce_fn2)

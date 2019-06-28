@@ -38,13 +38,15 @@ defmodule InfoToml.Server do
   @spec reload() :: {atom, String.t}
 
   def reload() do
-    get_fn    = fn cur_map -> cur_map end
-    old_map   = Agent.get(@me, get_fn)
+
+    old_map   = Agent.get(@me, &(&1) )
 
     {status, messages, toml_map} = toml_load(old_map)
     msg_str   = "(#{ Enum.join(messages, ", ") })"
 
     update_fn = fn _ignore -> toml_map end
+    #
+    # Ignore the current TOML map; install the new one.
 
     case status do
       :ok ->

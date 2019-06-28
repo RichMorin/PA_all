@@ -71,19 +71,22 @@ defmodule InfoToml.Schemer do
   def get_schemas(tree_abs) do
     base_len    = byte_size(tree_abs) + 1
 
-    reduce_fn   = fn (x, acc) ->
-      { file_abs, file_data }  = x;
+    reduce_fn   = fn x, acc ->
+    #
+    # Construct a map of schemas. 
+
+      { file_abs, file_data }  = x
       trim_len  = byte_size(file_abs) - base_len
 
-      hash_key  =  file_abs               # "/.../_schemas/main.toml"
+      key  =  file_abs                    # "/.../_schemas/main.toml"
       |> binary_part(base_len, trim_len)  # "_schemas/main.toml"
 
-      Map.put(acc, hash_key, file_data)
+      Map.put(acc, key, file_data)
     end
 
-    tree_abs                              # "/..."
-    |> do_files(&do_file/1)               # { "/.../_schemas/*.toml", %{...} }
-    |> Enum.reduce(%{}, reduce_fn)        # %{ "..." => %{...}, ... }
+    tree_abs                          # "/..."
+    |> do_files(&do_file/1)           # { "/.../_schemas/*.toml", %{...} }
+    |> Enum.reduce(%{}, reduce_fn)    # %{ "_schemas/*.toml" => %{...}, ... }
   end
 
   # Private functions
@@ -94,8 +97,8 @@ defmodule InfoToml.Schemer do
   #
   # Process (eg, load) a TOML schema file.
 
-    file_data = file_abs                  # "/.../_schemas/*.toml"
-    |> Parser.parse(:atoms)               # %{meta: %{...}, ...}
+    file_data = file_abs            # "/.../_schemas/*.toml"
+    |> Parser.parse(:atoms)         # %{meta: %{...}, ...}
 
     { file_abs, file_data }
   end
@@ -107,8 +110,8 @@ defmodule InfoToml.Schemer do
   # Perform `file_fun` on each schema file.
 
     tree_abs
-    |> file_paths               # get a list of TOML schema files
-    |> Enum.map(file_fun)       # load schema data
+    |> file_paths                   # get a list of TOML schema files
+    |> Enum.map(file_fun)           # load schema data
   end
 
   @spec file_paths(s) :: [ s ] when s: String.t

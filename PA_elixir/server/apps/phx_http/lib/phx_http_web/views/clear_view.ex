@@ -11,7 +11,7 @@ defmodule PhxHttpWeb.ClearView do
 #   result_url/1
 #     Generate the URL text for a result.
 #   tag_types/1
-#     Generate a List of tag types for display.
+#     Generate a list of tag types for display.
 #
 # Private Functions
 #
@@ -47,11 +47,22 @@ defmodule PhxHttpWeb.ClearView do
   @spec fmt_tag_set(tag_set, String.t, atom) :: safe_html #W
 
   def fmt_tag_set(tag_set, set_key, settings) do
-    chunk_fn  = fn [type, _val] -> type end 
 
-    map_fn_1  = fn val -> String.split(val, ":") end
+    type_fn  = fn [type, _val] -> type end 
+    #
+    # Support chunking by type.
 
-    map_fn_2  = fn chunk ->
+    split_fn  = fn field ->
+    #
+    # Split the tag field into type and tag values.
+
+      String.split(field, ":")
+    end
+
+    fmt_fn  = fn chunk ->
+    #
+    # Format a chunk as HTML.
+
       type  = chunk                 # [ ["f_authors", "Amanda_Lacy"], ...]
       |> hd()                       # ["f_authors", "Amanda_Lacy"]
       |> hd()                       # "f_authors"
@@ -65,9 +76,9 @@ defmodule PhxHttpWeb.ClearView do
 
     set_str = tag_set           # [ "foo:ff", "bar:bb", ... ]
     |> Enum.sort()              # [ "bar:bb", "foo:ff", ... ]
-    |> Enum.map(map_fn_1)       # [ [ "bar", "bb" ], ... ]
-    |> Enum.chunk_by(chunk_fn)  # [ [ [ "bar", "bb" ], ... ], ... ]
-    |> Enum.map(map_fn_2)       # [ "<li>...</li>", ... ]
+    |> Enum.map(split_fn)       # [ [ "bar", "bb" ], ... ]
+    |> Enum.chunk_by(type_fn)   # [ [ [ "bar", "bb" ], ... ], ... ]
+    |> Enum.map(fmt_fn)         # [ "<li>...</li>", ... ]
     |> Enum.join("\n")          # "<li>...</li>\n..."
     |> raw()                    # { :safe, "<li>...</li>\n..." }
  
@@ -86,7 +97,7 @@ defmodule PhxHttpWeb.ClearView do
   end
 
   @doc """
-  Generate header text for a result set.
+  Return header information for a result set.
 
       iex> path     = "Areas/Catalog/People/Rich_Morin/main.toml"
       iex> results  = [ { path, "...", "..." } ]
@@ -97,13 +108,13 @@ defmodule PhxHttpWeb.ClearView do
   @spec result_header( [ {s, s, s} ] ) :: {s, integer} when s: String.t #W
 
   def result_header(results) do
-    base_patt = ~r{ ^ ( \w+ / \w+ ) / .* $ }x
-    base_fn   = fn path -> String.replace(path, base_patt, "\\1") end
-
     {path, _title, _precis} = List.first(results)
-    count     = Enum.count(results)
-    header    = base_fn.(path)
-    {header, count}
+    hdr_count   = Enum.count(results)
+
+    base_patt   = ~r{ ^ ( \w+ / \w+ ) / .* $ }x
+    hdr_text    =  String.replace(path, base_patt, "\\1")
+
+    {hdr_text, hdr_count}
   end
 
   @doc """
@@ -119,7 +130,7 @@ defmodule PhxHttpWeb.ClearView do
   def result_url(key), do: "/item?key=#{ key }"
 
   @doc """
-  Generate a List of tag types for display.
+  Generate a list of tag types for display.
 
       iex> kv_map = %{
       iex>   replaces: %{ "cutting board"   => 1 },
@@ -132,13 +143,19 @@ defmodule PhxHttpWeb.ClearView do
   @spec tag_types(tag_info) :: [ String.t ] #W
 
   def tag_types(kv_map) do
-    exclude     = ~w(miscellany requires see_also)a #D
+#   exclude     = ~w(miscellany requires see_also)a #D
     exclude     = ~w( )a
-    reject_fn   = fn tag_type -> Enum.member?(exclude, tag_type) end
+
+    exclude_fn  = fn tag_type ->
+    #
+    # Return true if the tag type is present in the exclude list.
+
+      Enum.member?(exclude, tag_type)
+    end
 
     kv_map
     |> keyss()
-    |> Enum.reject(reject_fn)
+    |> Enum.reject(exclude_fn)
   end
 
   # Private functions

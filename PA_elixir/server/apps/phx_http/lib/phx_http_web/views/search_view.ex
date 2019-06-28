@@ -11,7 +11,7 @@ defmodule PhxHttpWeb.SearchView do
 #   result_url/1
 #     Generate the URL text for a result.
 #   tag_types/1
-#     Generate a List of tag types for display.
+#     Generate a list of tag types for display.
 #
 # Private Functions
 #
@@ -47,11 +47,15 @@ defmodule PhxHttpWeb.SearchView do
   @spec fmt_tag_set(tag_set, String.t, atom) :: safe_html #W
 
   def fmt_tag_set(tag_set, set_key, settings) do
-    chunk_fn  = fn [type, _val] -> type end 
 
-    map_fn_1  = fn val -> String.split(val, ":") end
+    split_fn  = fn val -> String.split(val, ":") end
+    #
+    # Split a typed tag into a two-element list.
 
-    map_fn_2  = fn chunk ->
+    fmt_fn  = fn chunk ->
+    #
+    # Format a chunk of the results as an HTML list item.
+
       type  = chunk                 # [ ["f_authors", "Amanda_Lacy"], ...]
       |> hd()                       # ["f_authors", "Amanda_Lacy"]
       |> hd()                       # "f_authors"
@@ -65,9 +69,9 @@ defmodule PhxHttpWeb.SearchView do
 
     set_str = tag_set           # [ "foo:ff", "bar:bb", ... ]
     |> Enum.sort()              # [ "bar:bb", "foo:ff", ... ]
-    |> Enum.map(map_fn_1)       # [ [ "bar", "bb" ], ... ]
-    |> Enum.chunk_by(chunk_fn)  # [ [ [ "bar", "bb" ], ... ], ... ]
-    |> Enum.map(map_fn_2)       # [ "<li>...</li>", ... ]
+    |> Enum.map(split_fn)       # [ [ "bar", "bb" ], ... ]
+    |> Enum.chunk_by(&hd/1)     # [ [ [ "bar", "bb" ], ... ], ... ]
+    |> Enum.map(fmt_fn)         # [ "<li>...</li>", ... ]
     |> Enum.join("\n")          # "<li>...</li>\n..."
     |> raw()                    # { :safe, "<li>...</li>\n..." }
 
@@ -86,8 +90,8 @@ defmodule PhxHttpWeb.SearchView do
   end
 
   @doc """
-  Get a Map of tag values for the specified type.
-  If the type is `_`, return a merged Map for all tag values.
+  Get a map of tag values for the specified type.
+  If the type is `_`, return a merged map for all tag values.
 
       iex> kv_map = %{ t1: %{ a: 1, b: 2 }, t2: %{ b: 10, c: 3 } }
       iex> get_sub_map(kv_map, :_)
@@ -100,14 +104,19 @@ defmodule PhxHttpWeb.SearchView do
 
   def get_sub_map(kv_map, :_) do
 
-    merge_fn    = fn _k, v1, v2 -> v1 + v2 end
+    sum_fn      = fn _tag, cnt_1, cnt_2 -> cnt_1 + cnt_2 end
+    #
+    # Sum a pair of tag usage counts, ignoring type.
 
-    reduce_fn   = fn {_type, sub_map}, acc ->
-      Map.merge(acc, sub_map, merge_fn)
+    tally_fn    = fn {_type, sub_map}, acc ->
+    #
+    # Sum the usage counts for this tag, across all types.
+
+      Map.merge(acc, sub_map, sum_fn)
     end
 
     kv_map                          # %{ t1: %{a: 1, b: 2}, t2: %{b: 10, c: 3} }
-    |> Enum.reduce(%{}, reduce_fn)  # %{ a: 1, b: 12, c: 3 }
+    |> Enum.reduce(%{}, tally_fn)   # %{ a: 1, b: 12, c: 3 }
   end
 
   def get_sub_map(kv_map, tag_type), do: kv_map[tag_type]
@@ -124,12 +133,13 @@ defmodule PhxHttpWeb.SearchView do
   @spec result_header( [ {s, s, s} ] ) :: {s, integer} when s: String.t #W
 
   def result_header(results) do
-    base_patt = ~r{ ^ ( \w+ / \w+ ) / .* $ }x
-    base_fn   = fn path -> String.replace(path, base_patt, "\\1") end
 
     {path, _title, _precis} = List.first(results)
-    count     = Enum.count(results)
-    header    = base_fn.(path)
+
+    base_patt   = ~r{ ^ ( \w+ / \w+ ) / .* $ }x
+    header      = String.replace(path, base_patt, "\\1")
+    count       = Enum.count(results)
+
     {header, count}
   end
 
@@ -146,7 +156,7 @@ defmodule PhxHttpWeb.SearchView do
   def result_url(key), do: "/item?key=#{ key }"
 
   @doc """
-  Generate a List of tag types for display.
+  Generate a list of tag types for display.
 
       iex> kv_map = %{
       iex>   replaces: %{ "cutting board"   => 1 },
@@ -158,13 +168,19 @@ defmodule PhxHttpWeb.SearchView do
   @spec tag_types(tag_info) :: [ String.t ] #W
 
   def tag_types(kv_map) do
-#   exclude     = ~w(miscellany requires see_also)a #D
-    exclude     = ~w( )a #D
-    reject_fn   = fn tag_type -> Enum.member?(exclude, tag_type) end
+
+    exclude_fn  = fn tag_type ->
+    #
+    # Return true if the tag's type is in the exclude list.
+
+#     exclude     = ~w(miscellany requires see_also)a #D
+      exclude     = ~w( )a #D
+      Enum.member?(exclude, tag_type)
+    end
 
     tmp   = kv_map
     |> keyss()
-    |> Enum.reject(reject_fn)
+    |> Enum.reject(exclude_fn)
 
     [ :_ | tmp ]
   end

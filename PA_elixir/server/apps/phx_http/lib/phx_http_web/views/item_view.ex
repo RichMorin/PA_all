@@ -7,7 +7,7 @@ defmodule PhxHttpWeb.ItemView do
 #   fmt_address/2
 #     Format an address for display.
 #   fmt_key/1
-#     Format the Map key (handle special cases, then capitalize the rest).
+#     Format the map key (handle special cases, then capitalize the rest).
 #   fmt_review/1
 #     Format a review for display.
 #
@@ -20,7 +20,7 @@ defmodule PhxHttpWeb.ItemView do
 #   fa3/3
 #     Helper function for fa2/3:          format heading and list
 #   prep_map/1
-#     Preprocess the input Map.
+#     Preprocess the input map.
 #   prep_map_h/2
 #     Preprocess an input string.
 
@@ -41,7 +41,7 @@ defmodule PhxHttpWeb.ItemView do
 
   @doc """
   Format an address for display.  If the address type (eg, :related) is not
-  found in the address Map, return an empty string.
+  found in the address map, return an empty string.
 
       iex> address  = %{
       iex>  web_site: %{
@@ -66,7 +66,7 @@ defmodule PhxHttpWeb.ItemView do
   end
 
   @doc """
-  Format the Map key (handle special cases, then capitalize the rest).
+  Format the map key (handle special cases, then capitalize the rest).
   """
 
   @spec fmt_key(atom) :: String.t #W
@@ -153,8 +153,12 @@ defmodule PhxHttpWeb.ItemView do
   @spec fa2(atom, String.t, map) :: safe_html #W
 
   defp fa2(:post, heading, map) do
+
     item_fn = fn key ->
-      lines = String.replace(map[key], "\n", "<br>\n")
+    #
+    # Look up and format an item.
+
+      lines   = String.replace(map[key], "\n", "<br>\n")
       [ "<li><b>#{ key }:</b><p> #{ lines }</p></li>" ]
     end
 
@@ -164,14 +168,20 @@ defmodule PhxHttpWeb.ItemView do
   defp fa2(:site, heading, inp_map) do
     out_map = prep_map(inp_map)
 
-    item_fn   = fn url_str ->
+    link_fn   = fn url_str ->
+    #
+    # Return the HTML for a single link.
+
       "<a href='#{ url_str }'>#{ url_str }</a>"
     end
 
-    items_fn  = fn key ->
+    links_fn  = fn key ->
+    #
+    # Return the HTML for a set of links.
+
       links = out_map[key]      # "url, ..."
       |> csv_split()            # [ "url", ... ]
-      |> Enum.map(item_fn)      # [ "<a href='url'>url</a>", ... ]
+      |> Enum.map(link_fn)      # [ "<a href='url'>url</a>", ... ]
 
       if Enum.count(links) == 1 do
         "<li><b>#{ fmt_key(key) }:</b> #{ links }</li>"
@@ -189,11 +199,15 @@ defmodule PhxHttpWeb.ItemView do
       end
     end
 
-    fa3(heading, out_map, items_fn)
+    fa3(heading, out_map, links_fn)
   end
 
   defp fa2(:text, heading, map) do
+
     item_fn   = fn key ->
+    #
+    # Format the HTML for an item.
+
       [ "<li><b>#{ key }:</b> #{ map[key] }</li>" ]
     end
 
@@ -220,30 +234,39 @@ defmodule PhxHttpWeb.ItemView do
 
   defp prep_map(inp_map) do
   #
-  # Preprocess the input Map:
+  # Preprocess the input map:
   #   expand global prefixes (eg, "ext_wp|")
   #   do one level of symbol substitution (eg, "main|...")
   #   remove entries with anonymous keys (eg, "_1").
 
-    map_fn      = fn field -> prep_map_h(field, inp_map) end
+    prep_fn     = fn field ->
+    #
+    # Return the preprocessed field.
 
-    reduce_fn   = fn ({key, inp_val}, acc) ->
+      prep_map_h(field, inp_map)
+    end
+
+    reduce_fn   = fn {key, inp_val}, acc ->
+    #
+    # ?
+
       out_val  = inp_val
       |> csv_split()
-      |> Enum.map(map_fn)
+      |> Enum.map(prep_fn)
       |> Enum.join(", ")
 
       Map.put(acc, key, out_val)
     end
 
-    reject_fn   = fn {key, _val} ->
-      key                           # :main
-      |> Atom.to_string()           # "main"
-      |> String.starts_with?("_")   # false
+    ignore_fn   = fn {key, _val} ->
+    #
+    # Return true if (stringified) key starts with an underscore.
+
+      "#{ key }" |> String.starts_with?("_")
     end
 
     inp_map                         # %{ main: "https:...", ... }
-    |> Enum.reject(reject_fn)       # [ main: "https:...", ... ]
+    |> Enum.reject(ignore_fn)       # [ main: "https:...", ... ]
     |> Enum.reduce(%{}, reduce_fn)  # %{ main: "https:...", ... }
   end
 

@@ -5,7 +5,7 @@ defmodule InfoFiles.CntData do
 # Public functions
 #
 #   get_data_info/1
-#     Return a Map describing the file tree.
+#     Return a map describing the file tree.
 #
 # Private functions
 #
@@ -25,7 +25,7 @@ defmodule InfoFiles.CntData do
   # Public functions
 
   @doc """
-  Return a Map describing a tree of TOML files, eg:
+  Return a map describing a tree of TOML files, eg:
 
       %{
         cnts_by_dir:    %{ "<dir>"  => %{...}, ... },
@@ -37,7 +37,7 @@ defmodule InfoFiles.CntData do
         tracing:        false,
      }
 
-  The Map items are defined as follows:
+  The map items are defined as follows:
   
   - `:cnts_by_dir`  - counts by directory name (e.g., `Areas`)
   - `:cnts_by_name` - counts by file name (e.g., `main.toml`)
@@ -75,43 +75,42 @@ defmodule InfoFiles.CntData do
 
   defp add_cnts_by_dir(file_info) do
   #
-  # Add `:cnts_by_dir` - a Map of the number of lines of TOML by directory, eg:
+  # Add `:cnts_by_dir` - a map of the number of lines of TOML by directory, eg:
   # `%{ "Catalog/Groups" => %{char: 64560, file: 52, line: 2785}, ... }`
 
-    map_fn    = fn file_path ->
-      cond do
-        file_path =~ ~r{ ^ PA_toml / _ }x   ->
-          # PA_toml/_*/*.toml
-          pattern   = ~r{ ^ [^/]+ / ( [^/]+ ) / .+ $ }x
-          replacer  = "\\1"
-          String.replace(file_path, pattern, replacer)
+    dir_fn    = fn file_path ->
+    #
+    # Convert a file path to the corresponding directory name.
 
-        file_path =~ ~r{ ^ PA_toml / .* / _area\.toml }x   ->
-          # PA_toml/**/_area.toml
-          pattern   = ~r{ ^ [^/]+ / ( .+ ) / .+ $ }x
-          replacer  = "\\1"
-          String.replace(file_path, pattern, replacer)
+      pattern = case file_path do
+        ~r{ ^ PA_toml / _ }x ->                   # PA_toml/_*/*.toml
+          ~r{ ^ [^/]+ / ( [^/]+ ) / .+ $ }x
 
-        true -> 
-          # Areas/*/*/*.toml
-          pattern   = ~r{ ^ [^/]+ / ( [^/]+ / [^/]+ / [^/]+ ) / .+ $ }x
-          replacer  = "\\1"
-          String.replace(file_path, pattern, replacer)
+        ~r{ ^ PA_toml / .* / _area\.toml }x ->    # PA_toml/**/_area.toml
+          ~r{ ^ [^/]+ / ( .+ ) / .+ $ }x
+
+        _ ->                                      # Areas/*/*/*.toml
+          ~r{ ^ [^/]+ / ( [^/]+ / [^/]+ / [^/]+ ) / .+ $ }x
       end
+
+      String.replace(file_path, pattern, "\\1")
     end
 
-    CntAny.add_cnts(file_info, :dir, map_fn)
+    CntAny.add_cnts(file_info, :dir, dir_fn)
   end
 
   @spec add_cnts_by_name(map) :: map
 
   defp add_cnts_by_name(file_info) do
   #
-  # Add `:cnts_by_name` - a Map of the number of chars and lines of TOML
+  # Add `:cnts_by_name` - a map of the number of chars and lines of TOML
   # by file name, eg:
   # `%{ "_area.toml" => %{char: 3558, file: 8, line: 184}, ... }`
 
-    map_fn    = fn file_path -> 
+    name_fn   = fn file_path ->
+    #
+    # Convert a file path to the corresponding file name.
+ 
       patt_1    = ~r{ ^ .+ / ( [^/]+ ) \. [^/]+ $ }x
       repl_1    = "\\1.toml"
 
@@ -123,7 +122,7 @@ defmodule InfoFiles.CntData do
       |> String.replace(patt_2, repl_2)
     end
 
-    CntAny.add_cnts(file_info, :name, map_fn)
+    CntAny.add_cnts(file_info, :name, name_fn)
   end
 
 end

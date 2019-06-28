@@ -7,10 +7,10 @@ defmodule PhxHttpWeb.PageControllerTest do
   import ExUnit.CaptureIO
 
   test "GET /", %{conn: conn} do
-    fun = fn ->
+    test_fn = fn ->
       conn = get(conn, "/")
       assert html_response(conn, 200) =~ "Pete's Alley"
     end
-    capture_io(fun)
+    capture_io(test_fn)
   end
 end

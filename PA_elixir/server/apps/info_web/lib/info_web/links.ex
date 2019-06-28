@@ -47,7 +47,7 @@ defmodule InfoWeb.Links do
   # At present, we only check for missing title attributes.
   # We also summarize fragment links ("#..."), for brevity.
   #
-  # The `link_elts` List should have the following structure:
+  # The `link_elts` list should have the following structure:
   #
   #   [
   #     { "a",
@@ -57,9 +57,10 @@ defmodule InfoWeb.Links do
   #     }, ...
   #   ]
 
-    filter_fn = fn message  -> message end
+    check_fn    = fn link_elt ->
+    #
+    # Check a link element; report the result.
 
-    map_fn    = fn link_elt ->
       href    = link_elt
       |> Floki.attribute("href")
       |> Enum.at(0)
@@ -75,8 +76,8 @@ defmodule InfoWeb.Links do
     end
 
     messages  = link_elts
-    |> Enum.map(map_fn)
-    |> Enum.filter(filter_fn)
+    |> Enum.map(check_fn)
+    |> Enum.filter( &(&1) )
     |> Enum.uniq()
 
     if !Enum.empty?(messages) do
@@ -95,7 +96,10 @@ defmodule InfoWeb.Links do
   #
   # Get a list of tuples describing link URLs.
 
-    reduce_fn   = fn link_url, acc ->
+    tuple_fn    = fn link_url, acc ->
+    #
+    # Generate a tuple and prepend it to the list.
+
       status  = if link_url =~ ~r{^http} do :ext else :seen end
       tuple   = { status, "", page_url, link_url }
 
@@ -104,7 +108,7 @@ defmodule InfoWeb.Links do
 
     link_elts
     |> Floki.attribute("href")
-    |> Enum.reduce([], reduce_fn)
+    |> Enum.reduce([], tuple_fn)
   end
 
 end

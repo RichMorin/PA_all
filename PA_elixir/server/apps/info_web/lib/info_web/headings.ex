@@ -49,6 +49,8 @@ defmodule InfoWeb.Headings do
   # At present, we only check for headings that go up more than one level.
 
     reduce_fn    = fn {tag, _attrs, body}, {prev_level, messages} ->
+    #
+    # Accumulate a list of diagnostic messages.
 
       this_level  = tag
       |> String.replace_prefix("h", "")

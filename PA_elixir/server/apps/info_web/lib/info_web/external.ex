@@ -22,7 +22,7 @@ defmodule InfoWeb.External do
 
   def get_ext_list(external, forced) do
   #
-  # Get a List of status Tuples for external URLs.  The `forced` Map tells us
+  # Get a list of status tuples for external URLs.  The `forced` map tells us
   # which URLs should be forced to verify as OK.
   #
   # See https://hexdocs.pm/httpoison/HTTPoison.Request.html for details.
@@ -38,11 +38,14 @@ defmodule InfoWeb.External do
     options   = [
       follow_redirect:  true,
       max_redirect:     10,
-      recv_timeout:     30000,
-      timeout:          30000
+      recv_timeout:     30_000,
+      timeout:          30_000
     ]
 
-    map_fn    = fn {_note, from_page, link_url} ->
+    chk_url_fn  = fn {_note, from_page, link_url} ->
+    #
+    # Check the URL and return the results as a tuple.
+
       if forced[link_url] do
         {:ext_ok, "forced", from_page, link_url}
       else
@@ -67,7 +70,7 @@ defmodule InfoWeb.External do
       end
     end
 
-    external |> Enum.map(map_fn)
+    external |> Enum.map(chk_url_fn)
   end
 
 end
