@@ -24,9 +24,12 @@ defmodule PhxHttpWeb.ErrorHelpers do
 # @spec - ToDo
 
   def error_tag(form, field) do
-    Enum.map(Keyword.get_values(form.errors, field), fn error ->
+
+    error_fn  = fn error ->
       content_tag(:span, translate_error(error), class: "help-block")
-    end)
+    end
+
+    Enum.map(Keyword.get_values(form.errors, field), error_fn)
   end
 
   @doc """

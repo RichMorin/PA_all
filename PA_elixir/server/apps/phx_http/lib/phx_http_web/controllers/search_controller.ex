@@ -94,12 +94,9 @@ defmodule PhxHttpWeb.SearchController do
       IO.puts("")
       ii(cur_set,                 "cur_set")
 
-      main_fn = fn x ->
+      main_fn = fn x -> String.ends_with?(x, "/main.toml") end
       #
       # Return true if this item is a "main" file.
-
-        String.ends_with?(x, "/main.toml")
-      end
 
       path_map
       |> Map.values
@@ -158,12 +155,9 @@ defmodule PhxHttpWeb.SearchController do
   # Return a list of tuples, containing a set operation ("all", "any"),
   # the name of a saved query (eg, "a"), and a tag set (eg, ["foo:bar"].
 
-    query_fn = fn {inp_sel, inp_name} ->
+    query_fn = fn {sel, name} -> { sel, name, new_sets[name] } end
     #
     # Return a query tuple.
-
-      { inp_sel, inp_name, new_sets[inp_name] }
-    end
 
     reused                        # [ {"all", "a"}, {"any", "b"} ]
     |> Enum.map(query_fn)         # [ {"all", "a", [ "...", ... ] }, ... ]
@@ -216,12 +210,9 @@ defmodule PhxHttpWeb.SearchController do
 
     ii(id_sets,  :id_sets) #T
 
-    tuple_fn    = fn id ->
+    tuple_fn    = fn id -> path_map[id] |> InfoToml.get_item_tuples() end
     #
     # Return a list of result tuples.
-
-      path_map[id] |> InfoToml.get_item_tuples()
-    end
 
     filtered = id_sets              # [ #MapSet<[1011]>, #MapSet<[1078]> ]                   
     |> Enum.filter( &(&1) )         # discard nil sets
@@ -248,23 +239,17 @@ defmodule PhxHttpWeb.SearchController do
 
     pattern   = ~r{ / \w+ / \w+ \. toml $ }x
 
-    base_fn   = fn path ->
+    base_fn   = fn path -> String.replace(path, pattern, "") end
     #
-    # ?
+    # Return the base of the path string.
 
-      String.replace(path, pattern, "")
-    end
-
-    chunk_fn  = fn {path, _title, _precis} ->
+    chunk_fn  = fn {path, _title, _precis} -> base_fn.(path) end
     #
-    # ?
-
-       base_fn.(path)
-    end
+    # Support chunking of the results.
       
     sort_fn   = fn {path, title, _precis} ->
     #
-    # ?
+    # Support sorting by path base and title.
 
       "#{ base_fn.(path) } #{ String.downcase(title) }"
     end

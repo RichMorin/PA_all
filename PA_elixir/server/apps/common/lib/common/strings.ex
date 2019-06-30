@@ -8,15 +8,15 @@ defmodule Common.Strings do
 #     Perform naive pluralization: "0 cats", "1 cat", "2 cats", ...
 #   base_26/2
 #     Generate an alphabetic ID string, using base-26 arithmetic.
-#   csv_join/1
-#     Join a list of strings into a (mostly) comma-delimited string.
 #   csv_split/1
 #     Split a comma-delimited string into a list of trimmed strings.
+#   fmt_list/1
+#     Join a list of strings into a (mostly) comma-delimited string.
 #
 # Private functions
 #
 #   jl/[12]
-#     Helper functions for csv_join/1
+#     Helper functions for fmt_list/1
 
   @moduledoc """
   This module contains string-handling functions for common use.
@@ -27,14 +27,12 @@ defmodule Common.Strings do
   @doc """
   Perform naive pluralization on a noun, adding "s" if the number is 1.
   
-    iex> add_s(0, "cat")
-    "0 cats"
-
-    iex> add_s(1, "cat")
-    "1 cat"
-
-    iex> add_s(2, "cat")
-    "2 cats"
+      iex> add_s(0, "cat")
+      "0 cats"
+      iex> add_s(1, "cat")
+      "1 cat"
+      iex> add_s(2, "cat")
+      "2 cats"
   """
 
   @spec add_s(integer, s) :: s when s: String.t
@@ -44,16 +42,14 @@ defmodule Common.Strings do
 
   @doc """
   Generate an alphabetic ID string, using base-26 arithmetic.
-  (eg, 1 => a, 2 => b, ..., 26 => z, 27 => aa, ...)
+  (e.g., `1 => a`, `2 => b`, ..., `26 => z`, `27 => aa`, ...)
 
-    iex> base_26(1)
-    "a"
-
-    iex> base_26(26)
-    "z"
-
-    iex> base_26(27)
-    "aa"
+      iex> base_26(1)
+      "a"
+      iex> base_26(26)
+      "z"
+      iex> base_26(27)
+      "aa"
   """
 
   @spec base_26(integer, s) :: s when s: String.t
@@ -70,23 +66,6 @@ defmodule Common.Strings do
     base_26(ndx_div, letters) <> letter
   end
 
-  @doc """
-  Join a list of strings into a (mostly) comma-delimited string.
-  Include "and" where appropriate. 
-  """
-
-  @spec csv_join( [ s ] ) :: s when s: String.t #W
-
-  def csv_join(str_list), do: jl(str_list)
-  #
-  # Note: If and when we internationalize the site, we might want
-  # to consider using Cldr (https://github.com/kipcole9/cldr) for
-  # this sort of thing (specifically, cldr_lists).  Finally, anyone
-  # who is interested in this as a programming challenge should visit
-  # the Elixir Forum topic Rich started: https://elixirforum.com/t/
-  #   formatting-a-list-of-strings-am-i-missing-anything/18593/10
-  # Interesting discussion and really great help!
-
   @spec csv_split(s) :: [ s ] when s: String.t
 
   @doc """
@@ -101,19 +80,13 @@ defmodule Common.Strings do
 
   def csv_split(in_str) do
 
-    comma_fn    = fn str ->
+    comma_fn    = fn str -> String.replace(str, "\a", ",") end
     #
     # Convert BEL characters (escaped commas) to commas.
 
-      String.replace(str, "\a", ",")
-    end
-
-    empty_fn    = fn str ->
+    empty_fn    = fn str -> str == "" end
     #
     # Discard empty strings.
-
-      str == ""
-    end
 
     in_str                            # " , foo,  , a\\, b  , bar,  "
     |> String.replace("\\,", "\a")    # " , foo,  , a\a b  , bar,  "
@@ -123,18 +96,55 @@ defmodule Common.Strings do
     |> Enum.reject(empty_fn)          # [ "foo", "a, b", "bar" ]
   end
 
+  @doc """
+  Format a list of strings, adding "and" and commas where appropriate.
+  Follow English rules (e.g., the Oxford Comma).
+
+      iex> fmt_list( [1] )
+      "1"
+      iex> fmt_list( [1, 2] )
+      "1 and 2"
+      iex> fmt_list( [1, 2, 3] )
+      "1, 2, and 3"
+      iex> fmt_list( [1, 2, 3, 4] )
+      "1, 2, 3, and 4"
+  """
+
+  @spec fmt_list( [ s ] ) :: s when s: String.t #W
+
+  def fmt_list(str_list), do: fl(str_list)
+  #
+  # Note: If and when we internationalize the site, we might want
+  # to consider using Cldr (https://github.com/kipcole9/cldr) for
+  # this sort of thing (specifically, cldr_lists).
+  #
+  # Anyone who is interested in this as a programming challenge should
+  # visit the Elixir Forum topic Rich started: https://elixirforum.com/t/
+  #   formatting-a-list-of-strings-am-i-missing-anything/18593/10
+  # Interesting discussion and really great help!
+
+  @spec ssw(s, s) :: bool when s: String.t
+
+  @doc """
+  Shorthand call for `String.starts_with?/2`.
+  """
+
+  def ssw(target, test), do: String.starts_with?(target, test)
+
   # Private functions
 
-  @spec jl(list) :: String.t #W
+  @spec fl(list) :: String.t #W
 
-  defp jl([]),            do: ""
-  defp jl([a]),           do: "#{ a }"
-  defp jl([a, b]),        do: "#{ a } and #{ b }"
-  defp jl(list),          do: jl(list, [])
+  # Do the heavy lifting for fmt_list/1.
 
-  @spec jl(list, [ String.t ] ) :: String.t #W
+  defp fl([]),            do: ""
+  defp fl([a]),           do: "#{ a }"
+  defp fl([a, b]),        do: "#{ a } and #{ b }"
+  defp fl(list),          do: fl(list, [])
 
-  defp jl([last], strl),  do: to_string( [ strl, 'and ', "#{ last }" ] )
-  defp jl([h | t], strl), do: jl(t, [ strl, "#{ h }", ', '] )
+  @spec fl(list, [ String.t ] ) :: String.t #W
+
+  defp fl([last], strl),  do: to_string( [ strl, 'and ', "#{ last }" ] )
+  defp fl([h | t], strl), do: fl(t, [ strl, "#{ h }", ', '] )
 
 end

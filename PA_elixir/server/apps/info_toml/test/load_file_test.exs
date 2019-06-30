@@ -1,12 +1,12 @@
-# info_toml/test/load_tree_test.exs
+# info_toml/test/load_file_test.exs
 
-defmodule InfoTomlTest.LoadTree do
+defmodule InfoTomlTest.LoadFile do
 
   use ExUnit.Case
 
   import Common, only: [ our_tree: 2 ]
 
-  alias InfoToml.{Common, LoadTree, Schemer}
+  alias InfoToml.{Common, LoadFile, Schemer}
 
   @moduledoc """
   The `load/1` function in `InfoToml.LoadTree` isn't well suited for testing,
@@ -21,7 +21,7 @@ defmodule InfoTomlTest.LoadTree do
     schemas     = Schemer.get_schemas(tree_abs)
 
     result      = "_schemas/main.toml" 
-    |> LoadTree.do_file(id_num, schemas)
+    |> LoadFile.do_file(id_num, schemas)
 
     { _key, schema } = result
 

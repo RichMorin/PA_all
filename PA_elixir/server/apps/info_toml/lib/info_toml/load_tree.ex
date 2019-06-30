@@ -6,15 +6,9 @@ defmodule InfoToml.LoadTree do
 #
 #   load/1
 #     Load a map from the tree of TOML files.
-#   do_file/3
-#     Process (eg, load, check) a TOML file.    # Public only for testing.
 #
 # Private functions
 #
-#   do_file_1/4
-#     Bail out if `Parser.parse/2` returned `nil`.
-#   do_file_2/5
-#     Bail out if `CheckItem.check/3` returned `false`.
 #   do_tree/2
 #     Traverse the TOML file tree, attempting to load each file.
 #   file_paths/1
@@ -23,18 +17,18 @@ defmodule InfoToml.LoadTree do
 #     Convert a list of file paths into a list of numbered tuples.
 
   @moduledoc """
-  This module handles loading of data from a TOML file tree, including
-  loading and checking against the schema.
+  This module handles loading of data from a TOML file tree.
   """
 
   use Common.Types
 
   import Common,
-    only: [ get_map_max: 1, get_rel_path: 2, get_run_mode: 0 ]
-  import InfoToml.Common,
-    only: [ get_file_abs: 1, get_map_key: 1, get_tree_abs: 0 ]
+    only: [ get_map_max: 1, get_rel_path: 2, get_run_mode: 0, ssw: 2 ]
 
-  alias InfoToml.{CheckItem, Parser, Schemer}
+  import InfoToml.Common,
+    only: [ get_map_key: 1, get_tree_abs: 0 ]
+
+  alias InfoToml.{LoadFile, Schemer}
 
   # Public functions
 
@@ -65,7 +59,7 @@ defmodule InfoToml.LoadTree do
 
     filter_fn   = fn {_key, val} -> val end
     #
-    # Retain tuples that have non-nil values,
+    # Retain tuples that have non-nil values.
 
     items   = schemas
     |> do_tree(old_map)             # [ { <key>, %{...} }, { <key>, nil }, ...]
@@ -78,99 +72,7 @@ defmodule InfoToml.LoadTree do
     }
   end
 
-  @doc """
-  Process (eg, load, check) a TOML file.
-
-  Note: This function is only exposed as public to enable testing. 
-  """
-
-  @spec do_file(s, integer, schema_map) :: {s, any} when s: String.t
-
-  def do_file(file_rel, id_num, schema_map) do
- 
-    file_rel
-    |> get_file_abs()
-    |> Parser.parse(:atoms!)  # require atom predefinition
-    |> do_file_1(file_rel, id_num, schema_map)
-  end
-
   # Private functions
-
-  @spec do_file_1(any, String.t, integer, schema_map) :: tuple
-
-  defp do_file_1(file_data, file_rel, _, _) when file_data == %{} do
-    {file_rel, nil}
-  end
-  #
-  # Bail out if `Parser.parse/2` returned an empty Map.
-
-  defp do_file_1(file_data, file_rel, id_num, schema_map) do
-  #
-  # Unless the key starts with "_", check `file_data` against `schema`.
-
-    file_key  = get_map_key(file_rel)
-    file_stat = file_data |> CheckItem.check(file_key, schema_map)
-
-    do_file_2(file_data, file_key, file_rel, file_stat, id_num)
-  end
-
-  @spec do_file_2(any, any, String.t, boolean, integer) :: tuple
-
-  defp do_file_2(_, _, file_rel, _file_stat = false, _) do
-  #
-  # Bail out if `CheckItem.check/3` returned `false`.
-
-    {file_rel, nil}
-  end
-
-  defp do_file_2(file_data, file_key, file_rel, _file_stat, id_num) do
-  #
-  # Otherwise, return the harvested (and slightly augmented) data.
-
-    file_abs           = get_file_abs(file_rel)
-    {:ok, file_stat}   = File.stat(file_abs, time: :posix)
-
-    patt_item   = ~r{ / [^/]+ / ( main | make ) \. toml $ }x
-    patt_misc   = ~r{ / [^/]+ \. toml $ }x
-
-    directories   = file_key
-    |> String.replace(patt_item, "")
-    |> String.replace(patt_misc, "")
-    |> String.split("/")
-    |> Enum.join(", ")
-
-    file_data   = if get_in(file_data, [:meta, :tags]) do
-      file_data
-    else
-      put_in(file_data, [:meta, :tags], %{})
-    end
-
-    tag_map     = file_data |> get_in([:meta, :tags])
-
-    tag_map     = if file_key != "_schemas/main.toml" do #K
-      reduce_fn   = fn {inp_key, inp_val}, acc ->
-        tmp_val   = String.replace(inp_val, ~r{\w+\|}, "")
-        Map.put(acc, inp_key, tmp_val)
-      end
-
-      ref_map   = ( get_in(file_data, [:meta, :refs]) || %{} )
-      |> Enum.reduce(%{}, reduce_fn)
-
-      Map.merge(tag_map, ref_map)
-    else
-      tag_map
-    end
-
-    file_data   = file_data
-    |> put_in([:meta, :file_key],             file_key)
-    |> put_in([:meta, :file_rel],             file_rel)
-    |> put_in([:meta, :file_time],            file_stat.mtime)
-    |> put_in([:meta, :id_num],               id_num)
-    |> put_in([:meta, :tags],                 tag_map)
-    |> put_in([:meta, :tags, :directories],   directories)
-
-    { file_rel, file_data }
-  end
 
   @spec do_tree(schema_map, toml_map | nil) :: [ toml_map ]
 
@@ -183,7 +85,7 @@ defmodule InfoToml.LoadTree do
     # Return data from the specified file.
 
 #     Common.ii(file_rel, :file_rel) #T
-      do_file(file_rel, id_num, schema_map)
+      LoadFile.do_file(file_rel, id_num, schema_map)
     end
 
     get_tree_abs()
@@ -205,28 +107,22 @@ defmodule InfoToml.LoadTree do
     |> Path.wildcard()
     |> Enum.sort()
 
-    rel_path_fn = fn file_abs ->
+    rel_path_fn = fn file_abs -> get_rel_path(tree_abs, file_abs) end
     #
     # Convert the absolute file path to a relative file path.
-
-      get_rel_path(tree_abs, file_abs)
-    end
 
     ignore_fn = fn path ->
     #
     # Return true if file path contains "/ignore".
 
-#     String.starts_with?(path, "Areas/Catalog/") ||  #D Uncomment for testing.
+#     ssw(path, "Areas/Catalog/") ||  #D Uncomment for testing.
       path =~ ~r{ /_ignore }x
     end
 
-    reject_fn = fn path ->
+    reject_fn = fn path -> ssw(path, "_test/") end
     #
     # Return true if file path begins with "/_test".
-
-      String.starts_with?(path, "_test/")
-    end
-
+   
     rare_paths  = raw_paths       # [ "/.../_text/about.toml", ... ]
     |> Enum.map(rel_path_fn)      # [ "_text/about.toml", ... ]
     |> Enum.reject(ignore_fn)     # Ignore "/ignore" file paths.
@@ -247,7 +143,7 @@ defmodule InfoToml.LoadTree do
  
   defp path_prep(path_list, inp_map) do
 
-    reduce_fn1  = fn {item_key, _item_id}, inp_acc ->
+    entry_fn  = fn {item_key, _item_id}, inp_acc ->
     #
     # Add a map entry (file_rel => id_num).
 
@@ -257,11 +153,11 @@ defmodule InfoToml.LoadTree do
     end
       
     id_map      = inp_map.items
-    |> Enum.reduce(%{}, reduce_fn1)
+    |> Enum.reduce(%{}, entry_fn)
 
     max_id    = get_map_max(id_map)
 
-    reduce_fn2 = fn inp_path, inp_acc ->
+    tuple_fn  = fn inp_path, inp_acc ->
     #
     # Update the `{ max_id, id_map }` tuple.
 
@@ -283,7 +179,7 @@ defmodule InfoToml.LoadTree do
     inp_acc   = { max_id, id_map }
 
     { _max_id, id_map } = path_list
-    |> Enum.reduce(inp_acc, reduce_fn2)
+    |> Enum.reduce(inp_acc, tuple_fn)
 
     id_map |> Map.to_list()
   end

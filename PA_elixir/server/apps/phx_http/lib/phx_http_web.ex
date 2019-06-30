@@ -34,8 +34,7 @@ defmodule PhxHttpWeb do
 
       # Bring in shared helpers
 
-      import Common, only: [ base_26: 1, csv_split: 1,
-        get_http_port: 0, get_run_mode: 0, get_tree_base: 0, keyss: 1 ]
+      import Common
       import PhxHttpWeb.ControllerHelpers
     end
   end
@@ -61,11 +60,11 @@ defmodule PhxHttpWeb do
 
       # Bring in shared helpers
 
-      import Common, only: [ add_s: 2, csv_join: 1, csv_split: 1,
-        get_http_port: 0, keyss: 1 ]
+      import Common
       import PhxHttpWeb.FormatHelpers
       import PhxHttpWeb.KeyHelpers
       import PhxHttpWeb.LinkHelpers
+      import PhxHttpWeb.MarkdownHelpers
     end
   end
 

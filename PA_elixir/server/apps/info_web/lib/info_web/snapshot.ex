@@ -21,7 +21,7 @@ defmodule InfoWeb.Snapshot do
 
   use InfoWeb.Types
 
-  import Common, warn: false, only: [ ii: 2 ]
+  import Common, warn: false, only: [ ii: 2, sort_by_elem: 2 ]
 
   # Public functions
 
@@ -41,12 +41,9 @@ defmodule InfoWeb.Snapshot do
       String.replace(ext_url, pattern, "\\1")
     end
 
-    counts_fn   = fn site, acc ->
+    counts_fn   = fn site, acc -> Map.update(acc, site, 1, &(&1+1)) end
     #
     # Build a map of web site usage counts.
-
-      Map.update(acc, site, 1, &(&1+1))
-    end
 
     tuples = result.bins.ext_ok
 #   |> ii(:ext_ok) #T
@@ -81,12 +78,9 @@ defmodule InfoWeb.Snapshot do
       String.replace(int_url, ~r{\?.*}, "")
     end
 
-    counts_fn   = fn url, acc ->
+    counts_fn   = fn url, acc -> Map.update(acc, url, 1, &(&1+1)) end
     #
     # Build a map of internal page usage counts.
-
-      Map.update(acc, url, 1, &(&1+1))
-    end
 
     tuples = result.bins.int_ok
 #   |> ii(:int_ok) #T
@@ -125,14 +119,10 @@ defmodule InfoWeb.Snapshot do
       """
     end
 
-    sort_fn = fn {_status, _from_page, url} -> url end
-    #
-    # Sort tuples by the URL component.
-
     bin_list  = result.bins[key] || []
 
     out_list  = bin_list
-    |> Enum.sort_by(sort_fn)
+    |> sort_by_elem(2)
     |> Enum.map(fmt_fn)
     |> Enum.join("\n")
 
@@ -155,12 +145,9 @@ defmodule InfoWeb.Snapshot do
     #
     # Extract the URL component from the tuple.
 
-    fmt_fn    = fn url ->
+    fmt_fn    = fn url -> "    \"#{ url }\"," end #K - urlencode?
     #
     # Format the URL as TOML.
-
-      "    \"#{ url }\","
-    end   #K - urlencode?
 
     out_list  = result.bins.ext_ok    # [ {<status>, <from_page>, <url>}, ... ]
     |> Enum.map(url_fn)               # [ <url>, ... ]

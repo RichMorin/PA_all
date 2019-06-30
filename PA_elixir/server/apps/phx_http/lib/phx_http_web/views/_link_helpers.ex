@@ -22,6 +22,8 @@ defmodule PhxHttpWeb.LinkHelpers do
   use Phoenix.HTML
   use PhxHttp.Types
 
+  import Common, only: [ ssw: 2 ]
+
   import InfoToml, only: [ exp_prefix: 1 ]
 
   # Note: There are bugs in Version 1.3.1 of Earmark (the Markdown engine).
@@ -172,9 +174,9 @@ defmodule PhxHttpWeb.LinkHelpers do
 
     type    = cond do
       String.ends_with?(  trim_2, ":s")       ->  :int_src2   # "...:s"
-      String.starts_with?(trim_2, "/")        ->  :local_s    # "/..."
-      String.starts_with?(trim_2, "_text/")   ->  :int_text   # "_text/..."
-#     String.starts_with?(trim_2, "_")        ->  :local_u    # "_..."
+      ssw(trim_2, "/")        ->  :local_s    # "/..."
+      ssw(trim_2, "_text/")   ->  :int_text   # "_text/..."
+#     ssw(trim_2, "_")        ->  :local_u    # "_..."
       true                                    ->  :remote     # "..."
     end
 

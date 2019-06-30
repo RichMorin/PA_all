@@ -168,12 +168,9 @@ defmodule PhxHttpWeb.ItemView do
   defp fa2(:site, heading, inp_map) do
     out_map = prep_map(inp_map)
 
-    link_fn   = fn url_str ->
+    link_fn   = fn url -> "<a href='#{ url }'>#{ url }</a>" end
     #
     # Return the HTML for a single link.
-
-      "<a href='#{ url_str }'>#{ url_str }</a>"
-    end
 
     links_fn  = fn key ->
     #
@@ -204,12 +201,9 @@ defmodule PhxHttpWeb.ItemView do
 
   defp fa2(:text, heading, map) do
 
-    item_fn   = fn key ->
+    item_fn   = fn key -> [ "<li><b>#{ key }:</b> #{ map[key] }</li>" ] end
     #
     # Format the HTML for an item.
-
-      [ "<li><b>#{ key }:</b> #{ map[key] }</li>" ]
-    end
 
     fa3(heading, map, item_fn)
   end
@@ -217,6 +211,7 @@ defmodule PhxHttpWeb.ItemView do
   @spec fa3(s, map, (s -> [ s ] ) ) :: safe_html when s: String.t #W
 
   defp fa3(heading, map, item_fn) do
+
     items = map                 # %{ main: url, ... }
     |> keyss()                  # [ :main, ... ]
     |> Enum.map(item_fn)        # [ "<li>...</li>", ... ]
@@ -239,16 +234,13 @@ defmodule PhxHttpWeb.ItemView do
   #   do one level of symbol substitution (eg, "main|...")
   #   remove entries with anonymous keys (eg, "_1").
 
-    prep_fn     = fn field ->
+    prep_fn     = fn field -> prep_map_h(field, inp_map) end
     #
     # Return the preprocessed field.
 
-      prep_map_h(field, inp_map)
-    end
-
     reduce_fn   = fn {key, inp_val}, acc ->
     #
-    # ?
+    # Build a map of preprocessed fields.
 
       out_val  = inp_val
       |> csv_split()
@@ -258,12 +250,9 @@ defmodule PhxHttpWeb.ItemView do
       Map.put(acc, key, out_val)
     end
 
-    ignore_fn   = fn {key, _val} ->
+    ignore_fn   = fn {key, _val} -> "#{ key }" |> ssw("_") end
     #
-    # Return true if (stringified) key starts with an underscore.
-
-      "#{ key }" |> String.starts_with?("_")
-    end
+    # Return true if the (stringified) key starts with an underscore.
 
     inp_map                         # %{ main: "https:...", ... }
     |> Enum.reject(ignore_fn)       # [ main: "https:...", ... ]

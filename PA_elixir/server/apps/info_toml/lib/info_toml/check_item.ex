@@ -28,7 +28,9 @@ defmodule InfoToml.CheckItem do
 
   use Common.Types
 
-  import Common, only: [ csv_split: 1, get_http_port: 0, leaf_paths: 1 ]
+  import Common,
+    only: [ csv_split: 1, get_http_port: 0, leaf_paths: 1, ssw: 2 ]
+
   import InfoToml.Schemer, only: [ get_schema: 2 ]
 
   # Public functions
@@ -68,12 +70,9 @@ defmodule InfoToml.CheckItem do
 
     schema     = get_schema(schema_map, file_key)
 
-    filter_fn  = fn path ->
+    filter_fn  = fn path -> get_in(schema, path) == nil end
     #
     # Return true if the path is not defined in the schema.
-
-      get_in(schema, path) == nil
-    end
 
     bogons  = inp_map           # %{ meta: %{...}, ...}
     |> leaf_paths()             # [ [ :meta, :actions ], ... ]
@@ -135,7 +134,6 @@ defmodule InfoToml.CheckItem do
     # Return true if the field has invalid syntax.
 
       pattern   = ~r{ ^ [a-z_]+ [|] [A-Za-z0-9_]+ $ }x
-
       !String.match?(field, pattern)
     end
 
@@ -150,7 +148,7 @@ defmodule InfoToml.CheckItem do
     end
 
     cond do
-      String.starts_with?(file_key, "_schemas/") -> true
+      ssw(file_key, "_schemas/") -> true
 
       refs_map ->
         bogons  = refs_map |> Enum.reject(reject_fn)
@@ -225,7 +223,7 @@ defmodule InfoToml.CheckItem do
     #
     # Return true if an error was detected.
 
-      String.starts_with?(message, "error:") && acc
+      ssw(message, "error:") && acc
     end
 
     check_fn    = fn inp, gi_rev ->
@@ -237,7 +235,7 @@ defmodule InfoToml.CheckItem do
       for check_id <- [1, 2] do
         checks_fn.(check_id, gi_path, inp)
       end
-      |> Enum.filter( &( &1 ) )
+      |> Enum.filter( &(&1) )
     end
 
     result = check_values_h(inp_map, check_fn, [])

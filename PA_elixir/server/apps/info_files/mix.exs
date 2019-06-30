@@ -24,7 +24,7 @@ defmodule InfoFiles.MixProject do
       deps_path:          "../../deps",
       lockfile:           "../../mix.lock",
 
-      elixir:             "~> 1.8",
+      elixir:             "~> 1.9",
       start_permanent:    Mix.env() == :prod,
       deps:               deps()
     ]

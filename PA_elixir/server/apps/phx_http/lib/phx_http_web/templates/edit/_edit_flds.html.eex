@@ -9,23 +9,19 @@
   #
   # Flag required fields.
 
-    case name do
-      ~r{ ^ meta \. title      $ }x -> "required"
-      ~r{ ^ user \. email_addr $ }x -> "required"
-      ~r{ ^ user \. full_name  $ }x -> "required"
-      _  -> ""
-    end
+    required  = ~w[ meta.title user.email_addr user.full_name ]
+    if Enum.member?(required, name) do "required" else "" end
   end
 
   size_fn   = fn name ->
   #
   # Estimate the size (number of rows and characters) we'll need.
 
-    rows  = case name do
-      ~r{^ about   \. access  $  }x -> 10
-      ~r{^ about   \. verbose $  }x -> 25
-      ~r{^ address \. postal  \. }x -> 10
-      _  -> 2
+    rows  = cond do
+      name ==   "about.access"    -> 10
+      name ==   "about.verbose"   -> 25
+      ssw(name, "address.postal") -> 10
+      true  -> 2
     end
 
     {rows, rows * 200}

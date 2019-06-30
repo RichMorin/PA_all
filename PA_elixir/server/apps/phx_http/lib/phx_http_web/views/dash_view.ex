@@ -15,9 +15,6 @@ defmodule PhxHttpWeb.DashView do
 
   use PhxHttpWeb, :view
 
-  import Common, warn: false,
-    only: [ csv_split: 1, get_http_port: 0, ii: 2, keyss: 1 ]
-
   # Public functions
 
   @doc """
@@ -36,27 +33,21 @@ defmodule PhxHttpWeb.DashView do
 
     items       = [ :items ] |> InfoToml.get_part()
 
-    filter_fn   = fn {key, _item} ->
+    main_fn     = fn {key, _item} -> String.ends_with?(key, "/main.toml") end
     #
-    # ?
+    # Return true if this is the main file for an item.
 
-      String.ends_with?(key, "/main.toml")
-    end
-
-    merge_fn    = fn _k, v1, v2 ->
+    sum_fn      = fn _tag, cnt_1, cnt_2 -> cnt_1 + cnt_2 end
     #
-    # ?
+    # Sum a pair of tag usage counts, ignoring type.
 
-      v1 + v2
-    end
-
-    reduce_fn1  = fn {_key, item}, acc ->
+    count_fn  = fn {_key, item}, acc ->
     #
-    # ?
+    # Build a map of tag type usage counts.
 
-      reduce_fn1a = fn {tag_type, tag_str}, acc ->
+      type_fn   = fn {tag_type, tag_str}, acc ->
       #
-      # ?
+      # Tally tag usage by type.
 
         tag_cnt   = tag_str
         |> csv_split()
@@ -66,24 +57,23 @@ defmodule PhxHttpWeb.DashView do
       end
 
       tag_cnts    = item.meta.tags      # %{ <type>: [ "foo", ... ], ... }
-      |> Enum.reduce(%{}, reduce_fn1a)  # %{ <type>: <tag_cnt>, ... }
+      |> Enum.reduce(%{}, type_fn)      # %{ <type>: <tag_cnt>, ... }
 
-      Map.merge(acc, tag_cnts, merge_fn)
+      Map.merge(acc, tag_cnts, sum_fn)
     end
 
-    reduce_fn2  = fn {tag_type, tag_cnt}, acc ->
+    avg_fn      = fn {tag_type, tag_cnt}, acc ->
     #
-    # ?
+    # Build a map of tag count averages.
 
       avg_cnt   = tag_cnt / main_cnt
-
       Map.put(acc, tag_type, avg_cnt)        
     end
 
     items                             # %{ key => %{...}, ... }
-    |> Enum.filter(filter_fn)         # %{ key => %{...}, ... }
-    |> Enum.reduce(%{}, reduce_fn1)   # %{ <type>: <tag_cnt>, ... }
-    |> Enum.reduce(%{}, reduce_fn2)   # %{ <type>: <avg_cnt>, ... }
+    |> Enum.filter(main_fn)           # same, but only main files
+    |> Enum.reduce(%{}, count_fn)     # %{ <type>: <tag_cnt>, ... }
+    |> Enum.reduce(%{}, avg_fn)       # %{ <type>: <avg_cnt>, ... }
   end
 
   @doc """
@@ -104,24 +94,22 @@ defmodule PhxHttpWeb.DashView do
 
   def get_dup_vals(kv_list) do
 
-    punt_list   = ~w(f_authors f_editors)a
-
     punt_fn     = fn {type, _cnt} ->
     #
-    # ?
+    # Return true if this tag type is in the punt list.
 
+      punt_list   = ~w(f_authors f_editors)a
       Enum.member?(punt_list, type)
     end
     
-    filter_fn   = fn {_tag, tuples} ->
+    dup_fn    = fn {_tag, tuples} ->
     #
-    # ?
+    # Return true if this tag value is a duplicate across types.
 
       cnt_keep  = tuples |> Enum.reject(punt_fn) |> Enum.count()
       cnt_punt  = tuples |> Enum.filter(punt_fn) |> Enum.count()
       
-      ( cnt_keep > 1 ) ||
-      ( cnt_keep * cnt_punt > 0 )
+      ( cnt_keep > 1 ) || ( cnt_keep * cnt_punt > 0 )
     end
 
     reduce_fn1  = fn {type, tag, cnt}, acc ->
@@ -130,7 +118,10 @@ defmodule PhxHttpWeb.DashView do
 
       tuple       = {type, cnt}
       initial     = [ tuple ]
+
       update_fn   = fn old_val -> [ tuple | old_val ] end
+      #
+      # ?
 
       Map.update(acc, tag, initial, update_fn)
     end
@@ -149,17 +140,12 @@ defmodule PhxHttpWeb.DashView do
       Map.put(acc, tag, type_str)
     end
 
-    sort_fn1    = fn {tag, _list} -> tag  end
-    #
-    # ?
-
-    sort_fn2    = fn {type, _cnt} -> type end
-    #
-    # ?
-
     map_fn2     = fn {tag, type_list} ->
+    #
+    #
+
       type_str = type_list
-      |> Enum.sort_by(sort_fn2)
+      |> sort_by_elem(0)
       |> Enum.map(map_fn1)
       |> Enum.join(", ")
 
@@ -168,15 +154,15 @@ defmodule PhxHttpWeb.DashView do
 
     kv_list                           # [ {:miscellany, "CLI", 1}, ...]
     |> Enum.reduce(%{}, reduce_fn1)   # %{ <tag> => [ {<type>, <cnt>} ] } 
-    |> Enum.filter(filter_fn)         # [ { <tag>, [ {<type>, <cnt>} ] } ]
-    |> Enum.sort_by(sort_fn1)         # ditto, but sorted
+    |> Enum.filter(dup_fn)            # [ { <tag>, [ {<type>, <cnt>} ] } ]
+    |> sort_by_elem(0)                # ditto, but sorted by tag value
     |> Enum.map(map_fn2)              # [ {<tag>, "<type> (<cnt>), ..."} ]    
     |> Enum.reduce(%{}, reduce_fn2)   # %{ <tag> => "<type> (<cnt>), ..." } 
 #   |> ii("get_dup_vals")
   end
 
   @doc """
-  Get a mist of odd tag values and associated tag types.
+  Get a list of odd tag values and associated tag types.
   That is, values which contain characters other than:
 
   - alphanumeric characters (A-Z, a-z, 0-9)
@@ -196,18 +182,18 @@ defmodule PhxHttpWeb.DashView do
   @spec get_odd_vals(map) :: list #W
 
   def get_odd_vals(kv_list) do
-    odd_patt    = ~r{[^-+_\. (/#)A-Za-z0-9]}
 
-    filter_fn   = fn {_type, tag, _cnt} ->
+    odd_tag_fn   = fn {_type, tag, _cnt} ->
     #
-    # ?
+    # Return true if this tag value is "odd".
 
+      odd_patt    = ~r{[^-+_\. (/#)A-Za-z0-9]}
       tag =~ odd_patt
     end
 
-    map_fn      = fn {type, tag, _cnt} ->
+    tuple_fn   = fn {type, tag, _cnt} ->
     #
-    # ?
+    # Build a list of tuples.
 
       keys      = InfoToml.keys_by_tag(tag)
 
@@ -218,14 +204,10 @@ defmodule PhxHttpWeb.DashView do
       end
     end
 
-    sort_fn     = fn {tag, _type, _key} -> tag end
-    #
-    # ?
-
     kv_list                           # [ {:miscellany, "CLI", 1}, ...]
-    |> Enum.filter(filter_fn)         # ditto, but filtered
-    |> Enum.map(map_fn)               # [ {"CLI", :miscellany}, ... ]    
-    |> Enum.sort_by(sort_fn)          # ditto, but sorted
+    |> Enum.filter(odd_tag_fn)        # retain only odd tag values
+    |> Enum.map(tuple_fn)             # [ {"CLI", :miscellany}, ... ]    
+    |> sort_by_elem(0)                # ditto, but sorted by tag
 #   |> ii("get_odd_tags")
   end
 
@@ -252,27 +234,24 @@ defmodule PhxHttpWeb.DashView do
 
   def get_total_cnts(tag_types, kv_map) do
 
-    reduce_fn2  = fn tag_val, acc ->
+    mapset_fn = fn tag_val, acc -> MapSet.put(acc, tag_val) end
     #
-    # ?
+    # Build a MapSet of tag values.
 
-      MapSet.put(acc, tag_val)
-    end
-
-    reduce_fn1  = fn tag_type, acc ->
+    count_fn  = fn tag_type, acc ->
     #
-    # ?
+    # Build a map of tag usage counts.
 
       total_cnt   = kv_map[tag_type]
       |> Map.keys()
-      |> Enum.reduce(%MapSet{}, reduce_fn2)
+      |> Enum.reduce(%MapSet{}, mapset_fn)
       |> MapSet.to_list()
       |> Enum.count()
 
       Map.put(acc, tag_type, total_cnt)
     end
 
-    tag_types |> Enum.reduce(%{}, reduce_fn1)
+    tag_types |> Enum.reduce(%{}, count_fn)
   end
 
 end

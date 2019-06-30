@@ -71,7 +71,7 @@ defmodule InfoToml.Parser do
   #
   # Add line number offsets for `access` and `verbose` data.
 
-    reduce_fn = fn {line, ndx}, acc ->
+    offset_fn = fn {line, ndx}, acc ->
     #
     # Put the stringified version of the line number offset into the map.
 
@@ -91,7 +91,7 @@ defmodule InfoToml.Parser do
     file_text
     |> String.split("\n")
     |> Enum.with_index()
-    |> Enum.reduce(payload, reduce_fn)
+    |> Enum.reduce(payload, offset_fn)
   end
 
   @spec decode(String.t, atom) :: tuple
@@ -163,12 +163,9 @@ defmodule InfoToml.Parser do
       "\u200b",     # ZERO WIDTH SPACE
     ]
 
-    filter_fn = fn codepoint ->
+    filter_fn = fn codepoint -> Enum.member?(bogons, codepoint) end
     #
     # Return true if the codepoint is contained in the bogons list.
-
-      Enum.member?(bogons, codepoint)
-    end
 
     bogus_cps = file_text
     |> String.codepoints()

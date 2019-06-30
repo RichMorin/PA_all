@@ -39,12 +39,10 @@ defmodule Common.Maps do
 
   def get_map_max(inp_map) do
 
-    max_val_fn  = fn {_key, val}, acc -> 
+    max_val_fn  = fn {_key, val}, acc -> max(val, acc) end
     #
     # Determine the maximum value in the map.
 
-      max(val, acc)
-    end
 
     inp_map |> Enum.reduce(0, max_val_fn)
   end
@@ -67,12 +65,9 @@ defmodule Common.Maps do
 
   def keyss(map) do
 
-    sort_fn   = fn key ->
+    sort_fn   = fn key -> "#{ key }" |> String.downcase() end
     #
     # Support a case-insensitive sort on stringified keys.
-
-      "#{ key }" |> String.downcase()
-    end
  
     map                           # %{ C: 3, b: 2, a: 1 }
     |> Map.keys()                 # [ :C, :b, :a ]

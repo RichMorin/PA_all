@@ -12,7 +12,7 @@ defmodule InfoFilesTest.CntCode do
   end
 
   test "creates expected data structure", state do
-    import Common, only: [ keyss: 1 ]
+    import Common, only: [ keyss: 1, ssw: 2 ]
 
     # cnts_by_app:    %{ "<app>"  => %{...}, ... },
     # cnts_by_ext:    %{ "<ext>"  => %{...}, ... },
@@ -49,7 +49,7 @@ defmodule InfoFilesTest.CntCode do
       assert is_list(val0)          # [ "<file_path>", ... ]
       val1  = hd(val0)
       assert is_binary(val1)        # "<file_path>"
-      assert String.starts_with?(val1, "PA_elixir/")
+      assert ssw(val1, "PA_elixir/")
     end
 
     assert is_binary(file_info.tree_base)

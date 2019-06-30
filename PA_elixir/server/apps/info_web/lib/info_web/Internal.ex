@@ -48,6 +48,7 @@ defmodule InfoWeb.Internal do
 
   use InfoWeb.Types
 
+  import Common, only: [ssw: 2]
   import InfoWeb.Common, only: [validate_uri: 1]
 
   alias InfoWeb.{Headings, Links}
@@ -81,11 +82,11 @@ defmodule InfoWeb.Internal do
     # Return the input tuple or generate a list of tuples.
 
       cond do
-        known[page_url]                       -> tuple
+        known[page_url]       -> tuple
 
-        status != :seen                       -> tuple
+        status != :seen       -> tuple
 
-        String.starts_with?(page_url, "http") -> tuple
+        ssw(page_url, "http") -> tuple
 
         true -> add_local_h(from_url, page_url, url_base)
       end
@@ -106,7 +107,7 @@ defmodule InfoWeb.Internal do
 
     full_url  = url_base <> page_url
 
-    uri_ok    = if String.starts_with?(page_url, "/") do
+    uri_ok    = if ssw(page_url, "/") do
       {status, _uri} = validate_uri(full_url)
       status == :ok
     else
@@ -141,16 +142,13 @@ defmodule InfoWeb.Internal do
 
     reject_fn = fn {_status, _note, _page_url, link_url } ->
     #
-    # ?
+    # Return true for problematic URLs.
 
       test_url  = String.replace_prefix(link_url, url_base, "")
 
-      usw_fn    = fn url ->
+      usw_fn    = fn url -> ssw(test_url, url) end
       #
       # Return true if the URL starts with any of several strings.
-
-        String.starts_with?(test_url, url)
-      end
 
       usw_fn.("/item?key=Areas/Catalog/")   ||  # D - comment to speed up
       usw_fn.("#")                          ||  # section of same page
@@ -184,32 +182,23 @@ defmodule InfoWeb.Internal do
 
     out_list    = add_local(url_base, inp_list, known)
 
-    seen_fn     = fn {status, _, _, _} ->
+    seen_fn     = fn {status, _, _, _} -> status == :seen end
     #
     # Return true if this URL has already been seen.
 
-      status == :seen
-    end
-
     seen_list   = out_list |> Enum.filter(seen_fn)
 
-    reduce_fn   = fn { _, _, _, url }, acc ->
+    reduce_fn   = fn { _, _, _, url }, acc -> Map.put(acc, url, true) end
     #
     # Generate a map with URLs as keys and true for all values.
-
-      Map.put(acc, url, true)
-    end
 
     known       = out_list
     |> Enum.reject(seen_fn)
     |> Enum.reduce(known, reduce_fn)
 
-    known_fn    = fn { _, _, _, url } ->
+    known_fn    = fn { _, _, _, url } -> known[url] end
     #
     # Return true if this is a known URL.
-
-      known[url]
-    end
 
     todo_list   = seen_list |> Enum.reject(known_fn)
 

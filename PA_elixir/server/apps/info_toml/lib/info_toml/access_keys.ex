@@ -25,7 +25,7 @@ defmodule InfoToml.AccessKeys do
 
   use Common.Types
 
-  import Common, warn: false, only: [ ii: 2, keyss: 1]
+  import Common, warn: false, only: [ ii: 2, keyss: 1, ssw: 2 ]
 
   # Public functions
 
@@ -131,8 +131,7 @@ defmodule InfoToml.AccessKeys do
     #
     # Return true if the key starts with `test_str` and doesn't end with `.toml`.
 
-      String.starts_with?(key, test_str) &&
-      !( key =~ ~r{ \. toml $ }x )
+      ssw(key, test_str) && !( key =~ ~r{ \. toml $ }x )
     end
 
     InfoToml.get_keys(3)

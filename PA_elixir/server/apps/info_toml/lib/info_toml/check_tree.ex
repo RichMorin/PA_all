@@ -15,7 +15,7 @@ defmodule InfoToml.CheckTree do
 
   use Common.Types
 
-  import Common, only: [ csv_split: 1, ii: 2 ]
+  import Common, only: [ csv_split: 1, ii: 2, sort_by_elem: 3, ssw: 2 ]
 
   alias InfoToml.Schemer
 
@@ -65,12 +65,9 @@ defmodule InfoToml.CheckTree do
       id_str      = get_in(item, gi_path) 
       initial     = [ key ]
 
-      update_fn   = fn curr_val ->
+      update_fn   = fn curr_val -> [ key | curr_val ] end
       #
       # Add the new item key to the current map value.
-
-        [ key | curr_val ]
-      end
 
       Map.update(acc, id_str, initial, update_fn)
     end
@@ -84,32 +81,22 @@ defmodule InfoToml.CheckTree do
         false
 
       by_key  =
-        String.starts_with?(key, "_schemas/") ||    # "_schemas/main.toml"
+        ssw(key, "_schemas/") ||                    # "_schemas/main.toml"
         String.ends_with?(key, "/make.toml")  ||    # ".../make.toml"
         key =~ ~r{^ .+ / text \. \w+ \. toml $ }x   # ".../text.Rich_Morin.toml"
 
       by_key && !force
     end
       
-    filter_fn   = fn {_id_str, keys} ->
+    filter_fn   = fn {_id_str, keys} -> Enum.count(keys) > 1 end
     #
     # Return true if the id_str has been used more than once.
-
-      Enum.count(keys) > 1
-    end
-
-    sort_fn     = fn {id_str, _list} ->
-    #
-    # Sort the ID strings in a case-insensitive manner.
-
-      String.downcase(id_str)
-    end
 
     dup_list    = toml_map.items    # Get all items in the TOML map.
     |> Enum.reject(reject_fn)       # Reject make, review, and schema files.
     |> Enum.reduce(%{}, reduce_fn)  # Build a map of id_str usage.
     |> Enum.filter(filter_fn)       # Retain cases of duplicate usage. 
-    |> Enum.sort_by(sort_fn)        # Sort results by their ID strings.
+    |> sort_by_elem(0, :dc)         # Sort results by their ID strings.
 
     if Enum.empty?(dup_list) do
       { :ok, "" }
@@ -139,12 +126,9 @@ defmodule InfoToml.CheckTree do
     #
     # Accumulate a list of "wanted" item keys.
 
-      fields_fn   = fn {_type, ref_str} ->
+      fields_fn   = fn {_type, ref_str} -> csv_split(ref_str) end
       #
       # Return a list of fields from the reference string.
-
-        csv_split(ref_str)
-      end
 
       prefix_fn_h  = fn { inp, out }, acc ->
       #
@@ -157,16 +141,12 @@ defmodule InfoToml.CheckTree do
       #
       # Expand all prefix usage in the input string.
 
-        pre_list
-        |> Enum.reduce(inp_str, prefix_fn_h)
+        pre_list |> Enum.reduce(inp_str, prefix_fn_h)
       end
 
-      suffix_fn   = fn ref ->
+      suffix_fn   = fn ref -> "#{ ref }/main.toml" end
       #
       # Add a file name suffix, converting the reference to an item key string.
-
-        "#{ ref }/main.toml"
-      end
 
       gi_path   = [ :meta, :refs ]
       ref_map   = get_in(item, gi_path)
@@ -192,12 +172,9 @@ defmodule InfoToml.CheckTree do
       get_in(toml_map, gi_path)
     end
 
-    schema_fn   = fn {key, _item} ->
+    schema_fn   = fn {key, _item} -> ssw(key, "_schemas/") end
     #
     # True if this item is a schema.
-
-      String.starts_with?(key, "_schemas/")
-    end
 
     undef_list  = toml_map.items      # Get all items in the TOML map.
     |> Enum.reject(schema_fn)         # Discard the schema files.

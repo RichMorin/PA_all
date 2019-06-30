@@ -49,7 +49,7 @@ defmodule InfoToml.Common do
 
     exp_list  = exp_map() |> Map.to_list()
 
-    prefix_fn = fn { inp, out }, acc ->
+    prefix_fn = fn {inp, out}, acc ->
     #
     # Expand all uses of a prefix in the input string.
 
@@ -96,8 +96,8 @@ defmodule InfoToml.Common do
   @doc """
   Get the absolute file path for the TOML tree.
   
-      iex> ta = get_tree_abs()
-      iex> ta =~ ~r{ ^ / .* / PA_all / PA_toml $ }x
+      iex> tree_abs = get_tree_abs()
+      iex> tree_abs =~ ~r{ ^ / .* / PA_all / PA_toml $ }x
       true
   """
 
@@ -118,11 +118,8 @@ defmodule InfoToml.Common do
 
   @spec exp_map() :: %{ atom => String.t }
 
-  defp exp_map() do
+  defp exp_map(), do: [:prefix] |> InfoToml.get_part()
   #
-  # Retrieves a map of prefix expansions.
-
-    InfoToml.get_part([:prefix])
-  end
+  # Return a map of prefix expansions.
 
 end

@@ -16,6 +16,8 @@ defmodule PhxHttpWeb.ClearController do
   use PhxHttp.Types
   use PhxHttpWeb, :controller
 
+  import Common, only: [ ssw: 2 ]
+
   # Public functions
 
   @doc """
@@ -48,23 +50,17 @@ defmodule PhxHttpWeb.ClearController do
     #
     # Extract the key from a map tuple.
 
-    noise_fn    = fn {key, val} ->
+    noise_fn    = fn {key, val} -> ssw(key, "_") || val == "n" end
     #
     # Return true for "noise" parameters.
-
-      String.starts_with?(key, "_") || val == "n"
-    end
 
     clear       = params
     |> Enum.reject(noise_fn)      # [ {"a", "y"}, ... ]
     |> Enum.map(key_fn)           # [ "a", ... ]
 
-    clear_fn   = fn {key, _val} ->
+    clear_fn   = fn {key, _val} -> Enum.member?(clear, key) end
     #
     # Return true for queries the user wants to clear.
-
-      Enum.member?(clear, key)
-    end
 
     tag_sets    = conn
     |> get_session(:tag_sets)

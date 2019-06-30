@@ -174,12 +174,9 @@ defmodule InfoToml.Emitter do
       |> Enum.reverse()
     end
 
-    reject_fn   = fn gi_base ->
+    reject_fn   = fn gi_base -> gi_base == [ :address ] end
     #
     # Return true for the :address base.
-
-      gi_base == [ :address ]
-    end
 
     toml_body   = gi_bases      # Get a list of get_in-style bases.
     |> reorder_bases()          # Reorder the list, to taste.
@@ -212,8 +209,10 @@ defmodule InfoToml.Emitter do
         |> String.trim_trailing()
 
         "'''\n#{ tidied }\n'''\n"
+
       String.contains?(leaf_val, "'") ->
         "\"#{ leaf_val }\"\n"
+
       true  ->
         "'#{ leaf_val }'\n"
     end

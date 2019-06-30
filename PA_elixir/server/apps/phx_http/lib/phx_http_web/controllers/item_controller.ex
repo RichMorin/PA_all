@@ -35,6 +35,8 @@ defmodule PhxHttpWeb.ItemController do
   use PhxHttp.Types
   use PhxHttpWeb, :controller
 
+  import Common, only: [ sort_by_elem: 2 ]
+
   # Public functions
 
   @doc """
@@ -76,12 +78,9 @@ defmodule PhxHttpWeb.ItemController do
 
     prefix      = ~r{ ^ PA \. }x
 
-    filter_fn   = fn {key,  val} ->
+    filter_fn   = fn {key,  val} -> key =~ prefix && val != "" end
     #
     # Return true for non-empty "PA.*" params.
-
-      key =~ prefix && val != ""
-    end
 
     tuple_fn    = fn {key, val} ->
     #
@@ -94,14 +93,10 @@ defmodule PhxHttpWeb.ItemController do
       {gi_path, val}                    # { [ :meta, :id_str ], "Alot" }
     end
 
-    sort_fn     = fn {gi_path, _val} -> gi_path end
-    #
-    # Support sorting by gi_path.
-
     params                        # [ { "PA.meta.id_str", "Alot" }, ... ]
     |> Enum.filter(filter_fn)     # keep only non-empty "PA.*" params
     |> Enum.map(tuple_fn)         # [ { [:meta, :id_str], "Alot" }, ... ]
-    |> Enum.sort_by(sort_fn)      # sort by gi_path, eg: [:meta, :id_str]
+    |> sort_by_elem(0)            # sort by gi_path, eg: [:meta, :id_str]
 #   |> ii("gi_pairs") #T
   end
 
@@ -120,12 +115,9 @@ defmodule PhxHttpWeb.ItemController do
 
     # Create the interior nodes.
 
-    base_fn   = fn gi_list, acc ->
+    base_fn   = fn gi_list, acc -> put_in(acc, gi_list, %{}) end
     #
     # Create the base map.
-
-      put_in(acc, gi_list, %{})
-    end
 
     base_map    = gi_bases            # [ { <gi_path>, <value> }, ... ]
     |> Enum.reduce(%{}, base_fn)      # %{ meta: %{}, ... }
@@ -133,12 +125,9 @@ defmodule PhxHttpWeb.ItemController do
 
     # Fold in the exterior nodes.
 
-    augment_fn  = fn {gi_list, val}, acc ->
+    augment_fn  = fn {gi_list, val}, acc -> put_in(acc, gi_list, val) end
     #
     # Augment the base map with exterior nodes.
-
-      put_in(acc, gi_list, val)
-    end
 
     gi_pairs                              # [ { <gi_path>, <value> }, ... ]
     |> Enum.reduce(base_map, augment_fn)  # %{ meta: %{ id_str: <value> }, ... }
@@ -192,7 +181,7 @@ defmodule PhxHttpWeb.ItemController do
   #
   # Get a list of keys for review items.
 
-    review_fn   = fn {path, _title, _precis, _foo} ->
+    review_fn   = fn {path, _title, _precis} ->
     #
     # Return true for review items.
 
@@ -200,15 +189,11 @@ defmodule PhxHttpWeb.ItemController do
       String.match?(path, text_patt)
     end
 
-    sort_fn     = fn {path, _title, _precis} -> path end
-    #
-    # Support sorting by path.
-
     key
     |> String.replace_trailing("/main.toml", "/")
     |> InfoToml.get_item_tuples()
     |> Enum.filter(review_fn)
-    |> Enum.sort_by(sort_fn)
+    |> sort_by_elem(0)
     |> Enum.map(fn x -> elem(x, 0) end)
   end
 

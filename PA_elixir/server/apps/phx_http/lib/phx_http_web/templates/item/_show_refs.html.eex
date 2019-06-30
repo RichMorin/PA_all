@@ -3,12 +3,9 @@
 <%
   import PhxHttpWeb.LayoutView, only: [hide_show: 2]
 
-  reject_fn   = fn key ->
+  reject_fn   = fn key -> "#{ key }" |> ssw("f_") end
   #
   # Return true for f_authors, etc.
-
-    "#{ key }" |> String.starts_with?("f_")
-  end
 
   ref_map     = @item.meta.refs
 

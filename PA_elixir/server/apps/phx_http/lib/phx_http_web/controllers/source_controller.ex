@@ -25,7 +25,8 @@ defmodule PhxHttpWeb.SourceController do
   use PhxHttp.Types
   use PhxHttpWeb, :controller
 
-  import InfoToml.Common, only: [get_file_abs: 1]
+  import Common, only: [ ssw: 2 ]
+  import InfoToml.Common, only: [ get_file_abs: 1 ]
 
   # Public functions
 
@@ -122,7 +123,7 @@ defmodule PhxHttpWeb.SourceController do
       Map.put(acc, key, sub_map)
     end
 
-    base_key    = if String.starts_with?(main_key, "_") do
+    base_key    = if ssw(main_key, "_") do
       main_key
     else
       main_key |> String.replace_suffix("/main.toml", "/")

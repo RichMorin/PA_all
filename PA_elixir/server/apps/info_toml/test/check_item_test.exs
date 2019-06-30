@@ -37,9 +37,7 @@ defmodule InfoTomlTest.CheckItem do
     inp_map     = state.min_map
     |> put_in([ :foo ], "bar")
 
-    fun = fn ->
-      refute CheckItem.check(inp_map, file_key, schemas)
-    end
+    fun = fn -> refute CheckItem.check(inp_map, file_key, schemas) end
     capture_io(fun)
   end
 
@@ -50,9 +48,7 @@ defmodule InfoTomlTest.CheckItem do
     inp_map     = state.min_map
     |> put_in([ :meta, :actions ], "  ")
 
-    fun = fn ->
-      refute CheckItem.check(inp_map, file_key, schemas)
-    end
+    fun = fn -> refute CheckItem.check(inp_map, file_key, schemas) end
     capture_io(fun)
   end
 
@@ -63,9 +59,7 @@ defmodule InfoTomlTest.CheckItem do
     inp_map     = state.min_map
     |> put_in([ :meta, :actions ], "say what???")
 
-    fun = fn ->
-      refute CheckItem.check(inp_map, file_key, schemas)
-    end
+    fun = fn -> refute CheckItem.check(inp_map, file_key, schemas) end
     capture_io(fun)
   end
 
@@ -74,9 +68,7 @@ defmodule InfoTomlTest.CheckItem do
     inp_map     = state.min_map
     schemas     = state.schemas
 
-    fun = fn ->
-      refute CheckItem.check(inp_map, file_key, schemas)
-    end
+    fun = fn -> refute CheckItem.check(inp_map, file_key, schemas) end
     capture_io(fun)
   end
 

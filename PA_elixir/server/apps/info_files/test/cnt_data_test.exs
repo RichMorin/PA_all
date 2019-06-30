@@ -12,7 +12,7 @@ defmodule InfoFilesTest.CntData do
   end
 
   test "creates expected data structure", state do
-    import Common, only: [ keyss: 1 ]
+    import Common, only: [ keyss: 1, ssw: 2 ]
 
     file_info   = state.file_info
     assert is_map(file_info)
@@ -49,7 +49,7 @@ defmodule InfoFilesTest.CntData do
       assert is_list(val0)          # [ "<path>", ... ]
       val1  = hd(val0)
       assert is_binary(val1)        # "<path>"
-      assert String.starts_with?(val1, "PA_toml/Areas")
+      assert ssw(val1, "PA_toml/Areas")
     end
 
     assert is_binary(file_info.tree_base)

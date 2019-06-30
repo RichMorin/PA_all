@@ -23,7 +23,7 @@ defmodule PhxHttpWeb.KeyHelpers do
   use Phoenix.HTML
   use PhxHttp.Types
 
-  import InfoToml, only: [get_item: 1]
+  import InfoToml, only: [ get_item: 1 ]
 
   # Public functions
 

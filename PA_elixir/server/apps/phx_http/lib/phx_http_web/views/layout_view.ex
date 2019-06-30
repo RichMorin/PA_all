@@ -77,7 +77,7 @@ defmodule PhxHttpWeb.LayoutView do
   end
 
   def get_title(:source,     key, item,  title) do
-    if String.starts_with?(key, "_") do
+    if ssw(key, "_") do
       "#{ key } [#{ title }]"
     else
       "#{ item.meta.title } [#{ title }]"

@@ -27,6 +27,8 @@ defmodule PhxHttpWeb.AreaController do
   use PhxHttp.Types
   use PhxHttpWeb, :controller
 
+  import Common, only: [ get_run_mode: 0, sort_by_elem: 3 ]
+
   import InfoToml,
     only: [ get_area_name: 1, get_area_names: 0, get_area_names: 1 ]
 
@@ -94,18 +96,11 @@ defmodule PhxHttpWeb.AreaController do
       String.match?(path, text_patt)
     end
 
-    sort_fn     = fn {_path, title, _precis} ->
-    #
-    # Support sorting by the item title, ignoring case.
-
-      String.downcase(title)
-    end
-
     key
     |> String.replace_trailing("/_area.toml", "")
     |> InfoToml.get_item_tuples()
     |> Enum.filter(main_fn)
-    |> Enum.sort_by(sort_fn)
+    |> sort_by_elem(1, :dc)
   end
 
   @spec reload_h(Plug.Conn.t(), any) :: Plug.Conn.t() #W
@@ -239,24 +234,14 @@ defmodule PhxHttpWeb.AreaController do
     |> Enum.sort()
     |> Enum.uniq()
 
-    tuple_fn    = fn title ->
+    tuple_fn    = fn title -> {nil, title, nil} end
     #
     # Fake up a tuple, using a letter for the title component.
 
-      {nil, title, nil}
-    end
-
     fake_items  = first_chars |> Enum.map(tuple_fn)
 
-    sort_fn     = fn {_path, title, _precis} ->
-    #
-    # Support sorting of tuples by the title component, ignoring case.
-
-      String.downcase(title)
-    end
-
     sort_items  = (fake_items ++ real_items)
-    |> Enum.sort_by(sort_fn)
+    |> sort_by_elem(1, :dc)
 
     conn
     |> base_assigns(:area_3, "PA Areas", item, key)

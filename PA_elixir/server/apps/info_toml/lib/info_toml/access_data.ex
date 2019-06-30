@@ -27,7 +27,7 @@ defmodule InfoToml.AccessData do
 
   use Common.Types
 
-  import Common, warn: false, only: [ ii: 2, keyss: 1]
+  import Common, warn: false, only: [ ii: 2, keyss: 1, ssw: 2 ]
   import InfoToml.Common, only: [get_file_abs: 1]
 
   # Public functions
@@ -53,8 +53,7 @@ defmodule InfoToml.AccessData do
     #
     # Return true if the item key starts with the provided key base.
 
-      is_binary(item_key) &&
-      String.starts_with?(item_key, key_base)
+      is_binary(item_key) && ssw(item_key, key_base)
     end
 
     map_fn     = fn toml_map ->
@@ -87,14 +86,7 @@ defmodule InfoToml.AccessData do
   @spec get_map() :: toml_map
 
   def get_map() do
-    get_fn  = fn toml_map ->
-    #
-    # Return the entire TOML map.
-
-      toml_map
-    end
-
-    Agent.get(@me, get_fn)
+    Agent.get(@me, &(&1) )
   end
 
   @doc """
@@ -108,12 +100,9 @@ defmodule InfoToml.AccessData do
 
   def get_part(gi_list) do
 
-    get_fn = fn toml_map ->
+    get_fn = fn toml_map -> get_in(toml_map, gi_list) end
     #
     # Return the specified portion of the TOML map.
-
-      get_in(toml_map, gi_list)
-    end
 
     Agent.get(@me, get_fn)
   end

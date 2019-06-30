@@ -30,7 +30,7 @@ defmodule InfoToml.KeyVal do
 
   use Common.Types
 
-  import Common, warn: false, only: [ ii: 2, keyss: 1 ]
+  import Common, warn: false, only: [ ii: 2, keyss: 1, sort_by_elem: 2 ]
 
   # Public functions
 
@@ -56,23 +56,17 @@ defmodule InfoToml.KeyVal do
   #
   # Get a map of usage counts by tag type.
 
-    filter_fn   = fn {key, _val} ->
+    filter_fn   = fn {key, _val} -> String.contains?(key, ":") end
     #
     # Return true if this tag is typed.
-
-      String.contains?(key, ":")
-    end
 
     reduce_fn1  = fn {key, inp_set}, acc ->
     #
     # Return a map of MapSets, indexed by tag type.
 
-      update_fn     = fn old_set ->
+      update_fn     = fn old_set -> MapSet.union(old_set, inp_set) end
       #
       # Add a MapSet to the map, indexed by tag type.
-
-        MapSet.union(old_set, inp_set)
-      end
 
       [type, _tag]  = String.split(key, ":")
       type_atom     = String.to_atom(type)
@@ -82,7 +76,7 @@ defmodule InfoToml.KeyVal do
 
     reduce_fn2  = fn {key, inp_set}, acc ->
     #
-    # Create a map of MapSet counts, by tag type.
+    # Create a map of MapSet counts, indexed by tag type.
 
       count     = inp_set
       |> MapSet.to_list()
@@ -91,13 +85,9 @@ defmodule InfoToml.KeyVal do
       Map.put(acc, key, count)
     end
 
-    sort_fn     = fn {key, _val} -> key end
-    #
-    # Sort map tuples by their keys.
-
     inbt_map                        # %{ "..." => #MapSet<[...]>, ... }
     |> Enum.filter(filter_fn)       # { "<type>:...", #MapSet<[...]>, ... }
-    |> Enum.sort_by(sort_fn)        # same, but sorted by keys.
+    |> sort_by_elem(0)              # same, but sorted by keys.
     |> Enum.reduce(%{}, reduce_fn1) # %{ <type>: #MapSet<[...]>, ... }
     |> Enum.reduce(%{}, reduce_fn2) # %{ <type>: <count>, ... }
 #   |> ii("kv_cnts") #T
@@ -196,12 +186,9 @@ defmodule InfoToml.KeyVal do
     #
     # Generate the two-level map.
 
-      update_fn   = fn old_val ->
+      update_fn   = fn old_val -> Map.put(old_val, tag_val, count) end
       #
       # Fold a typed tag into the map.
-
-        Map.put(old_val, tag_val, count)
-      end
 
       initial     = %{ tag_val => count } # Start map with untyped tag.
       Map.update(acc, tag_type, initial, update_fn)
@@ -237,12 +224,9 @@ defmodule InfoToml.KeyVal do
   #
   # Retain tags with types (i.e., strings that contain a colon.
 
-    filter_fn = fn tag ->
+    filter_fn = fn tag -> String.contains?(tag, ":") end
     #
     # Return true if the tag is typed.
-
-      String.contains?(tag, ":")
-    end
 
     Enum.filter(input, filter_fn)
   end

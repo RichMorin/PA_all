@@ -40,7 +40,7 @@ defmodule PhxHttpWeb.ClearView do
       iex> { :safe, io_list } = fmt_tag_set(tag_set, set_key, settings)
       iex> io_str   = IO.iodata_to_binary(io_list)
       iex> test     = ~s(<div class="hs-base2">)
-      iex> String.starts_with?(io_str, test)
+      iex> ssw(io_str, test)
       true
   """
 
@@ -52,12 +52,9 @@ defmodule PhxHttpWeb.ClearView do
     #
     # Support chunking by type.
 
-    split_fn  = fn field ->
+    split_fn  = fn field -> String.split(field, ":") end
     #
     # Split the tag field into type and tag values.
-
-      String.split(field, ":")
-    end
 
     fmt_fn  = fn chunk ->
     #
@@ -146,12 +143,9 @@ defmodule PhxHttpWeb.ClearView do
 #   exclude     = ~w(miscellany requires see_also)a #D
     exclude     = ~w( )a
 
-    exclude_fn  = fn tag_type ->
+    exclude_fn  = fn tag_type -> Enum.member?(exclude, tag_type) end
     #
     # Return true if the tag type is present in the exclude list.
-
-      Enum.member?(exclude, tag_type)
-    end
 
     kv_map
     |> keyss()

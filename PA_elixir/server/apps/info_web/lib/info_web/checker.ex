@@ -72,12 +72,12 @@ defmodule InfoWeb.Checker do
   This function checks both internal and external links on Pete's Alley.
   The returned value is a map of the form:
   
-    %{
-      bins:     %{
-        <status>: [ { note, from_path, page_url }, ... ]
+      %{
+        bins:     %{
+          <status>: [ { note, from_path, page_url }, ... ]
+        }
+        forced:   [ <url>, ... ]
       }
-      forced:   [ <url>, ... ]
-    }
   """
 
   @spec check_pages() :: map
@@ -128,30 +128,24 @@ defmodule InfoWeb.Checker do
 
   defp get_forced() do
   #
-  # Get a map of "forced" external URLs.
+  # Return a map of "forced" external URLs.
 
-    reduce_fn1  = fn {_key, val}, acc ->
+    forced_fn   = fn {_key, val}, acc -> csv_split(val) ++ acc end
     #
-    # ?
-
-     csv_split(val) ++ acc
-    end
+    # Return a list of "forced" external URLs.
 
     forced      = InfoToml.get_item("_config/forced.toml").urls
-    |> Enum.reduce([], reduce_fn1)
+    |> Enum.reduce([], forced_fn)
 
-    reduce_fn2  = fn key, acc ->
+    reduce_fn   = fn key, acc -> Map.put(acc, key, :true) end
     #
-    # ?
-
-      Map.put(acc, key, :true)
-    end
+    # Build a map with `true` entries for each key.
 
     snap_map    = Snapshot.snap_load()
     gi_list     = ["raw", "ext_ok"]
     ext_ok      = get_in(snap_map, gi_list)
 
-    (forced ++ ext_ok) |> Enum.reduce(%{}, reduce_fn2)
+    (forced ++ ext_ok) |> Enum.reduce(%{}, reduce_fn)
   end
 
   @spec mapper([tuple]) :: map
@@ -160,7 +154,7 @@ defmodule InfoWeb.Checker do
   #
   # Construct a map from a list of links, binned by their status.
 
-    reduce_fn = fn { status, note, page_url, link_url }, acc ->
+    entry_fn  = fn { status, note, page_url, link_url }, acc ->
     #
     # Generate and store a map entry.
 
@@ -171,7 +165,7 @@ defmodule InfoWeb.Checker do
       Map.update(acc, status, initial, update_fn)
     end
 
-    Enum.reduce(inp_list, %{}, reduce_fn)
+    Enum.reduce(inp_list, %{}, entry_fn)
   end
 
 end

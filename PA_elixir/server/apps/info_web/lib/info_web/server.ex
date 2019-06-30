@@ -50,10 +50,7 @@ defmodule InfoWeb.Server do
 
   @spec get_snap() :: map
 
-  def get_snap() do
-
-    Agent.get(@me, &(&1) )
-  end
+  def get_snap(), do: Agent.get(@me, &(&1) )
 
   @doc """
   Reload from the snapshot file.
@@ -78,19 +75,14 @@ defmodule InfoWeb.Server do
 
   @spec start_link() :: {atom, pid | String.t } #W
 
-  def start_link() do
-    Agent.start_link(&first_load/0, name: @me)
-  end
+  def start_link(), do: Agent.start_link(&first_load/0, name: @me)
 
   # Private functions
 
   @spec first_load() :: map #W
 
-  defp first_load() do
+  defp first_load(), do: Snapshot.snap_load()
   #
   # Handle initial loading of data.
-
-    Snapshot.snap_load()
-  end
 
 end

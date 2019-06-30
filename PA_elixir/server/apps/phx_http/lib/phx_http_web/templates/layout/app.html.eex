@@ -9,7 +9,7 @@
   </head>
 
   <%
-    import Common, warn: false, only: [ ii: 2 ]
+    import Common, warn: false, only: [ ii: 2, ssw: 2 ]
 
     path_str    = @conn.path_info     |> Enum.join("/")
     query_str   = @conn.query_string
@@ -21,11 +21,8 @@
       _     -> "/#{ path_str }?#{ query_str }"
     end
 
-    edit_link   = (path_str == "item") &&
-                  String.starts_with?(@key, "Areas/Catalog/")
-
-    source_link = (path_str == "item") ||
-                  (path_str == "text")
+    edit_link   = (path_str == "item") && ssw(@key, "Areas/Catalog/")
+    source_link = (path_str == "item") || (path_str == "text")
 
 #   ii(get_run_mode(), "get_run_mode") #T
 #   ii(@item, "item") #T

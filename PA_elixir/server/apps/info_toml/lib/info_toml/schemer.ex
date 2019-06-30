@@ -71,7 +71,7 @@ defmodule InfoToml.Schemer do
   def get_schemas(tree_abs) do
     base_len    = byte_size(tree_abs) + 1
 
-    reduce_fn   = fn x, acc ->
+    schema_fn   = fn x, acc ->
     #
     # Construct a map of schemas. 
 
@@ -86,7 +86,7 @@ defmodule InfoToml.Schemer do
 
     tree_abs                          # "/..."
     |> do_files(&do_file/1)           # { "/.../_schemas/*.toml", %{...} }
-    |> Enum.reduce(%{}, reduce_fn)    # %{ "_schemas/*.toml" => %{...}, ... }
+    |> Enum.reduce(%{}, schema_fn)    # %{ "_schemas/*.toml" => %{...}, ... }
   end
 
   # Private functions

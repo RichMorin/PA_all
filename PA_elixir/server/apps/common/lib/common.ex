@@ -9,7 +9,7 @@ defmodule Common do
 
   # Define the public interface.
 
-  alias Common.{Maps, Strings, Tracing, Zoo}
+  alias Common.{Maps, Sorting, Strings, Tracing, Zoo}
 
   @doc """
   Naive pluralizer: add an "s" to the end of `string` if `n` is 1.
@@ -31,9 +31,9 @@ defmodule Common do
 
   @doc """
   Join a list of strings into a comma-delimited string.
-  ([`...Strings.csv_join/1`](Common.Strings.html#csv_join/1))
+  ([`...Strings.fmt_list/1`](Common.Strings.html#fmt_list/1))
   """
-  defdelegate csv_join(str_list),                 to: Strings
+  defdelegate fmt_list(str_list),                 to: Strings
 
   @doc """
   Split a comma-delimited string into a list of trimmed strings.
@@ -106,6 +106,24 @@ defmodule Common do
   ([`...Maps.our_tree/2`](Common.Maps.html#our_tree/2))
   """
   defdelegate our_tree(map, strict),              to: Maps
+
+  @doc """
+  Sort a list by an indexed element.
+  ([`...Sorting.sort_by_elem/2`](Common.Sorting.html#sort_by_elem/2))
+  """
+  defdelegate sort_by_elem(tuples, index, mode),  to: Sorting
+
+  @doc """
+  Sort a list by an indexed element, in a specified mode.
+  ([`...Sorting.sort_by_elem/3`](Common.Sorting.html#sort_by_elem/3))
+  """
+  defdelegate sort_by_elem(tuples, index),        to: Sorting
+
+  @doc """
+  Shorthand call for `String.starts_with?/2`.
+  ([`...Strings.ssw/2`](Common.Strings.html#ssw/2))
+  """
+  defdelegate ssw(target, test),                  to: Strings
 
   @doc """
   Get an atom indicating the data type of the argument.

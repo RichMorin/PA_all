@@ -40,7 +40,7 @@ defmodule PhxHttpWeb.SearchView do
       iex> { :safe, io_list } = fmt_tag_set(tag_set, set_key, settings)
       iex> io_str   = IO.iodata_to_binary(io_list)
       iex> test     = ~s(<div class="hs-base2">)
-      iex> String.starts_with?(io_str, test)
+      iex> ssw(io_str, test)
       true
   """
 

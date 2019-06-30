@@ -25,7 +25,7 @@ defmodule PhxHttpWeb.SearchMunger do
   use PhxHttp.Types
   use PhxHttpWeb, :controller
 
-  import Common, warn: false, only: [ ii: 2 ]
+  import Common, warn: false, only: [ ii: 2, ssw: 2 ]
 
   # Public functions
 
@@ -71,27 +71,21 @@ defmodule PhxHttpWeb.SearchMunger do
   #
   # Discard extraneous and meaningless params, then shard by type.
 
-    defined_fn  = fn {_key, val} ->
+    defined_fn  = fn {_key, val} -> ssw(val, "d:") end
     #
     # Return true if this is a "defined" parameter.
 
-      String.starts_with?(val, "d:")
-    end
-
-    reused_fn   = fn {_key, val} ->
+    reused_fn   = fn {_key, val} -> ssw(val, "r:") end
     #
     # Return true if this is a "reused" parameter.
-
-      String.starts_with?(val, "r:")
-    end
 
     noise_fn  = fn {key, val} ->
     #
     # Return true if parameter is extraneous or meaningless.
 
-      String.starts_with?(key, "_")       ||
-      String.starts_with?(val, "d:n:")    ||
-      String.starts_with?(val, "r:none")
+      ssw(key, "_")       ||
+      ssw(val, "d:n:")    ||
+      ssw(val, "r:none")
     end
 
     my_params   = params

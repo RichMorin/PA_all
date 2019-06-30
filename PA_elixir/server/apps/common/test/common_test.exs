@@ -8,6 +8,7 @@ defmodule CommonTest do
 
 # doctest Common
   doctest Common.Maps
+  doctest Common.Sorting
   doctest Common.Strings
 # doctest Common.Tracing
   doctest Common.Zoo
