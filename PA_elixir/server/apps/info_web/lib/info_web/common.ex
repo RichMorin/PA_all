@@ -11,12 +11,36 @@ defmodule InfoWeb.Common do
   This module contains general purpose functions and macros for use in InfoWeb.
   """
 
-  use InfoWeb.Types
-
   # Public functions
 
   @doc """
   Make sure a URI has all the requisite fields.
+
+      iex> validate_uri("http://cfcl.com")
+      {  :error,
+         %URI{
+           authority:   "cfcl.com",
+           fragment:    nil,
+           host:        "cfcl.com",
+           path:        nil,
+           port:        80,
+           query:       nil,
+           scheme:      "http",
+           userinfo:    nil
+      } }
+
+      iex> validate_uri("http://cfcl.com/")
+      {  :ok,
+         %URI{
+           authority:   "cfcl.com",
+           fragment:    nil,
+           host:        "cfcl.com",
+           path:        "/",
+           port:        80,
+           query:       nil,
+           scheme:      "http",
+           userinfo:    nil
+      } }
   """
 
   @spec validate_uri(String.t) :: {atom, map}

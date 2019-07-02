@@ -19,17 +19,16 @@ defmodule PhxHttpWeb.SearchView do
 #     Generate HTML for a set of "Clear" or "Reuse" selection widgets.
 
   @moduledoc """
-  This module contains functions to format parts of a Search page.
+  This module supports rendering of the `search` templates.
   """
 
-  use Common.Types
   use Phoenix.HTML
   use PhxHttpWeb, :view
-  use PhxHttp.Types
 
   import Common #D
 
-  alias  PhxHttpWeb.LayoutView
+  alias PhxHttp.Types, as: PT
+  alias PhxHttpWeb.LayoutView
 
   @doc """
   Format a set of tags for display.
@@ -44,7 +43,7 @@ defmodule PhxHttpWeb.SearchView do
       true
   """
 
-  @spec fmt_tag_set(tag_set, String.t, atom) :: safe_html #W
+  @spec fmt_tag_set(PT.tag_set, String.t, atom) :: PT.safe_html #W
 
   def fmt_tag_set(tag_set, set_key, settings) do
 
@@ -91,7 +90,7 @@ defmodule PhxHttpWeb.SearchView do
 
   @doc """
   Get a map of tag values for the specified type.
-  If the type is `_`, return a merged map for all tag values.
+  If the type is `:_`, return a merged map for all tag values.
 
       iex> kv_map = %{ t1: %{ a: 1, b: 2 }, t2: %{ b: 10, c: 3 } }
       iex> get_sub_map(kv_map, :_)
@@ -165,7 +164,7 @@ defmodule PhxHttpWeb.SearchView do
       [:_, :replaces]
   """
 
-  @spec tag_types(tag_info) :: [ String.t ] #W
+  @spec tag_types(PT.tag_info) :: [ String.t ] #W
 
   def tag_types(kv_map) do
 

@@ -18,15 +18,15 @@ defmodule PhxHttpWeb.SourceController do
 
   @moduledoc """
   This module contains controller actions (etc) for printing the TOML
-  source files for items in the "Areas/..." portion of the `toml_map`.
+  source files for items in the `"Areas/..."` portion of the `toml_map`.
   """
 
-  use Common.Types
-  use PhxHttp.Types
   use PhxHttpWeb, :controller
 
   import Common, only: [ ssw: 2 ]
   import InfoToml.Common, only: [ get_file_abs: 1 ]
+
+  alias PhxHttp.Types, as: PT
 
   # Public functions
 
@@ -34,7 +34,7 @@ defmodule PhxHttpWeb.SourceController do
   This function implements the Source download action.
   """
 
-  @spec down(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec down(PT.conn, any) :: PT.conn #W
 
   def down(conn, params) do
     key   = params["key"]
@@ -59,7 +59,7 @@ defmodule PhxHttpWeb.SourceController do
   This function generates the Source display page.
   """
 
-  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec show(PT.conn, any) :: PT.conn #W
 
   def show(conn, params) do
     key     = params["key"]
@@ -95,7 +95,7 @@ defmodule PhxHttpWeb.SourceController do
     end
   end
 
-  @spec show_h(Plug.Conn.t(), String.t, map) :: Plug.Conn.t() #W
+  @spec show_h(PT.conn, String.t, map) :: PT.conn #W
 
   defp show_h(conn, main_key, main_item) do
   #

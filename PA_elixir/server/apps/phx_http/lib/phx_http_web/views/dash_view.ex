@@ -13,14 +13,18 @@ defmodule PhxHttpWeb.DashView do
 #   get_total_cnts/2
 #     Get a map of the total number of values used for this tag type.
 
+  @moduledoc """
+  This module supports rendering of the `dash` templates.
+  """
+
   use PhxHttpWeb, :view
 
   # Public functions
 
   @doc """
-  Get a map of the average number of values used for each tag type, eg:
+  Get a map of the average number of values used for each tag type, e.g.:
 
-      %{ miscellany: 0.22, ... }
+      %{ directories: 0.22, ... }
 
       iex> acd = get_avg_cnts(42).directories 
       iex> is_float(acd)
@@ -77,7 +81,7 @@ defmodule PhxHttpWeb.DashView do
   end
 
   @doc """
-  Get a map of duplicate tag values with associated types and counts, eg:
+  Get a map of duplicate tag values with associated types and counts, e.g.:
 
       %{ <tag>        => "<type>   (<cnt>), ..." }
       %{ "trade show" => "produces (1),     roles (1)", ...}
@@ -142,7 +146,7 @@ defmodule PhxHttpWeb.DashView do
 
     map_fn2     = fn {tag, type_list} ->
     #
-    #
+    # ?
 
       type_str = type_list
       |> sort_by_elem(0)
@@ -170,13 +174,14 @@ defmodule PhxHttpWeb.DashView do
   - parentheses (i.e., round brackets)
   - period (.), sharp sign (#), slash (/)
 
+  <!-- -->
       iex> kv_list  = [ {:foo, "foo", 1}, {:foo, "bar", 2} ]
       iex> get_odd_vals(kv_list)
       []
 
       iex> kv_list  = [ {:foo, "foo", 1}, {:bar, "bar?", 2} ]
       iex> get_odd_vals(kv_list)
-      [{"bar?", :bar, 999}]
+      [ {"bar?", :bar, 999} ]
   """
 
   @spec get_odd_vals(map) :: list #W

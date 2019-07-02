@@ -19,21 +19,20 @@ defmodule InfoToml.LoadFile do
   loading and checking against the schema.
   """
 
-  use Common.Types
-
   import InfoToml.Common, only: [ get_file_abs: 1, get_map_key: 1 ]
 
+  alias Common.Types, as: CT
   alias InfoToml.{CheckItem, Parser}
 
   # Public functions
 
   @doc """
-  Process (eg, load, check) a TOML file.
+  Process (e.g., load, check) a TOML file.
 
   Note: This function is only exposed as public to enable testing. 
   """
 
-  @spec do_file(s, integer, schema_map) :: {s, any} when s: String.t
+  @spec do_file(s, integer, CT.schema_map) :: {s, any} when s: String.t
 
   def do_file(file_rel, id_num, schema_map) do
  
@@ -45,7 +44,7 @@ defmodule InfoToml.LoadFile do
 
   # Private functions
 
-  @spec do_file_1(any, String.t, integer, schema_map) :: tuple
+  @spec do_file_1(any, String.t, integer, CT.schema_map) :: tuple
 
   defp do_file_1(file_data, file_rel, _, _) when file_data == %{} do
     {file_rel, nil}

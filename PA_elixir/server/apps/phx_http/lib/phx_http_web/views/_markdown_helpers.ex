@@ -17,8 +17,8 @@ defmodule PhxHttpWeb.MarkdownHelpers do
   """
 
   use Phoenix.HTML
-  use PhxHttp.Types
 
+  alias PhxHttp.Types, as: PT
   alias PhxHttpWeb.LinkHelpers
 
   # Public functions
@@ -28,7 +28,7 @@ defmodule PhxHttpWeb.MarkdownHelpers do
   prefix strings.
   """
 
-  @spec fmt_markdown(map, [atom]) :: safe_html #W
+  @spec fmt_markdown(map, [atom]) :: PT.safe_html #W
 
   def fmt_markdown(inp_map, gi_list) do
     md_inp  = get_in(inp_map, gi_list)

@@ -7,13 +7,11 @@ defmodule PhxHttpWeb.EditView do
 # Private Functions
 
   @moduledoc """
-  This module supports item editing.
+  This module supports rendering of the `edit` templates.
   """
 
-  use Common.Types
   use Phoenix.HTML
   use PhxHttpWeb, :view
-  use PhxHttp.Types
 
 # alias  PhxHttpWeb.LayoutView
 

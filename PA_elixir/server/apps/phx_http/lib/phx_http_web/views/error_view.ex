@@ -7,6 +7,10 @@ defmodule PhxHttpWeb.ErrorView do
 #   template_not_found/2
 #     Returns the status message from the template name.
 
+  @moduledoc """
+  This module supports rendering of error pages.
+  """
+
   use PhxHttpWeb, :view
 
   # If you want to customize a particular status code

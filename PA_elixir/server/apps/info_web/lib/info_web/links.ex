@@ -18,8 +18,6 @@ defmodule InfoWeb.Links do
   This module handles checking (etc) of links for `InfoWeb.Internal`.
   """
 
-  use InfoWeb.Types
-
   # Public functions
 
   @doc """

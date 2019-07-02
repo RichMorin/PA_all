@@ -19,15 +19,14 @@ defmodule PhxHttpWeb.LayoutView do
 #     Render the appropriate `hs_*.html` file.
 
   @moduledoc """
-  This module contains functions to format the overall page.
+  This module supports rendering of the `layout` templates.
   """
 
-  use Common.Types
   use Phoenix.HTML
   use PhxHttpWeb, :view
-  use PhxHttp.Types
 
-  alias  PhxHttpWeb.LayoutView
+  alias PhxHttp.Types, as: PT
+  alias PhxHttpWeb.LayoutView
 
   # Public functions
 
@@ -93,14 +92,14 @@ defmodule PhxHttpWeb.LayoutView do
   # Handle :area_1, :dash, :edit_[fs], :search_f, :text, etc.
 
   @doc """
-  Wrap the hide_show render call.  The flag may be one of:
+  Wrap the `hide_show` render call.  The flag may be one of:
 
-  - "ih:1/1", "is:1/1" - singleton
-  - "ih:1/2", "is:1/2" - level 1 of 2
-  - "ih:2/2", "is:2/2" - level 2 of 2
+  - `"ih:1/1"`, `"is:1/1"` - singleton
+  - `"ih:1/2"`, `"is:1/2"` - level 1 of 2
+  - `"ih:2/2"`, `"is:2/2"` - level 2 of 2
 
   The flag's prefix (`ih` or `is`) controls whether the body content
-  is initially hidden or shown.  So, for example, "ih:1/1" produces
+  is initially hidden or shown.  So, for example, `"ih:1/1"` produces
   a singleton (standalone) hide/show in which the body content is
   initially hidden.
 
@@ -113,7 +112,7 @@ defmodule PhxHttpWeb.LayoutView do
       true
   """
 
-  @spec hide_show(s, s) :: safe_html when s: String.t #W
+  @spec hide_show(s, s) :: PT.safe_html when s: String.t #W
 
   def hide_show("ih:1/1", t_str), do: hs("1", "s",     t_str)
   def hide_show("ih:1/2", t_str), do: hs("1", "s_sa",  t_str)

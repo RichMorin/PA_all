@@ -16,7 +16,7 @@ defmodule Common.Tracing do
   # Public functions
 
   @doc """
-  Wrap `IO.inspect/2`, making it less painful to use.  Specifically:
+  Wrap `IO.inspect/2`, making it less painful to use:
   
   - shorten the name from ten to two characters
   - reduce ceremony by eliminating the `:label` key
@@ -34,14 +34,14 @@ defmodule Common.Tracing do
   def ii(thing, label), do: IO.inspect(thing, label: label)
 
   @doc """
-  Print a labeled time stamp, eg:
+  Print a labeled time stamp, e.g.:
   
-      lts>> 22.83 - PhxHttpWeb.TextController.show/2
+      lts>> 22.837 - PhxHttpWeb.TextController.show/2
 
   The full ISO 8601 time stamp (e.g., `2019-05-08T14:09:22.837127Z`)
   is unambiguous, but also long and complicated.  So, it's difficult
-  to digest in a single glance.  Printing seconds and milliseconds
-  (e.g., 22.837) works much better for informal timing analysis.
+  to digest in a single glance.  Printing just the seconds and milliseconds
+  (e.g., `22.837`) works much better for informal timing analysis.
   """
 
   @spec lts(String.t) :: any

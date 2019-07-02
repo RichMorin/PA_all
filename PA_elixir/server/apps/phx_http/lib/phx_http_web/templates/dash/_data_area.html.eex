@@ -5,7 +5,6 @@
 
   cnts_by_dir   = @data_info.cnts_by_dir
   dir_names     = cnts_by_dir |> keyss()
-  
 %>
 
 <div class="hs-base2">

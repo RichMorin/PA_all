@@ -9,7 +9,7 @@ defmodule InfoWeb.Server do
 #   put_info/2
 #     Update the data structure for a link, given its URL and a new value.
 #   start_link/0
-#     Start up the server Agent.
+#     Start up the server agent.
 #
 # Private functions
 #
@@ -22,8 +22,6 @@ defmodule InfoWeb.Server do
   """
 
   @me __MODULE__
-
-  use InfoWeb.Types
 
   alias InfoWeb.Snapshot
 
@@ -70,7 +68,7 @@ defmodule InfoWeb.Server do
   end
 
   @doc """
-  Start up the server Agent.
+  Start up the server agent.
   """
 
   @spec start_link() :: {atom, pid | String.t } #W

@@ -36,16 +36,16 @@ defmodule InfoWeb.Checker do
   The working data structure is a list of tuples, each of which contains
   information on an HTML link:
 
-    [ { status, note, from_path, page_url } ]
+      [ { status, note, from_path, page_url } ]
 
   The status may be one of the following atoms:
 
-  - :ext      - external link
-  - :ext_ng   - external link with an error
-  - :ext_ok   - external link with no errors
-  - :int_ng   - internal link with an error
-  - :int_ok   - internal link with no errors
-  - :seen     - a link we've seen
+  - `:ext`      - external link
+  - `:ext_ng`   - external link with an error
+  - `:ext_ok`   - external link with no errors
+  - `:int_ng`   - internal link with an error
+  - `:int_ok`   - internal link with no errors
+  - `:seen`     - a link we've seen
 
   # Data Flow
 
@@ -58,8 +58,6 @@ defmodule InfoWeb.Checker do
   performing a web access.  This keeps us from bothering with URLs that we
   know to be valid, saving both human and machine time.
   """
-
-  use InfoWeb.Types
 
   import Common, warn: false,
     only: [ csv_split: 1, ii: 2, get_http_port: 0 ]

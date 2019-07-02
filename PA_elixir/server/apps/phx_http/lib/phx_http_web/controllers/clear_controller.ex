@@ -13,7 +13,6 @@ defmodule PhxHttpWeb.ClearController do
   This module contains controller actions (etc) for clearing Search queries.
   """
 
-  use PhxHttp.Types
   use PhxHttpWeb, :controller
 
   import Common, only: [ ssw: 2 ]

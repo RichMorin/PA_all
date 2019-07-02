@@ -9,12 +9,10 @@ defmodule PhxHttpWeb.TextController do
 
   @moduledoc """
   This module contains controller actions (etc) for formatting and
-  printing TOML-encoded text files for items in the "_text/..." portion
+  printing TOML-encoded text files for items in the `"_text/..."` portion
   of the `toml_map`.
   """
 
-  use Common.Types
-  use PhxHttp.Types
   use PhxHttpWeb, :controller
 
   # Public functions

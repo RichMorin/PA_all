@@ -1,6 +1,6 @@
-# page_controller_test.exs
+# text_controller_test.exs
 
-defmodule PhxHttpWeb.PageControllerTest do
+defmodule PhxHttpWeb.TextControllerTest do
 
   use PhxHttpWeb.ConnCase
 
@@ -11,6 +11,7 @@ defmodule PhxHttpWeb.PageControllerTest do
       conn = get(conn, "/")
       assert html_response(conn, 200) =~ "Pete's Alley"
     end
+
     capture_io(test_fn)
   end
 end

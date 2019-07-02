@@ -19,10 +19,6 @@ defmodule PhxHttpWeb.KeyHelpers do
   Handle tasks related to `toml_map` keys.
   """
 
-  use Common.Types
-  use Phoenix.HTML
-  use PhxHttp.Types
-
   import InfoToml, only: [ get_item: 1 ]
 
   # Public functions
@@ -50,8 +46,8 @@ defmodule PhxHttpWeb.KeyHelpers do
   @doc """
   Generate a `toml_map` key for an area.
 
-    iex> key_area("Catalog/Hardware")
-    "Areas/Catalog/Hardware/_area.toml"
+      iex> key_area("Catalog/Hardware")
+      "Areas/Catalog/Hardware/_area.toml"
   """
 
   @spec key_area(s) :: s when s: String.t #W
@@ -61,8 +57,8 @@ defmodule PhxHttpWeb.KeyHelpers do
   @doc """
   Generate a `toml_map` key for an item.
 
-    iex> key_item("Catalog/Hardware/Anova_PC")
-    "Areas/Catalog/Hardware/Anova_PC/main.toml"
+      iex> key_item("Catalog/Hardware/Anova_PC")
+      "Areas/Catalog/Hardware/Anova_PC/main.toml"
   """
 
   @spec key_item(s) :: s when s: String.t #W
@@ -72,8 +68,8 @@ defmodule PhxHttpWeb.KeyHelpers do
   @doc """
   Generate a URL for an area.
 
-    iex> url_area("Catalog/Hardware/Anova_PC")
-    "/area?key=Areas/Catalog/Hardware/Anova_PC/_area.toml"
+      iex> url_area("Catalog/Hardware/Anova_PC")
+      "/area?key=Areas/Catalog/Hardware/Anova_PC/_area.toml"
   """
 
   @spec url_area(s) :: s when s: String.t #W
@@ -83,8 +79,8 @@ defmodule PhxHttpWeb.KeyHelpers do
   @doc """
   Generate a URL for an item.
 
-    iex> url_item("Catalog/Hardware/Anova_PC")
-    "/item?key=Areas/Catalog/Hardware/Anova_PC/main.toml"
+      iex> url_item("Catalog/Hardware/Anova_PC")
+      "/item?key=Areas/Catalog/Hardware/Anova_PC/main.toml"
   """
 
   @spec url_item(s) :: s when s: String.t #W

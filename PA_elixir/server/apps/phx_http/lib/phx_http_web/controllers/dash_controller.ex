@@ -28,8 +28,6 @@ defmodule PhxHttpWeb.DashController do
   This module contains controller actions (etc) for printing the dashboards.
   """
 
-  use Common.Types
-  use PhxHttp.Types
   use PhxHttpWeb, :controller
 
   import Common,
@@ -53,7 +51,7 @@ defmodule PhxHttpWeb.DashController do
   end
 
   @doc """
-  This function generates the Dashboard display page for code files.
+  This function generates the Dashboard display page for Code.
   """
 
   @spec show_code(Plug.Conn.t(), any) :: Plug.Conn.t() #W
@@ -74,7 +72,7 @@ defmodule PhxHttpWeb.DashController do
   end
 
   @doc """
-  This function generates the Dashboard display page for data files.
+  This function generates the Dashboard display page for Data.
   """
 
   @spec show_data(Plug.Conn.t(), any) :: Plug.Conn.t() #W

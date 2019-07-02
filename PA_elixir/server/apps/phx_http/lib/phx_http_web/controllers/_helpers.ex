@@ -6,15 +6,12 @@ defmodule PhxHttpWeb.ControllerHelpers do
 #
 #   key_ng/2
 #     This key is no good; set an error flash and go home...
-#
 #   nastygram/2
 #     Something went wrong; set an error flash and go home...
 
   @moduledoc """
   This module contains helper functions for controllers. 
   """
-
-  use PhxHttp.Types
 
   import Phoenix.Controller
 
@@ -23,10 +20,10 @@ defmodule PhxHttpWeb.ControllerHelpers do
   @doc """
   This function performs several base assigns:
   
-  - :item       - item map, if any
-  - :key        - item key, if any
-  - :page_type  - page type atom
-  - :title      - page title string
+  - `:item`       - item map, if any
+  - `:key`        - item key, if any
+  - `:page_type`  - page type atom
+  - `:title`      - page title string
   """
 
   @spec base_assigns(pc, atom, s, map|nil, s|nil) :: pc
@@ -43,8 +40,8 @@ defmodule PhxHttpWeb.ControllerHelpers do
   end
 
   @doc """
-  This function is called when a key is not recognized.  It sets up an error
-  flash and redirects to the home page.
+  This function is called when a key is not recognized.
+  It sets up an error flash and redirects to the home page.
   """
 
   @spec key_ng(Plug.Conn.t(), String.t) :: Plug.Conn.t() #W
@@ -55,8 +52,8 @@ defmodule PhxHttpWeb.ControllerHelpers do
   end
 
   @doc """
-  This function is called when something goes wrong with a web request.  It
-  sets up an error flash and redirects to the home page.
+  This function is called when something goes wrong with a web request.
+  It sets up an error flash and redirects to the home page.
   """
 
   @spec nastygram(Plug.Conn.t(), String.t) :: Plug.Conn.t() #W

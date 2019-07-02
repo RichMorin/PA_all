@@ -24,15 +24,19 @@ defmodule Common.Maps do
   This module contains map-handling functions for common use.
   """
 
-  use Common.Types
-
   import Common, warn: false, only: [ii: 2]
+
+  alias Common.Types, as: CT
 
   # Public functions
 
   @doc """
   Get the maximum value of a map (assuming that all values are non-negative
   integers).
+
+      iex> m = %{ a: 1, b: 2, c: 3 }
+      iex> get_map_max(m)
+      3
   """
 
   @spec get_map_max( %{String.t => i} ) :: i when i: integer
@@ -42,7 +46,6 @@ defmodule Common.Maps do
     max_val_fn  = fn {_key, val}, acc -> max(val, acc) end
     #
     # Determine the maximum value in the map.
-
 
     inp_map |> Enum.reduce(0, max_val_fn)
   end
@@ -77,16 +80,26 @@ defmodule Common.Maps do
   @doc """
   Get a list of data structure access paths, as used in `get_in/2`,
   for the leaf nodes of a tree of maps.
+
+      iex> m1 = %{ a: %{ b: 1, c: 2 } }
+      iex> leaf_paths(m1)
+      [[:a, :c], [:a, :b]]
+      iex> m2 = %{ d: %{ e: %{ f: 42 } } }
+      iex> leaf_paths(m2)
+      [[:d, :e, :f]]
+      iex> m3 = %{ "f" => %{ m1: m1, m2: m2 } }
+      iex> leaf_paths(m3)
+      [["f", :m2, :d, :e, :f], ["f", :m1, :a, :c], ["f", :m1, :a, :b]]
   """
   
   # The code below was adapted from a reply by Peer Reynders (peerreynders)
   # to a help request on the Elixir Forum: `https://elixirforum.com/t/17715`.
 
-  @spec leaf_paths(item_map) :: [ [ atom | String.t ] ]
+  @spec leaf_paths(CT.item_map) :: [ [ atom | String.t ] ]
 
   def leaf_paths(tree), do: leaf_paths(tree, [], [])
 
-  @spec leaf_paths(item_map, l, l) :: l when l: [ [ atom | String.t ] ]
+  @spec leaf_paths(CT.item_map, l, l) :: l when l: [ [ atom | String.t ] ]
 
   defp leaf_paths(tree, parent_path, paths) do
     {_, paths} = Enum.reduce(tree, {parent_path, paths}, &leaf_paths_h/2)
@@ -97,7 +110,7 @@ defmodule Common.Maps do
   Check whether this is (our style of) a tree of maps.  Specifically,
   the keys should all be atoms or strings and the values should either
   be compliant maps or something else.  If `strict` is true, "something
-  else" must be a Boolean, Number, or String.
+  else" must be a boolean, number, or string.
   
       iex> our_tree nil
       false
@@ -147,8 +160,8 @@ defmodule Common.Maps do
 
   # Private functions
 
-  @spec leaf_paths_h({atom, any}, {item_path, [ item_path ] } ) ::
-    {String.t, [ item_part ] }
+  @spec leaf_paths_h({atom, any}, {CT.item_path, [ CT.item_path ] } ) ::
+    {String.t, [ CT.item_part ] }
 
   defp leaf_paths_h({key, value}, {parent_path, paths}) when is_map(value), do:
     {parent_path, leaf_paths(value, [ key | parent_path ], paths) }

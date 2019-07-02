@@ -24,28 +24,26 @@ defmodule InfoToml.Common do
   This module contains general purpose functions and macros.
   """
 
-  use Common.Types
-
   # Public functions
 
   @doc """
-  Expand prefixes (e.g., `cat_har|`, `ext_wp|`), as used in our TOML.
+  Expand prefixes (e.g., `"cat_har|"`, `"ext_wp|"`), as used in our TOML.
 
-    iex> exp_prefix("ext_gh|foo/bar")
-    "https://github.com/foo/bar"
+      iex> exp_prefix("ext_gh|foo/bar")
+      "https://github.com/foo/bar"
 
-    iex> exp_prefix("cat_har|Anova_PC")
-    "Areas/Catalog/Hardware/Anova_PC"
+      iex> exp_prefix("cat_har|Anova_PC")
+      "Areas/Catalog/Hardware/Anova_PC"
 
-    iex> exp_prefix("[Anova PC](cat_har|Anova_PC)")
-    "[Anova PC](Areas/Catalog/Hardware/Anova_PC)"
+      iex> exp_prefix("[Anova PC](cat_har|Anova_PC)")
+      "[Anova PC](Areas/Catalog/Hardware/Anova_PC)"
   """
 
   @spec exp_prefix(s) :: s when s: String.t
 
   def exp_prefix(inp_str) do
   #
-  # Traverse a list of expansion tuples, replacing prefixes in inp_str.
+  # Traverse a list of expansion tuples, replacing prefixes in `inp_str`.
 
     exp_list  = exp_map() |> Map.to_list()
 
@@ -74,7 +72,7 @@ defmodule InfoToml.Common do
   Convert a relative TOML file path into an absolute path.
 
       iex> fa = get_file_abs("foo")
-      iex> fa =~ ~r{ ^ / .* / PA_all / PA_toml / foo $ }x
+      iex> fa =~ ~r{ ^ / .* / PA_all .* / PA_toml / foo $ }x
       true
   """
 
@@ -84,7 +82,7 @@ defmodule InfoToml.Common do
 
   @doc """
   Convert a relative TOML file path into a map key, removing any
-  alphabetical sharding directories (eg, "/A_/").
+  alphabetical sharding directories (e.g., `"/A_/"`).
   """
 
   @spec get_map_key(s) :: s when s: String.t
@@ -97,7 +95,7 @@ defmodule InfoToml.Common do
   Get the absolute file path for the TOML tree.
   
       iex> tree_abs = get_tree_abs()
-      iex> tree_abs =~ ~r{ ^ / .* / PA_all / PA_toml $ }x
+      iex> tree_abs =~ ~r{ ^ / .* / PA_all .* / PA_toml $ }x
       true
   """
 

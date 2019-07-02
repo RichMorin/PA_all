@@ -20,10 +20,10 @@ defmodule PhxHttpWeb.FormatHelpers do
   """
 
   use Phoenix.HTML
-  use PhxHttp.Types
 
   import Common, only: [ fmt_list: 1, csv_split: 1, sort_by_elem: 3 ]
 
+  alias PhxHttp.Types, as: PT
   alias PhxHttpWeb.ItemView
 
   # Public functions
@@ -32,7 +32,7 @@ defmodule PhxHttpWeb.FormatHelpers do
   This function formats author information, sets up links, etc.
   """
 
-  @spec fmt_authors(String.t) :: safe_html #W
+  @spec fmt_authors(String.t) :: PT.safe_html #W
 
   def fmt_authors(f_authors) do
 
@@ -68,7 +68,7 @@ defmodule PhxHttpWeb.FormatHelpers do
   This function formats the file path for display.
   """
 
-  @spec fmt_path(String.t) :: safe_html #W
+  @spec fmt_path(String.t) :: PT.safe_html #W
 
   def fmt_path(key) do
     # Generates three links of these forms:
@@ -132,7 +132,7 @@ defmodule PhxHttpWeb.FormatHelpers do
       { :safe, "<p><b>Precis:</b>&nbsp; precis</p>" }
   """
 
-  @spec fmt_precis(String.t) :: safe_html #W
+  @spec fmt_precis(String.t) :: PT.safe_html #W
 
   def fmt_precis(precis) do
     "<p><b>Precis:</b>&nbsp; #{ precis }</p>" |> raw()
@@ -190,7 +190,7 @@ defmodule PhxHttpWeb.FormatHelpers do
       [ "a", "ab", "b" ]
   """
 
-  @spec sort_keys(tag_sets) :: [ String.t ] #W
+  @spec sort_keys(PT.tag_sets) :: [ String.t ] #W
 
   def sort_keys(tag_sets) do
     letters = ~w(a b c d e f g h i j k l m n o p q r s t u v w x y z)

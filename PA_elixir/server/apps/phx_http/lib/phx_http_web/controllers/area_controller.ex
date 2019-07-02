@@ -23,14 +23,15 @@ defmodule PhxHttpWeb.AreaController do
   of the `toml_map`.  It also handles reloading of the InfoToml server.
   """
 
-  use Common.Types
-  use PhxHttp.Types
   use PhxHttpWeb, :controller
 
   import Common, only: [ get_run_mode: 0, sort_by_elem: 3 ]
 
   import InfoToml,
     only: [ get_area_name: 1, get_area_names: 0, get_area_names: 1 ]
+
+  alias Common.Types,  as: CT
+  alias PhxHttp.Types, as: PT
 
   # Public functions
 
@@ -39,7 +40,7 @@ defmodule PhxHttpWeb.AreaController do
   tree.  In general, session information should still be retained and valid.
   """
 
-  @spec reload(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec reload(PT.conn, any) :: PT.conn #W
 
   def reload(conn, params) do
   #
@@ -65,7 +66,7 @@ defmodule PhxHttpWeb.AreaController do
   This function displays a summary page for a specified part of the Areas tree.
   """
 
-  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec show(PT.conn, any) :: PT.conn #W
 
   def show(conn, params) do
   #
@@ -103,7 +104,7 @@ defmodule PhxHttpWeb.AreaController do
     |> sort_by_elem(1, :dc)
   end
 
-  @spec reload_h(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec reload_h(PT.conn, any) :: PT.conn #W
 
   defp reload_h(conn, params) do
   #
@@ -132,7 +133,7 @@ defmodule PhxHttpWeb.AreaController do
     |> redirect(to: prev_url)
   end
 
-  @spec show_h(Plug.Conn.t(), integer, String.t) :: Plug.Conn.t() #W
+  @spec show_h(PT.conn, integer, String.t) :: PT.conn #W
 
   defp show_h(conn, 1, key) do
   #
@@ -211,7 +212,7 @@ defmodule PhxHttpWeb.AreaController do
   #
   # Handle bogus levels.
 
-  @spec show_h3(Plug.Conn.t(), String.t, String.t, item_map) :: Plug.Conn.t() #W
+  @spec show_h3(PT.conn, s, s, CT.item_map) :: PT.conn when s: String.t #W
 
   defp show_h3(conn, name, key, item) do
   #

@@ -25,17 +25,16 @@ defmodule InfoToml.Schemer do
   based on a collection of schema files (`_schema/*.toml`).
   """
 
-  use Common.Types
-
   import InfoToml.Common, only: [get_file_abs: 1]
 
+  alias Common.Types, as: CT
   alias InfoToml.Parser
 
   @doc """
-  Load the prefix file (.../config/prefix.toml).
+  Load the prefix file (`.../config/prefix.toml`).
   """
 
-  @spec get_prefix() :: schema_map
+  @spec get_prefix() :: CT.schema_map
 
   def get_prefix() do
     "_config/prefix.toml"
@@ -66,7 +65,7 @@ defmodule InfoToml.Schemer do
   Load schemas for a tree of TOML files, given an absolute base path.
   """
 
-  @spec get_schemas(String.t) :: schema_map
+  @spec get_schemas(String.t) :: CT.schema_map
 
   def get_schemas(tree_abs) do
     base_len    = byte_size(tree_abs) + 1
@@ -103,7 +102,7 @@ defmodule InfoToml.Schemer do
     { file_abs, file_data }
   end
 
-  @spec do_files(s, (s -> {s, schema})) :: [ schema ] when s: String.t
+  @spec do_files(s, (s -> {s, CT.schema})) :: [ CT.schema ] when s: String.t
 
   defp do_files(tree_abs, file_fun) do
   #

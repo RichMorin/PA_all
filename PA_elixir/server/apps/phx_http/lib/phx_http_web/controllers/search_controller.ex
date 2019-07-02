@@ -27,12 +27,12 @@ defmodule PhxHttpWeb.SearchController do
   portion of the `toml_map`.
   """
 
-  use Common.Types
-  use PhxHttp.Types
   use PhxHttpWeb, :controller
 
   import Common, only: [ base_26: 1, get_run_mode: 0, ii: 2 ]
   import PhxHttpWeb.SearchMunger, only: [ munge: 1 ]
+
+  alias PhxHttp.Types, as: PT
 
   # Public functions
 
@@ -40,7 +40,7 @@ defmodule PhxHttpWeb.SearchController do
   This function generates data for the Search (find) page.
   """
 
-  @spec find(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec find(PT.conn, any) :: PT.conn #W
 
   def find(conn, _params) do
     tag_info        = InfoToml.get_tag_info()
@@ -57,7 +57,7 @@ defmodule PhxHttpWeb.SearchController do
   This function generates data for the Search Results (show) page.
   """
 
-  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec show(PT.conn, any) :: PT.conn #W
 
   def show(conn, params) do
     {tags_d, specs_r}   = params |> munge()
@@ -163,7 +163,7 @@ defmodule PhxHttpWeb.SearchController do
     |> Enum.map(query_fn)         # [ {"all", "a", [ "...", ... ] }, ... ]
   end
 
-  @spec get_tag_sets(Plug.Conn.t(), tag_set) :: {Plug.Conn.t(), tag_sets} #W
+  @spec get_tag_sets(PT.conn, PT.tag_set) :: {PT.conn, PT.tag_sets} #W
 
   defp get_tag_sets(conn, new_set) do
   #
@@ -195,7 +195,7 @@ defmodule PhxHttpWeb.SearchController do
     {conn, tag_sets}
   end
 
-  @spec retrieve([is], any, ([is], is->is) ) :: [tuple] when is: id_set #K #W
+  @spec retrieve([is], any, ([is], is->is) ) :: [tuple] when is: PT.id_set #K #W
 
   # Retrieve the requested data, based on the query.
   

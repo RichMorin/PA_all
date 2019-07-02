@@ -7,7 +7,7 @@ defmodule InfoToml.Server do
 #   reload/0
 #     Reload and re-index the TOML file tree.
 #   start_link/0
-#     Start up the server Agent.
+#     Start up the server agent.
 #
 # Private functions
 #
@@ -17,13 +17,11 @@ defmodule InfoToml.Server do
 #     Load and index a set of TOML files.
 
   @moduledoc """
-  This module implements maintenance tasks (eg, `start_link/0`, `build_map/0`)\
-  for the OTP server.
+  This module implements maintenance tasks (e.g., `start_link/0`,
+  `build_map/0`) for the OTP server.
   """
 
   @me __MODULE__
-
-  use Common.Types
 
   import Common, warn: false, only: [ ii: 2, keyss: 1]
 
@@ -61,7 +59,7 @@ defmodule InfoToml.Server do
   end
 
   @doc """
-  Start up the server Agent.
+  Start up the server agent.
   """
 
   @spec start_link() :: {atom, pid | String.t }

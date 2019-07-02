@@ -13,11 +13,9 @@ defmodule PhxHttpWeb.EditController do
 
   @moduledoc """
   This module contains controller actions (etc) for displaying specified
-  items in the "Areas/..." portion of the `toml_map`.
+  items in the `"Areas/..."` portion of the `toml_map`.
   """
 
-  use Common.Types
-  use PhxHttp.Types
   use PhxHttpWeb, :controller
 
   import PhxHttpWeb.ItemController,

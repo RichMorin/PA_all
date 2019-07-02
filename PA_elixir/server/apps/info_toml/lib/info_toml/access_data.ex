@@ -18,31 +18,32 @@ defmodule InfoToml.AccessData do
 #     Update an item in toml_map, given its key and value.
 
   @moduledoc """
-  This module implements part of the external access API (eg, `get_keys/1`)
+  This module implements part of the external access API (e.g., `get_keys/1`)
   for the OTP server.  Specifically, it contains functions to return or
   store data.
   """
 
   @me InfoToml.Server
 
-  use Common.Types
-
   import Common, warn: false, only: [ ii: 2, keyss: 1, ssw: 2 ]
   import InfoToml.Common, only: [get_file_abs: 1]
+
+  alias Common.Types, as: CT
 
   # Public functions
 
   @doc """
-  Return the data structure for an item, given its key (eg, "_text/about.toml").
+  Return the data structure for an item, given its key
+  (e.g., `"_text/about.toml"`).
   """
 
-  @spec get_item(String.t) :: item_map | nil
+  @spec get_item(String.t) :: CT.item_map | nil
 
   def get_item(item_key), do: [:items, item_key] |> get_part()
 
   @doc """
   Return a list of item tuples (`{key, title, precis}`),
-  given a base string (eg, "Areas/Catalog/Hardware/") for the key.
+  given a base string (e.g., `"Areas/Catalog/Hardware/"`) for the key.
   """
 
   @spec get_item_tuples(s) :: { s, s, s } when s: String.t
@@ -83,7 +84,7 @@ defmodule InfoToml.AccessData do
   Return the entire `toml_map` data structure (mostly for testing).
   """
 
-  @spec get_map() :: toml_map
+  @spec get_map() :: CT.toml_map
 
   def get_map() do
     Agent.get(@me, &(&1) )
@@ -108,7 +109,7 @@ defmodule InfoToml.AccessData do
   end
 
   @doc """
-  Return the TOML source code, given its key (eg, "_text/about.toml").
+  Return the TOML source code, given its key (e.g., `"_text/about.toml"`).
   """
 
   @spec get_toml(s) :: s when s: String.t #W
@@ -133,7 +134,8 @@ defmodule InfoToml.AccessData do
   end
 
   @doc """
-  Update an item in toml_map, given its key (eg, "_text/about.toml") and value.
+  Update an item in `toml_map`, given its key (e.g., `"_text/about.toml"`)
+  and value.
   """
 
   @spec put_item(s, map) :: atom when s: String.t
@@ -145,7 +147,7 @@ defmodule InfoToml.AccessData do
   replace `toml_map` entirely.
   """
 
-  @spec put_part(any, [ map_key ] | nil) :: atom
+  @spec put_part(any, [ CT.map_key ] | nil) :: atom
 
   def put_part(new_val, key_list \\ nil) do
 

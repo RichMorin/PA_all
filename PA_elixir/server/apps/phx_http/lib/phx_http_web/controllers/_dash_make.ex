@@ -13,9 +13,6 @@ defmodule PhxHttpWeb.DashMake do
   This module contains helper functions for the Make Dashboard.
   """
 
-  use Common.Types
-  use PhxHttp.Types
-
   import Common, only: [ csv_split: 1 ]
 
   # Public functions

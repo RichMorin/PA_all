@@ -1,8 +1,6 @@
 <!-- templates/dash/show.html.eex -->
 
-<%
-  alias PhxHttpWeb.DashView
-%>
+<% alias PhxHttpWeb.DashView %>
 
 <h2>Dashboard Index</h2>
 

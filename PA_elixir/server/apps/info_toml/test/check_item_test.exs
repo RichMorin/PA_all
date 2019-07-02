@@ -3,8 +3,10 @@
 defmodule InfoTomlTest.CheckItem do
 
   use ExUnit.Case
+
   import ExUnit.CaptureIO
   import InfoToml.Common
+
   alias InfoToml.{CheckItem, Schemer}
 
   setup_all do

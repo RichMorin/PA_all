@@ -8,17 +8,15 @@ defmodule InfoToml.Tagger do
 #     Return a map describing tag usage in the TOML files.
 
   @moduledoc """
-  This module implements tag usage analysis for InfoToml.
+  This module implements tag usage analysis for `InfoToml`.
   """
-
-  use Common.Types
 
   alias InfoToml.KeyVal
 
   # Public functions
 
   @doc """
-  Return a map describing tag usage in the TOML files, e.g.
+  Return a map describing tag usage in the TOML files, e.g.:
 
       %{
         tracing:    false,

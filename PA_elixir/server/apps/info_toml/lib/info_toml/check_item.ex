@@ -26,12 +26,12 @@ defmodule InfoToml.CheckItem do
   This module checks maps that were loaded from a TOML file.
   """
 
-  use Common.Types
-
   import Common,
     only: [ csv_split: 1, get_http_port: 0, leaf_paths: 1, ssw: 2 ]
 
   import InfoToml.Schemer, only: [ get_schema: 2 ]
+
+  alias Common.Types, as: CT
 
   # Public functions
 
@@ -43,7 +43,7 @@ defmodule InfoToml.CheckItem do
   - omit a key that is required by the relevant schema
   - have a value that fails some validity check
   """
-  @spec check(item_map, String.t, schema_map) :: boolean
+  @spec check(CT.item_map, String.t, CT.schema_map) :: boolean
 
   def check(inp_map, file_key, schema_map) do
     allowed   = check_allowed( inp_map, file_key, schema_map)
@@ -57,7 +57,7 @@ defmodule InfoToml.CheckItem do
 
 # Private functions
 
-  @spec check_allowed(item_map, String.t, schema_map) :: boolean
+  @spec check_allowed(CT.item_map, String.t, CT.schema_map) :: boolean
 
   defp check_allowed(inp_map, file_key, schema_map) do
   #
@@ -87,7 +87,7 @@ defmodule InfoToml.CheckItem do
     end
   end
 
-  @spec check_publish(item_map, String.t, schema_map) :: boolean
+  @spec check_publish(CT.item_map, String.t, CT.schema_map) :: boolean
 
   defp check_publish(inp_map, file_key, _schema_map) do
   #
@@ -165,7 +165,7 @@ defmodule InfoToml.CheckItem do
     end
   end
 
-  @spec check_required(map, String.t, schema_map) :: boolean
+  @spec check_required(map, String.t, CT.schema_map) :: boolean
 
   defp check_required(inp_map, file_key, schema_map) do
   #
@@ -200,7 +200,7 @@ defmodule InfoToml.CheckItem do
     end
   end
 
-  @spec check_values(item_map, String.t) :: boolean
+  @spec check_values(CT.item_map, String.t) :: boolean
 
   defp check_values(inp_map, file_key) do
   #

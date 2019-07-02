@@ -24,9 +24,9 @@ defmodule InfoToml.Parser do
   This module handles reading and parsing of data from a TOML file.
   """
 
-  use Common.Types
-
   import Common, warn: false, only: [ii: 2]
+
+  alias Common.Types, as: CT
 
   # Public functions
 
@@ -131,7 +131,7 @@ defmodule InfoToml.Parser do
     end
   end
 
-  @spec parse_h1(s, atom) :: {atom, item_map|s} when s: String.t
+  @spec parse_h1(s, atom) :: {atom, CT.item_map|s} when s: String.t
 
   defp parse_h1(file_abs, atom_key) do
   #
@@ -153,7 +153,7 @@ defmodule InfoToml.Parser do
     end
   end
 
-  @spec parse_h2(s, atom) :: {atom, item_map|s} when s: String.t
+  @spec parse_h2(s, atom) :: {atom, CT.item_map|s} when s: String.t
 
   defp parse_h2(file_text, atom_key) do
   #

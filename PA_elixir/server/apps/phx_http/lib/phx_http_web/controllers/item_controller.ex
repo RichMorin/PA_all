@@ -31,8 +31,6 @@ defmodule PhxHttpWeb.ItemController do
   items in the "Areas/..." portion of the `toml_map`.
   """
 
-  use Common.Types
-  use PhxHttp.Types
   use PhxHttpWeb, :controller
 
   import Common, only: [ sort_by_elem: 2 ]
@@ -103,8 +101,8 @@ defmodule PhxHttpWeb.ItemController do
   @doc """
   Generate an "item map", based on:
 
-  - `gi_bases` - a list of interior (ie, base) `gi_path` lists
-  - `gi_pairs` - a list of key/value tuples, eg: `{gi_path, val}`
+  - `gi_bases` - a list of interior (i.e., base) `gi_path` lists
+  - `gi_pairs` - a list of key/value tuples, e.g.: `{gi_path, val}`
   """
 
   @spec get_item_map([ [atom] ], [ {} ]) :: map #W

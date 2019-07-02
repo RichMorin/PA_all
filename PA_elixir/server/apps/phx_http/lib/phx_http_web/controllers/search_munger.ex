@@ -21,11 +21,11 @@ defmodule PhxHttpWeb.SearchMunger do
   to the `SearchController.show/2` action.
   """
 
-  use Common.Types
-  use PhxHttp.Types
   use PhxHttpWeb, :controller
 
   import Common, warn: false, only: [ ii: 2, ssw: 2 ]
+
+  alias PhxHttp.Types, as: PT
 
   # Public functions
 
@@ -33,7 +33,7 @@ defmodule PhxHttpWeb.SearchMunger do
 
   @doc """
   Filter params, shard by form section, then rework the structures
-  into defined tags (tags_d) and reuse specifications (specs_r).
+  into defined tags (`tags_d`) and reuse specifications (`specs_r`).
   """
 
   def munge(params) do
@@ -65,7 +65,7 @@ defmodule PhxHttpWeb.SearchMunger do
 
   # Private Functions
 
-  @spec munge_filter( [ {s, s} ] ) :: {sp, sp} when s: String.t, sp: [s_pair] #W
+  @spec munge_filter( [ {s, s} ] ) :: {sp, sp} when s: String.t, sp: [PT.s_pair] #W
 
   defp munge_filter(params) do
   #
@@ -100,7 +100,7 @@ defmodule PhxHttpWeb.SearchMunger do
     {params_d, params_r}
   end
 
-  @spec munge_map_d( [s_pair] ) :: [ String.t ] #W
+  @spec munge_map_d( [PT.s_pair] ) :: [ String.t ] #W
 
   defp munge_map_d(input) do
   #
@@ -119,7 +119,7 @@ defmodule PhxHttpWeb.SearchMunger do
     |> Enum.sort()                # [ "roles:...", ... ] (sorted)
   end
 
-  @spec munge_map_r(sp) :: sp when sp: [s_pair] #W
+  @spec munge_map_r(sp) :: sp when sp: [PT.s_pair] #W
 
   defp munge_map_r(input) do
   #

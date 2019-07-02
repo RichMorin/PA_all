@@ -13,8 +13,6 @@ defmodule InfoWeb.Headings do
   This module handles checking (etc) of headings for `InfoWeb.Internal`.
   """
 
-  use InfoWeb.Types
-
   import Common, only: [ ii: 2 ]
 
   # Public functions

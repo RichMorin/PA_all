@@ -5,7 +5,6 @@
 
   cnts_by_app = @code_info.cnts_by_app
   app_names   = cnts_by_app |> keyss()
-  
 %>
 
 <div class="hs-base2">

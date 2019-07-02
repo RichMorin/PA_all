@@ -25,10 +25,8 @@ defmodule InfoToml.KeyVal do
 #     Retain typed tags (i.e., strings that contain a colon.
 
   @moduledoc """
-  This module implements key/value usage analysis for InfoToml.
+  This module implements key/value usage analysis for `InfoToml`.
   """
-
-  use Common.Types
 
   import Common, warn: false, only: [ ii: 2, keyss: 1, sort_by_elem: 2 ]
 

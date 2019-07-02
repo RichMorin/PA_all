@@ -2,5 +2,9 @@
 
 defmodule PhxHttpWeb.MailView do
 
+  @moduledoc """
+  This module supports rendering of the `mail` templates.
+  """
+
   use PhxHttpWeb, :view
 end

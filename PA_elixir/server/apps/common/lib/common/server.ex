@@ -20,5 +20,5 @@ defmodule Common.Server do
 
   defp first_load(), do: %{}
   #
-  # We're not using this Agent at the moment, but we may at some point ...
+  # We're not using this agent at the moment, but we may at some point ...
 end

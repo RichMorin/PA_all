@@ -2,6 +2,10 @@
 
 defmodule PhxHttpWeb.Router do
 
+  @moduledoc """
+  This module handles the routing from URLs to controllers.
+  """
+
   use PhxHttpWeb, :router
 
   pipeline :browser do
@@ -58,8 +62,8 @@ defmodule PhxHttpWeb.Router do
   # end
 
   @doc """
-  When the server is running in :dev mode, this function displays a time-stamped
-  divider (= = = ...) on the console for each request.
+  When the server is running in `:dev` mode, this function displays a time-stamped
+  divider (`= = = ...`) on the console for each request.
   """
 
   @spec divider(Plug.Conn.t(), any) :: Plug.Conn.t() #W

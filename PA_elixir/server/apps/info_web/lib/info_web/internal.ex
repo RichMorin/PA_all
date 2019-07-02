@@ -25,9 +25,9 @@ defmodule InfoWeb.Internal do
   
   ## Data Flow
   
-  We start out with a single element list, containing the `status` (:seen),
-  a note ("root page"), the `from_page` (nil), and the `page_url` (/) for
-  the root page of the site:
+  We start out with a single element list, containing the `status` (`:seen`),
+  a note (`"root page"`), the `from_page` (nil), and the `page_url` (`"/"`)
+  for the root page of the site:
   
       [ { :seen, "root page", nil, "/" } ]
   
@@ -38,15 +38,13 @@ defmodule InfoWeb.Internal do
   If we can't retrieve an internal URL, we change its status to `:int_ng`.
   Otherwise, we change its status to `:int_ok` and harvest a list of URLs.
   These get a status of either `:ext` or `:seen`, depending on whether they
-  begin with `http`.
+  begin with `"http"`.
 
   To reduce the workload, we trim the working list, discarding:
   
   - all but one instance of each status/URL combination
-  - a variety of "time sink" internal URLs (e.g., "/reload?")
+  - a variety of "time sink" internal URLs (e.g., `"/reload?"`)
   """
-
-  use InfoWeb.Types
 
   import Common, only: [ssw: 2]
   import InfoWeb.Common, only: [validate_uri: 1]

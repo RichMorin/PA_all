@@ -35,6 +35,11 @@ defmodule Common.Zoo do
 
   @doc """
   Convert an absolute file path into a relative path.
+
+      iex> s1 = "/a/b"
+      iex> s2 = "/a/b/c/d"
+      iex> get_rel_path(s1, s2)
+      "c/d"
   """
 
   @spec get_rel_path(s, s) :: s when s: String.t
@@ -89,85 +94,85 @@ defmodule Common.Zoo do
   The returned values are as specific as possible.  So, for example,
   `false` produces `:boolean`, rather than `:atom`.
 
-  Atoms and Booleans
+  ## Atoms and Booleans
   
-    iex> type_of(:foo)
-    :atom
-    iex> type_of(false)
-    :boolean
-    iex> type_of(true)
-    :boolean
-    iex> type_of(nil)
-    :nil
+      iex> type_of(:foo)
+      :atom
+      iex> type_of(false)
+      :boolean
+      iex> type_of(true)
+      :boolean
+      iex> type_of(nil)
+      :nil
 
-  Bitstrings and Binaries
+  ## Bitstrings and Binaries
 
-    iex> type_of("bar")
-    :binary
-    iex> type_of(<<1::3>>)
-    :bitstring
+      iex> type_of("bar")
+      :binary
+      iex> type_of(<<1::3>>)
+      :bitstring
 
-  Functions
+  ## Functions
 
-    iex> foo_fn = fn -> "foo" end
-    iex> type_of(foo_fn)
-    :function
+      iex> foo_fn = fn -> "foo" end
+      iex> type_of(foo_fn)
+      :function
 
-  Lists, Charlists, and Keyword Lists
+  ## Lists, Charlists, and Keyword Lists
 
-    iex> type_of('foo')
-    :list
+      iex> type_of('foo')
+      :list
 
-    iex> type_of( [] )
-    :list
+      iex> type_of( [] )
+      :list
 
-    iex(1)> foo_list = [a: 1, b: 2] 
-    iex(2)> is_list(foo_list)
-    true
+      iex(1)> foo_list = [a: 1, b: 2]
+      iex(2)> is_list(foo_list)
+      true
 
-  Numbers, Floats, and Integers
+  ## Numbers, Floats, and Integers
 
-    iex> type_of(42.0)
-    :float
-    iex> type_of(4.2e+1)
-    :float
-    iex> type_of(42/1)
-    :float
-    iex> type_of(1/42)
-    :float
+      iex> type_of(42.0)
+      :float
+      iex> type_of(4.2e+1)
+      :float
+      iex> type_of(42/1)
+      :float
+      iex> type_of(1/42)
+      :float
 
-    iex> type_of(42)
-    :integer
-    iex> type_of(0b1010)
-    :integer
-    iex> type_of(0o042)
-    :integer
-    iex> type_of(0x42)
-    :integer
+      iex> type_of(42)
+      :integer
+      iex> type_of(0b1010)
+      :integer
+      iex> type_of(0o042)
+      :integer
+      iex> type_of(0x42)
+      :integer
 
-  Maps, Structs, and Tuples
+  ## Maps, Structs, and Tuples
 
-    iex> type_of( %{} )
-    :map
+      iex> type_of( %{} )
+      :map
 
-    iex> foo_struct = defmodule Foo
-    iex>   do defstruct name: "John", age: 27
-    iex> end
-    iex> type_of(foo_struct)
-    :tuple
+      iex> foo_struct = defmodule Foo
+      iex>   do defstruct name: "John", age: 27
+      iex> end
+      iex> type_of(foo_struct)
+      :tuple
 
-    iex> type_of( {} )
-    :tuple
+      iex> type_of( {} )
+      :tuple
 
-  Pids and Ports
+  ## Pids and Ports
 
-    iex> foo_pid = spawn fn -> 1 + 2 end
-    iex> type_of(foo_pid)
-    :pid
+      iex> foo_pid = spawn fn -> 1 + 2 end
+      iex> type_of(foo_pid)
+      :pid
 
-    iex> foo_port = Port.open({:spawn, "cat"}, [:binary])
-    iex> type_of(foo_port)
-    :port
+      iex> foo_port = Port.open({:spawn, "cat"}, [:binary])
+      iex> type_of(foo_port)
+      :port
   """
 
   @spec type_of(any) :: atom

@@ -16,14 +16,12 @@ defmodule InfoToml.AccessKeys do
 #     Return a list of item keys, given a tag value.
 
   @moduledoc """
-  This module implements part of the external access API (eg, `get_keys/1`)
+  This module implements part of the external access API (e.g., `get_keys/1`)
   for the OTP server.  Specifically, it contains functions to return keys,
   names, etc.
   """
 
   @me InfoToml.Server
-
-  use Common.Types
 
   import Common, warn: false, only: [ ii: 2, keyss: 1, ssw: 2 ]
 
@@ -80,7 +78,7 @@ defmodule InfoToml.AccessKeys do
   end
 
   @doc """
-  Return a list of Area names: [ "Catalog", ... ]
+  Return a list of Area names, e.g.: `[ "Catalog", ... ]`.
   """
 
   @spec get_area_names() :: [ String.t ] #W
@@ -109,7 +107,7 @@ defmodule InfoToml.AccessKeys do
 
   @doc """
   Return a list of Area (really, Section) names.
-  Given "Content", returns [ "HowTos", ... ]
+  Given `"Content"`, returns `[ "HowTos", ... ]`.
   """
 
   @spec get_area_names(s) :: [s] when s: String.t #W

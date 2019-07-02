@@ -110,7 +110,7 @@ defmodule Common.Strings do
       "1, 2, 3, and 4"
   """
 
-  @spec fmt_list( [ s ] ) :: s when s: String.t #W
+  @spec fmt_list( [s] ) :: s when s: String.t #W
 
   def fmt_list(str_list), do: fl(str_list)
   #
@@ -127,6 +127,11 @@ defmodule Common.Strings do
 
   @doc """
   Shorthand call for `String.starts_with?/2`.
+
+      iex> ssw("beer", "bar")
+      false
+      iex> ssw("food", "foo")
+      true
   """
 
   def ssw(target, test), do: String.starts_with?(target, test)

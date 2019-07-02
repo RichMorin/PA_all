@@ -19,14 +19,13 @@ defmodule PhxHttpWeb.ClearView do
 #     Generate HTML for a set of "Clear" or "Reuse" selection widgets.
 
   @moduledoc """
-  This module contains functions to format parts of a Search page.
+  This module supports rendering of the `clear` templates.
   """
 
-  use Common.Types
   use Phoenix.HTML
   use PhxHttpWeb, :view
-  use PhxHttp.Types
 
+  alias PhxHttp.Types, as: PT
   alias PhxHttpWeb.LayoutView
 
   # Public functions
@@ -44,7 +43,7 @@ defmodule PhxHttpWeb.ClearView do
       true
   """
 
-  @spec fmt_tag_set(tag_set, String.t, atom) :: safe_html #W
+  @spec fmt_tag_set(PT.tag_set, String.t, atom) :: PT.safe_html #W
 
   def fmt_tag_set(tag_set, set_key, settings) do
 
@@ -134,10 +133,10 @@ defmodule PhxHttpWeb.ClearView do
       iex>   requires: %{ "braille display" => 2 }
       iex> }
       iex> tag_types(kv_map)
-      [:replaces]
+      [:replaces, :requires]
   """
 
-  @spec tag_types(tag_info) :: [ String.t ] #W
+  @spec tag_types(PT.tag_info) :: [ String.t ] #W
 
   def tag_types(kv_map) do
 #   exclude     = ~w(miscellany requires see_also)a #D

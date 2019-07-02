@@ -18,12 +18,9 @@ defmodule PhxHttpWeb.LinkHelpers do
   Handle transformation of our link syntax into vanilla Markdown, etc.
   """
 
-  use Common.Types
   use Phoenix.HTML
-  use PhxHttp.Types
 
-  import Common, only: [ ssw: 2 ]
-
+  import Common,   only: [ ssw: 2 ]
   import InfoToml, only: [ exp_prefix: 1 ]
 
   # Note: There are bugs in Version 1.3.1 of Earmark (the Markdown engine).
@@ -51,72 +48,72 @@ defmodule PhxHttpWeb.LinkHelpers do
   Frequently referenced external sites, such as GitHub, get their own prefix
   (e.g., `ext_gh`) and a title suffix of `[site]`.
 
-    iex> do_links("[Elixir]{ext_gh|foo/bar}")
-    "[Elixir](https://github.com/foo/bar 'Go to: github.com [site]')"
+      iex> do_links("[Elixir]{ext_gh|foo/bar}")
+      "[Elixir](https://github.com/foo/bar 'Go to: github.com [site]')"
 
-    iex> do_links("[$url]{ext_gh|foo/bar}")
-    "[https://github.com/foo/bar](https://github.com/foo/bar 'Go to: github.com [site]')"
+      iex> do_links("[$url]{ext_gh|foo/bar}")
+      "[https://github.com/foo/bar](https://github.com/foo/bar 'Go to: github.com [site]')"
 
-    iex> do_links("[$url]{https://github.com}")
-    "[https://github.com](https://github.com 'Go to: github.com [site]')"
+      iex> do_links("[$url]{https://github.com}")
+      "[https://github.com](https://github.com 'Go to: github.com [site]')"
 
-    iex> do_links("[$url ]{https://  github.com}")
-    "[https://github.com](https://github.com 'Go to: github.com [site]')"
+      iex> do_links("[$url ]{https://  github.com}")
+      "[https://github.com](https://github.com 'Go to: github.com [site]')"
 
   We use Wikipedia links a lot, mostly as a convenient way to define terms.
   So, we give it a title suffix of `[WP]`.
    
-    iex> do_links("[Foo]{ext_wp|Foo}")
-    "[Foo](https://en.wikipedia.org/wiki/Foo 'Go to: Foo [WP]')"
+      iex> do_links("[Foo]{ext_wp|Foo}")
+      "[Foo](https://en.wikipedia.org/wiki/Foo 'Go to: Foo [WP]')"
 
-    iex> do_links("[Bar]{ext_wp|Bar_(baz)}")
-    "[Bar](https://en.wikipedia.org/wiki/Bar_(baz) 'Go to: Bar (baz) [WP]')"
+      iex> do_links("[Bar]{ext_wp|Bar_(baz)}")
+      "[Bar](https://en.wikipedia.org/wiki/Bar_(baz) 'Go to: Bar (baz) [WP]')"
 
   Areas and items share a common set of prefixes (e.g., `cat`, `cat_gro`),
   but have distinct file names (e.g., `_area.toml`, `main.toml`) and title
   suffixes (e.g., `[area]`, `[item]`).
 
-    iex> do_links("[Areas]{/Area}")
-    "[Areas](/Area 'Go to: Areas [local]')"
+      iex> do_links("[Areas]{/Area}")
+      "[Areas](/Area 'Go to: Areas [local]')"
 
-    iex> do_links("[Catalog]{cat|:a}")
-    "[Catalog](/area?key=Areas/Catalog/_area.toml 'Go to: Catalog [area]')"
+      iex> do_links("[Catalog]{cat|:a}")
+      "[Catalog](/area?key=Areas/Catalog/_area.toml 'Go to: Catalog [area]')"
 
-    iex> do_links("[Groups]{cat_gro|:a}")
-    "[Groups](/area?key=Areas/Catalog/Groups/_area.toml 'Go to: Groups [area]')"
+      iex> do_links("[Groups]{cat_gro|:a}")
+      "[Groups](/area?key=Areas/Catalog/Groups/_area.toml 'Go to: Groups [area]')"
 
-    iex> do_links("[Test]{test|Me}")
-    "[Test](/item?key=Test/Me/main.toml 'Go to: Test [item]')"
+      iex> do_links("[Test]{test|Me}")
+      "[Test](/item?key=Test/Me/main.toml 'Go to: Test [item]')"
 
   The source code for item-related TOML files can be displayed as follows:
 
-    iex> do_links("[Test]{test|Me:s}")
-    "[Test](/source?key=Test/Me/main.toml 'Go to: Test [source]')"
+      iex> do_links("[Test]{test|Me:s}")
+      "[Test](/source?key=Test/Me/main.toml 'Go to: Test [source]')"
 
   The source code for other TOML files can be displayed as follows:
 
-    iex> do_links("[Prefix]{_config/prefix.toml:s}")
-    "[Prefix](/source?key=_config/prefix.toml 'Go to: Prefix [source]')"
+      iex> do_links("[Prefix]{_config/prefix.toml:s}")
+      "[Prefix](/source?key=_config/prefix.toml 'Go to: Prefix [source]')"
 
-    iex> do_links("[About]{_text/about.toml:s}")
-    "[About](/source?key=_text/about.toml 'Go to: About [source]')"
+      iex> do_links("[About]{_text/about.toml:s}")
+      "[About](/source?key=_text/about.toml 'Go to: About [source]')"
 
-    iex> do_links("[Main Schema]{_schemas/main.toml:s}")
-    "[Main Schema](/source?key=_schemas/main.toml 'Go to: Main Schema [source]')"
+      iex> do_links("[Main Schema]{_schemas/main.toml:s}")
+      "[Main Schema](/source?key=_schemas/main.toml 'Go to: Main Schema [source]')"
 
   The remaining local pages get the title suffix `[local]`.
 
-    iex> do_links("[About]{_text/about.toml}")
-    "[About](/text?key=_text/about.toml 'Go to: About [local]')"
+      iex> do_links("[About]{_text/about.toml}")
+      "[About](/text?key=_text/about.toml 'Go to: About [local]')"
 
-    iex> do_links("[Dashboard]{/dash}")
-    "[Dashboard](/dash 'Go to: Dashboard [local]')"
+      iex> do_links("[Dashboard]{/dash}")
+      "[Dashboard](/dash 'Go to: Dashboard [local]')"
 
-    iex> do_links("[Make Dashboard]{/dash/make}")
-    "[Make Dashboard](/dash/make 'Go to: Make Dashboard [local]')"
+      iex> do_links("[Make Dashboard]{/dash/make}")
+      "[Make Dashboard](/dash/make 'Go to: Make Dashboard [local]')"
 
-    iex> do_links("[Search]{/search/find}")
-    "[Search](/search/find 'Go to: Search [local]')"
+      iex> do_links("[Search]{/search/find}")
+      "[Search](/search/find 'Go to: Search [local]')"
   """
 
   @spec do_links(s) :: s when s: String.t #W

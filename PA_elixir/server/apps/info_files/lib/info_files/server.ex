@@ -20,5 +20,5 @@ defmodule InfoFiles.Server do
 
   defp first_load(), do: %{}
   #
-  # We're not using this Agent at the moment, but we may RSN ...
+  # We're not using this agent at the moment, but we may RSN ...
 end

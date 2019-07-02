@@ -3,84 +3,77 @@
 defmodule PhxHttp.Types do
 
   @moduledoc """
-  This module defines types for use throughout `PhxHttp` and `PhxHttpWeb`.
-  It doesn't contain any functions, just `@type` attributes.
+  This module defines types for use in `PhxHttp` and `PhxHttpWeb`.
+  It doesn't contain any functions, just attributes.
   """
 
-# @spec - ToDo
+  @typedoc """
+  An `addr_part` is a Map of Strings.
+  """
 
-  defmacro __using__(_) do
-    quote do
+  @type addr_part   :: %{atom => String.t}
 
-      @doc """
-      An `addr_part` is a Map of Strings.
-      """
+  @typedoc """
+  An `address` is a Map of Maps of Strings.
+  """
 
-      @type addr_part   :: %{atom => String.t}
+  @type address     :: %{atom => addr_part}
 
-      @doc """
-      An `address` is a Map of Maps of Strings.
-      """
+  @typedoc """
+  A `Plug.Conn` is a Struct with a bazillion entries.
+  """
 
-      @type address     :: %{atom => addr_part}
+  @type conn        :: Plug.Conn.t
 
-      @doc """
-      A `Plug.Conn` is a Struct with a bazillion entries.
-      """
+  @typedoc """
+  An `id_set` is a MapSet of Integer Item IDs.
+  """
 
-      @type conn        :: Plug.Conn.t
+  @type id_set      :: MapSet.t(integer)
 
-      @doc """
-      An `id_set` is a MapSet of Integer Item IDs.
-      """
+  @typedoc """
+  A `params` Map is populated by Phoenix from a GET or POST request.
+  """
 
-      @type id_set      :: MapSet.t(integer)
+  @type params      :: %{ String.t => String.t }
 
-      @doc """
-      A `params` Map is populated by Phoenix from a GET or POST request.
-      """
+  @typedoc """
+  An `s_pair` (String pair) is a two-string Tuple.
+  """
 
-      @type params      :: %{ String.t => String.t }
+  @type s_pair      :: {String.t, String.t}
 
-      @doc """
-      An `s_pair` (String pair) is a two-string Tuple.
-      """
+  @typedoc """
+  `safe_html` is HTML that is guaranteed to be safe to emit.
+  """
 
-      @type s_pair      :: {String.t, String.t}
-
-      @doc """
-      `safe_html` is HTML that is guaranteed to be safe to emit.
-      """
-
-      @type safe_html   :: {:safe, iolist | String.t} | String.t
+  @type safe_html   :: {:safe, iolist | String.t} | String.t
 
 
-      @doc """
-      A `tag_info` Map contains Maps of Strings to Integers.
-      """
+  @typedoc """
+  A `tag_info` Map contains Maps of strings to Integers.
+  """
 
-      @type tag_info    :: %{ String.t => %{ String.t => integer } }
+  @type tag_info    :: %{ String.t => %{ String.t => integer } }
 
-      @doc """
-      A `tag_map` is a Map containing MapSet instances.
-      """
+  @typedoc """
+  A `tag_map` is a Map containing MapSet instances.
+  """
 
-      @type tag_map     :: %{ (atom | String.t) => MapSet.t(tag_val) }
+  @type tag_map     :: %{ (atom | String.t) => MapSet.t(tag_val) }
 
-      @doc """
-      A `tag_set` is a list of `type:tag` strings.
-      """
+  @typedoc """
+  A `tag_set` is a list of `type:tag` strings.
+  """
 
-      @type tag_set     :: [ String.t ]
+  @type tag_set     :: [ String.t ]
 
-      @doc """
-      `tag_sets` is a Map of `tag_set` values by ID string (eg, "a").
-      """
+  @typedoc """
+  `tag_sets` is a Map of `tag_set` values by ID string (e.g., "a").
+  """
 
-      @type tag_sets    :: %{ String.t => tag_set }
+  @type tag_sets    :: %{ String.t => tag_set }
 
-      @typep tag_val     :: integer | String.t
-    end
-  end
+  @typep tag_val     :: integer | String.t
 
 end

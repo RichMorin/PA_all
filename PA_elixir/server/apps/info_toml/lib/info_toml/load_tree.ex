@@ -20,14 +20,13 @@ defmodule InfoToml.LoadTree do
   This module handles loading of data from a TOML file tree.
   """
 
-  use Common.Types
-
   import Common,
     only: [ get_map_max: 1, get_rel_path: 2, get_run_mode: 0, ssw: 2 ]
 
   import InfoToml.Common,
     only: [ get_map_key: 1, get_tree_abs: 0 ]
 
+  alias Common.Types, as: CT
   alias InfoToml.{LoadFile, Schemer}
 
   # Public functions
@@ -37,7 +36,7 @@ defmodule InfoToml.LoadTree do
   for the tree.
   """
 
-  @spec load(item_maybe) :: item_map
+  @spec load(CT.item_maybe) :: CT.item_map
 
   def load(old_map \\ nil) do
   #
@@ -74,7 +73,7 @@ defmodule InfoToml.LoadTree do
 
   # Private functions
 
-  @spec do_tree(schema_map, toml_map | nil) :: [ toml_map ]
+  @spec do_tree(CT.schema_map, CT.toml_map | nil) :: [ CT.toml_map ]
 
   defp do_tree(schema_map, old_map) do
   #
@@ -133,7 +132,7 @@ defmodule InfoToml.LoadTree do
     end
   end
 
-  @spec path_prep([ s ], item_maybe) :: [ {s, integer} ] when s: String.t
+  @spec path_prep([ s ], CT.item_maybe) :: [ {s, integer} ] when s: String.t
 
   # Convert a list of file paths into a list of numbered tuples.
   # If inp_map is nil, generate new IDs.  Otherwise, use existing

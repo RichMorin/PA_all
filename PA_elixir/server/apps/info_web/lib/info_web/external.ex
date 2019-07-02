@@ -12,18 +12,18 @@ defmodule InfoWeb.External do
   such as missing pages, redirects, etc.
   """
 
-  use InfoWeb.Types
-
   import Common, only: [ ii: 2 ]
 
   # Public functions
 
+  @doc """
+  Get a list of status tuples for external URLs.  The `forced` map tells us
+  which URLs should be forced to verify as OK.
+  """
+
   @spec get_ext_list([tuple], map) :: [tuple]
 
   def get_ext_list(external, forced) do
-  #
-  # Get a list of status tuples for external URLs.  The `forced` map tells us
-  # which URLs should be forced to verify as OK.
   #
   # See https://hexdocs.pm/httpoison/HTTPoison.Request.html for details.
 

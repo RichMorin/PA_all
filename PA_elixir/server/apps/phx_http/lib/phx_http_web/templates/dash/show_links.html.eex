@@ -4,8 +4,8 @@
   alias  PhxHttpWeb.DashView
   import PhxHttpWeb.LayoutView, only: [hide_show: 2]
 
-  ext_assigns  = assigns |> Map.put(:pre, "ext")
-  int_assigns  = assigns |> Map.put(:pre, "int")
+  ext_assigns   = assigns |> Map.put(:pre, "ext")
+  int_assigns   = assigns |> Map.put(:pre, "int")
 %>
 
 <div class="hs-base1">

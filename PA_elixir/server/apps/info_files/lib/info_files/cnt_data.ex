@@ -25,7 +25,7 @@ defmodule InfoFiles.CntData do
   # Public functions
 
   @doc """
-  Return a map describing a tree of TOML files, eg:
+  Return a map describing a tree of TOML files, e.g.:
 
       %{
         cnts_by_dir:    %{ "<dir>"  => %{...}, ... },

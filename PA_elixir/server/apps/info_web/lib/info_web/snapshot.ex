@@ -5,9 +5,9 @@ defmodule InfoWeb.Snapshot do
 # Public functions
 #
 #   counts_ext/1
-#     Count links to external sites.
+#     Count links to external sites; format as sorted TOML.
 #   counts_int/1
-#     Count links to external routes.
+#     Count links to internal routes; format as sorted TOML.
 #   raw_ext_urls/1
 #     Format `ext_ok` data (OK external URLs).
 #   snap_load/0
@@ -18,8 +18,6 @@ defmodule InfoWeb.Snapshot do
   @moduledoc """
   This module handles reading and writing of TOML snapshot files.
   """
-
-  use InfoWeb.Types
 
   import Common, warn: false, only: [ ii: 2, sort_by_elem: 2 ]
 
@@ -64,7 +62,7 @@ defmodule InfoWeb.Snapshot do
   end
 
   @doc """
-  Count links to internal routes, format as TOML.
+  Count links to internal routes; format as sorted TOML.
   """
 
   @spec counts_int(map) :: String.t

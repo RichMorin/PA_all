@@ -8,10 +8,10 @@ defmodule InfoFiles.CntAny do
 #     Add :cnts_by_app  - number of lines of code (etc) by app name.
 #   add_cnts_by_path/1
 #     Add :cnts_by_path - number of lines of code (etc) by file path.
-#   add_tree_bases/1
-#     Add :tree_bases   - file paths for the base of each code area.
 #   add_file_paths/1
 #     Add :file_paths   - relative file paths to each code file.
+#   add_tree_bases/1
+#     Add :tree_bases   - file paths for the base of each code area.
 #
 # Private Functions
 #
@@ -19,8 +19,8 @@ defmodule InfoFiles.CntAny do
 #     Summation helper  - adds a set of "Totals" to `cnts_by_x`.
 
   @moduledoc """
-  This module implements generic file tree counting for InfoFiles.  It counts files,
-  functions, lines, and characters.
+  This module implements generic file tree counting for InfoFiles.
+  It counts files, functions, lines, and characters.
   """
 
   import Common, only: [ii: 2]
@@ -82,7 +82,7 @@ defmodule InfoFiles.CntAny do
   end
 
   @doc """
-  Store a sub-map of counts in `file_info[:cnts_by_path`].
+  Store a sub-map of counts in `file_info[:cnts_by_path]`.
   For each file path, count files, functions, lines, and characters.
   """
 
@@ -133,45 +133,8 @@ defmodule InfoFiles.CntAny do
   end
 
   @doc """
-    Given a list of directory names (e.g., `PA_elixir`), store a list of
-    tree base strings (e.g., `PA_elixir/common`) in `file_info[:tree_bases`].
-  """
-
-  @spec add_tree_bases(map, [String.t] ) :: map
-
-  def add_tree_bases(file_info, dir_names) do
-    prefix      = "#{ file_info.tree_base }/"
-    name_cnt    = Enum.count(dir_names)
-
-    dir_patt    = if name_cnt > 1 do
-      "{#{ Enum.join(dir_names, ",") }}"
-    else
-      dir_names
-    end
-
-    abridge_fn  = fn path ->
-    #
-    # Abridge the path by removing the prefix string.
-
-      String.replace_prefix(path, prefix, "")
-    end
-
-    glob_patt   = "#{ prefix }#{ dir_patt }/*"
-
-    tree_bases  = glob_patt
-    |> Path.wildcard()
-    |> Enum.map(abridge_fn)
-
-    if file_info.tracing do #TG
-      ii(tree_bases, "tree_bases")
-    end
-
-    Map.put(file_info, :tree_bases, tree_bases)
-  end
-
-  @doc """
   Store a list of relative file paths (e.g., `PA_elixir/common/lib/common.ex`)
-  in `file_info[:file_paths`].  A pattern String (`dir_patt`) and a list of
+  in `file_info[:file_paths]`.  A pattern string (`dir_patt`) and a list of
   file extensions (e.g., `exs`) are used to construct the globbing pattern.
   """
   @spec add_file_paths(map, s, [ s ]) :: map when s: String.t
@@ -209,6 +172,43 @@ defmodule InfoFiles.CntAny do
     end
 
     Map.put(file_info, :file_paths, file_paths)
+  end
+
+  @doc """
+    Given a list of directory names (e.g., `PA_elixir`), store a list of
+    tree base strings (e.g., `PA_elixir/common`) in `file_info[:tree_bases]`.
+  """
+
+  @spec add_tree_bases(map, [String.t] ) :: map
+
+  def add_tree_bases(file_info, dir_names) do
+    prefix      = "#{ file_info.tree_base }/"
+    name_cnt    = Enum.count(dir_names)
+
+    dir_patt    = if name_cnt > 1 do
+      "{#{ Enum.join(dir_names, ",") }}"
+    else
+      dir_names
+    end
+
+    abridge_fn  = fn path ->
+    #
+    # Abridge the path by removing the prefix string.
+
+      String.replace_prefix(path, prefix, "")
+    end
+
+    glob_patt   = "#{ prefix }#{ dir_patt }/*"
+
+    tree_bases  = glob_patt
+    |> Path.wildcard()
+    |> Enum.map(abridge_fn)
+
+    if file_info.tracing do #TG
+      ii(tree_bases, "tree_bases")
+    end
+
+    Map.put(file_info, :tree_bases, tree_bases)
   end
 
   # Private Functions

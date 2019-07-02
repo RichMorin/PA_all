@@ -25,7 +25,7 @@ defmodule InfoFiles.CntCode do
   # Public functions
 
   @doc """
-  Return a map describing a tree of code files, eg:
+  Return a map describing a tree of code files, e.g.:
 
       %{
         cnts_by_app:    %{ "<app>"  => %{...}, ... },

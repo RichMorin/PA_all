@@ -72,7 +72,7 @@ macro, as it wouldn't help much and it would obscure the basic structure:
 
     get   "/reload",          AreaController,     :reload
     
-    # Reload `TomlInfo`, the Elixir Agent that maintains the in-memory
+    # Reload `TomlInfo`, the Elixir agent that maintains the in-memory
     # version of the TOML file tree.  (For security, this action is only
     # available to clients on the same Local Area Network.)
 

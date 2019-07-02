@@ -8,17 +8,15 @@ defmodule InfoToml.Reffer do
 #     Return a map describing ref usage in the TOML files.
 
   @moduledoc """
-  This module implements ref usage analysis for InfoToml.
+  This module implements ref usage analysis for `InfoToml`.
   """
-
-  use Common.Types
 
   alias InfoToml.KeyVal
 
   # Public functions
 
   @doc """
-  Return a map describing ref usage in the TOML files, e.g.
+  Return a map describing ref usage in the TOML files, e.g.:
 
       %{
         tracing:    false,

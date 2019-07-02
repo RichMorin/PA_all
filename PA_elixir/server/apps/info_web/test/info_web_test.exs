@@ -2,6 +2,11 @@
 
 defmodule InfoWebTest do
   use ExUnit.Case
-  doctest InfoWeb
+
+# import InfoWeb
+  import InfoWeb.Common
+
+# doctest InfoWeb
+  doctest InfoWeb.Common
 
 end

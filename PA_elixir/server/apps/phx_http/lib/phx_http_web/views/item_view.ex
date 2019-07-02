@@ -25,23 +25,22 @@ defmodule PhxHttpWeb.ItemView do
 #     Preprocess an input string.
 
   @moduledoc """
-  This module contains functions to format parts of an item map for display.
+  This module supports rendering of the `item` templates.
   """
 
-  use Common.Types
   use Phoenix.HTML
   use PhxHttpWeb, :view
-  use PhxHttp.Types
 
   import InfoToml, only: [ exp_prefix: 1 ]
 
-  alias  PhxHttpWeb.LayoutView
+  alias PhxHttp.Types, as: PT
+  alias PhxHttpWeb.LayoutView
 
   # Public functions
 
   @doc """
-  Format an address for display.  If the address type (eg, :related) is not
-  found in the address map, return an empty string.
+  Format an address for display.  If the address type (e.g., `:related`)
+  is not found in the address map, return an empty string.
 
       iex> address  = %{
       iex>  web_site: %{
@@ -56,7 +55,7 @@ defmodule PhxHttpWeb.ItemView do
       true
   """
 
-  @spec fmt_address(atom, address) :: safe_html #W
+  @spec fmt_address(atom, PT.address) :: PT.safe_html #W
 
   def fmt_address(section, address) do
     case address[section] do
@@ -67,6 +66,11 @@ defmodule PhxHttpWeb.ItemView do
 
   @doc """
   Format the map key (handle special cases, then capitalize the rest).
+
+      iex> fmt_key(:faq)
+      "FAQ"
+      iex> fmt_key(:foo)
+      "Foo"
   """
 
   @spec fmt_key(atom) :: String.t #W
@@ -102,7 +106,7 @@ defmodule PhxHttpWeb.ItemView do
       true
   """
 
-  @spec fmt_review(String.t) :: safe_html #W
+  @spec fmt_review(String.t) :: PT.safe_html #W
 
   def fmt_review(rev_key) do
     rev_item    = InfoToml.get_item(rev_key)
@@ -116,8 +120,7 @@ defmodule PhxHttpWeb.ItemView do
       <h4>
         <%= auth_out %>
         <%=
-          LayoutView.hide_show("is:2/2",
-            "full review for this item")
+          LayoutView.hide_show("is:2/2", "full review for this item")
         %>
       </h4>
       <%= fmt_precis(precis) %>
@@ -130,7 +133,7 @@ defmodule PhxHttpWeb.ItemView do
 
   # Private Functions
 
-  @spec fa1(atom, map) :: safe_html #W
+  @spec fa1(atom, map) :: PT.safe_html #W
 
   # fmt_address helper functions: fa[123], fa2h
   #
@@ -150,7 +153,7 @@ defmodule PhxHttpWeb.ItemView do
   defp fa1(:review,     map),  do: fa2(:text, "Phone Numbers",      map)
   defp fa1(:web_site,   map),  do: fa2(:site, "Web Pages",          map)
 
-  @spec fa2(atom, String.t, map) :: safe_html #W
+  @spec fa2(atom, String.t, map) :: PT.safe_html #W
 
   defp fa2(:post, heading, map) do
 
@@ -208,7 +211,7 @@ defmodule PhxHttpWeb.ItemView do
     fa3(heading, map, item_fn)
   end
 
-  @spec fa3(s, map, (s -> [ s ] ) ) :: safe_html when s: String.t #W
+  @spec fa3(s, map, (s -> [ s ] ) ) :: PT.safe_html when s: String.t #W
 
   defp fa3(heading, map, item_fn) do
 
@@ -225,7 +228,7 @@ defmodule PhxHttpWeb.ItemView do
     """
   end
 
-  @spec prep_map(addr_part) :: addr_part #W
+  @spec prep_map(PT.addr_part) :: PT.addr_part #W
 
   defp prep_map(inp_map) do
   #

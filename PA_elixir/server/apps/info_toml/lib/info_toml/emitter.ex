@@ -26,8 +26,6 @@ defmodule InfoToml.Emitter do
   This module emits maps (e.g., for items) in our flavor of TOML.
   """
 
-  use Common.Types
-
   import Common, only: [ ii: 2, keyss: 1]
 
   # Public functions

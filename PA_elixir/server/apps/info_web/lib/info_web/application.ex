@@ -5,7 +5,7 @@ defmodule InfoWeb.Application do
   use Application
 
   @moduledoc """
-  This module starts up the InfoWeb agent.
+  This module starts up the `InfoWeb` agent.
   """
 
   # Public functions

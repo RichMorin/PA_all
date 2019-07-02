@@ -13,8 +13,6 @@ defmodule PhxHttpWeb.MailController do
   This module contains controller actions (etc) for editing and sending email.
   """
 
-  use Common.Types
-  use PhxHttp.Types
   use PhxHttpWeb, :controller
 
   # Public functions
