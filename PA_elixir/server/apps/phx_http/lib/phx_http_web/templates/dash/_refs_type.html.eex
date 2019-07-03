@@ -1,8 +1,6 @@
 <!-- templates/dash/_refs_type.html.eex -->
 
 <%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   main_cnt    = @data_info.cnts_by_name["main.toml"].file
   kv_info     = @ref_info.kv_info
   kv_cnts     = kv_info.kv_cnts

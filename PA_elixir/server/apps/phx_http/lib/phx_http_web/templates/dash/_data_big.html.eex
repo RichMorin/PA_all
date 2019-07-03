@@ -1,8 +1,6 @@
 <!-- templates/dash/_data_big.html.eex -->
 
 <%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   sort_fn     = fn {_key, map} -> -map.line end
   #
   # Support sorting by line count, in descending order.

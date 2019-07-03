@@ -1,9 +1,6 @@
 <!-- templates/dash/show_make.html.eex -->
 
-<%
-  alias  PhxHttpWeb.DashView
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-%>
+<% alias PhxHttpWeb.DashView %>
 
 <div class="hs-base1">
   <h2>
@@ -13,7 +10,7 @@
            tag-related headings and content") %>
   </h2>
 
-  <%= render DashView, "_path.html", assigns %>
+  <%= render(DashView, "_path.html", assigns) %>
 
   <div class="hs-body1 hs-is">
     <p>
@@ -31,6 +28,6 @@
       offers of assistance are even better!
     </p>
 
-    <%= render DashView, "_make_pkgs.html", assigns %>
+    <%= render(DashView, "_make_pkgs.html", assigns) %>
   </div>
 </div>

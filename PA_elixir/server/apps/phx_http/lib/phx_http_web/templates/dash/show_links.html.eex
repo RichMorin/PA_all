@@ -1,8 +1,7 @@
 <!-- templates/dash/show_links.html.eex -->
 
 <%
-  alias  PhxHttpWeb.DashView
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
+  alias PhxHttpWeb.DashView
 
   ext_assigns   = assigns |> Map.put(:pre, "ext")
   int_assigns   = assigns |> Map.put(:pre, "int")
@@ -16,7 +15,7 @@
            link-related headings and content") %>
   </h2>
 
-  <%= render DashView, "_path.html", assigns %>
+  <%= render(DashView, "_path.html", assigns) %>
 
   <div class="hs-body1 hs-is">
     <p>
@@ -24,7 +23,7 @@
       (i.e., HTML <code>href</code>) counts and issues.
     </p>
 
-    <%= render DashView, "_links_com.html", ext_assigns %>
-    <%= render DashView, "_links_com.html", int_assigns %>
+    <%= render(DashView, "_links_com.html", ext_assigns) %>
+    <%= render(DashView, "_links_com.html", int_assigns) %>
   </div>
 </div>

@@ -1,8 +1,6 @@
 <!-- templates/item/_show_refs.html.eex -->
 
 <%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   reject_fn   = fn key -> "#{ key }" |> ssw("f_") end
   #
   # Return true for f_authors, etc.

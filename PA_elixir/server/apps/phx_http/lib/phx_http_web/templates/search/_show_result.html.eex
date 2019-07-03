@@ -1,7 +1,5 @@
 <!-- templates/search/_show_result.html.eex -->
 
-<% import PhxHttpWeb.LayoutView, only: [hide_show: 2] %>
-
 <div class="hs-base2">
   <h5>
     <%=

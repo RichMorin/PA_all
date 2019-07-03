@@ -1,8 +1,6 @@
 <!-- templates/dash/_code_ext.html.eex -->
 
 <%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   cnts_by_ext   = @code_info.cnts_by_ext
   file_exts     = keyss(cnts_by_ext)
 %>

@@ -7,5 +7,4 @@ defmodule PhxHttpWeb.KeyViewTest do
   import  PhxHttpWeb.KeyHelpers
 
   doctest PhxHttpWeb.KeyHelpers
-
 end

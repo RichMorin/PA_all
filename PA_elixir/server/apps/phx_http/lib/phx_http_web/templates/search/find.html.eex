@@ -17,8 +17,8 @@
 <p>
 
 <%= form_for @conn, action, [], fn _fn -> %>
-  <%= render SearchView, "_find_define.html", assigns %>
-  <%= render SearchView, "_find_reuse.html",  assigns %>
+  <%= render(SearchView, "_find_define.html", assigns) %>
+  <%= render(SearchView, "_find_reuse.html",  assigns) %>
   <p></p>
   <input type="submit" value="Submit">
 <% end %>

@@ -17,7 +17,7 @@
 
   <%= fmt_precis(about.precis) %>
   
-  <%= render ItemView, "_show_refs.html", assigns %>
+  <%= render(ItemView, "_show_refs.html", assigns) %>
 
   <%= fmt_markdown(@item, [:about, :verbose]) %>
 </div>

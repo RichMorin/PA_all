@@ -1,8 +1,6 @@
 <!-- templates/dash/_make_pkgs.html.eex -->
 
 <%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   fmt_fn    = fn status -> if status do "Y" else "-" end end
   #
   # Format the status value.

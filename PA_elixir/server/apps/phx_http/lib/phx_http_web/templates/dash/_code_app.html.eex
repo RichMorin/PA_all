@@ -1,8 +1,6 @@
 <!-- templates/dash/_code_app.html.eex -->
 
 <%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   cnts_by_app = @code_info.cnts_by_app
   app_names   = cnts_by_app |> keyss()
 %>

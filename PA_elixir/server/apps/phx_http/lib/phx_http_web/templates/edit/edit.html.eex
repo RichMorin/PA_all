@@ -9,6 +9,6 @@
 
 <h2>Edit</h2>
 
-<%= render EditView, "_edit_hdr.html" %>
+<%= render(EditView, "_edit_hdr.html") %>
 
-<%= render EditView, "_edit_form.html", my_assigns %>
+<%= render(EditView, "_edit_form.html", my_assigns) %>

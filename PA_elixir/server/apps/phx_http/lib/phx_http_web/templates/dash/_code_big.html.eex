@@ -1,8 +1,6 @@
 <!-- templates/dash/_code_big.html.eex -->
 
 <%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   pattern     = ~r{ ^ [^/]+/ [^/]+/ [^/]+/ }x
 
   sort_fn     = fn {_key, map} -> -map.line end

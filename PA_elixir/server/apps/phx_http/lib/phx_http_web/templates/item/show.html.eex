@@ -11,5 +11,5 @@
   |> Map.put(:preview, nil)
 %>
 
-  <%= render ItemView, show_path, my_assigns %>
+  <%= render(ItemView, show_path, my_assigns) %>
   

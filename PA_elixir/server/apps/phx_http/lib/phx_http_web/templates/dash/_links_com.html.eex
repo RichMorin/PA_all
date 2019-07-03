@@ -1,8 +1,6 @@
 <!-- templates/dash/_links_com.html.eex -->
 
 <%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   filter_fn   = fn {_site, count} -> count > 1 end
   #
   # Return true if site is linked multiple times.

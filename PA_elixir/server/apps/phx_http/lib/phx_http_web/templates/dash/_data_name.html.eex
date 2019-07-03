@@ -1,8 +1,6 @@
 <!-- templates/dash/_data_name.html.eex -->
 
 <%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   cnts_by_name  = @data_info.cnts_by_name
   file_names    = keyss(cnts_by_name)
 %>

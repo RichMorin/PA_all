@@ -1,9 +1,5 @@
 <!-- templates/search/_show_defined.html.eex -->
 
-<%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-%>
-
 <%= if !Enum.empty?(@tags_d) do %>
   <div class="hs-base1">
     <h4>

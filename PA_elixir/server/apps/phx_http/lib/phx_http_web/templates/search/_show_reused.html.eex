@@ -1,7 +1,5 @@
 <!-- templates/search/_show_reused.html.eex -->
 
-<% import PhxHttpWeb.LayoutView, only: [hide_show: 2] %>
-
 <%= if !Enum.empty?(@queries_r) do %>
   <div class="hs-base1">
     <h4>

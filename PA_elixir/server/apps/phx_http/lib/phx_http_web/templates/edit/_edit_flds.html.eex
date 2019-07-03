@@ -1,8 +1,6 @@
 <!-- templates/edit/_edit_flds.html.eex -->
 
 <%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   keys      = @keys || keyss(@map_s)
 
   req_fn    = fn name ->

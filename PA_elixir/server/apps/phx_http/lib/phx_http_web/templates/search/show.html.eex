@@ -31,8 +31,8 @@
       that were used in the search.
     </p>
 
-    <%= render SearchView, "_show_defined.html", assigns %>
-    <%= render SearchView, "_show_reused.html",  assigns %>
+    <%= render(SearchView, "_show_defined.html", assigns) %>
+    <%= render(SearchView, "_show_reused.html",  assigns) %>
   </div>
 
   <div>
@@ -46,17 +46,17 @@
     </p>
 
     <%=
-      render SearchView, "_show_results.html",
+      render(SearchView, "_show_results.html",
         header:   "Intersection (all tags matched)",
         results:  @results_i,
-        tally:    tally_i
+        tally:    tally_i)
     %>
 
     <%=
-      render SearchView, "_show_results.html",
+      render(SearchView, "_show_results.html",
         header:   "Union (any tag matched)",
         results:  @results_u,
-        tally:    tally_u
+        tally:    tally_u)
     %>
   </div>
 

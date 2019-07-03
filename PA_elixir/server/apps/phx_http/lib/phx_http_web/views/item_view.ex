@@ -31,10 +31,10 @@ defmodule PhxHttpWeb.ItemView do
   use Phoenix.HTML
   use PhxHttpWeb, :view
 
+  import PhxHttpWeb.HideHelpers
   import InfoToml, only: [ exp_prefix: 1 ]
 
   alias PhxHttp.Types, as: PT
-  alias PhxHttpWeb.LayoutView
 
   # Public functions
 
@@ -119,9 +119,7 @@ defmodule PhxHttpWeb.ItemView do
     <div class="hs-base2">
       <h4>
         <%= auth_out %>
-        <%=
-          LayoutView.hide_show("is:2/2", "full review for this item")
-        %>
+        <%= hide_show("is:2/2", "full review for this item") %>
       </h4>
       <%= fmt_precis(precis) %>
       <div class="hs-body2">

@@ -1,8 +1,6 @@
 <!-- templates/dash/_tags_odd.html.eex -->
 
 <%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   kv_info   = @tag_info.kv_info
   kv_list   = kv_info.kv_list
   odd_vals  = get_odd_vals(kv_list)

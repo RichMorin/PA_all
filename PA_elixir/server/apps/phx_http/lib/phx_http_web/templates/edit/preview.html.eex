@@ -23,11 +23,11 @@
 </p>
 
 <hr>
-<%= render ItemView, show_path, my_assigns %>
+<%= render(ItemView, show_path, my_assigns) %>
 
 <a name="source_code"><hr></a>
-<%= render ItemView, "_show_toml.html", my_assigns %>
+<%= render(ItemView, "_show_toml.html", my_assigns) %>
 
 <a name="edit_area"><hr></a>
 <h2>Edit Area</h2>
-<%= render EditView, "_edit_form.html", my_assigns %>
+<%= render(EditView, "_edit_form.html", my_assigns) %>

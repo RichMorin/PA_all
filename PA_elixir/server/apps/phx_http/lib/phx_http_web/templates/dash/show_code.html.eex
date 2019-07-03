@@ -1,9 +1,6 @@
 <!-- templates/dash/show_code.html.eex -->
 
-<%
-  alias  PhxHttpWeb.DashView
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-%>
+<% alias PhxHttpWeb.DashView %>
 
 <div class="hs-base1">
   <h2>
@@ -13,7 +10,7 @@
            code-related headings and content") %>
   </h2>
 
-  <%= render DashView, "_path.html", assigns %>
+  <%= render(DashView, "_path.html", assigns) %>
 
   <div class="hs-body1 hs-is">
     <p>
@@ -29,8 +26,8 @@
       <li>Chars - number of characters (aka codepoints)</li>
     </ul>
 
-    <%= render DashView, "_code_big.html", assigns %>
-    <%= render DashView, "_code_app.html", assigns %>
-    <%= render DashView, "_code_ext.html", assigns %>
+    <%= render(DashView, "_code_big.html", assigns) %>
+    <%= render(DashView, "_code_app.html", assigns) %>
+    <%= render(DashView, "_code_ext.html", assigns) %>
   </div>
 </div>

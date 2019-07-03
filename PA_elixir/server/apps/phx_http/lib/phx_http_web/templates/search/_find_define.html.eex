@@ -1,8 +1,6 @@
 <!-- templates/search/_find_define.html.eex -->
 
 <%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   kv_info   = @tag_info.kv_info
   kv_descs  = kv_info.kv_descs
   kv_map    = kv_info.kv_map

@@ -1,9 +1,5 @@
 <!-- templates/area/show_1.html.eex -->
 
-<%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-%>
-
 <h2>Areas</h2>
 
 <%= fmt_markdown(@item, [:about, :verbose]) %>

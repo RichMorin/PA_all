@@ -1,9 +1,6 @@
 <!-- templates/dash/show_tags.html.eex -->
 
-<%
-  alias  PhxHttpWeb.DashView
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-%>
+<% alias PhxHttpWeb.DashView %>
 
 <div class="hs-base1">
   <h2>
@@ -13,7 +10,7 @@
            tag-related headings and content") %>
   </h2>
 
-  <%= render DashView, "_path.html", assigns %>
+  <%= render(DashView, "_path.html", assigns) %>
 
   <div class="hs-body1 hs-is">
     <p>
@@ -25,8 +22,8 @@
       (i.e., item references) are mapped into tags.
     </p>
 
-    <%= render DashView, "_tags_dup.html", assigns %>
-    <%= render DashView, "_tags_odd.html", assigns %>
-    <%= render DashView, "_tags_type.html", assigns %>
+    <%= render(DashView, "_tags_dup.html",  assigns) %>
+    <%= render(DashView, "_tags_odd.html",  assigns) %>
+    <%= render(DashView, "_tags_type.html", assigns) %>
   </div>
 </div>

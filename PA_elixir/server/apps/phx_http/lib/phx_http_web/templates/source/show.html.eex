@@ -1,8 +1,6 @@
 <!-- templates/source/show.html.eex -->
 
 <%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   etc = if Enum.count(@items) > 1 do " and its sibling files" else "" end
 %>
 

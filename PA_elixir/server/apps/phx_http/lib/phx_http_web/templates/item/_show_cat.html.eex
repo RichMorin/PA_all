@@ -3,8 +3,6 @@
 <%
   alias PhxHttpWeb.ItemView
 
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   meta      = @item.meta
   about     = @item.about
   access    = about[:access]
@@ -29,7 +27,7 @@
 
     <%= fmt_precis(about.precis) %>
 
-    <%= render ItemView, "_show_refs.html", assigns %>
+    <%= render(ItemView, "_show_refs.html", assigns) %>
 
     <div class="hs-base2">
       <h3>
@@ -55,16 +53,7 @@
       </div>
     <% end %>
 
-    <%=
-      if address do
-        render ItemView, "_address.html", assigns
-      end
-    %>
-
-    <%=
-      if @reviews do
-        render ItemView, "_reviews.html", assigns
-      end
-    %>
+    <%= if address,  do: render(ItemView, "_address.html", assigns) %>
+    <%= if @reviews, do: render(ItemView, "_reviews.html", assigns) %>
   </div>
 </div>

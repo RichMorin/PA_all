@@ -1,8 +1,6 @@
 <!-- templates/dash/_data_dir.html.eex -->
 
 <%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   cnts_by_dir   = @data_info.cnts_by_dir
   dir_names     = cnts_by_dir |> keyss()
 %>

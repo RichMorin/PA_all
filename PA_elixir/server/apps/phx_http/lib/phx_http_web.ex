@@ -62,6 +62,7 @@ defmodule PhxHttpWeb do
 
       import Common
       import PhxHttpWeb.FormatHelpers
+      import PhxHttpWeb.HideHelpers
       import PhxHttpWeb.KeyHelpers
       import PhxHttpWeb.LinkHelpers
       import PhxHttpWeb.MarkdownHelpers

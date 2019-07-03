@@ -1,8 +1,6 @@
 <!-- templates/item/_address.html.eex -->
 
 <%
-  import PhxHttpWeb.LayoutView, only: [hide_show: 2]
-
   address   = @item.address
   sections  = ~w(web_site related document email phone postal)a
 %>
