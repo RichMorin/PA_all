@@ -4,7 +4,7 @@ defmodule PhxHttpWeb.LinkViewTest do
 
   use ExUnit.Case
 
-  import  PhxHttpWeb.LinkHelpers
+  import  PhxHttpWeb.View.Link
 
-  doctest PhxHttpWeb.LinkHelpers
+  doctest PhxHttpWeb.View.Link
 end

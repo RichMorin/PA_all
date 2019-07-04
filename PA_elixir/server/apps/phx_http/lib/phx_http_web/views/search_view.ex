@@ -17,7 +17,7 @@ defmodule PhxHttpWeb.SearchView do
   use PhxHttpWeb, :view
 
   import Common #D
-  import PhxHttpWeb.TagHelpers
+  import PhxHttpWeb.View.Tag
 
   @doc """
   Get a map of tag values for the specified type.

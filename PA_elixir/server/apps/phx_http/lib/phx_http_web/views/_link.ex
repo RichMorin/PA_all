@@ -1,6 +1,6 @@
-# phx_http_web/views/_link_helpers.ex
+# phx_http_web/views/_link.ex
 
-defmodule PhxHttpWeb.LinkHelpers do
+defmodule PhxHttpWeb.View.Link do
 #
 # Public functions
 #

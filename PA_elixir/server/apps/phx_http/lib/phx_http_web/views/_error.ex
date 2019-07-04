@@ -1,4 +1,4 @@
-# phx_http_web/views/error_helpers.ex
+# phx_http_web/views/_error.ex
 
 defmodule PhxHttpWeb.ErrorHelpers do
 #

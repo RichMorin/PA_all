@@ -12,6 +12,11 @@ defmodule PhxHttpWeb.DashView do
 #     Get a list of odd ref or tag values and associated types.
 #   get_total_cnts/2
 #     Get a map of the total number of values used for this tag type.
+#
+# Private functions
+#
+#   get_dup_vals_h/1
+#     Do the first half of the work for get_dup_vals/1.
 
   @moduledoc """
   This module supports rendering of the `dash` templates.
@@ -94,74 +99,34 @@ defmodule PhxHttpWeb.DashView do
       nil
   """
 
-  @spec get_dup_vals(map) :: map #W
+  @spec get_dup_vals( [tuple] ) :: map #W
 
   def get_dup_vals(kv_list) do
 
-    punt_fn     = fn {type, _cnt} ->
+    fmt_fn      = fn {type, cnt}  -> "#{ type } (#{ cnt })" end
     #
-    # Return true if this tag type is in the punt list.
+    # Format the type and count for output.
 
-      punt_list   = ~w(f_authors f_editors)a
-      Enum.member?(punt_list, type)
-    end
-    
-    dup_fn    = fn {_tag, tuples} ->
+    map_fn      = fn {tag, type_list} ->
     #
-    # Return true if this tag value is a duplicate across types.
-
-      cnt_keep  = tuples |> Enum.reject(punt_fn) |> Enum.count()
-      cnt_punt  = tuples |> Enum.filter(punt_fn) |> Enum.count()
-      
-      ( cnt_keep > 1 ) || ( cnt_keep * cnt_punt > 0 )
-    end
-
-    reduce_fn1  = fn {type, tag, cnt}, acc ->
-    #
-    # ?
-
-      tuple       = {type, cnt}
-      initial     = [ tuple ]
-
-      update_fn   = fn old_val -> [ tuple | old_val ] end
-      #
-      # ?
-
-      Map.update(acc, tag, initial, update_fn)
-    end
-
-    map_fn1     = fn {type, cnt}  ->
-    #
-    # ?
-
-      "#{ type } (#{ cnt })"
-    end
-
-    reduce_fn2  = fn {tag, type_str}, acc ->
-    #
-    # ?
-
-      Map.put(acc, tag, type_str)
-    end
-
-    map_fn2     = fn {tag, type_list} ->
-    #
-    # ?
+    # Generate a comma-separated list.
 
       type_str = type_list
       |> sort_by_elem(0)
-      |> Enum.map(map_fn1)
+      |> Enum.map(fmt_fn)
       |> Enum.join(", ")
 
       {tag, type_str}
     end
 
+    reduce_fn   = fn {tag, type_str}, acc -> Map.put(acc, tag, type_str) end
+    #
+    # Generate a map of formatted type counts, by tag.
+
     kv_list                           # [ {:miscellany, "CLI", 1}, ...]
-    |> Enum.reduce(%{}, reduce_fn1)   # %{ <tag> => [ {<type>, <cnt>} ] } 
-    |> Enum.filter(dup_fn)            # [ { <tag>, [ {<type>, <cnt>} ] } ]
-    |> sort_by_elem(0)                # ditto, but sorted by tag value
-    |> Enum.map(map_fn2)              # [ {<tag>, "<type> (<cnt>), ..."} ]    
-    |> Enum.reduce(%{}, reduce_fn2)   # %{ <tag> => "<type> (<cnt>), ..." } 
+    |> get_dup_vals_h()               # [ { <tag>, [ {<type>, <cnt>} ] } ]
+    |> Enum.map(map_fn)               # [ {<tag>, "<type> (<cnt>), ..."} ]    
+    |> Enum.reduce(%{}, reduce_fn)    # %{ <tag> => "<type> (<cnt>), ..." } 
 #   |> ii("get_dup_vals")
   end
 
@@ -257,6 +222,52 @@ defmodule PhxHttpWeb.DashView do
     end
 
     tag_types |> Enum.reduce(%{}, count_fn)
+  end
+
+  # Private functions
+
+  @spec get_dup_vals_h(t) :: t when t: [tuple] #W
+
+  defp get_dup_vals_h(tuples) do
+  #
+  # Do the first half of the work for get_dup_vals/1.
+
+    punt_fn     = fn {type, _cnt} ->
+    #
+    # Return true if this tag type is in the punt list.
+
+      punt_list   = ~w(f_authors f_editors)a
+      Enum.member?(punt_list, type)
+    end
+    
+    dup_fn    = fn {_tag, tuples} ->
+    #
+    # Return true if this tag value is a duplicate across types.
+
+      cnt_keep  = tuples |> Enum.reject(punt_fn) |> Enum.count()
+      cnt_punt  = tuples |> Enum.filter(punt_fn) |> Enum.count()
+      
+      ( cnt_keep > 1 ) || ( cnt_keep * cnt_punt > 0 )
+    end
+
+    reduce_fn   = fn {type, tag, cnt}, acc ->
+    #
+    # Generate a map of {<type>, <cnt>}, indexed by <tag>.
+
+      tuple       = {type, cnt}
+      initial     = [ tuple ]
+
+      update_fn   = fn old_val -> [ tuple | old_val ] end
+      #
+      # Add a tuple to the map.
+
+      Map.update(acc, tag, initial, update_fn)
+    end
+
+    tuples                            # [ {:miscellany, "CLI", 1}, ...]
+    |> Enum.reduce(%{}, reduce_fn)    # %{ <tag> => [ {<type>, <cnt>} ] } 
+    |> Enum.filter(dup_fn)            # [ { <tag>, [ {<type>, <cnt>} ] } ]
+    |> sort_by_elem(0)                # ditto, but sorted by tag value
   end
 
 end

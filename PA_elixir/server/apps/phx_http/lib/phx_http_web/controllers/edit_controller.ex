@@ -18,7 +18,7 @@ defmodule PhxHttpWeb.EditController do
 
   use PhxHttpWeb, :controller
 
-  import PhxHttpWeb.ItemController,
+  import PhxHttpWeb.Cont.Items,
     only: [ get_gi_bases: 1, get_gi_pairs: 1, get_item_map: 2 ]
 
   # Public functions

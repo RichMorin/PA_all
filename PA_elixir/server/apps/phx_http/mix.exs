@@ -63,7 +63,7 @@ defmodule PhxHttp.MixProject do
       { :phoenix,              "~> 1.4" },
       { :phoenix_pubsub,       "~> 1.1" },
 
-      { :phoenix_html,         "~> 2.13" },
+      { :phoenix_html,         "~> 2.13.3" },
 
 # Test redirect to determine whether Dialyzer fix works for us.
 #     { :phoenix_html, override: true,

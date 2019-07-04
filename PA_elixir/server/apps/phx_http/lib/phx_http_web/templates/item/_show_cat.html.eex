@@ -36,7 +36,7 @@
       </h3>
 
       <div class="hs-body2">
-        <%= fmt_markdown(@item, [:about, :verbose]) %>
+        <%= fmt_markup(@item, [:about, :verbose]) %>
       </div>
     </div>
 
@@ -48,7 +48,7 @@
         </h3>
 
         <div class="hs-body2">
-          <%= fmt_markdown(@item, [:about, :access]) %>
+          <%= fmt_markup(@item, [:about, :access]) %>
         </div>
       </div>
     <% end %>

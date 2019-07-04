@@ -30,7 +30,7 @@ defmodule PhxHttpWeb.SearchController do
   use PhxHttpWeb, :controller
 
   import Common, only: [ base_26: 1, get_run_mode: 0, ii: 2 ]
-  import PhxHttpWeb.SearchMunger, only: [ munge: 1 ]
+  import PhxHttpWeb.Cont.Params, only: [ munge: 1 ]
 
   alias PhxHttp.Types, as: PT
 

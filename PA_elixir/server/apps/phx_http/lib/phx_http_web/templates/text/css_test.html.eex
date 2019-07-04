@@ -7,4 +7,4 @@
 
 <h2><%= title %></h2>
 
-<%= fmt_markdown(@item, [:about, :verbose]) %>
+<%= fmt_markup(@item, [:about, :verbose]) %>

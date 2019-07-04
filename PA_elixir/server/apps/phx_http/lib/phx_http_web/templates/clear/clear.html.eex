@@ -21,7 +21,7 @@
   Nothing to see here; move along...
 
   <% else %>
-    <%= form_for @conn, action, [], fn _fn -> %>
+    <%= form_for @conn, action, fn _fn -> %>
     <div>
       <h3>
         Clear search queries

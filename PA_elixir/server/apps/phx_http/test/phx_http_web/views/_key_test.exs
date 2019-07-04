@@ -4,7 +4,7 @@ defmodule PhxHttpWeb.KeyViewTest do
 
   use ExUnit.Case
 
-  import  PhxHttpWeb.KeyHelpers
+  import  PhxHttpWeb.View.Key
 
-  doctest PhxHttpWeb.KeyHelpers
+  doctest PhxHttpWeb.View.Key
 end

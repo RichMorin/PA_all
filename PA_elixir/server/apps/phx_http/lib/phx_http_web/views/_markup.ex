@@ -1,44 +1,45 @@
-# phx_http_web/views/_markdown_helpers.ex
+# phx_http_web/views/_markup.ex
 
-defmodule PhxHttpWeb.MarkdownHelpers do
+defmodule PhxHttpWeb.View.Markup do
 #
 # Public functions
 #
-#   fmt_markdown/2
-#     Convert Markdown to HTML.
+#   fmt_markup/2
+#     Convert markup (extended Markdown) to HTML.
 #
 # Private functions
 #
-#   fmt_markdown_h/3
-#     Format error text for fmt_markdown/2.
+#   fmt_markup_h/3
+#     Format error text for fmt_markup/2.
 
   @moduledoc """
-  Conveniences for formatting Markdown content.
+  Conveniences for formatting markup (extended Markdown) content.
   """
 
   use Phoenix.HTML
 
+  import PhxHttpWeb.View.Link, only: [do_links: 1 ]
+
   alias PhxHttp.Types, as: PT
-  alias PhxHttpWeb.LinkHelpers
 
   # Public functions
 
   @doc """
-  This function converts Markdown to HTML.  In the process, it expands some
-  prefix strings.
+  This function converts markup (extended Markdown) to HTML.  In the process,
+  it expands some prefix strings.
   """
 
-  @spec fmt_markdown(map, [atom]) :: PT.safe_html #W
+  @spec fmt_markup(map, [atom]) :: PT.safe_html #W
 
-  def fmt_markdown(inp_map, gi_list) do
+  def fmt_markup(inp_map, gi_list) do
     md_inp  = get_in(inp_map, gi_list)
-    md_exp  = LinkHelpers.do_links(md_inp)
+    md_exp  = do_links(md_inp)
 
     case Earmark.as_html(md_exp) do
       {:ok, html, []} -> html
 
       {:error, _input, err_list} ->
-        fmt_markdown_h(inp_map, gi_list, err_list)
+        fmt_markup_h(inp_map, gi_list, err_list)
 
 #     unknown -> "<p>#{ inspect(unknown) }</p>"   #D
     end |> raw()
@@ -46,11 +47,11 @@ defmodule PhxHttpWeb.MarkdownHelpers do
 
   # Private Functions
 
-  @spec fmt_markdown_h(map, [atom], list) :: String.t
+  @spec fmt_markup_h(map, [atom], list) :: String.t
 
-  defp fmt_markdown_h(inp_map, gi_list, err_list) do
+  defp fmt_markup_h(inp_map, gi_list, err_list) do
   #
-  # Format error text for fmt_markdown/2.
+  # Format error text for fmt_markup/2.
 
     last_key  = List.last(gi_list)
     off_key   = "o_#{ last_key }" |> String.to_atom()

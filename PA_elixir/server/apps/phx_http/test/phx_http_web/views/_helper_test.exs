@@ -5,9 +5,9 @@ defmodule PhxHttpWeb.HelperTest do
   use ExUnit.Case
 
   import  Common
-  import  PhxHttpWeb.HideHelpers
-  import  PhxHttpWeb.TagHelpers
+  import  PhxHttpWeb.View.Hide
+  import  PhxHttpWeb.View.Tag
 
-  doctest PhxHttpWeb.HideHelpers
-  doctest PhxHttpWeb.TagHelpers
+  doctest PhxHttpWeb.View.Hide
+  doctest PhxHttpWeb.View.Tag
 end

@@ -1,6 +1,6 @@
-# phx_http_web/views/_tag_helpers.ex
+# phx_http_web/views/_tag.ex
 
-defmodule PhxHttpWeb.TagHelpers do
+defmodule PhxHttpWeb.View.Tag do
 #
 # Public functions
 #
@@ -23,7 +23,7 @@ defmodule PhxHttpWeb.TagHelpers do
   use Phoenix.HTML
 
   import Common, only: [ keyss: 1 ]
-  import PhxHttpWeb.HideHelpers
+  import PhxHttpWeb.View.Hide
 
   alias PhxHttp.Types, as: PT
 

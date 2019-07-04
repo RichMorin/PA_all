@@ -1,6 +1,6 @@
-# phx_http_web/views/_key_helpers.ex
+# phx_http_web/views/_key.ex
 
-defmodule PhxHttpWeb.KeyHelpers do
+defmodule PhxHttpWeb.View.Key do
 #
 # Public functions
 #

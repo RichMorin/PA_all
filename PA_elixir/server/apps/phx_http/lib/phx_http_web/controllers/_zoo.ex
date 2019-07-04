@@ -1,9 +1,11 @@
-# controllers/_helpers.ex
+# controllers/_zoo.ex
 
-defmodule PhxHttpWeb.ControllerHelpers do
+defmodule PhxHttpWeb.Cont.Zoo do
 #
 # Public functions
 #
+#   base_assigns/5
+#     Perform a set of base assigns.
 #   key_ng/2
 #     This key is no good; set an error flash and go home...
 #   nastygram/2

@@ -1,6 +1,6 @@
-# phx_http_web/views/_format_helpers.ex
+# phx_http_web/views/_format.ex
 
-defmodule PhxHttpWeb.FormatHelpers do
+defmodule PhxHttpWeb.View.Format do
 #
 # Public functions
 #
@@ -21,10 +21,12 @@ defmodule PhxHttpWeb.FormatHelpers do
 
   use Phoenix.HTML
 
-  import Common, only: [ fmt_list: 1, csv_split: 1, sort_by_elem: 3 ]
+  import Common,
+    only: [ fmt_list: 1, csv_split: 1, sort_by_elem: 3 ]
+  import PhxHttpWeb.View.Zoo,
+    only: [ fmt_key: 1 ]
 
   alias PhxHttp.Types, as: PT
-  alias PhxHttpWeb.ItemView
 
   # Public functions
 
@@ -145,7 +147,7 @@ defmodule PhxHttpWeb.FormatHelpers do
   @spec fmt_ref(atom, String.t) :: tuple #W
 
   def fmt_ref(ref_key, ref_val) do
-    label     = ItemView.fmt_key(ref_key)
+    label       = fmt_key(ref_key)
 
     tuple_fn    = fn in_item ->
     #

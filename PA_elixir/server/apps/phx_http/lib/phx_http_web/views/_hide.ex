@@ -1,6 +1,6 @@
-# phx_http_web/views/_hide_helpers.ex
+# phx_http_web/views/_hide.ex
 
-defmodule PhxHttpWeb.HideHelpers do
+defmodule PhxHttpWeb.View.Hide do
 #
 # Public functions
 #

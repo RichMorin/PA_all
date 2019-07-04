@@ -2,7 +2,7 @@
 
 <h2><%= @name %></h2>
 
-<%= fmt_markdown(@item, [:about, :verbose]) %>
+<%= fmt_markup(@item, [:about, :verbose]) %>
 
 <%= for section <- @sections do %>
   <h3>

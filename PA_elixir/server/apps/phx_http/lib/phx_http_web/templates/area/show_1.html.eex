@@ -2,7 +2,7 @@
 
 <h2>Areas</h2>
 
-<%= fmt_markdown(@item, [:about, :verbose]) %>
+<%= fmt_markup(@item, [:about, :verbose]) %>
 
 <%= for {major_u, minors} <- @tuples do %>
   <h3>

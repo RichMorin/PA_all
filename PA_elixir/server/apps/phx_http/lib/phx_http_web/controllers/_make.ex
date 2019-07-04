@@ -1,6 +1,6 @@
-# controllers/_dash_make.ex
+# controllers/_make.ex
 
-defmodule PhxHttpWeb.DashMake do
+defmodule PhxHttpWeb.Cont.Make do
 #
 # Public functions
 #

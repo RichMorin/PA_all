@@ -16,7 +16,7 @@ defmodule PhxHttpWeb.ClearView do
   use Phoenix.HTML
   use PhxHttpWeb, :view
 
-  import PhxHttpWeb.TagHelpers
+  import PhxHttpWeb.View.Tag
 
   # Public functions
 

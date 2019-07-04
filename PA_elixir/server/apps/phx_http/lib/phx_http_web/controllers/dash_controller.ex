@@ -33,7 +33,7 @@ defmodule PhxHttpWeb.DashController do
   import Common,
     only: [ get_http_port: 0, get_tree_base: 0, ii: 2, keyss: 1 ]
 
-  alias PhxHttpWeb.DashMake
+  alias PhxHttpWeb.Cont.Make
 
   # Public functions
 
@@ -116,7 +116,7 @@ defmodule PhxHttpWeb.DashController do
 
   def show_make(conn, _params) do
 
-    packages  = DashMake.packages()
+    packages  = Make.packages()
 
     conn
     |> base_assigns(:dashboard, "PA Make")

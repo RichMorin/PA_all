@@ -32,7 +32,7 @@
 <p>
 
 <div class="mail-edit">
-<%= form_for @conn, action, [], fn _fn -> %>
+<%= form_for @conn, action, fn _fn -> %>
   <input type="hidden" name="url" value="<%= @prev_url %>">
 
   <p>

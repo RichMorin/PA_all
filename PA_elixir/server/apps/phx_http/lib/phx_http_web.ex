@@ -35,7 +35,7 @@ defmodule PhxHttpWeb do
       # Bring in shared helpers
 
       import Common
-      import PhxHttpWeb.ControllerHelpers
+      import PhxHttpWeb.Cont.Zoo
     end
   end
 
@@ -61,11 +61,11 @@ defmodule PhxHttpWeb do
       # Bring in shared helpers
 
       import Common
-      import PhxHttpWeb.FormatHelpers
-      import PhxHttpWeb.HideHelpers
-      import PhxHttpWeb.KeyHelpers
-      import PhxHttpWeb.LinkHelpers
-      import PhxHttpWeb.MarkdownHelpers
+      import PhxHttpWeb.View.Format
+      import PhxHttpWeb.View.Hide
+      import PhxHttpWeb.View.Key
+      import PhxHttpWeb.View.Link
+      import PhxHttpWeb.View.Markup
     end
   end
 

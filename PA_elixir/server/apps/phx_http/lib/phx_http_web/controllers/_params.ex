@@ -1,6 +1,6 @@
-# controllers/search_munger.ex
+# controllers/_params.ex
 
-defmodule PhxHttpWeb.SearchMunger do
+defmodule PhxHttpWeb.Cont.Params do
 #
 # Public functions
 #
