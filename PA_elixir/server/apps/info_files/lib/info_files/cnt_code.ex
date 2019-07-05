@@ -20,6 +20,9 @@ defmodule InfoFiles.CntCode do
   lines, and characters.
   """
 
+  import Common, warn: false, only: [ ii: 2 ]
+
+  alias Common.Types, as: CT
   alias InfoFiles.CntAny
 
   # Public functions
@@ -48,7 +51,7 @@ defmodule InfoFiles.CntCode do
   - `:tracing`      - boolean control for tracing
   """
 
-  @spec get_code_info(String.t) :: map
+  @spec get_code_info(String.t) :: %{ CT.map_key => any }
 
   def get_code_info(tree_base) do
 
@@ -68,11 +71,12 @@ defmodule InfoFiles.CntCode do
     |> CntAny.add_cnts_by_path()
     |> add_cnts_by_app()
     |> add_cnts_by_ext()
+#   |> ii(:code_info)
    end
 
   # Private functions
 
-  @spec add_cnts_by_app(map) :: map
+  @spec add_cnts_by_app(im) :: im when im: CT.info_map
 
   defp add_cnts_by_app(file_info) do
   #
@@ -89,7 +93,7 @@ defmodule InfoFiles.CntCode do
     CntAny.add_cnts(file_info, :app, app_fn)
   end
 
-  @spec add_cnts_by_ext(map) :: map
+  @spec add_cnts_by_ext(im) :: im when im: CT.info_map
 
   defp add_cnts_by_ext(file_info) do
   #

@@ -249,7 +249,7 @@ defmodule InfoToml.CheckItem do
   end
 
   @spec check_values_h(map|s, (s, list -> any), list) ::
-    [tuple] when s: String.t
+    [tuple] when s: String.t #W
 
   defp check_values_h(inp_val, check_fn, gi_rev) do
   #

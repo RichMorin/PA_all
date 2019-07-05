@@ -46,7 +46,7 @@ defmodule InfoToml.AccessData do
   given a base string (e.g., `"Areas/Catalog/Hardware/"`) for the key.
   """
 
-  @spec get_item_tuples(s) :: { s, s, s } when s: String.t
+  @spec get_item_tuples(s) :: {s, s, s} when s: String.t
 
   def get_item_tuples(key_base) do
 
@@ -95,7 +95,7 @@ defmodule InfoToml.AccessData do
   return all of `toml_map`.
   """
 
-  @spec get_part( [ atom | String.t ] ) :: any
+  @spec get_part( [CT.map_key] ) :: any
 
   def get_part([]), do: get_map()
 
@@ -138,7 +138,7 @@ defmodule InfoToml.AccessData do
   and value.
   """
 
-  @spec put_item(s, map) :: atom when s: String.t
+  @spec put_item(s, CT.toml_map) :: atom when s: String.t
 
   def put_item(key, item), do: put_part(item, [:items, key])
 

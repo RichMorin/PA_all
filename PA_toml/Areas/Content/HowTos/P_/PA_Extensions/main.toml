@@ -79,9 +79,9 @@ However, the flavor of Markdown used in our TOML files
 differs in some minor respects from the text we send to Earmark.
 With luck, most of these additions and changes will make sense to you.
 
-#### Link Syntax
+#### Links
 
-Markdown's basic syntax for [hyperlinks]{ext_wp|Hyperlink}
+Markdown's syntax for [hyperlinks]{ext_wp|Hyperlink}
 requires both link text and a URL.
 A [title attribute]{https://www.w3.org/TR/WCAG20-TECHS/H33.html}
 can also be added to explain the function of the link:
@@ -98,6 +98,8 @@ because these work well with [screen readers]{ext_wp|Screen_reader}.
 However, adding these attributes manually is a nuisance
 and can result in inconsistent results.
 
+#### Extended Links
+
 Extending Markdown's link syntax would be tricky for us
 and possibly confusing for our users, so we leave it alone.
 Instead, we support a very similar syntax
@@ -112,7 +114,10 @@ So, we support a `$url` shorthand for this case:
 
     [$url]!{<URL shorthand>}
 
-Here are some examples, followed by the generated Markdown links.
+##### Examples
+
+Here are some examples of extended links,
+followed by the generated Markdown links.
 Careful Reader will recognize the use of URL shorthand, as described above:
 
     [Foo Bar]!{ext_gh|foo/bar}
@@ -142,6 +147,8 @@ Careful Reader will recognize the use of URL shorthand, as described above:
     [About]!{_text/about.toml:s}
     [About](/source?key=_text/about.toml 'Go to: About [source]')"
 
+##### Spacing
+
 To ease formatting, we remove leading and trailing spaces from the link text
 and _all_ spaces from the generated URL.
 This, along with HTML's tolerance of internal spaces in link text,
@@ -157,7 +164,7 @@ including absurd syntax such as:
       for_blog_posts_and_such.html
     }
 
-#### Trailing Spaces
+#### Line Breaks
 
 When a Markdown processor encounters two or more trailing spaces
 on an input line, it is supposed to add a "hard break"

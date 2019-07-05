@@ -28,6 +28,8 @@ defmodule InfoToml.Emitter do
 
   import Common, only: [ ii: 2, keyss: 1]
 
+  alias Common.Types, as: CT
+
   # Public functions
 
   @doc """
@@ -58,7 +60,9 @@ defmodule InfoToml.Emitter do
   simply result in a concatenated set of entries.  Of course, if the IO
   subsystem decides to interleave the data, things could get ugly...
   """
-  @spec emit_toml(s, s, any) :: s when s: String.t
+
+# @spec emit_toml(s, s, CT.toml_map) :: s when s: String.t
+  @spec emit_toml(s, s, map) :: s when s: String.t
 
   def emit_toml(base_path, insert, toml_text) do
 
@@ -86,7 +90,7 @@ defmodule InfoToml.Emitter do
         title       = 'Atril'
   """
 
-  @spec get_chef_toml(atom) :: [ String.t ]
+  @spec get_chef_toml(atom) :: [String.t]
 
   def get_chef_toml(target) do
 

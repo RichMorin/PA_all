@@ -95,11 +95,11 @@ defmodule Common.Maps do
   # The code below was adapted from a reply by Peer Reynders (peerreynders)
   # to a help request on the Elixir Forum: `https://elixirforum.com/t/17715`.
 
-  @spec leaf_paths(CT.item_map) :: [ [ atom | String.t ] ]
+  @spec leaf_paths(CT.item_map) :: [ [CT.map_key] ]
 
   def leaf_paths(tree), do: leaf_paths(tree, [], [])
 
-  @spec leaf_paths(CT.item_map, l, l) :: l when l: [ [ atom | String.t ] ]
+  @spec leaf_paths(CT.item_map, l, l) :: l when l: [ [CT.map_key] ]
 
   defp leaf_paths(tree, parent_path, paths) do
     {_, paths} = Enum.reduce(tree, {parent_path, paths}, &leaf_paths_h/2)

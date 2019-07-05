@@ -23,7 +23,7 @@ defmodule InfoToml.CheckTree do
   Do some global sanity checks on a `toml_map` candidate.
   """
   
-  @spec check_all(map) :: {atom, [ String.t ] }
+  @spec check_all(map) :: {atom, [String.t] } #W
 
   def check_all(toml_map) do
     results   = %{}
@@ -51,7 +51,7 @@ defmodule InfoToml.CheckTree do
   Check for problematic duplication of `id_str` values.
   """
   
-  @spec check_id_str(map) :: {atom, String.t }
+  @spec check_id_str(map) :: {atom, String.t } #W
 
   def check_id_str(toml_map) do
 
@@ -111,7 +111,7 @@ defmodule InfoToml.CheckTree do
   Check for missing reference items.
   """
   
-  @spec check_refs(map) :: {atom, String.t}
+  @spec check_refs(map) :: {atom, String.t} #W
 
   def check_refs(toml_map) do
   #

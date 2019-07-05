@@ -43,7 +43,7 @@ defmodule Common.MixProject do
 
   # Run "mix help deps" to learn about dependencies.
 
-  @spec deps() :: [ tuple ]
+  @spec deps() :: [tuple]
 
   defp deps() do
     [

@@ -20,6 +20,7 @@ defmodule InfoFiles.CntData do
   lines, and characters.
   """
 
+  alias Common.Types, as: CT
   alias InfoFiles.CntAny
 
   # Public functions
@@ -48,7 +49,7 @@ defmodule InfoFiles.CntData do
   - `:tracing`      - boolean control for tracing
   """
 
-  @spec get_data_info(String.t) :: map
+  @spec get_data_info(String.t) :: CT.info_map
 
   def get_data_info(tree_base) do
 
@@ -71,7 +72,7 @@ defmodule InfoFiles.CntData do
 
   # Private functions
 
-  @spec add_cnts_by_dir(map) :: map
+  @spec add_cnts_by_dir(im) :: im when im: CT.info_map
 
   defp add_cnts_by_dir(file_info) do
   #
@@ -99,7 +100,7 @@ defmodule InfoFiles.CntData do
     CntAny.add_cnts(file_info, :dir, dir_fn)
   end
 
-  @spec add_cnts_by_name(map) :: map
+  @spec add_cnts_by_name(im) :: im when im: CT.info_map
 
   defp add_cnts_by_name(file_info) do
   #

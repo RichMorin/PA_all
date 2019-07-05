@@ -61,7 +61,7 @@ defmodule InfoToml.Common do
   Get the name of an Area, given a key in it.
   """
 
-  @spec get_area_name(String.t) :: String.t #W
+  @spec get_area_name(s) :: s when s: String.t
 
   def get_area_name(key) do
     pattern   = ~r{ ^ .* / ( \w+ ) / [^/]+ $ }x

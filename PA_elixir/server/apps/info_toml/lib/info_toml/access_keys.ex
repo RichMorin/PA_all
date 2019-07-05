@@ -81,7 +81,7 @@ defmodule InfoToml.AccessKeys do
   Return a list of Area names, e.g.: `[ "Catalog", ... ]`.
   """
 
-  @spec get_area_names() :: [ String.t ] #W
+  @spec get_area_names() :: [String.t]
 
   def get_area_names() do #K - unused
 
@@ -110,7 +110,7 @@ defmodule InfoToml.AccessKeys do
   Given `"Content"`, returns `[ "HowTos", ... ]`.
   """
 
-  @spec get_area_names(s) :: [s] when s: String.t #W
+  @spec get_area_names(s) :: [s] when s: String.t
 
   def get_area_names(area) do #K - unused
   #
@@ -147,7 +147,7 @@ defmodule InfoToml.AccessKeys do
       4 => ["Catalog", "Content", "_schemas", "_text"]
   """
 
-  @spec get_keys(integer) :: [ String.t ]
+  @spec get_keys(integer) :: [String.t]
 
   def get_keys(levels) do
     max_ndx = levels - 1

@@ -110,7 +110,7 @@ defmodule Common.Strings do
       "1, 2, 3, and 4"
   """
 
-  @spec fmt_list( [s] ) :: s when s: String.t #W
+  @spec fmt_list( [s] ) :: s when s: String.t
 
   def fmt_list(str_list), do: fl(str_list)
   #
@@ -123,7 +123,7 @@ defmodule Common.Strings do
   #   formatting-a-list-of-strings-am-i-missing-anything/18593/10
   # Interesting discussion and really great help!
 
-  @spec ssw(s, s) :: bool when s: String.t
+  @spec ssw(s, s) :: boolean when s: String.t
 
   @doc """
   Shorthand call for `String.starts_with?/2`.
@@ -138,7 +138,7 @@ defmodule Common.Strings do
 
   # Private functions
 
-  @spec fl(list) :: String.t #W
+  @spec fl( [s] ) :: s when s: String.t
 
   # Do the heavy lifting for fmt_list/1.
 
@@ -147,7 +147,7 @@ defmodule Common.Strings do
   defp fl([a, b]),        do: "#{ a } and #{ b }"
   defp fl(list),          do: fl(list, [])
 
-  @spec fl(list, [ String.t ] ) :: String.t #W
+  @spec fl( [s], [s] ) :: s when s: String.t
 
   defp fl([last], strl),  do: to_string( [ strl, 'and ', "#{ last }" ] )
   defp fl([h | t], strl), do: fl(t, [ strl, "#{ h }", ', '] )

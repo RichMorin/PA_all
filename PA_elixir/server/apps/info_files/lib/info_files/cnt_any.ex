@@ -25,6 +25,8 @@ defmodule InfoFiles.CntAny do
 
   import Common, only: [ii: 2]
 
+  alias Common.Types, as: CT
+
   # Public functions
 
   @doc """
@@ -35,7 +37,7 @@ defmodule InfoFiles.CntAny do
   output data should be stored.
   """
 
-  @spec add_cnts(map, atom, (s->s) ) :: map when s: String.t
+  @spec add_cnts(im, atom, (s->s) ) :: im when im: CT.info_map, s: String.t
 
   def add_cnts(file_info, file_type, map_fn) do
 
@@ -86,7 +88,7 @@ defmodule InfoFiles.CntAny do
   For each file path, count files, functions, lines, and characters.
   """
 
-  @spec add_cnts_by_path(map) :: map
+  @spec add_cnts_by_path(im) :: im when im: CT.info_map
 
   def add_cnts_by_path(file_info) do
 
@@ -137,7 +139,8 @@ defmodule InfoFiles.CntAny do
   in `file_info[:file_paths]`.  A pattern string (`dir_patt`) and a list of
   file extensions (e.g., `exs`) are used to construct the globbing pattern.
   """
-  @spec add_file_paths(map, s, [ s ]) :: map when s: String.t
+
+  @spec add_file_paths(im, s, [s]) :: im when im: CT.info_map, s: String.t
 
   def add_file_paths(file_info, dir_patt, file_exts) do
     prefix      = "#{ file_info.tree_base }/"
@@ -179,7 +182,7 @@ defmodule InfoFiles.CntAny do
     tree base strings (e.g., `PA_elixir/common`) in `file_info[:tree_bases]`.
   """
 
-  @spec add_tree_bases(map, [String.t] ) :: map
+  @spec add_tree_bases(im, [String.t] ) :: im when im: CT.info_map
 
   def add_tree_bases(file_info, dir_names) do
     prefix      = "#{ file_info.tree_base }/"

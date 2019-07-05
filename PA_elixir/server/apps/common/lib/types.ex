@@ -8,6 +8,12 @@ defmodule Common.Types do
   """
 
   @typedoc """
+  An `info_map` is a map that holds collected information.
+  """
+
+  @type info_map    :: %{ map_key => any }
+
+  @typedoc """
   An `item_map` is a tree of maps, with strings at the leaves.
   """
 
