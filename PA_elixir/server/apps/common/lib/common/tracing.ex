@@ -23,6 +23,8 @@ defmodule Common.Tracing do
   - make floats print with only two decimal places
   """
 
+  # Note: Floats within data structures are not reformatted.
+
   @spec ii(any, atom | String.t) :: any
 
   def ii(float, label) when is_float(float) do
@@ -44,7 +46,7 @@ defmodule Common.Tracing do
   (e.g., `22.837`) works much better for informal timing analysis.
   """
 
-  @spec lts(String.t) :: any
+  @spec lts(String.t) :: :ok
 
   def lts(label) do
     iso8601   = DateTime.utc_now()

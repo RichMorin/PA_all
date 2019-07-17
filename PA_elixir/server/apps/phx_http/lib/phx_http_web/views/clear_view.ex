@@ -29,7 +29,8 @@ defmodule PhxHttpWeb.ClearView do
       {"Areas/Catalog", 1}
   """
 
-  @spec result_header( [ {s, s, s} ] ) :: {s, integer} when s: String.t #W
+  @spec result_header( [ {st, st, st} ] ) :: {st, integer}
+    when st: String.t #W - unnamed tuple
 
   def result_header(results) do
     {path, _title, _precis} = List.first(results)
@@ -49,7 +50,8 @@ defmodule PhxHttpWeb.ClearView do
       "/item?key=Areas/Catalog/People/Rich_Morin/main.toml"
   """
 
-  @spec result_url(s) :: s when s: String.t #W
+  @spec result_url(st) :: st
+    when st: String.t
 
   def result_url(key), do: "/item?key=#{ key }"
 

@@ -27,14 +27,14 @@ defmodule InfoToml.Schemer do
 
   import InfoToml.Common, only: [get_file_abs: 1]
 
-  alias Common.Types, as: CT
   alias InfoToml.Parser
+  alias InfoToml.Types, as: ITT
 
   @doc """
   Load the prefix file (`.../config/prefix.toml`).
   """
 
-  @spec get_prefix() :: CT.schema_map
+  @spec get_prefix() :: ITT.schema_map
 
   def get_prefix() do
     "_config/prefix.toml"
@@ -47,7 +47,7 @@ defmodule InfoToml.Schemer do
   Work around file system naming vagaries to select the appropriate schema.
   """
 
-  @spec get_schema(map, s) :: map when s: String.t
+  @spec get_schema(ITT.schema_map, String.t) :: ITT.schema
 
   def get_schema(schema_map, file_key) do
 
@@ -65,7 +65,7 @@ defmodule InfoToml.Schemer do
   Load schemas for a tree of TOML files, given an absolute base path.
   """
 
-  @spec get_schemas(String.t) :: CT.schema_map
+  @spec get_schemas(String.t) :: ITT.schema_map
 
   def get_schemas(tree_abs) do
     base_len    = byte_size(tree_abs) + 1
@@ -90,7 +90,8 @@ defmodule InfoToml.Schemer do
 
   # Private functions
 
-  @spec do_file(s) :: {s, map | nil} when s: String.t
+  @spec do_file(st) :: {st, ITT.schema | nil}
+    when st: String.t
 
   defp do_file(file_abs) do
   #
@@ -102,18 +103,20 @@ defmodule InfoToml.Schemer do
     { file_abs, file_data }
   end
 
-  @spec do_files(s, (s -> {s, CT.schema})) :: [ CT.schema ] when s: String.t
+  @spec do_files(st, (st -> {st, sc})) :: [sc]
+    when sc: ITT.schema, st: String.t
 
-  defp do_files(tree_abs, file_fun) do
+  defp do_files(tree_abs, file_fn) do
   #
-  # Perform `file_fun` on each schema file.
+  # Perform `file_fn` on each schema file.
 
     tree_abs
     |> file_paths                   # get a list of TOML schema files
-    |> Enum.map(file_fun)           # load schema data
+    |> Enum.map(file_fn)            # load schema data
   end
 
-  @spec file_paths(s) :: [ s ] when s: String.t
+  @spec file_paths(st) :: [st]
+    when st: String.t
 
   defp file_paths(tree_abs) do
   #

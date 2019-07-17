@@ -6,8 +6,6 @@ defmodule Sample.MixProject do
 
   # Public functions
 
-  @spec project() :: [key: atom]
-
   def project() do
     [
       app:                :sample,
@@ -26,8 +24,6 @@ defmodule Sample.MixProject do
 
   # Run "mix help compile.app" to learn about applications.
 
-  @spec application() :: [key: atom]
-
   def application() do
     [
       extra_applications: [:logger],
@@ -37,8 +33,6 @@ defmodule Sample.MixProject do
 
   # Run "mix help deps" to learn about dependencies.
 
-  @spec deps() :: [ tuple ]
-
   defp deps() do
     [
       # {:dep_from_hexpm, "~> 0.3.0"},
@@ -46,4 +40,5 @@ defmodule Sample.MixProject do
       # {:sibling_app_in_umbrella, in_umbrella: true}
     ]
   end
+
 end

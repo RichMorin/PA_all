@@ -43,7 +43,7 @@ defmodule InfoWeb.Common do
       } }
   """
 
-  @spec validate_uri(String.t) :: {atom, map}
+  @spec validate_uri(String.t) :: {atom, URI.t}
 
   def validate_uri(uri_str) do
   #

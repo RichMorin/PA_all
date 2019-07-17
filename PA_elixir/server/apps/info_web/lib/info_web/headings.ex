@@ -15,17 +15,21 @@ defmodule InfoWeb.Headings do
 
   import Common, only: [ ii: 2 ]
 
+  alias InfoWeb.Types, as: IWT
+
   # Public functions
 
   @doc """
   Process heading tuples from the parsed page (aka HTML tree).
   """
 
-  @spec do_headings([tuple], String.t) :: [tuple]
+  @spec do_headings(ht, String.t) :: ht
+    when ht: IWT.html_tree
 
   def do_headings(html_tree, page_url) do
 
-    ii(page_url, :page_url) #T
+#   ii(html_tree, :html_tree) #T
+    ii(page_url,  :page_url) #T
 
     selector  = "h1, h2, h3, h4, h5, h6"
 
@@ -38,7 +42,8 @@ defmodule InfoWeb.Headings do
 
   # Private functions
 
-  @spec check_headings([tuple], String.t) :: [tuple]
+  @spec check_headings(ht, String.t) :: ht
+    when ht: IWT.html_tree
 
   defp check_headings(headings, page_url) do
   #

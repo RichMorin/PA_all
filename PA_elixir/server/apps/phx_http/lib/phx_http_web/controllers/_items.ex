@@ -26,6 +26,9 @@ defmodule PhxHttpWeb.Cont.Items do
 
   import Common, only: [ sort_by_elem: 2 ]
 
+  alias InfoToml.Types, as: ITT
+  alias PhxHttp.Types,  as: PHT
+
   # Public functions
 
   @doc """
@@ -33,7 +36,7 @@ defmodule PhxHttpWeb.Cont.Items do
   (This is used by `get_item_map/2` to pre-populate interior map nodes.)
   """
 
-  @spec get_gi_bases([ {} ]) :: [ [atom] ] #W
+  @spec get_gi_bases( [PHT.gi_pair] ) :: [ [atom, ...] ]
 
   def get_gi_bases(gi_pairs) do
 
@@ -61,7 +64,7 @@ defmodule PhxHttpWeb.Cont.Items do
   is an access path list, as used by `get_in/2`.
   """
 
-  @spec get_gi_pairs(any) :: [ { [atom], String.t } ] #W
+  @spec get_gi_pairs(any) :: [PHT.gi_pair]
 
   def get_gi_pairs(params) do
 
@@ -96,7 +99,7 @@ defmodule PhxHttpWeb.Cont.Items do
   - `gi_pairs` - a list of key/value tuples, e.g.: `{gi_path, val}`
   """
 
-  @spec get_item_map([ [atom] ], [ {} ]) :: map #W
+  @spec get_item_map([ [atom, ...] ], [PHT.gi_pair]) :: ITT.item_map
 
   def get_item_map(gi_bases, gi_pairs) do
   #
@@ -127,7 +130,7 @@ defmodule PhxHttpWeb.Cont.Items do
   Get any `make.toml` information for the item.
   """
 
-  @spec get_make(String.t) :: map | nil #W
+  @spec get_make(String.t) :: ITT.item_maybe
 
   def get_make(key) do
   #
@@ -143,7 +146,7 @@ defmodule PhxHttpWeb.Cont.Items do
   Get a list of keys for this item's reviews.
   """
 
-  @spec get_reviews(String.t) :: [ String.t ] #W
+  @spec get_reviews(st) :: [st] when st: String.t
 
   def get_reviews(key) do
 
@@ -165,7 +168,7 @@ defmodule PhxHttpWeb.Cont.Items do
 
   # Private Functions
 
-  @spec get_gi_path(String.t) :: [atom] #W
+  @spec get_gi_path(String.t) :: [atom, ...]
 
   defp get_gi_path(dot_path) do
   #

@@ -13,13 +13,13 @@ defmodule InfoFiles do
 
   @doc """
   Return a map describing the code files.
-  ([`...CntCode.get_code_info/1`](InfoFiles.CntCode.html#get_code_info/1))
+  ([`CntCode`](InfoFiles.CntCode.html#get_code_info/1))
   """
   defdelegate get_code_info(tree_base),             to: CntCode
 
   @doc """
   Return a map describing the TOML files.
-  ([`...CntData.get_data_info/1`](InfoFiles.CntData.html#get_data_info/1))
+  ([`CntData`](InfoFiles.CntData.html#get_data_info/1))
   """
   defdelegate get_data_info(tree_base),             to: CntData
 

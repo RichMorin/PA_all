@@ -19,4 +19,5 @@ defmodule PhxHttpWeb.ErrorViewTest do
     assert render_to_string(
       ErrorView, "500.html", []) == "Internal Server Error"
   end
+
 end

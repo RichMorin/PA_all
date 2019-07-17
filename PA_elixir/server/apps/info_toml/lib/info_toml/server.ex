@@ -26,6 +26,7 @@ defmodule InfoToml.Server do
   import Common, warn: false, only: [ ii: 2, keyss: 1]
 
   alias InfoToml.{CheckTree, IndexTree, LoadTree, Schemer}
+  alias InfoToml.Types, as: ITT
 
   # Public functions
 
@@ -62,7 +63,7 @@ defmodule InfoToml.Server do
   Start up the server agent.
   """
 
-  @spec start_link() :: {atom, pid | String.t }
+  @spec start_link() :: {atom, pid | String.t}
 
   def start_link() do
     Agent.start_link(&first_load/0, name: @me)
@@ -70,7 +71,7 @@ defmodule InfoToml.Server do
 
   # Private functions
 
-  @spec first_load() :: map #W
+  @spec first_load() :: ITT.toml_map
 
   defp first_load() do
   #
@@ -89,7 +90,8 @@ defmodule InfoToml.Server do
     end
   end
 
-  @spec toml_load(map | nil) :: {atom, [ String.t ], map}
+  @spec toml_load(tm | nil) :: {atom, [String.t], tm}
+    when tm: ITT.toml_map
 
   defp toml_load(old_map \\ nil) do
   #

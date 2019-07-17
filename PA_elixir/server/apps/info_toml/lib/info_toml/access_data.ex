@@ -29,6 +29,7 @@ defmodule InfoToml.AccessData do
   import InfoToml.Common, only: [get_file_abs: 1]
 
   alias Common.Types, as: CT
+  alias InfoToml.Types, as: ITT
 
   # Public functions
 
@@ -37,7 +38,7 @@ defmodule InfoToml.AccessData do
   (e.g., `"_text/about.toml"`).
   """
 
-  @spec get_item(String.t) :: CT.item_map | nil
+  @spec get_item(String.t) :: ITT.item_map | nil
 
   def get_item(item_key), do: [:items, item_key] |> get_part()
 
@@ -46,7 +47,8 @@ defmodule InfoToml.AccessData do
   given a base string (e.g., `"Areas/Catalog/Hardware/"`) for the key.
   """
 
-  @spec get_item_tuples(s) :: {s, s, s} when s: String.t
+  @spec get_item_tuples(st) :: {st, st, st}
+    when st: String.t
 
   def get_item_tuples(key_base) do
 
@@ -84,7 +86,7 @@ defmodule InfoToml.AccessData do
   Return the entire `toml_map` data structure (mostly for testing).
   """
 
-  @spec get_map() :: CT.toml_map
+  @spec get_map() :: ITT.toml_map
 
   def get_map() do
     Agent.get(@me, &(&1) )
@@ -112,7 +114,8 @@ defmodule InfoToml.AccessData do
   Return the TOML source code, given its key (e.g., `"_text/about.toml"`).
   """
 
-  @spec get_toml(s) :: s when s: String.t #W
+  @spec get_toml(st) :: st
+    when st: String.t #W
 
   def get_toml(item_key) do
     gi_path   = [:meta, :file_rel]
@@ -138,7 +141,8 @@ defmodule InfoToml.AccessData do
   and value.
   """
 
-  @spec put_item(s, CT.toml_map) :: atom when s: String.t
+  @spec put_item(st, ITT.toml_map) :: atom
+    when st: String.t
 
   def put_item(key, item), do: put_part(item, [:items, key])
 
@@ -147,7 +151,7 @@ defmodule InfoToml.AccessData do
   replace `toml_map` entirely.
   """
 
-  @spec put_part(any, [ CT.map_key ] | nil) :: atom
+  @spec put_part(any, [CT.map_key] | nil) :: :ok
 
   def put_part(new_val, key_list \\ nil) do
 

@@ -43,36 +43,64 @@ processor architecture, etc.
 This affects the runtime environment for both
 [deployment]{ext_wp|Deployment_environment} and
 [development]{ext_wp|Deployment_environment#Development}.
+
+#### Combinatorics
+
 Supporting a large number of packages on arbitrary operating systems,
 processor families, and word sizes could yield dozens of combinations,
 producing a [combinatorial explosion]{ext_wp|Combinatorial_explosion}
 of [complexity]{ext_wp|Complexity}.
-Fortunately, there are ways to reduce the scale of the problem.
+Fortunately, if we can abstract away some OS details,
+we can cover a large fraction of the interesting targets
+by handling a small number of combinations, e.g.:
 
-#### Approach
+- Linux on 32-bit ARM (e.g., Raspberry Pi)
+- Linux, macOS, and Windows on 64-bit Intel
 
-[Docker]{ext_wp|Docker} containers can be run on most major operating systems.
-From the outside, they act a lot like independent hosts.
-From the inside, they look like a flavor of Linux.
+[Docker]{ext_wp|Docker} containers based on Linux
+can be run on any Linux system that has the same processor architecture.
+Also, there are ways to run Linux applications on both macOS and Windows.
+So, we may be able to ignore everything except major hardware issues. 
+
+#### Build and Deployment
+
+Docker containers can be built for most major operating systems,
+deployed via [Docker Hub]{https://hub.docker.com},
+and downloaded via the Internet.
+Although the container must match the downloading host's OS
+and processor architecture, Docker's system of "manifests"
+can be used to hide the gritty details.
+So, the user (or software running on their behalf)
+can request container "foo" and receive the appropriate version.
+
+From the outside, a container acts a lot like an independent host,
+connected via a network connection.
+On the inside, it looks like some host OS, typically a flavor of Linux.
+Although there are hundreds of Linux variants,
+they share a common [OS kernel]{ext_wp|Kernel_(operating_system)}.
 The [Debian]{ext_wp|Debian} family of Linux distributions, for instance,
 is popular, robust, and has great build tooling.
-If the desired host platform supports Docker containers,
-we can mostly ignore the vagaries of operating systems.
 
-Even if it doesn't, we can usually fall back to a Debian variant
-such as [Raspbian]{ext_wp|Raspbian}.
-Worst case (looking at you, [Android]{ext_wp|Android_(operating_system)}),
-we can build the packages based on common Linux practices.
-Factoring out the question of operating systems greatly reduces
-the scale of the problem.
-For example, to support AMD and Intel CPUs in 32 and 64 bit word lengths,
-we only have to build four sets of packages.
+If the desired host platform runs (or can emulate) a Linux variant,
+we can create and deploy Debian-based containers
+for each hardware platform we wish to support.
+So, for example, we might only need to build containers for
+32-bit ARM devices (e.g., the Raspberry Pi) and
+64-bit Intel devices (e.g., typical personal computers).
 
-We can even abstract the details of these four,
+The Docker build process is based on text-based
+[Dockerfiles]{https://docs.docker.com/engine/reference/builder}.
+These combine an overall syntax and structure
+with OS-specific build commands.
+Fortunately, a Unix-style "shell" and some common commands
+are available for all the operating systems we have in mind.
+So, a single Unixish Dockerfile should handle most of our targets.
+We can even abstract some picky details
 by using [Chef]{ext_wp|Chef_(software)} as high level build tooling.
-And, because [GitHub]{ext_wp|GitHub} provides a way
-to collect and distribute packages,
-all we have to do is push our results and back away slowly.
+
+Docker Hub and [GitHub]{ext_wp|GitHub} each provide
+convenient and reliable ways to collect and distribute packages,
+So, all we have to do is push our results and back away slowly.
 The result (it says here :-) is a suite that can handle a range
 of package building and distribution challenges.
 

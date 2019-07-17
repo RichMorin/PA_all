@@ -32,7 +32,8 @@ defmodule PhxHttpWeb.SearchController do
   import Common, only: [ base_26: 1, get_run_mode: 0, ii: 2 ]
   import PhxHttpWeb.Cont.Params, only: [ munge: 1 ]
 
-  alias PhxHttp.Types, as: PT
+  alias InfoToml.Types, as: ITT
+  alias PhxHttp.Types,  as: PHT
 
   # Public functions
 
@@ -40,7 +41,8 @@ defmodule PhxHttpWeb.SearchController do
   This function generates data for the Search (find) page.
   """
 
-  @spec find(PT.conn, any) :: PT.conn #W
+  @spec find(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def find(conn, _params) do
     tag_info        = InfoToml.get_tag_info()
@@ -57,7 +59,8 @@ defmodule PhxHttpWeb.SearchController do
   This function generates data for the Search Results (show) page.
   """
 
-  @spec show(PT.conn, any) :: PT.conn #W
+  @spec show(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def show(conn, params) do
     {tags_d, specs_r}   = params |> munge()
@@ -129,7 +132,7 @@ defmodule PhxHttpWeb.SearchController do
 
   # Private Functions
 
-  @spec get_id_sets( [ String.t ] ) :: [ MapSet.t(integer) ] #W
+  @spec get_id_sets( [String.t] ) :: [ MapSet.t(integer) ] #W
 
   defp get_id_sets(tag_set) do
   #
@@ -148,7 +151,8 @@ defmodule PhxHttpWeb.SearchController do
     |> Enum.map(lookup_fn)
   end
 
-  @spec get_queries( [ {s, s} ], map ) :: [ { s, s, [s] } ] when s: String.t #W
+  @spec get_queries( [ {st, st} ], map ) :: [ {st, st, [st]} ]
+    when st: String.t #W - map, nameless tuples
 
   defp get_queries(reused, new_sets) do
   #
@@ -163,7 +167,8 @@ defmodule PhxHttpWeb.SearchController do
     |> Enum.map(query_fn)         # [ {"all", "a", [ "...", ... ] }, ... ]
   end
 
-  @spec get_tag_sets(PT.conn, PT.tag_set) :: {PT.conn, PT.tag_sets} #W
+  @spec get_tag_sets(pc, PHT.tag_set) ::
+    {pc, PHT.tag_sets} when pc: Plug.Conn.t
 
   defp get_tag_sets(conn, new_set) do
   #
@@ -195,7 +200,8 @@ defmodule PhxHttpWeb.SearchController do
     {conn, tag_sets}
   end
 
-  @spec retrieve([is], any, ([is], is->is) ) :: [tuple] when is: PT.id_set #K #W
+  @spec retrieve([is], any, ([is], is -> is) ) :: [tuple]
+    when is: ITT.id_set #K #W - any
 
   # Retrieve the requested data, based on the query.
   
@@ -215,7 +221,7 @@ defmodule PhxHttpWeb.SearchController do
     # Return a list of result tuples.
 
     filtered = id_sets              # [ #MapSet<[1011]>, #MapSet<[1078]> ]                   
-    |> Enum.filter( &(&1) )         # discard nil sets
+    |> Enum.reject(&is_nil/1)       # discard nil sets
 
     if Enum.empty?(filtered) do
       IO.puts "--> retrieve/3 issue" #T
@@ -231,7 +237,8 @@ defmodule PhxHttpWeb.SearchController do
     end
   end
 
-  @spec structure( [ tuple ] ) :: [ [ tuple ] ] #K #W
+  @spec structure(tl) :: [tl]
+    when tl: [tuple] #K #W - tuple
 
   defp structure(results) do
   #

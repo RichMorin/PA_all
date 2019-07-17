@@ -9,4 +9,5 @@ defmodule SampleTest do
   test "greets the world" do
     assert Sample.hello() == :world
   end
+
 end

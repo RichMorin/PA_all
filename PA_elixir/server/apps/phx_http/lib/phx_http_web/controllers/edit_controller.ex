@@ -21,13 +21,16 @@ defmodule PhxHttpWeb.EditController do
   import PhxHttpWeb.Cont.Items,
     only: [ get_gi_bases: 1, get_gi_pairs: 1, get_item_map: 2 ]
 
+  alias PhxHttp.Types, as: PHT
+
   # Public functions
 
   @doc """
   This function generates the `edit_form` page.
   """
 
-  @spec edit_form(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec edit_form(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def edit_form(conn, params) do
     schema    = "_schemas/main.toml" |> InfoToml.get_item()
@@ -52,7 +55,8 @@ defmodule PhxHttpWeb.EditController do
   This function handles the `edit_post` action.
   """
 
-  @spec edit_post(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec edit_post(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def edit_post(conn, params) do
 

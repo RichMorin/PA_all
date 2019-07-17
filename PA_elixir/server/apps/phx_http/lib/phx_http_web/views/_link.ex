@@ -116,7 +116,8 @@ defmodule PhxHttpWeb.View.Link do
       "[Search](/search/find 'Go to: Search [local]')"
   """
 
-  @spec do_links(s) :: s when s: String.t #W
+  @spec do_links(st) :: st
+    when st: String.t
 
   def do_links(inp_str) do
 
@@ -147,7 +148,8 @@ defmodule PhxHttpWeb.View.Link do
 
   # Private functions
 
-  @spec do_links_h1(s, s, list) :: s when s: String.t #W
+  @spec do_links_h1(st, st, list) :: st
+    when st: String.t #W - list
 
   defp do_links_h1(trim_1, trim_2, _list_2 = [ head_2, tail_2 ]) do
   #
@@ -180,7 +182,8 @@ defmodule PhxHttpWeb.View.Link do
     do_links_h2(type, trim_1, trim_2)
   end
 
-  @spec do_links_h2(atom, s, s) :: s when s: String.t #W
+  @spec do_links_h2(atom, st, st) :: st
+    when st: String.t
 
   defp do_links_h2(:ext_wp, inp_1, inp_2) do
   #

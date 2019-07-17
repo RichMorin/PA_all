@@ -34,6 +34,7 @@ defmodule PhxHttpWeb.DashController do
     only: [ get_http_port: 0, get_tree_base: 0, ii: 2, keyss: 1 ]
 
   alias PhxHttpWeb.Cont.Make
+  alias PhxHttp.Types, as: PHT
 
   # Public functions
 
@@ -41,7 +42,8 @@ defmodule PhxHttpWeb.DashController do
   This function generates the Dashboard index page.
   """
 
-  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec show(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def show(conn, _params) do
 
@@ -54,7 +56,8 @@ defmodule PhxHttpWeb.DashController do
   This function generates the Dashboard display page for Code.
   """
 
-  @spec show_code(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec show_code(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def show_code(conn, _params) do
 
@@ -75,7 +78,8 @@ defmodule PhxHttpWeb.DashController do
   This function generates the Dashboard display page for Data.
   """
 
-  @spec show_data(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec show_data(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def show_data(conn, _params) do
 
@@ -96,7 +100,8 @@ defmodule PhxHttpWeb.DashController do
   This function generates the Dashboard display page for Links.
   """
 
-  @spec show_links(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec show_links(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def show_links(conn, params) do
 
@@ -112,7 +117,8 @@ defmodule PhxHttpWeb.DashController do
   This function generates the Dashboard display page for Make.
   """
 
-  @spec show_make(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec show_make(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def show_make(conn, _params) do
 
@@ -128,7 +134,8 @@ defmodule PhxHttpWeb.DashController do
   This function generates the Dashboard display page for Refs.
   """
 
-  @spec show_refs(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec show_refs(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def show_refs(conn, _params) do
 
@@ -155,7 +162,8 @@ defmodule PhxHttpWeb.DashController do
   This function generates the Dashboard display page for Tags.
   """
 
-  @spec show_tags(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec show_tags(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def show_tags(conn, _params) do
 
@@ -180,7 +188,8 @@ defmodule PhxHttpWeb.DashController do
 
   # Private functions
 
-  @spec show_links_h(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec show_links_h(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   defp show_links_h(conn, _params) do
 

@@ -6,8 +6,6 @@ defmodule InfoFiles.MixProject do
 
   # Public functions
 
-  @spec project() :: [key: atom]
-
   def project() do
 #   IO.puts "InfoFiles.MixProject.project: Mix.env() == #{ Mix.env() }" #T
 
@@ -32,8 +30,6 @@ defmodule InfoFiles.MixProject do
 
   # Run "mix help compile.app" to learn about applications.
 
-  @spec application() :: [key: atom]
-
   def application() do
     [
 #     mod: { InfoFiles.Application, [] },
@@ -43,14 +39,8 @@ defmodule InfoFiles.MixProject do
 
   # Run "mix help deps" to learn about dependencies.
 
-  @spec deps() :: [ tuple ]
-
   defp deps() do
     [ # added
-      { :dialyxir,            "~> 1.0.0-rc.4",
-        only: [:dev], runtime: false },
-      { :ex_doc,              "~> 0.19",
-        only: :dev },
 
       # local
       { :common,              in_umbrella: true },

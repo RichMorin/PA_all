@@ -24,29 +24,16 @@ defmodule InfoWeb.Server do
   @me __MODULE__
 
   alias InfoWeb.Snapshot
+  alias InfoWeb.Types, as: IWT
 
   # Public functions
 
   @doc """
   Return the data structure for the latest snapshot.  Note that the keys
   are strings, rather than atoms.
-
-      %{
-        "bins" => %{
-          "ext_ng" => [ [ "<url>", "<from>", "<status>" ], ... ],
-          "int_ng" => [ [ "<url>", "<from>", "<status>" ], ... ]
-        },
-        "counts" => %{
-          "ext" => %{ "<site>"  => <count>, ... },
-          "int" => %{ "<route>" => <count>, ... }
-        },
-        "raw" => %{
-          "ext_ok" => [ "<url>", ... ]
-        }
-      }
   """
 
-  @spec get_snap() :: map
+  @spec get_snap() :: IWT.snap_map
 
   def get_snap(), do: Agent.get(@me, &(&1) )
 
@@ -54,7 +41,7 @@ defmodule InfoWeb.Server do
   Reload from the snapshot file.
   """
 
-  @spec reload() :: any #K
+  @spec reload() :: {atom, String.t}
 
   def reload() do
     snap_map    = Snapshot.snap_load()
@@ -64,6 +51,7 @@ defmodule InfoWeb.Server do
     # Return new snapshot, ignoring the current one.
 
     Agent.update(@me, update_fn)
+
     {:info,  "Updated without problems."}
   end
 
@@ -71,13 +59,13 @@ defmodule InfoWeb.Server do
   Start up the server agent.
   """
 
-  @spec start_link() :: {atom, pid | String.t } #W
+  @spec start_link() :: {atom, pid | String.t }
 
   def start_link(), do: Agent.start_link(&first_load/0, name: @me)
 
   # Private functions
 
-  @spec first_load() :: map #W
+  @spec first_load() :: IWT.snap_map
 
   defp first_load(), do: Snapshot.snap_load()
   #

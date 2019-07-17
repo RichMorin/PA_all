@@ -25,7 +25,7 @@ defmodule PhxHttpWeb.View.Tag do
   import Common, only: [ keyss: 1 ]
   import PhxHttpWeb.View.Hide
 
-  alias PhxHttp.Types, as: PT
+  alias PhxHttp.Types, as: PHT
 
   # Public functions
 
@@ -42,7 +42,7 @@ defmodule PhxHttpWeb.View.Tag do
       true
   """
 
-  @spec fmt_tag_set(PT.tag_set, String.t, atom) :: PT.safe_html #W
+  @spec fmt_tag_set(PHT.tag_set, String.t, atom) :: PHT.safe_html
 
   def fmt_tag_set(tag_set, set_key, settings) do
 
@@ -102,7 +102,7 @@ defmodule PhxHttpWeb.View.Tag do
       [:replaces, :requires]
   """
 
-  @spec tag_types(PT.tag_info) :: [ String.t ] #W
+  @spec tag_types(PHT.tag_info) :: [String.t]
 
   def tag_types(kv_map) do
 #   exclude     = ~w(miscellany requires see_also)a #D
@@ -119,7 +119,8 @@ defmodule PhxHttpWeb.View.Tag do
 
   # Private functions
 
-  @spec fmt_tag_set_h(atom, t, t) :: t when t: tuple #W
+  @spec fmt_tag_set_h(atom, t, t) :: t
+    when t: tuple #W - tuple
 
   # Generate some HTML for `fmt_tag_set/3`.
 
@@ -149,7 +150,8 @@ defmodule PhxHttpWeb.View.Tag do
     """
   end
 
-  @spec select(atom, s) :: s when s: String.t #W
+  @spec select(atom, st) :: st
+    when st: String.t
 
   defp select(:c, set_key) do
   #

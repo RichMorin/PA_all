@@ -6,8 +6,6 @@ defmodule InfoToml.MixProject do
 
   # Public functions
 
-  @spec project() :: [key: atom]
-
   def project() do
 #   IO.puts "InfoToml.MixProject.project: Mix.env() == #{ Mix.env() }" #T
 
@@ -33,8 +31,6 @@ defmodule InfoToml.MixProject do
 
   # Run "mix help compile.app" to learn about applications.
 
-  @spec application() :: [key: atom]
-
   def application() do
     [
       mod: { InfoToml.Application, [] },
@@ -44,21 +40,14 @@ defmodule InfoToml.MixProject do
 
   # Specifies which paths to compile per environment.
 
-  @spec elixirc_paths(any) :: [ String.t ]
-
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_),     do: ["lib"]
 
   # Run "mix help deps" to learn about dependencies.
 
-  @spec deps() :: [ tuple ]
-
   defp deps() do
-    [ # added
-      { :dialyxir,            "~> 1.0.0-rc.6",
-        only: [:dev], runtime: false },
-      { :ex_doc,              "~> 0.20.2",
-        only: :dev },
+    [
+      # added
       { :toml,                "~> 0.5.2" },
 
       # local

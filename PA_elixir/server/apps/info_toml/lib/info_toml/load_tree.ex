@@ -26,8 +26,8 @@ defmodule InfoToml.LoadTree do
   import InfoToml.Common,
     only: [ get_map_key: 1, get_tree_abs: 0 ]
 
-  alias Common.Types, as: CT
   alias InfoToml.{LoadFile, Schemer}
+  alias InfoToml.Types, as: ITT
 
   # Public functions
 
@@ -36,7 +36,7 @@ defmodule InfoToml.LoadTree do
   for the tree.
   """
 
-  @spec load(CT.item_maybe) :: CT.item_map
+  @spec load(ITT.item_maybe) :: ITT.item_map
 
   def load(old_map \\ nil) do
   #
@@ -73,7 +73,8 @@ defmodule InfoToml.LoadTree do
 
   # Private functions
 
-  @spec do_tree(CT.schema_map, CT.toml_map | nil) :: [ CT.toml_map ]
+  @spec do_tree(ITT.schema_map, ITT.toml_map | nil) ::
+    [ {String.t, ITT.item_map} ]
 
   defp do_tree(schema_map, old_map) do
   #
@@ -91,10 +92,11 @@ defmodule InfoToml.LoadTree do
     |> file_paths()             # get a list of TOML file paths
     |> path_prep(old_map)       # turn into numbered tuples
     |> Enum.map(file_fn)        # load and check file data
-    |> Enum.filter( &(&1) )     # discard nil results
+    |> Enum.reject(&is_nil/1)   # discard nil results
   end
 
-  @spec file_paths(s) :: [ s ] when s: String.t
+  @spec file_paths(st) :: [st, ...]
+    when st: String.t
 
   defp file_paths(tree_abs) do
   #
@@ -132,7 +134,8 @@ defmodule InfoToml.LoadTree do
     end
   end
 
-  @spec path_prep([ s ], CT.item_maybe) :: [ {s, integer} ] when s: String.t
+  @spec path_prep([st, ...], ITT.item_maybe) :: [ {st, ITT.id_num} ]
+    when st: String.t
 
   # Convert a list of file paths into a list of numbered tuples.
   # If inp_map is nil, generate new IDs.  Otherwise, use existing

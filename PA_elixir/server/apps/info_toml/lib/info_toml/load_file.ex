@@ -21,8 +21,8 @@ defmodule InfoToml.LoadFile do
 
   import InfoToml.Common, only: [ get_file_abs: 1, get_map_key: 1 ]
 
-  alias Common.Types, as: CT
   alias InfoToml.{CheckItem, Parser}
+  alias InfoToml.Types, as: ITT
 
   # Public functions
 
@@ -32,7 +32,8 @@ defmodule InfoToml.LoadFile do
   Note: This function is only exposed as public to enable testing. 
   """
 
-  @spec do_file(s, integer, CT.schema_map) :: {s, any} when s: String.t
+  @spec do_file(st, ITT.id_num, ITT.schema_map) :: {st, ITT.item_maybe}
+    when st: String.t
 
   def do_file(file_rel, id_num, schema_map) do
  
@@ -44,7 +45,8 @@ defmodule InfoToml.LoadFile do
 
   # Private functions
 
-  @spec do_file_1(any, String.t, integer, CT.schema_map) :: tuple
+  @spec do_file_1(im, st, ITT.id_num, ITT.schema_map) :: {st, im}
+    when im: ITT.item_maybe, st: String.t
 
   defp do_file_1(file_data, file_rel, _, _) when file_data == %{} do
     {file_rel, nil}
@@ -62,7 +64,8 @@ defmodule InfoToml.LoadFile do
     do_file_2(file_data, file_key, file_rel, file_stat, id_num)
   end
 
-  @spec do_file_2(any, any, String.t, boolean, integer) :: tuple
+  @spec do_file_2(im, st, st, bool, ITT.id_num) :: {st, im}
+    when im: ITT.item_maybe, st: String.t
 
   defp do_file_2(_, _, file_rel, _file_stat = false, _) do
   #

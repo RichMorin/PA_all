@@ -50,6 +50,7 @@ defmodule InfoWeb.Internal do
   import InfoWeb.Common, only: [validate_uri: 1]
 
   alias InfoWeb.{Headings, Links}
+  alias InfoWeb.Types, as: IWT
 
   # Public functions
 
@@ -57,8 +58,8 @@ defmodule InfoWeb.Internal do
   Iterate on the list until all local links are handled.
   """
 
-# @spec get_int_list([tuple], String.t) :: [tuple]
-  @spec get_int_list(list, String.t) :: list
+  @spec get_int_list(tl, String.t) :: tl
+    when tl: [IWT.link_4]
 
   def get_int_list(inp_list, url_base) do #D
   #
@@ -69,7 +70,8 @@ defmodule InfoWeb.Internal do
 
   # Private functions
 
-  @spec add_local(s, [tuple], map) :: [tuple] when s: String.t
+  @spec add_local(String.t, tl, map) :: tl
+    when tl: [IWT.link_4]
 
   defp add_local(url_base, inp_urls, known) do
   #
@@ -97,7 +99,8 @@ defmodule InfoWeb.Internal do
     |> discard(url_base)
   end
 
-  @spec add_local_h(s, s, s) :: [tuple] when s: String.t
+  @spec add_local_h(st, st, st) :: [IWT.link_4]
+    when st: String.t
 
   defp add_local_h(from_url, page_url, url_base) do
   #
@@ -132,7 +135,8 @@ defmodule InfoWeb.Internal do
     end
   end
 
-  @spec discard([tuple], String.t) :: [tuple]
+  @spec discard(tl, String.t) :: tl
+    when tl: [IWT.link_4]
 
   defp discard(tuples, url_base) do
   #
@@ -171,8 +175,8 @@ defmodule InfoWeb.Internal do
     |> Enum.reject(reject_fn)
   end
 
-# @spec get_int_list([tuple], String.t, map) :: [tuple]
-  @spec get_int_list(list, String.t, map) :: list
+  @spec get_int_list(tl, String.t, IWT.ok_map) :: tl
+    when tl: [IWT.link_4]
 
   defp get_int_list(inp_list, url_base, known) do
   #

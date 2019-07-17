@@ -14,6 +14,8 @@ defmodule InfoWeb.External do
 
   import Common, only: [ ii: 2 ]
 
+  alias InfoWeb.Types, as: IWT
+
   # Public functions
 
   @doc """
@@ -21,7 +23,7 @@ defmodule InfoWeb.External do
   which URLs should be forced to verify as OK.
   """
 
-  @spec get_ext_list([tuple], map) :: [tuple]
+  @spec get_ext_list([IWT.link_3], IWT.ok_map) :: [IWT.link_4]
 
   def get_ext_list(external, forced) do
   #

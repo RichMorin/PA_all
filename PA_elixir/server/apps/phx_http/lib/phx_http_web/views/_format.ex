@@ -26,7 +26,7 @@ defmodule PhxHttpWeb.View.Format do
   import PhxHttpWeb.View.Zoo,
     only: [ fmt_key: 1 ]
 
-  alias PhxHttp.Types, as: PT
+  alias PhxHttp.Types, as: PHT
 
   # Public functions
 
@@ -34,7 +34,7 @@ defmodule PhxHttpWeb.View.Format do
   This function formats author information, sets up links, etc.
   """
 
-  @spec fmt_authors(String.t) :: PT.safe_html #W
+  @spec fmt_authors(String.t) :: PHT.safe_html
 
   def fmt_authors(f_authors) do
 
@@ -70,7 +70,7 @@ defmodule PhxHttpWeb.View.Format do
   This function formats the file path for display.
   """
 
-  @spec fmt_path(String.t) :: PT.safe_html #W
+  @spec fmt_path(String.t) :: PHT.safe_html
 
   def fmt_path(key) do
     # Generates three links of these forms:
@@ -134,7 +134,7 @@ defmodule PhxHttpWeb.View.Format do
       { :safe, "<p><b>Precis:</b>&nbsp; precis</p>" }
   """
 
-  @spec fmt_precis(String.t) :: PT.safe_html #W
+  @spec fmt_precis(String.t) :: PHT.safe_html
 
   def fmt_precis(precis) do
     "<p><b>Precis:</b>&nbsp; #{ precis }</p>" |> raw()
@@ -144,7 +144,7 @@ defmodule PhxHttpWeb.View.Format do
   This function formats a reference from `meta.refs.*`.
   """
 
-  @spec fmt_ref(atom, String.t) :: tuple #W
+  @spec fmt_ref(atom, String.t) :: tuple #W - tuple
 
   def fmt_ref(ref_key, ref_val) do
     label       = fmt_key(ref_key)
@@ -192,7 +192,7 @@ defmodule PhxHttpWeb.View.Format do
       [ "a", "ab", "b" ]
   """
 
-  @spec sort_keys(PT.tag_sets) :: [ String.t ] #W
+  @spec sort_keys(PHT.tag_sets) :: [String.t]
 
   def sort_keys(tag_sets) do
     letters = ~w(a b c d e f g h i j k l m n o p q r s t u v w x y z)

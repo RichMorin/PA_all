@@ -1,0 +1,431 @@
+# con_ove|EE_Typespecs/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'EE_Typespecs'
+  title       = "Elixir, etc. - Typespecs"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "introduction to Typespecs, Dialyzer, etc."
+
+  verbose     = '''
+This page is an introduction to the use of
+[Typespecs]{https://hexdocs.pm/elixir/typespecs.html}, supported by
+[Dialyzer]{http://erlang.org/doc/man/dialyzer.html} and related tooling.
+Most of the examples and advice are based on my experience
+in adding type specifications to Pete's Alley.
+For specific details on our current usage,
+please see [Pete's Alley - Typespecs]{con_ove|PA_Typespecs}.
+
+### Motivation
+
+Using Erlang's Dialyzer and Elixir's Typespecs,
+a project can declare and verify how its functions use data types.
+The declarations are integrated into the working code base,
+as well as the [ExDoc]{ext_gh|elixir-lang/ex_doc} output
+(e.g., online help, API documentation).
+This provides developers with a convenient and reliable set
+of information upon which to base additions and changes.
+
+Each `@spec` attribute (aka spec) specifies
+how the associated function accepts and returns data.
+For extra credit, `@type` attributes can also be added,
+defining custom, app-specific data types.
+This makes these data types explicit and modular,
+raising them to the same level of definition and documentation
+as named functions.
+
+If a function's usage differs from its type specification,
+Dialyzer will report on the error in great detail.
+It can detect a broad and configurable range of type errors.
+Type information can be refined incrementally,
+tightening the constraints on data types and usage.
+App-specific types can be made arbitrarily precise,
+defining multiple layers of structure and type information.
+
+Like the compiler and test suite,
+Dialyzer is used during development and maintenance.
+In particular, it should be considered as part of an
+[acceptance testing]{ext_wp|Acceptance_testing} suite.
+However, because the generated documentation can be useful
+during the development effort, some projects may add it to their
+[continuous integration]{ext_wp|Continuous_integration} suite.
+
+Having a gradual type checker on hand may also influence program design.
+[Sorbet]{https://sorbet.org}
+(recently open sourced by [Stripe]{https://sorbet.org})
+is a type checker for [Ruby]{ext_wp|Ruby_(programming_language)}.
+In a recent podcast ([Introducing Sorbet]{http://5by5.tv/rubyonrails/278}),
+Sorbet developer Paul Tarjan said (roughly):
+
+> When you start coding a method,
+and you write down the type signature,
+if you say "_this returns a string, or an integer, or maybe ..._".
+When you write that type signature,
+you start to second-guess yourself.
+"_Maybe I should write a couple of functions
+or maybe I should shape my code in a different way
+that makes the API act a little differently_".
+We've found that literally writing the type signature
+makes you think about your APIs a little bit more.
+
+In summary, using Dialyzer can help
+to make a project's code base more robust and maintainable,
+by adding verifiable type documentation for named functions.
+Because it can detect errors before the code is run,
+it can be considered as a code quality evaluation tool,
+working with the compiler and test suite to detect errors.
+
+### Background
+
+After Erlang had been in use for a number of years,
+with many lines of code in production,
+serious efforts were made to retrofit it with a type system.
+In order to avoid
+[false positives]{ext_wp|False_positives_and_false_negatives},
+any practical solution would have to accept
+"reasonable" type usage found in existing programs.
+
+Dialyzer's approach to this constraint uses
+[gradual typing]{ext_wp|Gradual_typing} of named functions.
+As long as no type specifications and/or usage conflict,
+Dialyzer will remain silent.
+This allows existing projects to add static type declarations
+in a controlled and incremental fashion.
+
+### Theory
+
+Like [Erlang]{ext_wp|Erlang_(programming_language)},
+[Elixir]{ext_wp|Elixir_(programming_language)} is a
+[strongly typed]{ext_wp|Strong_and_weak_typing} programming language.
+So, the compiler can detect certain type errors within a single function.
+The [Erlang virtual machine]{ext_wp|BEAM_(Erlang_virtual_machine)}
+(aka the BEAM) can also catch many type-related errors at runtime.
+In addition, pattern matching can be used to provide a form
+of runtime type checking.
+Finally, tests can often detect type errors (implicitly),
+based on the resulting behavior.
+
+However, if the relevant behavior is not covered by a test,
+a type error that crosses a function boundary may escape notice.
+For example, a logging function might be called with a number,
+rather than the expected text string.
+This would crash the offending process at runtime,
+preventing the desired diagnostic information from being displayed.
+
+Using a form of [static typing]{
+ext_wp|Type_system#Static_and_dynamic_type_checking_in_practice},
+Dialyzer can detect many type errors before the code is run.
+Its notion of "success typing" evaluates every function call
+against the [union]{ext_wp|Union_(set_theory)} of its type signatures.
+Calls which conform to any relevant type signature "succeed";
+the remainder are reported as errors.
+
+### Practice
+
+Dialyzer performs program-wide detection of type conflicts,
+based on type information it infers from the source code
+and any added specs.
+The generated diagnostics are generally reliable,
+in the sense that the program seldom produces false positives.
+However, they can also be confusing, opaque, and voluminous.
+
+Specifically, its messages seldom provide
+a clear and direct description of the underlying problem,
+let alone what to do about it.
+So, interpreting and resolving them takes both study and practice.
+Also, Dialyzer's approach means that a lack of error messages
+only indicates that no type conflicts were _detected_.
+In particular, adding or tightening specs might well reveal errors.
+
+If no specs have been defined,
+Dialyzer can only detect conflicts based on type information that it can infer.
+Running Dialyzer in this manner (and cleaning up any errors it reports)
+is a useful precaution before adding your own specs.
+Otherwise, pre-existing errors may cause confusion
+as you try to understand the ones your additions are causing.
+
+#### Syntax
+
+Each spec corresponds to a function of the same name and arity.
+Typically, it is placed just before the relevant function clause(s).
+Here is a spec and function definition for `foo/2`:
+
+    @spec foo(atom, number) :: map
+
+    @def foo(key, val), do: %{ key => val }
+
+The spec declares the intended data type (e.g., `atom`)
+for each argument (e.g., `key`), as well as the return value.
+Primitive types (e.g., `atom`, `number`) may be appropriate
+for many scalar variables and simple [data structures]{ext_wp|Data_structure},
+but they don't provide much information about more complex structures.
+For example, although a tree of maps can be described as a `map`,
+this doesn't say much about its internal structure
+or intended role within the program.
+
+The `@type` and `@typep` attributes let the programmer define derived types,
+give them comments and mnemonic names, etc.
+The `@typedoc` attribute supports documentation
+for `@type` (but not `@typep`).
+Typespec attributes are generally placed in `*.ex` files.
+They can be added to `*.exs` files, as documentation,
+but will not be checked by Dialyzer.
+
+#### Tooling
+
+Jeremy Huffman's [Dialyxir]{https://hex.pm/packages/dialyxir} package
+provides "Mix tasks to simplify use of Dialyzer in Elixir projects".
+It also reworks the (Erlang-style) generated reports,
+making them more comprehensible to Elixir programmers.
+Dialyxir's default output is rather verbose, so we use it as follows:
+
+    mix dialyzer --quiet
+
+Sean Cribbs's [Dialyzex]{https://hex.pm/packages/dialyzex} package
+bills itself as a "Dialyzer task for Mix with sensible defaults".
+It also provides several attractive and useful-looking extensions.
+Unfortunately, Dialyxir and Dialyzex conflict with each other,
+in terms of their names for Mix tasks, modules, etc.
+Consequently, the two packages cannot be installed simultaneously.
+Because Dialyxir handles our current needs, we are using it for now,
+but [casting about]{ext_gh|jeremyjh/dialyxir/issues/348}
+for a convenient way to use both tools.
+Suggestions welcome...
+
+#### Organization
+
+The [code base]{ext_gh|RichMorin/PA_all} for Pete's Alley
+makes organized and pervasive use of Typespec attributes.
+Our specs use both primitive and derived types.
+In general, the latter are used for app-specific data structures,
+most of which involve trees of maps.
+Derived types are commonly defined in app-specific modules
+(e.g., `Common.Types`, `InfoToml.Types`)
+which contain mostly `@type` and `@typedoc` attributes.
+A few private types may be also defined by `@typep` attributes.
+
+Each app has its own type definition file (`_<app>_t.ex`),
+located in its implementation directory (`.../<app>/lib/<app>`).
+We alias these modules for use in any modules where they are needed:
+
+    alias Common.Types, as: CT
+
+The types are then used as follows:
+
+    @spec keyss( %{ CT.map_key => any } ) :: [String.t]
+
+If a type has a long name and/or appears multiple times in a spec,
+we tend to use a shorthand name.
+This is defined by a `when` clause on the following line:
+
+    @spec do_files(st, (st -> {st, sc})) :: [sc]
+      when st: String.t, sc: ITT.schema
+
+Here are some shorthand names we commonly use:
+
+    pc    Plug.Conn.t
+    st    String.t
+    tl    [tuple]     # tuple list
+
+#### Example
+
+Here is a real-world example of how we use (and define) some derived types.
+The function `get_kv_info/1` returns a map, so we could write its spec as:
+
+    @spec get_kv_info(atom) :: map
+
+However, this doesn't say anything about the map's internals.
+So, we specify that it is actually an `ITT.kv_info` structure:
+
+    alias InfoToml.Types, as: ITT
+
+    @spec get_kv_info(atom) :: ITT.kv_info
+
+This structure is defined (along with some others), in
+[InfoToml.Types]{ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
+server/apps/info_toml/lib/info_toml/_types.ex}.
+Because `@type` doesn't support the `when` syntax,
+we use `@typep` to privately define some shorthand names:
+
+    @typep nni      :: non_neg_integer
+    @typep st       :: String.t
+
+Here are some public types we'll need to support `kv_info`:
+
+    @type kv_cnts  :: %{ atom  => nni }
+    @type kv_descs :: %{ atom  => st }
+    @type kv_tuple :: {atom, st, nni}
+
+Finally, here's how `kv_info` is defined:
+
+    @type kv_info ::
+      %{
+        :kv_cnts    => kv_cnts,       # %{ <key>: <count> }
+        :kv_descs   => kv_descs,      # %{ <key>: <desc> }
+        :kv_list    => [kv_tuple],    # [ { <key>, <val>, <cnt> }, ... ]
+        :kv_map     =>                # %{ <key => %{ <val> => <cnt> } }
+          %{ atom => %{ st => nni } },
+      }
+
+### Advice
+
+My initial development spike for Pete's Alley paid little attention
+to documentation, let alone testing or Typespecs.
+So, I had the joy of reverse engineering about 10K lines of code
+and retrofitting a set of specs and type definitions.
+The following advice is based on that experience.
+
+Before writing any specs, run Dialyzer.
+If it complains about anything, congratulations!
+You've just been told about some bugs you can fix.
+Clean up any errors it complains about (iteratively)
+until it goes quiet.
+
+Now, you can start (incrementally!) adding specs.
+Handing Dialyzer large numbers of untried specs is asking for trouble
+(i.e., a good way to amuse the gods).
+So, add a few specs, run Dialyzer, fix errors, rinse, repeat...
+If need be, just try to get one new or changed spec working at a time.
+
+In a production system, every named function in every `*.ex` file
+should have a tight spec using well-documented data types.
+However, this may be too big a burden for a development spike,
+prototype, or retrofit.
+So, give yourself a break and start by creating loose specs,
+using nothing but primitive types.
+
+For example, it's OK to call something a `map` at this stage,
+but you might want to flag the spec for a revisit.
+(I tend to use `#W` comments, indicating "Work in Progress" code.)
+Once a function has a working spec, you can tighten it up.
+Here is a progression of tightening steps, based on the example above:
+
+    @spec get_kv_info(atom) :: map                    #W - map
+    @spec get_kv_info(atom) :: %{ any => any }        #W - any
+    @spec get_kv_info(atom) :: %{ key: any }          #W - any
+    @spec get_kv_info(atom) :: %{ key: map | list }   #W - list, map
+    @spec get_kv_info(atom) :: ITT.kv_info
+
+#### Code Smells
+
+As you proceed, stay alert for assorted "code smells".
+Some types (e.g., `any`, `number`) can be fixed at this point.
+The remainder can be flagged for later attention.
+Here are some common offenders:
+
+- `any` typically hides a confused interface
+- `list`, `map`, and `tuple` can hide a lot of complexity
+- `number` should be promoted to `float`, `integer`, etc.
+- complex literals may warrant definition as types
+
+#### Inspection
+
+As you proceed, you'll need to clarify your understanding of the data types. 
+In many cases, you'll be able to do this by inspecting the code and comments.
+With practice, Dialyzer's error messages will also start to make sense.
+If you get confused, however, remember that `IO.inspect/2` is your friend.
+FWIW, I use it so often that I created `ii/2` as a helper function:
+
+    def ii(thing, label), do: IO.inspect(thing, label: label)
+
+I often use this to examine the data flowing through (or from) a pipeline:
+
+    ...
+    |> ii(:foo)
+    ...
+
+### Afterword
+
+Although Dialyzer has found a few minor errors in my code base,
+the combination of careful coding, strong typing, and strategic testing
+seems to leave little for it to find.
+So, it would be hard to justify the effort of adding hundreds of specs
+and dozens of types on that basis alone.
+
+However, the ability to create and maintain verified documentation
+of data types is a huge win, in terms of maintainability.
+Considering the programs in [state/transition]{ext_wp|State_diagram} terms,
+the data types define the states and the code defines the transitions.
+Or, as [Niklaus Wirth]{ext_wp|Niklaus_Wirth} put it,
+[Algorithms + Data Structures = Programs
+]{ext_wp|Algorithms_+_Data_Structures_=_Programs}.
+In short, verified documentation of data types helps projects
+to treat their data as a first-class citizen.
+
+If you have questions about Dialyzer,
+or your project could use help in using it,
+please feel free to get in touch.
+
+### Resources
+
+There is quite a bit of documentation on Dialyzer and related tooling.
+As a gentle introduction, I also recommend Jason Voegele's talk,
+[Dialyzer: Optimistic Type Checking for Erlang and Elixir
+]{ext_yt|watch?v=JT0ECYZ9FaQ}.
+
+Once you're feeling comfortable with the basic ideas,
+I'd recommend at least skimming some of the papers listed on the project
+[web site]{https://www.it.uu.se/research/group/hipe/dialyzer}.
+I particularly recommend
+[Practical Type Inference Based on Success Typing
+]{https://it.uu.se/research/group/hipe/papers/succ_types.pdf}.
+
+#### Dialyzer
+
+- [Decoding Dialyzer
+  ]{http://devonestes.herokuapp.com/decoding-dialyzer} (article)
+
+- [Dialyzer
+  ]{http://erlang.org/doc/man/dialyzer.html} (manual page)
+
+- [Dialyzer
+  ]{http://erlang.org/doc/apps/dialyzer/dialyzer.pdf} (full manual)
+
+- [Dialyzer: Optimistic Type Checking for Erlang and Elixir
+  ]{ext_yt|watch?v=JT0ECYZ9FaQ} (video)
+
+- [Practical Type Inference Based on Success Typing
+  ]{https://it.uu.se/research/group/hipe/papers/succ_types.pdf} (paper)
+
+- [The DIALYZER: a DIscrepancy AnaLYZer for ERlang programs
+  ]{https://www.it.uu.se/research/group/hipe/dialyzer} (project)
+
+#### Typespecs
+
+- [Specifications and types
+  ]{https://elixirschool.com/en/lessons/advanced/typespec} (tutorial)
+
+- [Typespecs
+  ]{https://hexdocs.pm/elixir/typespecs.html} (manual page)
+
+- [Typespecs and behaviours
+  ]{https://elixir-lang.org/getting-started/typespecs-and-behaviours.html}
+  (tutorial)
+
+#### Wrappers
+
+- [Dialyxir
+  ]{ext_gh|jeremyjh/dialyxir} (GitHub)
+
+- [Dialyxir
+  ]{https://hex.pm/packages/dialyxir} (Hex.pm)
+
+- [Dialyzex
+  ]{ext_gh|Comcast/dialyzex} (GitHub)
+
+- [Dialyzex
+  ]{https://hex.pm/packages/dialyzex} (Hex.pm)
+
+'''
+
+[ zoo ]
+
+  snippets    = '...'

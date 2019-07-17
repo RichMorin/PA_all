@@ -6,8 +6,6 @@ defmodule Common.MixProject do
 
   # Public functions
 
-  @spec project() :: [key: atom]
-
   def project() do
 #   IO.puts "Common.MixProject.project: Mix.env() == #{ Mix.env() }" #T
 
@@ -32,8 +30,6 @@ defmodule Common.MixProject do
 
   # Run "mix help compile.app" to learn about applications.
 
-  @spec application() :: [key: atom]
-
   def application() do
     [
 #     mod: { Common.Application, [] },
@@ -43,14 +39,9 @@ defmodule Common.MixProject do
 
   # Run "mix help deps" to learn about dependencies.
 
-  @spec deps() :: [tuple]
-
   defp deps() do
     [
-      { :dialyxir,            "~> 1.0.0-rc.6",
-        only: [:dev], runtime: false },
-      { :ex_doc,              "~> 0.20.2",
-        only: :dev },
     ]
   end
+
 end

@@ -17,6 +17,8 @@ defmodule PhxHttpWeb.ClearController do
 
   import Common, only: [ ssw: 2 ]
 
+  alias PhxHttp.Types, as: PHT
+
   # Public functions
 
   @doc """
@@ -24,7 +26,8 @@ defmodule PhxHttpWeb.ClearController do
   fills in a form.
   """
 
-  @spec clear_form(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec clear_form(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def clear_form(conn, _params) do
     sess_tag_sets   = get_session(conn, :tag_sets) || []
@@ -41,7 +44,8 @@ defmodule PhxHttpWeb.ClearController do
   to the Search page.
   """
 
-  @spec clear_post(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec clear_post(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def clear_post(conn, params) do
 

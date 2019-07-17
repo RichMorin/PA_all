@@ -20,7 +20,7 @@ defmodule PhxHttpWeb.View.Hide do
 
   import Common, only: [ csv_split: 1 ]
 
-  alias PhxHttp.Types, as: PT
+  alias PhxHttp.Types, as: PHT
   alias PhxHttpWeb.LayoutView
 
   # Public functions
@@ -46,7 +46,8 @@ defmodule PhxHttpWeb.View.Hide do
       true
   """
 
-  @spec hide_show(s, s) :: PT.safe_html when s: String.t #W
+  @spec hide_show(st, st) :: PHT.safe_html
+    when st: String.t
 
   def hide_show("ih:1/1", t_str), do: hs("1", "s",     t_str)
   def hide_show("ih:1/2", t_str), do: hs("1", "s_sa",  t_str)
@@ -62,7 +63,8 @@ defmodule PhxHttpWeb.View.Hide do
 
 # Private Functions
 
-  @spec hs(s, s, s) :: s when s: String.t #W
+  @spec hs(st, st, st) :: st
+    when st: String.t
 
   defp hs(level, init_mode, inp_str) do
   #

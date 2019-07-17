@@ -12,6 +12,7 @@ defmodule InfoToml.Reffer do
   """
 
   alias InfoToml.KeyVal
+  alias InfoToml.Types, as: ITT
 
   # Public functions
 
@@ -29,7 +30,7 @@ defmodule InfoToml.Reffer do
       }
   """
 
-  @spec get_ref_info() :: map
+  @spec get_ref_info() :: ITT.kv_all
 
   def get_ref_info() do
   #
@@ -39,10 +40,7 @@ defmodule InfoToml.Reffer do
 
     index     = InfoToml.get_part([:index])
     inbt_map  = index[:id_nums_by_tag]
-
-    ref_info = %{
-      tracing:      false,
-    }
+    ref_info  = %{ tracing: false }
 
     ref_info
     |> KeyVal.add_kv_info(inbt_map, :refs)

@@ -4,7 +4,7 @@ defmodule InfoTomlTest.Tagger do
 
   use ExUnit.Case
 
-  import Common, only: [ our_tree: 2 ]
+  import InfoToml.Trees, only: [ our_tree: 2 ]
 
   alias     InfoToml.{Reffer, Tagger}
 
@@ -12,12 +12,11 @@ defmodule InfoTomlTest.Tagger do
     ref_info    = Reffer.get_ref_info()
     tag_info    = Tagger.get_tag_info()
 
-    { :ok,
+    {
+      :ok,
       info:   [ ref_info, tag_info ]
     }
   end
-
-  @spec do_tests(tuple) :: boolean #W - not getting checked!
 
   def do_tests(info) do
   #

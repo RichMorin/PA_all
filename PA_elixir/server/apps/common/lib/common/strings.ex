@@ -35,7 +35,8 @@ defmodule Common.Strings do
       "2 cats"
   """
 
-  @spec add_s(integer, s) :: s when s: String.t
+  @spec add_s(integer, st) :: st
+    when st: String.t
 
   def add_s(1, string), do: "#{ 1 } #{ string }"
   def add_s(n, string), do: "#{ n } #{ string }s"
@@ -52,7 +53,8 @@ defmodule Common.Strings do
       "aa"
   """
 
-  @spec base_26(integer, s) :: s when s: String.t
+  @spec base_26(non_neg_integer, st) :: st
+    when st: String.t
 
   def base_26(ndx_inp, letters \\ "")
   def base_26(ndx_inp, _letters) when ndx_inp <  0, do: "?"
@@ -66,7 +68,8 @@ defmodule Common.Strings do
     base_26(ndx_div, letters) <> letter
   end
 
-  @spec csv_split(s) :: [ s ] when s: String.t
+  @spec csv_split(st) :: [st, ...]
+    when st: String.t
 
   @doc """
   Split a comma-delimited string into a list of trimmed field strings,
@@ -110,7 +113,8 @@ defmodule Common.Strings do
       "1, 2, 3, and 4"
   """
 
-  @spec fmt_list( [s] ) :: s when s: String.t
+  @spec fmt_list( [st, ...] ) :: st
+    when st: String.t
 
   def fmt_list(str_list), do: fl(str_list)
   #
@@ -123,7 +127,8 @@ defmodule Common.Strings do
   #   formatting-a-list-of-strings-am-i-missing-anything/18593/10
   # Interesting discussion and really great help!
 
-  @spec ssw(s, s) :: boolean when s: String.t
+  @spec ssw(st, st) :: bool
+    when st: String.t
 
   @doc """
   Shorthand call for `String.starts_with?/2`.
@@ -138,7 +143,8 @@ defmodule Common.Strings do
 
   # Private functions
 
-  @spec fl( [s] ) :: s when s: String.t
+  @spec fl( [st, ...] ) :: st
+    when st: String.t
 
   # Do the heavy lifting for fmt_list/1.
 
@@ -147,7 +153,8 @@ defmodule Common.Strings do
   defp fl([a, b]),        do: "#{ a } and #{ b }"
   defp fl(list),          do: fl(list, [])
 
-  @spec fl( [s], [s] ) :: s when s: String.t
+  @spec fl( [st], [st] ) :: st
+    when st: String.t
 
   defp fl([last], strl),  do: to_string( [ strl, 'and ', "#{ last }" ] )
   defp fl([h | t], strl), do: fl(t, [ strl, "#{ h }", ', '] )

@@ -48,7 +48,8 @@ defmodule PhxHttpWeb.LayoutView do
       "PA Foo"
   """
 
-  @spec get_title(atom, any, any, s) :: s when s: String.t #W
+  @spec get_title(atom, any, any, st) :: st
+    when st: String.t #W - any
 
   def get_title(:area_2, key, _item, title) do
     field_2   = key_field(key, -2)
@@ -93,7 +94,8 @@ defmodule PhxHttpWeb.LayoutView do
       "Catalog"
   """
 
-  @spec key_field(s, integer) :: s when s: String.t #W
+  @spec key_field(st, integer) :: st
+    when st: String.t #W
 
   def key_field(key, index) do #K
     key
@@ -113,7 +115,8 @@ defmodule PhxHttpWeb.LayoutView do
       true
   """
 
-  @spec mailto_href(s) :: s when s: String.t #W
+  @spec mailto_href(st) :: st
+    when st: String.t #W
 
   def mailto_href(item_key) do
     address   = "Rich Morin <rdm@cfcl.com>"

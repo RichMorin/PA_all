@@ -24,7 +24,7 @@ defmodule PhxHttpWeb.View.Zoo do
   import Common,   only: [ csv_split: 1, ssw: 2 ]
   import InfoToml, only: [ exp_prefix: 1 ]
 
-  alias PhxHttp.Types, as: PT
+  alias PhxHttp.Types, as: PHT
 
   # Public functions
 
@@ -37,7 +37,7 @@ defmodule PhxHttpWeb.View.Zoo do
       "Foo"
   """
 
-  @spec fmt_key(atom) :: String.t #W
+  @spec fmt_key(atom) :: String.t
 
   def fmt_key(:emacswiki),     do: "EmacsWiki"
   def fmt_key(:faq),           do: "FAQ"
@@ -69,7 +69,7 @@ defmodule PhxHttpWeb.View.Zoo do
   - remove entries with anonymous keys (e.g., `"_1"`).
   """
 
-  @spec prep_map(PT.addr_part) :: PT.addr_part #W
+  @spec prep_map(PHT.addr_part) :: PHT.addr_part #W
 
   def prep_map(inp_map) do
 
@@ -100,7 +100,8 @@ defmodule PhxHttpWeb.View.Zoo do
 
   # Private Functions
 
-  @spec prep_map_h(s, map) :: s when s: String.t #W
+  @spec prep_map_h(st, map) :: st
+    when st: String.t #W
 
   defp prep_map_h(inp_val, inp_map) do
   #

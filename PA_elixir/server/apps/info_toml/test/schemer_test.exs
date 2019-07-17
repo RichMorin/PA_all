@@ -5,4 +5,5 @@ defmodule InfoTomlTest.Schemer do
   @moduledoc """
   This module's testing is handled by `InfoTomlTest.LoadFile`.
   """
+
 end

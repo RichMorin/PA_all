@@ -26,6 +26,9 @@ defmodule PhxHttpWeb.ItemController do
   import PhxHttpWeb.Cont.Items,
     only: [ get_make: 1, get_reviews: 1 ]
 
+  alias InfoToml.Types, as: ITT
+  alias PhxHttp.Types,  as: PHT
+
   # Public functions
 
 
@@ -33,7 +36,8 @@ defmodule PhxHttpWeb.ItemController do
   This function displays a specified item.
   """
 
-  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec show(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def show(conn, params) do
     key   = params["key"]
@@ -43,7 +47,8 @@ defmodule PhxHttpWeb.ItemController do
 
   # Private Functions
 
-  @spec show_h(Plug.Conn.t(), nil) :: Plug.Conn.t() #W
+  @spec show_h(pc, nil) :: pc
+    when pc: Plug.Conn.t #W
 
   defp show_h(conn, nil) do
   #
@@ -53,7 +58,8 @@ defmodule PhxHttpWeb.ItemController do
     nastygram(conn, message)
   end
 
-  @spec show_h(Plug.Conn.t(), String.t) :: Plug.Conn.t() #W
+  @spec show_h(pc, String.t) :: pc
+    when pc: Plug.Conn.t
 
   defp show_h(conn, key) do
   #
@@ -80,7 +86,8 @@ defmodule PhxHttpWeb.ItemController do
     end
   end
 
-  @spec show_h2(map, String.t) :: map #W
+  @spec show_h2(im, String.t) :: im
+    when im: ITT.item_map
 
   defp show_h2(item, key) do
   #
@@ -103,7 +110,8 @@ defmodule PhxHttpWeb.ItemController do
     end
   end
 
-  @spec show_h3(map, map, [atom], [atom]) :: map #W
+  @spec show_h3(im, im, [atom], [atom]) :: im
+    when im: ITT.item_map
 
   defp show_h3(item, make_item, path_inp, path_out) do
   #

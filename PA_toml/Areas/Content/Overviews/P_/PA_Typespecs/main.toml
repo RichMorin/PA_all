@@ -1,0 +1,47 @@
+# con_ove|PA_Typespecs/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PA_Typespecs'
+  title       = "Pete's Alley - Typespecs"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "use of Typespecs in Pete's Alley"
+
+  verbose     = '''
+This page describes the use of
+[Typespecs]{https://hexdocs.pm/elixir/typespecs.html} in Pete's Alley.
+For background and supplementary information on
+[Dialyzer]{http://erlang.org/doc/man/dialyzer.html} and related tooling,
+please see [Elixir, etc. - Typespecs]{con_ove|PA_Typespecs}.
+
+### <tt>_types.ex</tt> files
+
+- [Common.Types]{ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
+   server/apps/common/lib/common/_types.ex}
+
+- [InfoFiles.Types]{ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
+   server/apps/info_files/lib/info_files/_types.ex}
+
+- [InfoWeb.Types]{ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
+   server/apps/info_web/lib/info_web/_types.ex}
+
+- [PhxHttp.Types]{ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
+   server/apps/phx_http/lib/phx_http/_types.ex}
+
+- [Sample.Types]{ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
+   server/apps/sample/lib/sample/_types.ex}
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

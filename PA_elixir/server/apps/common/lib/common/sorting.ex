@@ -15,7 +15,7 @@ defmodule Common.Sorting do
 
   # Public functions
 
-  @spec sort_by_elem(l, integer) :: l when l: list
+  @spec sort_by_elem([], non_neg_integer) :: []
 
   @doc """
   Sort a list by an indexed element.

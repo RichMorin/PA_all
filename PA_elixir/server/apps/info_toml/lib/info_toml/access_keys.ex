@@ -54,7 +54,8 @@ defmodule InfoToml.AccessKeys do
       "Areas/Catalog/Groups/_area.toml"
   """
 
-  @spec get_area_key(s) :: s when s: String.t
+  @spec get_area_key(st) :: st
+    when st: String.t
 
   def get_area_key(key) do
 
@@ -81,7 +82,7 @@ defmodule InfoToml.AccessKeys do
   Return a list of Area names, e.g.: `[ "Catalog", ... ]`.
   """
 
-  @spec get_area_names() :: [String.t]
+  @spec get_area_names() :: [String.t, ...]
 
   def get_area_names() do #K - unused
 
@@ -110,7 +111,8 @@ defmodule InfoToml.AccessKeys do
   Given `"Content"`, returns `[ "HowTos", ... ]`.
   """
 
-  @spec get_area_names(s) :: [s] when s: String.t
+  @spec get_area_names(st) :: [st, ...]
+    when st: String.t
 
   def get_area_names(area) do #K - unused
   #
@@ -147,7 +149,7 @@ defmodule InfoToml.AccessKeys do
       4 => ["Catalog", "Content", "_schemas", "_text"]
   """
 
-  @spec get_keys(integer) :: [String.t]
+  @spec get_keys(integer) :: [String.t, ...]
 
   def get_keys(levels) do
     max_ndx = levels - 1
@@ -180,7 +182,8 @@ defmodule InfoToml.AccessKeys do
   a tag name prefix).
   """
 
-  @spec keys_by_tag(s) :: [s] when s: String.t
+  @spec keys_by_tag(st) :: [st]
+    when st: String.t
 
   def keys_by_tag(tag_val) do
 
@@ -203,7 +206,7 @@ defmodule InfoToml.AccessKeys do
       map_set   = get_in(toml_map, gi_path)
 
       if map_set do
-        map_set                 # #MapSet<[1024, 1042, ...]>
+        map_set                   # #MapSet<[1024, 1042, ...]>
         |> MapSet.to_list()       # [1024, 1042, ...]
         |> Enum.map(map_fn)       # ["Catalog/...", ...]
       else

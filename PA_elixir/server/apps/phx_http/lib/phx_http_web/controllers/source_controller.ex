@@ -26,7 +26,7 @@ defmodule PhxHttpWeb.SourceController do
   import Common, only: [ ssw: 2 ]
   import InfoToml.Common, only: [ get_file_abs: 1 ]
 
-  alias PhxHttp.Types, as: PT
+  alias PhxHttp.Types,  as: PHT
 
   # Public functions
 
@@ -34,7 +34,8 @@ defmodule PhxHttpWeb.SourceController do
   This function implements the Source download action.
   """
 
-  @spec down(PT.conn, any) :: PT.conn #W
+  @spec down(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def down(conn, params) do
     key   = params["key"]
@@ -59,7 +60,8 @@ defmodule PhxHttpWeb.SourceController do
   This function generates the Source display page.
   """
 
-  @spec show(PT.conn, any) :: PT.conn #W
+  @spec show(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def show(conn, params) do
     key     = params["key"]
@@ -74,7 +76,8 @@ defmodule PhxHttpWeb.SourceController do
 
   # Private functions
 
-  @spec get_out_name(s) :: s when s: String.t #W
+  @spec get_out_name(st) :: st
+    when st: String.t
 
   defp get_out_name(item_key) do
   #
@@ -95,7 +98,8 @@ defmodule PhxHttpWeb.SourceController do
     end
   end
 
-  @spec show_h(PT.conn, String.t, map) :: PT.conn #W
+  @spec show_h(pc, String.t, map) :: pc
+    when pc: Plug.Conn.t #W - map
 
   defp show_h(conn, main_key, main_item) do
   #

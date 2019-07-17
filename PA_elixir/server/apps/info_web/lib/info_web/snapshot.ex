@@ -21,13 +21,15 @@ defmodule InfoWeb.Snapshot do
 
   import Common, warn: false, only: [ ii: 2, sort_by_elem: 2 ]
 
+  alias InfoWeb.Types, as: IWT
+
   # Public functions
 
   @doc """
   Count links to external sites; format as sorted TOML.
   """
 
-  @spec counts_ext(map) :: String.t
+  @spec counts_ext(IWT.result_map) :: String.t
 
   def counts_ext(result) do
 
@@ -65,7 +67,7 @@ defmodule InfoWeb.Snapshot do
   Count links to internal routes; format as sorted TOML.
   """
 
-  @spec counts_int(map) :: String.t
+  @spec counts_int(IWT.result_map) :: String.t
 
   def counts_int(result) do
 
@@ -102,7 +104,7 @@ defmodule InfoWeb.Snapshot do
   Format bins of error info.
   """
 
-  @spec fmt_bins(map, atom) :: String.t
+  @spec fmt_bins(IWT.result_map, atom) :: String.t
 
   def fmt_bins(result, key) do  
 
@@ -135,7 +137,7 @@ defmodule InfoWeb.Snapshot do
   Format raw `ext_ok` data (OK external URLs).
   """
 
-  @spec raw_ext_urls(map) :: String.t
+  @spec raw_ext_urls(IWT.result_map) :: String.t
 
   def raw_ext_urls(result) do  
 
@@ -164,7 +166,7 @@ defmodule InfoWeb.Snapshot do
   Load a map containing the most recent snapshot of the `result` map.
   """
 
-  @spec snap_load() :: map
+  @spec snap_load() :: IWT.snap_map | %{}
 
   def snap_load() do
     link_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_links" #K
@@ -194,7 +196,7 @@ defmodule InfoWeb.Snapshot do
   Save a (reworked) snapshot of the `result` map, in TOML format.
   """
 
-  @spec snap_save(map) :: String.t
+  @spec snap_save(map) :: String.t #W
 
   def snap_save(result) do
     link_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_links" #K

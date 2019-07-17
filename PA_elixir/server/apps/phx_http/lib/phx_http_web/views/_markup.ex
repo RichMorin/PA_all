@@ -20,7 +20,7 @@ defmodule PhxHttpWeb.View.Markup do
 
   import PhxHttpWeb.View.Link, only: [do_links: 1 ]
 
-  alias PhxHttp.Types, as: PT
+  alias PhxHttp.Types, as: PHT
 
   # Public functions
 
@@ -29,7 +29,7 @@ defmodule PhxHttpWeb.View.Markup do
   it expands some prefix strings.
   """
 
-  @spec fmt_markup(map, [atom]) :: PT.safe_html #W
+  @spec fmt_markup(map, [atom]) :: PHT.safe_html #W - map
 
   def fmt_markup(inp_map, gi_list) do
     md_inp  = get_in(inp_map, gi_list)
@@ -47,7 +47,7 @@ defmodule PhxHttpWeb.View.Markup do
 
   # Private Functions
 
-  @spec fmt_markup_h(map, [atom], list) :: String.t
+  @spec fmt_markup_h(map, [atom], list) :: String.t #W - list, map
 
   defp fmt_markup_h(inp_map, gi_list, err_list) do
   #

@@ -24,7 +24,7 @@ defmodule PhxHttpWeb.AreaController do
   import PhxHttpWeb.Cont.Levels
   import Common, only: [ get_run_mode: 0 ]
 
-  alias PhxHttp.Types, as: PT
+  alias PhxHttp.Types, as: PHT
 
   # Public functions
 
@@ -33,7 +33,8 @@ defmodule PhxHttpWeb.AreaController do
   tree.  In general, session information should still be retained and valid.
   """
 
-  @spec reload(PT.conn, any) :: PT.conn #W
+  @spec reload(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def reload(conn, params) do
   #
@@ -59,7 +60,8 @@ defmodule PhxHttpWeb.AreaController do
   This function displays a summary page for a specified part of the Areas tree.
   """
 
-  @spec show(PT.conn, any) :: PT.conn #W
+  @spec show(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def show(conn, params) do
   #
@@ -76,7 +78,8 @@ defmodule PhxHttpWeb.AreaController do
 
   # Private Functions
 
-  @spec reload_h(PT.conn, any) :: PT.conn #W
+  @spec reload_h(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   defp reload_h(conn, params) do
   #

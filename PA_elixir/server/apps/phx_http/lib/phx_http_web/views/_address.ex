@@ -27,7 +27,7 @@ defmodule PhxHttpWeb.View.Address do
     only: [ csv_split: 1, keyss: 1 ]
   import PhxHttpWeb.View.Zoo
 
-  alias PhxHttp.Types, as: PT
+  alias PhxHttp.Types, as: PHT
 
   # Public functions
 
@@ -48,7 +48,7 @@ defmodule PhxHttpWeb.View.Address do
       true
   """
 
-  @spec fmt_address(atom, PT.address) :: PT.safe_html #W
+  @spec fmt_address(atom, PHT.address) :: PHT.safe_html
 
   def fmt_address(section, address) do
     case address[section] do
@@ -59,7 +59,7 @@ defmodule PhxHttpWeb.View.Address do
 
   # Private Functions
 
-  @spec fa1(atom, map) :: PT.safe_html #W
+  @spec fa1(atom, map) :: PHT.safe_html #W - map
 
   # fmt_address helper functions: fa[123], fa2h
   #
@@ -76,7 +76,7 @@ defmodule PhxHttpWeb.View.Address do
   defp fa1(:review,     map),  do: fa2(:text, "Phone Numbers",      map)
   defp fa1(:web_site,   map),  do: fa2(:site, "Web Pages",          map)
 
-  @spec fa2(atom, String.t, map) :: PT.safe_html #W
+  @spec fa2(atom, String.t, map) :: PHT.safe_html #W - map
 
   defp fa2(:post, heading, map) do
 
@@ -134,7 +134,8 @@ defmodule PhxHttpWeb.View.Address do
     fa3(heading, map, item_fn)
   end
 
-  @spec fa3(s, map, (s -> [ s ] ) ) :: PT.safe_html when s: String.t #W
+  @spec fa3(st, map, (st -> [st]) ) :: PHT.safe_html
+    when st: String.t
 
   defp fa3(heading, map, item_fn) do
 

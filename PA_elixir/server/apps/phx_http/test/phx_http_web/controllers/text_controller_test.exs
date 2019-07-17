@@ -14,4 +14,5 @@ defmodule PhxHttpWeb.TextControllerTest do
 
     capture_io(test_fn)
   end
+
 end

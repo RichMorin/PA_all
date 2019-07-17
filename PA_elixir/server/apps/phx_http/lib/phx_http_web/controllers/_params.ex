@@ -25,11 +25,12 @@ defmodule PhxHttpWeb.Cont.Params do
 
   import Common, warn: false, only: [ ii: 2, ssw: 2 ]
 
-  alias PhxHttp.Types, as: PT
+  alias PhxHttp.Types, as: PHT
 
   # Public functions
 
-  @spec munge( [ {s, s} ] ) :: { [s], [ {s, s} ]} when s: String.t #W
+  @spec munge( [sp] ) :: { [st], [sp] }
+    when sp: PHT.s_pair, st: String.t
 
   @doc """
   Filter params, shard by form section, then rework the structures
@@ -65,7 +66,8 @@ defmodule PhxHttpWeb.Cont.Params do
 
   # Private Functions
 
-  @spec munge_filter( [ {s, s} ] ) :: {sp, sp} when s: String.t, sp: [PT.s_pair] #W
+  @spec munge_filter( [sp] ) :: {sp, sp}
+    when sp: [PHT.s_pair]
 
   defp munge_filter(params) do
   #
@@ -100,7 +102,7 @@ defmodule PhxHttpWeb.Cont.Params do
     {params_d, params_r}
   end
 
-  @spec munge_map_d( [PT.s_pair] ) :: [ String.t ] #W
+  @spec munge_map_d( [PHT.s_pair] ) :: [String.t] #W
 
   defp munge_map_d(input) do
   #
@@ -119,7 +121,8 @@ defmodule PhxHttpWeb.Cont.Params do
     |> Enum.sort()                # [ "roles:...", ... ] (sorted)
   end
 
-  @spec munge_map_r(sp) :: sp when sp: [PT.s_pair] #W
+  @spec munge_map_r(sp) :: sp
+    when sp: [PHT.s_pair]
 
   defp munge_map_r(input) do
   #

@@ -8,17 +8,6 @@ defmodule Common.Maps do
 #     Get the maximum value of a map.
 #   keyss/1
 #     Get the keys to a map and return them in sorted order.
-#   leaf_paths/[13]
-#     Get a list of access paths for the leaf nodes of a tree of maps.
-#   our_tree/[12]
-#     Check whether this is (our style of) a tree of maps.
-#
-# Private functions
-#
-#   leaf_paths_h/2
-#     Recursive helpers for leaf_paths/3
-#   our_tree_h/1
-#     Crawl the map tree for our_tree/2.
 
   @moduledoc """
   This module contains map-handling functions for common use.
@@ -31,40 +20,33 @@ defmodule Common.Maps do
   # Public functions
 
   @doc """
-  Get the maximum value of a map (assuming that all values are non-negative
-  integers).
+  Get the maximum value of a non-empty map.
 
       iex> m = %{ a: 1, b: 2, c: 3 }
       iex> get_map_max(m)
       3
   """
 
-  @spec get_map_max( %{String.t => i} ) :: i when i: integer
+  @spec get_map_max( %{required(any) => any} ) :: any
 
-  def get_map_max(inp_map) do
-
-    max_val_fn  = fn {_key, val}, acc -> max(val, acc) end
-    #
-    # Determine the maximum value in the map.
-
-    inp_map |> Enum.reduce(0, max_val_fn)
-  end
+  def get_map_max(inp_map), do: inp_map |> Map.values |> Enum.max()
 
   @doc """
-  Return the keys to a map and return them in sorted order.
-  The keys are sorted by the downcased string interpretation.
+  Return the (stringified) keys to a map in a sorted order.
+  The keys are sorted alphanumerically by the downcased string interpretation.
   
-      iex> m = %{ C: 3, b: 2, a: 1 }
-      %{ C: 3, a: 1, b: 2 }
+      iex> m = %{ "C" => 3, b: 2, a: 1 }
+      %{ "C" => 3, a: 1, b: 2 }
       iex> keyss(m)
-      [ :a, :b, :C ]
+      [ :a, :b, "C" ]
 
-  This function is useful when displaying things (e.g., traces, web pages).
+  This function is useful when displaying things (e.g., traces, web pages),
+  because it causes them to fall into a predictable order.
   And, because one never knows when something will need to be traced, we
   use the function as a standard practice.
   """
 
-  @spec keyss(map) :: list
+  @spec keyss( %{ CT.map_key => any } ) :: [String.t]
 
   def keyss(map) do
 
@@ -72,134 +54,9 @@ defmodule Common.Maps do
     #
     # Support a case-insensitive sort on stringified keys.
  
-    map                           # %{ C: 3, b: 2, a: 1 }
-    |> Map.keys()                 # [ :C, :b, :a ]
-    |> Enum.sort_by(sort_fn)      # [ :a, :b, :C ]
+    map                           # %{ "C" => 3, b: 2, a: 1 }
+    |> Map.keys()                 # [ "C", :b, :a ]
+    |> Enum.sort_by(sort_fn)      # [ :a, :b, "C" ]
   end
-
-  @doc """
-  Get a list of data structure access paths, as used in `get_in/2`,
-  for the leaf nodes of a tree of maps.
-
-      iex> m1 = %{ a: %{ b: 1, c: 2 } }
-      iex> leaf_paths(m1)
-      [[:a, :c], [:a, :b]]
-      iex> m2 = %{ d: %{ e: %{ f: 42 } } }
-      iex> leaf_paths(m2)
-      [[:d, :e, :f]]
-      iex> m3 = %{ "f" => %{ m1: m1, m2: m2 } }
-      iex> leaf_paths(m3)
-      [["f", :m2, :d, :e, :f], ["f", :m1, :a, :c], ["f", :m1, :a, :b]]
-  """
-  
-  # The code below was adapted from a reply by Peer Reynders (peerreynders)
-  # to a help request on the Elixir Forum: `https://elixirforum.com/t/17715`.
-
-  @spec leaf_paths(CT.item_map) :: [ [CT.map_key] ]
-
-  def leaf_paths(tree), do: leaf_paths(tree, [], [])
-
-  @spec leaf_paths(CT.item_map, l, l) :: l when l: [ [CT.map_key] ]
-
-  defp leaf_paths(tree, parent_path, paths) do
-    {_, paths} = Enum.reduce(tree, {parent_path, paths}, &leaf_paths_h/2)
-    paths
-  end
-
-  @doc """
-  Check whether this is (our style of) a tree of maps.  Specifically,
-  the keys should all be atoms or strings and the values should either
-  be compliant maps or something else.  If `strict` is true, "something
-  else" must be a boolean, number, or string.
-  
-      iex> our_tree nil
-      false
-      iex> our_tree 42
-      false
-      iex> our_tree :foo
-      false
-      iex> our_tree "foo"
-      false
-
-      iex> our_tree %{}
-      false
-      iex> our_tree %{ foo: true }
-      true
-      iex> our_tree %{ foo: 42 }
-      true
-      iex> our_tree %{ foo: :bar }
-      false
-      iex> our_tree %{ foo: "bar" }
-      true
-      iex> our_tree %{ "foo" => "bar" }
-      true
-      iex> our_tree %{ "foo" => %{ bar: "baz" } }
-      true
-
-  This function is useful for testing data structures.
-  """
-
-  @spec our_tree(any) :: boolean
-
-  def our_tree(input), do: our_tree(input, true)
-
-  @doc """
-  Like `our_tree/1`, but allows non-strict checking.
-  """
-
-  @spec our_tree(any, b) :: b when b: boolean
-
-  def our_tree(input, strict) do
-    if is_map(input) do
-#     ii(input, :input1)
-      our_tree_h(input, strict)
-    else
-      false
-    end
-  end
-
-  # Private functions
-
-  @spec leaf_paths_h({atom, any}, {CT.item_path, [ CT.item_path ] } ) ::
-    {String.t, [ CT.item_part ] }
-
-  defp leaf_paths_h({key, value}, {parent_path, paths}) when is_map(value), do:
-    {parent_path, leaf_paths(value, [ key | parent_path ], paths) }
-
-  defp leaf_paths_h({key, _value}, {parent_path, paths}), do:
-    {parent_path, [ :lists.reverse( [ key | parent_path ] ) | paths ] }
-
-  @spec our_tree_h(map, b) :: b when b: boolean
-
-  defp our_tree_h(input, strict) when is_map(input) do
-
-    acc_chk_fn  = fn {key, value}, acc ->
-    #
-    # Accumulate checks for the tree.  (Return false if any check fails.)
-
-      cond do
-        is_atom(key)    -> acc && !!our_tree_h(value, strict) #R
-        is_binary(key)  -> acc && !!our_tree_h(value, strict) #R
-        true            -> false
-      end
-    end
-
-    if Enum.empty?(input) do
-      false
-    else
-      Enum.reduce(input, true, acc_chk_fn)
-    end
-  end
-
-  defp our_tree_h(input, true) do
-    cond do
-      is_binary(input)    -> true
-      is_boolean(input)   -> true
-      is_number(input)    -> true
-      true                -> false
-    end
-  end
-
-  defp our_tree_h(_input, _strict), do: true
 
 end

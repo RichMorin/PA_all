@@ -26,7 +26,7 @@ defmodule InfoToml.Parser do
 
   import Common, warn: false, only: [ii: 2]
 
-  alias Common.Types, as: CT
+  alias InfoToml.Types, as: ITT
 
   # Public functions
 
@@ -38,7 +38,7 @@ defmodule InfoToml.Parser do
   Returns an empty map if the file is missing or unparseable.
   """
 
-  @spec parse(String.t, atom) :: map
+  @spec parse(String.t, atom) :: ITT.item_maybe
 
   def parse(file_abs, atom_key) do
     trim_patt   = ~r{ ^ .* / PA_toml / }x
@@ -65,7 +65,8 @@ defmodule InfoToml.Parser do
 
   # Private functions
 
-  @spec add_offsets(String.t, map) :: map
+  @spec add_offsets(String.t, im) :: im
+    when im: ITT.item_map
 
   defp add_offsets(file_text, payload) do
   #
@@ -94,7 +95,7 @@ defmodule InfoToml.Parser do
     |> Enum.reduce(payload, offset_fn)
   end
 
-  @spec decode(String.t, atom) :: tuple
+  @spec decode(String.t, atom) :: {:ok, ITT.item_map} | {:error, any}
 
   defp decode(inp_str, atom_key) do
   #
@@ -107,7 +108,7 @@ defmodule InfoToml.Parser do
     end
   end
 
-  @spec filter({atom, any}, String.t) :: map #W
+  @spec filter({atom, any}, String.t) :: %{} | ITT.item_map
 
   defp filter({status, payload}, trim_path) do
   #
@@ -131,7 +132,8 @@ defmodule InfoToml.Parser do
     end
   end
 
-  @spec parse_h1(s, atom) :: {atom, CT.item_map|s} when s: String.t
+  @spec parse_h1(st, atom) :: {atom, ITT.item_map | st}
+    when st: String.t
 
   defp parse_h1(file_abs, atom_key) do
   #
@@ -153,7 +155,8 @@ defmodule InfoToml.Parser do
     end
   end
 
-  @spec parse_h2(s, atom) :: {atom, CT.item_map|s} when s: String.t
+  @spec parse_h2(st, atom) :: {atom, ITT.item_map | st}
+    when st: String.t
 
   defp parse_h2(file_text, atom_key) do
   #

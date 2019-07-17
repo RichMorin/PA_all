@@ -17,7 +17,7 @@ defmodule PhxHttpWeb.ItemView do
   import PhxHttpWeb.View.Address
   import PhxHttpWeb.View.Hide
 
-  alias PhxHttp.Types, as: PT
+  alias PhxHttp.Types, as: PHT
 
   # Public functions
 
@@ -30,7 +30,7 @@ defmodule PhxHttpWeb.ItemView do
       true
   """
 
-  @spec fmt_review(String.t) :: PT.safe_html #W
+  @spec fmt_review(String.t) :: PHT.safe_html
 
   def fmt_review(rev_key) do
     rev_item    = InfoToml.get_item(rev_key)

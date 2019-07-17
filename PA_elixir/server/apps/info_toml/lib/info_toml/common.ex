@@ -39,7 +39,8 @@ defmodule InfoToml.Common do
       "[Anova PC](Areas/Catalog/Hardware/Anova_PC)"
   """
 
-  @spec exp_prefix(s) :: s when s: String.t
+  @spec exp_prefix(st) :: st
+    when st: String.t
 
   def exp_prefix(inp_str) do
   #
@@ -61,7 +62,8 @@ defmodule InfoToml.Common do
   Get the name of an Area, given a key in it.
   """
 
-  @spec get_area_name(s) :: s when s: String.t
+  @spec get_area_name(st) :: st
+    when st: String.t
 
   def get_area_name(key) do
     pattern   = ~r{ ^ .* / ( \w+ ) / [^/]+ $ }x
@@ -76,7 +78,8 @@ defmodule InfoToml.Common do
       true
   """
 
-  @spec get_file_abs(s) :: s when s: String.t
+  @spec get_file_abs(st) :: st
+    when st: String.t
 
   def get_file_abs(file_rel), do: "#{ get_tree_abs() }/#{ file_rel }"
 
@@ -85,7 +88,8 @@ defmodule InfoToml.Common do
   alphabetical sharding directories (e.g., `"/A_/"`).
   """
 
-  @spec get_map_key(s) :: s when s: String.t
+  @spec get_map_key(st) :: st
+    when st: String.t
 
   def get_map_key(file_rel) do
     Regex.replace(~r{/[A-Z]_/}, file_rel, "/")

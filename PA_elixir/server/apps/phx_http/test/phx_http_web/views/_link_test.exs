@@ -7,4 +7,5 @@ defmodule PhxHttpWeb.LinkViewTest do
   import  PhxHttpWeb.View.Link
 
   doctest PhxHttpWeb.View.Link
+
 end

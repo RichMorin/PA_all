@@ -30,7 +30,8 @@ defmodule PhxHttpWeb.SearchView do
       %{a: 1, b: 2}
   """
 
-  @spec get_sub_map(map, s) :: map when s: String.t #W
+  @spec get_sub_map(map, st) :: map
+    when st: String.t #W - map
 
   def get_sub_map(kv_map, :_) do
 
@@ -60,7 +61,8 @@ defmodule PhxHttpWeb.SearchView do
       {"Areas/Catalog", 1}
   """
 
-  @spec result_header( [ {s, s, s} ] ) :: {s, integer} when s: String.t #W
+  @spec result_header( [ {st, st, st} ] ) :: {st, integer}
+    when st: String.t #W - unnamed tuple
 
   def result_header(results) do
 
@@ -81,7 +83,8 @@ defmodule PhxHttpWeb.SearchView do
       "/item?key=Areas/Catalog/People/Rich_Morin/main.toml"
   """
 
-  @spec result_url(s) :: s when s: String.t #W
+  @spec result_url(st) :: st
+    when st: String.t
 
   def result_url(key), do: "/item?key=#{ key }"
 

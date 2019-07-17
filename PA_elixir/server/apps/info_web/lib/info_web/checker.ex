@@ -63,6 +63,7 @@ defmodule InfoWeb.Checker do
     only: [ csv_split: 1, ii: 2, get_http_port: 0 ]
 
   alias InfoWeb.{External, Internal, Server, Snapshot}
+  alias InfoWeb.Types, as: IWT
 
   # Public functions
 
@@ -74,11 +75,13 @@ defmodule InfoWeb.Checker do
         bins:     %{
           <status>: [ { note, from_path, page_url }, ... ]
         }
-        forced:   [ <url>, ... ]
+        forced:   %{
+          <url> => true
+        }
       }
   """
 
-  @spec check_pages() :: map
+  @spec check_pages() :: IWT.result_map
 
   def check_pages() do
   #
@@ -93,11 +96,11 @@ defmodule InfoWeb.Checker do
     check_pages(url_base)
   end
 
-  @spec check_pages(String.t) :: map
+  @spec check_pages(String.t) :: IWT.result_map
 
   defp check_pages(url_base) do
 
-    base_list   = [ { :seen, "root page", nil, "/" } ]
+    base_list   = [ { :seen, "root page", "", "/" } ]
     forced      = get_forced()
 
     int_map     = base_list
@@ -122,7 +125,7 @@ defmodule InfoWeb.Checker do
 
   # Private functions
 
-  @spec get_forced() :: map
+  @spec get_forced() :: IWT.ok_map
 
   defp get_forced() do
   #
@@ -146,7 +149,7 @@ defmodule InfoWeb.Checker do
     (forced ++ ext_ok) |> Enum.reduce(%{}, reduce_fn)
   end
 
-  @spec mapper([tuple]) :: map
+  @spec mapper( [IWT.link_4] ) :: IWT.bins_map #W
 
   defp mapper(inp_list) do
   #

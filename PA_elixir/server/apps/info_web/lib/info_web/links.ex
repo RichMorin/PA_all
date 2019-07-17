@@ -18,13 +18,15 @@ defmodule InfoWeb.Links do
   This module handles checking (etc) of links for `InfoWeb.Internal`.
   """
 
+  alias InfoWeb.Types, as: IWT
+
   # Public functions
 
   @doc """
   Process link tuples from the parsed page (aka HTML tree).
   """
 
-  @spec do_links([tuple], String.t) :: [tuple]
+  @spec do_links(IWT.html_tree, String.t) :: [IWT.link_4]
 
   def do_links(html_tree, page_url) do
 
@@ -36,7 +38,7 @@ defmodule InfoWeb.Links do
 
   # Private functions
 
-  @spec check_link_elts([tuple], String.t) :: [tuple]
+  @spec check_link_elts(IWT.html_tree, String.t) :: [IWT.link_4]
 
   defp check_link_elts(link_elts, page_url) do
   #
@@ -74,9 +76,9 @@ defmodule InfoWeb.Links do
     end
 
     messages  = link_elts
-    |> Enum.map(check_fn)
-    |> Enum.filter( &(&1) )
-    |> Enum.uniq()
+    |> Enum.map(check_fn)       # [ <report>, nil, ... ]
+    |> Enum.reject(&is_nil/1)   # [ <report>, ... ]
+    |> Enum.uniq()              # remove duplicates
 
     if !Enum.empty?(messages) do
       msg_str   = Enum.join(messages, "\n  ")
@@ -88,7 +90,7 @@ defmodule InfoWeb.Links do
     link_elts
   end
 
-  @spec get_link_tuples([tuple], String.t) :: [tuple]
+  @spec get_link_tuples(IWT.html_tree, String.t) :: [IWT.link_4]
 
   defp get_link_tuples(link_elts, page_url) do
   #

@@ -10,4 +10,5 @@ defmodule PhxHttpWeb.HelperTest do
 
   doctest PhxHttpWeb.View.Hide
   doctest PhxHttpWeb.View.Tag
+
 end

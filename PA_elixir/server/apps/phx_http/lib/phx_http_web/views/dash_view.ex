@@ -36,7 +36,7 @@ defmodule PhxHttpWeb.DashView do
       true
   """
 
-  @spec get_avg_cnts(map) :: map #W
+  @spec get_avg_cnts(map) :: map #W - map
 
   def get_avg_cnts(main_cnt) do
 
@@ -99,7 +99,7 @@ defmodule PhxHttpWeb.DashView do
       nil
   """
 
-  @spec get_dup_vals( [tuple] ) :: map #W
+  @spec get_dup_vals( [tuple] ) :: map #W - map, tuple
 
   def get_dup_vals(kv_list) do
 
@@ -149,7 +149,7 @@ defmodule PhxHttpWeb.DashView do
       [ {"bar?", :bar, 999} ]
   """
 
-  @spec get_odd_vals(map) :: list #W
+  @spec get_odd_vals(map) :: list #W - list, map
 
   def get_odd_vals(kv_list) do
 
@@ -200,7 +200,7 @@ defmodule PhxHttpWeb.DashView do
       %{foo: 1, bar: 1}
   """
 
-  @spec get_total_cnts(list, map) :: map #W
+  @spec get_total_cnts(list, map) :: map #W - list, map
 
   def get_total_cnts(tag_types, kv_map) do
 
@@ -226,7 +226,8 @@ defmodule PhxHttpWeb.DashView do
 
   # Private functions
 
-  @spec get_dup_vals_h(t) :: t when t: [tuple] #W
+  @spec get_dup_vals_h(tl) :: tl
+    when tl: [tuple] #W - tuple
 
   defp get_dup_vals_h(tuples) do
   #

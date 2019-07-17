@@ -8,6 +8,7 @@ defmodule InfoTomlTest.IndexTree do
 
   setup_all do
     map   = InfoToml.get_map()
+
     { :ok,
       map:  map
     }

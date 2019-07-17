@@ -7,4 +7,5 @@ defmodule PhxHttpWeb.ClearViewTest do
   import  PhxHttpWeb.ClearView
 
   doctest PhxHttpWeb.ClearView
+
 end

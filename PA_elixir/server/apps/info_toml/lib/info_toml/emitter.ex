@@ -28,7 +28,7 @@ defmodule InfoToml.Emitter do
 
   import Common, only: [ ii: 2, keyss: 1]
 
-  alias Common.Types, as: CT
+  alias InfoToml.Types, as: ITT
 
   # Public functions
 
@@ -36,7 +36,7 @@ defmodule InfoToml.Emitter do
   Save a file of Chef control data, in TOML format.
   """
 
-  @spec chef_save(atom) :: s when s: String.t
+  @spec chef_save(atom) :: String.t
 
   def chef_save(target) do
   #
@@ -46,6 +46,7 @@ defmodule InfoToml.Emitter do
     toml_text   = get_chef_toml(target)
     base_path   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_chef" #K
     insert      = ".chef.#{ target }"
+
     emit_toml(base_path, insert, toml_text)
     |> ii(:chef_save) #T
   end
@@ -61,8 +62,8 @@ defmodule InfoToml.Emitter do
   subsystem decides to interleave the data, things could get ugly...
   """
 
-# @spec emit_toml(s, s, CT.toml_map) :: s when s: String.t
-  @spec emit_toml(s, s, map) :: s when s: String.t
+  @spec emit_toml(st, st, iodata) :: st
+    when st: String.t
 
   def emit_toml(base_path, insert, toml_text) do
 
@@ -90,7 +91,7 @@ defmodule InfoToml.Emitter do
         title       = 'Atril'
   """
 
-  @spec get_chef_toml(atom) :: [String.t]
+  @spec get_chef_toml(atom) :: iolist
 
   def get_chef_toml(target) do
 
@@ -144,7 +145,7 @@ defmodule InfoToml.Emitter do
   equal signs (=) and use `gi_bases` to control the order of presentation.
   """
 
-  @spec get_item_toml([ [atom] ], map) :: [String.t]
+  @spec get_item_toml([ [atom] ], ITT.item_map) :: iolist
 
   def get_item_toml(gi_bases, item_map) do
 
@@ -195,7 +196,8 @@ defmodule InfoToml.Emitter do
 
   # Private Functions
 
-  @spec fmt_leaf(s, s) :: s when s: String.t
+  @spec fmt_leaf(st, st) :: st
+    when st: String.t
 
   defp fmt_leaf(key_str, leaf_val) do
   #
@@ -222,7 +224,8 @@ defmodule InfoToml.Emitter do
     key_etc <> val_etc
   end
 
-  @spec get_file_path(s, s) :: s when s: String.t
+  @spec get_file_path(st, st) :: st
+    when st: String.t
 
   defp get_file_path(base_path, insert) do
   #
@@ -256,7 +259,7 @@ defmodule InfoToml.Emitter do
 #   |> ii("file_path") #T
   end
 
-  @spec reorder_bases(l) :: l when l: [String.t]
+  @spec reorder_bases(iolist) :: iolist
 
   defp reorder_bases(inp_bases) do
   #

@@ -27,11 +27,12 @@ defmodule InfoToml.CheckItem do
   """
 
   import Common,
-    only: [ csv_split: 1, get_http_port: 0, leaf_paths: 1, ssw: 2 ]
+    only: [ csv_split: 1, get_http_port: 0, ssw: 2 ]
 
   import InfoToml.Schemer, only: [ get_schema: 2 ]
+  import InfoToml.Trees, only: [ leaf_paths: 1 ]
 
-  alias Common.Types, as: CT
+  alias InfoToml.Types, as: ITT
 
   # Public functions
 
@@ -43,7 +44,7 @@ defmodule InfoToml.CheckItem do
   - omit a key that is required by the relevant schema
   - have a value that fails some validity check
   """
-  @spec check(CT.item_map, String.t, CT.schema_map) :: boolean
+  @spec check(ITT.item_map, String.t, ITT.schema_map) :: bool
 
   def check(inp_map, file_key, schema_map) do
     allowed   = check_allowed( inp_map, file_key, schema_map)
@@ -57,7 +58,7 @@ defmodule InfoToml.CheckItem do
 
 # Private functions
 
-  @spec check_allowed(CT.item_map, String.t, CT.schema_map) :: boolean
+  @spec check_allowed(ITT.item_map, String.t, ITT.schema_map) :: bool
 
   defp check_allowed(inp_map, file_key, schema_map) do
   #
@@ -87,7 +88,7 @@ defmodule InfoToml.CheckItem do
     end
   end
 
-  @spec check_publish(CT.item_map, String.t, CT.schema_map) :: boolean
+  @spec check_publish(ITT.item_map, String.t, ITT.schema_map) :: bool
 
   defp check_publish(inp_map, file_key, _schema_map) do
   #
@@ -119,7 +120,7 @@ defmodule InfoToml.CheckItem do
     end
   end
 
-  @spec check_refs_ok(map, String.t) :: boolean
+  @spec check_refs_ok(map, String.t) :: bool
 
   defp check_refs_ok(inp_map, file_key) do
   #
@@ -165,7 +166,7 @@ defmodule InfoToml.CheckItem do
     end
   end
 
-  @spec check_required(map, String.t, CT.schema_map) :: boolean
+  @spec check_required(map, String.t, ITT.schema_map) :: bool
 
   defp check_required(inp_map, file_key, schema_map) do
   #
@@ -200,7 +201,7 @@ defmodule InfoToml.CheckItem do
     end
   end
 
-  @spec check_values(CT.item_map, String.t) :: boolean
+  @spec check_values(ITT.item_map, String.t) :: bool
 
   defp check_values(inp_map, file_key) do
   #
@@ -235,7 +236,7 @@ defmodule InfoToml.CheckItem do
       for check_id <- [1, 2] do
         checks_fn.(check_id, gi_path, inp)
       end
-      |> Enum.filter( &(&1) )
+      |> Enum.reject(&is_nil/1)
     end
 
     result = check_values_h(inp_map, check_fn, [])
@@ -248,8 +249,8 @@ defmodule InfoToml.CheckItem do
     Enum.reduce(result, true, err_chk_fn)
   end
 
-  @spec check_values_h(map|s, (s, list -> any), list) ::
-    [tuple] when s: String.t #W
+  @spec check_values_h(map | st, (st, list -> any), list) :: [tuple]
+    when st: String.t #W
 
   defp check_values_h(inp_val, check_fn, gi_rev) do
   #

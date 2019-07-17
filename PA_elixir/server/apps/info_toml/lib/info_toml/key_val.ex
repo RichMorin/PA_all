@@ -30,13 +30,16 @@ defmodule InfoToml.KeyVal do
 
   import Common, warn: false, only: [ ii: 2, keyss: 1, sort_by_elem: 2 ]
 
+  alias InfoToml.Types, as: ITT
+
   # Public functions
 
   @doc """
   Add a map of key/value information.
   """
 
-  @spec add_kv_info(map, map, atom) :: map
+  @spec add_kv_info(ka, ITT.inbt_map, atom) :: ka
+    when ka: ITT.kv_all
 
   def add_kv_info(context, inbt_map, subset) do
   #
@@ -48,9 +51,9 @@ defmodule InfoToml.KeyVal do
 
   # Private functions
 
-  @spec get_kv_cnts(map) :: map
+  @spec get_kv_cnts(ITT.inbt_map) :: ITT.kv_cnts
 
-  defp get_kv_cnts(inbt_map) do   # ToDo - remove this because unused?
+  defp get_kv_cnts(inbt_map) do
   #
   # Get a map of usage counts by tag type.
 
@@ -81,6 +84,7 @@ defmodule InfoToml.KeyVal do
       |> Enum.count()
 
       Map.put(acc, key, count)
+#     |> ii(:kv_cnts) #T
     end
 
     inbt_map                        # %{ "..." => #MapSet<[...]>, ... }
@@ -91,7 +95,7 @@ defmodule InfoToml.KeyVal do
 #   |> ii("kv_cnts") #T
   end
 
-  @spec get_kv_descs(atom) :: map
+  @spec get_kv_descs(atom) :: ITT.kv_descs
 
   defp get_kv_descs(subset) do
   #
@@ -121,7 +125,7 @@ defmodule InfoToml.KeyVal do
   # Get a map of information on typed tags (kv).  If called without `inbt_map`,
   # it gets a copy on its own.  (`get_kv_info/1` is currently unused.)
 
-  @spec get_kv_info(atom) :: map
+  @spec get_kv_info(atom) :: ITT.kv_info
 
   defp get_kv_info(subset) do
     [:index, :id_nums_by_tag]
@@ -129,7 +133,7 @@ defmodule InfoToml.KeyVal do
     |> get_kv_info(subset)
   end
   
-  @spec get_kv_info(map, atom) :: map
+  @spec get_kv_info(ITT.inbt_map, atom) :: ITT.kv_info
 
   defp get_kv_info(inbt_map, subset) do
 
@@ -160,7 +164,7 @@ defmodule InfoToml.KeyVal do
     }
   end
 
-  @spec get_kv_list(map) :: [tuple]
+  @spec get_kv_list(ITT.inbt_map) :: [ITT.kv_tuple]
 
   defp get_kv_list(inp_map) do
   #
@@ -173,7 +177,7 @@ defmodule InfoToml.KeyVal do
     |> get_tuples(inp_map)          # [ { :<type>, "<tag>", <cnt> }, ... ]
   end
 
-  @spec get_kv_map([ String.t ]) :: map
+  @spec get_kv_map( [String.t] ) :: ITT.kv_map #W
 
   defp get_kv_map(kv_list) do
   #
@@ -196,11 +200,12 @@ defmodule InfoToml.KeyVal do
     |> Enum.reduce(%{}, reduce_fn)
   end
 
-  @spec get_tuples([s], map) :: [{atom, s, integer}] when s: String.t
+  @spec get_tuples([String.t], map) :: [ITT.kv_tuple]
 
   defp get_tuples(tags, tag_map) do
   #
-  # Look up a list of tags in `tag_map`.  Return a descriptive list of tuples.
+  # Look up a list of typed tags (e.g., "foo:bar") in `tag_map`.
+  # Return a descriptive list of tuples.
 
     tuple_fn  = fn key ->
     #
@@ -216,7 +221,8 @@ defmodule InfoToml.KeyVal do
     Enum.map(tags, tuple_fn)
   end
 
-  @spec get_typed( [ s ] ) :: [ s ] when s: String.t
+  @spec get_typed( [st] ) :: [st]
+    when st: String.t
 
   defp get_typed(input) do
   #

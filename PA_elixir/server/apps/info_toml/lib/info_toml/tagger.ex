@@ -12,6 +12,7 @@ defmodule InfoToml.Tagger do
   """
 
   alias InfoToml.KeyVal
+  alias InfoToml.Types, as: ITT
 
   # Public functions
 
@@ -29,7 +30,7 @@ defmodule InfoToml.Tagger do
       }
   """
 
-  @spec get_tag_info() :: map
+  @spec get_tag_info() :: ITT.kv_all
 
   def get_tag_info() do
   #

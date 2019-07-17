@@ -4,7 +4,7 @@ defmodule InfoTomlTest.LoadFile do
 
   use ExUnit.Case
 
-  import Common, only: [ our_tree: 2 ]
+  import InfoToml.Trees, only: [ our_tree: 2 ]
 
   alias InfoToml.{Common, LoadFile, Schemer}
 

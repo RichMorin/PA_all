@@ -15,13 +15,15 @@ defmodule PhxHttpWeb.Cont.Make do
 
   import Common, only: [ csv_split: 1 ]
 
+  alias PhxHttp.Types, as: PHT
+
   # Public functions
 
   @doc """
   This function collects information on software packages.
   """
 
-  @spec packages() :: map #W
+  @spec packages() :: PHT.pkg_map
 
   def packages() do
 
@@ -59,7 +61,8 @@ defmodule PhxHttpWeb.Cont.Make do
 
   # Private functions
 
-  @spec package(tuple) :: map #W
+  @spec package({st, st, st}) :: PHT.pkg_info
+    when st: String.t
 
   defp package {main_key, title, precis} do
   #

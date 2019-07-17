@@ -13,8 +13,6 @@ defmodule InfoTomlTest.KeyVal do
     { :ok, ndx: ndx }
   end
 
-  @spec do_tests(tuple, atom, atom) :: boolean #W - not getting checked!
-
   defp do_tests(state, subset, inp_key) do
     context     = %{tracing: false}
     inbt_map    = state.ndx.id_nums_by_tag

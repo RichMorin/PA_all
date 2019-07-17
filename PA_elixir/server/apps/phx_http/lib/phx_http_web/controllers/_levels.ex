@@ -25,12 +25,12 @@ defmodule PhxHttpWeb.Cont.Levels do
   import PhxHttpWeb.Cont.Zoo
   import Plug.Conn
 
-  alias Common.Types,  as: CT
-  alias PhxHttp.Types, as: PT
+  alias InfoToml.Types, as: ITT
 
   # Public functions
 
-  @spec show_h(PT.conn, integer, String.t) :: PT.conn #W
+  @spec show_h(pc, 1..3, String.t) :: pc
+    when pc: Plug.Conn.t
 
   @doc """
   Summarize the site's areas at various levels.
@@ -115,7 +115,7 @@ defmodule PhxHttpWeb.Cont.Levels do
 
   # Private Functions
 
-  @spec get_tidy_tuples(String.t) :: list #W
+  @spec get_tidy_tuples(String.t) :: [ITT.item_tuple]
 
   defp get_tidy_tuples(key) do
   #
@@ -136,7 +136,8 @@ defmodule PhxHttpWeb.Cont.Levels do
     |> sort_by_elem(1, :dc)
   end
 
-  @spec show_h3(PT.conn, s, s, CT.item_map) :: PT.conn when s: String.t #W
+  @spec show_h3(pc, st, st, ITT.item_map) :: pc
+    when pc: Plug.Conn.t, st: String.t #W
 
   defp show_h3(conn, name, key, item) do
   #

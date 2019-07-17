@@ -16,6 +16,7 @@ defmodule InfoToml.CheckTree do
   import Common, only: [ csv_split: 1, ii: 2, sort_by_elem: 3, ssw: 2 ]
 
   alias InfoToml.Schemer
+  alias InfoToml.Types, as: ITT
 
   # Public functions
 
@@ -23,7 +24,7 @@ defmodule InfoToml.CheckTree do
   Do some global sanity checks on a `toml_map` candidate.
   """
   
-  @spec check_all(map) :: {atom, [String.t] } #W
+  @spec check_all(map) :: {atom, [String.t, ...]}
 
   def check_all(toml_map) do
     results   = %{}
@@ -51,7 +52,7 @@ defmodule InfoToml.CheckTree do
   Check for problematic duplication of `id_str` values.
   """
   
-  @spec check_id_str(map) :: {atom, String.t } #W
+  @spec check_id_str(ITT.toml_map) :: {atom, String.t}
 
   def check_id_str(toml_map) do
 
@@ -111,7 +112,7 @@ defmodule InfoToml.CheckTree do
   Check for missing reference items.
   """
   
-  @spec check_refs(map) :: {atom, String.t} #W
+  @spec check_refs(ITT.toml_map) :: {atom, String.t}
 
   def check_refs(toml_map) do
   #

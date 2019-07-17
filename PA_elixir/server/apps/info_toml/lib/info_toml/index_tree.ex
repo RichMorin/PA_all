@@ -29,9 +29,10 @@ defmodule InfoToml.IndexTree do
   prevent IEx from displaying ID lists as strings.
   """
 
-  import Common, only: [ csv_split: 1, keyss: 1 ]
+  import Common, warn: false,
+    only: [ csv_split: 1, ii: 2, keyss: 1 ]
 
-  alias Common.Types, as: CT
+  alias InfoToml.Types, as: ITT
 
   # Public functions
 
@@ -39,9 +40,10 @@ defmodule InfoToml.IndexTree do
   Create the set of indexes.
   """
 
-  @spec index(map) :: CT.ndx_map
+  @spec index(ITT.toml_map) :: ITT.ndx_map
 
   def index(toml_map) do
+
     ndx     = %{
       id_num_by_key:    %{},
       key_by_id_num:    %{},
@@ -102,13 +104,14 @@ defmodule InfoToml.IndexTree do
 
   # Private functions
 
-  @spec get_tag_info(atom, CT.item_map) :: { atom, [ String.t ] }
+  @spec get_tag_info(atom, ITT.item_map) :: {atom, [String.t, ...]}
 
   defp get_tag_info(tag_type, item) do
   #
   # Get a list of (split and trimmed) tag strings.
 
     gi_path   = [:meta, :tags, tag_type]
+
     tag_strs  = item                    # %{ meta: %{ tags: %{ ? }, ? } }
     |> get_in(gi_path)                  # [ " foo, bar ", ? ]
     |> csv_split                        # [ "foo", "bar", ? ]
@@ -116,7 +119,7 @@ defmodule InfoToml.IndexTree do
     {tag_type, tag_strs}
   end
 
-  @spec get_tags_info(CT.item_map) :: [ {atom, [ String.t ] } ]
+  @spec get_tags_info(ITT.item_map) :: [ {atom, [String.t, ...]} ]
 
   defp get_tags_info(item) do
   #
@@ -136,7 +139,8 @@ defmodule InfoToml.IndexTree do
     |> Enum.map(map_fn)                 # [ {:aaa, ["foo", "bar"]}, ... ]
   end
 
-  @spec put_ndx(CT.ndx_map, atom, String.t, integer) :: CT.ndx_map
+  @spec put_ndx(nm, atom, String.t, integer) :: nm
+    when nm: ITT.ndx_map
 
   defp put_ndx(ndx, ndx_type, tag_val, id_num) do
   #

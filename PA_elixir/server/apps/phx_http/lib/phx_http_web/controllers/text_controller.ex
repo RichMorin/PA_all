@@ -15,13 +15,16 @@ defmodule PhxHttpWeb.TextController do
 
   use PhxHttpWeb, :controller
 
+  alias PhxHttp.Types, as: PHT
+
   # Public functions
 
   @doc """
   This function generates the Text display page.
   """
 
-  @spec show(Plug.Conn.t(), any) :: Plug.Conn.t() #W
+  @spec show(pc, PHT.params) :: pc
+    when pc: Plug.Conn.t
 
   def show(conn, params) do
     key   = params["key"] || "_text/home.toml"

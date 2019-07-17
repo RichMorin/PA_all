@@ -17,6 +17,8 @@ defmodule PhxHttpWeb.Cont.Zoo do
 
   import Phoenix.Controller
 
+  alias InfoToml.Types, as: ITT
+
   # Public functions
 
   @doc """
@@ -28,8 +30,8 @@ defmodule PhxHttpWeb.Cont.Zoo do
   - `:title`      - page title string
   """
 
-  @spec base_assigns(pc, atom, s, map|nil, s|nil) :: pc
-    when pc: Plug.Conn.t(), s: String.t #W
+  @spec base_assigns(pc, atom, st, im, st | nil) :: pc
+    when im: ITT.item_maybe, pc: Plug.Conn.t, st: String.t
 
   def base_assigns(conn, page_type, title, item \\ nil, key \\ nil) do
     import Plug.Conn, only: [ assign: 3 ]
@@ -46,7 +48,8 @@ defmodule PhxHttpWeb.Cont.Zoo do
   It sets up an error flash and redirects to the home page.
   """
 
-  @spec key_ng(Plug.Conn.t(), String.t) :: Plug.Conn.t() #W
+  @spec key_ng(pc, String.t) :: pc
+    when pc: Plug.Conn.t #W
 
   def key_ng(conn, key) do
     message = "That key (#{ key }) was not recognized."
@@ -58,7 +61,8 @@ defmodule PhxHttpWeb.Cont.Zoo do
   It sets up an error flash and redirects to the home page.
   """
 
-  @spec nastygram(Plug.Conn.t(), String.t) :: Plug.Conn.t() #W
+  @spec nastygram(pc, String.t) :: pc
+    when pc: Plug.Conn.t #W
 
   def nastygram(conn, message) do
     IO.puts "!!!> " <> message

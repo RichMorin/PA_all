@@ -13,19 +13,19 @@ defmodule InfoWeb do
 
   @doc """
   Crawl the web site, checking any links found on it.
-  ([`...Checker.check_pages/0`](InfoWeb.Checker.check_pages.html#check_pages/0))
+  ([`Checker`](InfoWeb.Checker.check_pages.html#check_pages/0))
   """
   defdelegate check_pages(),                        to: Checker
 
   @doc """
   Return the data structure for the latest snapshot.
-  ([`...Server.get_snap/0`](InfoWeb.Server.get_snap.html#get_snap/0))
+  ([`Server`](InfoWeb.Server.get_snap.html#get_snap/0))
   """
   defdelegate get_snap(),                           to: Server
 
   @doc """
   Reload from the snapshot file.
-  ([`...Server.reload/0`](InfoWeb.Server.reload.html#reload/0))
+  ([`Server`](InfoWeb.Server.reload.html#reload/0))
   """
   defdelegate reload(),                             to: Server
 

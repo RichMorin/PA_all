@@ -26,7 +26,8 @@ defmodule InfoTomlTest.CheckItem do
       }
     }
 
-    { :ok,
+    {
+      :ok,
       min_map:  min_map,
       schemas:  schemas
     }
