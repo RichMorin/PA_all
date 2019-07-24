@@ -84,7 +84,7 @@ defmodule InfoToml.AccessKeys do
 
   @spec get_area_names() :: [String.t, ...]
 
-  def get_area_names() do #K - unused
+  def get_area_names() do #!K - unused
 
     abridge_fn  = fn key ->
     #
@@ -114,7 +114,7 @@ defmodule InfoToml.AccessKeys do
   @spec get_area_names(st) :: [st, ...]
     when st: String.t
 
-  def get_area_names(area) do #K - unused
+  def get_area_names(area) do #!K - unused
   #
   # Given "Content", returns [ "HowTos", ... ]
 
@@ -210,7 +210,7 @@ defmodule InfoToml.AccessKeys do
         |> MapSet.to_list()       # [1024, 1042, ...]
         |> Enum.map(map_fn)       # ["Catalog/...", ...]
       else
-        [] #K Passing back an empty array isn't a big win over crashing...
+        [] #!K Passing back an empty array isn't a big win over crashing...
       end
     end
 

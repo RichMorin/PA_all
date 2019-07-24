@@ -59,9 +59,9 @@ defmodule InfoWeb.Internal do
   """
 
   @spec get_int_list(tl, String.t) :: tl
-    when tl: [IWT.link_4]
+    when tl: [IWT.link_work]
 
-  def get_int_list(inp_list, url_base) do #D
+  def get_int_list(inp_list, url_base) do #!D
   #
   # Wrapper for get_int_list/3.
 
@@ -71,7 +71,7 @@ defmodule InfoWeb.Internal do
   # Private functions
 
   @spec add_local(String.t, tl, map) :: tl
-    when tl: [IWT.link_4]
+    when tl: [IWT.link_work]
 
   defp add_local(url_base, inp_urls, known) do
   #
@@ -99,7 +99,7 @@ defmodule InfoWeb.Internal do
     |> discard(url_base)
   end
 
-  @spec add_local_h(st, st, st) :: [IWT.link_4]
+  @spec add_local_h(st, st, st) :: [IWT.link_work]
     when st: String.t
 
   defp add_local_h(from_url, page_url, url_base) do
@@ -136,7 +136,7 @@ defmodule InfoWeb.Internal do
   end
 
   @spec discard(tl, String.t) :: tl
-    when tl: [IWT.link_4]
+    when tl: [IWT.link_work]
 
   defp discard(tuples, url_base) do
   #
@@ -176,7 +176,7 @@ defmodule InfoWeb.Internal do
   end
 
   @spec get_int_list(tl, String.t, IWT.ok_map) :: tl
-    when tl: [IWT.link_4]
+    when tl: [IWT.link_work]
 
   defp get_int_list(inp_list, url_base, known) do
   #
@@ -207,7 +207,7 @@ defmodule InfoWeb.Internal do
     if Enum.empty?(todo_list) do
       out_list
     else
-      get_int_list(out_list, url_base, known) #R
+      get_int_list(out_list, url_base, known) #!R
     end
     |> Enum.reject(seen_fn)
   end

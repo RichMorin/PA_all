@@ -70,7 +70,7 @@ defmodule PhxHttpWeb.View.Hide do
   #
   # Render the appropriate `hs_*.html` file.
 
-    t_str   = inp_str <> ", ???" #K
+    t_str   = inp_str <> ", ???" #!K
     titles  = csv_split(t_str)
 
     assigns = %{

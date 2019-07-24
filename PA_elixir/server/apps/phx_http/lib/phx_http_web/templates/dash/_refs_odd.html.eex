@@ -27,7 +27,7 @@
       <table class="dash-ovwt tablesorter">
         <thead>
           <tr>
-            <th class="dash-ovwt-val">Ref value</th>
+            <th class="dash-ovwt-val" >Ref value</th>
             <th class="dash-ovwt-list">Ref type</th>
             <th class="dash-ovwt-list">Example</th>
           </tr>
@@ -36,10 +36,10 @@
         <tbody>
           <%= for odd_val <- odd_vals do %>
             <%
-              {ref_val, ref_type, item_key}  = odd_val
+              {ref_type, ref_val, item_key}  = odd_val
             %>
             <tr>
-              <td class="dash-ovwt-val"><%= ref_val  %></td>
+              <td class="dash-ovwt-val" ><%= ref_val  %></td>
               <td class="dash-ovwt-list"><%= ref_type %></td>
               <td class="dash-ovwt-list"><%= item_key %></td>
             </tr>

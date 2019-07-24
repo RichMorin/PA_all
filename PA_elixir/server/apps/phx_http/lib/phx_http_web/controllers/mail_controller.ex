@@ -44,7 +44,7 @@ defmodule PhxHttpWeb.MailController do
 
   def feed_post(conn, params) do
 
-    feed_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_feed" #K
+    feed_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_feed" #!K
     feedback    = params["PA.message"]
     prev_url    = params["url"] || "???"
 

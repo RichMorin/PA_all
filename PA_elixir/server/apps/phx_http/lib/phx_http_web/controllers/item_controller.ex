@@ -48,7 +48,7 @@ defmodule PhxHttpWeb.ItemController do
   # Private Functions
 
   @spec show_h(pc, nil) :: pc
-    when pc: Plug.Conn.t #W
+    when pc: Plug.Conn.t
 
   defp show_h(conn, nil) do
   #

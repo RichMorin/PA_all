@@ -76,7 +76,7 @@ defmodule InfoToml.CheckTree do
     # Return true for make, review, and schema files.
 
       force   =
-#       key =~ ~r{ / Clever_Cutter / }x ||  #D uncomment to enable
+#       key =~ ~r{ / Clever_Cutter / }x ||  #!D uncomment to enable
         false
 
       by_key  =
@@ -102,7 +102,7 @@ defmodule InfoToml.CheckTree do
     else
       message = "problematic duplication(s) of id_str"
       IO.puts ">>> #{ message }\n"
-      ii(dup_list, "dup_list") #T
+      ii(dup_list, "dup_list") #!T
       IO.puts ""
       { :error, message }
     end
@@ -116,7 +116,7 @@ defmodule InfoToml.CheckTree do
 
   def check_refs(toml_map) do
   #
-  #K This function uses a local copy of the lookup list (pre_list)
+  #!K This function uses a local copy of the lookup list (pre_list)
   # in order to avoid a cyclic dependency with exp_prefix/1.
 
     pre_list  = Schemer.get_prefix() |> Map.to_list()
@@ -186,7 +186,7 @@ defmodule InfoToml.CheckTree do
     else
       message = "reference to undefined item"
       IO.puts ">>> #{ message }\n"
-      ii(undef_list, :undef_list) #T
+      ii(undef_list, :undef_list) #!T
       IO.puts ""
       { :error, message }
     end

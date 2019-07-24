@@ -62,7 +62,7 @@ defmodule PhxHttpWeb.EditController do
 
     gi_pairs    = get_gi_pairs(params)
     gi_bases    = get_gi_bases(gi_pairs)
-    item_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_items" #K
+    item_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_items" #!K
     item_key    = params["key"]
     item_map    = get_item_map(gi_bases, gi_pairs)
     item_toml   = InfoToml.get_item_toml(gi_bases, item_map)

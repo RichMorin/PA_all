@@ -7,10 +7,10 @@ defmodule InfoFiles.MixProject do
   # Public functions
 
   def project() do
-#   IO.puts "InfoFiles.MixProject.project: Mix.env() == #{ Mix.env() }" #T
+#   IO.puts "InfoFiles.MixProject.project: Mix.env() == #{ Mix.env() }" #!T
 
     if !System.get_env("mix_env") do
-      System.put_env("mix_env", "#{ Mix.env() }") #K
+      System.put_env("mix_env", "#{ Mix.env() }") #!K
     end
 
     [

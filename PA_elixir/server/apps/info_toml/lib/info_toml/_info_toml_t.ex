@@ -10,6 +10,24 @@ defmodule InfoToml.Types do
   alias Common.Types, as: CT
 
   @typedoc """
+  The `check_fn` is used to check each item.
+  """
+  @type check_fn  :: (st, [ {atom, item_part} ] -> [ {st, CT.gi_path} ] )
+
+
+  @typedoc """
+  The `check_tuple` contains error information about an item.
+  """
+  @type check_tuple  :: { st, CT.gi_path }
+
+
+  @typedoc """
+  An `id_map` is a map of `id_set` collections, indexed by `<type>:<tag>`.
+  """
+  @type id_map :: %{ st => id_set }
+
+
+  @typedoc """
   An `id_num` is an ID number.  Because they are commonly stored in lists,
   and we don't want these to be displayed as charlists, we need to start
   the values at 256.  In practice, we start the values at 1000 to make them
@@ -17,7 +35,7 @@ defmodule InfoToml.Types do
 
       %{ "features:ray-tracing" => #MapSet<[1042, ...]>, ... }
   """
-  #K - This assumes that we'll never need more than 1M values.
+  #!K - This assumes that we'll never need more than 1M values.
   @type id_num  :: 1_000..999_999 
 
 
@@ -30,7 +48,16 @@ defmodule InfoToml.Types do
   # item_map, et al
 
   @typedoc """
-  An `item_map` is a tree of maps, with strings at the leaves.
+  An `inbt_map` is a map that indexes MapSets of id_num values by tag.
+
+      %{ "features:ray-tracing" => #MapSet<[1042, ...]>, ... }
+  """
+  @type inbt_map :: %{ st => MapSet.t(id_num) } #!K
+
+
+  @typedoc """
+  An `item_map` is a tree of maps, defining an item.
+  The keys are atoms; the leaf nodes are strings.
   """
   @type item_map :: %{ CT.map_key => item_part }
 
@@ -44,7 +71,7 @@ defmodule InfoToml.Types do
   @typedoc """
   The `item_part` type implements the `item_map` tree structure.
   """
-  @type item_part :: %{ CT.map_key => item_part | st } #R
+  @type item_part :: %{ CT.map_key => item_part | st } #!R
 
 
   @typedoc """
@@ -61,18 +88,10 @@ defmodule InfoToml.Types do
   @type item_tuple :: {st, st, st}
 
 
-  @typedoc """
-  An `inbt_map` is a map that indexes MapSets of id_num values by tag.
-
-      %{ "features:ray-tracing" => #MapSet<[1042, ...]>, ... }
-  """
-  @type inbt_map :: %{ st => MapSet.t(id_num) } #K
-
-
   # kv_all, et al
 
   @typedoc """
-  The `kv_all` type contains information on usage of key/value trees.
+  The `kv_all` type aggregates information on key/value trees.
   """
   @type kv_all ::
     %{
@@ -119,13 +138,14 @@ defmodule InfoToml.Types do
 
 
   @typedoc """
-  The `kv_map` type contains information on usage of key/value trees
-  (e.g., counts of types by tags).
+  The `kv_map` type is a two-level map of information on usage
+  of key/value trees (e.g., counts of types by tags).
   """
   @type kv_map :: %{ atom => %{ st => nni } }
 
+
   @typedoc """
-  The `kv_tuple` type is used to construct the `kv_list`.
+  The `kv_tuple` type is used to construct the `kv_map`.
 
       { <key>, <val>, <cnt> }
   """
@@ -168,11 +188,17 @@ defmodule InfoToml.Types do
 
 
   @typedoc """
-  A `toml_map` is a map of `item_map` structures, etc.
-  (e.g., loaded from a tree of TOML files)
+  The `toml_map` contains all information harvested from the TOML file tree.
+  The `:items` entry is harvested from the item files.
+  The `:index` entry is generated from the `:items` entry.
+  The `:prefix` entry is harvested from the prefix file.
   """
-# @type toml_map :: %{ atom: map } #W
-  @type toml_map :: map #W
+  @type toml_map ::
+    %{
+      optional(:index)  =>  %{ atom   => ndx_map  },
+      optional(:items)  =>  %{ st     => item_map },
+      optional(:prefix) =>  %{ atom   => st       }
+    }
 
   # Private types
 

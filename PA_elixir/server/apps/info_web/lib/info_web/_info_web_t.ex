@@ -7,7 +7,6 @@ defmodule InfoWeb.Types do
   It doesn't contain any functions, just attributes.
   """
 
-
   # result_map, et al
 
   @typedoc """
@@ -17,13 +16,12 @@ defmodule InfoWeb.Types do
         <status>: [ { note, from_path, page_url }, ... ]
       }
   """
-  @type bins_map :: %{ atom => [link_3] }
+  @type bins_map :: %{ atom => [link_out] }
 
 
   @typedoc """
-  The `html_tree` is either an HTML tuple or a list of them.
+  The `html_tree` is either an HTML tuple or a (possibly empty) list of them.
   """
-# @type html_tree :: html_tuple | [html_tuple, ...] #W - breaks
   @type html_tree :: html_tuple | [html_tuple]
 
 
@@ -37,19 +35,19 @@ defmodule InfoWeb.Types do
 
 
   @typedoc """
-  The `link_3` tuple contains output information on an HTML link:
+  The `link_out` tuple contains output information on an HTML link:
 
       { note, from_path, page_url }
   """
-  @type link_3 :: {st, st, st}
+  @type link_out :: {st, st, st}
 
 
   @typedoc """
-  The `link_4` tuple contains working information on an HTML link:
+  The `link_work` tuple contains working information on an HTML link:
 
       { status, note, from_path, page_url }
   """
-  @type link_4 :: {atom, st, st, st}
+  @type link_work :: {atom, st, st, st}
 
 
   @typedoc """
@@ -81,24 +79,33 @@ defmodule InfoWeb.Types do
   The `snap_map` contains snapshot information on HTML links:
 
       %{
-        "bins" => %{
-          "ext_ng"  => [ [ "<url>", "<from>", "<status>" ], ... ],
-          "int_ng"  => [ [ "<url>", "<from>", "<status>" ], ... ]
+        bins: %{
+          ext_ng:   [ [ "<url>", "<from>", "<status>" ], ... ],
+          int_ng:   [ [ "<url>", "<from>", "<status>" ], ... ]
         },
-        "counts" => %{
-          "ext"     => %{ "<site>"  => <count>, ... },
-          "int"     => %{ "<route>" => <count>, ... }
+        counts; %{
+          ext:      %{ "<site>"  => <count>, ... },
+          int:      %{ "<route>" => <count>, ... }
         },
-        "raw" => %{
-          "ext_ok"  => [ "<url>", ... ]
+        forced: %{
+          "<url>" => true
+        },
+        raw: %{
+          ext_ok:   [ "<url>", ... ]
         }
       }
   """
-  @type snap_map :: %{ st => %{ st => list | map } }
+  @type snap_map ::
+    %{
+      :bins               => %{ atom => [ {st, st, st} ] },
+      optional(:counts)   => %{ st => nni  },
+      :forced             => %{ st => true },
+      optional(:raw)      => %{ st => [st] },
+    }
 
   # Private types
 
-# @typep nni      :: non_neg_integer
+  @typep nni      :: non_neg_integer
   @typep st       :: String.t
 
 end

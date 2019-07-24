@@ -51,7 +51,7 @@ defmodule InfoFiles.CntCode do
   - `:tracing`      - boolean control for tracing
   """
 
-  @spec get_code_info(String.t) :: %{ atom => any }
+  @spec get_code_info(String.t) :: IFT.info_map
 
   def get_code_info(tree_base) do
 

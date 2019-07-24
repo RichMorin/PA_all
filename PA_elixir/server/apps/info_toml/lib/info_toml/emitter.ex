@@ -44,11 +44,11 @@ defmodule InfoToml.Emitter do
   # iex> InfoToml.Emitter.chef_save(:debian)
 
     toml_text   = get_chef_toml(target)
-    base_path   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_chef" #K
+    base_path   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_chef" #!K
     insert      = ".chef.#{ target }"
 
     emit_toml(base_path, insert, toml_text)
-    |> ii(:chef_save) #T
+    |> ii(:chef_save) #!T
   end
 
   @doc """
@@ -236,7 +236,7 @@ defmodule InfoToml.Emitter do
   #
   # Note: If the code cannot create the sharding directory (for some reason
   # other than it already existing), we simply prints an error message
-  # to the console and proceed. #K
+  # to the console and proceed. #!K
 
     iso8601   = DateTime.utc_now() |> DateTime.to_iso8601()
     dir_name  = String.replace(iso8601, ~r{ : .+ $ }x, "")
@@ -256,7 +256,7 @@ defmodule InfoToml.Emitter do
     end
 
     "#{ dir_path }/#{ iso8601 }#{ insert }.toml"
-#   |> ii("file_path") #T
+#   |> ii("file_path") #!T
   end
 
   @spec reorder_bases(iolist) :: iolist

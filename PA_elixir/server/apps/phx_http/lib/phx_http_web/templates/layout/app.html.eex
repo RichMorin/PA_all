@@ -25,8 +25,8 @@
     edit_link   = (path_str == "item") && ssw(@key, "Areas/Catalog/")
     source_link = (path_str == "item") || (path_str == "text")
 
-#   ii(get_run_mode(), "get_run_mode") #T
-#   ii(@item, "item") #T
+#   ii(get_run_mode(), "get_run_mode") #!T
+#   ii(@item, "item") #!T
   %>
 
   <body>

@@ -18,6 +18,8 @@ defmodule PhxHttpWeb.LayoutView do
   use Phoenix.HTML
   use PhxHttpWeb, :view
 
+  alias InfoToml.Types, as: ITT
+
   # Public functions
 
   @doc """
@@ -48,8 +50,8 @@ defmodule PhxHttpWeb.LayoutView do
       "PA Foo"
   """
 
-  @spec get_title(atom, any, any, st) :: st
-    when st: String.t #W - any
+  @spec get_title(atom, st | nil, ITT.item_maybe, st) :: st
+    when st: String.t
 
   def get_title(:area_2, key, _item, title) do
     field_2   = key_field(key, -2)
@@ -95,9 +97,9 @@ defmodule PhxHttpWeb.LayoutView do
   """
 
   @spec key_field(st, integer) :: st
-    when st: String.t #W
+    when st: String.t
 
-  def key_field(key, index) do #K
+  def key_field(key, index) do #!K
     key
     |> String.split("/")
     |> Enum.fetch!(index)
@@ -116,7 +118,7 @@ defmodule PhxHttpWeb.LayoutView do
   """
 
   @spec mailto_href(st) :: st
-    when st: String.t #W
+    when st: String.t
 
   def mailto_href(item_key) do
     address   = "Rich Morin <rdm@cfcl.com>"

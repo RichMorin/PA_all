@@ -86,7 +86,7 @@ defmodule InfoToml.Server do
         IO.puts Enum.join(messages, ", /n")
         IO.puts ""
         exit("Exiting due to global TOML errors.")
-        toml_map       #K - Can we cause PhxHttp not to start up?
+        toml_map       #!K - Can we cause PhxHttp not to start up?
     end
   end
 
@@ -98,7 +98,7 @@ defmodule InfoToml.Server do
   # Load and index a set of TOML files.
   # Used by both `first_load/0` and `reload/0`.
 
-    Common.lts "Begin loading of TOML files." #T
+    Common.lts "Begin loading of TOML files." #!T
 
     toml_map    = LoadTree.load(old_map)
     toml_ndx    = IndexTree.index(toml_map)
@@ -110,10 +110,10 @@ defmodule InfoToml.Server do
 
     {status, messages} = CheckTree.check_all(toml_map)
 
-#   ii(keyss(toml_map), "keyss(toml_map)") #T
-#   ii(toml_ndx, "toml_ndx") #T
+#   ii(keyss(toml_map), "keyss(toml_map)") #!T
+#   ii(toml_ndx, "toml_ndx") #!T
 
-    Common.lts "End loading of TOML files." #T
+    Common.lts "End loading of TOML files." #!T
 
     {status, messages, toml_map}
   end

@@ -70,7 +70,7 @@ defmodule PhxHttpWeb.ClearController do
     |> Enum.reject(clear_fn)
     |> Enum.into(%{})
 
-    conn        = put_session(conn, :tag_sets, tag_sets) #D
+    conn        = put_session(conn, :tag_sets, tag_sets) #!D
     redirect(conn, to: "/search/find")
   end
 

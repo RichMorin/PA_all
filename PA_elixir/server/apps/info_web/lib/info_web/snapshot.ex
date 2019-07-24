@@ -46,7 +46,7 @@ defmodule InfoWeb.Snapshot do
     # Build a map of web site usage counts.
 
     tuples = result.bins.ext_ok
-#   |> ii(:ext_ok) #T
+#   |> ii(:ext_ok) #!T
     |> Enum.map(site_fn)
     |> Enum.reduce(%{}, counts_fn)
 
@@ -83,7 +83,7 @@ defmodule InfoWeb.Snapshot do
     # Build a map of internal page usage counts.
 
     tuples = result.bins.int_ok
-#   |> ii(:int_ok) #T
+#   |> ii(:int_ok) #!T
     |> Enum.map(abridge_fn)
     |> Enum.reduce(%{}, counts_fn)
 
@@ -145,7 +145,7 @@ defmodule InfoWeb.Snapshot do
     #
     # Extract the URL component from the tuple.
 
-    fmt_fn    = fn url -> "    \"#{ url }\"," end #K - urlencode?
+    fmt_fn    = fn url -> "    \"#{ url }\"," end #!K - urlencode?
     #
     # Format the URL as TOML.
 
@@ -169,7 +169,7 @@ defmodule InfoWeb.Snapshot do
   @spec snap_load() :: IWT.snap_map | %{}
 
   def snap_load() do
-    link_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_links" #K
+    link_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_links" #!K
     glob_patt   = "#{ link_base }/*/*.toml"
     file_paths  =  glob_patt |> Path.wildcard()
 
@@ -196,10 +196,10 @@ defmodule InfoWeb.Snapshot do
   Save a (reworked) snapshot of the `result` map, in TOML format.
   """
 
-  @spec snap_save(map) :: String.t #W
+  @spec snap_save(IWT.snap_map) :: String.t
 
   def snap_save(result) do
-    link_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_links" #K
+    link_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_links" #!K
 
     toml_text   = """
     # PA_links

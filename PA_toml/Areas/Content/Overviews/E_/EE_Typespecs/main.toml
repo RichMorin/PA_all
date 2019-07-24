@@ -17,8 +17,9 @@
 
   verbose     = '''
 This page is an introduction to the use of
-[Typespecs]{https://hexdocs.pm/elixir/typespecs.html}, supported by
-[Dialyzer]{http://erlang.org/doc/man/dialyzer.html} and related tooling.
+[Typespecs]{https://hexdocs.pm/elixir/typespecs.html} (type specifications),
+as supported by [Dialyzer]{http://erlang.org/doc/man/dialyzer.html}
+and related tooling.
 Most of the examples and advice are based on my experience
 in adding type specifications to Pete's Alley.
 For specific details on our current usage,
@@ -26,25 +27,29 @@ please see [Pete's Alley - Typespecs]{con_ove|PA_Typespecs}.
 
 ### Motivation
 
-Using Erlang's Dialyzer and Elixir's Typespecs,
-a project can declare and verify how its functions use data types.
-The declarations are integrated into the working code base,
-as well as the [ExDoc]{ext_gh|elixir-lang/ex_doc} output
-(e.g., online help, API documentation).
-This provides developers with a convenient and reliable set
-of information upon which to base additions and changes.
+Using Elixir's Typespec attributes (e.g., `@spec`, `@type`),
+a project can document how its internal interfaces use data types.
+The attributes are located in the working code base,
+typically next to the functions they document.
+They are also integrated into [ExDoc]{ext_gh|elixir-lang/ex_doc}'s
+output (e.g., API documentation, online help).
+This provides developers with a convenient and (mostly) reliable set
+of reference information upon which to base additions and changes.
 
-Each `@spec` attribute (aka spec) specifies
-how the associated function accepts and returns data.
+Each `@spec` attribute (aka spec) specifies the data types
+of the parameters and return value of a named function.
+Erlang's Dialyzer utility allows these specifications to be verified
+to a substantial and customizable degree.
 For extra credit, `@type` attributes can also be added,
 defining custom, app-specific data types.
 This makes these data types explicit and modular,
 raising them to the same level of definition and documentation
 as named functions.
 
-If a function's usage differs from its type specification,
-Dialyzer will report on the error in great detail.
-It can detect a broad and configurable range of type errors.
+Dialyzer works by detecting conflicts between a function's usage
+and its type specification.
+Errors are reported in a detailed (if sometimes murky) report.
+Dialyzer can detect a broad and configurable range of type errors.
 Type information can be refined incrementally,
 tightening the constraints on data types and usage.
 App-specific types can be made arbitrarily precise,
@@ -92,7 +97,6 @@ In order to avoid
 [false positives]{ext_wp|False_positives_and_false_negatives},
 any practical solution would have to accept
 "reasonable" type usage found in existing programs.
-
 Dialyzer's approach to this constraint uses
 [gradual typing]{ext_wp|Gradual_typing} of named functions.
 As long as no type specifications and/or usage conflict,
@@ -105,25 +109,39 @@ in a controlled and incremental fashion.
 Like [Erlang]{ext_wp|Erlang_(programming_language)},
 [Elixir]{ext_wp|Elixir_(programming_language)} is a
 [strongly typed]{ext_wp|Strong_and_weak_typing} programming language.
-So, the compiler can detect certain type errors within a single function.
-The [Erlang virtual machine]{ext_wp|BEAM_(Erlang_virtual_machine)}
-(aka the BEAM) can also catch many type-related errors at runtime.
-In addition, pattern matching can be used to provide a form
-of runtime type checking.
-Finally, tests can often detect type errors (implicitly),
-based on the resulting behavior.
+So, for example, a program cannot simply append a number to a string.
+Rather, it must first specify how the number should be
+[coerced]{ext_wp|Type_conversion} into the string data type.
 
-However, if the relevant behavior is not covered by a test,
-a type error that crosses a function boundary may escape notice.
-For example, a logging function might be called with a number,
+Type errors can be detected in various ways, at various points
+in the development process.  For example:
+
+- The Elixir compiler can detect some type errors within functions.
+
+- The [Erlang virtual machine]{ext_wp|BEAM_(Erlang_virtual_machine)}
+  (aka the BEAM) can catch some type-related errors at runtime.
+
+- Pattern matching can be used to provide a form
+  of runtime type checking.
+
+- Tests can often detect type errors (implicitly),
+  based on the resulting behavior.
+
+However, it's still quite possible for type errors to remain undetected
+well into production use of the code.
+For example, an error-logging function might be called with a number,
 rather than the expected text string.
-This would crash the offending process at runtime,
+Because the type error crosses a function boundary,
+the compiler might not catch it.
+If the relevant behavior is not covered by a test,
+the type error might crash the offending process at runtime,
 preventing the desired diagnostic information from being displayed.
 
-Using a form of [static typing]{
-ext_wp|Type_system#Static_and_dynamic_type_checking_in_practice},
+Using a form of [gradual]{ext_wp|Gradual_typing}
+[static typing]{ ext_wp|Type_system#Static_and_dynamic_type_checking_in_practice},
 Dialyzer can detect many type errors before the code is run.
-Its notion of "success typing" evaluates every function call
+So, it provides a useful addition to the checks isted above.
+Dialyzer's notion of "success typing" evaluates every function call
 against the [union]{ext_wp|Union_(set_theory)} of its type signatures.
 Calls which conform to any relevant type signature "succeed";
 the remainder are reported as errors.
@@ -135,7 +153,7 @@ based on type information it infers from the source code
 and any added specs.
 The generated diagnostics are generally reliable,
 in the sense that the program seldom produces false positives.
-However, they can also be confusing, opaque, and voluminous.
+However, they can also be confusing, incomplete, opaque, and voluminous.
 
 Specifically, its messages seldom provide
 a clear and direct description of the underlying problem,
@@ -189,17 +207,6 @@ Dialyxir's default output is rather verbose, so we use it as follows:
 
     mix dialyzer --quiet
 
-Sean Cribbs's [Dialyzex]{https://hex.pm/packages/dialyzex} package
-bills itself as a "Dialyzer task for Mix with sensible defaults".
-It also provides several attractive and useful-looking extensions.
-Unfortunately, Dialyxir and Dialyzex conflict with each other,
-in terms of their names for Mix tasks, modules, etc.
-Consequently, the two packages cannot be installed simultaneously.
-Because Dialyxir handles our current needs, we are using it for now,
-but [casting about]{ext_gh|jeremyjh/dialyxir/issues/348}
-for a convenient way to use both tools.
-Suggestions welcome...
-
 #### Organization
 
 The [code base]{ext_gh|RichMorin/PA_all} for Pete's Alley
@@ -227,7 +234,7 @@ we tend to use a shorthand name.
 This is defined by a `when` clause on the following line:
 
     @spec do_files(st, (st -> {st, sc})) :: [sc]
-      when st: String.t, sc: ITT.schema
+      when sc: ITT.schema, st: String.t
 
 Here are some shorthand names we commonly use:
 
@@ -243,7 +250,8 @@ The function `get_kv_info/1` returns a map, so we could write its spec as:
     @spec get_kv_info(atom) :: map
 
 However, this doesn't say anything about the map's internals.
-So, we specify that it is actually an `ITT.kv_info` structure:
+So, we specify that it is actually an `ITT.kv_info` structure
+(used for storing key/value information):
 
     alias InfoToml.Types, as: ITT
 
@@ -251,7 +259,7 @@ So, we specify that it is actually an `ITT.kv_info` structure:
 
 This structure is defined (along with some others), in
 [InfoToml.Types]{ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
-server/apps/info_toml/lib/info_toml/_types.ex}.
+server/apps/info_toml/lib/info_toml/_info_toml_t.ex}.
 Because `@type` doesn't support the `when` syntax,
 we use `@typep` to privately define some shorthand names:
 
@@ -260,9 +268,9 @@ we use `@typep` to privately define some shorthand names:
 
 Here are some public types we'll need to support `kv_info`:
 
-    @type kv_cnts  :: %{ atom  => nni }
-    @type kv_descs :: %{ atom  => st }
-    @type kv_tuple :: {atom, st, nni}
+    @type kv_cnts   :: %{ atom  => nni }
+    @type kv_descs  :: %{ atom  => st }
+    @type kv_tuple  :: {atom, st, nni}
 
 Finally, here's how `kv_info` is defined:
 
@@ -274,6 +282,9 @@ Finally, here's how `kv_info` is defined:
         :kv_map     =>                # %{ <key => %{ <val> => <cnt> } }
           %{ atom => %{ st => nni } },
       }
+
+In practice, each `@type` attribute is preceded by the corresponding
+`@typedoc` attribute.
 
 ### Advice
 
@@ -295,6 +306,30 @@ Handing Dialyzer large numbers of untried specs is asking for trouble
 So, add a few specs, run Dialyzer, fix errors, rinse, repeat...
 If need be, just try to get one new or changed spec working at a time.
 
+As you proceed, you're certain to encounter Dialyzer's syntax
+for describing the "success typing" of a function.  For example:
+
+    Foo.bar(
+      _inp_map :: %{atom() | binary() => %{atom() | binary() => binary() | map()}},
+      ...
+    )
+
+I find it helps quite a bit to copy this into a text editor
+and add some strategic white space:
+
+    Foo.bar(
+      _inp_map :: %{
+        atom() | binary() => %{
+          atom() |
+          binary() => binary() |
+          map()
+        }
+      },
+      ...
+    )
+
+#### Progressive Refinement
+
 In a production system, every named function in every `*.ex` file
 should have a tight spec using well-documented data types.
 However, this may be too big a burden for a development spike,
@@ -304,19 +339,19 @@ using nothing but primitive types.
 
 For example, it's OK to call something a `map` at this stage,
 but you might want to flag the spec for a revisit.
-(I tend to use `#W` comments, indicating "Work in Progress" code.)
+(FWIW, I use `#!V` comments for this, indicating "vague" code.)
 Once a function has a working spec, you can tighten it up.
 Here is a progression of tightening steps, based on the example above:
 
-    @spec get_kv_info(atom) :: map                    #W - map
-    @spec get_kv_info(atom) :: %{ any => any }        #W - any
-    @spec get_kv_info(atom) :: %{ key: any }          #W - any
-    @spec get_kv_info(atom) :: %{ key: map | list }   #W - list, map
+    @spec get_kv_info(atom) :: map                      #!V - map
+    @spec get_kv_info(atom) :: %{ any  => any }         #!V - any
+    @spec get_kv_info(atom) :: %{ atom => any }         #!V - any
+    @spec get_kv_info(atom) :: %{ atom => list | map }  #!V - list, map
     @spec get_kv_info(atom) :: ITT.kv_info
 
 #### Code Smells
 
-As you proceed, stay alert for assorted "code smells".
+As you proceed, stay alert for assorted [code smells]{ext_wp|Code_smell}.
 Some types (e.g., `any`, `number`) can be fixed at this point.
 The remainder can be flagged for later attention.
 Here are some common offenders:

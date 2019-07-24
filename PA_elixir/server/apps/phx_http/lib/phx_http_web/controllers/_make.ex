@@ -98,13 +98,13 @@ defmodule PhxHttpWeb.Cont.Make do
     |> String.replace(pattern, "")
 
     %{
-      main:  %{  #D
+      main:  %{  #!D
         key:      main_key,
         precis:   precis,
         title:    title,
       },
 
-      make:  %{  #D
+      make:  %{  #!D
         arch:     make_fn.(:arch),
         debian:   make_fn.(:debian),
         main:     main_fn.(),

@@ -44,7 +44,7 @@ defmodule PhxHttpWeb.Cont.Items do
     #
     # Return a list of gi_base lists.
     #
-    #K Handles only three levels of maps.
+    #!K Handles only three levels of maps.
 
       { [a, _],       _val }  -> [ [a] ]
       { [a, b, _],    _val }  -> [ [a], [a, b] ]
@@ -56,7 +56,7 @@ defmodule PhxHttpWeb.Cont.Items do
     |> Enum.concat()              # [ [:a], [:a, :b], ... ]
     |> Enum.sort()                # ditto, but sorted
     |> Enum.uniq()                # ditto, but unique
-#   |> ii("gi_bases") #T
+#   |> ii("gi_bases") #!T
   end
 
   @doc """
@@ -89,7 +89,7 @@ defmodule PhxHttpWeb.Cont.Items do
     |> Enum.filter(filter_fn)     # keep only non-empty "PA.*" params
     |> Enum.map(tuple_fn)         # [ { [:meta, :id_str], "Alot" }, ... ]
     |> sort_by_elem(0)            # sort by gi_path, eg: [:meta, :id_str]
-#   |> ii("gi_pairs") #T
+#   |> ii("gi_pairs") #!T
   end
 
   @doc """
@@ -113,7 +113,7 @@ defmodule PhxHttpWeb.Cont.Items do
 
     base_map    = gi_bases            # [ { <gi_path>, <value> }, ... ]
     |> Enum.reduce(%{}, base_fn)      # %{ meta: %{}, ... }
-#   |> ii("base_map") #T
+#   |> ii("base_map") #!T
 
     # Fold in the exterior nodes.
 
@@ -123,7 +123,7 @@ defmodule PhxHttpWeb.Cont.Items do
 
     gi_pairs                              # [ { <gi_path>, <value> }, ... ]
     |> Enum.reduce(base_map, augment_fn)  # %{ meta: %{ id_str: <value> }, ... }
-#   |> ii("item_map") #T
+#   |> ii("item_map") #!T
   end
 
   @doc """
@@ -180,7 +180,7 @@ defmodule PhxHttpWeb.Cont.Items do
     dot_path                          # "foo.bar.baz"
     |> String.split(".")              # [ "foo", "bar", "baz" ]
     |> Enum.map(&String.to_atom/1)    # [ :foo, :bar, :baz ]
-#   |> ii("gi_path") #T
+#   |> ii("gi_path") #!T
   end
 
 end

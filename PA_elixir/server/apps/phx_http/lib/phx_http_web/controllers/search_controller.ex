@@ -93,7 +93,7 @@ defmodule PhxHttpWeb.SearchController do
     results_i   = retrieve(id_sets_m, path_map, inter_fn)
     results_u   = retrieve(id_sets_m, path_map, union_fn)
 
-    if false && get_run_mode() == :dev do #K TG
+    if false && get_run_mode() == :dev do #!G
       IO.puts("")
       ii(cur_set,                 "cur_set")
 
@@ -132,7 +132,7 @@ defmodule PhxHttpWeb.SearchController do
 
   # Private Functions
 
-  @spec get_id_sets( [String.t] ) :: [ MapSet.t(integer) ] #W
+  @spec get_id_sets( [String.t] ) :: [ MapSet.t(integer) ]
 
   defp get_id_sets(tag_set) do
   #
@@ -151,13 +151,15 @@ defmodule PhxHttpWeb.SearchController do
     |> Enum.map(lookup_fn)
   end
 
-  @spec get_queries( [ {st, st} ], map ) :: [ {st, st, [st]} ]
-    when st: String.t #W - map, nameless tuples
+  @spec get_queries( [ {st, st} ], PHT.tag_sets ) :: [ {st, st, [st]} ]
+    when st: String.t #!V - nameless tuples
 
   defp get_queries(reused, new_sets) do
   #
   # Return a list of tuples, containing a set operation ("all", "any"),
   # the name of a saved query (eg, "a"), and a tag set (eg, ["foo:bar"].
+
+    ii(new_sets, :new_sets)
 
     query_fn = fn {sel, name} -> { sel, name, new_sets[name] } end
     #
@@ -167,7 +169,7 @@ defmodule PhxHttpWeb.SearchController do
     |> Enum.map(query_fn)         # [ {"all", "a", [ "...", ... ] }, ... ]
   end
 
-  @spec get_tag_sets(pc, PHT.tag_set) ::
+  @spec get_tag_sets(pc, [String.t]) ::
     {pc, PHT.tag_sets} when pc: Plug.Conn.t
 
   defp get_tag_sets(conn, new_set) do
@@ -192,7 +194,7 @@ defmodule PhxHttpWeb.SearchController do
       {conn, tag_sets}
     end
 
-    if get_run_mode() == :dev do #K TG
+    if get_run_mode() == :dev do #!G
 #     ii(new_set,  "new_set")
       ii(tag_sets, "tag_sets")
     end
@@ -200,8 +202,8 @@ defmodule PhxHttpWeb.SearchController do
     {conn, tag_sets}
   end
 
-  @spec retrieve([is], any, ([is], is -> is) ) :: [tuple]
-    when is: ITT.id_set #K #W - any
+  @spec retrieve([is], PHT.path_map, ([is], is -> is) ) :: [tuple]
+    when is: ITT.id_set
 
   # Retrieve the requested data, based on the query.
   
@@ -214,7 +216,8 @@ defmodule PhxHttpWeb.SearchController do
   # Convert id_sets (a list of MapSets) to a single MapSet.  Use reduce_fn
   # to get the intersection or union, then flatten the result. 
 
-    ii(id_sets,  :id_sets) #T
+    ii(id_sets,  :id_sets)  #!T
+#   ii(path_map, :path_map) #!T
 
     tuple_fn    = fn id -> path_map[id] |> InfoToml.get_item_tuples() end
     #
@@ -224,10 +227,10 @@ defmodule PhxHttpWeb.SearchController do
     |> Enum.reject(&is_nil/1)       # discard nil sets
 
     if Enum.empty?(filtered) do
-      IO.puts "--> retrieve/3 issue" #T
+      IO.puts "--> retrieve/3 issue" #!T
 #     ii(path_map, :path_map)
 
-      [] #D
+      [] #!D
     else
       filtered
       |> Enum.reduce(reduce_fn)     # #MapSet<[1011, 1078]>
@@ -238,11 +241,11 @@ defmodule PhxHttpWeb.SearchController do
   end
 
   @spec structure(tl) :: [tl]
-    when tl: [tuple] #K #W - tuple
+    when tl: [ITT.item_tuple]
 
   defp structure(results) do
   #
-  # Sort and chunk the results for display.
+  # Sort and chunk the results.
 
     pattern   = ~r{ / \w+ / \w+ \. toml $ }x
 

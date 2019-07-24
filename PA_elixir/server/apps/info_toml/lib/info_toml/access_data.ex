@@ -98,6 +98,7 @@ defmodule InfoToml.AccessData do
   """
 
   @spec get_part( [CT.map_key] ) :: any
+  # Yep, this could be just about anything...
 
   def get_part([]), do: get_map()
 
@@ -115,7 +116,7 @@ defmodule InfoToml.AccessData do
   """
 
   @spec get_toml(st) :: st
-    when st: String.t #W
+    when st: String.t
 
   def get_toml(item_key) do
     gi_path   = [:meta, :file_rel]
@@ -152,6 +153,7 @@ defmodule InfoToml.AccessData do
   """
 
   @spec put_part(any, [CT.map_key] | nil) :: :ok
+  # Yep, this could be just about anything...
 
   def put_part(new_val, key_list \\ nil) do
 

@@ -12,7 +12,7 @@
         for query <- @queries_r do %>
         <ul>
           <%= {settings, set_key, tag_set} = query
-              set_atom  = String.to_atom(settings) #K
+              set_atom  = String.to_atom(settings) #!K
               fmt_tag_set(tag_set, set_key, set_atom) %>
         </ul>
       <% end %>

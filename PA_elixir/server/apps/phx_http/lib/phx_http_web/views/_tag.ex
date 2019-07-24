@@ -22,10 +22,11 @@ defmodule PhxHttpWeb.View.Tag do
 
   use Phoenix.HTML
 
-  import Common, only: [ keyss: 1 ]
+  import Common, only: [ ii: 2, keyss: 1 ], warn: false
   import PhxHttpWeb.View.Hide
 
-  alias PhxHttp.Types, as: PHT
+  alias InfoToml.Types, as: ITT
+  alias PhxHttp.Types,  as: PHT
 
   # Public functions
 
@@ -42,7 +43,8 @@ defmodule PhxHttpWeb.View.Tag do
       true
   """
 
-  @spec fmt_tag_set(PHT.tag_set, String.t, atom) :: PHT.safe_html
+  @spec fmt_tag_set([st], st, atom) :: PHT.safe_html
+    when st: String.t
 
   def fmt_tag_set(tag_set, set_key, settings) do
 
@@ -102,10 +104,10 @@ defmodule PhxHttpWeb.View.Tag do
       [:replaces, :requires]
   """
 
-  @spec tag_types(PHT.tag_info) :: [String.t]
+  @spec tag_types(ITT.kv_map) :: [String.t]
 
   def tag_types(kv_map) do
-#   exclude     = ~w(miscellany requires see_also)a #D
+#   exclude     = ~w(miscellany requires see_also)a #!D
     exclude     = ~w( )a
 
     exclude_fn  = fn tag_type -> Enum.member?(exclude, tag_type) end
@@ -119,12 +121,13 @@ defmodule PhxHttpWeb.View.Tag do
 
   # Private functions
 
-  @spec fmt_tag_set_h(atom, t, t) :: t
-    when t: tuple #W - tuple
+  @spec fmt_tag_set_h(atom, sh, sh) :: sh
+    when sh: PHT.safe_html
 
   # Generate some HTML for `fmt_tag_set/3`.
 
   defp fmt_tag_set_h(:clear, header, set_str) do
+
     ~E"""
     <div class="hs-base2">
       <%= header %>
@@ -137,6 +140,7 @@ defmodule PhxHttpWeb.View.Tag do
   end
 
   defp fmt_tag_set_h(_settings, header, set_str) do
+
     ~E"""
     <div class="hs-base2">
       <li>

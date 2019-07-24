@@ -2,5 +2,5 @@
 
 [ meta ]
 
-  actions     = '' #K - satisfy InfoToml.Checker.check_publish/3
+  actions     = '' #!K - satisfy InfoToml.Checker.check_publish/3
   foo         = 'bar'

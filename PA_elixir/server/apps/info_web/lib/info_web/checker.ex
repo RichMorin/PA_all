@@ -89,7 +89,7 @@ defmodule InfoWeb.Checker do
   # iex> t = InfoWeb.check_pages;1
   # iex> t = InfoWeb.get_snap;1
 
-    domain      = "http://localhost" #K
+    domain      = "http://localhost" #!K
     http_port   = get_http_port()
     url_base    = "#{ domain }:#{ http_port }"
 
@@ -120,7 +120,7 @@ defmodule InfoWeb.Checker do
     Server.reload()
 
     result
-#   |> ii(:result) #T
+#   |> ii(:result) #!T
   end
 
   # Private functions
@@ -149,7 +149,7 @@ defmodule InfoWeb.Checker do
     (forced ++ ext_ok) |> Enum.reduce(%{}, reduce_fn)
   end
 
-  @spec mapper( [IWT.link_4] ) :: IWT.bins_map #W
+  @spec mapper( [IWT.link_work] ) :: IWT.bins_map
 
   defp mapper(inp_list) do
   #

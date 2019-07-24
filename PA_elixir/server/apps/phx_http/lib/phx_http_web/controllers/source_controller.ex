@@ -26,6 +26,7 @@ defmodule PhxHttpWeb.SourceController do
   import Common, only: [ ssw: 2 ]
   import InfoToml.Common, only: [ get_file_abs: 1 ]
 
+  alias InfoToml.Types, as: ITT
   alias PhxHttp.Types,  as: PHT
 
   # Public functions
@@ -98,8 +99,8 @@ defmodule PhxHttpWeb.SourceController do
     end
   end
 
-  @spec show_h(pc, String.t, map) :: pc
-    when pc: Plug.Conn.t #W - map
+  @spec show_h(pc, String.t, ITT.item_map) :: pc
+    when pc: Plug.Conn.t
 
   defp show_h(conn, main_key, main_item) do
   #

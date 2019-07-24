@@ -27,7 +27,8 @@ defmodule Common.Maps do
       3
   """
 
-  @spec get_map_max( %{required(any) => any} ) :: any
+  @spec get_map_max( %{required(CT.map_key) => any} ) :: any
+  # The map value can be anything that we can stringify.
 
   def get_map_max(inp_map), do: inp_map |> Map.values |> Enum.max()
 
@@ -47,6 +48,7 @@ defmodule Common.Maps do
   """
 
   @spec keyss( %{ CT.map_key => any } ) :: [String.t]
+  # The map value could be anything; we don't care.
 
   def keyss(map) do
 

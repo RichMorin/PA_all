@@ -16,8 +16,10 @@ defmodule PhxHttpWeb.SearchView do
   use Phoenix.HTML
   use PhxHttpWeb, :view
 
-  import Common #D
+  import Common #!D
   import PhxHttpWeb.View.Tag
+
+  alias InfoToml.Types, as: ITT
 
   @doc """
   Get a map of tag values for the specified type.
@@ -30,8 +32,8 @@ defmodule PhxHttpWeb.SearchView do
       %{a: 1, b: 2}
   """
 
-  @spec get_sub_map(map, st) :: map
-    when st: String.t #W - map
+  @spec get_sub_map(ITT.kv_map, st) :: %{ atom => integer }
+    when st: String.t
 
   def get_sub_map(kv_map, :_) do
 
@@ -61,8 +63,8 @@ defmodule PhxHttpWeb.SearchView do
       {"Areas/Catalog", 1}
   """
 
-  @spec result_header( [ {st, st, st} ] ) :: {st, integer}
-    when st: String.t #W - unnamed tuple
+  @spec result_header( [ITT.item_tuple] ) :: {st, integer}
+    when st: String.t
 
   def result_header(results) do
 

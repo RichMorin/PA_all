@@ -98,7 +98,7 @@ defmodule InfoToml.LoadFile do
 
     tag_map     = file_data |> get_in([:meta, :tags])
 
-    tag_map     = if file_key != "_schemas/main.toml" do #K
+    tag_map     = if file_key != "_schemas/main.toml" do #!K
       reduce_fn   = fn {inp_key, inp_val}, acc ->
         tmp_val   = String.replace(inp_val, ~r{\w+\|}, "")
         Map.put(acc, inp_key, tmp_val)

@@ -20,7 +20,8 @@ defmodule PhxHttpWeb.View.Markup do
 
   import PhxHttpWeb.View.Link, only: [do_links: 1 ]
 
-  alias PhxHttp.Types, as: PHT
+  alias InfoToml.Types, as: ITT
+  alias PhxHttp.Types,  as: PHT
 
   # Public functions
 
@@ -29,7 +30,7 @@ defmodule PhxHttpWeb.View.Markup do
   it expands some prefix strings.
   """
 
-  @spec fmt_markup(map, [atom]) :: PHT.safe_html #W - map
+  @spec fmt_markup(ITT.item_map, [atom]) :: PHT.safe_html
 
   def fmt_markup(inp_map, gi_list) do
     md_inp  = get_in(inp_map, gi_list)
@@ -38,16 +39,16 @@ defmodule PhxHttpWeb.View.Markup do
     case Earmark.as_html(md_exp) do
       {:ok, html, []} -> html
 
-      {:error, _input, err_list} ->
+      {_, _input, err_list} ->
         fmt_markup_h(inp_map, gi_list, err_list)
 
-#     unknown -> "<p>#{ inspect(unknown) }</p>"   #D
+#     unknown -> "<p>#{ inspect(unknown) }</p>"   #!D
     end |> raw()
   end
 
   # Private Functions
 
-  @spec fmt_markup_h(map, [atom], list) :: String.t #W - list, map
+  @spec fmt_markup_h(ITT.item_map, [atom], PHT.err_list) :: String.t
 
   defp fmt_markup_h(inp_map, gi_list, err_list) do
   #
@@ -71,15 +72,23 @@ defmodule PhxHttpWeb.View.Markup do
       |> String.split("\n")
       |> Enum.fetch!(ndx_raw-2)
 
+      pattern     = ~r{^Closing unclosed backquotes}
+      line_info   = if message =~ pattern do
+        ""
+      else
+        """
+        line number:  #{ ndx_rare }
+        line text:    "#{ line_text }"
+        """
+      end
+
       """
-      <p>
-        <b>Earmark #{ type }:</b>
-        <pre>
-          diagnostic:   "#{ message }"
-          get_in list:  #{ inspect(gi_list) }
-          line number:  #{ ndx_rare }
-          line text:    "#{ line_text }"</pre>
-      </p>
+        <p>
+          <b>Earmark #{ type }:</b>
+          <pre>
+      diagnostic:   "#{ message }"
+      get_in list:  #{ inspect(gi_list) }#{ line_info }</pre>
+        </p>
       """
     end
 

@@ -144,7 +144,9 @@ defmodule PhxHttpWeb.View.Format do
   This function formats a reference from `meta.refs.*`.
   """
 
-  @spec fmt_ref(atom, String.t) :: tuple #W - tuple
+  @spec fmt_ref(atom, String.t) :: tuple #!V - tuple
+# @spec fmt_ref(atom, st) :: {st, PHT.safe_html}
+#   when st: String.t # breaks!
 
   def fmt_ref(ref_key, ref_val) do
     label       = fmt_key(ref_key)

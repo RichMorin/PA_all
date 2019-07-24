@@ -66,11 +66,11 @@ defmodule PhxHttpWeb.Router do
   divider (`= = = ...`) on the console for each request.
   """
 
-  @spec divider(pc, any) :: pc
-    when pc: Plug.Conn.t #W
+  @spec divider(pc, []) :: pc
+    when pc: Plug.Conn.t #!K - assumes _opts is empty
 
   def divider(conn, _opts) do # rdm
-    if Common.get_run_mode() == :dev do #K
+    if Common.get_run_mode() == :dev do #!K
       prefix    = String.duplicate("= ", 5)
       iso8601   = DateTime.utc_now() |> DateTime.to_iso8601()
 

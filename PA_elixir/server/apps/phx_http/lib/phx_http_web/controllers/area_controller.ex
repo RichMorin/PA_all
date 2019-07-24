@@ -38,12 +38,12 @@ defmodule PhxHttpWeb.AreaController do
 
   def reload(conn, params) do
   #
-  #K Checking `get_run_mode/0` and the remote (really, router) IP address
+  #!K Checking `get_run_mode/0` and the remote (really, router) IP address
   # is a hack.  If used with public access, this should check the user ID.
 
     if conn.remote_ip != { 192, 168, 1, 1 } do
 
-      if get_run_mode() == :dev do #K
+      if get_run_mode() == :dev do #!K
         reload_h(conn, params)
       else
         message = "Reloading is only supported in development mode."
@@ -85,7 +85,7 @@ defmodule PhxHttpWeb.AreaController do
   #
   # Helper for reload/2 - actually performs the reload
   #
-  #K This is a hack; it should probably check user ID or somesuch...
+  #!K This is a hack; it should probably check user ID or somesuch...
 
     time_1      = Time.utc_now()
     { status_it,  message_it} = InfoToml.reload()
@@ -101,7 +101,7 @@ defmodule PhxHttpWeb.AreaController do
       path  ->  path
     end
 
-    status_c = status_it  #K #ToDo - check for InfoWeb issues.
+    status_c = status_it  #!K ToDo - check for InfoWeb issues.
 
     conn
     |> put_flash(status_c, message_c)

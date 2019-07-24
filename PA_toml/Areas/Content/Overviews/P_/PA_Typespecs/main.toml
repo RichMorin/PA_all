@@ -17,29 +17,121 @@
 
   verbose     = '''
 This page describes the use of
+[Dialyzer]{http://erlang.org/doc/man/dialyzer.html} and
 [Typespecs]{https://hexdocs.pm/elixir/typespecs.html} in Pete's Alley.
-For background and supplementary information on
-[Dialyzer]{http://erlang.org/doc/man/dialyzer.html} and related tooling,
+For background and supplementary information,
 please see [Elixir, etc. - Typespecs]{con_ove|PA_Typespecs}.
 
-### <tt>_types.ex</tt> files
+### Applications
 
-- [Common.Types]{ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
-   server/apps/common/lib/common/_types.ex}
+Pete's Alley is composed of several applications.
+`Server` is an umbrella app, so it contains no real code.
+The remaining apps perform the following tasks:
 
-- [InfoFiles.Types]{ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
-   server/apps/info_files/lib/info_files/_types.ex}
+- `Common`    - provides common (e.g., utility) functions
+- `InfoFiles` - collects information from the file system
+- `InfoToml`  - collects information from the TOML file tree
+- `InfoWeb`   - collects information from the World Wide Web
+- `PhxHttp`   - presents information via Phoenix, HTTP, etc.
 
-- [InfoWeb.Types]{ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
-   server/apps/info_web/lib/info_web/_types.ex}
+Loosely speaking, these apps occupy three layers:
 
-- [PhxHttp.Types]{ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
-   server/apps/phx_http/lib/phx_http/_types.ex}
+- `Common`,   which has no dependencies
+- `Info*`,    which depend on `Common`
+- `PhxHttp*`, which depend on the rest
 
-- [Sample.Types]{ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
-   server/apps/sample/lib/sample/_types.ex}
+### Modules and Types
 
-To be continued...
+Each app has an `<AppName>.Types` module, defined in an `_<app_name>_t.ex` file.
+This module contains only `@type`, `@typep`, and `@typedoc` attributes.
+
+#### Common
+
+The [Common.Types]{
+  ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
+  server/apps/common/lib/common/_common_t.ex} module,
+located in `_common_t.ex`,
+defines types for use throughout Pete's Alley.
+
+- `gi_path`     - non-empty list of keys, as used in `get_in/2`
+- `map_key`     - atom or string, used to index a map
+
+#### InfoFiles
+
+The [InfoFiles.Types]{
+  ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
+  server/apps/info_files/lib/info_files/_info_files_t.ex} module
+located in `_info_files_t.ex`,
+defines types for use in `InfoFiles` and `PhxHttp*`.
+
+- `cnt_map`     - a map of counts, as used by various dashboards
+- `info_map`    - a map that holds miscellaneous information
+
+#### InfoToml
+
+The [InfoToml.Types]{
+  ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
+  server/apps/info_toml/lib/info_toml/_info_toml_t.ex} module,
+located in `_info_toml_t.ex`,
+defines types for use in `InfoToml` and `PhxHttp*`.
+
+- `check_fn`    - function used to check each item
+- `check_tuple` - contains error information about an item
+- `id_map`      - map of `id_set`s, indexed by `<type>:<tag>`
+- `id_num`      - ID number for an item
+- `id_set`      - MapSet of ID numbers
+- `inbt_map`    - map of MapSets of `id_num` values, indexed by tag
+- `item_map`    - tree of maps, defining an item
+- `item_maybe`  - allows for missing item data
+- `item_part`   - implements the `item_map` tree structure
+- `item_path`   - path list (as used by `get_in/2`) for items
+- `item_tuple`  - tuple that describes an item
+- `kv_all`      - aggregates information on key/value trees
+- `kv_cnts`     - stores usage counts by tag type
+- `kv_descs`    - stores descriptions by tag type
+- `kv_info`     - contains information on usage of key/value trees
+- `kv_map`      - two-level map of information on key/value usage
+- `kv_tuple`    - used to construct the `kv_map`
+- `ndx_map`     - inverted index into `toml_map[:items]`
+- `ndx_val`     - leaf value for `ndx_map`
+- `schema`      - variant of `item_map`, used for schemas
+- `schema_map`  - map of schemas
+- `toml_map`    - all information from the TOML file tree
+
+#### InfoWeb
+
+The [InfoWeb.Types]{
+  ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
+  server/apps/info_web/lib/info_web/_info_web_t.ex} module,
+located in `_info_web_t.ex`,
+defines types for use in `InfoWeb` and `PhxHttp*`.
+
+- `bins_map`    - information on HTML links, binned by status
+- `html_tree`   - either an HTML tuple or a list of them
+- `html_tuple`  - stores information from an HTML page
+- `link_out`    - output  information on an HTML link
+- `link_work`   - working information on an HTML link
+- `ok_map`      - URLs that are forced or known to be OK
+- `result_map`  - output information on HTML links
+- `snap_map`    - snapshot information on HTML links
+
+#### PhxHttp
+
+The [PhxHttp.Types]{
+  ext_gh|RichMorin/PA_all/blob/master/PA_elixir/
+  server/apps/phx_http/lib/phx_http/_phx_http_t.ex} module,
+located in `_phx_http_t.ex`,
+defines types for use in `PhxHttp*`.
+
+- `addr_part`   - part of an `address` map
+- `address`     - map containing address information
+- `gi_pair`     - contains a `gi_path` and a (string) value
+- `params`      - parameter map, from a GET or POST request
+- `pkg_info`    - build information for a single package
+- `pkg_map`     - build information for multiple packages
+- `s_pair`      - string pair (a two-string tuple)
+- `safe_html`   - HTML that is guaranteed to be safe to emit
+- `tag_sets`    - `<type>:<tag>` strings, indexed by ID string
 '''
 
 [ zoo ]

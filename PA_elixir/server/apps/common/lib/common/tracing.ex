@@ -26,6 +26,7 @@ defmodule Common.Tracing do
   # Note: Floats within data structures are not reformatted.
 
   @spec ii(any, atom | String.t) :: any
+  # As with IO.inspect, the inspected (and returned) value can be anything.
 
   def ii(float, label) when is_float(float) do
     float

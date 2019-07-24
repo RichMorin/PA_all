@@ -27,7 +27,8 @@ defmodule PhxHttpWeb.View.Address do
     only: [ csv_split: 1, keyss: 1 ]
   import PhxHttpWeb.View.Zoo
 
-  alias PhxHttp.Types, as: PHT
+  alias InfoToml.Types, as: ITT
+  alias PhxHttp.Types,  as: PHT
 
   # Public functions
 
@@ -59,7 +60,7 @@ defmodule PhxHttpWeb.View.Address do
 
   # Private Functions
 
-  @spec fa1(atom, map) :: PHT.safe_html #W - map
+  @spec fa1(atom, ITT.item_part) :: PHT.safe_html
 
   # fmt_address helper functions: fa[123], fa2h
   #
@@ -76,7 +77,7 @@ defmodule PhxHttpWeb.View.Address do
   defp fa1(:review,     map),  do: fa2(:text, "Phone Numbers",      map)
   defp fa1(:web_site,   map),  do: fa2(:site, "Web Pages",          map)
 
-  @spec fa2(atom, String.t, map) :: PHT.safe_html #W - map
+  @spec fa2(atom, String.t, ITT.item_part) :: PHT.safe_html
 
   defp fa2(:post, heading, map) do
 

@@ -29,7 +29,7 @@ defmodule Common.Zoo do
 
   @spec get_http_port() :: String.t
 
-  def get_http_port() do #K
+  def get_http_port() do #!K
     System.get_env("PORT") || "4000"
   end
 
@@ -60,13 +60,13 @@ defmodule Common.Zoo do
   should set this at the start of the `project` function, as:
   
       if !System.get_env("mix_env") do
-        System.put_env("mix_env", "#{ Mix.env() }") #K
+        System.put_env("mix_env", "#{ Mix.env() }") #!K
       end
   """
 
   @spec get_run_mode() :: atom
 
-  def get_run_mode() do #K
+  def get_run_mode() do #!K
     ( System.get_env("mix_env") || "dev")
     |> String.to_atom()
 #   |> IO.inspect(label: "get_run_mode")
@@ -84,7 +84,7 @@ defmodule Common.Zoo do
     base_rel    = "#{ __ENV__.file }#{ offset }"
 
     Path.expand(base_rel)
-#   |> ii("tree_base") #T
+#   |> ii("tree_base") #!T
   end
 
   @doc """
@@ -176,6 +176,7 @@ defmodule Common.Zoo do
   """
 
   @spec type_of(any) :: atom
+  # Yep, this function really can handle any data type.
 
   # The order of the following clauses is both critical and a bit picky.
   # Specifically, it defines a simple taxonomy of Elixir types.

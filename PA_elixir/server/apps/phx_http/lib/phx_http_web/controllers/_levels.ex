@@ -137,7 +137,7 @@ defmodule PhxHttpWeb.Cont.Levels do
   end
 
   @spec show_h3(pc, st, st, ITT.item_map) :: pc
-    when pc: Plug.Conn.t, st: String.t #W
+    when pc: Plug.Conn.t, st: String.t
 
   defp show_h3(conn, name, key, item) do
   #

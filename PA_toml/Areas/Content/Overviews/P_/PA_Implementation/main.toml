@@ -182,6 +182,20 @@ I also use inline spacing to show parallel construction, etc.
 A code formatter which removes my carefully considered spacing
 is not one which I will use on my own projects.
 
+Careful Reader may notice that I use a variety of marker comments
+to make it easier to find things in the code base.
+For example, I tend to put an abridged form of the directory path
+at the start of each file.
+I also use the following flags for specific code attributes:
+
+- #!D   - debugging code
+- #!G   - tracing guard
+- #!K   - kludgy code
+- #!R   - recursive code
+- #!T   - tracing code
+- #!V   - vague `@spec`
+- #!W   - work in progress
+
 ### Futures
 
 The presentation module (`phx_http`) talks to the data reporting modules

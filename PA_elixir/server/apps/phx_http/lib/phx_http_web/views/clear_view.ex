@@ -18,6 +18,8 @@ defmodule PhxHttpWeb.ClearView do
 
   import PhxHttpWeb.View.Tag
 
+  alias InfoToml.Types, as: ITT
+
   # Public functions
 
   @doc """
@@ -29,8 +31,7 @@ defmodule PhxHttpWeb.ClearView do
       {"Areas/Catalog", 1}
   """
 
-  @spec result_header( [ {st, st, st} ] ) :: {st, integer}
-    when st: String.t #W - unnamed tuple
+  @spec result_header( [ITT.item_tuple] ) :: {String.t, integer}
 
   def result_header(results) do
     {path, _title, _precis} = List.first(results)

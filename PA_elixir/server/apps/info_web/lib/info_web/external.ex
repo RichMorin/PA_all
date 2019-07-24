@@ -23,7 +23,7 @@ defmodule InfoWeb.External do
   which URLs should be forced to verify as OK.
   """
 
-  @spec get_ext_list([IWT.link_3], IWT.ok_map) :: [IWT.link_4]
+  @spec get_ext_list([IWT.link_out], IWT.ok_map) :: [IWT.link_work]
 
   def get_ext_list(external, forced) do
   #
@@ -51,7 +51,7 @@ defmodule InfoWeb.External do
       if forced[link_url] do
         {:ext_ok, "forced", from_page, link_url}
       else
-        ii(link_url, :link_url) #T
+        ii(link_url, :link_url) #!T
 
         {call_status, response}  = HTTPoison.get(link_url, headers, options)
 

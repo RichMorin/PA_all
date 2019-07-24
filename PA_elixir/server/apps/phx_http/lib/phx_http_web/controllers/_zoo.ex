@@ -49,7 +49,7 @@ defmodule PhxHttpWeb.Cont.Zoo do
   """
 
   @spec key_ng(pc, String.t) :: pc
-    when pc: Plug.Conn.t #W
+    when pc: Plug.Conn.t
 
   def key_ng(conn, key) do
     message = "That key (#{ key }) was not recognized."
@@ -62,7 +62,7 @@ defmodule PhxHttpWeb.Cont.Zoo do
   """
 
   @spec nastygram(pc, String.t) :: pc
-    when pc: Plug.Conn.t #W
+    when pc: Plug.Conn.t
 
   def nastygram(conn, message) do
     IO.puts "!!!> " <> message

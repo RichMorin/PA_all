@@ -69,4 +69,4 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Truncate log messages for debugging.
 
-config :logger, truncate: 512  #D rdm - "truncated"
+config :logger, truncate: 512  #!D rdm - "truncated"

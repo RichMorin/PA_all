@@ -23,6 +23,8 @@ defmodule PhxHttpWeb.View.Link do
   import Common,   only: [ ssw: 2 ]
   import InfoToml, only: [ exp_prefix: 1 ]
 
+  alias PhxHttp.Types, as: PHT
+
   # Note: There are bugs in Version 1.3.1 of Earmark (the Markdown engine).
   # We need to dance around these until their fixes are available in Hex.pm.
   # See `.../phx_http/mix.exs` for details.
@@ -132,8 +134,12 @@ defmodule PhxHttpWeb.View.Link do
 
       trim_1  = String.trim(inp_1)
       trim_2  = String.replace(inp_2, ~r{\s}, "")
-      list_2  = String.split(trim_2, "|")
-      do_links_h1(trim_1, trim_2, list_2)
+
+      s_pair  = trim_2
+      |> String.split("|")
+      |> List.to_tuple()
+
+      do_links_h1(trim_1, trim_2, s_pair)
     end
 
     # Convert `[...]{...}`  syntax to `[...](...)` (support link extensions).
@@ -148,10 +154,10 @@ defmodule PhxHttpWeb.View.Link do
 
   # Private functions
 
-  @spec do_links_h1(st, st, list) :: st
-    when st: String.t #W - list
+  @spec do_links_h1(st, st, PHT.s_pair) :: st
+    when st: String.t
 
-  defp do_links_h1(trim_1, trim_2, _list_2 = [ head_2, tail_2 ]) do
+  defp do_links_h1(trim_1, trim_2, {head_2, tail_2}) do
   #
   # Handle links with prefixes.
 

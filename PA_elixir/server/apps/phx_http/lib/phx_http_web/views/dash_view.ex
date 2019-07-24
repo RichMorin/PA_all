@@ -24,6 +24,8 @@ defmodule PhxHttpWeb.DashView do
 
   use PhxHttpWeb, :view
 
+  alias InfoToml.Types, as: ITT
+
   # Public functions
 
   @doc """
@@ -36,7 +38,7 @@ defmodule PhxHttpWeb.DashView do
       true
   """
 
-  @spec get_avg_cnts(map) :: map #W - map
+  @spec get_avg_cnts(pos_integer) :: %{ atom => float }
 
   def get_avg_cnts(main_cnt) do
 
@@ -99,7 +101,8 @@ defmodule PhxHttpWeb.DashView do
       nil
   """
 
-  @spec get_dup_vals( [tuple] ) :: map #W - map, tuple
+  @spec get_dup_vals( [ITT.kv_tuple] ) :: %{ st => st }
+    when st: String.t
 
   def get_dup_vals(kv_list) do
 
@@ -146,10 +149,10 @@ defmodule PhxHttpWeb.DashView do
 
       iex> kv_list  = [ {:foo, "foo", 1}, {:bar, "bar?", 2} ]
       iex> get_odd_vals(kv_list)
-      [ {"bar?", :bar, 999} ]
+      [ {:bar, "bar?", 999} ]
   """
 
-  @spec get_odd_vals(map) :: list #W - list, map
+  @spec get_odd_vals(ITT.kv_map) :: [ITT.kv_tuple]
 
   def get_odd_vals(kv_list) do
 
@@ -168,15 +171,15 @@ defmodule PhxHttpWeb.DashView do
       keys      = InfoToml.keys_by_tag(tag)
 
       if Enum.empty?(keys) do
-        {tag, type, 999} #K
+        {type, tag, 999} #!K
       else
-        {tag, type, hd(keys)}
+        {type, tag, hd(keys)}
       end
     end
 
     kv_list                           # [ {:miscellany, "CLI", 1}, ...]
     |> Enum.filter(odd_tag_fn)        # retain only odd tag values
-    |> Enum.map(tuple_fn)             # [ {"CLI", :miscellany}, ... ]    
+    |> Enum.map(tuple_fn)             # [ {:miscellany, "CLI", 42}, ... ]    
     |> sort_by_elem(0)                # ditto, but sorted by tag
 #   |> ii("get_odd_tags")
   end
@@ -200,7 +203,7 @@ defmodule PhxHttpWeb.DashView do
       %{foo: 1, bar: 1}
   """
 
-  @spec get_total_cnts(list, map) :: map #W - list, map
+  @spec get_total_cnts([atom], ITT.kv_map) :: %{ atom => pos_integer }
 
   def get_total_cnts(tag_types, kv_map) do
 
@@ -227,7 +230,7 @@ defmodule PhxHttpWeb.DashView do
   # Private functions
 
   @spec get_dup_vals_h(tl) :: tl
-    when tl: [tuple] #W - tuple
+    when tl: [ITT.kv_tuple]
 
   defp get_dup_vals_h(tuples) do
   #

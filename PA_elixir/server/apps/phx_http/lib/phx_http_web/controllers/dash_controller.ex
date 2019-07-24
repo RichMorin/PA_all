@@ -64,7 +64,7 @@ defmodule PhxHttpWeb.DashController do
     tree_base   = get_tree_base()
 
     code_info   = InfoFiles.get_code_info(tree_base)
-    if code_info.tracing do #TG
+    if code_info.tracing do #!G
       ii(keyss(code_info), "keyss(code_info)")
     end
 
@@ -86,7 +86,7 @@ defmodule PhxHttpWeb.DashController do
     tree_base       = get_tree_base()
 
     data_info  = InfoFiles.get_data_info(tree_base)
-    if data_info.tracing do #TG
+    if data_info.tracing do #!G
       ii(keyss(data_info), "keyss(data_info)")
     end
 
@@ -105,7 +105,7 @@ defmodule PhxHttpWeb.DashController do
 
   def show_links(conn, params) do
 
-    if get_http_port() == "4000" do #K
+    if get_http_port() == "4000" do #!K
       show_links_h(conn, params)
     else
       message = "The Links dashboard is only supported for PORT 4000."
@@ -142,12 +142,12 @@ defmodule PhxHttpWeb.DashController do
     tree_base   = get_tree_base()
 
     data_info   = InfoFiles.get_data_info(tree_base)
-    if data_info.tracing do #TG
+    if data_info.tracing do #!G
       ii(keyss(data_info), "keyss(data_info)")
     end
 
     ref_info    = InfoToml.get_ref_info()
-    if ref_info.tracing do #TG
+    if ref_info.tracing do #!G
       ii(keyss(ref_info), "keyss(ref_info)")
     end
 
@@ -170,12 +170,12 @@ defmodule PhxHttpWeb.DashController do
     tree_base   = get_tree_base()
 
     data_info   = InfoFiles.get_data_info(tree_base)
-    if data_info.tracing do #TG
+    if data_info.tracing do #!G
       ii(keyss(data_info), "keyss(data_info)")
     end
 
     tag_info    = InfoToml.get_tag_info()
-    if tag_info.tracing do #TG
+    if tag_info.tracing do #!G
       ii(keyss(tag_info), "keyss(tag_info)")
     end
 

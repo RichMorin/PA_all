@@ -85,6 +85,7 @@ defmodule InfoToml.Trees do
   """
 
   @spec our_tree(any) :: bool
+  #!V - any (indeed, could be anything...)
 
   def our_tree(input), do: our_tree(input, true)
 
@@ -93,6 +94,7 @@ defmodule InfoToml.Trees do
   """
 
   @spec our_tree(any, bool) :: bool
+  #!V - any (indeed, could be anything...)
 
   def our_tree(input, strict) do
     if is_map(input) do
@@ -105,7 +107,7 @@ defmodule InfoToml.Trees do
 
   # Private functions
 
-  @spec leaf_paths_h({atom, any}, {path, [path]} ) :: {String.t, [part]}
+  @spec leaf_paths_h({atom, part}, {path, [path]} ) :: {String.t, [part]}
     when part: ITT.item_part, path: ITT.item_path
 
   defp leaf_paths_h({key, value}, {parent_path, paths}) when is_map(value), do:
@@ -123,8 +125,8 @@ defmodule InfoToml.Trees do
     # Accumulate checks for the tree.  (Return false if any check fails.)
 
       cond do
-        is_atom(key)    -> acc && !!our_tree_h(value, strict) #R
-        is_binary(key)  -> acc && !!our_tree_h(value, strict) #R
+        is_atom(key)    -> acc && !!our_tree_h(value, strict) #!R
+        is_binary(key)  -> acc && !!our_tree_h(value, strict) #!R
         true            -> false
       end
     end

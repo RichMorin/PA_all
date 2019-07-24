@@ -77,7 +77,7 @@ defmodule InfoFiles.CntAny do
 
     counts    = cnt_map |> sum_cols()
 
-    if file_info.tracing do #TG
+    if file_info.tracing do #!G
       ii(counts, cnts_key)
     end
 
@@ -126,7 +126,7 @@ defmodule InfoFiles.CntAny do
     cnts_by_path  = file_info.file_paths
     |> Enum.reduce(%{}, count_fn)
 
-    if file_info.tracing do #TG
+    if file_info.tracing do #!G
       path_tuples   = cnts_by_path |> Map.to_list()
 #     path_tuples                  |> ii("cnts_by_path (all)")
       path_tuples |> Enum.take(5)  |> ii("cnts_by_path (sample)")
@@ -173,7 +173,7 @@ defmodule InfoFiles.CntAny do
     |> Enum.reduce([], glob_fn)
     |> Enum.map(abridge_fn)
 
-    if file_info.tracing do #TG
+    if file_info.tracing do #!G
       file_paths |> hd() |> ii("file_paths (first)")
     end
 
@@ -208,7 +208,7 @@ defmodule InfoFiles.CntAny do
     |> Path.wildcard()
     |> Enum.map(abridge_fn)
 
-    if file_info.tracing do #TG
+    if file_info.tracing do #!G
       ii(tree_bases, "tree_bases")
     end
 

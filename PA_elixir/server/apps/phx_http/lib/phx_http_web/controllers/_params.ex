@@ -61,7 +61,7 @@ defmodule PhxHttpWeb.Cont.Params do
     specs_r   = params_r |> munge_map_r()
 
     {tags_all, specs_r}
-#   |> ii("munged") #T
+#   |> ii("munged") #!T
   end
 
   # Private Functions
@@ -102,7 +102,7 @@ defmodule PhxHttpWeb.Cont.Params do
     {params_d, params_r}
   end
 
-  @spec munge_map_d( [PHT.s_pair] ) :: [String.t] #W
+  @spec munge_map_d( [PHT.s_pair] ) :: [String.t]
 
   defp munge_map_d(input) do
   #

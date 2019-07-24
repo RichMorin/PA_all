@@ -32,6 +32,7 @@ defmodule InfoToml.CheckItem do
   import InfoToml.Schemer, only: [ get_schema: 2 ]
   import InfoToml.Trees, only: [ leaf_paths: 1 ]
 
+  alias Common.Types,   as: CT
   alias InfoToml.Types, as: ITT
 
   # Public functions
@@ -227,14 +228,14 @@ defmodule InfoToml.CheckItem do
       ssw(message, "error:") && acc
     end
 
-    check_fn    = fn inp, gi_rev ->
+    check_fn    = fn inp_map, gi_rev ->
     #
-    # Perform a set of checks on item values; return a list of error tuples.
+    # Perform a set of checks on `inp_map`; return a list of error tuples.
 
       gi_path   = Enum.reverse(gi_rev)
 
       for check_id <- [1, 2] do
-        checks_fn.(check_id, gi_path, inp)
+        checks_fn.(check_id, gi_path, inp_map)
       end
       |> Enum.reject(&is_nil/1)
     end
@@ -249,8 +250,8 @@ defmodule InfoToml.CheckItem do
     Enum.reduce(result, true, err_chk_fn)
   end
 
-  @spec check_values_h(map | st, (st, list -> any), list) :: [tuple]
-    when st: String.t #W
+  @spec check_values_h(ITT.item_part | st, ITT.check_fn, gp) :: [ct]
+    when ct: ITT.check_tuple, gp: CT.gi_path, st: String.t
 
   defp check_values_h(inp_val, check_fn, gi_rev) do
   #
@@ -259,7 +260,7 @@ defmodule InfoToml.CheckItem do
 
     if is_map(inp_val) do
       for {key, val} <- inp_val do
-        check_values_h(val, check_fn, [key | gi_rev] ) #R
+        check_values_h(val, check_fn, [key | gi_rev] ) #!R
       end
     else
       check_fn.(inp_val, gi_rev)

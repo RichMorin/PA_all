@@ -2,6 +2,7 @@
 
 defmodule PhxHttp.Types do
 
+  alias Common.Types,   as: CT
   alias InfoToml.Types, as: ITT
 
   @moduledoc """
@@ -10,32 +11,47 @@ defmodule PhxHttp.Types do
   """
 
   @typedoc """
-  An `addr_part` is a Map of Strings.
+  An `addr_part` is part of an `address`.
   """
   @type addr_part :: %{ atom => st }
 
 
   @typedoc """
-  An `address` is a Map of Maps of Strings.
+  An `err_list` is a List of Tuples that describe errors, e.g.:
+
+      [ {:warning, 105, "Closing unclosed backquotes ` at end of input"} ]
+  """
+  @type err_list :: [ {atom, nni, st} ]
+
+
+  @typedoc """
+  An `address` is a Map of Maps of Strings, containing address information.
   """
   @type address :: %{ atom => addr_part }
 
 
   @typedoc """
   A `gi_pair` is a tuple, containing a `gi_path` (i.e., a `get_in`-style path),
-  coupled with a value.
+  coupled with a (string) value.
   """
-  @type gi_pair :: { [atom], st }
+  @type gi_pair :: { CT.gi_path, st }
 
 
   @typedoc """
   A `params` Map is populated by Phoenix from a GET or POST request.
   """
-  @type params :: %{ st => st } | [] #W - Search.show/2 needed this
+  #!K - The [] possibility is needed by Search.show/2.
+  @type params :: %{ st => st } | []
 
 
   @typedoc """
-  A `pkg_info` map contains build information on a package:
+   A `path_map` contains item paths, indexed by `id_num`.
+   """
+  @type path_map :: %{ ITT.id_num => st }
+
+
+  @typedoc """
+  A `pkg_info` map contains build information for a single package:
   
       %{
         main: %{
@@ -59,12 +75,12 @@ defmodule PhxHttp.Types do
         precis:   st,
         title:    st
       },
-      make: %{ atom => any }
+      make: %{ atom => bool | st }
     }
 
 
   @typedoc """
-  A `pkg_map` contains build information on multiple packages:
+  A `pkg_map` contains build information for multiple packages:
   
       %{
         "Alacritty" => %{
@@ -89,32 +105,17 @@ defmodule PhxHttp.Types do
 
 
   @typedoc """
-  A `tag_info` Map contains Maps of strings to id_nums.
+  `tag_sets` is a Map of lists of `<type>:<tag>` strings,
+  indexed by ID string.  For example:
+  
+      %{"a" => ["f_authors:Rich_Morin"]}
   """
-  @type tag_info :: %{ st => %{ st => ITT.id_num } }
+  @type tag_sets :: %{ st => [st] }
 
-
-  @typedoc """
-  A `tag_map` is a Map containing MapSet instances.
-  """
-  @type tag_map :: %{ (atom | st) => MapSet.t(tag_val) }
-
-
-  @typedoc """
-  A `tag_set` is a list of `type:tag` strings.
-  """
-  @type tag_set :: [st]
-
-
-  @typedoc """
-  `tag_sets` is a Map of `tag_set` values by ID string (e.g., "a").
-  """
-  @type tag_sets :: %{ st => tag_set }
 
   # Private types
 
-# @typep nni      :: non_neg_integer
+  @typep nni      :: non_neg_integer
   @typep st       :: String.t
-  @typep tag_val  :: integer | st
 
 end

@@ -51,9 +51,9 @@ defmodule InfoToml.Parser do
       if File.exists?(file_abs) do
         parse_h1(file_abs, atom_key)
       else
-#       ii(file_abs, "file_abs") #T
+#       ii(file_abs, "file_abs") #!T
 #       trace = Process.info(self(), :current_stacktrace)
-#       ii(trace, "trace") #T
+#       ii(trace, "trace") #!T
         { :error, "File not found." }
       end
     end
@@ -76,16 +76,16 @@ defmodule InfoToml.Parser do
     #
     # Put the stringified version of the line number offset into the map.
 
-      case line do
-        ~r{ ^ \s+ access  \s+ = \s+ }x ->
+      cond do
+        line =~ ~r{ ^ \s+ access  \s+ = \s+ }x ->
           gi_list   = [ :meta, :o_access ]
           put_in(acc, gi_list, "#{ ndx }")
 
-        ~r{ ^ \s+ verbose \s+ = \s+ }x ->
+        line =~ ~r{ ^ \s+ verbose \s+ = \s+ }x ->
           gi_list   = [ :meta, :o_verbose ]
           put_in(acc, gi_list, "#{ ndx }")
 
-        _ -> acc
+        true -> acc
       end
     end
 
@@ -96,6 +96,7 @@ defmodule InfoToml.Parser do
   end
 
   @spec decode(String.t, atom) :: {:ok, ITT.item_map} | {:error, any}
+  #!V - any (see https://hexdocs.pm/toml/Toml.html#decode/2)
 
   defp decode(inp_str, atom_key) do
   #

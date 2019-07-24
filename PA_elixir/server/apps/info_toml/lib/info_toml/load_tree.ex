@@ -84,7 +84,7 @@ defmodule InfoToml.LoadTree do
     #
     # Return data from the specified file.
 
-#     Common.ii(file_rel, :file_rel) #T
+#     Common.ii(file_rel, :file_rel) #!T
       LoadFile.do_file(file_rel, id_num, schema_map)
     end
 
@@ -116,7 +116,7 @@ defmodule InfoToml.LoadTree do
     #
     # Return true if file path contains "/ignore".
 
-#     ssw(path, "Areas/Catalog/") ||  #D Uncomment for testing.
+#     ssw(path, "Areas/Catalog/") ||  #!D Uncomment for testing.
       path =~ ~r{ /_ignore }x
     end
 

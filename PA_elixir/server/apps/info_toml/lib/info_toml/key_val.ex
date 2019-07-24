@@ -84,7 +84,7 @@ defmodule InfoToml.KeyVal do
       |> Enum.count()
 
       Map.put(acc, key, count)
-#     |> ii(:kv_cnts) #T
+#     |> ii(:kv_cnts) #!T
     end
 
     inbt_map                        # %{ "..." => #MapSet<[...]>, ... }
@@ -92,7 +92,7 @@ defmodule InfoToml.KeyVal do
     |> sort_by_elem(0)              # same, but sorted by keys.
     |> Enum.reduce(%{}, reduce_fn1) # %{ <type>: #MapSet<[...]>, ... }
     |> Enum.reduce(%{}, reduce_fn2) # %{ <type>: <count>, ... }
-#   |> ii("kv_cnts") #T
+#   |> ii("kv_cnts") #!T
   end
 
   @spec get_kv_descs(atom) :: ITT.kv_descs
@@ -115,8 +115,8 @@ defmodule InfoToml.KeyVal do
       }
 
       kv_tags
-      |> Map.merge(kv_refs) #K - fold in meta.ref
-      |> Map.merge(kv_harv) #K - fold in harvested
+      |> Map.merge(kv_refs) #!K - fold in meta.ref
+      |> Map.merge(kv_harv) #!K - fold in harvested
     else
       kv_tags
     end
@@ -177,7 +177,7 @@ defmodule InfoToml.KeyVal do
     |> get_tuples(inp_map)          # [ { :<type>, "<tag>", <cnt> }, ... ]
   end
 
-  @spec get_kv_map( [String.t] ) :: ITT.kv_map #W
+  @spec get_kv_map( [String.t] ) :: ITT.kv_map
 
   defp get_kv_map(kv_list) do
   #
@@ -200,7 +200,7 @@ defmodule InfoToml.KeyVal do
     |> Enum.reduce(%{}, reduce_fn)
   end
 
-  @spec get_tuples([String.t], map) :: [ITT.kv_tuple]
+  @spec get_tuples([String.t], ITT.id_map) :: [ITT.kv_tuple]
 
   defp get_tuples(tags, tag_map) do
   #

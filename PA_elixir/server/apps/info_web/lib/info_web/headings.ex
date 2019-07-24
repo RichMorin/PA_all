@@ -28,8 +28,8 @@ defmodule InfoWeb.Headings do
 
   def do_headings(html_tree, page_url) do
 
-#   ii(html_tree, :html_tree) #T
-    ii(page_url,  :page_url) #T
+#   ii(html_tree, :html_tree) #!T
+    ii(page_url,  :page_url) #!T
 
     selector  = "h1, h2, h3, h4, h5, h6"
 
@@ -59,7 +59,7 @@ defmodule InfoWeb.Headings do
       |> String.replace_prefix("h", "")
       |> String.to_integer()
 
-      if false do #TG
+      if false do #!G
         IO.puts ""
         ii(body,        :body)
         ii(messages,    :messages)
