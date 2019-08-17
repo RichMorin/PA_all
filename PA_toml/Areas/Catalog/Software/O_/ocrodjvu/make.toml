@@ -1,0 +1,12 @@
+# cat_sof|ocrodjvu/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|ocrodjvu'
+  upstream    = 'http://jwilk.net/software/ocrodjvu'
+
+[ os.debian ]
+
+  package     = 'ext_pd|buster/ocrodjvu'

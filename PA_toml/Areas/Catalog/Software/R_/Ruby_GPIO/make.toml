@@ -8,7 +8,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/ruby-gpio'
+  package     = 'ext_pd|buster/ruby-gpio'
   search      = 'ext_pd|search?keywords=ruby-gpio'
   track       = 'https://tracker.debian.org/pkg/ruby-gpio'
 

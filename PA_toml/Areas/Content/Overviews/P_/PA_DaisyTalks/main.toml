@@ -1,0 +1,236 @@
+# con_ove|PA_DaisyTalks/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PA_DaisyTalks'
+  title       = "Pete's Alley - DaisyTalks"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "processing presentation videos into DAISY"
+
+  verbose     = '''
+Presentation videos typically contain inaccessible content.
+DaisyTalks is a speculative project aimed at processing these
+into DAISY or other accessible formats.
+As usual, comments and suggestions are welcome.
+
+### Motivation
+
+For a number of years, various organizations have been recording
+and distributing videos of slideshow-based presentations
+(e.g., technical talks).
+The quality of these videos varies widely, of course,
+but many are interesting and well produced.
+For example, over the last several years,
+[Confreaks]{http://www.confreaks.com} has been recording, editing,
+and distributing high-quality videos of conference presentations.
+They currently have more then 15,000 videos in their collection.
+
+Because there are many distributors for this sort of content,
+I would guess that there are hundreds of thousands of videos online,
+including conference and meeting presentations, university offerings, etc.
+I've watched a large number of these videos,
+often with great interest and pleasure.
+Indeed, the ability to "attend" conferences remotely,
+at my own pace, is one of the marvels of the age.
+
+A well-edited conference video typically contains audio and video
+of the speaker(s), along with images of presented slides.
+There may also be embedded dynamic content, including live coding,
+prerecorded videos, etc.
+Although I can simply sit back and watch the video,
+the controls on the presenting web page offer other possibilities.
+For example, I can pause the video to examine or consider a slide,
+go back to an earlier point in the presentation, etc.
+
+#### Issues
+
+Unfortunately, many of these videos contain inaccessible content,
+so they can't be enjoyed fully by impaired "viewers".
+Slides are the most common roadblock for the vision-impaired users;
+others include animations, screencasts, and terminal sessions.
+For that matter, the audio content isn't accessible to the deaf
+and "background" music can make it difficult to understand the speaker.
+
+More generally, the lack of computer-friendly metadata
+gets in the way of machine-assisted retrieval or viewing.
+For example, I can't perform a text-based search on any of this material,
+let alone peruse an index or table of contents.
+I've been thinking about ways to make this material
+more accessible, convenient, and navigable.
+The following notes summarize my current thinking;
+as usual, comments and suggestions are welcome!
+
+### Approach
+
+A combination of existing open source tooling and crowdsourced effort
+can supplement videos with metadata and alternative formats,
+including audio and video transcriptions, keywords, etc.
+Using this material, more accessible and navigable presentations
+can be produced.
+
+My preferred approach is to capture information from slides and speech,
+using mechanized means
+(e.g., [Optical Character Recognition]{ext_wp|Optical_Character_Recognition}).
+When this approach runs into trouble (e.g., describing an image),
+we can fall back on human effort to augment and edit the collected information.
+Following the approach taken in Pete's Alley,
+we will encode much of this information in structured, text-based files
+(e.g., [TOML]{ext_wp|TOML} with [Markdown]{ext_wp|Markdown} inclusions).
+
+Once we have all of the information we can harvest,
+we can use it to generate distribution formats.
+[HTML]{ext_wp|HTML} is an obvious target,
+because it can make the material available without requiring the user
+to install special "reader" software.
+However, DAISY is also a strong contender:
+
+> DAISY (Digital Accessible Information SYstem) is a technical standard
+for digital audiobooks, periodicals, and computerized text.
+DAISY is designed to be a complete audio substitute for print material
+and is specifically designed for use by people with "print disabilities",
+including blindness, impaired vision, and dyslexia.
+Based on the MP3 and XML formats, the DAISY format has advanced features
+in addition to those of a traditional audio book.
+Users can search, place bookmarks, precisely navigate line by line,
+and regulate the speaking speed without distortion.
+DAISY also provides aurally accessible tables, references,
+and additional information.
+As a result, DAISY allows visually impaired listeners
+to navigate something as complex as an encyclopedia or textbook,
+otherwise impossible using conventional audio recordings.
+
+> -- [DAISY Digital Talking Book]{ext_wp|DAISY_Digital_Talking_Book}
+
+### Details
+
+#### Processing Steps
+
+Here's a hand-waving precis of the processsing steps:
+
+- Download a conference presentation video.
+- Capture time-synchronized audio and video content.
+- Harvest text from speech and images.
+- Collect annotations from human volunteers, etc.
+- Format and organize harvested text and notes.
+- Convert into a DAISY Digital Talking Book.
+- Support both downloading and online use.
+
+#### Data Flow
+
+- Create a "token" (task data structure).
+- Augment the token in each processing step.
+- Generate files of DAISY (etc) content.
+
+#### Downloading
+
+Typically, conference videos are not set up for easy downloading.
+Although there are workarounds that can be used for experimentation,
+any "production" approach would require support of the distributors.
+That is, they would have to allow downloading of both the current
+video content and any transformed version.
+
+#### Audio Content
+
+Extraction of audio content from videos is a fairly common problem,
+so there are a number of tools to do this job.
+Once we have the content, we can process it in various ways, as:
+
+- Locate pauses between sentences and create a time-tagged index.
+- Perform speech recognition to get a first cut at a transcript.
+- Allow a human to edit the transcript for accuracy and clarity.
+
+#### Slide Extraction
+
+The first step in processing the video into an accessible format
+is to turn it into a series of frames.
+The [FFmpeg]{ext_wp|FFmpeg} suite of utilities and libraries
+seems to be the Golden Path for this.
+The libraries have [C]{ext_wp|C_(programming_language)}
+[API]{ext_wp|Application_programming_interface}s,
+so they can be linked to [Crystal]{ext_wp|Crystal_(programming_language)} code.
+This will let us acquire the slides and process them in an efficient manner,
+while using [Ruby]{ext_wp|Ruby_(programming_language)}-like syntax.
+
+The slide images are embedded in the video content.
+Typically, they occupy a roughly rectangular area,
+accompanied by coverage of the presenter
+and surrounding material (e.g., banners, logos) from the producer.
+So, our first task in extracting slides is to figure out
+what part of the screen they occupy.
+
+The screen image is a rectangular array of pixels,
+each of which contains values for color and intensity.
+This is encoded as a three-byte RGB triplet,
+containing intensity values for red, green, and blue.
+
+By storing recent images in a sliding window,
+we can calculate and retain statistical measures (e.g., variance)
+of their behavior.
+Using these, we can characterize portions of the screen.
+For example:
+
+- Surrounding material changes very little, if at all.
+- Presenter coverage changes as the presenter moves about.
+- Each slide stays largely constant for several seconds.
+- Slides tend to have black text on a white background.
+
+Once we have determined the extents of the "slides" area,
+we can look for a "significant" changes
+(e.g., more than a few pixels changing):
+
+- Detect slide transitions
+  - Skip forward until we detect a significant change.
+  - Scan back until we find the first changed frame.
+
+- Record the frame time, for use in DAISY metadata.
+- If need be, average some frames for noise reduction.
+- Extend the background to a full rectangle.
+
+#### Slide Analysis
+
+Once the slide image is available, we can hand it to
+Optical Character Recognition (OCR) software for the first stage of analysis.
+The HTML-based [hOCR]{ext_wp|HOCR} format encodes text, style,
+layout information, recognition confidence metrics, etc.
+Here are some open source OCR packages that support hOCR as an output format:
+
+- [CuneiForm]{ext_wp|CuneiForm_(software)}
+- [OCRopus]{ext_wp|OCRopus}
+- [Tesseract]{ext_wp|Tesseract_(software)}
+
+The layout information that hOCR provides is geometric, rather than semantic.
+So, for example, it will tell us that a line of text occupies a rectangle
+in a specified location.
+Based on this information and some simple heuristics,
+we should be able to generate semantic HTML (e.g., `ul`, `li`)
+that largely replicates the geometric layout.
+
+Dealing with more complicated images is, of course,
+an [AI-complete]{ext_wp|AI-complete} problem.
+However, we should be able to deal with many slides via human effort
+(e.g., [crowdsourcing]{ext_wp|Crowdsourcing}).
+
+#### Speech Recognition
+
+Given that we have the presenter's audio track,
+it should be possible to generate a first cut at a transcript
+by means of [speech recognition]{ext_wp|Speech_recognition} software.
+
+- [CMUSphinx]{https://cmusphinx.github.io}
+- [CMUSphinx]{ext_wp|CMU_Sphinx} (WP)
+- [DeepSpeech]{ext_gh|mozilla/DeepSpeech}
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

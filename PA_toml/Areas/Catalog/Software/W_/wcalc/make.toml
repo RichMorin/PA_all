@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/wcalc'
+  package     = 'ext_pd|buster/wcalc'
   search      = 'ext_pd|search?keywords=wcalc'
   track       = 'https://tracker.debian.org/pkg/wcalc'
 

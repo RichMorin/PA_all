@@ -9,4 +9,4 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/dasher'
+  package     = 'ext_pd|buster/dasher'

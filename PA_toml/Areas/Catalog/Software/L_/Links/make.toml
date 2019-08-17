@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/links'
+  package     = 'ext_pd|buster/links'
   search      = 'ext_pd|search?keywords=links'
   track       = 'https://tracker.debian.org/pkg/links'
 

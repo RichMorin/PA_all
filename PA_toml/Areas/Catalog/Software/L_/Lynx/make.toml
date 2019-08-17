@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/lynx'
+  package     = 'ext_pd|buster/lynx'
   search      = 'ext_pd|search?keywords=lynx'
   track       = 'https://tracker.debian.org/pkg/lynx'
 

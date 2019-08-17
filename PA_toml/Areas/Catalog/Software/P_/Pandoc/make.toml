@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/pandoc'
+  package     = 'ext_pd|buster/pandoc'
   search      = 'ext_pd|search?keywords=pandoc'
   track       = 'https://tracker.debian.org/pkg/pandoc'
 

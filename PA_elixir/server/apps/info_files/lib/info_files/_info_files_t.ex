@@ -36,7 +36,7 @@ defmodule InfoFiles.Types do
         tracing:        false,
       }
   """
-  @type info_map :: %{ CT.map_key => bool | cnt_map | st | [st] }
+  @type info_map :: %{ CT.map_key => boolean | cnt_map | st | [st] }
 
 
   # Private types

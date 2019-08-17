@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/netatalk'
+  package     = 'ext_pd|buster/netatalk'
   search      = 'ext_pd|search?keywords=netatalk'
   track       = 'https://tracker.debian.org/pkg/netatalk'
 

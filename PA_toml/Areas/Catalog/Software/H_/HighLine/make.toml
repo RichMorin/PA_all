@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/ruby-highline'
+  package     = 'ext_pd|buster/ruby-highline'
   search      = 'ext_pd|search?keywords=ruby-highline'
   track       = 'https://tracker.debian.org/pkg/ruby-highline'
 

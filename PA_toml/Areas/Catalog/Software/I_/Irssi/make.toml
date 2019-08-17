@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/irssi'
+  package     = 'ext_pd|buster/irssi'
   search      = 'ext_pd|search?keywords=irssi'
   track       = 'https://tracker.debian.org/pkg/irssi'
   wiki        = 'https://wiki.debian.org/irssi'

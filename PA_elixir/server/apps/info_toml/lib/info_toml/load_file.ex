@@ -64,7 +64,7 @@ defmodule InfoToml.LoadFile do
     do_file_2(file_data, file_key, file_rel, file_stat, id_num)
   end
 
-  @spec do_file_2(im, st, st, bool, ITT.id_num) :: {st, im}
+  @spec do_file_2(im, st, st, boolean, ITT.id_num) :: {st, im}
     when im: ITT.item_maybe, st: String.t
 
   defp do_file_2(_, _, file_rel, _file_stat = false, _) do

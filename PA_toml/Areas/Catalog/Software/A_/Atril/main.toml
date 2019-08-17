@@ -31,7 +31,7 @@ it is a simple multi-page document viewer.  It can display and  print
 PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and
 Portable Document Format (PDF) files.
 
-> -- [$url]{https://github.com/mate-desktop/atril}
+> -- [$url]{ext_gh|mate-desktop/atril}
 '''
 
 [ address.web_site ]

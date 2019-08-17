@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/ircii'
+  package     = 'ext_pd|buster/ircii'
   search      = 'ext_pd|search?keywords=ircii'
   track       = 'https://tracker.debian.org/pkg/ircii'
 

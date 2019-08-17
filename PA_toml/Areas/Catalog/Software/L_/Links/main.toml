@@ -28,7 +28,7 @@
 > Links is a text mode WWW browser, similar to Lynx.  It displays tables,
 frames, downloads on background, uses HTTP/1.1 keepalive connections.
 
-> -- [$url]{ext_pd|stretch/links}
+> -- [$url]{ext_pd|buster/links}
 '''
 
 [ address.related ]

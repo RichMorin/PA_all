@@ -1,9 +1,9 @@
-# con_ove|PP_Introduction/main.toml
+# con_ove|PP_Perkian_Intro/main.toml
 
 [ meta ]
 
   actions     = 'publish'
-  id_str      = 'PP_Introduction'
+  id_str      = 'PP_Perkian_Intro'
   title       = "Perkian - Introduction"
 
 [ meta.refs ]
@@ -134,7 +134,7 @@ enough porting information to drive a release building tool.
 I plan to start work on such a tool
 [Real Soon Now]{http://www.catb.org/jargon/html/R/Real-Soon-Now.html}.
 I've even started a (somewhat speculative) page
-on [implementation]{con_ove|PP_Implementation}.
+on [implementation]{con_ove|PP_Perkian_Impl}.
 Meanwhile, the [Make dashboard]{/dash/make} summarizes several dozen packages.
 Finally, the [Make Schema]{_schemas/make.toml:s}
 is available for your edification and amusement.

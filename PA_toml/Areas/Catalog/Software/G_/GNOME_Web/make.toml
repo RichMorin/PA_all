@@ -10,4 +10,4 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/epiphany'
+  package     = 'ext_pd|buster/epiphany'

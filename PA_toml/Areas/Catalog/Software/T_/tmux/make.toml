@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/tmux'
+  package     = 'ext_pd|buster/tmux'
   search      = 'ext_pd|search?keywords=tmux'
   track       = 'https://tracker.debian.org/pkg/tmux'
 

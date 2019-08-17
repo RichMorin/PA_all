@@ -10,4 +10,4 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/elixir'
+  package     = 'ext_pd|buster/elixir'

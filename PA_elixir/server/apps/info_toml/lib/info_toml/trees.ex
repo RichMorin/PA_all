@@ -84,7 +84,7 @@ defmodule InfoToml.Trees do
   This function is useful for testing data structures.
   """
 
-  @spec our_tree(any) :: bool
+  @spec our_tree(any) :: boolean
   #!V - any (indeed, could be anything...)
 
   def our_tree(input), do: our_tree(input, true)
@@ -93,7 +93,7 @@ defmodule InfoToml.Trees do
   Like `our_tree/1`, but allows non-strict checking.
   """
 
-  @spec our_tree(any, bool) :: bool
+  @spec our_tree(any, boolean) :: boolean
   #!V - any (indeed, could be anything...)
 
   def our_tree(input, strict) do
@@ -116,7 +116,7 @@ defmodule InfoToml.Trees do
   defp leaf_paths_h({key, _value}, {parent_path, paths}), do:
     {parent_path, [ :lists.reverse( [ key | parent_path ] ) | paths ] }
 
-  @spec our_tree_h(map, bool) :: bool
+  @spec our_tree_h(map, boolean) :: boolean
 
   defp our_tree_h(input, strict) when is_map(input) do
 

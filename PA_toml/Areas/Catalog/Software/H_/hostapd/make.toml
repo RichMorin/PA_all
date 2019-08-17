@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/hostapd'
+  package     = 'ext_pd|buster/hostapd'
   search      = 'ext_pd|search?keywords=hostapd'
   track       = 'https://tracker.debian.org/pkg/hostapd'
 

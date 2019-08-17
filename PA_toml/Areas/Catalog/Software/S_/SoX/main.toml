@@ -1,0 +1,51 @@
+# cat_sof|SoX/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'SoX'
+  title       = 'SoX (Sound eXchange)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, dyslexia, low vision'
+  interfaces  = 'terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, sound processing program'
+  standards   = '''
+8svx, A-law, AAC, AC3, ADPCM, AIFF, AMR-NB, AMR-WB, AU, AVI, AVR,
+CDDA, CVS, FLAC, GSM, HCOM, HTK, IRCAM, LPC-10,
+MAUD, Maxis XA, MP2, MP3, MP4, Ogg Theora, Ogg Vorbis, PCM, RIFX,
+SampleVision, SND, SoundFile, TX-16W, u-law, VOC, VMS, WAVPACK, WMV
+'''
+  supports    = 'communication, education'
+
+[ about ]
+
+  precis      = 'the Swiss Army knife of sound processing programs'
+
+  verbose     = '''
+> Welcome to the home of SoX, the Swiss Army knife of sound processing programs.
+
+> SoX is a cross-platform (Windows, Linux, MacOS X, etc.) command line utility
+that can convert various formats of computer audio files in to other formats.
+It can also apply various effects to these sound files, and, as an added bonus,
+SoX can play and record audio files on most platforms.
+
+> -- [$url]{http://sox.sourceforge.net}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|SoX'
+
+[ address.web_site ]
+
+  faq         = 'main|Docs/FAQ'
+  forum       = 'https://sourceforge.net/p/sox/mailman'
+  main        = 'http://sox.sourceforge.net'

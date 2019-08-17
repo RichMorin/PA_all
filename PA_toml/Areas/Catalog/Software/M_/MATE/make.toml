@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/mate-desktop'
+  package     = 'ext_pd|buster/mate-desktop'
   search      = 'ext_pd|search?keywords=mate-desktop'
   track       = 'https://tracker.debian.org/pkg/mate-desktop'
   wiki        = 'https://wiki.debian.org/Mate'

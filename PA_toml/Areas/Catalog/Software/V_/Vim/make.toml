@@ -1,0 +1,19 @@
+# cat_sof|Vim/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|extra/x86_64/vim'
+  upstream    = 'https://www.vim.org'
+
+[ os.debian ]
+
+  package     = 'ext_pd|buster/vim'
+  search      = 'ext_pd|search?keywords=vim'
+  track       = 'https://tracker.debian.org/pkg/vim'
+
+  commands    = 'sudo apt-get install vim'
+  issues      = 'installs automagically'
+  origin      = 'APT'
+  status      = 'ok'

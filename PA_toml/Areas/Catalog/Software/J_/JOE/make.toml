@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/joe'
+  package     = 'ext_pd|buster/joe'
   search      = 'ext_pd|search?keywords=joe'
   track       = 'https://tracker.debian.org/pkg/joe'
 

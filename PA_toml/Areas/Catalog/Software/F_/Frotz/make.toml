@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/frotz'
+  package     = 'ext_pd|buster/frotz'
   search      = 'ext_pd|search?keywords=frotz'
   track       = 'https://tracker.debian.org/pkg/frotz'
 

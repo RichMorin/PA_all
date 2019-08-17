@@ -10,4 +10,4 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/imagemagick'
+  package     = 'ext_pd|buster/imagemagick'

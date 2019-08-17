@@ -39,7 +39,7 @@ This might include data transformation tools (e.g.,
 [image processing]{ext_wp|Digital_image_processing},
 [text processing]{ext_wp|Text_processing}),
 support for braille output and speech input, etc.
-See the [Perkian]{con_ove|PP_Introduction} page
+See the [Perkian]{con_ove|PP_Perkian_Intro} page
 for more information on this general idea.
 
 ### Software Constraints
@@ -97,8 +97,8 @@ It uses a Fedora Docker image.
 There are various ways to run a Debian chroot on an Android device.
 
 - [$url]{http://man7.org/linux/man-pages/man2/chroot.2.html}
-- [$url]{https://en.wikipedia.org/wiki/Chroot}
-- [$url]{https://github.com/guardianproject/lildebi/wiki}
+- [$url]{ext_wp|Chroot}
+- [$url]{ext_gh|guardianproject/lildebi/wiki}
 - [$url]{https://guardianproject.info/code/lildebi}
 - [$url]{https://wiki.debian.org/chroot}
 - [$url]{https://wiki.debian.org/ChrootOnAndroid}
@@ -108,7 +108,7 @@ There are various ways to run a Debian chroot on an Android device.
 Crouton is a set of scripts that bundle up into an easy-to-use,
 Chromium OS-centric chroot generator. 
 
-- [$url]{https://github.com/dnschneid/crouton}
+- [$url]{ext_gh|dnschneid/crouton}
 
 #### DebianKit
 
@@ -129,7 +129,7 @@ Success has been reported for installing Docker Engine on Android (>= 3.10)
 and using Termux to access Docker containers.
 
 - [$url]{https://android.jlelse.eu/where-android-and-docker-meet-a2a34130a504}
-- [$url]{https://en.wikipedia.org/wiki/Docker_(software)}
+- [$url]{ext_wp|Docker_(software)}
 - [$url]{https://hub.docker.com/r/bitriseio/docker-android}
 - [$url]{https://termux.com/}
 
@@ -144,8 +144,8 @@ It provides a complete Debian install process and transparent boot integration.
 Status: The Guardian Project is no longer supporting this effort and is
 asking for someone to take it over.
 
-- [$url]{https://github.com/guardianproject/lildebi}
-- [$url]{https://github.com/guardianproject/lildebi/wiki}
+- [$url]{ext_gh|guardianproject/lildebi}
+- [$url]{ext_gh|guardianproject/lildebi/wiki}
 - [$url]{https://guardianproject.info/code}
 - [$url]{https://guardianproject.info/code/lildebi}
 
@@ -180,8 +180,8 @@ Status: It only supports Nexus cell phones (e.g., Nexus 5),
 which have limited storage (32 GB) and no SD card.
 
 - [$url]{http://www.linux-magazine.com/Issues/2016/189/Maru-OS}
-- [$url]{https://github.com/maruos/maruos}
-- [$url]{https://github.com/maruos/maruos/wiki/FAQ}
+- [$url]{ext_gh|maruos/maruos}
+- [$url]{ext_gh|maruos/maruos/wiki/FAQ}
 - [$url]{https://maruos.com}
 
 #### postmarketOS

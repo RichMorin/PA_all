@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/bridge-utils'
+  package     = 'ext_pd|buster/bridge-utils'
   search      = 'ext_pd|search?keywords=bridge-utils'
   track       = 'https://tracker.debian.org/pkg/bridge-utils'
 

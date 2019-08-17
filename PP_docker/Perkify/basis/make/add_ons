@@ -1,0 +1,26 @@
+:
+# add_ons - install add-on packages
+#
+# Written by Rich Morin, CFCL, 2019.
+
+  # Set up some preliminaries.
+  
+  bar='-----------------------------------------------------------------------'
+  log_dir=/tmp/add_ons_log
+  rm -rf $log_dir
+  mkdir  $log_dir
+  log=$log_dir/_prelims
+
+  (
+    apt-get update
+    echo $bar
+    apt-get -y install ruby-full
+    echo $bar
+    gem install toml-rb
+  ) >> $log 2>&1
+
+  # Install the files.
+
+  PATH=$PATH:.
+  cd "$( dirname "${BASH_SOURCE[0]}" )"
+  add_ons.rb $log_dir

@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/sup-mail'
+  package     = 'ext_pd|buster/sup-mail'
   search      = 'ext_pd|search?keywords=sup-mail'
   track       = 'https://tracker.debian.org/pkg/sup-mail'
 

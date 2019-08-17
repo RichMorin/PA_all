@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/emacs'
+  package     = 'ext_pd|buster/emacs'
   search      = 'ext_pd|search?keywords=emacs'
   track       = 'https://tracker.debian.org/pkg/emacs'
 

@@ -1,0 +1,139 @@
+# add_ons.toml - add-on packages for the Perkify container
+
+[packages]
+
+# Included
+
+debian_apt = '''
+# Title               APT Name            Notes
+# -----               --------            -----
+  Accerciser,         accerciser,         a11y explorer
+  Alot,               alot,               email client
+  Alpine,             alpine,             email client
+  Aptitude,           aptitude,           APT extensions
+  Atril,              atril,              document viewer
+  bridge-utils,       bridge-utils,       network admin
+  BRLTTY,             brltty,             Braille output
+  DAISY Player,       daisy-player,       ebook reader
+  Dasher,             dasher,             text entry
+  dnsmasq,            dnsmasq,            network admin
+  dosfstools,         dosfstools,         system admin
+  ELinks,             elinks,             web browsing
+  Elixir,             elixir,             programming language
+  eSpeak NG,          espeak-ng,          speech synthesis
+  eSpeak NG Data,     espeak-ng-data,     speech synthesis
+  espeakup,           espeakup,           speech synthesis
+  Fenrir,             fenrir,             screen reader (-s+b)
+  Fizmo (ncurses),    fizmo-ncursesw,     text game engine
+  Fizmo (console),    fizmo-console,      text game engine
+  Frotz,              frotz,              text game engine
+  GNU bc,             bc,                 desk calculator
+  GNU emacs,          emacs,              IDE, text editor, etc.
+  GNU ocrad,          ocrad,              OCR support
+  GNU screen,         screen,             terminal multiplexer
+  Graphviz,           graphviz,           graph visualization
+  hostapd,            hostapd,            network admin
+  ii,                 ii,                 IRC client
+  ImageMagick,        imagemagick,        image manipulation
+  ircII,              irssi,              IRC client
+  irssi,              ircii,              IRC client
+  JOE,                joe,                text editor
+  Jupyter Notebook,   jupyter-notebook,   interactive notebook
+  Liblouis,           liblouis-bin,       braille translation
+  Liblouis Data,      liblouis-data,      braille translation
+  LibreOffice,        libreoffice,        productivity suite
+  LibreOffice GNOME,  libreoffice-gnome,  GNOME integration
+  LibreOffice KDE,    libreoffice-kde,    KDE integration
+  Links,              links,              web browser
+  Linphone,           linphone,           VOIP client
+  Lynx,               lynx,               web browser
+  manual database,    man-db,             apropos(1), man(1), etc.
+  MATE,               mate-desktop,       desktop environment
+  MPD,                mpd,                music player daemon
+  Mumble,             mumble,             VOIP client
+  Mutt,               mutt,               email client
+  Netatalk,           netatalk,           network admin
+  OCRFeeder,          ocrfeeder,          OCR support
+  OCRmyPDF,           ocrmypdf,           OCR support
+  OCRmyPDF Doc.,      ocrmypdf-doc,       OCR support
+  ocrodjvu,           ocrodjvu,           OCR support
+  OpenSCAD,           openscad,           3D modeling
+  Orca,               orca,               screen reader (-s+b+sb)
+  Pandoc,             pandoc,             document conversion
+  Poezio,             poezio,             Jabber/XMPP client (-s+b)
+  Profanity,          profanity,          Jabber/XMPP client (-s+b)
+  reportbug,          reportbug,          bug reporting
+# Ruby,               ruby-full,          programming language
+  ScrollZ,            scrollz,            IRC client
+  sic,                sic,                IRC client
+  SoX,                sox,                audio processing
+  speechd,            speech-dispatcher,  speech synthesis
+  sudo,               sudo,               system admin
+  Sup,                sup-mail,           email client
+  Syncthing,          syncthing,          network admin
+  Tesseract,          tesseract-ocr,      OCR support
+  tmux,               tmux,               terminal multiplexer
+  Vim,                vim,                text editor
+  w3m,                w3m,                web browser, etc.
+  wcalc,              wcalc,              desk calculator
+  WeeChat,            weechat,            IRC client
+  wkhtmltopdf,        wkhtmltopdf,        document conversion
+  Xpdf,               xpdf,               PDF viewer, etc.
+  yasr,               yasr,               screen reader
+'''
+
+ruby_gems = '''
+# Title               Gem Name            Notes
+# -----               --------            -----
+  HighLine,           highline,           CLI support library
+  Sinatra,            sinatra,            web framework
+# TOML,               toml,               data serialization
+  TTY::Prompt,        tty-prompt,         CLI prompts
+  Xiki,               xiki,               text-based menus
+'''
+
+# Works in Progress
+
+## Missing APT packages
+
+# Title               APT name            Notes
+# -----               --------            -----
+# Alacritty,          ?,                  TTY emulation             (-bs)
+# BitchX,             ?,                  IRC client                (-bs)
+# Bookworm,           ?,                  eBook reader              (-bs)
+# BRL-CAD,            ?,                  solid modeling            (-bs)
+# Crystal,            ?,                  programming language      (-bs)
+# DAISY Pipeline 2,   ?,                  document conversion       (-bs)
+# Eclipse Che,        ?,                  IDE, text editor, etc.    (-bs)
+# Ekiga,              ekiga,              online conferencing       (-b)
+# Elm ME+,            ?,                  email client              (-bs)
+# Eolie,              ?,                  web browser               (-bs)
+# ERC,                erc,                IRC client                (-bs+j)
+# Eww,                ?,                  web browser               (-bs)
+# latex-access,       ?,                  braille translation       (-bs)
+# Lucidor,            ?,                  ebook reader              (-bs)
+# OCRdesktop,         ?,                  OCR support               (-bs)
+# PINN,               ?,                  Raspberry Pi support      (-bs)
+# sbl,                ?,                  screen reader             (-bs)
+# Speakup,            speakup,            speech synthesis          (-bs)
+# tdsr,               ?,                  screen reader             (-bs)
+# The vOICe,          ?,                  sensory substitution      (-bs)
+# WiringPi,           ?,                  Raspberry Pi support      (-bs)
+
+## Other APT issues
+
+# Title               APT name            Notes
+# -----               --------            -----
+# Chef,               chef,               systems integration       (APT hangs)
+# Emacspeak,          emacspeak,          accessible editor         (APT hangs)
+# GNOME,              gnome,              desktop environment       (APT hangs)
+# GNOME A11y, gnome-accessibility-themes, desktop environment       (%GNOME)
+# GNOME Web,          epiphany,           web browsing              (%GNOME)
+# XeTeX,              texlive-xetex,      document conversion       (APT hangs)
+
+## Miscellaneous issues
+
+# Title               APT name            Notes
+# -----               --------            -----
+# ruby-gpio,          ruby-gpio,          Raspberry Pi support
+# Stretch Backports,  stretch-backports,  backward compatibility

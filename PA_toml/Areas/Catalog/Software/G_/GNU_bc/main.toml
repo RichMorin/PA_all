@@ -28,10 +28,10 @@
   verbose     = '''
 > GNU bc is an interactive algebraic language with arbitrary precision
 which follows the POSIX 1003.2 draft standard, with several extensions
-including multi-character variable names, an `else' statement, and full
+including multi-character variable names, an `else` statement, and full
 Boolean expressions.
 
-> -- [$url]{ext_pd|stretch/bc}
+> -- [$url]{ext_pd|buster/bc}
 '''
 
 [ address.related ]

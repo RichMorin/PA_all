@@ -17,7 +17,7 @@
 
   verbose     = '''
 This page is an introduction to the use of
-[Typespecs]{https://hexdocs.pm/elixir/typespecs.html} (type specifications),
+[Typespecs]{ext_hd|elixir/typespecs.html} (type specifications),
 as supported by [Dialyzer]{http://erlang.org/doc/man/dialyzer.html}
 and related tooling.
 Most of the examples and advice are based on my experience
@@ -439,7 +439,7 @@ I particularly recommend
   ]{https://elixirschool.com/en/lessons/advanced/typespec} (tutorial)
 
 - [Typespecs
-  ]{https://hexdocs.pm/elixir/typespecs.html} (manual page)
+  ]{ext_hd|elixir/typespecs.html} (manual page)
 
 - [Typespecs and behaviours
   ]{https://elixir-lang.org/getting-started/typespecs-and-behaviours.html}

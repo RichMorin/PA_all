@@ -10,4 +10,4 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/mumble'
+  package     = 'ext_pd|buster/mumble'

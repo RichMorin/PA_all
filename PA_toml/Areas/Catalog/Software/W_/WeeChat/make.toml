@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/weechat'
+  package     = 'ext_pd|buster/weechat'
   search      = 'ext_pd|search?keywords=weechat'
   track       = 'https://tracker.debian.org/pkg/weechat'
 

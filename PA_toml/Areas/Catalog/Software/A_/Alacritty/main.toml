@@ -29,7 +29,7 @@ Using the GPU for rendering enables optimizations
 that simply aren't possible without it.
 Alacritty currently supports macOS, Linux, BSD, and Windows.
 
-> -- [$url]{https://github.com/GNOME/accerciser}
+> -- [$url]{ext_gh|jwilm/alacritty}
 '''
 
 [ address.web_site ]

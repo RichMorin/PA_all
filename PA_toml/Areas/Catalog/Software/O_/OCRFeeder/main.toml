@@ -1,0 +1,51 @@
+# cat_sof|OCRFeeder/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'OCRFeeder'
+  title       = 'OCRFeeder'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, open source'
+  roles       = 'optical character recognition, utility'
+  supports    = 'communication, reading'
+
+[ about ]
+
+  precis      = 'document layout analysis and OCR system'
+
+  verbose     = '''
+> OCRFeeder is a document layout analysis
+and optical character recognition system.
+
+> Given the images it will automatically outline its contents,
+distinguish between what's graphics and text,
+and perform OCR over the latter.
+It generates multiple formats being its main one ODT.
+
+> It features a complete GTK graphical user interface that allows the users
+to correct any unrecognized characters, defined or correct bounding boxes,
+set paragraph styles, clean the input images, import PDFs,
+save and load the project, export everything to multiple formats, etc.
+OCRFeeder was developed as the project of the Master's Thesis
+in Computer Science of Joaquim Rocha.
+
+> -- [$url]{https://wiki.gnome.org/Apps/OCRFeeder}
+'''
+
+[ address.related ]
+
+  gitlab      = 'https://gitlab.gnome.org/GNOME/ocrfeeder.git'
+
+[ address.web_site ]
+
+  main        = 'https://wiki.gnome.org/Apps/OCRFeeder'

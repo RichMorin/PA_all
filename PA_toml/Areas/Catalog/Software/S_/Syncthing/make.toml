@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/syncthing'
+  package     = 'ext_pd|buster/syncthing'
   search      = 'ext_pd|search?keywords=syncthing'
   track       = 'https://tracker.debian.org/pkg/syncthing'
 

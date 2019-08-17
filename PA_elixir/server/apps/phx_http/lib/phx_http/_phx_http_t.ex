@@ -75,7 +75,7 @@ defmodule PhxHttp.Types do
         precis:   st,
         title:    st
       },
-      make: %{ atom => bool | st }
+      make: %{ atom => boolean | st }
     }
 
 

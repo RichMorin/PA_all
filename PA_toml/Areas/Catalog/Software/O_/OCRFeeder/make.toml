@@ -1,0 +1,12 @@
+# cat_sof|OCRFeeder/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|ocrfeeder'
+  upstream    = 'https://wiki.gnome.org/Apps/OCRFeeder'
+
+[ os.debian ]
+
+  package     = 'ext_pd|buster/ocrfeeder'

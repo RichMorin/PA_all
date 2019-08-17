@@ -127,7 +127,7 @@ defmodule Common.Strings do
   #   formatting-a-list-of-strings-am-i-missing-anything/18593/10
   # Interesting discussion and really great help!
 
-  @spec ssw(st, st) :: bool
+  @spec ssw(st, st) :: boolean
     when st: String.t
 
   @doc """

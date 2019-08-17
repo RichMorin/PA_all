@@ -8,3 +8,5 @@
   upstream    = 'https://babluboy.github.io/bookworm'
 
 [ os.debian ]
+
+# http://ubuntuhandbook.org/index.php/2017/09/install-bookworm-ebook-reader-via-ppa-in-ubuntu-16-04-17-04/

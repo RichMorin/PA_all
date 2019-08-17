@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/espeakup'
+  package     = 'ext_pd|buster/espeakup'
   search      = 'ext_pd|search?keywords=espeakup'
   track       = 'https://tracker.debian.org/pkg/espeakup'
 

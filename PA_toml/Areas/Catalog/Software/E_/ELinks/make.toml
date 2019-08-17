@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/elinks'
+  package     = 'ext_pd|buster/elinks'
   search      = 'ext_pd|search?keywords=elinks'
   track       = 'https://tracker.debian.org/pkg/elinks'
 

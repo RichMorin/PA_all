@@ -9,4 +9,4 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/atril'
+  package     = 'ext_pd|buster/atril'

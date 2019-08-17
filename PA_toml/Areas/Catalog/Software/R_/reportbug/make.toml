@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/reportbug'
+  package     = 'ext_pd|buster/reportbug'
   search      = 'ext_pd|search?keywords=reportbug'
   track       = 'https://tracker.debian.org/pkg/reportbug'
   wiki        = 'https://wiki.debian.org/reportbug'

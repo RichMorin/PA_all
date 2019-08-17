@@ -34,7 +34,7 @@ Examples of such story files include the adventure games published by
 Infocom, as well as any games produced by compilers to this format,
 such as Inform.
 
-> -- [$url]{ext_pd|stretch/frotz}
+> -- [$url]{ext_pd|buster/frotz}
 '''
 
 [ address.related ]

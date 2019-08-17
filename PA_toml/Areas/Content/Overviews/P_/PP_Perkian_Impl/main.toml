@@ -1,9 +1,9 @@
-# con_ove|PP_Implementation/main.toml
+# con_ove|PP_Perkian_Impl/main.toml
 
 [ meta ]
 
   actions     = 'publish'
-  id_str      = 'PP_Implementation'
+  id_str      = 'PP_Perkian_Impl'
   title       = "Perkian - Implementation"
 
 [ meta.refs ]
@@ -17,7 +17,7 @@
 
   verbose     = '''
 This page sketches out my current implementation notions
-for creating and distributing [Perkian]{con_ove|PP_Introduction} packages.
+for creating and distributing [Perkian]{con_ove|PP_Perkian_Intro} packages.
 
 ### Overview
 
@@ -50,59 +50,18 @@ Supporting a large number of packages on arbitrary operating systems,
 processor families, and word sizes could yield dozens of combinations,
 producing a [combinatorial explosion]{ext_wp|Combinatorial_explosion}
 of [complexity]{ext_wp|Complexity}.
-Fortunately, if we can abstract away some OS details,
-we can cover a large fraction of the interesting targets
-by handling a small number of combinations, e.g.:
-
-- Linux on 32-bit ARM (e.g., Raspberry Pi)
-- Linux, macOS, and Windows on 64-bit Intel
+Fortunately, we can work around this problem by
+abstracting away the operating system issues
+and limiting the number of supported architectures.
 
 [Docker]{ext_wp|Docker} containers based on Linux
-can be run on any Linux system that has the same processor architecture.
-Also, there are ways to run Linux applications on both macOS and Windows.
-So, we may be able to ignore everything except major hardware issues. 
-
-#### Build and Deployment
-
-Docker containers can be built for most major operating systems,
-deployed via [Docker Hub]{https://hub.docker.com},
-and downloaded via the Internet.
-Although the container must match the downloading host's OS
-and processor architecture, Docker's system of "manifests"
-can be used to hide the gritty details.
-So, the user (or software running on their behalf)
-can request container "foo" and receive the appropriate version.
-
-From the outside, a container acts a lot like an independent host,
-connected via a network connection.
-On the inside, it looks like some host OS, typically a flavor of Linux.
-Although there are hundreds of Linux variants,
-they share a common [OS kernel]{ext_wp|Kernel_(operating_system)}.
-The [Debian]{ext_wp|Debian} family of Linux distributions, for instance,
-is popular, robust, and has great build tooling.
-
-If the desired host platform runs (or can emulate) a Linux variant,
-we can create and deploy Debian-based containers
-for each hardware platform we wish to support.
-So, for example, we might only need to build containers for
-32-bit ARM devices (e.g., the Raspberry Pi) and
-64-bit Intel devices (e.g., typical personal computers).
-
-The Docker build process is based on text-based
-[Dockerfiles]{https://docs.docker.com/engine/reference/builder}.
-These combine an overall syntax and structure
-with OS-specific build commands.
-Fortunately, a Unix-style "shell" and some common commands
-are available for all the operating systems we have in mind.
-So, a single Unixish Dockerfile should handle most of our targets.
-We can even abstract some picky details
-by using [Chef]{ext_wp|Chef_(software)} as high level build tooling.
-
-Docker Hub and [GitHub]{ext_wp|GitHub} each provide
-convenient and reliable ways to collect and distribute packages,
-So, all we have to do is push our results and back away slowly.
-The result (it says here :-) is a suite that can handle a range
-of package building and distribution challenges.
+can be run on any Linux system that has the same processor architecture
+(e.g., 64-bit Intel).
+With a bit of work, these containers can also be run
+on [Apple]{ext_wp|Apple_Inc}'s [macOS]{ext_wp|MacOS} or
+[Microsoft Windows]{ext_wp|Microsoft_Windows}.
+Appropriate containers can also be built for 32-bit ARM processors, etc.
+See [Perkian - Docker]{con_ove|PP_Docker} for details.
 
 ### Details
 
@@ -112,12 +71,9 @@ At a high level, here are the tasks involved:
 
 - Use [TOML]{ext_wp|TOML} to encode package "wish lists".
 
-- Use Chef to automate the build process:
-  - Assume a target OS in the Debian family.
-  - Invoke Docker via the Docker Cookbook.
-  - Generate containers of desired software sets.
+- Create and augment Debian-based containers.
 
-- Distribute files (e.g., containers) via GitHub.
+- Distribute the containers via Docker Hub.
 
 #### Package Management
 
@@ -129,7 +85,7 @@ for retrieving and/or building software packages,
 including `apt`, `brew`, `choco`, `emerge`, `eopkg`, `nix-env`,
 `pacman`, `pkg`, `urpmi`, `xbps-install`, and `zypper`.
 
-Debian's Advanced Package Toolkit ([APT]{ext_wp|APT_(Debian)})
+Debian's Advanced Package Toolkit ([APT]{ext_wp|APT_(Package_Manager)})
 is well known as a reliable way to install software packages.
 Given that there are tens of thousands of packages in the archive,
 installation for most packages we want will "Just Work".
@@ -139,22 +95,20 @@ are derived from Debian,
 so they inherit APT and many other design details.
 
 Chef is a [Ruby]{ext_wp|Ruby_(programming_language)}-based
-[configuration _management]{ext_wp|Configuration_management} tool
+[configuration management]{ext_wp|Configuration_management} tool
 which abstracts the specifics of tasks such as
 building, configuring, downloading, and installing packages.
 So, any task which is done for multiple packages or targets
 only needs to be described once.
 
-Although a [configuration management]{ext_wp|Configuration_management} tool
-such as [Chef]{ext_wp|Chef_(software)} can call the right command
-with appropriate parameters, that's only the tip of the iceberg.
-If the target OS doesn't have a current and correct set
+However, if the target OS doesn't have a current and correct set
 of installation and configuration code for a package,
 we'll need to resolve this deficiency.
 Each package management system has its own notion of how to specify
 installation and configuration details,
-so we'll need a [spanning set]{ext_wp|Spanning_set}
-of Chef cookbooks and recipes.
+so we'll need a [spanning set]{ext_wp|Spanning_set} of cookbooks and recipes.
+See [Perkian - Chef]{con_ove|PP_Chef} for details.
+
 
 Docker is an
 [OS-level virtualisation]{ext_wp|OS-level_virtualisation} ecosystem
@@ -195,7 +149,6 @@ Stitching these resources together will be a job for custom code
 (e.g., [Elixir]{ext_wp|Elixir_(programming_language)},
 [Ruby]{ext_wp|Ruby_(programming_language)})
 and data files (e.g., [TOML]{ext_wp|TOML}).
-See [Perkian - Chef Notes]{con_ove|PP_Chef} for details.
 
 To be continued...
 '''

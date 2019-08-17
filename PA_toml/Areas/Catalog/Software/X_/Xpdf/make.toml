@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/xpdf'
+  package     = 'ext_pd|buster/xpdf'
   search      = 'ext_pd|search?keywords=xpdf'
   track       = 'https://tracker.debian.org/pkg/xpdf'
 

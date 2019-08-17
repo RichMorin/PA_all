@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/dosfstools'
+  package     = 'ext_pd|buster/dosfstools'
   search      = 'ext_pd|search?keywords=dosfstools'
   track       = 'https://tracker.debian.org/pkg/dosfstools'
 

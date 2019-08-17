@@ -86,7 +86,7 @@ defmodule InfoToml.Emitter do
       [ 'Atril' ]
 
         actions     = 'build, publish'
-        package     = 'ext_pd|stretch/atril'
+        package     = 'ext_pd|buster/atril'
         precis      = 'the official document viewer for MATE'
         title       = 'Atril'
   """

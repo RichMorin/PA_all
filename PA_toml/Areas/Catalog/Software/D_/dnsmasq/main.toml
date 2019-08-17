@@ -33,7 +33,7 @@ configured either in each host or in a central configuration file.
 Dnsmasq supports static and dynamic DHCP leases and BOOTP/TFTP for
 network booting of diskless machines.
 
-> -- [$url]{ext_pd|stretch/dnsmasq}
+> -- [$url]{ext_pd|buster/dnsmasq}
 '''
 
 [ address.related ]

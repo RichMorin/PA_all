@@ -45,7 +45,7 @@ defmodule InfoToml.CheckItem do
   - omit a key that is required by the relevant schema
   - have a value that fails some validity check
   """
-  @spec check(ITT.item_map, String.t, ITT.schema_map) :: bool
+  @spec check(ITT.item_map, String.t, ITT.schema_map) :: boolean
 
   def check(inp_map, file_key, schema_map) do
     allowed   = check_allowed( inp_map, file_key, schema_map)
@@ -59,7 +59,7 @@ defmodule InfoToml.CheckItem do
 
 # Private functions
 
-  @spec check_allowed(ITT.item_map, String.t, ITT.schema_map) :: bool
+  @spec check_allowed(ITT.item_map, String.t, ITT.schema_map) :: boolean
 
   defp check_allowed(inp_map, file_key, schema_map) do
   #
@@ -89,7 +89,7 @@ defmodule InfoToml.CheckItem do
     end
   end
 
-  @spec check_publish(ITT.item_map, String.t, ITT.schema_map) :: bool
+  @spec check_publish(ITT.item_map, String.t, ITT.schema_map) :: boolean
 
   defp check_publish(inp_map, file_key, _schema_map) do
   #
@@ -121,7 +121,7 @@ defmodule InfoToml.CheckItem do
     end
   end
 
-  @spec check_refs_ok(map, String.t) :: bool
+  @spec check_refs_ok(map, String.t) :: boolean
 
   defp check_refs_ok(inp_map, file_key) do
   #
@@ -167,7 +167,7 @@ defmodule InfoToml.CheckItem do
     end
   end
 
-  @spec check_required(map, String.t, ITT.schema_map) :: bool
+  @spec check_required(map, String.t, ITT.schema_map) :: boolean
 
   defp check_required(inp_map, file_key, schema_map) do
   #
@@ -202,7 +202,7 @@ defmodule InfoToml.CheckItem do
     end
   end
 
-  @spec check_values(ITT.item_map, String.t) :: bool
+  @spec check_values(ITT.item_map, String.t) :: boolean
 
   defp check_values(inp_map, file_key) do
   #

@@ -10,5 +10,5 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch//jupyter-notebook'
+  package     = 'ext_pd|buster/jupyter-notebook'
   wiki        = 'https://wiki.debian.org/Jupyter'

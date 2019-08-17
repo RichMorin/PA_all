@@ -9,4 +9,5 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/chef'
+# listed in https://www.debian.org/devel/wnpp/prospective
+# "938 days in preparation, last activity 249 days ago"

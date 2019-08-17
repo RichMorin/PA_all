@@ -31,7 +31,7 @@ from standard input and prints all server output to standard output.  It
 also multiplexes all channel traffic into one output.  That way you don't
 have to switch different channel buffers.  So that's actually a feature.
 
-> -- [$url]{ext_pd|stretch/sic}
+> -- [$url]{ext_pd|buster/sic}
 '''
 
 [ address.related ]

@@ -1,0 +1,9 @@
+# cat_sof|SoX/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+[ os.debian ]
+
+  package     = 'ext_pd|buster/sox'

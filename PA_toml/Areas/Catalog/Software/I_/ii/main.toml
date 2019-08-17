@@ -35,7 +35,7 @@ contain the server messages. For every channel and every nickname there
 are related in and out files created. This allows IRC communication from
 command line and adheres to the Unix philosophy.
 
-> -- [$url]{ext_pd|stretch/ii}
+> -- [$url]{ext_pd|buster/ii}
 '''
 
 [ address.related ]

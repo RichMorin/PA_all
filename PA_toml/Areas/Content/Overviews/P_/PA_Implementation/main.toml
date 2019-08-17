@@ -109,9 +109,9 @@ while learning ones more suitable to functional programming, etc.
 in his [Keynote]{https://www.youtube.com/watch?v=6U7cLUygMeI},
 given at the 2018 [EMPEX]{https://empex.co} conference in New York City.
 He explains why he doesn't like Elixir's
-[GenServer]{https://hexdocs.pm/elixir/GenServer.html} API,
+[GenServer]{ext_hd|elixir/GenServer.html} API,
 [Phoenix]{https://phoenixframework.org}'s
-[contexts]{https://hexdocs.pm/phoenix/contexts.html} and directory structure,
+[contexts]{ext_hd|phoenix/contexts.html} and directory structure,
 [Mix]{https://elixir-lang.org/getting-started/mix-otp/
   introduction-to-mix.html}'s
 [umbrella projects]{https://elixir-lang.org/getting-started/mix-otp/
@@ -173,7 +173,7 @@ and "Let it crash" philosophy
 make this a very natural approach.
 
 Like Dave, I am unhappy with the current state of
-[mix format]{https://hexdocs.pm/mix/master/Mix.Tasks.Format.html},
+[mix format]{ext_hd|mix/master/Mix.Tasks.Format.html},
 the Elixir code formatter.
 I use a lot of inline spacing to make my code more readable.
 For example, I line up the values in data structure literals

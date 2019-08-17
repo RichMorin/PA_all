@@ -1,0 +1,47 @@
+# cat_sof|ocrodjvu/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'ocrodjvu'
+  title       = 'ocrodjvu'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, open source'
+  roles       = 'optical character recognition, utility'
+  standards   = 'DjVu'
+  supports    = 'communication, reading'
+
+[ about ]
+
+  precis      = 'perform OCR on DjVu files'
+
+  verbose     = '''
+> Ocrodjvu is a wrapper around the Optical Character Recognition (OCR) systems
+Cuneiform, Gocr, Ocrad, OCRopus, and (standalone) Tesseract.
+It is designed for OCR on documents in DjVu format,
+which is especially suited for high-quality archiving of books.
+
+> After processing, the DjVu document embeds a text layer.
+Other programs can then be used to read the document,
+search it for specific terms, print it out, or use the information
+in the OCR layer as a way to improve the document's accessibility.
+
+> -- [$url]{https://packages.debian.org/buster/ocrodjvu}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|jwilk/ocrodjvu'
+
+[ address.web_site ]
+
+  main        = 'http://jwilk.net/software/ocrodjvu'

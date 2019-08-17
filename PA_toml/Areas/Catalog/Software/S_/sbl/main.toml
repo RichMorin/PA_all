@@ -26,7 +26,7 @@
 
   verbose     = '''
 > sbl is a screenreader with braille and speech support.  The user can
-configure the preferred output as speech, braille, or both
+configure the preferred output as speech, braille, or both.
 
 > -- [$url]{http://www.unix.com/man-page/suse/8/sbl}
 '''

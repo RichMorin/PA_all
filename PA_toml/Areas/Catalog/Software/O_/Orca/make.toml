@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/orca'
+  package     = 'ext_pd|buster/orca'
   search      = 'ext_pd|search?keywords=orca'
   track       = 'https://tracker.debian.org/pkg/orca'
   wiki        = 'https://wiki.debian.org/Orca'

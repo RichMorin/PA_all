@@ -41,6 +41,7 @@
   ext_gh    = 'GitHub'
   ext_gp    = 'Google+'
   ext_gs    = 'GNU software'
+  ext_hd    = 'HexDocs'
   ext_ig    = 'Instagram'
   ext_li    = 'LinkedIn'
   ext_pd    = 'Debian Packages'

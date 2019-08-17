@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/mpd'
+  package     = 'ext_pd|buster/mpd'
   search      = 'ext_pd|search?keywords=mpd'
   track       = 'https://tracker.debian.org/pkg/mpd'
 

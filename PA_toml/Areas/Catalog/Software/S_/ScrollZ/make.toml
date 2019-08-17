@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/scrollz'
+  package     = 'ext_pd|buster/scrollz'
   search      = 'ext_pd|search?keywords=scrollz'
   track       = 'https://tracker.debian.org/pkg/scrollz'
 

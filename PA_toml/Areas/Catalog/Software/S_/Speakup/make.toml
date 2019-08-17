@@ -32,7 +32,7 @@ need for a speech-dispatcher module for OpenMAX to allow Orca to use it.
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/speakup'
+  package     = 'ext_pd|buster/speakup'
   search      = 'ext_pd|search?keywords=speakup'
   track       = 'https://tracker.debian.org/pkg/speakup'
 

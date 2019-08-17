@@ -10,4 +10,4 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/openscad'
+  package     = 'ext_pd|buster/openscad'

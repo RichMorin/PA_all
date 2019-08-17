@@ -32,7 +32,7 @@ variables, a command history, hex/octal/binary input and output, unit
 conversions, embedded comments, and an expandable expression entry field.
 It evaluates expressions using the standard order of operations.
 
-> -- [$url]{ext_pd|stretch/wcalc}
+> -- [$url]{ext_pd|buster/wcalc}
 '''
 
 [ address.web_site ]

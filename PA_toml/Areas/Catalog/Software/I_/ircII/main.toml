@@ -32,7 +32,7 @@ Relay Chat.  It gives full access to all of the normal IRC functions,
 plus a variety of additional options.  This version is able to display
 mIRC colors. It supports "/encrypt -cast".
 
-> -- [$url]{ext_pd|stretch/ircii}
+> -- [$url]{ext_pd|buster/ircii}
 '''
 
 [ address.related ]

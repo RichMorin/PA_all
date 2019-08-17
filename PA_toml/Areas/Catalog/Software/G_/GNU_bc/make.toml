@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/bc'
+  package     = 'ext_pd|buster/bc'
   search      = 'ext_pd|search?keywords=bc'
   track       = 'https://tracker.debian.org/pkg/bc'
 

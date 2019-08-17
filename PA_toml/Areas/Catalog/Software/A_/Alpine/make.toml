@@ -10,8 +10,8 @@
 
 [ os.debian ]
 
-  doc         = 'ext_pd|stretch/alpine-doc'
-  package     = 'ext_pd|stretch/alpine'
+  doc         = 'ext_pd|buster/alpine-doc'
+  package     = 'ext_pd|buster/alpine'
   search      = 'ext_pd|search?keywords=alpine'
   track       = 'https://tracker.debian.org/pkg/alpine'
 

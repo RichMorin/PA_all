@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/w3m'
+  package     = 'ext_pd|buster/w3m'
   search      = 'ext_pd|search?keywords=w3m'
   track       = 'https://tracker.debian.org/pkg/w3m'
 

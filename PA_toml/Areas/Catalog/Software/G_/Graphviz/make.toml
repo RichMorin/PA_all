@@ -9,4 +9,4 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/graphviz'
+  package     = 'ext_pd|buster/graphviz'

@@ -36,7 +36,7 @@ EAP authenticator (i.e., allow full authentication without requiring
 an external RADIUS authentication server), and RADIUS authentication
 server for EAP authentication.
 
-> -- [$url]{ext_pd|stretch/hostapd}
+> -- [$url]{ext_pd|buster/hostapd}
 '''
 
 [ address.web_site ]

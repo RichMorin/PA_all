@@ -8,3 +8,5 @@
   upstream    = 'https://brlcad.org'
 
 [ os.debian ]
+
+# https://linuxg.net/how-to-install-brl-cad-7-28-0-on-ubuntu-18-10-ubuntu-18-04-and-derivative-systems/

@@ -17,7 +17,7 @@
 
   verbose     = '''
 I've been playing with splitting built and imported files out of a
-[Mix]{https://hexdocs.pm/mix/Mix.html} (e.g., Elixir, Phoenix) project tree.
+[Mix]{ext_hd|mix/Mix.html} (e.g., Elixir, Phoenix) project tree.
 The results seem quite promising to me, but it's not clear how many other
 developers will be interested.
 

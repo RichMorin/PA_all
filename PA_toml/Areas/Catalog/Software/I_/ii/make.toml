@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/ii'
+  package     = 'ext_pd|buster/ii'
   search      = 'ext_pd|search?keywords=ii'
   track       = 'https://tracker.debian.org/pkg/ii'
 

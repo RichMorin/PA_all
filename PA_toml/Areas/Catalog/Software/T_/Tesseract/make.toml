@@ -10,4 +10,4 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/tesseract-ocr'
+  package     = 'ext_pd|buster/tesseract-ocr'

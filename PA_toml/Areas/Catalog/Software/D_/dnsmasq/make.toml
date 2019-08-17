@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/dnsmasq'
+  package     = 'ext_pd|buster/dnsmasq'
   search      = 'ext_pd|search?keywords=dnsmasq'
   track       = 'https://tracker.debian.org/pkg/dnsmasq'
 

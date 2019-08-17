@@ -38,7 +38,7 @@ and a set of writers, which convert this native representation into a
 target format.  Thus, adding an input or output format requires only adding
 a reader or writer.
 
-> -- [$url]{ext_pd|stretch/pandoc}
+> -- [$url]{ext_pd|buster/pandoc}
 '''
 
 [ address.related ]

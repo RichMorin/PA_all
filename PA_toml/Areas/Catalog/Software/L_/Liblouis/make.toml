@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/liblouis-data'
+  package     = 'ext_pd|buster/liblouis-data'
   search      = 'ext_pd|search?keywords=liblouis-data'
   track       = 'https://tracker.debian.org/pkg/liblouis-data'
 

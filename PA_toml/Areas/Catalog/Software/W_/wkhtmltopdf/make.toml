@@ -1,0 +1,12 @@
+# cat_sof|wkhtmltopdf/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ext_aop|wkhtmltopdf'
+  upstream    = 'https://wkhtmltopdf.org'
+
+[ os.debian ]
+
+  package     = 'ext_pd|wkhtmltopdf/wkhtmltopdf'

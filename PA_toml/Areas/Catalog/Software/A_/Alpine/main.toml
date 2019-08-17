@@ -31,7 +31,7 @@ derives from the use of the Apache License and its ties to PINE.  It
 features a full suite of support for mail protocols like IMAP and SMTP
 and security protocols like TLS.  It uses curses for its interface.
 
-> -- [$url]{ext_pd|stretch/alpine}
+> -- [$url]{ext_pd|buster/alpine}
 
 > The purpose of this page is to offer a collection of patches
 for the mail and news program Alpine,

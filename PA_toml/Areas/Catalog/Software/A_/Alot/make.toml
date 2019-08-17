@@ -12,8 +12,8 @@
 
 [ os.debian ]
 
-  doc         = 'ext_pd|stretch/alot-doc'
-  package     = 'ext_pd|stretch/alot'
+  doc         = 'ext_pd|buster/alot-doc'
+  package     = 'ext_pd|buster/alot'
   search      = 'ext_pd|search?keywords=alot'
 
   commands    = 'sudo apt-get install alot'

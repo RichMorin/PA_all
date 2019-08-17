@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/emacspeak'
+  package     = 'ext_pd|buster/emacspeak'
   search      = 'ext_pd|search?keywords=emacspeak'
   track       = 'https://tracker.debian.org/pkg/emacspeak'
 

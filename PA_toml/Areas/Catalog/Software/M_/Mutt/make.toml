@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|stretch/mutt'
+  package     = 'ext_pd|buster/mutt'
   search      = 'ext_pd|search?keywords=mutt'
   track       = 'https://tracker.debian.org/pkg/mutt'
 

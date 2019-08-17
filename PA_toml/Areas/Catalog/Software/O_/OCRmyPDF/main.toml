@@ -1,0 +1,43 @@
+# cat_sof|OCRmyPDF/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'OCRmyPDF'
+  title       = 'OCRmyPDF'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, open source'
+  roles       = 'PDF enhancer, utility'
+  supports    = 'communication, reading'
+
+[ about ]
+
+  precis      = 'adds an OCR text layer to scanned PDF files'
+
+  verbose     = '''
+> OCRmyPDF adds an OCR text layer to scanned PDF files,
+allowing them to be searched.
+
+> PDF is the best format for storing and exchanging scanned documents.
+Unfortunately, PDFs can be difficult to modify.
+OCRmyPDF makes it easy to apply image processing and OCR to existing PDFs.
+
+> -- [$url]{ext_gh|jbarlow83/OCRmyPDF}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|jbarlow83/OCRmyPDF'
+
+[ address.web_site ]
+
+  main        = 'http://ocrmypdf.readthedocs.io'

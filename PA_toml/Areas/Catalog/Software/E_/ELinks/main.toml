@@ -28,7 +28,7 @@
 > ELinks is a feature-rich program for browsing the web in text mode. It
 is like enhanced Lynx and Links.
 
-> -- [$url]{ext_pd|stretch/elinks}
+> -- [$url]{ext_pd|buster/elinks}
 '''
 
 [ address.related ]
