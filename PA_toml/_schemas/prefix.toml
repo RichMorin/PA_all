@@ -48,6 +48,7 @@
   ext_pi    = 'Pinterest'
   ext_rd    = 'RubyDoc'
   ext_rg    = 'RubyGems'
+  ext_rm    = '.../RichMorin'
   ext_rp    = 'Raspberry Pi'
   ext_sf    = 'SourceForge'
   ext_so    = 'Stack Overflow'

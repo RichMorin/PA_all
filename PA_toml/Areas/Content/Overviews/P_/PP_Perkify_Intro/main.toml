@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "introduction to Perkify (Docker-based Perkian)"
+  precis      = "introduction to Perkify (VM-based Perkian)"
 
   verbose     = '''
 Perkify provides a convenient way to add accessibility-focused software
@@ -43,190 +43,77 @@ for [mobile phones]{ext_wp|Mobile_phone},
 In the meanwhile, Perkify provides a way to add this software
 to personal computers.
 
-### Approach
+### Virtual Machines
 
-[Docker]{ext_wp|Docker_(software)} containers provide a popular form
-of [OS-level virtualisation]{ext_wp|OS-level_virtualisation}.
-This enables software developers to sidestep issues
-of library and operating system incompatibility.
-Sets of these containers power many [web sites]{ext_wp|Website},
-[cloud computing]{ext_wp|Cloud_computing} resources, etc.
-Perkify brings this technology to the world of personal computing.
+Because Perkify's approach is based on
+[virtual machine]{ext_wp|Virtual_machine} technology,
+a short primer may be in order.
+Feel free to skip this section;
+you can always come back to it if you get confused later on...
 
-Most Linux distributions are based on an official kernel
-and use a common set of libraries, file system conventions, etc.
-So, Linux-based containers can typically be run on any Linux system
-that has the same processor architecture (e.g., 64-bit Intel).
-That is, most desktop or laptop personal computers.
-With a bit of work, these containers can also be run on macOS or Windows.
-For details, see [Perkian - Docker]{con_ove|PP_Docker}.
+Virtual machines (VMs) have been around since the 1960s.
+In general, they allow software to pretend that it is running
+in a different environment than the host computer provides.
+This enables software developers to sidestep various kinds
+of incompatibilities:
 
-Our containers are based on [Debian]{ext_wp|Debian},
-a well-respected [Linux]{ext_wp|Linux} distribution.
-Debian's Advanced Package Tool ([APT]{ext_wp|APT_(Package_Manager)})
-offers an immense suite of installable packages,
-so we seldom need to worry about porting software.
-We also fold in our own software and supporting libraries
-from assorted language repositories,
-including [Hex]{http://hex.pm} and [RubyGems]{https://rubygems.org}.
+- [computer architecture]{ext_wp|Computer_architecture}
+- [file system]{ext_wp|File_system} layout
+- [operating system]{ext_wp|Operating_system}
+- [software libraries]{ext_wp|Library_(computing)}
+- [utility software]{ext_wp|Utility_software}
 
-#### Deployment
+In general, emulating more fundamental aspects of the environment
+requires more processing time and so, is less performant.
+In order to achieve reasonable performance,
+Perkify uses only two, relatively lightweight forms of VM technology:
 
-Most Docker deployments are constructed as suites of specialized containers.
-Configuration files [orchestrate]{ext_wp|Orchestration_(computing)} the suite,
-specifying when programs get run, how they communicate with each other, etc.
-This approach simplifies construction and maintenance of the containers,
-but it complicates their use and reduces flexibility.
-For example, setting up a simple processing pipeline (e.g., `foo | bar`)
-would require dealing with container names, port numbers, etc.
+The [hypervisor]{ext_wp|Hypervisor} approach,
+as used by [Virtual Box]{ext_wp|Virtual_Box}, can emulate
+an entirely different OS [kernel]{ext_wp|Kernel_(operating_system)}.
+For example, it can let [Linux]{ext_wp|Linux}-based software run
+on a [macOS]{ext_wp|MacOS} or [Windows]{ext_wp|Microsoft_Windows} system.
+This is the current thrust of our development efforts.
+For implementation details,
+see [Perkify - Making Vagrant Boxes]{con_ove|PP_Perkify_Make_VB}.
 
-This isn't a problem for a [DevOps]{ext_wp|DevOps} team,
-but it's a substantial burden for normal users.
-So, we've opted to construct and deploy Perkify as a single image.
-Although the image files occupy several gigabytes of disk space,
-the running container only requires memory for the running processes.
-Given that disk space is an inexpensive resource,
-this seems like a reasonable trade-off.
+[OS-level virtualisation]{ext_wp|OS-level_virtualisation}
+assumes that the guest and host system
+have the same OS [kernel]{ext_wp|Kernel_(operating_system)}
+and computer architecture.
+So, for example, a [Docker]{ext_wp|Docker_(software)} container
+might allow an [Arch Linux]{ext_wp|Arch_Linux} system to host
+an [Ubuntu]{ext_wp|Ubuntu} Linux environment.
+On a resource-limited system, this might be a worthwhile approach.
+For details, see [Perkify - Docker]{con_ove|PP_Perkify_Docker}.
+
+### Usage Overview
+
+Once the Perkify VM is installed and running,
+it can be accessed in various ways.
+However, the most common ones will be command line and web access.
+In either case, the VM will act a lot like a Linux box located somwhere
+on the user's local area network ([LAN]{ext_wp|Local_area_network}).
+
+Command line access allows the user to obtain an interactive
+[shell]{ext_wp|Unix_shell} session on the VM.
+Because the Perkify VM is emulating a Ubuntu Linux environment,
+the default shell would be [Bash]{ext_wp|Bash_(Unix_shell)}.
+All of the normal commands (e.g., `cd`, `ls`, `pwd`)
+would be available, along with zillions of commands added by Perkify.
+
+Web access allows the user to obtain an interactive
+[browser]{ext_wp|Web_browser} session,
+supported by a [personal web server]{ext_wp|Personal_web_server}
+running in the VM.
+We have various ideas for this sort of thing; details at 11.
 
 ### Getting Started
 
-Although we're trying to smooth out the rough edges,
-downloading and installing Perkify isn't a one-click operation.
-However, with a modicum of care and patience,
-most computer users should be able to get things going with minimal pain.
-Of course, feel free to contact us if you run into problems!
-
-Before you begin, please make sure that you have Perkify's prerequisites.
-First, you should have a (64-bit Intel) computer that supports Docker.
-The machine should have several GB of RAM and at least 10 GB
-of free disk space.
-You'll also need a way to obtain the Perkify distribution.
-Normally, this would be a broadband connection to the Internet.
-
-#### Getting Docker, etc.
-
-It isn't necessary to learn everything about Docker,
-in order to run Perkify.
-However, I strongly recommend that you skim some introductory material.
-These pages provide a good introduction:
-
-- [Get Started, Part 1: Orientation and setup
-  ]{https://docs.docker.com/get-started}
-- [Get Started, Part 2: Containers
-  ]{https://docs.docker.com/get-started/part2}
-
-If you're running a Linux variant, you'll need to download and install
-the appropriate version of "Docker Engine - Community".
-There are installers for
-[CentOS]{https://docs.docker.com/install/linux/docker-ce/centos},
-[Debian]{https://docs.docker.com/install/linux/docker-ce/debian},
-[Fedora]{https://docs.docker.com/install/linux/docker-ce/fedora}, and
-[Ubuntu]{https://docs.docker.com/install/linux/docker-ce/ubuntu}.
-There are also
-[static binaries]{https://docs.docker.com/install/linux/docker-ce/binaries}
-that can be installed on various Linux systems.
-
-If you're running macOS or Windows, things are a bit more complicated.
-The problem is that our container needs a Linux environment to work within.
-On macOS, this requires installing a [hypervisor]{ext_wp|Hypervisor}
-and a Linux-based [virtual machine]{ext_wp|Virtual_machine}.
-You can then install Docker Engine and your desired flavor of Linux.
-For example, on my desktop machine, I'm running the following stack:
-
-- [macOS]{ext_wp|MacOS}
-- [VirtualBox
-  ]{https://www.virtualbox.org/wiki/Downloads}
-- [Ubuntu Desktop
-  ]{https://ubuntu.com/download/desktop}
-- [Docker Engine for Ubuntu
-  ]{https://docs.docker.com/install/linux/docker-ce/ubuntu}
-- Perkify Container
-
-On Windows, there are a couple of suggested ways to set things up;
-see [Linux containers on Windows]{https://docs.microsoft.com/en-us/
-virtualization/windowscontainers/deploy-containers/linux-containers}
-for details.
-Alternatively, you can try using Windows Subsystem for Linux 2 (WSL 2).
-Planned as part of an upcoming version of [Windows 10]{ext_wp|Windows_10},
-WSL 2 will provide native support for Linux-based Docker containers.
-Meanwhile, follow the [Installation Instructions for WSL 2
-]{https://docs.microsoft.com/en-us/windows/wsl/wsl2-install}.
-
-#### Running Docker
-
-**Note:**
-The folowing examples are based on my local setup,
-where my `username` is `rdm` and the Ubuntu VM is available as `make`.
-Adjust as necessary to match your local setup.
-
-Once you've installed the Docker Engine in a Linux host environment,
-you should try running a Docker command.
-However, for reasons of convenience and security,
-you'll want to allow non-root use of the `docker` command.
-The `usermod` command does this,
-but you'll need to start up a new shell session
-in order for it to take effect:
-
-    rdm@spot:~$ ssh rdm@make
-    ...
-    rdm@make:~$ sudo usermod -aG docker rdm
-    ...
-    rdm@make:~$ exit
-
-
-    rdm@spot:~$ ssh rdm@make
-    ...
-    rdm@make:~$ docker run hello-world
-    ...
-    Hello from Docker!
-    ...
-    
-#### Downloading
-
-The Perkify images (and supporting software)
-are stored on [Docker Hub]{https://hub.docker.com}.
-Because these files can add up to several gigabytes,
-your initial download may take a while.
-So, you may want to estimate the amount of time this will take.
-If you don't know how fast your connection is,
-run a [speed test]{https://www.speedtest.net}.
-If your [download]{ext_wp|Download} speed is 40 Mbps,
-5 GB (40 Gb) of image data will take about 17 minutes (1000 seconds).
-
-#### Initial Usage
-
-With all of that out of the way (whew!), you should be able to run Perkify.
-We want to:
-
-- get the latest `richmorin/perkify` image from Docker Hub
-- mount the host's root file system as the volume `/host`
-- run the image as a container named `cn`
-- start up a copy of `bash` as the primary process
-
-The following command accomplishes all this:
-
-    rdm@make:~$ docker run -it --name upc -v /:/host richmorin/perkify bash
-
-    me@perk:/# ls /
-    bin  boot  dev  etc  home  host  lib  ...  var
-
-The command above lists the contents of the container's root directory,
-showing that we have a fairly conventional file system.
-However, in the `docker run` command, we mounted the host's root directory
-as an accessible volume in the container (`-v /:/host`).
-So, we can examine the host's root directory, as well:
-
-    me@perk:/# ls /host
-    bin  cdrom  etc  initrd.img  lib  ...  vmlinuz
-
-We can use the container name (`upc`) to start up additional `bash` sessions.
-
-    rdm@spot:~$ ssh rdm@make
-    ...
-
-    rdm@make:~$ docker exec -it upc bash
-
-    me@perk:/#
+The [Perkify - Setup]{con_ove|PP_Perkify_Setup} page
+describes the steps needed to install Perkify and its prerequisites.
+Once things are working, you can move on the
+[Perkify - Usage]{con_ove|PP_Perkify_Usage} page.
 
 To be continued...
 '''

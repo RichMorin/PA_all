@@ -47,6 +47,7 @@
   ext_pi    = 'https://www.pinterest.com/'
   ext_rd    = 'https://www.rubydoc.info/gems/'
   ext_rg    = 'https://rubygems.org/gems/'
+  ext_rm    = 'https://github.com/RichMorin/'
   ext_rp    = 'https://www.raspberrypi.org/'
   ext_sf    = 'https://sourceforge.net/'
   ext_so    = 'https://stackoverflow.com/'

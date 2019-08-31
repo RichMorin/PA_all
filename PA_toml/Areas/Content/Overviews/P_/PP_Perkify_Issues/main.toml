@@ -1,0 +1,101 @@
+# con_ove|PP_Perkify_Issues/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_Perkify_Issues'
+  title       = "Perkify - Issues"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "known issues for Perkify (VM-based Perkian)"
+
+  verbose     = '''
+This page summarizes [known known]{ext_wp|There_are_known_knowns} issues
+for Perkify (VM-based Perkian).
+That is, it does not pretend to be comprehensive,
+but it gives us a start on where to look for problems.
+Currently, we're concentrating on
+[APT]{ext_wp|APT_(Package_Manager)}-related issues,
+but other archives (etc) are certainly on the horizon...
+
+### Missing APT archives
+
+If the "APT name" is "?", we found no evidence that there had ever been
+an APT archive for the package.
+If a name is given, there is no archive for the "buster" release of Debian.
+
+    Title               APT name            Notes
+    -----               --------            -----
+    Alacritty,          ?,                  TTY emulation             (-bs)
+    BitchX,             ?,                  IRC client                (-bs)
+    Bookworm,           ?,                  eBook reader              (-bs)
+    BRL-CAD,            ?,                  solid modeling            (-bs)
+    Crystal,            ?,                  programming language      (-bs)
+    DAISY Pipeline 2,   ?,                  document conversion       (-bs)
+    Eclipse Che,        ?,                  IDE, text editor, etc.    (-bs)
+    Ekiga,              ekiga,              online conferencing       (-b)
+    Elm ME+,            ?,                  email client              (-bs)
+    Eolie,              ?,                  web browser               (-bs)
+    ERC,                erc,                IRC client                (-bs+j)
+    Eww,                ?,                  web browser               (-bs)
+    GIFT,               ?,                  image processing
+    GMediaServer,       gmediaserver,       media support             (-b+s)
+    GNU Bool,           ?,                  text searching
+    GNU Cursynth,       ?,                  music generation
+    GNU Dap,            ?,                  statistics
+    GNU Dionysus,       ?,                  retrieving constants
+    GNU Freetalk,       ?,                  Jabber/XMPP client
+    GNU Moe,            ?,                  text editor
+    GNU Oleo,           ?,                  spreadsheet
+    GNU Prolog,         gprolog,            programming language      (-b+j)
+    GSEGrafix,          ?,                  plot generation
+    GURGLE,             ?,                  programming language
+    ID Utils,           ?,                  system admin
+    latex-access,       ?,                  braille translation       (-bs)
+    Lucidor,            ?,                  ebook reader              (-bs)
+    OCRdesktop,         ?,                  OCR support               (-bs)
+    PINN,               ?,                  Raspberry Pi support      (-bs)
+    sbl,                ?,                  screen reader             (-bs)
+    Speakup,            speakup,            speech synthesis          (-bs)
+    tdsr,               ?,                  screen reader             (-bs)
+    The vOICe,          ?,                  sensory substitution      (-bs)
+    WiringPi,           ?,                  Raspberry Pi support      (-bs)
+ 
+### Other APT issues
+
+- Chef            - wants the URL of the Chef Infra server
+- Emacspeak       - wants to know about support SW & HW
+- GNU Mailutils   - wants to know the Postfix configuration
+
+### The Open Build Service
+
+At the kind suggestion of Steven Pusser (@stevepusser on the
+[Debian User Forums]{http://forums.debian.net/viewtopic.php?f=30&t=143406}),
+we're investigating the possibility of using the
+[openSUSE Build Service]{https://en.opensuse.org/Portal:Build_Service}:
+
+> The Open Build Service (OBS) is a generic system to build and distribute
+packages from sources in an automatic, consistent, and reproducible way.
+It makes it possible to release software for a wide range of operating systems
+and hardware architectures.
+The OBS reference server, which we use to build our distribution,
+currently (March 2019) hosts 62,954 projects, with 527,451 packages,
+in 94,872 repositories for numerous distributions and architectures
+and is used by 60,034 confirmed developers.
+
+The OBS appears to be a perfect place for interested parties
+to collaborate on porting blind-friendly software packages.
+If you are interested in helping in this effort, please get in touch!
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

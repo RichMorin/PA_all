@@ -1,9 +1,9 @@
-# con_ove|PP_Chef/main.toml
+# con_ove|PP_Perkian_Chef/main.toml
 
 [ meta ]
 
   actions     = 'publish'
-  id_str      = 'PP_Chef'
+  id_str      = 'PP_Perkian_Chef'
   title       = "Perkian - Chef"
 
 [ meta.refs ]
@@ -16,17 +16,18 @@
   precis      = "Perkian implementation notes on Chef"
 
   verbose     = '''
-Our current prototyping path concentrates
-on [Docker]{ext_wp|Docker_(software)} containers, which provide
-[OS-level virtualisation]{ext_wp|OS-level_virtualisation}
-of runtime considerations.
-Because the Docker ecosystem has a surfeit of tooling,
+Our current prototyping path (known as [Perkify]{con_ove|PP_Perkify_Intro})
+concentrates on virtualization:
+creating [Docker]{ext_wp|Docker_(software)} "containers" and/or
+[Vagrant]{ext_wp|Vagrant_(software)} /
+[Virtual Box]{ext_wp|Virtual_Box} "boxes".
+Because the Docker and Vagrant ecosystems have a surfeit of tooling,
 we don't _need_ to use [Chef]{ext_wp|Chef_(software)}
 for container generation, installation, etc.
-However, we still expect to use it, for a couple of reasons.
+However, we may still opt to use it, for a couple of reasons.
 
-First, Docker isn't appropriate for all of our use cases.
-It isn't even available for Android,
+First, virtualization isn't appropriate for all of our use cases.
+For example, Docker isn't even available for Android,
 which is an [important target]{con_ove|PP_on_Android} for us.
 It might also be too heavyweight an approach
 for (say) a cell phone or a [Raspberry Pi]{ext_wp|Raspberry_Pi}.
@@ -36,10 +37,11 @@ Chef cookbooks and/or recipes would let us handle this gracefully,
 dealing with the inevitable platform-specific "build" variations.
 
 Second, because Chef can also delegate tasks to Docker
-(e.g., via the [Docker Cookbook]{ext_gh|chef-cookbooks/docker}),
-we should be able to use Chef for the entire range of target distributions.
-However capable Docker's container-creation tooling might be,
-we'd rather not need to become expert in its use...
+(e.g., via the [Docker Cookbook]{ext_gh|chef-cookbooks/docker})
+or other [package managers]{ext_wp|Package_manager},
+we should be able to use Chef for all of our target distributions.
+However capable these tools might be,
+we'd rather not need to become expert in using all of them...
 
 ### Approach
 

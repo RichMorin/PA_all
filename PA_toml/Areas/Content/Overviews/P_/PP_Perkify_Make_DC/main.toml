@@ -1,10 +1,10 @@
-# con_ove|PP_Perkify_Making/main.toml
+# con_ove|PP_Perkify_Make_DC/main.toml
 
 [ meta ]
 
   actions     = 'publish'
-  id_str      = 'PP_Perkify_Making'
-  title       = "Perkify - Making"
+  id_str      = 'PP_Perkify_Make_DC'
+  title       = "Perkify - Making Docker Containers"
 
 [ meta.refs ]
 
@@ -13,30 +13,36 @@
 
 [ about ]
 
-  precis      = "making Perkify (Docker-based Perkian) containers"
+  precis      = "making Docker-based Perkify containers"
 
   verbose     = '''
-The current procedure for making Perkify (Docker-based Perkian) containers
-is rather convoluted and may well be simplified in the future.
-That said, it appears to work and thus deserves to be documented.
+This page describes the current procedure
+for making Docker-based Perkify containers.
+It is rather convoluted and may well be simplified in the future.
+In any event, our current focus is on using Vagrant/VirtualBox "boxes".
+
+That said, the procedure appears to work and thus deserves to be documented.
 For general information, see
-[Perkian - Introduction]{con_ove|PP_Perkian_Intro} and
-[Perkify - Introduction]{con_ove|PP_Perkify_Intro}.
+[Perkian - Introduction]{con_ove|PP_Perkian_Intro},
+[Perkify - Introduction]{con_ove|PP_Perkify_Intro}, and
+[Perkify - Docker]{con_ove|PP_Perkify_Docker}.
 
 ### Background
 
-The `Perkify/basis` file tree contains two sets of files:
+The `Perkify/basis` file tree contains two sets of files
+([make]{ext_rm|PA_all/tree/master/PP_docker/Perkify/basis/make}, 
+ [ship]{ext_tm|PA_all/tree/master/PP_docker/Perkify/basis/ship}):
 
-    basis/              Perkify basis file tree
-    | make/             used in making the image
-    | | add_ons         installs add-on packages
-    | | add_ons.rb      helper for the add_ons script
-    | | add_ons.toml    specify Perkify add-on packages
-    | | Dockerfile      specifies start-up actions
-    | | get_apt         get an APT package
-    | | get_gem         get a Ruby Gem
-    | ship/             used for the shipped image
-    | | Dockerfile      specifies start-up actions
+    make/             used in making the image
+    | add_ons         installs add-on packages
+    | add_ons.rb      helper for the add_ons script
+    | add_ons.toml    specify Perkify add-on packages
+    | Dockerfile      specifies start-up actions
+    | get_apt         get an APT package
+    | get_gem         get a Ruby Gem
+
+    ship/             used for the shipped image
+    | Dockerfile      specifies start-up actions
 
 ### Procedure
 
@@ -168,10 +174,19 @@ Exit the container, tidy up, and kick the tires again:
 
 - https://docs.docker.com/get-started
 - https://docs.docker.com/get-started/part2
+
 - https://gist.github.com/evanscottgray/8571828
+
 - https://docs.docker.com/engine/reference/commandline/system_prune
+
 - https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes
+
 - https://www.freecodecamp.org/news/an-introduction-to-docker-tags-9b5395636c2a
+
 - https://docs.docker.com/storage/volumes
+
 - https://forums.docker.com/t/correct-usage-of-volume-in-dockerfile/4673
+
+- [Intro Guide to Dockerfile Best Practices
+  ]{https://blog.docker.com/2019/07/intro-guide-to-dockerfile-best-practices}
 '''

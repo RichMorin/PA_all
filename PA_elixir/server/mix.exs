@@ -56,7 +56,8 @@ defmodule Server.MixProject do
           runtime:            false
       },
 
-      { :dialyxir,            "~> 1.0.0-rc.6",
+#     { :dialyxir,            "~> 1.0.0-rc.6",
+      { :dialyxir,            github: "jeremyjh/dialyxir",
           only:               [:dev],
           runtime:            false
       },

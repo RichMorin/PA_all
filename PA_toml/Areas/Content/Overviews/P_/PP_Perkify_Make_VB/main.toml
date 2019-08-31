@@ -1,0 +1,183 @@
+# con_ove|PP_Perkify_Make_VB/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_Perkify_Make_VB'
+  title       = "Perkify - Making Vagrant Boxes"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "making Vagrant-based Perkify boxes"
+
+  verbose     = '''
+My current approach to making [Vagrant]{ext_wp|Vagrant_(software)}-based
+Perkify boxes is a bit more manual than I'd prefer.
+If and when I understand [Packer]{https://www.packer.io} a bit better,
+I may start using it.
+
+### Background
+
+The `Perkify/basis` directory contains a `Vagrantfile` and a
+[set of files]{ext_rm|PA_all/tree/master/PP_Perkify/Vagrant/basis/make}
+for making a new box:
+
+    basis/
+    | make/             used in making the image
+    | | add_ons         installs add-on packages
+    | | add_ons.rb      helper for the add_ons script
+    | | add_ons.toml    specify Perkify add-on packages
+    | | get_apt         get an APT package
+    | | get_gem         get a Ruby Gem
+    | Vagrantfile       specifies start-up actions
+
+### Procedure
+
+Deal with a few preliminary tasks:
+
+
+    $ mkdir ~/perkify       # just in case
+    $ cd ~/perkify          # get situated
+    $ rm -rf .vagrant *     # remove cruft
+
+Load the "box" for Ubuntu 19.04 and bring it up as a virtual machine: 
+
+    # https://app.vagrantup.com/bento/boxes/ubuntu-19.04
+
+    $ vagrant init bento/ubuntu-19.04 --box-version 201906.18.0
+
+    $ basis=../_Work/P_Elixir/PA_hax/PA_all/PP_Perkify/Vagrant/basis
+    $ cp -Rf $basis/* .
+
+    $ vagrant up
+    ...
+
+Start up an SSH session to the VM and run the `add_ons` script:
+
+    $ vagrant ssh
+
+    vagrant@perkify:~$ sudo /vagrant/make/add_ons
+    debian_apt    Accerciser,   accerciser,   a11y explorer
+       46.2   646
+    ...
+    ruby_gems     Xiki,         xiki,         text-based menus
+       62.5    98
+
+    Loading issues: none
+
+    Named packages:     97
+    Total packages:   2428
+    Duration: 2619.1 seconds (43.7 minutes)
+
+Kick the tires a bit, then exit:
+
+    vagrant@perkify:~$ ...
+    vagrant@perkify:~$ exit
+
+Save the VM image as a package:
+
+    $ vagrant package --output ../perkify.box --vagrantfile Vagrantfile
+
+Per [How to Upload Vagrant Box to Vagrant Cloud]{
+http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud}:
+
+- Go to the [Discover Vagrant Boxes]{https://app.vagrantup.com/boxes/search}
+  page and login.
+
+- Click the "Dashboard" link and then the "New Vagrant Box" button.
+
+- Enter name, visibility, and description, then click "Create box".
+
+- Enter the version as 1 and click "Create version".
+
+- Click "Add a provider"; you will be led to a page where
+  you can upload your `test.box`.
+
+- Enter the provider name; the most common is "virtualbox".
+  In my case, I’m uploading to my vagrant cloud, so I select
+  "Upload to Vagrant Cloud" and click "Continue to upload".
+  Then select the box on the local drive, click "Upload", and
+  wait for the upload to complete.
+
+- After uploading is complete, you can click "Finish".
+  I don’t know why it takes so long to finish;
+  it looks like it tries to upload the file again.
+  Just wait patiently.
+
+- In order for you or others to discover this box, you need to release it.
+
+- Now you can test to find out if it works.  Create an empty folder
+  and copy the new commands.
+
+### Notes
+
+The `add_ons` script puts most of its log output in `/tmp/add_ons_log/*`
+on the VM.  These can be inspected for problems via `vagrant ssh`.
+
+### Resources
+
+#### APT, OBS, etc.
+
+- [Chapter 2. Debian package management
+  ]{https://www.debian.org/doc/manuals/debian-reference/ch02.en.html}
+
+- [Debian New Maintainers' Guide
+  ]{https://www.debian.org/doc/manuals/maint-guide}
+
+- [Guide for Debian Maintainers
+  ]{https://www.debian.org/doc/devel-manuals#debmake-doc}
+
+- [How to make a Debian package without using a helper
+  ]{http://www.miriamruiz.es/weblog/?page_id=62}
+
+- [HOWTO: Backport and host Debian & Ubuntu packages on the OBS
+  ]{http://forums.debian.net/viewtopic.php?f=16&t=130057}
+
+- [Pale Moon Web Browser
+  ]{https://build.opensuse.org/project/show/home:stevenpusser] (OBS example)
+
+- [Portal:Build Service
+  ]{https://en.opensuse.org/Portal:Build_Service}
+
+#### Packer
+
+- [Packer]{https://www.packer.io}
+
+- [Packer - Build an Image
+  ]{https://www.packer.io/intro/getting-started/build-image.html}
+
+- [Building your Virtual Machine with Packer
+  ]{https://blog.codeship.com/packer-vagrant-tutorial}
+
+#### Vagrant
+
+- [add --quiet option to vagrant commands #11037
+  ]{https://github.com/hashicorp/vagrant/issues/11037}
+
+- [Boxes
+  ]{https://www.vagrantup.com/intro/getting-started/boxes.html}
+
+- [Creating a New Vagrant Box
+  ]{https://www.vagrantup.com/docs/vagrant-cloud/boxes/create.html}
+
+- [Package
+  ]{https://www.vagrantup.com/docs/cli/package.html}
+
+- [Vagrantfile - Load Order and Merging
+  ]{https://www.vagrantup.com/docs/vagrantfile/#load-order}
+'''
+
+[ zoo ]
+
+  snippets    = '''
+### Open Questions
+
+- Why isn't synced mounting working?
+- Best way to upload the box?
+- How to kill off port forwarding on the host?
+'''

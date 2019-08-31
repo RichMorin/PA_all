@@ -21,14 +21,15 @@ This page is an introduction to the use of
 as supported by [Dialyzer]{http://erlang.org/doc/man/dialyzer.html}
 and related tooling.
 Most of the examples and advice are based on my experience
-in adding type specifications to Pete's Alley.
+in adding type specifications to [Pete's Alley]{/}.
 For specific details on our current usage,
 please see [Pete's Alley - Typespecs]{con_ove|PA_Typespecs}.
 
 ### Motivation
 
 Using Elixir's Typespec attributes (e.g., `@spec`, `@type`),
-a project can document how its internal interfaces use data types.
+a project can document how its internal interfaces
+use [data types]{ext_wp|Data_type}.
 The attributes are located in the working code base,
 typically next to the functions they document.
 They are also integrated into [ExDoc]{ext_gh|elixir-lang/ex_doc}'s
@@ -38,10 +39,11 @@ of reference information upon which to base additions and changes.
 
 Each `@spec` attribute (aka spec) specifies the data types
 of the parameters and return value of a named function.
-Erlang's Dialyzer utility allows these specifications to be verified
+Erlang's [Dialyzer]{http://erlang.org/doc/apps/dialyzer/dialyzer_chapter.html}
+utility allows these specifications to be verified
 to a substantial and customizable degree.
 For extra credit, `@type` attributes can also be added,
-defining custom, app-specific data types.
+defining custom, [namespaced]{ext_wp|Namespace} data types.
 This makes these data types explicit and modular,
 raising them to the same level of definition and documentation
 as named functions.
@@ -52,7 +54,7 @@ Errors are reported in a detailed (if sometimes murky) report.
 Dialyzer can detect a broad and configurable range of type errors.
 Type information can be refined incrementally,
 tightening the constraints on data types and usage.
-App-specific types can be made arbitrarily precise,
+Custom data types can be made arbitrarily precise,
 defining multiple layers of structure and type information.
 
 Like the compiler and test suite,
@@ -182,7 +184,7 @@ Here is a spec and function definition for `foo/2`:
 
 The spec declares the intended data type (e.g., `atom`)
 for each argument (e.g., `key`), as well as the return value.
-Primitive types (e.g., `atom`, `number`) may be appropriate
+Primitive types (e.g., `atom`, `map`, `number`) may be appropriate
 for many scalar variables and simple [data structures]{ext_wp|Data_structure},
 but they don't provide much information about more complex structures.
 For example, although a tree of maps can be described as a `map`,
@@ -207,6 +209,11 @@ Dialyxir's default output is rather verbose, so we use it as follows:
 
     mix dialyzer --quiet
 
+Sean Cribbs' [Dialyzex]{https://hex.pm/packages/dialyzex} package
+is another alternative which offers some interesting features.
+Sadly, Dialyxir and Dialyzex both lay claim to `mix dialyzer` (etc),
+so they can't be used together in a single Mix project.  Grumble...
+
 #### Organization
 
 The [code base]{ext_gh|RichMorin/PA_all} for Pete's Alley
@@ -219,9 +226,13 @@ Derived types are commonly defined in app-specific modules
 which contain mostly `@type` and `@typedoc` attributes.
 A few private types may be also defined by `@typep` attributes.
 
-Each app has its own type definition file (`_<app>_t.ex`),
-located in its implementation directory (`.../<app>/lib/<app>`).
-We alias these modules for use in any modules where they are needed:
+As suggested by [Dave Thomas]{ext_wp|Dave_Thomas_(programmer)},
+each app in Pete's Alley has its own
+implementation directory (`.../<app>/lib/<app>`).
+This gives us a logical place to store our type definition files
+(e.g., `_common_t.ex`).
+For brevity and convenience, we alias the defined modules
+for use in any other modules where they are needed:
 
     alias Common.Types, as: CT
 
@@ -349,6 +360,27 @@ Here is a progression of tightening steps, based on the example above:
     @spec get_kv_info(atom) :: %{ atom => list | map }  #!V - list, map
     @spec get_kv_info(atom) :: ITT.kv_info
 
+Dialyxir will pass command-line options on to Dialyzer, allowing you to
+enable or disable certain classes of checks.   For example:
+
+    mix dialyzer --unmatched_returns
+
+For more information, see [Dialyzer Warnings]{con_ove|EE_Dial_Warn}.
+Meanwhile, here are some options you may want to try out:
+
+- `error_handling`<br>
+  Include warnings for functions that only return by an exception.
+
+- `race_conditions`<br>
+  Include warnings for possible race conditions.
+
+- `underspecs`<br>
+  Warn about underspecified functions.
+
+- `unmatched_returns`<br>
+  Include warnings for function calls that ignore a structured return value<br>
+  or do not match against one of many possible return value(s).
+
 #### Code Smells
 
 As you proceed, stay alert for assorted [code smells]{ext_wp|Code_smell}.
@@ -405,6 +437,9 @@ There is quite a bit of documentation on Dialyzer and related tooling.
 As a gentle introduction, I also recommend Jason Voegele's talk,
 [Dialyzer: Optimistic Type Checking for Erlang and Elixir
 ]{ext_yt|watch?v=JT0ECYZ9FaQ}.
+Although it's not as gentle, I also like Sean Cribbs' talk:
+[Chemanalysis - Dialyzing Elixir
+]{https://codesync.global/media/chemanalysis-dialyzing-elixir-sean-cribbs}.
 
 Once you're feeling comfortable with the basic ideas,
 I'd recommend at least skimming some of the papers listed on the project
@@ -413,25 +448,35 @@ I particularly recommend
 [Practical Type Inference Based on Success Typing
 ]{https://it.uu.se/research/group/hipe/papers/succ_types.pdf}.
 
-#### Dialyzer
+#### Dialyzer - Elixir
+
+- [Chemanalysis - Dialyzing Elixir
+  ]{https://codesync.global/media/chemanalysis-dialyzing-elixir-sean-cribbs}
+  (video)
 
 - [Decoding Dialyzer
   ]{http://devonestes.herokuapp.com/decoding-dialyzer} (article)
 
-- [Dialyzer
-  ]{http://erlang.org/doc/man/dialyzer.html} (manual page)
-
-- [Dialyzer
-  ]{http://erlang.org/doc/apps/dialyzer/dialyzer.pdf} (full manual)
-
 - [Dialyzer: Optimistic Type Checking for Erlang and Elixir
   ]{ext_yt|watch?v=JT0ECYZ9FaQ} (video)
+
+#### Dialyzer - Erlang
+
+- [Dialyzer manual page
+  ]{http://erlang.org/doc/man/dialyzer.html}
+
+- Dialyzer manual
+  ([online]{http://erlang.org/doc/apps/dialyzer},
+   [PDF]{http://erlang.org/doc/apps/dialyzer/dialyzer.pdf})
 
 - [Practical Type Inference Based on Success Typing
   ]{https://it.uu.se/research/group/hipe/papers/succ_types.pdf} (paper)
 
 - [The DIALYZER: a DIscrepancy AnaLYZer for ERlang programs
   ]{https://www.it.uu.se/research/group/hipe/dialyzer} (project)
+
+- [Type Specifications and Erlang
+  ]{https://learnyousomeerlang.com/dialyzer}
 
 #### Typespecs
 
@@ -447,18 +492,13 @@ I particularly recommend
 
 #### Wrappers
 
-- [Dialyxir
-  ]{ext_gh|jeremyjh/dialyxir} (GitHub)
+- Dialyxir
+  ([GitHub]{ext_gh|jeremyjh/dialyxir},
+   [Hex.pm]{https://hex.pm/packages/dialyxir})
 
-- [Dialyxir
-  ]{https://hex.pm/packages/dialyxir} (Hex.pm)
-
-- [Dialyzex
-  ]{ext_gh|Comcast/dialyzex} (GitHub)
-
-- [Dialyzex
-  ]{https://hex.pm/packages/dialyzex} (Hex.pm)
-
+- Dialyzex
+  ([GitHub]{ext_gh|Comcast/dialyzex},
+   [Hex.pm]{https://hex.pm/packages/dialyzex})
 '''
 
 [ zoo ]

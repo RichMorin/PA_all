@@ -1,0 +1,16 @@
+:
+# get_gem - get a Ruby Gem
+#
+# Written by Rich Morin, CFCL, 2019.
+
+  cmd="gem install $2"
+  log=$1/$2
+
+  $cmd > $log 2>&1
+  status=$?
+
+  if [ $status -ne 0 ]; then
+    echo "non-zero return status: $status"
+  fi
+
+  exit $status

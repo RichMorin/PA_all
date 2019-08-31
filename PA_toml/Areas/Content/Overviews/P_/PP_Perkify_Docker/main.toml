@@ -1,0 +1,407 @@
+# con_ove|PP_Perkify_Docker/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_Perkify_Docker'
+  title       = "Perkify - Docker"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'a technical overview of Docker-based Perkify'
+
+  verbose     = '''
+*Note:*
+Our current plans for Perkify are based
+on [Vagrant]{ext_wp|Vagrant_(software)} and [Virtual Box]{ext_wp|Virtual_Box},
+rather than Docker.
+So, this article is mostly of historic interest.
+However, we might revive the Docker approach for Linux host systems
+if and when the overhead of supporting a full virtual machine becomes an issue.
+
+### Background
+
+[Docker]{ext_wp|Docker_(software)} containers provide a very popular form
+of [OS-level virtualisation]{ext_wp|OS-level_virtualisation}.
+Because no kernel or processor emulation is needed,
+these containers can provide a very efficient way
+to "paper over" many (but not all) runtime considerations.
+For example, software developers can sidestep incompatibility issues
+related to commands, libraries, file system organization, and the kernel.
+
+Sets of Docker containers power many [web sites]{ext_wp|Website},
+[cloud computing]{ext_wp|Cloud_computing} resources, etc.
+Indeed, you probably use container-based web sites on a daily basis.
+Perkify simply brings this technology to the world of personal computing.
+
+From the outside, a container acts a lot like an independent host,
+connected via a network connection.
+On the inside, it looks like some host OS, typically a flavor of Linux.
+Although there are hundreds of Linux variants,
+they share a common [OS kernel]{ext_wp|Kernel_(operating_system)}.
+The [Debian]{ext_wp|Debian} family of Linux distributions, for instance,
+is popular, robust, and has great build tooling.
+
+If the desired host platform runs (or can emulate) a Linux variant,
+we can create and deploy Debian-based containers
+for each hardware platform we wish to support.
+So, for example, we might only need to build containers for
+32-bit ARM devices (e.g., the Raspberry Pi) and
+64-bit Intel devices (e.g., typical personal computers).
+
+### Compatibility
+
+Most Linux distributions are based on an official kernel
+and use a common set of libraries, file system conventions, etc.
+So, Linux-based containers can typically be run on any Linux system
+that has the same processor architecture (e.g., 64-bit Intel).
+These containers can also be run on [macOS]{ext_wp|MacOS} or
+[Windows]{ext_wp|Microsoft_Windows}.
+After a [virtual machine]{ext_wp|Virtual_machine} platform
+such as [VirtualBox]{ext_wp|VirtualBox} has been installed,
+containers can be run in a Linux-based virtual machine.
+
+*Note:*
+Things should get much simpler for Windows users
+when "Windows Subsystem for Linux 2" is released.
+Planned as part of an upcoming version of [Windows 10]{ext_wp|Windows_10},
+WSL 2 will provide native support for Linux-based Docker containers.
+
+Running Linux containers on a 32-bit ARM processor (e.g., a Raspberry Pi)
+is also possible, but the containers will need to be built specifically
+for this processor architecture.
+Sadly, there does not appear to be a Docker-based solution for most
+(e.g., [Android]{ext_wp|Android_(operating_system)},
+[iOS]{ext_wp|IOS}) cell phones.
+So, for the moment, we are concentrating on 64-bit Intel machines,
+but keeping 32-bit ARM processors (etc) in mind.
+
+Our containers are based on [Ubuntu]{ext_wp|Ubuntu}, a popular,
+"batteries included" [Linux]{ext_wp|Linux} distribution.
+Ubuntu, in turn, is based on [Debian]{ext_wp|Debian},
+a well-respected, "foundational" distribution.
+Between Ubuntu's built-in offerings
+and the immense suite of installable packages available via
+Debian's Advanced Package Tool ([APT]{ext_wp|APT_(Package_Manager)}),
+we seldom need to worry about porting software.
+We also fold in our own software and supporting libraries
+from assorted language repositories,
+including [Hex]{http://hex.pm} and [RubyGems]{https://rubygems.org}.
+
+### Buiilding and Deployment
+
+The Docker build process is based on text-based
+[Dockerfiles]{https://docs.docker.com/engine/reference/builder}.
+These combine an overall syntax and structure
+with OS-specific build commands.
+Fortunately, a Unix-style "shell" and some common commands
+are available for all the operating systems we have in mind.
+So, a single Unixish Dockerfile should handle most of our targets.
+Alternatively, we can abstract away some picky details
+by using [Chef]{ext_wp|Chef_(software)} as high level build tooling.
+
+Containers can be built for several operating systems,
+deployed via [Docker Hub]{https://hub.docker.com},
+and downloaded via the Internet.
+Although the container must match the downloading host's OS
+and processor architecture, Docker's system of "manifests"
+can be used to hide the gritty details.
+So, the user (or software running on their behalf)
+can request container "foo" and receive the appropriate version.
+
+Docker Hub and [GitHub]{ext_wp|GitHub} each provide
+convenient and reliable ways to collect and distribute packages.
+So, all we have to do is push our results and back away slowly.
+The result (it says here :-) is a suite that can handle a range
+of package building and distribution challenges.
+
+#### Architecture
+
+Docker is typically used by development/operations ([DevOps]{ext_wp|DevOps})
+teams to support well-defined (sets of) network services.
+As a preliminary step, a number of specialized containers are created.
+These are then combined
+(aka [orchestrated]{ext_wp|Orchestration_(computing)})
+to achieve a desired result.
+Configuration files are used to specify when programs get run,
+how they communicate with each other, etc.
+
+This approach simplifies construction and maintenance of the containers,
+but it complicates their use and reduces flexibility.
+For example, setting up a simple processing pipeline (e.g., `foo | bar`)
+would require dealing with container names, port numbers, etc.
+Although this usage mode is extremely flexible and powerful,
+it doesn't match either our expected user base or usage modes.
+
+Far from being DevOps experts, our users may be barely familiar with Linux.
+Also, we can't know in advance what problems they will be trying to solve.
+So, we need to build and use containers in a different manner.
+Specifically, we assemble all of our add-on software
+into a single, general-purpose container.
+Although the resulting "image file" occupies several gigabytes of disk space,
+the running container only requires memory for the running processes.
+Given that disk space is an inexpensive resource,
+this seems like a reasonable trade-off.
+
+The user can treat the Perkify container
+as if it were simply another machine on the local network.
+This "machine" can provide web-based services,
+run a large suite of commands, etc.
+Conveniently, commands can be invoked and piped together
+without concern for orchestration issues.
+In addition, files can be read (or even written) on the host machine,
+allowing a substantial degree of interoperability.
+
+#### Build Walkthrough
+
+Our build machine is a 2010 Mac Pro,
+with lots of disk storage, memory, and processing cores.
+As a preliminary step, we've installed the following software stack:
+
+- macOS
+- VirtualBox
+- Ubuntu Desktop
+- Docker Engine
+- Debian Container
+
+We can log into the Ubuntu Desktop virtual machine (`make`)
+from anywhere on our local area network ([LAN]{ext_wp|LAN}),
+`sudo` to root, etc:
+
+    $ ssh rdm@make
+    ...
+    rdm@make:~$ sudo -s
+    rdm@make:~#
+
+Let's start up a [bash]{ext_wp|Bash_(Unix_shell)} session
+in the default [Debian container]{https://hub.docker.com/_/debian},
+shorten the prompt string (`PS1`), and examine the runtime environment:
+
+    rdm@make:~# docker run -it debian:latest bash
+    ...
+    root@d2e4f42055db:/# PS1='# '
+    
+    # cat /etc/os-release
+    PRETTY_NAME="Debian GNU/Linux 10 (buster)"
+    ...
+
+    # ruby --version
+    bash: ruby: command not found
+
+This container doesn't include
+[Ruby]{ext_wp|Ruby_(programming_language)}; let's install it:
+
+    # apt update
+    ...
+
+    # apt-get -y install ruby-full
+    ...
+
+    # ruby --version
+    ruby 2.5.5p157 ...
+
+Now, in a different terminal, we can:
+
+- Open a root shell on Ubuntu.
+- Locate the running container.
+- Commit it to an image (`deb-ruby`).
+- Start up a new container and shell.
+- Confirm that Ruby is still present.
+
+Here goes...
+
+    $ ssh rdm@make
+    ...
+    rdm@make:~$ sudo -s
+
+    rdm@make:~# docker ps
+    CONTAINER ID        IMAGE               ...
+    d2e4f42055db        debian:latest       ...
+
+    rdm@make:~# docker commit d2e4f42055db deb-ruby
+    sha256:59d1e31...
+
+    rdm@make:~# docker run -it deb-ruby bash
+    root@0d40736e2bfd:/# ruby --version
+    ruby 2.5.5p157 ...
+
+#### Mechanization
+
+The example above demonstrates that we can create, load, and use
+a custom Docker "image" containing a specified package.
+However, we have several dozen packages that we'd like to incorporate
+into a distributable Docker image.
+Doing this in an interactive session would be both tedious and error prone.
+
+So, we need a way to build an image in "batch mode",
+collecting console output for later evaluation.
+I have prototyped a small set of control files and scripts for this:
+
+- `add_ons`       - processes each entry in `add_ons.toml`
+- `add_ons.toml`  - specifies package names and types
+- `get_apt`       - installs a specified APT package
+- `get_gem`       - installs a specified Ruby Gem
+
+See [Perkify - Making Docker Containers]{con_ove|PP_Perkify_Make_DC}
+for details.
+
+### Usage Notes
+
+*Note:*
+Although our approach to building Docker containers "works",
+it definitely needs refinement.
+Also, we are currently concentrating on using
+[Vagrant]{ext_wp|Vagrant_(software)} and [Virtual Box]{ext_wp|Virtual_Box},
+rather than Docker.
+So, this prototype is on the back burner
+and no containers are currently available.
+
+We're trying to smooth out the rough edges,
+so downloading and installing the Perkify container isn't a one-click operation.
+However, with a modicum of care and patience,
+most computer users should be able to get things going with minimal pain.
+Of course, feel free to contact us if you run into problems!
+
+Before you begin, please make sure that you have Perkify's prerequisites.
+First, you should have a (64-bit Intel) computer that supports Docker.
+The machine should have several GB of RAM and at least 10 GB
+of free disk space.
+You'll also need a way to obtain the Perkify distribution.
+Normally, this would be a broadband connection to the Internet.
+
+#### Getting Docker, etc.
+
+It isn't necessary to learn everything about Docker,
+in order to run Perkify.
+However, I strongly recommend that you skim some introductory material.
+These pages provide a good introduction:
+
+- [Get Started, Part 1: Orientation and setup
+  ]{https://docs.docker.com/get-started}
+- [Get Started, Part 2: Containers
+  ]{https://docs.docker.com/get-started/part2}
+
+If you're running a Linux variant, you'll need to download and install
+the appropriate version of "Docker Engine - Community".
+There are installers for
+[CentOS]{https://docs.docker.com/install/linux/docker-ce/centos},
+[Debian]{https://docs.docker.com/install/linux/docker-ce/debian},
+[Fedora]{https://docs.docker.com/install/linux/docker-ce/fedora}, and
+[Ubuntu]{https://docs.docker.com/install/linux/docker-ce/ubuntu}.
+There are also
+[static binaries]{https://docs.docker.com/install/linux/docker-ce/binaries}
+that can be installed on various Linux systems.
+
+If you're running macOS or Windows, things are a bit more complicated.
+The problem is that our container needs a Linux environment to work within.
+On macOS, this requires installing a [hypervisor]{ext_wp|Hypervisor}
+and a Linux-based [virtual machine]{ext_wp|Virtual_machine}.
+You can then install Docker Engine and your desired flavor of Linux.
+For example, on my desktop machine, I'm running the following stack:
+
+- [macOS]{ext_wp|MacOS}
+- [VirtualBox
+  ]{https://www.virtualbox.org/wiki/Downloads}
+- [Ubuntu Desktop
+  ]{https://ubuntu.com/download/desktop}
+- [Docker Engine for Ubuntu
+  ]{https://docs.docker.com/install/linux/docker-ce/ubuntu}
+- Perkify Container
+
+On Windows, there are a couple of suggested ways to set things up;
+see [Linux containers on Windows]{https://docs.microsoft.com/en-us/
+virtualization/windowscontainers/deploy-containers/linux-containers}
+for details.
+Alternatively, you can try using Windows Subsystem for Linux 2 (WSL 2).
+Planned as part of an upcoming version of [Windows 10]{ext_wp|Windows_10},
+WSL 2 will provide native support for Linux-based Docker containers.
+Meanwhile, follow the [Installation Instructions for WSL 2
+]{https://docs.microsoft.com/en-us/windows/wsl/wsl2-install}.
+
+#### Running Docker
+
+**Note:**
+The folowing examples are based on my local setup,
+where my `username` is `rdm` and the Ubuntu VM is available as `make`.
+Adjust as necessary to match your local setup.
+
+Once you've installed the Docker Engine in a Linux host environment,
+you should try running a Docker command.
+However, for reasons of convenience and security,
+you'll want to allow non-root use of the `docker` command.
+The `usermod` command does this,
+but you'll need to start up a new shell session
+in order for it to take effect:
+
+    rdm@spot:~$ ssh rdm@make
+    ...
+    rdm@make:~$ sudo usermod -aG docker rdm
+    ...
+    rdm@make:~$ exit
+
+
+    rdm@spot:~$ ssh rdm@make
+    ...
+    rdm@make:~$ docker run hello-world
+    ...
+    Hello from Docker!
+    ...
+    
+#### Downloading
+
+The Perkify images (and supporting software)
+are stored on [Docker Hub]{https://hub.docker.com}.
+Because these files can add up to several gigabytes,
+your initial download may take a while.
+So, you may want to estimate the amount of time this will take.
+If you don't know how fast your connection is,
+run a [speed test]{https://www.speedtest.net}.
+If your [download]{ext_wp|Download} speed is 40 Mbps,
+5 GB (40 Gb) of image data will take about 17 minutes (1000 seconds).
+
+#### Initial Usage
+
+With all of that out of the way (whew!), you should be able to run Perkify.
+We want to:
+
+- get the latest `richmorin/perkify` image from Docker Hub
+- mount the host's root file system as the volume `/host`
+- run the image as a container named `cn`
+- start up a copy of `bash` as the primary process
+
+The following command accomplishes all this:
+
+    rdm@make:~$ docker run -it --name upc -v /:/host richmorin/perkify bash
+
+    me@perk:/# ls /
+    bin  boot  dev  etc  home  host  lib  ...  var
+
+The command above lists the contents of the container's root directory,
+showing that we have a fairly conventional file system.
+However, in the `docker run` command, we mounted the host's root directory
+as an accessible volume in the container (`-v /:/host`).
+So, we can examine the host's root directory, as well:
+
+    me@perk:/# ls /host
+    bin  cdrom  etc  initrd.img  lib  ...  vmlinuz
+
+We can use the container name (`upc`) to start up additional `bash` sessions.
+
+    rdm@spot:~$ ssh rdm@make
+    ...
+
+    rdm@make:~$ docker exec -it upc bash
+
+    me@perk:/#
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

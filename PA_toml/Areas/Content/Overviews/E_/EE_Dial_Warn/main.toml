@@ -1,0 +1,137 @@
+# con_ove|EE_Dial_Warn/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'EE_Dial_Warn'
+  title       = "Elixir, etc. - Dialyzer Warnings"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "a summary of Dialyzer warnings"
+
+  verbose     = '''
+Many of Dialyzer's warnings are explained, with example code,
+by Dialyxir's online help (e.g., `mix dialyzer.explain <warning>`).
+The following list summarizes these, for convenience.
+
+- `apply`<br>
+  The function being invoked exists, and has the correct arity,
+  but will not succeed.
+
+- `call`<br>
+  The function call will not succeed.
+
+- `call_to_missing`<br>
+  The function calls a missing or private function.
+  This may be caused by a typo or incorrect arity.
+
+- `call_without_opaque`<br>
+  Function call without opaqueness type mismatch.
+
+- `callback_arg_type_mismatch`<br>
+  The argument type does not match the callback's expected type.
+
+- `callback_info_missing`<br>
+  The module is using a behaviour that does not exist
+  or something that is not a behaviour.
+
+- `callback_missing`<br>
+  The module implements a behaviour, but does not have all of its callbacks.
+
+- `callback_spec_arg_type_mismatch`<br>
+  The @spec type of the argument does not match the callback's expected type.
+
+- `callback_spec_type_mismatch`<br>
+  The type of the return type in the @spec does not match
+  the expected return type of the behaviour.
+
+- `callback_type_mismatch`<br>
+  The success type of the function does not match
+  the callback type in the behaviour.
+
+- `contract_subtype`<br>
+  The type in the @spec does not completely cover
+  the types returned by the function.
+
+- `contract_supertype`<br>
+  The @spec, while not incorrect,
+  is more general than the type returned by the function.
+
+- `contract_with_opaque`<br>
+  The @spec says the function is returning an opaque type,
+  but it is returning a different type.
+
+- `exact_eq`<br>
+  The expression can never evaluate to true.
+
+- `extra_range`<br>
+  The @spec says the function returns more types
+  than the function actually returns.
+
+- `fun_app_no_fun`<br>
+  The function being invoked exists has an arity mismatch.
+
+- `guard_fail`<br>
+  The function guard either presents an impossible guard
+  or the only calls will never succeed against the guards.
+
+- `guard_fail_pat`<br>
+  The guard describes a condition of literals that fails
+  the pattern given in the function head.
+
+- `invalid_contract`<br>
+  The @spec for the function does not match
+  the success typing of the function.
+
+- `neg_guard_fail`<br>
+  The function guard either presents an impossible guard
+  or the only calls will never succeed against the guards.
+
+- `no_return`<br>
+  The function has no return.
+
+- `opaque_match`<br>
+  The code attempted to pattern match against the internal structure
+  of an opaque term.
+
+- `overlapping_contract`<br>
+  The function has an additional @spec
+  that is already covered more generally by a higher @spec.
+
+- `pattern_match`<br>
+  The pattern matching is never given a value
+  that satisfies all of its clauses.
+
+- `pattern_match_cov`<br>
+  The pattern match has a later clause that will never be executed
+  because a more general clause is higher in the matching order.
+
+- `unknown_type`<br>
+  The @spec references a missing @type.
+
+- `unmatched_return`<br>
+  The invoked expression returns a union of types and the call does
+  not match on its return types using e.g. a case or wildcard.
+
+- `unused_fun`<br>
+  Unknown warning named: unknown_fun
+
+#### Unexplained Warnings
+
+Quite a few of the warnings have no explanation at present:
+`app_call`, `bin_construction`, `call_with_opaque`, `contract_diff`,
+`contract_range`, `fun_app_args`, `improper_list_constr`, `missing_range`,
+`opaque_eq`, `opaque_guard`, `opaque_neq`, `opaque_type_test`,
+`race_condition`, `record_constr`, `record_matching`,
+`unknown_behaviour`, `unknown_function`
+'''
+
+[ zoo ]
+
+  snippets    = '...'
