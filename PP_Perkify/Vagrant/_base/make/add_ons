@@ -1,0 +1,43 @@
+:
+# add_ons - install add-on packages
+#
+# Written by Rich Morin, CFCL, 2019.
+
+  # Set up logging infrastructure.
+  
+  bar='-----------------------------------------------------------------------'
+  log_dir=/tmp/add_ons_log
+  rm -rf $log_dir
+  mkdir  $log_dir
+  log=$log_dir/_prelims
+
+  # Do some preliminaries.
+
+  ( # Set up Ruby infrastructure.
+
+    apt-get update;                 echo $bar
+    apt-get -y install ruby-full;   echo $bar
+    gem install toml-rb;            echo $bar
+
+    # Adjust the default sort order for ls(1).
+    # Copy in a snaphot of the "_base" directory.
+
+    home=/home/vagrant
+    base=$home/_base
+
+    echo "\n# Perkify additions"    >> $home/.profile
+    echo "export LC_COLLATE=C"      >> $home/.profile
+
+    cp    -R /vagrant               $base
+    chmod -R 755                    $base
+    chown -R vagrant.vagrant        $base
+    mv $base/bin $home
+
+  ) >> $log 2>&1
+
+  # Install APT packages, RubyGems, etc.
+
+  PATH=$PATH:.
+# cd "$( dirname "${BASH_SOURCE[0]}" )"
+  cd /vagrant/make #K
+  add_ons.rb $log_dir

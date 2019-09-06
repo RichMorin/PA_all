@@ -20,60 +20,109 @@ This page summarizes [known known]{ext_wp|There_are_known_knowns} issues
 for Perkify (VM-based Perkian).
 That is, it does not pretend to be comprehensive,
 but it gives us a start on where to look for problems.
-Currently, we're concentrating on
-[APT]{ext_wp|APT_(Package_Manager)}-related issues,
-but other archives (etc) are certainly on the horizon...
 
-### Missing APT archives
+### APT-related Issues
 
-If the "APT name" is "?", we found no evidence that there had ever been
-an APT archive for the package.
-If a name is given, there is no archive for the "buster" release of Debian.
+If at all possible, we like to install packages using [Debian]{ext_wp|Debian}'s
+Advanced Package Manager ([APT]{ext_wp|APT_(Package_Manager)}).
+So, if no APT archive exists, our preferred solution is to generate one.
+See the section below on The Open Build Service for one approach to this goal.
 
-    Title               APT name            Notes
-    -----               --------            -----
-    Alacritty,          ?,                  TTY emulation             (-bs)
-    BitchX,             ?,                  IRC client                (-bs)
-    Bookworm,           ?,                  eBook reader              (-bs)
-    BRL-CAD,            ?,                  solid modeling            (-bs)
-    Crystal,            ?,                  programming language      (-bs)
-    DAISY Pipeline 2,   ?,                  document conversion       (-bs)
-    Eclipse Che,        ?,                  IDE, text editor, etc.    (-bs)
-    Ekiga,              ekiga,              online conferencing       (-b)
-    Elm ME+,            ?,                  email client              (-bs)
-    Eolie,              ?,                  web browser               (-bs)
-    ERC,                erc,                IRC client                (-bs+j)
-    Eww,                ?,                  web browser               (-bs)
-    GIFT,               ?,                  image processing
-    GMediaServer,       gmediaserver,       media support             (-b+s)
-    GNU Bool,           ?,                  text searching
-    GNU Cursynth,       ?,                  music generation
-    GNU Dap,            ?,                  statistics
-    GNU Dionysus,       ?,                  retrieving constants
-    GNU Freetalk,       ?,                  Jabber/XMPP client
-    GNU Moe,            ?,                  text editor
-    GNU Oleo,           ?,                  spreadsheet
-    GNU Prolog,         gprolog,            programming language      (-b+j)
-    GSEGrafix,          ?,                  plot generation
-    GURGLE,             ?,                  programming language
-    ID Utils,           ?,                  system admin
-    latex-access,       ?,                  braille translation       (-bs)
-    Lucidor,            ?,                  ebook reader              (-bs)
-    OCRdesktop,         ?,                  OCR support               (-bs)
-    PINN,               ?,                  Raspberry Pi support      (-bs)
-    sbl,                ?,                  screen reader             (-bs)
-    Speakup,            speakup,            speech synthesis          (-bs)
-    tdsr,               ?,                  screen reader             (-bs)
-    The vOICe,          ?,                  sensory substitution      (-bs)
-    WiringPi,           ?,                  Raspberry Pi support      (-bs)
+#### Missing Archives
+
+If the "APT name" field is "_",
+we found no evidence that there had ever been an APT archive for the package.
+Otherwise, we found an archive for some earlier release of Debian,
+but nothing for "buster".
+
+| Title                | APT name        | Notes                       |
+| -------              | ----------      | -------                     |
+| Alacritty            | _               | TTY emulation               |
+| BitchX               | _               | IRC client                  |
+| Bookworm             | _               | eBook reader                |
+| BRL-CAD              | _               | solid modeling              |
+| Crystal              | _               | programming language        |
+| DAISY Pipeline 2     | _               | document conversion         |
+| Eclipse Che          | _               | IDE, text editor, etc.      |
+| Ekiga                | ekiga           | online conferencing         |
+| Elm ME+              | _               | email client                |
+| Eolie                | _               | web browser                 |
+| ERC                  | erc             | IRC client                  |
+| Eww                  | _               | web browser                 |
+| GIFT                 | _               | image processing            |
+| GMediaServer         | gmediaserver    | media support               |
+| GNU Bool             | _               | text searching              |
+| GNU Cursynth         | _               | music generation            |
+| GNU Dap              | _               | statistics                  |
+| GNU Dionysus         | _               | retrieving constants        |
+| GNU Freetalk         | _               | Jabber/XMPP client          |
+| GNU Moe              | _               | text editor                 |
+| GNU Oleo             | _               | spreadsheet                 |
+| GNU Prolog           | gprolog         | programming language        |
+| GSEGrafix            | _               | plot generation             |
+| GURGLE               | _               | programming language        |
+| ID Utils             | _               | system admin                |
+| latex-access         | _               | braille translation         |
+| Lucidor              | _               | ebook reader                |
+| OCRdesktop           | _               | OCR support                 |
+| PINN                 | _               | Raspberry Pi support        |
+| sbl                  | _               | screen reader               |
+| Speakup              | speakup         | speech synthesis            |
+| tdsr                 | _               | screen reader               |
+| The vOICe            | _               | sensory substitution        |
+| WiringPi             | _               | Raspberry Pi support        |
  
-### Other APT issues
+#### Inquisitive APTs
+
+The following APT archives want to ask questions during the build.
+This breaks our automation, so we need to find a workaround for each one.
 
 - Chef            - wants the URL of the Chef Infra server
 - Emacspeak       - wants to know about support SW & HW
 - GNU Mailutils   - wants to know the Postfix configuration
 
-### The Open Build Service
+### Miscellaneous Issues
+
+#### `$PATH` Conflicts
+
+The `path_chk` script looks for files which appear
+in two or more directories on the search path (`$PATH`).
+The script reports the following duplications:
+
+    brltty        ["/usr/sbin", "/usr/bin"]
+    ip            ["/usr/sbin", "/usr/bin"]
+    iscsiadm      ["/usr/sbin", "/usr/bin"]
+    lsmod         ["/usr/sbin", "/usr/bin"]
+    on_ac_power   ["/usr/sbin", "/usr/bin"]
+    rpcinfo       ["/usr/sbin", "/usr/bin"]
+    udevadm       ["/usr/sbin", "/usr/bin"]
+
+
+#### I/O Hardware
+
+Some programs expect to be able to communicate with hardware devices
+(e.g., audio interfaces, braille displays).
+These need to be tested for functionality on all three
+of the expected host operating systems (Linux, macOS, Windows).
+
+#### `Vagrantfile`
+
+The `Vagrantfile` is getting saved and installed _somewhere_,
+as evidenced by the fact that the `hostname` is getting set to `perkify`.
+However, it would be nice to know _where_ it's being stored...
+
+### Resources
+
+Here are some external resources which could help us in tracking
+and resolving issues.
+
+#### GitHub
+
+The scripts and data files that are used to build Perkify
+should be made available in a GitHub repository.
+This would also give us a place to put issues, wiki pages, etc.
+
+#### The Open Build Service
 
 At the kind suggestion of Steven Pusser (@stevepusser on the
 [Debian User Forums]{http://forums.debian.net/viewtopic.php?f=30&t=143406}),
@@ -92,6 +141,7 @@ and is used by 60,034 confirmed developers.
 The OBS appears to be a perfect place for interested parties
 to collaborate on porting blind-friendly software packages.
 If you are interested in helping in this effort, please get in touch!
+
 
 To be continued...
 '''

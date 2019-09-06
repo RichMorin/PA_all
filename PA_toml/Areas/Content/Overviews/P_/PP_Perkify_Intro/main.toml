@@ -16,23 +16,31 @@
   precis      = "introduction to Perkify (VM-based Perkian)"
 
   verbose     = '''
-Perkify provides a convenient way to add accessibility-focused software
+Perkify provides a convenient and unintrusive way
+to add [open source]{ext_wp|Open_source} software
 to personal computers running [Linux]{ext_wp|Linux},
 [macOS]{ext_wp|MacOS}, or [Windows]{ext_wp|Microsoft_Windows}.
-This includes a large (and growing!) suite of commands,
-the prospect of personal web servers, etc.
+The Perkify distribution provides thousands
+of command-line tools and support libraries,
+offers the prospect of personal web servers, and more.
 
 ### Motivation
 
-The [open source]{ext_wp|Open_source} community has produced a wealth
-of software which could be of use to the disabled.
+The open source community has produced a wealth of software,
+much of which could be of use to the visually disabled.
 For example, there are text-based applications
 for processing audio, documents, images, and more.
-Unfortunately, installing and configuring this software can be difficult
-and time consuming.
-There are also issues of library and operating system incompatibility.
-So, most of these offerings are effectively unavailable
-to typical computer users.
+There are also a number of specialized programs
+that are intended to assist blind and/or visually-impaired users.
+
+Unfortunately, installing and configuring this software
+presents a largely impassable barrier to entry for many users.
+Issues of library and operating system incompatibility
+can make it difficult or even impossible to install packages.
+Worse, the attempt to install software can destabilize the operating system,
+causing existing software to malfunction.
+Even when everything goes "as designed",
+the process tends to be confusing, tedious, and time consuming.
 
 The [Perkian Project]{con_ove|PP_Perkian_Intro} has been
 cataloging and evaluating accessibility-focused software,
@@ -43,74 +51,62 @@ for [mobile phones]{ext_wp|Mobile_phone},
 In the meanwhile, Perkify provides a way to add this software
 to personal computers.
 
-### Virtual Machines
+### Project Approach
+
+We start with a copy of [Ubuntu]{ext_wp|Ubuntu},
+a "batteries included" version of [Linux]{ext_wp|Linux}.
+Then, using [Debian]{ext_wp|Debian}'s Advanced Package Toolkit
+([APT]{ext_wp|APT_(Package_Manager)}), we add a "wish list"
+of packages, plus their dependencies and recommendations.
+All told, the release includes about 2500 packages.
+
+Although none of APT's installations "failed", it's very unlikely
+that every package is properly configured.
+In particular, packages which require access to I/O hardware
+are unikely to work at the moment.
+(See [Perkify - Issues]{con_ove|PP_Perkify_Issues} for details.)
+However, we do have a release that folks can download and try out.
+So, come on in; the water's (erm) wet...
+
+#### Virtual Machines
 
 Because Perkify's approach is based on
-[virtual machine]{ext_wp|Virtual_machine} technology,
+[virtual machine]{ext_wp|Virtual_machine} (VM) technology,
 a short primer may be in order.
-Feel free to skip this section;
-you can always come back to it if you get confused later on...
-
-Virtual machines (VMs) have been around since the 1960s.
-In general, they allow software to pretend that it is running
+VMs allow software to pretend that it is running
 in a different environment than the host computer provides.
-This enables software developers to sidestep various kinds
-of incompatibilities:
+This lets it sidestep various kinds
+of [operating system]{ext_wp|Operating_system} incompatibilities,
+including different [kernels]{ext_wp|Kernel_(operating_system)},
+[file system]{ext_wp|File_system} layouts,
+[libraries]{ext_wp|Library_(computing)}, and
+[utilities]{ext_wp|Utility_software}.
 
-- [computer architecture]{ext_wp|Computer_architecture}
-- [file system]{ext_wp|File_system} layout
-- [operating system]{ext_wp|Operating_system}
-- [software libraries]{ext_wp|Library_(computing)}
-- [utility software]{ext_wp|Utility_software}
-
-In general, emulating more fundamental aspects of the environment
-requires more processing time and so, is less performant.
-In order to achieve reasonable performance,
-Perkify uses only two, relatively lightweight forms of VM technology:
-
-The [hypervisor]{ext_wp|Hypervisor} approach,
-as used by [Virtual Box]{ext_wp|Virtual_Box}, can emulate
-an entirely different OS [kernel]{ext_wp|Kernel_(operating_system)}.
-For example, it can let [Linux]{ext_wp|Linux}-based software run
-on a [macOS]{ext_wp|MacOS} or [Windows]{ext_wp|Microsoft_Windows} system.
-This is the current thrust of our development efforts.
-For implementation details,
-see [Perkify - Making Vagrant Boxes]{con_ove|PP_Perkify_Make_VB}.
-
-[OS-level virtualisation]{ext_wp|OS-level_virtualisation}
-assumes that the guest and host system
-have the same OS [kernel]{ext_wp|Kernel_(operating_system)}
-and computer architecture.
-So, for example, a [Docker]{ext_wp|Docker_(software)} container
-might allow an [Arch Linux]{ext_wp|Arch_Linux} system to host
-an [Ubuntu]{ext_wp|Ubuntu} Linux environment.
-On a resource-limited system, this might be a worthwhile approach.
-For details, see [Perkify - Docker]{con_ove|PP_Perkify_Docker}.
+Specifically, we use [Virtual Box]{ext_wp|Virtual_Box},
+a [hypervisor]{ext_wp|Hypervisor}-based approach to virtualization.
+This lets our Ubuntu-based VM run as an isolated "guest OS",
+avoiding unintended interactions with the "host OS".
+[Vagrant]{ext_wp|Vagrant_(software)}, an advanced tool for VM management,
+allows all interaction to be performed via the command line.
 
 ### Usage Overview
 
 Once the Perkify VM is installed and running,
 it can be accessed in various ways.
-However, the most common ones will be command line and web access.
-In either case, the VM will act a lot like a Linux box located somwhere
-on the user's local area network ([LAN]{ext_wp|Local_area_network}).
+However, the most common modes are command line and web access.
+In either case, the VM acts like a mostly-independent Linux box
+(with customizable amounts of file sharing).
 
-Command line access allows the user to obtain an interactive
+Command line access lets the user obtain an interactive
 [shell]{ext_wp|Unix_shell} session on the VM.
-Because the Perkify VM is emulating a Ubuntu Linux environment,
-the default shell would be [Bash]{ext_wp|Bash_(Unix_shell)}.
-All of the normal commands (e.g., `cd`, `ls`, `pwd`)
-would be available, along with zillions of commands added by Perkify.
-
-Web access allows the user to obtain an interactive
-[browser]{ext_wp|Web_browser} session,
-supported by a [personal web server]{ext_wp|Personal_web_server}
-running in the VM.
-We have various ideas for this sort of thing; details at 11.
+All of the normal Linux commands (e.g., `cd`, `ls`, `pwd`)
+are available, along with thousands of added commands.
+Web access can support [browser]{ext_wp|Web_browser} sessions
+on [personal web servers]{ext_wp|Personal_web_server} running in the VM.
 
 ### Getting Started
 
-The [Perkify - Setup]{con_ove|PP_Perkify_Setup} page
+The [Perkify - Install]{con_ove|PP_Perkify_Install} page
 describes the steps needed to install Perkify and its prerequisites.
 Once things are working, you can move on the
 [Perkify - Usage]{con_ove|PP_Perkify_Usage} page.

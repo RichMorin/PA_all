@@ -29,9 +29,9 @@ For general information, see
 
 ### Background
 
-The `Perkify/basis` file tree contains two sets of files
-([make]{ext_rm|PA_all/tree/master/PP_docker/Perkify/basis/make}, 
- [ship]{ext_tm|PA_all/tree/master/PP_docker/Perkify/basis/ship}):
+The `Perkify/_base` file tree contains two sets of files
+([make]{ext_rm|PA_all/tree/master/PP_docker/Perkify/_base/make}, 
+ [ship]{ext_tm|PA_all/tree/master/PP_docker/Perkify/_base/ship}):
 
     make/             used in making the image
     | add_ons         installs add-on packages
@@ -48,17 +48,17 @@ The `Perkify/basis` file tree contains two sets of files
 
 The build procedure uses three terminal sessions:
 
-- T1 - used to copy the basis file tree
+- T1 - used to copy the _base file tree
 - T2 - used to build the Perkify image
 - T3 - used to commit Perkify images
   
 #### Step 1 (T1)
 
-Copy the `basis` directory to `make`,  the Ubuntu virtual machine:
+Copy the `_base` directory to `make`,  the Ubuntu virtual machine:
 
-    $ cd .../Perkify/basis
+    $ cd .../Perkify/_base
 
-    $ scp -r ../basis rdm@make:
+    $ scp -r ../_base rdm@make:
     rdm@make's password: ...
     Dockerfile
     ...
@@ -85,7 +85,7 @@ Tidy up and then build `mpi`, the "make Perkify image":
     rdm@make:~$ docker system prune -f
     ...
 
-    rdm@make:~$ docker build --tag=mpi basis/make
+    rdm@make:~$ docker build --tag=mpi _base/make
     ...
 
 Run a `bash` session in `mpc`, the "make Perkify container".
@@ -120,7 +120,7 @@ Exit the container:
 
 Build `spi`, the "ship Perkify image":
 
-    rdm@make:~$ docker build --tag=spi basis/ship
+    rdm@make:~$ docker build --tag=spi _base/ship
     ...
 
 Run the container and kick the tires:

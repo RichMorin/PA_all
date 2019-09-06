@@ -1,0 +1,74 @@
+# con_ove|PP_Perkify_APT/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_Perkify_APT'
+  title       = "Perkify - APT"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "APT notes for Vagrant-based Perkify"
+
+  verbose     = '''
+Most of Perkify's added packages are installed using
+Debian's Advanced Package Toolkit ([APT]{ext_wp|APT_(Package_Manager)}).
+So, we can use APT and related tooling to find out what we have.
+
+While we're at it, let's have some fun with Unix command pipelines!
+You can probably guess what the commands and options do,
+but you can also use `man head` (etc) to find out the gritty details.
+See [Perkify - Manual]{con_ove|PP_Perkify_Manual} for more information.
+
+### Examples
+
+Perkify's `apt_summ` script (located at `~/bin/apt_summ`)
+will summarize all of the installed packages, as:
+
+    vagrant@perkify:~$ apt_summ | head -1
+    a2ps - GNU a2ps - 'Anything to PostScript' converter and pretty-printer
+
+    vagrant@perkify:~$ apt_summ | cat -n | tail -3
+      2437	zip - Archiver for .zip files
+      2438	zlib1g:amd64 - compression library - runtime
+      2439	zlib1g-dev:amd64 - compression library - development
+
+    vagrant@perkify:~$ apt_summ | apt_summ | grep -i postscript | head -4
+    a2ps - GNU a2ps - 'Anything to PostScript' converter and pretty-printer
+    evince - Document (PostScript, PDF) viewer
+    evince-common - Document (PostScript, PDF) viewer - common files
+    ghostscript - interpreter for the PostScript language and for PDF
+
+Often, the package name will match at least one of the commands it provides.
+So, you may have luck finding a man page:
+
+    vagrant@perkify:~$ apropos a2ps
+    a2ps (1)             - format files for printing on a PostScript printer
+    a2ps-lpr-wrapper (1) - lp/lpr wrapper script for GNU a2ps on Debian
+    texi2dvi4a2ps (1)    - Compile Texinfo and LaTeX files to DVI or PDF
+
+    vagrant@perkify:~$ man a2ps
+    ...
+
+You can also ask APT about available and installed packages:
+
+    vagrant@perkify:~$ apt search a2ps
+    Sorting... Done
+    Full Text Search... Done
+    a2ps/disco,now 1:4.14-4 amd64 [installed]
+      GNU a2ps - 'Anything to PostScript' converter and pretty-printer
+
+    gpr/disco 0.15deb-2build1 amd64
+      GUI for lpr: print files and configure printer-specific options
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

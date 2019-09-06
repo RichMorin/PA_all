@@ -71,6 +71,7 @@ debian_apt = '''
   Links,              links,              web browser
   Linphone,           linphone,           VOIP client
   Lynx,               lynx,               web browser
+  man2html,           man2html,           document conversion
   MATE,               mate-desktop,       desktop environment
   MPD,                mpd,                music player daemon
   Mumble,             mumble,             VOIP client
@@ -173,5 +174,6 @@ ruby_gems = '''
 
 # Title               APT name            Notes
 # -----               --------            -----
+# man2html,           man2html,           how to configure?
 # ruby-gpio,          ruby-gpio,          Raspberry Pi support
 # Stretch Backports,  stretch-backports,  backward compatibility

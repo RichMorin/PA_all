@@ -1,0 +1,59 @@
+# con_ove|PP_Perkify_Search/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_Perkify_Search'
+  title       = "Perkify - Search"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "Search notes for Vagrant-based Perkify"
+
+  verbose     = '''
+Once you have gained SSH access to Perkify
+(as described on the [Perkify - Install]{con_ove|PP_Perkify_Install} and
+[Perkify - Usage]{con_ove|PP_Perkify_Usage} pages),
+you might want to search for some interesting and/or useful commands.
+Perkify is so large (all of Ubuntu plus thousands of added packages)
+that this can be a challenge.
+And, of course, Perkify only contains a tiny fraction of the packages
+you might want to add.
+That said, here are some notes to get you started...
+
+### Manual Pages
+
+The "man pages" provide a wealth of information on commands, devices, files,
+library functions, system calls, and other aspects of the operating system.
+Although the man pages can be cryptic,
+learning how to use them effectively is basic knowledge for Perkify users.
+See [Perkify - Manual]{con_ove|PP_Perkify_Manual}
+for background information, usage examples, and tips.
+
+### Package Indexes
+
+Most of Perkify's added packages are installed using
+Debian's Advanced Package Toolkit ([APT]{ext_wp|APT_(Package_Manager)}).
+You can use APT and related tooling (including some of our own)
+to find out what is (and could be) installed.
+See [Perkify - APT]{con_ove|PP_Perkify_APT}
+for background information, usage examples, and tips.
+
+### Pete's Alley
+
+A number of Perkian's packages have pages in Pete's Alley.
+The [Make Dashboard]{http://localhost:4000/dash/make}
+provides an annotated, tabular index to these pages.
+They are also indexed in the [Software Area]{cat_sof|:a}.
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

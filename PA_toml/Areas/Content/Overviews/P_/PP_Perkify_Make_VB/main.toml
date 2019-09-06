@@ -23,45 +23,87 @@ I may start using it.
 
 ### Background
 
-The `Perkify/basis` directory contains a `Vagrantfile` and a
-[set of files]{ext_rm|PA_all/tree/master/PP_Perkify/Vagrant/basis/make}
+The `Perkify/_base` directory contains two versions of the `Vagrantfile` and
+a [set of files]{ext_rm|PA_all/tree/master/PP_Perkify/Vagrant/_base/make}
 for making a new box:
 
-    basis/
-    | make/             used in making the image
+    _base/
+    | bin/*             assorted scripts to be copied
+    | html/index.html   dummy index file
+    | make/             files used in making the image
     | | add_ons         installs add-on packages
     | | add_ons.rb      helper for the add_ons script
     | | add_ons.toml    specify Perkify add-on packages
     | | get_apt         get an APT package
     | | get_gem         get a Ruby Gem
-    | Vagrantfile       specifies start-up actions
+    | Vagrantfile.dist  configuration (distributed)
+    | Vagrantfile.make  configuration (for build)
 
 ### Procedure
 
 Deal with a few preliminary tasks:
 
-
-    $ mkdir ~/perkify       # just in case
-    $ cd ~/perkify          # get situated
+    $ mkdir ~/perk_make     # just in case
+    $ cd ~/perk_make        # get situated
     $ rm -rf .vagrant *     # remove cruft
 
-Load the "box" for Ubuntu 19.04 and bring it up as a virtual machine: 
+Load and start up the Vagrantfile (etc) for Ubuntu 19.04: 
 
     # https://app.vagrantup.com/bento/boxes/ubuntu-19.04
 
     $ vagrant init bento/ubuntu-19.04 --box-version 201906.18.0
 
-    $ basis=../_Work/P_Elixir/PA_hax/PA_all/PP_Perkify/Vagrant/basis
-    $ cp -Rf $basis/* .
+    $ vagrant up
+    ...
+
+Log in, kick the tires a bit, then exit:
+
+    $ vagrant ssh
+
+    vagrant@vagrant:~$ ...
+    vagrant@vagrant:~$ exit
+
+Halt the VM, update the working directory, and bring up the VM again: 
+
+    $ vagrant halt
+
+    $ base=../_Work/P_Elixir/PA_hax/PA_all/PP_Perkify/Vagrant/_base
+    $ /bin/cp -R $base/* .
+    $ /bin/cp -f Vagrantfile.make Vagrantfile
 
     $ vagrant up
     ...
 
-Start up an SSH session to the VM and run the `add_ons` script:
+    $ vagrant provision
+    ...
+
+Start up an SSH session to the VM:
 
     $ vagrant ssh
+    ...
+    67 updates can be installed immediately.
+    39 of these updates are security updates.
 
-    vagrant@perkify:~$ sudo /vagrant/make/add_ons
+Apply the available Ubuntu updates (twice, for good measure):
+
+    # Skip these to speed up testing...
+
+    vagrant@perkify-make:~$ sudo apt update && sudo apt upgrade -y
+    ...
+
+    vagrant@perkify-make:~$ sudo apt update && sudo apt upgrade -y
+    ...
+    0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+Fold in the Perkify add-on packages, then tidy up a bit:
+
+    vagrant@perkify-make:~$ l /vagrant
+    bin/  html/  make/  Vagrantfile  Vagrantfile.dist  Vagrantfile.make
+
+    # Skip the next step to speed up testing. Instead, just:
+      vagrant@perkify-make:~$ cp -R /vagrant _base
+
+    vagrant@perkify-make:~$ sudo /vagrant/make/add_ons
     debian_apt    Accerciser,   accerciser,   a11y explorer
        46.2   646
     ...
@@ -70,49 +112,71 @@ Start up an SSH session to the VM and run the `add_ons` script:
 
     Loading issues: none
 
-    Named packages:     97
-    Total packages:   2428
-    Duration: 2619.1 seconds (43.7 minutes)
+    Named packages:     99
+    Total packages:   2437
+    Duration: 3685.6 seconds (61.4 minutes)
+
+    vagrant@perkify-make:~$ sudo apt autoremove
 
 Kick the tires a bit, then exit:
 
-    vagrant@perkify:~$ ...
-    vagrant@perkify:~$ exit
+    vagrant@perkify-make:~$ ...
+    vagrant@perkify-make:~$ exit
 
 Save the VM image as a package:
 
-    $ vagrant package --output ../perkify.box --vagrantfile Vagrantfile
+    $ vagrant package --output ../perk_04.box --vagrantfile Vagrantfile.dist
 
-Per [How to Upload Vagrant Box to Vagrant Cloud]{
-http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud}:
+    $ wc -c ../perk_04.box
+    5041819313 ../perk_04.box
+  
+Set up and populate a new version of Perkify on Vagrant Cloud.
+Note that we need to work out details for handling upgrades...
 
-- Go to the [Discover Vagrant Boxes]{https://app.vagrantup.com/boxes/search}
-  page and login.
+- Go to the page for [Rich_Morin]{https://app.vagrantup.com/Rich_Morin}
 
-- Click the "Dashboard" link and then the "New Vagrant Box" button.
+- If need be, log in.
 
-- Enter name, visibility, and description, then click "Create box".
+- Create a new version:
+  - Click the "New version" button.
+  - Fill in the Version and Description.
+  - Click the "Create version" button.
+  - Click the "Add a provider" button.
+  - Select "virtualbox" as the Provider.
 
-- Enter the version as 1 and click "Create version".
+- Under "File Hosting":
+  - Make sure "Upload to Vagrant Cloud" is selected.
+  - Click the "Continue to upload" button.
+  - Click the "Choose file" button.
+  - Select `~/perk04.box`.
+  - Click the "Open" button.
+  - Wait for upload to complete.
+  - Click "Perkify" link.
+  - Click "Release" link for `v0.1.4`.
+  - Click the "Release version" button.
 
-- Click "Add a provider"; you will be led to a page where
-  you can upload your `test.box`.
+Download and try out, largely per `.../PP_Perkify_Install/main.toml`:
 
-- Enter the provider name; the most common is "virtualbox".
-  In my case, I’m uploading to my vagrant cloud, so I select
-  "Upload to Vagrant Cloud" and click "Continue to upload".
-  Then select the box on the local drive, click "Upload", and
-  wait for the upload to complete.
+    $ mkdir ~/perk_test                 # create a working directory
+    $ cd ~/perk_test                    # go to the working directory
+    $ vagrant destroy
+    $ rm -rf .vagrant *                 # remove cruft
 
-- After uploading is complete, you can click "Finish".
-  I don’t know why it takes so long to finish;
-  it looks like it tries to upload the file again.
-  Just wait patiently.
+    $ vagrant init Rich_Morin/Perkify --box-version 0.1.4
+    $ vagrant up                        # download and boot the Perkify VM
+    ...
 
-- In order for you or others to discover this box, you need to release it.
+Revoke and/or Delete any old Perkify versions:
 
-- Now you can test to find out if it works.  Create an empty folder
-  and copy the new commands.
+- For each old Perkify version:
+  - Click the "Edit" button.
+  - Click the "Revoke version" button.
+  - Click the "Edit" button.
+  - Click the "Delete version" button.
+
+These notes are based (very loosely!) on
+[How to Upload Vagrant Box to Vagrant Cloud]{
+http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud}.
 
 ### Notes
 
@@ -162,6 +226,9 @@ on the VM.  These can be inspected for problems via `vagrant ssh`.
 - [Boxes
   ]{https://www.vagrantup.com/intro/getting-started/boxes.html}
 
+- [Building a Vagrant Box from Start to Finish
+  ]{https://www.engineyard.com/blog/building-a-vagrant-box-from-start-to-finish}
+
 - [Creating a New Vagrant Box
   ]{https://www.vagrantup.com/docs/vagrant-cloud/boxes/create.html}
 
@@ -178,6 +245,17 @@ on the VM.  These can be inspected for problems via `vagrant ssh`.
 ### Open Questions
 
 - Why isn't synced mounting working?
-- Best way to upload the box?
 - How to kill off port forwarding on the host?
+
+Nastygram:
+
+  /etc/kernel/postinst.d/initramfs-tools:
+  update-initramfs: Generating /boot/initrd.img-5.0.0-25-generic
+  cryptsetup: WARNING: The initramfs image may not contain cryptsetup binaries 
+      nor crypto modules. If that's on purpose, you may want to uninstall the 
+      'cryptsetup-initramfs' package in order to disable the cryptsetup initramfs 
+      integration and avoid this warning.
+
+
+
 '''

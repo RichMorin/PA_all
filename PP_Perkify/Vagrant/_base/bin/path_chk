@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+#
+# path_chk - check $PATH for conflicting names
+#
+# Written by Rich Morin, CFCL, 2019
+
+  cmd_hash  = {}
+
+  path_dirs = ENV['PATH'].split(':')
+  # [ '/usr/local/sbin', ... ]
+  
+  path_dirs.each do |path_dir|
+    next if File.symlink?(path_dir)
+
+    cmd_paths = Dir.glob("#{ path_dir }/*")
+
+    cmd_paths.each do |cmd_path|
+      cmd_name = cmd_path.sub(%r{^.*/},   '')
+
+      cmd_hash[cmd_name] ||= [] 
+      cmd_hash[cmd_name] << path_dir
+    end
+  end
+
+  cmd_names = cmd_hash.keys.sort
+
+  cmd_names.each do |cmd_name|
+    path_dirs = cmd_hash[cmd_name]
+    next if path_dirs.size == 1
+
+    puts '%-12s  %s' % [cmd_name, path_dirs.inspect]
+  end

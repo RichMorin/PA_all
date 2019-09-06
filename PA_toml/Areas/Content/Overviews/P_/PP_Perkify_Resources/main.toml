@@ -1,0 +1,67 @@
+# con_ove|PP_Perkify_Resources/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_Perkify_Resources'
+  title       = "Perkify - Resources"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "Resources for Vagrant-based Perkify"
+
+  verbose     = '''
+Perkify is based on a huge amount of existing work,
+so you could easily spend years reading up on its underpinnings.
+Fortunately, a few selected resources should be enough to get you started.
+
+### Linux
+
+There are hundreds of Linux distributions, each with its own "secret sauce".
+There are also hundreds of books and web sites on Linux.
+Here are a few pointers to information for "newbies".
+
+- [Linux Beginner Tutorials
+  ]{https://www.linux.org/forums/linux-beginner-tutorials.123}
+
+- [The Linux command line for beginners
+  ]{https://tutorials.ubuntu.com/tutorial/command-line-for-beginners}
+
+- [UNIX / LINUX Tutorial
+  ]{https://www.tutorialspoint.com/unix/index.htm}
+
+### Vagrant
+
+Although [Vagrant: Up and Running]{https://www.amazon.com/dp/B00D3VH4IO}
+is a bit dated, it's still a very useful reference.
+I also recommend skimming some of the online documentation, including:
+
+- [Command-Line Interface
+  ]{https://www.vagrantup.com/docs/cli}
+
+- [Forwarded Ports
+  ]{https://www.vagrantup.com/docs/networking/forwarded_ports.html}
+
+- [Networking
+  ]{https://www.vagrantup.com/docs/networking}
+
+- [Synced Folders
+  ]{https://www.vagrantup.com/docs/synced-folders}
+
+- [Vagrant Documentation
+  ]{https://www.vagrantup.com/docs/index.html}
+
+- [Vagrantfile
+  ]{https://www.vagrantup.com/docs/vagrantfile}
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

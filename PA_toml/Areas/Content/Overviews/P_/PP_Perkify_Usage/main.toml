@@ -16,7 +16,7 @@
   precis      = "Usage notes for Vagrant-based Perkify"
 
   verbose     = '''
-The [Perkify - Setup]{con_ove|PP_Perkify_Setup} page
+The [Perkify - Install]{con_ove|PP_Perkify_Install} page
 contains installation instructions and a few example commands,
 but it doesn't really concentrate on how to use Perkify.
 So, let's dig into that topic a little...
@@ -31,15 +31,17 @@ it has access to an immense suite of installable packages
 via Debian's Advanced Package Tool ([APT]{ext_wp|APT_(Package_Manager)}).
 Using APT and other [package managers]{ext_wp|Package_manager},
 we fold in a variety of commands, libraries, etc. 
-If there is something you think should be added, please let us know!
-(Be sure to include relevant links and your rationale for its inclusion.)
+If there is something you'd like us to add, please let us know!
+(Be sure to include relevant links and your reasons for its inclusion.)
 
 Perkify is distributed as a [Vagrant]{ext_wp|Vagrant_(software)} "box",
-containing a [hypervisor]{ext_wp|Hypervisor}-based
-[VirtualBox]{ext_wp|Virtual_Box}
+containing a [VirtualBox]{ext_wp|Virtual_Box}
 virtual machine ([VM]{ext_wp|Virtual_machine}) image.
-That said, all the typical Perkify user needs to know,
-in order to manage Perkify, are a few variations on the `vagrant` command.
+Although this description hides a great deal of complexity,
+you don't need to know the details in order to manage the VM.
+And, because everything can be done from the command line,
+you won't have to deal with the vagaries of
+Graphical User Interfaces ([GUIs]{ext_wp|Graphical_user_interface}).
 
 ### The `vagrant` command
 
@@ -122,11 +124,11 @@ Although a running Linux system has a number of mounted file systems
 with a few directories:
 
 - `/home/vagrant` - the home directory for the `vagrant` user
-- `/host/...`     - synchronized copies of selected host directories
 - `/vagrant`      - a synchronized copy of `~/perkify` on the host OS
 
-Please note that `/host/...` is only a Perkify convention,
-supported by configuration entries in the `Vagrantfile`.
+In order to access host files from within the VM,
+you may want to add more synchronized directories.
+See [Perkify - Configuration]{con_ove|PP_Perkify_Config} for details.
 
 #### Shell Access
 
@@ -141,15 +143,27 @@ Getting access from another machine takes only a little more work:
 
     vagrant@perkify:~$        # and here you are...
 
+Once you have shell access, the next thing you might want to do
+is search for interesting and/or useful packages.
+Because Perkify is so large, this can be a challenge,
+but see the [Perkify - Search]{con_ove|PP_Perkify_Search} page for ideas.
+
 #### Web Access
 
 It's quite possible to run a web server within the Perkify VM.
-However, in order to access the server from outside the VM,
-the port must be "forwarded" to the host machine.
-For example, you could forward port 80 on the VM to port 8080 on the host
-and then access the VM's web server as `http://localhost:8080`.
+In fact, a copy of [Apache]{ext_wp|Apache} is enabled by default.
+However, in order to access web servers from outside the VM,
+their ports must be "forwarded" to the host machine.
 For details, read the [Forwarded Ports
 ]{https://www.vagrantup.com/docs/networking/forwarded_ports.html} page.
+
+The Apache server normally communicates via port 80.
+By convention, Vagrant forwards this port on the VM to port 8080 on the host.
+So, you can access this web server as 
+[$url]{http://localhost:8080}.
+All you'll get if you access this URL is a placeholder `index.html` file,
+located in the `~/_base/html` directory.
+Feel free to season to taste...
 
 #### Weird Access
 
@@ -158,8 +172,15 @@ the Vagrant software is quite willing to let you set up
 private and public networks, etc.
 Just understand that any confusion (or security holes) you create
 are your own problem.
-For details, read the
+For details, read Vagrant's
 [Networking]{https://www.vagrantup.com/docs/networking} page.
+
+### Resources
+
+At this point, you should have enough knowledge to go off on your own.
+However, you'll certainly have questions about Linux, Ubuntu, and Vagrant.
+See the [Perkify - Resources]{con_ove|PP_Perkify_Resources} page
+for some pointers.
 
 To be continued...
 '''
