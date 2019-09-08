@@ -151,7 +151,7 @@ but see the [Perkify - Search]{con_ove|PP_Perkify_Search} page for ideas.
 #### Web Access
 
 It's quite possible to run a web server within the Perkify VM.
-In fact, a copy of [Apache]{ext_wp|Apache} is enabled by default.
+In fact, a copy of [Apache]{ext_wp|Apache_HTTP_Server} is enabled by default.
 However, in order to access web servers from outside the VM,
 their ports must be "forwarded" to the host machine.
 For details, read the [Forwarded Ports
@@ -178,7 +178,8 @@ For details, read Vagrant's
 ### Resources
 
 At this point, you should have enough knowledge to go off on your own.
-However, you'll certainly have questions about Linux, Ubuntu, and Vagrant.
+Check out the [Packages]{con_ove|PP_Perkify_Packages} page for ideas.
+Also, you'll certainly have questions about Linux, Ubuntu, and Vagrant.
 See the [Perkify - Resources]{con_ove|PP_Perkify_Resources} page
 for some pointers.
 

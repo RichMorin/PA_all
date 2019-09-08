@@ -1,0 +1,232 @@
+# con_ove|PP_Perkify_Packages/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_Perkify_Packages'
+  title       = "Perkify - Packages"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "Packages we add to Perkify (VM-based Perkian)"
+
+  verbose     = '''
+This page lists and discusses the software packages
+that we explicitly add to Perkify.
+This is a relatively small number (about 100),
+but [Debian]{ext_wp|Debian}'s Advanced Package Manager
+([APT]{ext_wp|APT_(Package_Manager)}) increases it radically
+by fulfilling dependencies and honoring recommendations.
+So, it's a useful starting point in understanding Perkify.
+
+### Explicit Additions
+
+| Title                   | APT name          | Notes                        |
+| -------                 | ----------        | -------                      |
+| Accerciser              | accerciser        | a11y explorer                |
+| Alot                    | alot              | email client                 |
+| Alpine                  | alpine            | email client                 |
+| Aptitude                | aptitude          | APT extensions               |
+| Atril                   | atril             | document viewer              |
+| bridge-utils            | bridge-utils      | network admin                |
+| BRLTTY                  | brltty            | braille output               |
+| DAISY Player            | daisy-player      | ebook reader                 |
+| Dasher                  | dasher            | text entry                   |
+| Diction                 | diction           | text processing              |
+| Direvent                | direvent          | system admin                 |
+| dnsmasq                 | dnsmasq           | network admin                |
+| dosfstools              | dosfstools        | system admin                 |
+| ELinks                  | elinks            | web browsing                 |
+| Elixir                  | elixir            | programming language         |
+| Emacs Muse              | elpa-muse         | text processing              |
+| eSpeak NG               | espeak-ng         | speech synthesis             |
+| eSpeak NG Data          | espeak-ng-data    | speech synthesis             |
+| espeakup                | espeakup          | speech synthesis             |
+| Fenrir                  | fenrir            | screen reader                |
+| Fizmo (ncurses)         | fizmo-ncursesw    | text game engine             |
+| Fizmo (console)         | fizmo-console     | text game engine             |
+| Frotz                   | frotz             | text game engine             |
+| Gcal                    | gcal              | calendar tool                |
+| Gforth                  | gforth            | programming language         |
+| GIMP                    | gimp              | image processing             |
+| GNOME                   | gnome             | desktop environment          |
+| GNOME Web               | epiphany          | web browsing                 |
+| GNU a2ps                | a2ps              | document conversion          |
+| GNU Chess               | gnuchess          | game program                 |
+| GNU Datamash            | datamash          | statistics                   |
+| GNU Denemo              | denemo            | music typesetting            |
+| GNU emacs               | emacs             | IDE, text editor, etc.       |
+| GNU Go                  | gnugo             | game program                 |
+| GNU Interactive Tools   | gnuit             | system admin                 |
+| GNU Miscfiles           | miscfiles         | reference data               |
+| GNU ocrad               | ocrad             | OCR support                  |
+| GNU Octave              | octave            | programming language         |
+| GNU plotutils           | plotutils         | plotting support             |
+| GNU Privacy Guard       | gnupg             | system admin                 |
+| GNU PSPP                | pspp              | statistics support           |
+| GNU R                   | r-base            | programming language         |
+| GNU Solfege             | solfege           | ear/music training           |
+| GNU Spell               | spell             | spell checker                |
+| GNU Typist              | gtypist           | typing tutor                 |
+| Gnumeric                | gnumeric          | spreadsheet                  |
+| Graphviz                | graphviz          | graph visualization          |
+| hostapd                 | hostapd           | network admin                |
+| httptunnel              | httptunnel        | network admin                |
+| ii                      | ii                | IRC client                   |
+| ImageMagick             | imagemagick       | image processing             |
+| ircII                   | irssi             | IRC client                   |
+| irssi                   | ircii             | IRC client                   |
+| JACAL                   | jacal             | symbolic math support        |
+| JOE                     | joe               | text editor                  |
+| Jupyter Notebook        | jupyter-notebook  | interactive notebook         |
+| Liblouis                | liblouis-bin      | braille translation          |
+| Liblouis Data           | liblouis-data     | braille translation          |
+| LibreOffice             | libreoffice       | productivity suite           |
+| LibreOffice GNOME       | libreoffice-gnome | GNOME integration            |
+| LibreOffice KDE         | libreoffice-kde   | KDE integration              |
+| Links                   | links             | web browser                  |
+| Linphone                | linphone          | VOIP client                  |
+| Lynx                    | lynx              | web browser                  |
+| man2html                | man2html          | document conversion          |
+| MATE                    | mate-desktop      | desktop environment          |
+| MPD                     | mpd               | music player daemon          |
+| Mumble                  | mumble            | VOIP client                  |
+| Mutt                    | mutt              | email client                 |
+| Netatalk                | netatalk          | network admin                |
+| OCRFeeder               | ocrfeeder         | OCR support                  |
+| OCRmyPDF                | ocrmypdf          | OCR support                  |
+| OCRmyPDF Doc.           | ocrmypdf-doc      | OCR support                  |
+| ocrodjvu                | ocrodjvu          | OCR support                  |
+| OpenSCAD                | openscad          | 3D modeling                  |
+| Orca                    | orca              | screen reader                |
+| Pandoc                  | pandoc            | document conversion          |
+| Poezio                  | poezio            | Jabber/XMPP client           |
+| Profanity               | profanity         | Jabber/XMPP client           |
+| reportbug               | reportbug         | bug reporting                |
+| Ruby                    | ruby-full         | programming language         |
+| ScrollZ                 | scrollz           | IRC client                   |
+| sic                     | sic               | IRC client                   |
+| SoX                     | sox               | audio processing             |
+| speechd                 | speech-dispatcher | speech synthesis             |
+| Sup                     | sup-mail          | email client                 |
+| Syncthing               | syncthing         | network admin                |
+| Tesseract               | tesseract-ocr     | OCR support                  |
+| Texinfo                 | texinfo           | documentation support        |
+| w3m                     | w3m               | web browser, etc.            |
+| wcalc                   | wcalc             | desk calculator              |
+| WeeChat                 | weechat           | IRC client                   |
+| wkhtmltopdf             | wkhtmltopdf       | document conversion          |
+| XeTeX                   | texlive-xetex     | document conversion          |
+| Xpdf                    | xpdf              | PDF viewer, etc.             |
+| yasr                    | yasr              | screen reader                |
+
+### Discussion
+
+The easiest way to get an idea of what kinds of packages we've added
+is to scan down the first column in the preceding table.
+Many of the package names may be familiar to you,
+even if you've never tried them out.
+Then, click on the "Notes" header.
+This will re-sort the table alphabetically by that column,
+bringing some related items into close proximity.
+
+Here are a few comments on the results you'll encounter.
+Because some packages fall into multiple categories,
+you should expect a certain amount of duplication.
+
+#### Administration
+
+- network administration  - bridge-utils, dnsmasq, hostapd, httptunnel,
+                            Netatalk, Syncthing
+- system administration   - Direvent, dosfstools, GNU Interactive Tools,
+                          	gnuit, GNU Privacy Guard
+
+#### Audio
+
+Audio support (e.g., communication, music, speech) is an important target.
+
+- audio processing        - SoX
+- ear/music training      - GNU Solfege
+- ebook readers           - DAISY Player
+- music players           - MPD
+- music typesetting       - GNU Denemo
+- screen readers          - Fenrir, Orca, yasr
+- speech synthesis        - eSpeak NG, espeakup, speechd
+- VOIP clients            - Linphone, Mumble
+
+#### Braille
+
+Braille support is very important to blind users.
+
+- braille output          - BRLTTY
+- braille translation     - liblouis
+- screen readers          - Fenrir, Orca, yasr
+
+#### Communication
+
+- email clients           - Alot, Alpine, Mutt, Sup
+- IRC clients             - ii, ircII, irssi, ScrollZ, sic, WeeChat
+- Jabber/XMPP clients     - Poezio, Profanity
+- VOIP clients            - Linphone, Mumble
+
+#### Document Preparation
+
+- graph visualization     - Graphviz
+- interactive notebooks   - Jupyter Notebook
+- spell checkers          - GNU Spell
+- text editors            - GNU emacs, JOE
+- text processing         - Diction, Emacs Muse
+- typing tutors           - GNU Typist
+- word processors         - LibreOffice
+
+#### Document Presentation
+
+There are many document formats; we want to make them all accessible.
+
+- document conversion     - GNU a2ps, man2html, Pandoc, wkhtmltopdf, XeTeX
+- document viewers        - Atril
+- documentation support   - Texinfo, XeTeX
+- ebook readers           - DAISY Player
+- interactive notebooks   - Jupyter Notebook
+- OCR support             - GNU ocrad, OCRFeeder, OCRmyPDF, ocrodjvu, Tesseract
+- PDF support             - OCRmyPDF, Xpdf
+- plotting support        - GNU plotutils
+- web browsers            - Elinks, GNOME Web, Links, Lynx, w3m
+
+#### Games
+
+- game programs           - GNU Chess, GNU Go
+- text game engines       - Fizmo, Frotz
+
+#### Graphics
+
+- 3D modeling             - OpenSCAD
+- graph visualization     - Graphviz
+- image processing        - ImageMagick, GIMP
+- plotting support        - GNU plotutils
+
+#### Mathematics
+
+- desk calculators        - wcalc
+- interactive notebooks   - Jupyter Notebook (includes Python)
+- spreadsheets            - Gnumeric, LibreOffice
+- statistics support      - GNU Datamash, GNU PSPP, GNU R
+- symbolic math support   - JACAL
+
+#### Programming
+
+- interactive notebooks   - Jupyter Notebook (includes Python)
+- programming language    - Elixir, Gforth, GNU Octave, GNU R, Ruby
+- text editors            - GNU emacs, JOE
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

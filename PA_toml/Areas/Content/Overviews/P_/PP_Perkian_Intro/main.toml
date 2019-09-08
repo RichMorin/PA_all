@@ -24,6 +24,15 @@ Named after [Debian]{ext_wp|Debian},
 Perkian's initial thrust is to produce "turn-key" distributions
 of relevant open source software.
 
+*Note:*
+The [LightHouse Labs talk]{con_ove|RM_2019_0508_LHL} page
+is adapted from a short presentation I gave
+at the [SF LightHouse]{cat_gro|LHBVI} in May 2019.
+The first part discusses Pete's Alley;
+the second discusses Perkian
+and describes the general approach taken
+in [Perkify]{con_ove|PP_Perkify_Intro}.
+
 ### Background
 
 Most end-user [operating systems]{ext_wp|Operating_system}
@@ -88,7 +97,7 @@ that enhances a wide range of existing systems.
 And, because we only have to support a single (albeit virtual) platform,
 the packages can be configured and tuned to work well together.
 
-The [Perkify]{con_ove|PP_Perkify_Intro} distribution takes just this approach.
+The Perkify distribution takes just this approach.
 A copy of Ubuntu, enhanced with dozens of open source packages,
 is converted into a virtual machine,
 using [Vagrant]{ext_wp|Vagrant_(software)}

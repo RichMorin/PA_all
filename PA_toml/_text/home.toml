@@ -16,19 +16,45 @@
   precis      = 'an online resource for the disabled community'
 
   verbose     = '''
-The site is planned as an online resource for the disabled community,
+The site is an online resource for the disabled community,
 including their friends, relatives, and other supporters.
-It will index and review resources, provide communication channels, etc.
+It indexes and reviews resources, provides a curated channel
+for long-form communication (e.g., articles, howtos), etc.
+
+### Announcing Perkify
+
+[Rich Morin]{cat_peo|Rich_Morin} has put together a first cut at
+[Perkify]{con_ove|PP_Perkify_Intro},
+a blind-friendly [virtual machine]{ext_wp|Virtual_machine}
+for use on [personal computers]{ext_wp|Personal_computer}.
+Based on [Ubuntu]{ext_wp|Ubuntu}, [Vagrant]{ext_wp|Vagrant_(software)},
+and [VirtualBox]{ext_wp|VirtualBox},
+Perkify can be used on most 64-bit Intel platforms
+(e.g, [Linux]{ext_wp|Linux}, [macOS]{ext_wp|MacOS},
+[Windows]{ext_wp|Microsoft_Windows}).
+The initial distribution contains about 2500
+[open source]{ext_wp|Open_source} packages,
+mostly installed via
+[Debian]{ext_wp|Debian}'s
+Advanced Package Toolkit ([APT]{ext_wp|APT_(Package_Manager)}).
+
+Although most of the commands should Just Work,
+the accessibility-related packages clearly need to be tested.
+Some (e.g., BRLTTY, Orca) will need configuration and/or porting.
+There are also several programs (e.g., Emacspeak, The vOICe)
+which were left out because they lack APT installation packages.
+If this effort sounds intriguing,
+please [check it out]{con_ove|PP_Perkify_Intro}!
 
 ### Advice to New Users
 
-This is an early prototype, in limited public release.
+This web site is an early prototype, in limited public release.
 So, some problems are to be expected.
 Please report any errors or accessibility issues you encounter,
 using the Feedback link at the end of the affected page.
 This will alert us to problems, so that they can be addressed.
 
 More generally, before trying to make serious use of the web site,
-skim the [About]{_text/about.toml} and [Usage]{_text/usage.toml} pages.
+please skim the [About]{_text/about.toml} and [Usage]{_text/usage.toml} pages.
 They should help you to avoid confusion and get up to speed quickly.
 '''

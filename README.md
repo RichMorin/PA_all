@@ -1,8 +1,8 @@
 # Pete's Alley
 
-Pete's Alley is planned as a crowd-sourced resource for the disabled community,
+Pete's Alley is a crowd-sourced resource for the disabled community,
 including their friends, relatives, and other supporters.
-It will index and review resources, provide a curated channel
+It indexes and reviews resources, provides a curated channel
 for long-form communication (e.g., articles, howtos), etc.
 
 Our [prototype server](http://www.cfcl.com/PA)
@@ -13,9 +13,10 @@ Anyway, feel free to drop in!
 
 ## File Trees
 
-The project's files are divided into a pair of trees.
-`PA_elixir` contains the server code (mostly Elixir). 
-`PA_toml`   contains reference data (mostly TOML).
+Most of the site's files are located in a pair of directory trees:
+
+- `PA_elixir` contains the server code (mostly Elixir). 
+- `PA_toml`   contains reference data (mostly TOML).
 
 ## License
 

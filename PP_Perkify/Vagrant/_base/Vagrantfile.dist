@@ -20,7 +20,7 @@
     # boxes at https://vagrantcloud.com/search.
 
     vm.box          = "Rich_Morin/Perkify"
-    vm.box_version  = "0.1.4"
+    vm.box_version  = "0.1.5"
 
     # Disable automatic box update checking. If you disable this, then
     # boxes will only be checked for updates when the user runs

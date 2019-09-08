@@ -70,11 +70,7 @@ Halt the VM, update the working directory, and bring up the VM again:
     $ base=../_Work/P_Elixir/PA_hax/PA_all/PP_Perkify/Vagrant/_base
     $ /bin/cp -R $base/* .
     $ /bin/cp -f Vagrantfile.make Vagrantfile
-
-    $ vagrant up
-    ...
-
-    $ vagrant provision
+    $ vagrant up --provision
     ...
 
 Start up an SSH session to the VM:
@@ -101,7 +97,7 @@ Fold in the Perkify add-on packages, then tidy up a bit:
     bin/  html/  make/  Vagrantfile  Vagrantfile.dist  Vagrantfile.make
 
     # Skip the next step to speed up testing. Instead, just:
-      vagrant@perkify-make:~$ cp -R /vagrant _base
+    vagrant@perkify-make:~$ cp -R /vagrant _base
 
     vagrant@perkify-make:~$ sudo /vagrant/make/add_ons
     debian_apt    Accerciser,   accerciser,   a11y explorer
@@ -125,10 +121,10 @@ Kick the tires a bit, then exit:
 
 Save the VM image as a package:
 
-    $ vagrant package --output ../perk_04.box --vagrantfile Vagrantfile.dist
+    $ vagrant package --output ../perk_05.box --vagrantfile Vagrantfile.dist
 
-    $ wc -c ../perk_04.box
-    5041819313 ../perk_04.box
+    $ wc -c ../perk_05.box
+    5136436322 ../perk_05.box
   
 Set up and populate a new version of Perkify on Vagrant Cloud.
 Note that we need to work out details for handling upgrades...
@@ -152,7 +148,7 @@ Note that we need to work out details for handling upgrades...
   - Click the "Open" button.
   - Wait for upload to complete.
   - Click "Perkify" link.
-  - Click "Release" link for `v0.1.4`.
+  - Click "Release" link for `v0.1.5`.
   - Click the "Release version" button.
 
 Download and try out, largely per `.../PP_Perkify_Install/main.toml`:
@@ -162,7 +158,7 @@ Download and try out, largely per `.../PP_Perkify_Install/main.toml`:
     $ vagrant destroy
     $ rm -rf .vagrant *                 # remove cruft
 
-    $ vagrant init Rich_Morin/Perkify --box-version 0.1.4
+    $ vagrant init Rich_Morin/Perkify --box-version 0.1.5
     $ vagrant up                        # download and boot the Perkify VM
     ...
 
