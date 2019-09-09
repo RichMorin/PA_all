@@ -73,8 +73,8 @@ defmodule PhxHttpWeb.Router do
     if Common.get_run_mode() == :dev do #!K
       prefix    = String.duplicate("= ", 5)
       iso8601   = DateTime.utc_now() |> DateTime.to_iso8601()
-
-      IO.puts "\n#{ prefix }=> #{ iso8601 }\n"
+      ip_addr   = conn.remote_ip |> :inet.ntoa() |> to_string()
+      IO.puts "\n#{ prefix }=> #{ iso8601 } from #{ ip_addr }\n"
     end
 
     conn
