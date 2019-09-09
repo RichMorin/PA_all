@@ -22,7 +22,7 @@ defmodule PhxHttpWeb.AreaController do
   use PhxHttpWeb, :controller
 
   import PhxHttpWeb.Cont.Levels
-  import Common, only: [ get_run_mode: 0 ]
+  import Common, only: [ chk_local: 1, get_run_mode: 0 ]
 
   alias PhxHttp.Types, as: PHT
 
@@ -38,10 +38,10 @@ defmodule PhxHttpWeb.AreaController do
 
   def reload(conn, params) do
   #
-  #!K Checking `get_run_mode/0` and the remote (really, router) IP address
-  # is a hack.  If used with public access, this should check the user ID.
+  #!K Checking for a local IP address and `get_run_mode/0` is a hack.
+  #   If used with public access, this should check the user ID.
 
-    if conn.remote_ip != { 192, 168, 1, 1 } do
+    if chk_local(conn) do
 
       if get_run_mode() == :dev do #!K
         reload_h(conn, params)

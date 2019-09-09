@@ -30,6 +30,12 @@ defmodule Common do
   defdelegate base_26(n, letters),                to: Strings
 
   @doc """
+  Determine whether the user is local, based on the IP address.
+  ([`Zoo`](Common.Zoo.html#chk_local/1))
+  """
+  defdelegate chk_local(conn),                    to: Zoo
+
+  @doc """
   Join a list of strings into a comma-delimited string.
   ([`Strings`](Common.Strings.html#fmt_list/1))
   """

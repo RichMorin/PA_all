@@ -9,7 +9,7 @@
   </head>
 
   <%
-    import Common, warn: false, only: [ ii: 2, ssw: 2 ]
+    import Common, warn: false, only: [ chk_local: 1, ii: 2, ssw: 2 ]
 
     path_str    = @conn.path_info     |> Enum.join("/")
     query_str   = @conn.query_string
@@ -30,16 +30,13 @@
 
   <body>
     <header>
-      <h1>&nbsp;Pete's Alley</h1>
-
       <nav>
-        &nbsp;
-        <%=
-          title   = "Go to: Home [local]"
-          link("Home", title: title, to: "/")
-        %>
+        <h1>&nbsp;<%=
+          title   = "Go to: home page [local]"
+          link("Pete's Alley", title: title, to: "/")
+        %></h1>
 
-        &nbsp;
+        <br>&nbsp;
         <%=
           title   = "Go to: About [local]"
           url     = "/text?key=_text/about.toml"
@@ -66,7 +63,7 @@
         %>
 
         <%= if local_user do %>
-          &nbsp;
+          &nbsp;|&nbsp;
           <%=
             title   = "Reload the site's content."
             url     = "/reload?redirect=#{ rel_url }"

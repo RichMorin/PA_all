@@ -4,6 +4,8 @@ defmodule Common.Zoo do
 #
 # Public functions
 #
+#   chk_local/1
+#     Determine whether the user is local, based on the IP address.
 #   get_http_port/0
 #     Get a string indicating the current HTTP PORT.
 #   get_rel_path/2
@@ -22,6 +24,21 @@ defmodule Common.Zoo do
   import Common, warn: false, only: [ii: 2]
 
   # Public functions
+
+  @doc """
+  Determine whether the user is local, based on the IP address.
+  Returns true if the user is on localhost or the LAN.
+  """
+  
+  @spec chk_local(Plug.Conn.t) :: boolean
+
+  def chk_local(conn) do
+    case conn.remote_ip do
+      { 127,   0, 0, 1 }  -> true   # localhost
+      { 192, 168, 1, _ }  -> true   # LAN access
+      _                   -> false  # WAN access
+    end
+  end
 
   @doc """
   Get a string indicating the current HTTP PORT.
