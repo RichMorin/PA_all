@@ -29,7 +29,7 @@ in understanding Perkify's capabilities and offerings.
 
 | Title                   | APT name          | Category / Notes             |
 | -------                 | ----------        | ----------------             |
-| Accerciser              | accerciser        | a11y tools                   |
+| Accerciser              | accerciser        | accessibility support        |
 | Alot                    | alot              | email clients                |
 | Alpine                  | alpine            | email clients                |
 | Aptitude                | aptitude          | APT extensions               |
@@ -55,7 +55,7 @@ in understanding Perkify's capabilities and offerings.
 | Gcal                    | gcal              | calendar tools               |
 | Gforth                  | gforth            | programming support          |
 | GIMP                    | gimp              | image processors             |
-| GNOME                   | gnome             | desktop environment          |
+| GNOME                   | gnome             | desktop environments         |
 | GNOME Web               | epiphany          | web browsers                 |
 | GNU a2ps                | a2ps              | document converters          |
 | GNU Chess               | gnuchess          | game programs                |
@@ -75,7 +75,7 @@ in understanding Perkify's capabilities and offerings.
 | GNU Spell               | spell             | spell checkers               |
 | GNU Typist              | gtypist           | typing tutors                |
 | Gnumeric                | gnumeric          | spreadsheets                 |
-| Graphviz                | graphviz          | graph visualization          |
+| Graphviz                | graphviz          | graph visualizers            |
 | hostapd                 | hostapd           | network admin utilities      |
 | httptunnel              | httptunnel        | network admin utilities      |
 | ii                      | ii                | IRC clients                  |

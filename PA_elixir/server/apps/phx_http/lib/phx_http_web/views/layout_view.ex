@@ -23,6 +23,21 @@ defmodule PhxHttpWeb.LayoutView do
   # Public functions
 
   @doc """
+  Determine whether the user is local, based on the IP address.
+  Returns true if the user is on localhost or the LAN.
+  """
+  
+  @spec chk_local(Plug.Conn.t) :: boolean
+
+  def chk_local(conn) do
+    case conn.remote_ip do
+      { 127,   0, 0, 1 }  -> true   # localhost
+      { 192, 168, 1, _ }  -> true   # LAN access
+      _                   -> false  # WAN access
+    end
+  end
+
+  @doc """
   Generate the (HTML HEAD) title string for the page.
 
       iex> key    = "Areas/Catalog/_area.toml"

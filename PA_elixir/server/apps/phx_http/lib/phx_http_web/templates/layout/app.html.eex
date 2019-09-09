@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <% # PhxHttpWeb.LayoutView.bug() %>
     <%= render(PhxHttpWeb.LayoutView, "_head.html", assigns) %>
   </head>
 
@@ -14,16 +13,16 @@
 
     path_str    = @conn.path_info     |> Enum.join("/")
     query_str   = @conn.query_string
-    remote_ip   = @conn.remote_ip
-    router_ip   = { 192, 168, 1, 1 }
+    local_user  = chk_local(@conn)
 
     rel_url     = case query_str do
       ""    -> "/#{ path_str }"
       _     -> "/#{ path_str }?#{ query_str }"
     end
 
-    edit_link   = (path_str == "item") && ssw(@key, "Areas/Catalog/")
-    source_link = (path_str == "item") || (path_str == "text")
+    item_page   = path_str == "item"
+    edit_link   = item_page && ssw(@key, "Areas/Catalog/")
+    source_link = item_page || (path_str == "text")
 
 #   ii(get_run_mode(), "get_run_mode") #!T
 #   ii(@item, "item") #!T
@@ -65,6 +64,15 @@
           url     = "/text?key=_text/usage.toml"
           link("Usage", title: title, to: url)
         %>
+
+        <%= if local_user do %>
+          &nbsp;
+          <%=
+            title   = "Reload the site's content."
+            url     = "/reload?redirect=#{ rel_url }"
+            link("Reload", title: title, to: url)
+          %>
+        <% end %>
       </nav>
     </header>
 
@@ -110,15 +118,6 @@
           title     = "Go to the site's Dashboard page."
           link("Dashboard", title: title, to: "/dash")
         %>
-
-        <%= unless remote_ip == router_ip do %>
-          &nbsp;
-          <%=
-            title   = "Reload the site's content."
-            url     = "/reload?redirect=#{ rel_url }"
-            link("Reload", title: title, to: url)
-          %>
-        <% end %>
       </nav>
     </footer>
 
