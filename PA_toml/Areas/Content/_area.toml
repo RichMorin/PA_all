@@ -13,11 +13,11 @@
 
 [ about ]
 
-  precis      = 'contains a crowd-sourced, curated collection of articles'
+  precis      = 'a crowd-sourced, curated collection of articles'
 
   verbose     = '''
-This area is planned as a crowd-sourced, curated collection of articles,
+This area is a crowd-sourced, curated collection of articles,
 covering accessible and assistive technologies, related organizations, etc.
-It will include items of specific and incidental interest to the disabled,
+It includes items of specific and incidental interest to the disabled,
 as well as pieces of personal interest to the authors.
 '''

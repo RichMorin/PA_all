@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = 'a crowd-sourced, curated resource catalog'
+  precis      = 'a crowd-sourced, curated catalog of resources'
 
   verbose     = '''
 This area is a crowd-sourced, curated [web portal]{ext_wp|Web_portal},

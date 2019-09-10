@@ -45,8 +45,16 @@
 
         &nbsp;
         <%=
-          title   = "Go to: Areas [local]"
-          link("Areas", title: title, to: "/area")
+          title   = "Go to: Catalog [local]"
+          url     = "/area?key=Areas/Catalog/_area.toml"
+          link("Catalog", title: title, to: url)
+        %>
+
+        &nbsp;
+        <%=
+          title   = "Go to: Content [local]"
+          url     = "/area?key=Areas/Content/_area.toml"
+          link("Content", title: title, to: url)
         %>
 
         &nbsp;

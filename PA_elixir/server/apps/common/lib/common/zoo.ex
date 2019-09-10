@@ -35,7 +35,7 @@ defmodule Common.Zoo do
   def chk_local(conn) do
     case conn.remote_ip do
       { 127,   0, 0, 1 }  -> true   # localhost
-      { 192, 168, 1, 1 }  -> true   # LAN access to cfcl.com
+      { 192, 168, 1, 1 }  -> false  # LAN access to cfcl.com, for testing
       { 192, 168, 1, _ }  -> true   # LAN access to fido.local
       _                   -> false  # WAN access
     end

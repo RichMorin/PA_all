@@ -84,11 +84,12 @@ Of course, following an external link may take a bit longer...
 
 The page header contains several internal links:
 
-- [Home  ]{_text/home.toml}   - the home (landing) page
-- [About ]{_text/about.toml}  - background information
-- [Areas ]{/area}             - links to topical areas
-- [Search]{/search/find}      - tag-based search tool
-- [Usage ]{_text/usage.toml}  - tutorial on site usage
+- [Pete's Alley ]{_text/home.toml}    - the home (landing) page
+- [About        ]{_text/about.toml}   - background information
+- [Catalog      ]{cat|:a}             - links to Catalog sections
+- [Catalog      ]{con|:a}             - links to Content sections
+- [Search       ]{/search/find}       - tag-based search tool
+- [Usage        ]{_text/usage.toml}   - tutorial on site usage
 
 #### Page Footer
 
