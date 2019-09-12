@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "Perkian, an effort to make operating systems blind-friendly"
+  precis      = "introduction to the Perkian Project"
 
   verbose     = '''
 This page discusses Perkian, a speculative project
@@ -32,6 +32,11 @@ The first part discusses Pete's Alley;
 the second discusses Perkian
 and describes the general approach taken
 in [Perkify]{con_ove|PP_Perkify_Intro}.
+
+*Note:*
+The [Perkian - Index]{con_ove|PP_Perkian_Index} page
+is an informal, hand-edited index of pages on Pete's Alley
+that are related to Perkian, Perkify, etc.
 
 ### Background
 
@@ -149,7 +154,7 @@ Billions of cell phones run [Android]{ext_wp|Android_(operating_system)},
 so all of them can run Linux applications.
 Many of these phones are outdated
 and consequently available for little money.
-So, I am [also investigating]{con_ove|PP_on_Android}
+So, I am [also investigating]{con_ove|PP_Perkian_Android}
 porting the Perkify suite to these devices.
 
 ### Related Work

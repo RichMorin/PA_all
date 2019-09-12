@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "Perkian implementation notes"
+  precis      = "notes on Perkian's implementation"
 
   verbose     = '''
 This page sketches out my current implementation notions

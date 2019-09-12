@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "making Vagrant-based Perkify boxes"
+  precis      = "notes on making Vagrant-based Perkify boxes"
 
   verbose     = '''
 My current approach to making [Vagrant]{ext_wp|Vagrant_(software)}-based
@@ -77,8 +77,8 @@ Start up an SSH session to the VM:
 
     $ vagrant ssh
     ...
-    67 updates can be installed immediately.
-    39 of these updates are security updates.
+    76 updates can be installed immediately.
+    47 of these updates are security updates.
 
 Apply the available Ubuntu updates (twice, for good measure):
 
@@ -109,7 +109,7 @@ Fold in the Perkify add-on packages, then tidy up a bit:
     Loading issues: none
 
     Named packages:     99
-    Total packages:   2437
+    Total packages:   2439
     Duration: 3685.6 seconds (61.4 minutes)
 
     vagrant@perkify-make:~$ sudo apt autoremove
@@ -121,10 +121,10 @@ Kick the tires a bit, then exit:
 
 Save the VM image as a package:
 
-    $ vagrant package --output ../perk_05.box --vagrantfile Vagrantfile.dist
+    $ vagrant package --output ../perk_06.box --vagrantfile Vagrantfile.dist
 
-    $ wc -c ../perk_05.box
-    5136436322 ../perk_05.box
+    $ wc -c ../perk_06.box
+    4995933241 ../perk_06.box
   
 Set up and populate a new version of Perkify on Vagrant Cloud.
 Note that we need to work out details for handling upgrades...
@@ -144,11 +144,11 @@ Note that we need to work out details for handling upgrades...
   - Make sure "Upload to Vagrant Cloud" is selected.
   - Click the "Continue to upload" button.
   - Click the "Choose file" button.
-  - Select `~/perk04.box`.
+  - Select `~/perk06.box`.
   - Click the "Open" button.
   - Wait for upload to complete.
   - Click "Perkify" link.
-  - Click "Release" link for `v0.1.5`.
+  - Click "Release" link for `v0.1.6`.
   - Click the "Release version" button.
 
 Download and try out, largely per `.../PP_Perkify_Install/main.toml`:
@@ -158,7 +158,7 @@ Download and try out, largely per `.../PP_Perkify_Install/main.toml`:
     $ vagrant destroy
     $ rm -rf .vagrant *                 # remove cruft
 
-    $ vagrant init Rich_Morin/Perkify --box-version 0.1.5
+    $ vagrant init Rich_Morin/Perkify --box-version 0.1.6
     $ vagrant up                        # download and boot the Perkify VM
     ...
 
@@ -240,7 +240,6 @@ on the VM.  These can be inspected for problems via `vagrant ssh`.
   snippets    = '''
 ### Open Questions
 
-- Why isn't synced mounting working?
 - How to kill off port forwarding on the host?
 
 Nastygram:
@@ -251,7 +250,4 @@ Nastygram:
       nor crypto modules. If that's on purpose, you may want to uninstall the 
       'cryptsetup-initramfs' package in order to disable the cryptsetup initramfs 
       integration and avoid this warning.
-
-
-
 '''

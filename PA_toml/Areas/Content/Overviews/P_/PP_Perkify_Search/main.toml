@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "Search notes for Vagrant-based Perkify"
+  precis      = "introduction to searching for Perkify commands"
 
   verbose     = '''
 Once you have gained SSH access to Perkify

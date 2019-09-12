@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "known issues for Perkify (VM-based Perkian)"
+  precis      = "summary of Perkify's known issues"
 
   verbose     = '''
 This page summarizes [known known]{ext_wp|There_are_known_knowns} issues
@@ -33,7 +33,7 @@ See the section below on The Open Build Service for one approach to this goal.
 If the "APT name" field is "_",
 we found no evidence that there had ever been an APT archive for the package.
 Otherwise, we found an archive for some earlier release of Debian,
-but nothing for "buster".
+but nothing for Ubuntu "disco".
 
 | Title                | APT name        | Notes                       |
 | -------              | ----------      | -------                     |
@@ -49,7 +49,6 @@ but nothing for "buster".
 | Eolie                | _               | web browser                 |
 | ERC                  | erc             | IRC client                  |
 | Eww                  | _               | web browser                 |
-| GIFT                 | _               | image processing            |
 | GMediaServer         | gmediaserver    | media support               |
 | GNU Bool             | _               | text searching              |
 | GNU Cursynth         | _               | music generation            |
@@ -58,7 +57,6 @@ but nothing for "buster".
 | GNU Freetalk         | _               | Jabber/XMPP client          |
 | GNU Moe              | _               | text editor                 |
 | GNU Oleo             | _               | spreadsheet                 |
-| GNU Prolog           | gprolog         | programming language        |
 | GSEGrafix            | _               | plot generation             |
 | GURGLE               | _               | programming language        |
 | ID Utils             | _               | system admin                |

@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "Manual notes for Vagrant-based Perkify"
+  precis      = "introduction to using the Perkify manual"
 
   verbose     = '''
 > In the first two years of the history of [Unix]{ext_wp|Unix},

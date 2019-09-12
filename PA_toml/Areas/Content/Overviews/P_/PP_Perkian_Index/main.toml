@@ -1,0 +1,118 @@
+# con_ove|PP_Perkian_Index/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_Perkian_Index'
+  title       = "Perkian - Index"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "informal index of pages related to Perkian"
+
+  verbose     = '''
+This is an informal, hand-edited index of pages on Pete's Alley
+that are related to Perkian, Perkify, etc.
+
+### Perkian
+
+- [Perkian - Android
+  ]{con_ove|PP_Perkian_Android}</br>
+  notes on porting Perkian to the Android operating system
+
+- [Perkian - Chef
+  ]{con_ove|PP_Perkian_Chef}</br>
+  notes on using Chef to implement Perkian
+
+- [Perkian - Implementation
+  ]{con_ove|PP_Perkian_Impl}</br>
+  notes on Perkian's implementation
+
+- [Perkian - Index
+  ]{con_ove|PP_Perkian_Index}</br>
+  informal index of pages related to Perkian
+
+- [Perkian - Introduction
+  ]{con_ove|PP_Perkian_Intro}</br>
+  introduction to the Perkian Project
+
+### Perkify
+
+- [Perkify - APT
+  ]{con_ove|PP_Perkify_APT}</br>
+  introduction to APT usage on Perkify
+
+- [Perkify - Configuration
+  ]{con_ove|PP_Perkify_Config}</br>
+  introduction to Perkify configuration
+
+- [Perkify - Docker
+  ]{con_ove|PP_Perkify_Docker}</br>
+  a technical overview of Docker-based Perkify
+
+- [Perkify - Install
+  ]{con_ove|PP_Perkify_Install}</br>
+  installation notes for Vagrant-based Perkify
+
+- [Perkify - Introduction
+  ]{con_ove|PP_Perkify_Intro}</br>
+  introduction to Perkify (VM-based Perkian)
+
+- [Perkify - Issues
+  ]{con_ove|PP_Perkify_Issues}</br>
+  summary of Perkify's known issues
+
+- [Perkify - Making Docker Containers
+  ]{con_ove|PP_Perkify_Make_DC}</br>
+  notes on making Docker-based Perkify containers
+
+- [Perkify - Making Vagrant Boxes
+  ]{con_ove|PP_Perkify_Make_VB}</br>
+  notes on making Vagrant-based Perkify boxes
+  
+- [Perkify - Manual
+  ]{con_ove|PP_Perkify_Manual}</br>
+  introduction to using the Perkify manual
+  
+- [Perkify - Packages
+  ]{con_ove|PP_Perkify_Packages}</br>
+  summary of Perkify's installed packages
+  
+- [Perkify - Resources
+  ]{con_ove|PP_Perkify_Resources}</br>
+  resources for using Vagrant-based Perkify
+
+- [Perkify - Search
+  ]{con_ove|PP_Perkify_Search}</br>
+  introduction to searching for Perkify commands
+
+- [Perkify - Usage
+  ]{con_ove|PP_Perkify_Usage}</br>
+  Usage notes for Vagrant-based Perkify
+
+
+### Zoo
+
+- [LightHouse Labs talk, 2019.0508
+  ]{con_ove|RM_2019_0508_LHL}</br>
+  introductory talk on Pete's Alley and Perkian
+
+- [Make
+  ]{/dash/make}</br>
+  Pete's Alley dashboard page for the "Make" subproject
+
+- [Software
+  ]{cat_sof|:a}</br>
+  Pete's Alley area page for software offerings
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

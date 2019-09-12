@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "Perkian implementation notes on Chef"
+  precis      = "notes on using Chef to implement Perkian"
 
   verbose     = '''
 Our current prototyping path (known as [Perkify]{con_ove|PP_Perkify_Intro})
@@ -28,7 +28,7 @@ However, we may still opt to use it, for a couple of reasons.
 
 First, virtualization isn't appropriate for all of our use cases.
 For example, Docker isn't even available for Android,
-which is an [important target]{con_ove|PP_on_Android} for us.
+which is an [important target]{con_ove|PP_Perkian_Android} for us.
 It might also be too heavyweight an approach
 for (say) a cell phone or a [Raspberry Pi]{ext_wp|Raspberry_Pi}.
 So, supporting "native" installation on multiple target platforms

@@ -15,6 +15,6 @@
     next if line =~ /^\|\|/
 
     patt.match(line) do |m|
-      puts "#{ m[1] } - #{ m[4] }"
+      puts "#{ m[1] } (#{ m[2]}) - #{ m[4] }"
     end
   end 

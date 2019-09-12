@@ -58,8 +58,8 @@ debian_apt = '''
   httptunnel,         httptunnel,         network admin
   ii,                 ii,                 IRC client
   ImageMagick,        imagemagick,        image manipulation
-  ircII,              irssi,              IRC client
-  irssi,              ircii,              IRC client
+  ircII,              ircii,              IRC client
+  irssi,              irssi,              IRC client
   JACAL,              jacal,              symbolic math
   JOE,                joe,                text editor
   Jupyter Notebook,   jupyter-notebook,   interactive notebook

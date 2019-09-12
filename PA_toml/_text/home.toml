@@ -23,8 +23,8 @@ for long-form communication (e.g., articles, howtos), etc.
 
 ### Announcing Perkify
 
-[Rich Morin]{cat_peo|Rich_Morin} has put together a first cut at
-[Perkify]{con_ove|PP_Perkify_Intro},
+[Rich Morin]{cat_peo|Rich_Morin} has put together
+an early release of [Perkify]{con_ove|PP_Perkify_Intro},
 a blind-friendly [virtual machine]{ext_wp|Virtual_machine}
 for use on [personal computers]{ext_wp|Personal_computer}.
 Based on [Ubuntu]{ext_wp|Ubuntu}, [Vagrant]{ext_wp|Vagrant_(software)},

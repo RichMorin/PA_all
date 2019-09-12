@@ -46,7 +46,7 @@ To set up the Perkify's "project" directory,
 you'll need to obtain our current "box version".
 Browse to the
 [Rich_Morin/Perkify]{https://app.vagrantup.com/Rich_Morin/boxes/Perkify} page
-and scan for something like "v0.1.5".
+and scan for something like "v0.1.6".
 This will be the first (and highest) value displayed.
 Hang onto this information; you'll need it very soon!
 
@@ -65,7 +65,7 @@ In a Terminal window, enter:
 Using the box version you obtained earlier (without the leading "v"!),
 ask Vagrant to initialize the current directory:
 
-    $ vagrant init Rich_Morin/Perkify --box-version 0.1.5
+    $ vagrant init Rich_Morin/Perkify --box-version 0.1.6
 
 This will add a `.vagrant` directory,
 which Vagrant will use for support code and machine image files.

@@ -35,8 +35,8 @@ debian_apt = '''
   hostapd,            hostapd,            network admin
   ii,                 ii,                 IRC client
   ImageMagick,        imagemagick,        image manipulation
-  ircII,              irssi,              IRC client
-  irssi,              ircii,              IRC client
+  ircII,              ircii,              IRC client
+  irssi,              irssi,              IRC client
   JOE,                joe,                text editor
   Jupyter Notebook,   jupyter-notebook,   interactive notebook
   Liblouis,           liblouis-bin,       braille translation

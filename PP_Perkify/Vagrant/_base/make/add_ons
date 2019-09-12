@@ -11,19 +11,15 @@
   mkdir  $log_dir
   log=$log_dir/_prelims
 
+  home=/home/vagrant
+  base=$home/_base
+  data=$base/data
+  summ=$home/bin/apt_summ
+
   # Do some preliminaries.
 
-  ( # Set up Ruby infrastructure.
-
-    apt-get update;                 echo $bar
-    apt-get -y install ruby-full;   echo $bar
-    gem install toml-rb;            echo $bar
-
-    # Adjust the default sort order for ls(1).
+  ( # Adjust the default sort order for ls(1).
     # Copy in a snaphot of the "_base" directory.
-
-    home=/home/vagrant
-    base=$home/_base
 
     echo "\n# Perkify additions"    >> $home/.profile
     echo "export LC_COLLATE=C"      >> $home/.profile
@@ -32,7 +28,18 @@
     chmod -R 755                    $base
     chown -R vagrant.vagrant        $base
     mv $base/bin $home
+    $summ > $data/apt_summ.0
 
+    # Set up Ruby infrastructure.
+
+    apt-get update;                 echo $bar
+    $summ > $data/apt_summ.1a
+
+    apt-get -y install ruby-full;   echo $bar
+    $summ > $data/apt_summ.1b
+
+    gem install toml-rb;            echo $bar
+    $summ > $data/apt_summ.1c
   ) >> $log 2>&1
 
   # Install APT packages, RubyGems, etc.
@@ -41,3 +48,4 @@
 # cd "$( dirname "${BASH_SOURCE[0]}" )"
   cd /vagrant/make #K
   add_ons.rb $log_dir
+  $summ > $data/apt_summ.2

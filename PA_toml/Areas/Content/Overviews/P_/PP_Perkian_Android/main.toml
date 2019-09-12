@@ -1,10 +1,10 @@
-# con_ove|PP_on_Android/main.toml
+# con_ove|PP_Perkian_Android/main.toml
 
 [ meta ]
 
   actions     = 'publish'
-  id_str      = 'PP_on_Android'
-  title       = "Perkian on Android"
+  id_str      = 'PP_Perkian_Android'
+  title       = "Perkian - Android"
 
 [ meta.refs ]
 

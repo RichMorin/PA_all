@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "making Docker-based Perkify containers"
+  precis      = "notes on making Docker-based Perkify containers"
 
   verbose     = '''
 This page describes the current procedure

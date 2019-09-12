@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "configuration notes for Vagrant-based Perkify"
+  precis      = "introduction to Perkify configuration"
 
   verbose     = '''
 This page is a gentle introduction to Vagrant configuration,

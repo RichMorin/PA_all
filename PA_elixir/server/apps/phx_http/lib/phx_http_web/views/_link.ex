@@ -142,13 +142,21 @@ defmodule PhxHttpWeb.View.Link do
       do_links_h1(trim_1, trim_2, s_pair)
     end
 
+    #K Preprocess A$...$ inclusions (in PP_Perkify_Packages).
+    
+    pattern     = ~r{A\$([-\w]+)\$}
+    pre_base    = "https://packages.ubuntu.com"
+    pre_full    = "#{ pre_base }/disco"
+    becomes     = "[\\1]{#{ pre_full }/\\1}"
+    tmp_str     = inp_str |> String.replace(pattern, becomes)
+
     # Convert `[...]{...}`  syntax to `[...](...)` (support link extensions).
     # Convert `[...]!{...}` syntax to `[...]{...}` (support display in `pre`).
 
     pattern   = ~r< \[ ( [^\]]+ ) \]        # `[...]`
                     \{ ( [^\}]+ ) \} >x     # `{...}`
 
-    Regex.replace(pattern, inp_str, expand_fn)
+    Regex.replace(pattern, tmp_str, expand_fn)
     |> String.replace("]!{", "]{")
   end
 
