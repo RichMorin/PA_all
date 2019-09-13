@@ -27,13 +27,16 @@ by fulfilling dependencies and honoring recommendations.
 This page is a useful starting point
 in understanding Perkify's capabilities and offerings.
 However, if you want to explore the available and installed packages,
-you'll need to learn about some commands and web pages.
-So, be sure to visit [Perkify - Packages]{con_ove|PP_Perkify_Packages}!
+you'll need to learn about some APT commands and web pages.
+So, be sure to visit [Perkify - APT]{con_ove|PP_Perkify_APT}!
 
 ### Explicit Additions
 
-In the following table, the "APT name" entries are links
-to an Ubuntu information page for the package.
+The following table provides the title, name, and category
+for every package we explicitly install using APT.
+Each "APT name" entry links to an Ubuntu information page for the package.
+Don't miss the Discussion section below the table;
+it indexes major packages by their categories (e.g., document converters).
 
 | Title                   | APT name             | Category / Notes             |
 | -------                 | ----------           | ----------------             |
