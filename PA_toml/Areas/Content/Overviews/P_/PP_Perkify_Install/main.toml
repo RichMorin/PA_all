@@ -46,9 +46,10 @@ To set up the Perkify's "project" directory,
 you'll need to obtain our current "box version".
 Browse to the
 [Rich_Morin/Perkify]{https://app.vagrantup.com/Rich_Morin/boxes/Perkify} page
-and scan for something like "v0.1.6".
+and scan for the current version string (e.g., "v0.1.6").
 This will be the first (and highest) value displayed.
-Hang onto this information; you'll need it very soon!
+Don't try to download anything from this page,
+but hang onto this string; you'll need it very soon!
 
 *Note:*
 Some of the following instructions are specific to [macOS]{ext_wp|MacOS};

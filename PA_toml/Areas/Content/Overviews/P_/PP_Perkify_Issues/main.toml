@@ -41,6 +41,7 @@ but nothing for Ubuntu "disco".
 | BitchX               | _               | IRC client                  |
 | Bookworm             | _               | eBook reader                |
 | BRL-CAD              | _               | solid modeling              |
+| Camelot              | _               | document conversion         |
 | Crystal              | _               | programming language        |
 | DAISY Pipeline 2     | _               | document conversion         |
 | Eclipse Che          | _               | IDE, text editor, etc.      |
@@ -49,6 +50,7 @@ but nothing for Ubuntu "disco".
 | Eolie                | _               | web browser                 |
 | ERC                  | erc             | IRC client                  |
 | Eww                  | _               | web browser                 |
+| Excalibur            | _               | document conversion         |
 | GMediaServer         | gmediaserver    | media support               |
 | GNU Bool             | _               | text searching              |
 | GNU Cursynth         | _               | music generation            |
@@ -63,9 +65,11 @@ but nothing for Ubuntu "disco".
 | latex-access         | _               | braille translation         |
 | Lucidor              | _               | ebook reader                |
 | OCRdesktop           | _               | OCR support                 |
+| pdf-table-extract    | _               | document conversion         |
 | PINN                 | _               | Raspberry Pi support        |
 | sbl                  | _               | screen reader               |
 | Speakup              | speakup         | speech synthesis            |
+| Tabula               | _               | document conversion         |
 | tdsr                 | _               | screen reader               |
 | The vOICe            | _               | sensory substitution        |
 | WiringPi             | _               | Raspberry Pi support        |

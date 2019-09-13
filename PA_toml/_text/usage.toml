@@ -53,6 +53,14 @@ by reading the link's text, tooltip, and/or URL.
 That said, if you don't know what a link does, just try it out!
 You won't hurt anything and you can always go back to the original page.
 
+Our URLs can be a bit long for convenient use in email, etc.
+So, we've used [TinyURL]{https://tinyurl.com} to create some shorter URLs:
+
+- `https://tinyurl.com/Perkian-Intro`
+- `https://tinyurl.com/Perkify-Intro`
+- `https://tinyurl.com/Perkify-Issues`
+- `https://tinyurl.com/Perkify-Packages`
+
 ### Progressive Disclosure
 
 Some of our pages contain a _lot_ of information.
