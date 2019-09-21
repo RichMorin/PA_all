@@ -4,10 +4,10 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/imagemagick/'
+  package     = 'arch_pkgs|extra/x86_64/imagemagick/'
   upstream    = 'http://tools.suckless.org/ii'
   wiki        = 'https://wiki.archlinux.org/index.php/ImageMagick'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/imagemagick'
+  package     = 'debi_pkgs|unstable/imagemagick'

@@ -4,7 +4,7 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|lucidor'
+  package     = 'arch_aur|lucidor'
   upstream    = 'http://lucidor.org/lucidor'
 
 [ os.debian ]

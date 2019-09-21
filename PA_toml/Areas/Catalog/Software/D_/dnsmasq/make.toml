@@ -4,17 +4,14 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/dnsmasq'
+  package     = 'arch_pkgs|extra/x86_64/dnsmasq'
   upstream    = 'http://www.thekelleys.org.uk/dnsmasq/doc.html'
-  wiki        = 'ext_awi|dnsmasq'
+  wiki        = 'arch_wiki|dnsmasq'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/dnsmasq'
-  search      = 'ext_pd|search?keywords=dnsmasq'
-  track       = 'https://tracker.debian.org/pkg/dnsmasq'
+  package     = 'debi_pkgs|unstable/dnsmasq'
 
-  commands    = 'sudo apt-get install dnsmasq'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'dnsmasq'

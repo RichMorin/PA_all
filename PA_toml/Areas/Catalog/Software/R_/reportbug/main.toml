@@ -43,7 +43,7 @@ configuration file and send reports using any available mail server.
 > This package also includes the "querybts" script for browsing the Debian
 bug tracking system.
 
-> -- [$url]{ext_pd|buster/reportbug}
+> -- [$url]{debi_pkgs|unstable/reportbug}
 '''
 
 [ address.web_site ]

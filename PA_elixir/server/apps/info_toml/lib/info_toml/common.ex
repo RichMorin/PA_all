@@ -24,6 +24,8 @@ defmodule InfoToml.Common do
   This module contains general purpose functions and macros.
   """
 
+  import Common, only: [ ii: 2 ]
+
   # Public functions
 
   @doc """
@@ -47,7 +49,6 @@ defmodule InfoToml.Common do
   # Traverse a list of expansion tuples, replacing prefixes in `inp_str`.
 
     exp_list  = exp_map() |> Map.to_list()
-
     prefix_fn = fn {inp, out}, acc ->
     #
     # Expand all uses of a prefix in the input string.

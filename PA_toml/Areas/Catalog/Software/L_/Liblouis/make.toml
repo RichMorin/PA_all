@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/liblouis'
+  package     = 'arch_pkgs|extra/x86_64/liblouis'
   upstream    = 'http://liblouis.org'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/liblouis-data'
-  search      = 'ext_pd|search?keywords=liblouis-data'
+  package     = 'debi_pkgs|unstable/liblouis-data'
+  search      = 'debi_pkgs|search?keywords=liblouis-data'
   track       = 'https://tracker.debian.org/pkg/liblouis-data'
 
   commands    = 'sudo apt-get install liblouis-data'

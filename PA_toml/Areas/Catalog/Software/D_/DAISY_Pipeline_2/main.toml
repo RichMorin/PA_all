@@ -10,7 +10,7 @@
 
   f_authors   = 'cat_peo|Rich_Morin'
   f_editors   = 'cat_peo|Rich_Morin'
-  see_also    = 'cat_gro|DAISY'
+  see_also    = 'cat_gro|DAISY, cat_sof|DAISY_Player'
 
 [ meta.tags ]
 

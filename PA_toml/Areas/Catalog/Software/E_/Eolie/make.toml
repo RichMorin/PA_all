@@ -4,7 +4,7 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|community/x86_64/eolie'
+  package     = 'arch_pkgs|community/x86_64/eolie'
   upstream    = 'https://wiki.gnome.org/Apps/Eolie'
 
 [ os.debian ]

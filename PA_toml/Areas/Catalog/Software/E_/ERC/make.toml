@@ -8,16 +8,10 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|jessie/erc'
-  search      = 'ext_pd|search?keywords=erc'
-  track       = 'https://tracker.debian.org/pkg/erc'
-
-  commands    = 'sudo apt-get install erc'
-  issues      = '?'
-  origin      = 'APT'
+  package     = 'debi_pkgs|jessie/erc'
 
   status      = '''
-As of 2017.0912, there is no APT port for Debian Stretch.
+As of 2019.0917, there is no APT port since jessie.
 Between June, 2001 and May, 2006 ERC was an active project at SourceForge.
 The last version released there was ERC 5.1.2.
 '''

@@ -1,0 +1,16 @@
+# cat_sof|Audacity/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/audacity'
+  upstream    = 'https://audacityteam.org'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|unstable/audacity'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'audacity'

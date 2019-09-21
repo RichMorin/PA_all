@@ -1,0 +1,39 @@
+# cat_sof|catdoc/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'catdoc'
+  title       = 'catdoc'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'terminal-based, text-based'
+  licenses    = 'GPL, open source'
+  roles       = 'application, word processing'
+
+[ about ]
+
+  precis      = 'converts word proessor files to text'
+
+  verbose     = '''
+> catdoc is program which reads one or more Microsoft word files
+and outputs text, contained insinde them to standard output.
+Therefore it does same work for .doc files,
+as unix cat command for plain ASCII files.
+It is now accompanied by xls2csv -
+program which converts Excel spreadsheet into comma-separated value file,
+and catppt - utility to extract textual information from Powerpoint files.
+
+> -- [$url]{http://www.wagner.pp.ru/~vitus/software/catdoc}
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.wagner.pp.ru/~vitus/software/catdoc'

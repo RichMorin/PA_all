@@ -4,9 +4,9 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|ocrfeeder'
+  package     = 'arch_pkgs|ocrfeeder'
   upstream    = 'https://wiki.gnome.org/Apps/OCRFeeder'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/ocrfeeder'
+  package     = 'debi_pkgs|unstable/ocrfeeder'

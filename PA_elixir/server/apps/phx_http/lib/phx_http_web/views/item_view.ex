@@ -36,7 +36,7 @@ defmodule PhxHttpWeb.ItemView do
     rev_item    = InfoToml.get_item(rev_key)
     f_authors   = rev_item.meta.refs.f_authors
     precis      = rev_item.about.precis
-    verbose     = fmt_markup(rev_item, [:about, :verbose])
+    verbose     = fmt_section(rev_item, [:about, :verbose])
     auth_out    = fmt_authors(f_authors)
 
     ~E"""

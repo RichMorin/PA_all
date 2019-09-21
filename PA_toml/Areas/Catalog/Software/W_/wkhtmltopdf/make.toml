@@ -4,9 +4,9 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|wkhtmltopdf'
+  package     = 'arch_pkgs|wkhtmltopdf'
   upstream    = 'https://wkhtmltopdf.org'
 
 [ os.debian ]
 
-  package     = 'ext_pd|wkhtmltopdf/wkhtmltopdf'
+  package     = 'debi_pkgs|wkhtmltopdf/wkhtmltopdf'

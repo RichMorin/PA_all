@@ -1,0 +1,49 @@
+# cat_sof|Diction/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Diction'
+  title       = 'Diction'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'terminal-based, text-based'
+  licenses    = 'GPLv3 or later, free, open source'
+  roles       = 'application, utility'
+  supports    = 'communication, education'
+
+[ about ]
+
+  precis      = 'utilities to help with style and diction'
+
+  verbose     = '''
+> This program includes both 'diction' and 'style'.
+'Diction' identifies wordy and commonly misused phrases;
+'style' analyzes surface characteristics of a document,
+including sentence length and other readability measures.
+While these programs cannot help you structure a document well,
+they can help to avoid poor wording and compare the readability
+of your document with others.
+Both commands support English and German documents.
+
+> -- [$url]{https://invisible-island.net/dialog/dialog.html}
+'''
+
+[ address.related ]
+
+  zoo         = 'https://directory.fsf.org/wiki/Diction'
+
+[ address.web_site ]
+
+  main        = 'https://www.gnu.org/software/diction'
+  man_page    = '''
+    https://man.cx/diction(1),
+    https://man.cx/style(1),
+  '''
+    

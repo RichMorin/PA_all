@@ -4,10 +4,10 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/epiphany'
+  package     = 'arch_pkgs|extra/x86_64/epiphany'
   upstream    = 'https://wiki.gnome.org/Apps/Web'
-  wiki        = 'ext_awi|GNOME/Web'
+  wiki        = 'arch_wiki|GNOME/Web'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/epiphany'
+  package     = 'debi_pkgs|unstable/epiphany'

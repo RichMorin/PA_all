@@ -20,7 +20,7 @@ defmodule PhxHttpWeb.View.Link do
 
   use Phoenix.HTML
 
-  import Common,   only: [ ssw: 2 ]
+  import Common,   only: [ ii: 2, sew: 2, ssw: 2 ]
   import InfoToml, only: [ exp_prefix: 1 ]
 
   alias PhxHttp.Types, as: PHT
@@ -144,7 +144,7 @@ defmodule PhxHttpWeb.View.Link do
 
     #K Preprocess A$...$ inclusions (in PP_Perkify_Packages).
     
-    pattern     = ~r{A\$([-\w]+)\$}
+    pattern     = ~r{A\$([-\w+]+)\$}
     pre_base    = "https://packages.ubuntu.com"
     pre_full    = "#{ pre_base }/disco"
     becomes     = "[\\1]{#{ pre_full }/\\1}"
@@ -170,11 +170,24 @@ defmodule PhxHttpWeb.View.Link do
   # Handle links with prefixes.
 
     type    = cond do
-      head_2 == "ext_wp"                ->  :ext_wp       # "ext_wp|..."
-      head_2 =~ ~r{ ^ ext_ \w+ }x       ->  :ext_zoo      # "ext_...|..."
-      String.ends_with?(tail_2, ":a")   ->  :int_area     # "...|:a"
-      String.ends_with?(tail_2, ":s")   ->  :int_src1     # "...|...:s"
-      true                              ->  :int_item     # "...|..."
+      head_2 =~ ~r{ ^ (cat|con) }x ->
+        cond do
+          sew(tail_2, ":a")   ->  :int_area     # "...|:a"
+          sew(tail_2, ":s")   ->  :int_src1     # "...|...:s"
+          true                ->  :int_item     # "...|..."
+        end
+
+      head_2 == "ext_wp"  ->  :ext_wp       # "ext_wp|..."
+      true                ->  :ext_zoo      # "..._...|..."  
+    end
+
+    if false and tail_2 == ":a" do #TG
+      IO.puts ""
+      ii(head_2, :head_2)
+      ii(tail_2, :tail_2)
+      ii(trim_1, :trim_1)
+      ii(trim_2, :trim_2)
+      ii(type,   :type)
     end
 
     do_links_h2(type, trim_1, trim_2)
@@ -221,6 +234,7 @@ defmodule PhxHttpWeb.View.Link do
 
     out_2     = exp_prefix(inp_2)
     out_1     = if inp_1 == "$url" do out_2 else inp_1 end
+
     pattern   = ~r{ ^ .* // ( [^/]+ ) .* $ }x
     site      = String.replace(out_2, pattern, "\\1")
     title     = "Go to: #{ site } [site]"

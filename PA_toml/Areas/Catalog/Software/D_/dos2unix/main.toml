@@ -1,0 +1,35 @@
+# cat_sof|dos2unix/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'dos2unix'
+  title       = 'dos2unix'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'system software, utility'
+  standards   = 'DOS, FAT file system'
+  supports    = 'system administration'
+
+[ about ]
+
+  precis      = 'text file format converter'
+
+  verbose     = '''
+> Convert text files with DOS or Mac line breaks
+to Unix line breaks and vice versa.
+
+> -- [$url]{ext_gh|dosfstools/dosfstools}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://waterlan.home.xs4all.nl/dos2unix.html'

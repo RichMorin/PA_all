@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/vim'
+  package     = 'arch_pkgs|extra/x86_64/vim'
   upstream    = 'https://www.vim.org'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/vim'
-  search      = 'ext_pd|search?keywords=vim'
+  package     = 'debi_pkgs|unstable/vim'
+  search      = 'debi_pkgs|search?keywords=vim'
   track       = 'https://tracker.debian.org/pkg/vim'
 
   commands    = 'sudo apt-get install vim'

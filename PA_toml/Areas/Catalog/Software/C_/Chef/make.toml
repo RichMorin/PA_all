@@ -4,6 +4,18 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|chef-workstation'
+  package     = '''
+    arch_aur|chef-client,
+    arch_aur|chef-dk,
+    arch_aur|chef-dk-free,
+    arch_aur|chef-dk-server,
+    arch_aur|chef-workstation,
+  '''
 
 [ os.debian ]
+
+  package     = 'chef, chef-zero'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'chef, chef-zero'

@@ -29,7 +29,7 @@
 > Espeakup is a daemon that connects speakup kernel modules to the espeak
 software speech synthesizer through the /dev/softsynth device.
 
-> -- [$url]{ext_pd|sid/espeakup}
+> -- [$url]{debi_pkgs|sid/espeakup}
 '''
 
 [ address.related ]

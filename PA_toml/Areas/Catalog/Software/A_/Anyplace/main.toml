@@ -59,8 +59,8 @@ to deliver reliable indoor geolocation information...
   main        = 'https://anyplace.cs.ucy.ac.cy'
 
   zoo         = '''
-https://www.sigspatial.org/wp-content/uploads/special-issues/9/2/04-Paper01_Anatomy.pdf,
 https://anyplace.cs.ucy.ac.cy/~dzeina/papers/ic16-iin.pdf,
 https://anyplace.cs.ucy.ac.cy/~dzeina/papers/mdm15-anyplace-demo.pdf,
 https://anyplace.cs.ucy.ac.cy/publications,
+https://www.sigspatial.org/wp-content/uploads/special-issues/9/2/04-Paper01_Anatomy.pdf,
 '''

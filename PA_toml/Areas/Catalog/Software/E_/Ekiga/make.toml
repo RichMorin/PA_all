@@ -4,9 +4,17 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/ekiga/'
-  upstream    = 'http://www.ekiga.org'
+# package     = 'arch_pkgs|extra/x86_64/ekiga/'
+# upstream    = 'http://www.ekiga.org'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/ekiga'
+# Last Debian port was for stretch.
+
+# package     = 'debi_pkgs|unstable/ekiga'
+
+[ os.perkify_ubuntu ]
+
+# Last Ubuntu port was for cosmic (18.10).
+
+# add_apt     = 'ekiga'

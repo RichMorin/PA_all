@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|community/x86_64/xpdf'
+  package     = 'arch_pkgs|community/x86_64/xpdf'
   upstream    = 'https://www.xpdfreader.com'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/xpdf'
-  search      = 'ext_pd|search?keywords=xpdf'
+  package     = 'debi_pkgs|unstable/xpdf'
+  search      = 'debi_pkgs|search?keywords=xpdf'
   track       = 'https://tracker.debian.org/pkg/xpdf'
 
   commands    = 'sudo apt-get install xpdf'

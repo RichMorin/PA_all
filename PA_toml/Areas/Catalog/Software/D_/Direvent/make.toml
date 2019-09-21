@@ -1,0 +1,16 @@
+# cat_sof|Direvent/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|direvent'
+  upstream    = 'http://www.gnu.org.ua/software/direvent'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|unstable/direvent'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'direvent'

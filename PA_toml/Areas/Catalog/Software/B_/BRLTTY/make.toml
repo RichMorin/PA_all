@@ -4,19 +4,16 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/brltty'
+  package     = 'arch_pkgs|extra/x86_64/brltty'
   upstream    = 'http://mielke.cc/brltty'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/brltty'
-  search      = 'ext_pd|search?keywords=brltty'
-  track       = 'https://tracker.debian.org/pkg/brltty'
+  package     = 'debi_pkgs|unstable/brltty'
+  search      = 'debi_pkgs|search?keywords=brltty'
 
-  commands    = '''
-sudo apt-get install brltty
-sudo apt-get install brltty-espeak
-'''
-  issues      = '?'
-  origin      = 'APT'
   status      = 'BRLTTY is included in Ubuntu, but not in Raspbian.'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'brltty, brltty-espeak'

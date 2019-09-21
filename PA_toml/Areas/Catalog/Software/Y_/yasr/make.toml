@@ -10,4 +10,4 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|jessie/admin/yasr'
+  package     = 'debi_pkgs|jessie/admin/yasr'

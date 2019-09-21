@@ -1,0 +1,53 @@
+# cat_sof|Direvent/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Direvent'
+  title       = 'Direvent'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'terminal-based, text-based'
+  licenses    = 'GPLv3 or later, free, open source'
+  roles       = 'application, utility'
+  supports    = 'communication, education'
+
+[ about ]
+
+  precis      = 'utilities to help with style and diction'
+
+  verbose     = '''
+> GNU Direvent monitors events in the file system directories.
+For each event that occurs in a set of pre-configured directories, 
+the program calls an external program associated with it,
+supplying it with the information about the event
+and the location within the file system where it occured.
+
+> GNU Direvent was dubbed [a] GNU project on August 20, 2014.
+Until then it was named dircond.
+
+> Direvent provides an easy way to configure your system
+to react immediately if certain files undergo changes.
+This may be helpful, for example,
+to track changes in the important configuration files.
+
+> Interfaces for tracking changes to file systems
+are highly system-specific.
+Direvent aims to provide a uniform and system-independent command-level
+interface.
+It is known to work with all modern Linux kernels and BSD systems
+(FreeBSD, NetBSD, OpenBSD, Darwin).
+
+> -- [$url]{https://www.gnu.org.ua/software/direvent}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://www.gnu.org.ua/software/direvent'
+  man_page    = 'http://man.gnu.org.ua/manpage/?8+direvent'

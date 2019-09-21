@@ -4,10 +4,10 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|ocrmypdf'
+  package     = 'arch_aur|ocrmypdf'
   upstream    = 'https://github.com/jbarlow83/OCRmyPDF'
-  wiki        = 'ext_awi|Ocrdesktop'
+  wiki        = 'arch_wiki|Ocrdesktop'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/ocrmypdf'
+  package     = 'debi_pkgs|unstable/ocrmypdf'

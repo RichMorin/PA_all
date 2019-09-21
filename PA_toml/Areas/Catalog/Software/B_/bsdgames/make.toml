@@ -1,0 +1,13 @@
+# cat_sof|bsdgames/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|unstable/bsdgames'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'bsdgames'

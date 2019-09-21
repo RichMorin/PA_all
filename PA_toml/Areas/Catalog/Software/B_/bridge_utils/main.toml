@@ -31,7 +31,7 @@ Ethernet devices together.  The connecting is fully transparent: hosts
 connected to one Ethernet device see hosts connected to the other Ethernet
 devices directly.
 
-> -- [$url]{ext_pd|buster/bridge-utils}
+> -- [$url]{debi_pkgs|unstable/bridge-utils}
 '''
 
 [ address.related ]

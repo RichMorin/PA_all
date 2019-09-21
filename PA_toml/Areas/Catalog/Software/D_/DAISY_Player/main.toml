@@ -1,0 +1,38 @@
+# cat_sof|DAISY_Player/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'DAISY_Player'
+  title       = 'DAISY Player'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_gro|DAISY, cat_sof|DAISY_Pipeline_2'
+
+[ meta.tags ]
+
+  impairments = 'blindness, dyslexia, low vision'
+  interfaces  = 'terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, DAISY player'
+  standards   = 'DAISY, DTB, EPUB3, MP3, SMIL, XML'
+  supports    = 'communication, education'
+
+[ about ]
+
+  precis      = 'a player for the DAISY Digital Talking Book'
+
+  verbose     = '''
+DAISY Player is a player for the DAISY Digital Talking Book.
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|DAISY_Digital_Talking_Book'
+
+[ address.web_site ]
+
+  main        = 'http://jlemmens.nl'

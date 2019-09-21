@@ -36,6 +36,10 @@ open source software and is provided free of charge.
             amis-daisy-2.02-daisy-3-playback-software}
 '''
 
+[ address.related ]
+
+  github      = 'ext_gh|daisy/amis'
+
 [ address.web_site ]
 
   download    = 'main|/download'

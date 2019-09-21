@@ -1,0 +1,16 @@
+# cat_sof|Aptitude/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+# This package is Debian-specific and will not appear in Arch Linux.
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|unstable/aptitude'
+  wiki        = 'debi_wiki|Aptitude'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'aptitude'

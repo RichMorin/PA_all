@@ -4,9 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|fenrir'
+  package     = 'arch_aur|fenrir'
   upstream    = 'https://linux-a11y.org/index.php?page=fenrir-screenreader'
 
 [ os.debian ]
 
-  package     = 'ext_pd|sid/admin/fenrir'
+  package     = 'debi_pkgs|sid/admin/fenrir'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'fenrir'

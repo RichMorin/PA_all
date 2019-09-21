@@ -16,11 +16,11 @@ use `speechd.el` to connect Emacspeak to speech-dispatcher.
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/speech-dispatcher'
+  package     = 'arch_pkgs|extra/x86_64/speech-dispatcher'
   upstream    = 'http://www.freebsoft.org/speechd'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/speechd'
-  search      = 'ext_pd|search?keywords=speechd'
+  package     = 'debi_pkgs|unstable/speechd'
+  search      = 'debi_pkgs|search?keywords=speechd'
   track       = 'https://tracker.debian.org/pkg/speechd'

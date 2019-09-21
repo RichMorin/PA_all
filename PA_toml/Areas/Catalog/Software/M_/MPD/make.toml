@@ -4,14 +4,14 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/mpd'
+  package     = 'arch_pkgs|extra/x86_64/mpd'
   upstream    = 'https://www.musicpd.org'
-  wiki        = 'ext_awi|Music_Player_Daemon'
+  wiki        = 'arch_wiki|Music_Player_Daemon'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/mpd'
-  search      = 'ext_pd|search?keywords=mpd'
+  package     = 'debi_pkgs|unstable/mpd'
+  search      = 'debi_pkgs|search?keywords=mpd'
   track       = 'https://tracker.debian.org/pkg/mpd'
 
   commands    = 'sudo apt-get install mpd'

@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|community/x86_64/pandoc/'
+  package     = 'arch_pkgs|community/x86_64/pandoc/'
   upstream    = 'https://pandoc.org'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/pandoc'
-  search      = 'ext_pd|search?keywords=pandoc'
+  package     = 'debi_pkgs|unstable/pandoc'
+  search      = 'debi_pkgs|search?keywords=pandoc'
   track       = 'https://tracker.debian.org/pkg/pandoc'
 
   commands    = 'sudo apt-get install pandoc'

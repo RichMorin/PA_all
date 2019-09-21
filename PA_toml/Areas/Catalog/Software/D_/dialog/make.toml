@@ -1,0 +1,16 @@
+# cat_sof|dialog/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|core/x86_64/dialog'
+  upstream    = 'https://invisible-island.net/dialog'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|unstable/dialog'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'dialog'

@@ -1,0 +1,77 @@
+# cat_sof|Audacity/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Audacity'
+  title       = 'Audacity'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, GUI, terminal-based, text-based'
+  licenses    = 'CCPL, GPL, open source'
+  roles       = 'application, audio editor, audio recorder'
+  standards   = 'Audio Unit, LADSPA, LV2, Nyquist, VST'
+
+[ about ]
+
+  precis      = 'multi-track audio editor and recorder'
+
+  verbose     = '''
+> Audacity is an easy-to-use, multi-track audio editor and recorder
+for Windows, Mac OS X, GNU/Linux, and other operating systems.
+Developed by a group of volunteers as open source.
+
+> - **Recording** -
+Audacity can record live audio through a microphone or mixer,
+or digitize recordings from other media.
+
+> - **Export / Import** -
+Import, edit, and combine sound files.
+Export your recordings in many different file formats,
+including multiple files at once.
+
+> - **Sound Quality** -
+Supports 16-bit, 24-bit and 32-bit.
+Sample rates and formats are converted
+using high-quality resampling and dithering.
+
+> - **Plugins** -
+Support for LADSPA, LV2, Nyquist, VST and Audio Unit effect plug-ins.
+Nyquist effects can be easily modified in a text editor –
+or you can even write your own plug-in.
+
+> - **Editing** -
+Easy editing with Cut, Copy, Paste and Delete.
+Also unlimited sequential Undo (and Redo) in the session
+to go back any number of steps.
+
+> - **Effects** -
+Real-time preview of LADSPA, LV2, VST and Audio Unit (macOS) effects.
+Plug-in Manager handles plug-in installation and addition/removal
+of effects and generators from the menus.
+
+> - **Accessibility** -
+Tracks and selections can be fully manipulated using the keyboard.
+Large range of keyboard shortcuts.
+
+> - **Analysis** -
+Spectrogram view mode for visualizing and selecting frequencies.
+Plot Spectrum window for detailed frequency analysis.
+
+> -- [$url]{https://www.audacityteam.org}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Audacity_(audio_editor)'
+
+[ address.web_site ]
+
+  main        = 'https://www.audacityteam.org'

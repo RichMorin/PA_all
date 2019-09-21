@@ -4,8 +4,8 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|ocrdesktop'
+  package     = 'arch_aur|ocrdesktop'
   upstream    = 'http://linux-a11y.org'
-  wiki        = 'ext_awi|Ocrdesktop'
+  wiki        = 'arch_wiki|Ocrdesktop'
 
 [ os.debian ]

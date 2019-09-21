@@ -21,7 +21,7 @@ defmodule PhxHttpWeb.View.Zoo do
 # use Phoenix.HTML
 # use PhxHttpWeb, :view
 
-  import Common,   only: [ csv_split: 1, ssw: 2 ]
+  import Common,   only: [ csv_split: 1, ii: 2, ssw: 2 ]
   import InfoToml, only: [ exp_prefix: 1 ]
 
   alias PhxHttp.Types, as: PHT
@@ -110,6 +110,7 @@ defmodule PhxHttpWeb.View.Zoo do
   #   do one level of symbol substitution (eg, "main|...")
 
     exp_val   = exp_prefix(inp_val)
+
     fields    = exp_val |> String.split("|")
 
     if Enum.count(fields) == 2 do

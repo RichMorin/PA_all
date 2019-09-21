@@ -4,9 +4,9 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|poezio'
+  package     = 'arch_aur|poezio'
   upstream    = 'https://poez.io'
 
 [ os.debian ]
 
-  package     = 'ext_pd|sid/poezio'
+  package     = 'debi_pkgs|sid/poezio'

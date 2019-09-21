@@ -4,9 +4,9 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/graphviz'
-  wiki        = 'ext_awi|Graphviz'
+  package     = 'arch_pkgs|extra/x86_64/graphviz'
+  wiki        = 'arch_wiki|Graphviz'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/graphviz'
+  package     = 'debi_pkgs|unstable/graphviz'

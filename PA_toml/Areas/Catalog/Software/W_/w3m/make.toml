@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/w3m'
+  package     = 'arch_pkgs|extra/x86_64/w3m'
   upstream    = 'https://salsa.debian.org/debian/w3m'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/w3m'
-  search      = 'ext_pd|search?keywords=w3m'
+  package     = 'debi_pkgs|unstable/w3m'
+  search      = 'debi_pkgs|search?keywords=w3m'
   track       = 'https://tracker.debian.org/pkg/w3m'
 
   commands    = 'sudo apt-get install w3m'

@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|sup'
+  package     = 'arch_aur|sup'
   upstream    = 'http://sup-heliotrope.github.io'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/sup-mail'
-  search      = 'ext_pd|search?keywords=sup-mail'
+  package     = 'debi_pkgs|unstable/sup-mail'
+  search      = 'debi_pkgs|search?keywords=sup-mail'
   track       = 'https://tracker.debian.org/pkg/sup-mail'
 
 [ os.zoo ]

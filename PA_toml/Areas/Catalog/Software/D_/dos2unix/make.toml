@@ -1,0 +1,16 @@
+# cat_sof|dos2unix/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/dos2unix'
+  upstream    = 'http://waterlan.home.xs4all.nl/dos2unix.html'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|unstable/dos2unix'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'dos2unix'

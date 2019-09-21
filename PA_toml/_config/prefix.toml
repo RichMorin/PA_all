@@ -26,24 +26,33 @@
   con_how   = 'Areas/Content/HowTos/'
   con_ove   = 'Areas/Content/Overviews/'
 
-  # External
+  # External - classified
 
 # Usage:
 #
 #   'ext_gh|brltty/brltty' becomes
 #   'https://github.com/brltty/brltty'
 
-  ext_aop   = 'https://www.archlinux.org/packages/'
-  ext_aur   = 'https://aur.archlinux.org/packages/'
-  ext_awi   = 'https://wiki.archlinux.org/index.php/'
+  arch_pkgs = 'https://www.archlinux.org/packages/'
+  arch_aur  = 'https://aur.archlinux.org/packages/'
+  arch_wiki = 'https://wiki.archlinux.org/index.php/'
+
+  debi_pkgs = 'https://packages.debian.org/'
+  debi_wiki = 'https://wiki.debian.org/'
+  debi_www  = 'https://www.debian.org/'
+
+  ubun_man  = 'http://manpages.ubuntu.com/manpages/current/'
+
+  # External - unclassified
+
   ext_fb    = 'https://www.facebook.com/'
   ext_gh    = 'https://github.com/'
+  ext_gl    = 'https://gitlab.com/'
   ext_gp    = 'https://plus.google.com/'
   ext_gs    = 'https://www.gnu.org/software/'
   ext_hd    = 'https://hexdocs.pm/'
   ext_ig    = 'https://www.instagram.com/'
   ext_li    = 'https://www.linkedin.com/'
-  ext_pd    = 'https://packages.debian.org/'
   ext_pi    = 'https://www.pinterest.com/'
   ext_rd    = 'https://www.rubydoc.info/gems/'
   ext_rg    = 'https://rubygems.org/gems/'

@@ -4,14 +4,14 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/any/orca/'
+  package     = 'arch_pkgs|extra/any/orca/'
   upstream    = 'https://wiki.gnome.org/Projects/Orca'
-  wiki        = 'ext_awi|Simple_Orca_Plugin_System'
+  wiki        = 'arch_wiki|Simple_Orca_Plugin_System'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/orca'
-  search      = 'ext_pd|search?keywords=orca'
+  package     = 'debi_pkgs|unstable/orca'
+  search      = 'debi_pkgs|search?keywords=orca'
   track       = 'https://tracker.debian.org/pkg/orca'
   wiki        = 'https://wiki.debian.org/Orca'
 

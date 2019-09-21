@@ -1,0 +1,16 @@
+# cat_sof|discount/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|discount'
+  upstream    = 'https://www.pell.portland.or.us/~orc/Code/discount'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|unstable/discount'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'discount'

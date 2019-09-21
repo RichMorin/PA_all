@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|community/x86_64/profanity'
+  package     = 'arch_pkgs|community/x86_64/profanity'
   upstream    = 'http://www.profanity.im'
 
 [ os.debian ]
 
-  package     = 'ext_pd|jessie/profanity'
-  search      = 'ext_pd|search?keywords=profanity'
+  package     = 'debi_pkgs|jessie/profanity'
+  search      = 'debi_pkgs|search?keywords=profanity'
   track       = 'https://tracker.debian.org/pkg/profanity'
 
   commands    = 'sudo apt-get install profanity'

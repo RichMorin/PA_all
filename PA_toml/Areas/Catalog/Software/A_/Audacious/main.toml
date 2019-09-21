@@ -1,0 +1,49 @@
+# cat_sof|Audacious/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Audacious'
+  title       = 'Audacious'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, email, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, audio player'
+
+[ about ]
+
+  precis      = 'small and fast audio player which supports lots of formats'
+
+  verbose     = '''
+> Audacious is an open source audio player.
+A descendant of XMMS, Audacious plays your music how you want it,
+without stealing away your computer’s resources from other tasks.
+Drag and drop folders and individual song files,
+search for artists and albums in your entire music library,
+or create and edit your own custom playlists.
+Listen to CD’s or stream music from the Internet.
+Tweak the sound with the graphical equalizer
+or experiment with LADSPA effects.
+Enjoy the modern GTK-themed interface
+or change things up with Winamp Classic skins.
+Use the plugins included with Audacious to fetch lyrics for your music,
+to set an alarm in the morning, and more.
+
+> -- [$url]{https://www.audacious-media-player.org}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Audacious_(software)'
+
+[ address.web_site ]
+
+  main        = 'https://www.audacious-media-player.org'

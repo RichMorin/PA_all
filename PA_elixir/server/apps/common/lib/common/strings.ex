@@ -127,6 +127,20 @@ defmodule Common.Strings do
   #   formatting-a-list-of-strings-am-i-missing-anything/18593/10
   # Interesting discussion and really great help!
 
+  @spec sew(st, st) :: boolean
+    when st: String.t
+
+  @doc """
+  Shorthand call for `String.ends_with?/2`.
+
+      iex> sew("beer", "bar")
+      false
+      iex> sew("rebar", "bar")
+      true
+  """
+
+  def sew(target, test), do: String.ends_with?(target, test)
+
   @spec ssw(st, st) :: boolean
     when st: String.t
 

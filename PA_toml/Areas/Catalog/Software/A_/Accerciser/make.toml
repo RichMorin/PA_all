@@ -4,9 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/any/accerciser'
+  package     = 'arch_pkgs|extra/any/accerciser'
   upstream    = 'https://wiki.gnome.org/Apps/Accerciser'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/accerciser'
+  package     = 'debi_pkgs|unstable/accerciser'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'accerciser'

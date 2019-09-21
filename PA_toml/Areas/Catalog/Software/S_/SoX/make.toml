@@ -6,4 +6,4 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/sox'
+  package     = 'debi_pkgs|unstable/sox'

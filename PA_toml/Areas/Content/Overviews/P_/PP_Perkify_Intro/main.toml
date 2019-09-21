@@ -78,7 +78,7 @@ At this writing, the `vagrant init` command looks like this:
     
 Then, using [Debian]{ext_wp|Debian}'s Advanced Package Toolkit
 ([APT]{ext_wp|APT_(Package_Manager)}),
-we explicitly install a "wish list" of about 100 packages.
+we explicitly install a "wish list" of a few hundred packages.
 APT then satisfies thousands of dependencies and recommendations.
 All told, the current release includes about 2500 packages
 and compresses to about five GB.

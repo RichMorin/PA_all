@@ -4,15 +4,15 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|core/x86_64/dosfstools'
+  package     = 'arch_pkgs|core/x86_64/dosfstools'
   upstream    = 'ext_gh|dosfstools/dosfstools'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/dosfstools'
-  search      = 'ext_pd|search?keywords=dosfstools'
-  track       = 'https://tracker.debian.org/pkg/dosfstools'
+  package     = 'debi_pkgs|unstable/dosfstools'
 
-  commands    = 'sudo apt-get install dosfstools'
-  origin      = 'APT'
   status      = 'dosfstools appears to be included in Raspbian Stretch'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'dosfstools'

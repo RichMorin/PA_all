@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/bc/'
+  package     = 'arch_pkgs|extra/x86_64/bc/'
   upstream    = 'ext_gs|bc'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/bc'
-  search      = 'ext_pd|search?keywords=bc'
+  package     = 'debi_pkgs|unstable/bc'
+  search      = 'debi_pkgs|search?keywords=bc'
   track       = 'https://tracker.debian.org/pkg/bc'
 
   commands    = 'sudo apt-get install bc'

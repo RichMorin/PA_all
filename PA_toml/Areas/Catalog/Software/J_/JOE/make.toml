@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/joe'
+  package     = 'arch_pkgs|extra/x86_64/joe'
   upstream    = 'https://joe-editor.sourceforge.io'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/joe'
-  search      = 'ext_pd|search?keywords=joe'
+  package     = 'debi_pkgs|unstable/joe'
+  search      = 'debi_pkgs|search?keywords=joe'
   track       = 'https://tracker.debian.org/pkg/joe'
 
   commands    = 'sudo apt-get install joe'

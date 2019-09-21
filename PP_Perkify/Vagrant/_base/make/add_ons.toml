@@ -10,15 +10,28 @@ debian_apt = '''
   Accerciser,         accerciser,         a11y explorer
   Alot,               alot,               email client
   Alpine,             alpine,             email client
+  apcalc,             apcalc,             desk calculator
   Aptitude,           aptitude,           APT extensions
   Atril,              atril,              document viewer
+  Audacious,          audacious,          audio player
+  Audacity,           audacity,           audio editor
+  bash-completion,    bash-completion,    bash support
   bridge-utils,       bridge-utils,       network admin
   BRLTTY,             brltty,             Braille output
+  brltty-espeak,      brltty-espeak,      Braille output
+  bsdgames,           bsdgames,           text-based games
+  catdoc,             catdoc,             document conversion
+  Chef,               chef,               configuration management
+  Chef,               chef-zero,          configuration management
+  cuneiform,          cuneiform,          OCR support
   DAISY Player,       daisy-player,       ebook reader
   Dasher,             dasher,             text entry
+  dialog,             dialog,             dialog box generator
   Diction,            diction,            text processing
   Direvent,           direvent,           system admin
+  discount,           discount,           document conversion
   dnsmasq,            dnsmasq,            network admin
+  dos2unix,           dos2unix,           document conversion
   dosfstools,         dosfstools,         system admin
   ELinks,             elinks,             web browsing
   Elixir,             elixir,             programming language
@@ -26,15 +39,17 @@ debian_apt = '''
   eSpeak NG,          espeak-ng,          speech synthesis
   eSpeak NG Data,     espeak-ng-data,     speech synthesis
   espeakup,           espeakup,           speech synthesis
-  Fenrir,             fenrir,             screen reader (-s+b)
-  Fizmo (ncurses),    fizmo-ncursesw,     text game engine
+  Fenrir,             fenrir,             screen reader
   Fizmo (console),    fizmo-console,      text game engine
+  Fizmo (ncurses),    fizmo-ncursesw,     text game engine
+  Fizmo (SDL2),       fizmo-sdl2,         text game engine
   Frotz,              frotz,              text game engine
   Gcal,               gcal,               calendar tool
   Gforth,             gforth,             programming language
   GIMP,               gimp,               image processing
+  Git,                git-all,            source code control
   GNOME,              gnome,              desktop environment
-  GNOME Web,          epiphany,           web browsing              (%GNOME)
+  GNOME Web,          epiphany,           web browser
   GNU a2ps,           a2ps,               document conversion
   GNU Chess,          gnuchess,           game program
   GNU Datamash,       datamash,           statistics
@@ -56,12 +71,15 @@ debian_apt = '''
   Graphviz,           graphviz,           graph visualization
   hostapd,            hostapd,            network admin
   httptunnel,         httptunnel,         network admin
-  ii,                 ii,                 IRC client
+  hunspell,           hunspell,           spell checker
+  ii,                 ii,                 chat client
   ImageMagick,        imagemagick,        image manipulation
-  ircII,              ircii,              IRC client
-  irssi,              irssi,              IRC client
+  intltool,           intltool,           XML internationalization
+  ircII,              ircii,              chat client
+  irssi,              irssi,              chat client
   JACAL,              jacal,              symbolic math
   JOE,                joe,                text editor
+  jshon,              jshon,              JSON tools
   Jupyter Notebook,   jupyter-notebook,   interactive notebook
   Liblouis,           liblouis-bin,       braille translation
   Liblouis Data,      liblouis-data,      braille translation
@@ -70,39 +88,88 @@ debian_apt = '''
   LibreOffice KDE,    libreoffice-kde,    KDE integration
   Links,              links,              web browser
   Linphone,           linphone,           VOIP client
+  lios,               lios,               OCR support
+  lxterminal,         lxterminal,         LXDE terminal emulator
   Lynx,               lynx,               web browser
+  Magic Wormhole,     magic-wormhole,     file transfer
   man2html,           man2html,           document conversion
   MATE,               mate-desktop,       desktop environment
+  mblaze,             mblaze,             email support
+  mbrola-en1,         mbrola-en1,         speech synthesis
+  mbrola-us1,         mbrola-us1,         speech synthesis
+  mbrola-us2,         mbrola-us2,         speech synthesis
+  mbrola-us3,         mbrola-us3,         speech synthesis
+  mhwaveedit,         mhwaveedit,         audio editor
   MPD,                mpd,                music player daemon
+  mpv,                mpv,                video player
+  mu4e,               mu4e,               email client
   Mumble,             mumble,             VOIP client
   Mutt,               mutt,               email client
+  ne,                 ne,                 text editor
   Netatalk,           netatalk,           network admin
+  notify-osd,         notify-osd,         notification daemon
+  ntp,                ntp,                network admin
   OCRFeeder,          ocrfeeder,          OCR support
   OCRmyPDF,           ocrmypdf,           OCR support
   OCRmyPDF Doc.,      ocrmypdf-doc,       OCR support
   ocrodjvu,           ocrodjvu,           OCR support
+  OfflineIMAP,        offlineimap,        email support
   OpenSCAD,           openscad,           3D modeling
-  Orca,               orca,               screen reader (-s+b+sb)
+  opus-tools,         opus-tools,         audio processing
+  Orca,               orca,               screen reader
   Pandoc,             pandoc,             document conversion
-  Poezio,             poezio,             Jabber/XMPP client (-s+b)
-  Profanity,          profanity,          Jabber/XMPP client (-s+b)
+  pcmanfm,            pcmanfm,            file manager
+  Pdmenu,             pdmenu,             menu generation system
+  pianobar,           pianobar,           Pandora client
+  pidgin,             pidgin,             chat client
+  pidgin-otr,         pidgin-otr,         chat client
+  python-cairo,       python-cairo,       Cairo library
+  python-daemonize,   python-daemonize,   Python 2 daemonizer
+  python-dbus,        python-dbus,        Python 2 messaging
+  python-evdev,       python-evdev,       Python 2 Linux input
+  python-pyte,        python-pyte,        terminal emulator
+  python-pyudev,      python-pyudev,      libudev binding
+  python-setuptools,  python-setuptools,  Python setup tools
+  Poezio,             poezio,             chat client
+  Pluma,              pluma,              text editor
+  PortAudio,          portaudio19-dev,    Portable audio I/O
+  Profanity,          profanity,          chat client
+  ratpoison,          ratpoison,          window manager
+  Recoll,             recoll,             text search tool
   reportbug,          reportbug,          bug reporting
+  ripit,              ripit,              audio CD ripper
 # Ruby,               ruby-full,          programming language
-  ScrollZ,            scrollz,            IRC client
-  sic,                sic,                IRC client
+  ScrollZ,            scrollz,            chat client
+  sic,                sic,                chat client
+  socat,              socat,              data transfer relay
   SoX,                sox,                audio processing
   speechd,            speech-dispatcher,  speech synthesis
+  storebackup,        storebackup,        file backup utility
   Sup,                sup-mail,           email client
+  Surfraw,            surfraw,            web browser
   Syncthing,          syncthing,          network admin
+  Telegram CLI,       telegram-cli,       messaging CLI
+  Telegram Desktop,   telegram-desktop,   messaging app
   Tesseract,          tesseract-ocr,      OCR support
   Texinfo,            texinfo,            documentation support
+  thunderbird,        thunderbird,        email (etc) client
+  TinTin++,           tintin++,           MUD client
+  tuxmath,            tuxmath,            math game for kids
+  tuxtype,            tuxtype,            typing game for kids
+  units,              units,              unit converter
   w3m,                w3m,                web browser, etc.
   wcalc,              wcalc,              desk calculator
-  WeeChat,            weechat,            IRC client
+  WeeChat,            weechat,            chat client
   wkhtmltopdf,        wkhtmltopdf,        document conversion
+  WordGrinder,        wordgrinder,        word processor
+  xarchiver,          xarchiver,          archive manager
   XeTeX,              texlive-xetex,      document conversion
+  xlsx2csv,           xlsx2csv,           document conversion
   Xpdf,               xpdf,               PDF viewer, etc.
+  yad,                yad,                dialog box generator
+  yajl,               yajl,               JSON-handling library
   yasr,               yasr,               screen reader
+  youtube-dl,         youtube-dl,         video downloader
 '''
 
 # https://www.gnu.org/manual/blurbs.html
@@ -125,7 +192,7 @@ ruby_gems = '''
 # Title               APT name            Notes
 # -----               --------            -----
 # Alacritty,          ?,                  TTY emulation             (-bs)
-# BitchX,             ?,                  IRC client                (-bs)
+# BitchX,             ?,                  chat client                (-bs)
 # Bookworm,           ?,                  eBook reader              (-bs)
 # BRL-CAD,            ?,                  solid modeling            (-bs)
 # Crystal,            ?,                  programming language      (-bs)
@@ -134,7 +201,7 @@ ruby_gems = '''
 # Ekiga,              ekiga,              online conferencing       (-b)
 # Elm ME+,            ?,                  email client              (-bs)
 # Eolie,              ?,                  web browser               (-bs)
-# ERC,                erc,                IRC client                (-bs+j)
+# ERC,                erc,                chat client                (-bs+j)
 # Eww,                ?,                  web browser               (-bs)
 # GIFT,               ?,                  image processing
 # GMediaServer,       gmediaserver,       media support             (-b+s)
@@ -165,10 +232,16 @@ ruby_gems = '''
 # -----               --------            -----
 # Chef,               chef,               systems integration       (APT hangs)
 #   It wants the URL of the Chef Infra server.  ???
+#
 # Emacspeak,          emacspeak,          accessible editor         (APT hangs)
 #   It wants to know about support SW & HW.  ???
+#
 # GNU Mailutils,      mailutils,          email support             (APT hangs)
 #   It wants to know the Postfix configuration.
+#
+# nodm
+#   It wants to chat about configuration.
+#   nodm,             nodm,               X11 display manager
 
 ## Miscellaneous issues
 

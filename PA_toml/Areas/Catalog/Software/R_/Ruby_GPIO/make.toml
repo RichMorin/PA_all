@@ -8,8 +8,8 @@
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/ruby-gpio'
-  search      = 'ext_pd|search?keywords=ruby-gpio'
+  package     = 'debi_pkgs|unstable/ruby-gpio'
+  search      = 'debi_pkgs|search?keywords=ruby-gpio'
   track       = 'https://tracker.debian.org/pkg/ruby-gpio'
 
   commands    = 'sudo gem install ruby-gpio'

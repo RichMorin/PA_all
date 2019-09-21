@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/lynx/'
+  package     = 'arch_pkgs|extra/x86_64/lynx/'
   upstream    = 'https://lynx.browser.org'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/lynx'
-  search      = 'ext_pd|search?keywords=lynx'
+  package     = 'debi_pkgs|unstable/lynx'
+  search      = 'debi_pkgs|search?keywords=lynx'
   track       = 'https://tracker.debian.org/pkg/lynx'
 
   commands    = 'sudo apt-get install lynx'

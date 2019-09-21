@@ -4,14 +4,14 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|netatalk'
+  package     = 'arch_aur|netatalk'
   upstream    = 'http://netatalk.sourceforge.net'
-  wiki        = 'ext_awi|Netatalk'
+  wiki        = 'arch_wiki|Netatalk'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/netatalk'
-  search      = 'ext_pd|search?keywords=netatalk'
+  package     = 'debi_pkgs|unstable/netatalk'
+  search      = 'debi_pkgs|search?keywords=netatalk'
   track       = 'https://tracker.debian.org/pkg/netatalk'
 
   commands    = 'sudo apt-get install netatalk'

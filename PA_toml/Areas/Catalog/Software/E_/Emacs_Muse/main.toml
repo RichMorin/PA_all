@@ -1,0 +1,41 @@
+# cat_sof|Emacs_Muse/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Emacs_Muse'
+  title       = 'Emacs_Muse'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  requires    = 'Emacs, Lisp'
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'author and publish projects using Wiki-like markup'
+
+  verbose     = '''
+> Emacs Muse (also known as "Muse" or "Emacs-Muse")
+is an authoring and publishing environment for Emacs.
+It simplifies the process of writing documents and publishing them
+to various output formats.
+
+> -- [$url]{https://www.gnu.org/software/emacs-muse/index.html}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|alexott/muse'
+
+[ address.web_site ]
+
+  main        = 'https://www.gnu.org/software/emacs-muse/index.html'

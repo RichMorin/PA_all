@@ -24,7 +24,8 @@ defmodule PhxHttpWeb.View.Address do
 # use PhxHttpWeb, :view
 
   import Common,
-    only: [ csv_split: 1, keyss: 1 ]
+    only: [ csv_split: 1, ii: 2, keyss: 1 ]
+  import PhxHttpWeb.View.Markup
   import PhxHttpWeb.View.Zoo
 
   alias InfoToml.Types, as: ITT
@@ -95,28 +96,42 @@ defmodule PhxHttpWeb.View.Address do
   defp fa2(:site, heading, inp_map) do
     out_map = prep_map(inp_map)
 
-    link_fn   = fn url -> "<a href='#{ url }'>#{ url }</a>" end
+    link_fn   = fn url ->
     #
     # Return the HTML for a single link.
+
+      "[$url]{ #{ url } }" |> fmt_markup()
+    end
 
     links_fn  = fn key ->
     #
     # Return the HTML for a set of links.
 
-      links = out_map[key]      # "url, ..."
-      |> csv_split()            # [ "url", ... ]
-      |> Enum.map(link_fn)      # [ "<a href='url'>url</a>", ... ]
+      links_raw   = out_map[key]    # "url, ..."
+      |> csv_split()                # [ "url", ... ]
 
-      if Enum.count(links) == 1 do
-        "<li><b>#{ fmt_key(key) }:</b> #{ links }</li>"
+      links_cnt   = Enum.count(links_raw)
+
+      links_rare  = links_raw
+      |> Enum.map(link_fn)          # [ "<a href='url'>url</a>", ... ]
+      |> Enum.sort()                # same, but sorted
+
+      if false do #TG
+        ii(links_cnt,  :links_cnt)
+        ii(links_rare, :links_rare)
+        ii(links_raw,  :links_raw)
+      end
+        
+      if links_cnt == 1 do
+        "<li><b>#{ fmt_key(key) }:</b> #{ links_rare }</li>"
       else
-        links = links
+        links_out = links_rare
         |> Enum.join("</li>\n    <li>")
 
         """
         <li><b>#{ fmt_key(key) }:</b>
           <ul>
-            <li>#{ links }</li>
+            <li>#{ links_out }</li>
           </ul>
         </li>\n
         """

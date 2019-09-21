@@ -1,0 +1,46 @@
+# cat_sof|bsdgames/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'bsdgames'
+  title       = 'bsdgames'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, game'
+
+[ about ]
+
+  precis      = 'a collection of classic textual Unix games'
+
+  verbose     = '''
+> This is a collection of some of the text-based games and amusements
+that have been enjoyed for decades on Unix systems.
+It includes these programs: adventure, arithmetic, atc, backgammon,
+battlestar, bcd, boggle, caesar, canfield, countmail, cribbage, dab,
+go-fish, gomoku, hack, hangman, hunt, mille, monop, morse, number,
+pig, phantasia, pom, ppt, primes, quiz, random, rain, robots, rot13,
+sail, snake, tetris, trek, wargames, worm, worms, wump, wtf
+
+> -- [$url]{https://screenshots.debian.net/package/bsdgames}
+
+The name is a tribute to the Berkeley Software Distribution
+([BSD]{ext_wp|Berkeley_Software_Distribution}).
+'''
+
+[address.related]
+
+  zoo         = 'ext_gh|untakenstupidnick/nbsdgames'
+
+[ address.web_site ]
+
+  main        = 'https://screenshots.debian.net/package/bsdgames'

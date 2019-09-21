@@ -4,11 +4,11 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|community/any/jupyter-notebook'
+  package     = 'arch_pkgs|community/any/jupyter-notebook'
   upstream    = 'ext_gh|jupyter/notebook'
-  wiki        = 'ext_awi|Jupyter'
+  wiki        = 'arch_wiki|Jupyter'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/jupyter-notebook'
+  package     = 'debi_pkgs|unstable/jupyter-notebook'
   wiki        = 'https://wiki.debian.org/Jupyter'

@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|ruby-highline'
+  package     = 'arch_aur|ruby-highline'
   upstream    = 'ext_rg|highline'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/ruby-highline'
-  search      = 'ext_pd|search?keywords=ruby-highline'
+  package     = 'debi_pkgs|unstable/ruby-highline'
+  search      = 'debi_pkgs|search?keywords=ruby-highline'
   track       = 'https://tracker.debian.org/pkg/ruby-highline'
 
   commands    = 'sudo apt-get install ruby-highline'

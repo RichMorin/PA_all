@@ -3,6 +3,8 @@
 #
 # Written by Rich Morin, CFCL, 2019.
 
+  export TZ=America/Los_Angeles     # really, San Bruno...
+
   # Set up logging infrastructure.
   
   bar='-----------------------------------------------------------------------'

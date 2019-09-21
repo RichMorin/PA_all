@@ -4,7 +4,7 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|lios-git'
-  upstream    = 'https://gitlab.com/groups/Nalin-x-Linux'
+  package     = 'arch_aur|lios-git'
+  upstream    = 'ext_gl|groups/Nalin-x-Linux'
 
 [ os.debian ]

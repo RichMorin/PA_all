@@ -1,0 +1,13 @@
+# cat_sof|Diction/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|unstable/diction'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'diction'

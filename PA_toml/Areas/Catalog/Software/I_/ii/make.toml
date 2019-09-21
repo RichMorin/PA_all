@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|ii'
+  package     = 'arch_aur|ii'
   upstream    = 'http://tools.suckless.org/ii'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/ii'
-  search      = 'ext_pd|search?keywords=ii'
+  package     = 'debi_pkgs|unstable/ii'
+  search      = 'debi_pkgs|search?keywords=ii'
   track       = 'https://tracker.debian.org/pkg/ii'
 
   commands    = 'sudo apt-get install ii'

@@ -4,7 +4,7 @@
 
 <%= fmt_path(@key) %>
 
-<%= fmt_markup(@item, [:about, :verbose]) %>
+<%= fmt_section(@item, [:about, :verbose]) %>
 
 <div class="hs-base1">
   <h3>

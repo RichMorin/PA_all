@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|core/x86_64/links'
+  package     = 'arch_pkgs|core/x86_64/links'
   upstream    = 'http://links.twibright.com'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/links'
-  search      = 'ext_pd|search?keywords=links'
+  package     = 'debi_pkgs|unstable/links'
+  search      = 'debi_pkgs|search?keywords=links'
   track       = 'https://tracker.debian.org/pkg/links'
 
   commands    = 'sudo apt-get install links'

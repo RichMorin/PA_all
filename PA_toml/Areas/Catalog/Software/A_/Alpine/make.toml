@@ -4,18 +4,14 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|alpine'
+  package     = 'arch_aur|alpine'
   upstream    = 'http://repo.or.cz/alpine.git'
-  wiki        = 'ext_awi|Alpine'
+  wiki        = 'arch_wiki|Alpine'
 
 [ os.debian ]
 
-  doc         = 'ext_pd|buster/alpine-doc'
-  package     = 'ext_pd|buster/alpine'
-  search      = 'ext_pd|search?keywords=alpine'
-  track       = 'https://tracker.debian.org/pkg/alpine'
+  package     = 'debi_pkgs|unstable/alpine'
 
-  commands    = 'sudo apt-get install alpine'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'alpine'

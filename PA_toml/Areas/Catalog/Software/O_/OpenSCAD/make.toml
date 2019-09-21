@@ -4,10 +4,10 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|community/x86_64/openscad'
+  package     = 'arch_pkgs|community/x86_64/openscad'
   upstream    = 'http://openscad.org'
-  wiki        = 'ext_awi|Ocrdesktop'
+  wiki        = 'arch_wiki|Ocrdesktop'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/openscad'
+  package     = 'debi_pkgs|unstable/openscad'

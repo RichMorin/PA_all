@@ -37,4 +37,4 @@ Portable Document Format (PDF) files.
 [ address.web_site ]
 
   main        = 'ext_gh|mate-desktop/atril'
-  man_page    = 'http://manpages.ubuntu.com/manpages/bionic/man1/atril.1.html'
+  man_page    = 'ubun_man|man1/atril.1.html'

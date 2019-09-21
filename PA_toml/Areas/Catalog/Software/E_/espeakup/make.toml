@@ -4,23 +4,17 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|community/x86_64/espeakup'
+  package     = 'arch_pkgs|community/x86_64/espeakup'
   upstream    = 'ext_gh|williamh/espeakup'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/espeakup'
-  search      = 'ext_pd|search?keywords=espeakup'
-  track       = 'https://tracker.debian.org/pkg/espeakup'
-
-  commands    = 'sudo apt-get install espeakup'
-  issues      = '''
-Process: 18547 ExecStart=/usr/bin/espeakup -V ${VOICE}
-  (code=exited, status=2)
-espeakup.service: Failed with result 'exit-code'.
-'''
-  origin      = 'APT'
+  package     = 'debi_pkgs|unstable/espeakup'
 
   status      = '''
 espeakup is included in the Raspberry VI distribution.
 '''
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'espeakup'

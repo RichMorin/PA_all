@@ -4,9 +4,9 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|linphone'
+  package     = 'arch_aur|linphone'
   upstream    = 'http://www.linphone.org'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/sound/linphone'
+  package     = 'debi_pkgs|unstable/sound/linphone'

@@ -32,19 +32,28 @@
   con_how   = 'Content/HowTos'
   con_ove   = 'Content/Overviews'
 
-  # External
+  # External - classified
 
-  ext_aop   = 'Arch Linux packages'
-  ext_aur   = 'Arch Linux AUR packages'
-  ext_awi   = 'Arch Linux wiki'
+  arch_aur  = 'Arch Linux AUR packages'
+  arch_pkgs = 'Arch Linux packages'
+  arch_wiki = 'Arch Linux wiki'
+
+  debi_pkgs = 'Debian Packages'
+  debi_wiki = 'Debian wiki'
+  debi_www  = 'Debian Main site'
+
+  ubun_man  = 'Ubuntu man pages'
+
+  # External - unclassified
+
   ext_fb    = 'Facebook'
   ext_gh    = 'GitHub'
+  ext_gl    = 'GitLab'
   ext_gp    = 'Google+'
   ext_gs    = 'GNU software'
   ext_hd    = 'HexDocs'
   ext_ig    = 'Instagram'
   ext_li    = 'LinkedIn'
-  ext_pd    = 'Debian Packages'
   ext_pi    = 'Pinterest'
   ext_rd    = 'RubyDoc'
   ext_rg    = 'RubyGems'

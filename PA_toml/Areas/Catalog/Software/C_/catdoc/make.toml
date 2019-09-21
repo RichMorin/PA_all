@@ -1,0 +1,16 @@
+# cat_sof|catdoc/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/catdoc'
+  upstream    = 'http://www.wagner.pp.ru/~vitus/software/catdoc'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|unstable/catdoc'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'catdoc'

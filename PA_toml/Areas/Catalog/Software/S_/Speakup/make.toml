@@ -27,13 +27,13 @@ need for a speech-dispatcher module for OpenMAX to allow Orca to use it.
 
 [ os.arch ]
 
-  package     = 'ext_aop|community/any/speakup-utils'
+  package     = 'arch_pkgs|community/any/speakup-utils'
   upstream    = 'http://linux-speakup.org'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/speakup'
-  search      = 'ext_pd|search?keywords=speakup'
+  package     = 'debi_pkgs|unstable/speakup'
+  search      = 'debi_pkgs|search?keywords=speakup'
   track       = 'https://tracker.debian.org/pkg/speakup'
 
   commands    = 'sudo apt-get install sic'

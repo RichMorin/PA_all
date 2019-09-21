@@ -39,6 +39,10 @@
   origin      = 'archive site, etc.'
   status      = 'is it ready for use?'
 
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'names to add via APT'
+
 [ os.zoo ]
 
   package     = 'package documentation'

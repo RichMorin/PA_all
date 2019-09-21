@@ -2,7 +2,7 @@
 
 [ meta ]
 
-  actions     = 'build, publish'
+  actions     = 'publish'
   id_str      = 'F123_Access'
   title       = 'F123 Access'
 
@@ -17,7 +17,6 @@
   features    = 'reformats website pages'
   impairments = 'blindness, low vision'
   interfaces  = 'command line, terminal-based, text-based, web'
-  licenses    = 'open source'
   requires    = 'Chrome, Firefox, JAWS, NVDA, Orca, VoiceOver, Window Eyes'
   roles       = 'application, extension'
   standards   = 'HTML, HTTP'

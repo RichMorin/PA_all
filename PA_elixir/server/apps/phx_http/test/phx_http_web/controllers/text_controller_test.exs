@@ -9,7 +9,7 @@ defmodule PhxHttpWeb.TextControllerTest do
   test "GET /", %{conn: conn} do
     test_fn = fn ->
       conn = get(conn, "/")
-      assert html_response(conn, 200) =~ "Pete's Alley"
+      assert html_response(conn, 200) =~ "<title>PA Home</title>"
     end
 
     capture_io(test_fn)

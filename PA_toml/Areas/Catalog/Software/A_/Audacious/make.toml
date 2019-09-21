@@ -1,0 +1,14 @@
+# cat_sof|Audacious/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|unstable/audacious'
+  wiki        = 'debi_wiki|Aptitude'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'audacious'

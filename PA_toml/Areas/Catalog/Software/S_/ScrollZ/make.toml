@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|scrollz'
+  package     = 'arch_aur|scrollz'
   upstream    = 'http://www.scrollz.info'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/scrollz'
-  search      = 'ext_pd|search?keywords=scrollz'
+  package     = 'debi_pkgs|unstable/scrollz'
+  search      = 'debi_pkgs|search?keywords=scrollz'
   track       = 'https://tracker.debian.org/pkg/scrollz'
 
   commands    = 'sudo apt-get install scrollz'

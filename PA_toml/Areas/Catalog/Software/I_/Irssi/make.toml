@@ -4,14 +4,14 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/irssi'
+  package     = 'arch_pkgs|extra/x86_64/irssi'
   upstream    = 'https://irssi.org'
-  wiki        = 'ext_awi|Irssi'
+  wiki        = 'arch_wiki|Irssi'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/irssi'
-  search      = 'ext_pd|search?keywords=irssi'
+  package     = 'debi_pkgs|unstable/irssi'
+  search      = 'debi_pkgs|search?keywords=irssi'
   track       = 'https://tracker.debian.org/pkg/irssi'
   wiki        = 'https://wiki.debian.org/irssi'
 

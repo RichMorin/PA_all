@@ -4,10 +4,14 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|community/any/elixir'
+  package     = 'arch_pkgs|community/any/elixir'
   upstream    = 'http://elixir-lang.org'
-  wiki        = 'ext_awi|Elixir'
+  wiki        = 'arch_wiki|Elixir'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/elixir'
+  package     = 'debi_pkgs|unstable/elixir'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'elixir'

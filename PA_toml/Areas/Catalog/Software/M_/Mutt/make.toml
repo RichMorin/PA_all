@@ -4,14 +4,14 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/mutt'
+  package     = 'arch_pkgs|extra/x86_64/mutt'
   upstream    = 'http://www.mutt.org'
-  wiki        = 'ext_awi|mutt'
+  wiki        = 'arch_wiki|mutt'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/mutt'
-  search      = 'ext_pd|search?keywords=mutt'
+  package     = 'debi_pkgs|unstable/mutt'
+  search      = 'debi_pkgs|search?keywords=mutt'
   track       = 'https://tracker.debian.org/pkg/mutt'
 
   commands    = 'sudo apt-get install mutt'

@@ -34,9 +34,9 @@ Lios is written in Python 3, and we release it under GPL-3 license.
 There are great many possibilities for this program.
 Feedback is the key to it, Expecting your feedback.
 
-> -- [$url]{https://gitlab.com/Nalin-x-Linux/lios-3}
+> -- [$url]{ext_gl|Nalin-x-Linux/lios-3}
 '''
 
 [ address.web_site ]
 
-  main        = 'https://gitlab.com/Nalin-x-Linux/lios-3'
+  main        = 'ext_gl|Nalin-x-Linux/lios-3'

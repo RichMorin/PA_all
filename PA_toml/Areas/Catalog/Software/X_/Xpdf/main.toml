@@ -30,7 +30,7 @@
 (PDF) files (also called 'Adobe Acrobat' or 'Acrobat' files).  It includes
 a PDF text extractor (pdf2text).
 
-> -- [$url]{ext_pd|buster/xpdf}
+> -- [$url]{debi_pkgs|unstable/xpdf}
 '''
 
 [ address.related ]

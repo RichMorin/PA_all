@@ -4,7 +4,7 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|wiringpi-git'
+  package     = 'arch_aur|wiringpi-git'
   upstream    = 'http://wiringpi.com'
 
 [ os.debian ]

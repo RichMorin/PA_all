@@ -4,9 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|dasher'
+  package     = 'arch_aur|dasher'
   upstream    = 'http://www.gnome.org'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/dasher'
+  package     = 'debi_pkgs|unstable/dasher'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'dasher'

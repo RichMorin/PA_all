@@ -9,3 +9,12 @@
 [ os.debian ]
 
 # package     = 'none found, as of 2019.0310'
+
+# I sent email to F123:
+#   I'm interested in building F123 Access into a Debian-based Docker container.
+#   Does this sound like a plausible effort?  Is the source code downloadable?  
+#
+# and got this response:
+#   Thanks for your message. At this moment this is not possible, as F123Access
+#   has many elements which are not open source.  However, I will share your
+#   e-mail with the developer, just in case things have changed.

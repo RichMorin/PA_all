@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|reportbug'
-  upstream    = 'ext_pd|sid/reportbug'
+  package     = 'arch_aur|reportbug'
+  upstream    = 'debi_pkgs|sid/reportbug'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/reportbug'
-  search      = 'ext_pd|search?keywords=reportbug'
+  package     = 'debi_pkgs|unstable/reportbug'
+  search      = 'debi_pkgs|search?keywords=reportbug'
   track       = 'https://tracker.debian.org/pkg/reportbug'
   wiki        = 'https://wiki.debian.org/reportbug'
   # https://www.debian.org/Bugs/Reporting

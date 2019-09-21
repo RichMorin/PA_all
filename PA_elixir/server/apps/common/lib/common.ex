@@ -96,6 +96,12 @@ defmodule Common do
   defdelegate lts(label),                         to: Tracing
 
   @doc """
+  Shorthand call for `String.ends_with?/2`.
+  ([`Strings`](Common.Strings.html#sew/2))
+  """
+  defdelegate sew(target, test),                  to: Strings
+
+  @doc """
   Sort a list by an indexed element.
   ([`Sorting`](Common.Sorting.html#sort_by_elem/2))
   """

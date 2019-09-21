@@ -1,0 +1,16 @@
+# cat_sof|Emacs_Muse/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/any/emacs-muse'
+  upstream    = 'https://www.gnu.org/software/emacs-muse/index.html'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|unstable/elpa-muse'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'elpa-muse'

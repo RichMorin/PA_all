@@ -4,16 +4,12 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|emacspeak'
+  package     = 'arch_aur|emacspeak'
   upstream    = 'http://emacspeak.sf.net'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/emacspeak'
-  search      = 'ext_pd|search?keywords=emacspeak'
-  track       = 'https://tracker.debian.org/pkg/emacspeak'
-
-  commands    = 'sudo apt-get install emacspeak'
+  package     = 'debi_pkgs|unstable/emacspeak'
 
   issues      = '''
 Default speech server - espeak

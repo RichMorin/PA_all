@@ -1,0 +1,17 @@
+# cat_sof|apcalc/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/calc'
+  upstream    = 'http://www.isthe.com/chongo/tech/comp/calc'
+  wiki        = 'arch_wiki|Alpine'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|unstable/apcalc'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'apcalc'

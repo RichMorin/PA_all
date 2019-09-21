@@ -1,9 +1,9 @@
-# cat_sof|BRL-CAD/main.toml
+# cat_sof|BRL_CAD/main.toml
 
 [ meta ]
 
   actions     = 'build, publish'
-  id_str      = 'BRL-CAD'
+  id_str      = 'BRL_CAD'
   title       = 'BRL-CAD'
 
 [ meta.refs ]

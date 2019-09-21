@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|wcalc'
+  package     = 'arch_aur|wcalc'
   upstream    = 'http://w-calc.sourceforge.net'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/wcalc'
-  search      = 'ext_pd|search?keywords=wcalc'
+  package     = 'debi_pkgs|unstable/wcalc'
+  search      = 'debi_pkgs|search?keywords=wcalc'
   track       = 'https://tracker.debian.org/pkg/wcalc'
 
   commands    = 'sudo apt-get install wcalc'

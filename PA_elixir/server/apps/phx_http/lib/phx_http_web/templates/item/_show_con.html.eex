@@ -19,5 +19,5 @@
   
   <%= render(ItemView, "_show_refs.html", assigns) %>
 
-  <%= fmt_markup(@item, [:about, :verbose]) %>
+  <%= fmt_section(@item, [:about, :verbose]) %>
 </div>

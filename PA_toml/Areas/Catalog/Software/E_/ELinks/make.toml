@@ -4,16 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|community/x86_64/elinks'
+  package     = 'arch_pkgs|community/x86_64/elinks'
   upstream    = 'http://elinks.or.cz'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/elinks'
-  search      = 'ext_pd|search?keywords=elinks'
-  track       = 'https://tracker.debian.org/pkg/elinks'
+  package     = 'debi_pkgs|unstable/elinks'
 
-  commands    = 'sudo apt-get install elinks'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'elinks'

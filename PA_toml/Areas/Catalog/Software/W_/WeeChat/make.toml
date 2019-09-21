@@ -4,14 +4,14 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|community/x86_64/weechat'
+  package     = 'arch_pkgs|community/x86_64/weechat'
   upstream    = 'http://www.weechat.org'
-  wiki        = 'ext_awi|WeeChat'
+  wiki        = 'arch_wiki|WeeChat'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/weechat'
-  search      = 'ext_pd|search?keywords=weechat'
+  package     = 'debi_pkgs|unstable/weechat'
+  search      = 'debi_pkgs|search?keywords=weechat'
   track       = 'https://tracker.debian.org/pkg/weechat'
 
   commands    = 'sudo apt-get install weechat'

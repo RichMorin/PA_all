@@ -4,14 +4,14 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|extra/x86_64/screen'
+  package     = 'arch_pkgs|extra/x86_64/screen'
   upstream    = 'ext_gs|screen'
-  wiki        = 'ext_awi|GNU_Screen'
+  wiki        = 'arch_wiki|GNU_Screen'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/screen'
-  search      = 'ext_pd|search?keywords=screen'
+  package     = 'debi_pkgs|unstable/screen'
+  search      = 'debi_pkgs|search?keywords=screen'
   track       = 'https://tracker.debian.org/pkg/screen'
   wiki        = 'https://wiki.debian.org/screen'
 

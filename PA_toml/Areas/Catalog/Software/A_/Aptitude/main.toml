@@ -1,0 +1,67 @@
+# cat_sof|Aptitude/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Aptitude'
+  title       = 'Aptitude'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, email, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'application, package manager'
+
+[ about ]
+
+  precis      = 'terminal-based package manager'
+
+  verbose     = '''
+> Aptitude is an Ncurses and command-line based front-end
+to numerous APT libraries, which are also used by APT,
+the default Debian package manager.
+Aptitude is text based and run from a terminal.
+
+> Aptitude has a number of useful features, including:
+
+> - a mutt-like syntax for matching packages in a flexible manner
+
+> - mark packages as "automatically installed" or "manually installed"
+so that packages can be auto-removed when no longer required
+(feature available in APT, too, since quite a few Debian release)
+
+> - preview of actions about to be taken
+with different colors marking different actions
+
+> - persistence of user actions (similar to dselect)
+
+> - the ability to interactively retrieve and display the Debian changelog
+of all available official packages
+
+> - apt-like (i.e. apt-get and apt-cache) command line mode
+("aptitude install foo")
+
+> - Score-based dependency resolver which is more suitable
+for interactive dependency resolution with additional hints from the user
+like "I don't want that part of the solution
+but keep that other part of the solution for your next try".
+APT's dependency resolver, on the other hand,
+is optimized for good "one shot" solutions.
+
+> -- [$url]{debi_wiki|Aptitude}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Aptitude_(software)'
+
+[ address.web_site ]
+
+  main        = 'debi_wiki|Aptitude'
+  manual      = 'debi_www|doc/manuals/aptitude'

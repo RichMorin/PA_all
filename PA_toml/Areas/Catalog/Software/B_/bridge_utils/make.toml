@@ -4,16 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|core/x86_64/bridge-utils'
+  package     = 'arch_pkgs|core/x86_64/bridge-utils'
   upstream    = 'http://www.linuxfoundation.org/collaborate/workgroups/networking/bridge'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/bridge-utils'
-  search      = 'ext_pd|search?keywords=bridge-utils'
-  track       = 'https://tracker.debian.org/pkg/bridge-utils'
+  package     = 'debi_pkgs|unstable/bridge-utils'
 
-  commands    = 'sudo apt-get install bridge-utils'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'bridge-utils'

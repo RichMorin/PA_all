@@ -5,7 +5,7 @@
 [ os.arch ]
 
   package     = 'https://www.archlinux.org/groups/x86_64/gnome'
-  wiki        = 'ext_awi|GNOME'
+  wiki        = 'arch_wiki|GNOME'
 
 [ os.debian ]
 

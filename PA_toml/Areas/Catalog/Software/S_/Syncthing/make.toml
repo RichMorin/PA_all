@@ -4,14 +4,14 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|community/x86_64/syncthing'
+  package     = 'arch_pkgs|community/x86_64/syncthing'
   upstream    = 'http://syncthing.net'
-  wiki        = 'ext_awi|syncthing'
+  wiki        = 'arch_wiki|syncthing'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/syncthing'
-  search      = 'ext_pd|search?keywords=syncthing'
+  package     = 'debi_pkgs|unstable/syncthing'
+  search      = 'debi_pkgs|search?keywords=syncthing'
   track       = 'https://tracker.debian.org/pkg/syncthing'
 
   commands    = 'sudo apt-get install syncthing'

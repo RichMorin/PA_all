@@ -11,7 +11,7 @@
     log_dir     = ARGV[0]
 
     fmt_1       = '%-12s  %s'
-    fmt_2       = "%7.1f  %4d\n\n"
+    fmt_2       = "%s  %7.1f  %4d\n\n"
 
     info_pkgs   = {}
     toml_path   = 'add_ons.toml'
@@ -40,11 +40,12 @@
           status      = $?
         end
 
+        date_info   = `date`.strip
         duration    = Time.now() - time_start
 
         log_path    = "#{ log_dir }/#{ name }"
         log_size    = File.readlines(log_path).size()
-        puts fmt_2 % [duration, log_size]
+        puts fmt_2 % [date_info, duration, log_size]
 
         info_pkgs[name] = {
           duration:   duration,

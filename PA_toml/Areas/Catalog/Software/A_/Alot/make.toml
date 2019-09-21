@@ -2,21 +2,15 @@
 
 [ meta ]
 
-[ os ]
-
-
 [ os.arch ]
 
-  package     = 'ext_aop|community/any/alot'
+  package     = 'arch_pkgs|community/any/alot'
   upstream    = 'ext_gh|pazz/alot'
 
 [ os.debian ]
 
-  doc         = 'ext_pd|buster/alot-doc'
-  package     = 'ext_pd|buster/alot'
-  search      = 'ext_pd|search?keywords=alot'
+  package     = 'debi_pkgs|unstable/alot'
 
-  commands    = 'sudo apt-get install alot'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'alot'

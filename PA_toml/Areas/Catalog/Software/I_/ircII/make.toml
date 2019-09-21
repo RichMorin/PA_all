@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|ircii'
+  package     = 'arch_aur|ircii'
   upstream    = 'http://www.eterna.com.au/ircii'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/ircii'
-  search      = 'ext_pd|search?keywords=ircii'
+  package     = 'debi_pkgs|unstable/ircii'
+  search      = 'debi_pkgs|search?keywords=ircii'
   track       = 'https://tracker.debian.org/pkg/ircii'
 
   commands    = 'sudo apt-get install ircii'

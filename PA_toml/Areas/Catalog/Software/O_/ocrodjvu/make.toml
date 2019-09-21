@@ -4,9 +4,9 @@
 
 [ os.arch ]
 
-  package     = 'ext_aop|ocrodjvu'
+  package     = 'arch_pkgs|ocrodjvu'
   upstream    = 'http://jwilk.net/software/ocrodjvu'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/ocrodjvu'
+  package     = 'debi_pkgs|unstable/ocrodjvu'

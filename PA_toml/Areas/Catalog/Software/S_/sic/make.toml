@@ -4,13 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'ext_aur|sic'
+  package     = 'arch_aur|sic'
   upstream    = 'http://tools.suckless.org/sic'
 
 [ os.debian ]
 
-  package     = 'ext_pd|buster/sic'
-  search      = 'ext_pd|search?keywords=sic'
+  package     = 'debi_pkgs|unstable/sic'
+  search      = 'debi_pkgs|search?keywords=sic'
   track       = 'https://tracker.debian.org/pkg/sic'
 
   commands    = 'sudo apt-get install sic'

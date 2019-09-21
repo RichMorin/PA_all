@@ -1,0 +1,16 @@
+# cat_sof|bash_completion/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/any/bash-completion'
+  upstream    = 'https://github.com/scop/bash-completion'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|unstable/bash-completion'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'bash-completion'

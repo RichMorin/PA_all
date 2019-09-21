@@ -1,0 +1,40 @@
+# cat_sof|dialog/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'dialog'
+  title       = 'dialog'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'terminal-based, text-based'
+  licenses    = 'free, LGPL2.1, open source'
+  requires    = 'curses'
+  roles       = 'system software, utility'
+  supports    = 'communication, education'
+
+[ about ]
+
+  precis      = 'displays user-friendly dialog boxes from shell scripts'
+
+  verbose     = '''
+> Though similar in style to CDK, [dialog] is different,
+being a script-interpreter which provides a set of curses widgets.
+Widgets are objects whose appearance and behavior can be customized.
+There is a much-reduced variation of dialog, called lxdialog,
+which is used in Linux kernel configuration.
+
+> -- [$url]{https://invisible-island.net/dialog/dialog.html}
+'''
+
+[ address.related ]
+
+[ address.web_site ]
+
+  main        = 'https://invisible-island.net/dialog/dialog.html'
