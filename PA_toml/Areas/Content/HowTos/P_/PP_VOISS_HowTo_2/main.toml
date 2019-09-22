@@ -1,0 +1,30 @@
+# con_how|PP_VOISS_HowTo_2/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_VOISS_HowTo_2'
+  title       = "Perkian - VOISS HowTo, Part 2"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "how to put together a F123 / VOISS system"
+
+  verbose     = '''
+This is part two of a HowTo for putting together a F123 / VOISS system.
+See [Part 1]{con_how|PP_VOISS_HowTo_1} for background information.
+Again, please let me know about any errors or omissions!
+
+### Assembly
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

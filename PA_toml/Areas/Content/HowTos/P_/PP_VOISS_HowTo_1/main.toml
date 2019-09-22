@@ -1,10 +1,10 @@
-# con_how|PP_Voiss_HowTo_1/main.toml
+# con_how|PP_VOISS_HowTo_1/main.toml
 
 [ meta ]
 
   actions     = 'publish'
-  id_str      = 'PP_Voiss_HowTo_1'
-  title       = "Perkian - Voiss HowTo, Part 1"
+  id_str      = 'PP_VOISS_HowTo_1'
+  title       = "Perkian - VOISS HowTo, Part 1"
 
 [ meta.refs ]
 
@@ -13,18 +13,18 @@
 
 [ about ]
 
-  precis      = "what's included in a F123 / Voiss system"
+  precis      = "what's included in a F123 / VOISS system"
 
   verbose     = '''
-This is part one of a HowTo for putting together a F123 / Voiss system.
+This is part one of a HowTo for putting together a F123 / VOISS system.
 It covers background information, component selection, etc.
 As usual, please let me know about any errors or omissions!
 
-### F123, Voiss, etc.
+### F123, VOISS, etc.
 
 *Note:*
 As of September 2019, the [F123]{cat_gro|F123} folks are in the early stages
-of rebranding themselves as [Voiss]{https://www.voiss.tech/en}.
+of rebranding themselves as [VOISS]{https://www.voiss.tech/en}.
 Although this may cause some confusion, stay calm:
 their basic mission is unchanged.
 In any case, I'll use a mixture of names in this HowTo, as seems appropriate.
@@ -34,20 +34,18 @@ F123 was started by
 [Fernando Botelho]{https://www.ashoka.org/en-US/fellow/fernando-botelho},
 a blind "social entrepreneur" who wants to make accessible and economical
 computers available to the blind and visually impaired.
-He is currently a Semifinalist
-for the 2019 [Holman Prize]{http://holman.lighthouse-sf.org};
-I encourage you to check out his
-[video presentation]{http://holman.lighthouse-sf.org/2019/fernando-botelho}.
+He is an [Ashoka Fellow]{https://www.ashoka.org/en-US/about-ashoka}
+and has received many honors and awards for his work.
 
-Voiss has recently started selling the F123 system as an assembled product.
-However, you may find the [Loja virtual Voiss]{https://store.voiss.tech}
-(i.e., Voiss Online Store) page a bit difficult to read until they put up
+VOISS has recently started selling the F123 system as an assembled product.
+However, you may find the [Loja virtual VOISS]{https://store.voiss.tech}
+(i.e., VOISS Online Store) page a bit difficult to read until they put up
 an English version.
 So, I had Chrome translate the page and then edited the content a bit.
 This is my recasting of its content;
 [YMMV]{https://www.lifewire.com/what-is-ymmv-2483722}:
 
-> The Voiss Classic is a talking computer that is completely adapted for use
+> The VOISS Classic is a talking computer that is completely adapted for use
 by the blind.
 The hardware is basically a collection of readily available components,
 including:
@@ -64,14 +62,14 @@ The modular design allows any component to be replaced without tools,
 allowing a blind user to customize, extend, and maintain the system.
 The system software, based on Arch Linux and other open source packages,
 comprises a full-featured operating system, including:
-a high quality voice synthesizer (Leticia Voiss) and screen reader,
+a high quality voice synthesizer (Leticia VOISS) and screen reader,
 and assorted text-based applications
 (e.g., email software, text editor, web browser).
 
 This is a convenient offering, and I encourage prospective users
 (especially Brazilians and other speakers of Portuguese) to check it out.
 However, this isn't the only way to acquire a running F123 system.
-Indeed, Voiss encourages folks to build their own systems
+Indeed, VOISS encourages folks to build their own systems
 and train others to do so, as well.
 If you can attend (or even help to create!) a local course,
 you'll learn useful things and meet folks with similar interests.
@@ -90,7 +88,7 @@ but clearly you are free to shop elsewhere, find alternatives, etc.
 #### Processor Board
 
 Typically, F123 systems are based on a "full-size" Raspberry Pi model.
-Voiss optimizes for economy and battery life,
+VOISS optimizes for economy and battery life,
 choosing a Raspberry Pi 3 Model B.
 For normal interactive use, the Model 3B or 3B+ should be just fine.
 The reason has to do with the nature of the work being done by the computer.
@@ -344,7 +342,7 @@ Along the way, we'll discuss some ancillary hardware.
 
 ##### Headphones
 
-Voiss provides a lightweight pair of [headphones]{ext_wp|Headphones}
+VOISS provides a lightweight pair of [headphones]{ext_wp|Headphones}
 with an 1/8" (3.5 mm) stereo phone plug.
 Depending on your preferences and usage modes, you may prefer to get
 fancier (e.g., noise cancelling) headphones or a pair of earbuds.
@@ -354,7 +352,7 @@ to get you started.
 
 ##### Keyboard
 
-Voiss provides a full-size, PC-style, USB keyboard,
+VOISS provides a full-size, PC-style, USB keyboard,
 with function keys, a numeric keypad, and so forth.
 This is a great choice for a home or office environment,
 but its weight and bulk may make it awkward for you to carry around.
@@ -403,11 +401,11 @@ So, if one bank runs out of power, you can plug in another.
 
 ##### Satchel
 
-The Voiss satchel looks very convenient for a portable system.
+The VOISS satchel looks very convenient for a portable system.
 It holds all of the components in place, so they won't get unplugged, etc.
 It can be unzipped for use and closed back up when you're done.
 Unfortunately, its design is optimized for the keyboard they chose,
-so Voiss has no current plans to sell it separately.
+so VOISS has no current plans to sell it separately.
 
 Don't despair, however; you probably have something around that will serve.
 I suspect that a small briefcase would work pretty well.
@@ -431,7 +429,7 @@ a lightweight extension cord, so that you can charge up the power bank.
 
 At this point, you should have a good idea of what hardware components
 go into a F123 system, what they are supposed to do, and how to obtain them.
-In [Part 2]{con_how|PP_Voiss_HowTo_2}, we'll put the components together,
+In [Part 2]{con_how|PP_VOISS_HowTo_2}, we'll put the components together,
 load up some software, and (try to) bring up a running system.
 '''
 
