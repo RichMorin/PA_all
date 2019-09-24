@@ -22,12 +22,12 @@ recently introduced some portable computers for the blind.
 These systems are economical, extremely modular,
 and should be both extendable and maintainable by their users.
 I applaud this effort and expect to learn a great deal from it.
-I also hope to integrate current and future VOISS systems into my plans
+I also hope to integrate VOISS systems into my plans
 for [Perkian]{con_ove|PP_Perkian_Intro}
 and [Perkify]{con_ove|PP_Perkify_Intro}.
 
-That said, I'm not sure that the current VOISS hardware offerings
-make the best possible use of the available storage options,
+That said, I'm not sure that their current system design
+makes the best possible use of the available storage options,
 particularly when the expected users are visually impaired.
 Fortunately, it's quite possible for an individual VOISS user
 to make different decisions.
@@ -37,45 +37,53 @@ These decisions may also be relevant to any systems
 ### Background
 
 The current VOISS models are based on the
-[Raspberry Pi]{ext_wp|Raspberry_Pi} (aka RasPi) 3 Model B.
-This is a very popular and relatively compact
+[Raspberry Pi]{ext_wp|Raspberry_Pi} 3 Model B.
+This is an economical, relatively compact, and very popular
 [single-board computer]{ext_wp|Single-board_computer}.
 It has moderate power reqirements,
-supports an amazing number of interfacing options,
+supports a truly amazing number of interfacing options,
 and is supported by a variety of operating systems.
+(VOISS develops and distributes [F123Light]{cat_sof|F123Light_OS},
+a blind-friendly variant of [Arch Linux]{ext_wp|Arch_Linux}.
+
 While writing a [HowTo]{con_how|PP_VOISS_HowTo_1}
-for constructing a VOISS system, I started thinking about data storage.
-In particular, I have some issues with the system's emphasis on the
-[microSD]{ext_wp|SD_card#Micro-cards} card (especially for blind users).
+for constructing a homebrew VOISS system, I started thinking about data storage.
+Eventually, I realized that I have some issues with the system's emphasis
+on the [microSD]{ext_wp|SD_card#Micro-cards} card (especially for blind users).
 This page discusses these issues and some possible ways to address them.
+First, however, we need to review some basic information on data storage.
 
 #### Data Storage
 
 When data isn't being actively used by the processor, it generally resides
 in [persistent]{ext_wp|Persistence_(computer_science)} storage.
-Various types of data get stored on typical personal computers, including:
+That is, storage which doesn't lose its contents when the power is turned off.
+Personal computers need to store various types of data, including:
 
 - the user's data files (e.g., email, images, music)
 - temporary data files for running programs 
 - the base operating system and added software
 - [virtual memory]{ext_wp|Virtual_memory} support (e.g., the "swapfile")
 
-The microSD card is the default storage medium for the RasPi.
+The microSD card is the RasPi's default medium for persistent storage.
 The base operating system is generally loaded (and possibly distributed)
 on this device.
 Typically, all of the other persistent data is stored on it, as well.
 However, data can also be stored on a variety of USB-connected devices.
-The most popular of these is the flash drives (aka thumb drive, USB fob).
-However, there are also magnetic disk drives, solid state drives,
+The most popular of these is the flash drives (aka thumb drive, USB fob),
+but there are many other options.
+For example, there are magnetic disk drives, solid state drives,
 and even adaptors that support microSD cards.
 
-In short, although there are many options for long-term storage,
+Despite the variety of other options,
 the RasPi gives preeminence to the microSD card.
 The reasons for this are historic and pragmatic: aside from the 
 [Compute Module]{https://www.raspberrypi.org/search/compute+module},
-each of the RasPi models has a built-in microSD socket.
-Also, USB storage devices are larger and the number of sockets is limited
+every RasPi model has had a built-in microSD socket.
+Also, even the smallest USB storage devices are larger than microSD cards
+and the number of USB sockets is limited
 (none on the Compute Module, one on the Pi Zero, and four on the others).
+
 So, why not stick with the microSD card,
 given that it's the default, historic, and pragmatic approach?
 I'm delighted that you asked; read on...
@@ -83,24 +91,36 @@ I'm delighted that you asked; read on...
 #### The microSD Card
 
 The microSD card is an amazing triumph of technology.
-About the size of a fingernail, the current generation of cards
-can store up to 1 TB of data (e.g., images, music, software, videos).
-This is far more than most users will ever need,
-so they can pick a size that meets their budget and expected needs.
+To begin with, it's bout the size of a fingernail
+(small enough to be used in a cell phone).
+Today's microSD cards can store up to 1 TB of data
+(e.g., images, music, software, videos);
+future cards will no doubt hold even more.
 
+This is far more than most VOISS users will ever need,
+so they can pick a supported size that meets their budget and expected needs.
 However, if you're planning to add much data or software,
 get more storage capacity than you think you'll need.
-Basically, dealing with microSD cards is a real hassle,
+Basically, dealing with microSD cards isn't a lot of fun,
 so you won't want to do so very often, if at all.
 
-To begin with, the microSD slot is located on the underside of the RasPi.
-In the VOISS Classic, this means that you have to remove the RasPi enclosure
-from the satchel, deal with the card, and then put everything back in place.
-Things could get a lot worse if you've mounted the enclosure somewhere... 
+Although the VOISS Classic is very modular
+and designed to be maintainable by a blind user,
+installing or replacing the microSD card is still a hassle.
+(Things could get a lot worse if you've put together your own system
+and mounted the enclosure in some inaccessible manner.)
+
+Unlike all of the other connectors on the RasPi,
+the microSD socket is located on the bottom of the board.
+So, you have to remove the RasPi enclosure from the satchel,
+locate the socket, deal with the card, and then put everything
+(includng any other connections you may have dislodged) back in place.
 
 More generally, just handling a microSD card can be a real challenge.
-Even for a sighted and reasonably dextrous geezers such as me, it's a hassle.
-Having a card slip out of your fingers and fall on the floor
+Even for a sighted and reasonably dextrous computer nerd such as me,
+it's not a walk in the park.
+The card is tiny and has to be oriented and inserted just right.
+Having it slip out of your fingers and fall on the floor
 could be anything from a nuisance to a disaster,
 depending on its contents, your luck, and your capabilities.
 
@@ -140,24 +160,36 @@ This would seem to be the case for the VOISS,
 which is intended as an economical, portable system
 for users with moderate computing needs.
 
-In sharp contrast to the microSD card, the flash drive is _designed_
-to be handled by humans.
-Even the smallest flash drives tend to have a convenient hole
-for attaching a form of identification.
-A paperboard tag, for example, can be written on, labeled in braille,
-or physically modified (e.g, notched, punched).
+In sharp contrast to the microSD card,
+USB flash drives are _designed_ to be handled by "the rest of us".
+Their "Type A" connectors are bigger than an entire microSD card.
+It's impossible plug them in incorrectly
+and easy to tell whether they are fully inserted.
+Better yet, even the smallest flash drives tend to have
+a convenient hole for attaching some form of identification.
+I like to use cardstock tags with reinforced eyelets.
+These can be written on, labeled in braille, or modified
+(e.g, notched, punched) for tactile identification.
 
-Also, because every full-size RasPi has four USB slots
-(and USB hubs are readily available to increase this number),
-copying files from one flash drive to another is easy.
-So, what can we do with this technology?
+Every full-size RasPi has four USB slots, laid out in a 2x2 array.
+The spacing is pretty tight, so I was unable to plug in
+two very small USB flash drives as a horizontal pair.
+However, I was able to plug them in as a vertical pair.
+In any case, it's quite possible to purchase 1' long USB extension cables.
+[This one]{https://www.ebay.com/itm/113729331489} is only $0.75! 
+In addition, USB hubs are inexpensive and readily available.
+
+OK, so much for the sales pitch;
+how can we use this technology to minimize contact
+with the dreaded microSD card?
 
 ### Options
 
-Really, there are two main options.
-In one, we use the microSD card for the operating system files,
+Although there are more complicated options,
+I'll concentrate on two simple ones below.
+In the first, we use the microSD card for the operating system files,
 but store all of the user's data on the flash drive.
-In the other, we store *everything* on flash drives.
+In the second, we store *everything* on flash drives.
 
 #### Option One
 
@@ -209,8 +241,8 @@ as well as for some background information. ...
 but the Raspberry Pi 3A and 3B require the USB boot bit to be set in the OTP
 (one-time programmable) memory. ...
 
-So, I plan to get a RasPi 3B+ and some of the recommended flash drives,
-load up a copy of an operating system image, and try it out.
+So, I've ordered a RasPi 3B+ kit and some of the recommended flash drives.
+I plan to load up a copy of an operating system image and try it out.
 Stay tuned...
 '''
 
