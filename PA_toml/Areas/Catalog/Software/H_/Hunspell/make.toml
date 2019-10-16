@@ -1,0 +1,16 @@
+# cat_sof|httptunnel/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/httptunnel'
+  upstream    = 'ext_gh|larsbrinkhoff/httptunnel'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/httptunnel'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'httptunnel'

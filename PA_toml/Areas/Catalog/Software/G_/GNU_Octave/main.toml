@@ -1,0 +1,50 @@
+# cat_sof|GNU_Octave/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_Octave'
+  title       = 'GNU Octave'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application, math program, programming language'
+
+[ about ]
+
+  precis      = 'a high-level language for numerical computations'
+
+  verbose     = '''
+> GNU Octave is a high-level language,
+primarily intended for numerical computations.
+It provides a convenient command line interface
+for solving linear and nonlinear problems numerically,
+and for performing other numerical experiments
+using a language that is mostly compatible with Matlab.
+It may also be used as a batch-oriented language.
+
+> Octave has extensive tools
+for solving common numerical linear algebra problems,
+finding the roots of nonlinear equations, integrating ordinary functions,
+manipulating polynomials, and integrating ordinary differential
+and differential-algebraic equations.
+It is easily extensible and customizable
+via user-defined functions written in Octave’s own language,
+or using dynamically loaded modules
+written in C++, C, Fortran, or other languages.
+
+> -- [$url]{ext_gs|octave/about.html}
+'''
+
+[ address.web_site ]
+
+  about       = 'main|/about.html'
+  main        = 'ext_gs|octave'

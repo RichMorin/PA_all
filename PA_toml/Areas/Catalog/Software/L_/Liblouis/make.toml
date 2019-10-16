@@ -9,11 +9,11 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/liblouis-data'
-  search      = 'debi_pkgs|search?keywords=liblouis-data'
-  track       = 'https://tracker.debian.org/pkg/liblouis-data'
+  package     = '''
+debi_pkgs|buster/liblouis-bin,
+debi_pkgs|buster/liblouis-data,
+'''
 
-  commands    = 'sudo apt-get install liblouis-data'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'liblouis-bin, liblouis-data'

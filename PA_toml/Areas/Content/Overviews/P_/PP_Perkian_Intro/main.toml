@@ -171,14 +171,7 @@ Some are aimed at conventional (i.e., Intel-based) personal computers;
 others concentrate on economical (e.g., ARM-based) single-board computers.
 In general, these systems are based on a popular Linux distribution
 such as [Arch]{ext_wp|Arch_Linux} or [Debian]{ext_wp|Debian}.
-Here are the ones I know about (more suggestions welcome!):
-
-- [F123Light OS   ]{cat_sof|F123Light_OS}
-- [Knoppix        ]{cat_sof|Knoppix}
-- [Raspberry VI   ]{cat_sof|Raspberry_VI}
-- [Slint          ]{http://slint.fr/wiki/en/start}
-- [TalkingArch    ]{cat_sof|TalkingArch}
-- [Vinux          ]{cat_sof|Vinux}
+For more information, see the [Related Work]{con_ove|PP_Perkian_Related} page.
 
 ### Status
 

@@ -4,7 +4,7 @@
 
   actions     = 'build, publish'
   id_str      = 'OpenMAX'
-  title       = 'OpenMAX (aka OMX)'
+  title       = 'OpenMAX (OMX)'
 
 [ meta.refs ]
 

@@ -1,0 +1,57 @@
+# cat_sof|Grml/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Grml'
+  title       = 'Grml'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'screen reader, speech generation'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, GPLv3, open source'
+  roles       = 'operating system'
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'a blind-friendly live Linux distribution'
+
+  verbose     = '''
+> Grml provides an excellent selection of software packages for installation,
+deployment, and system rescue.
+You'll get sysadmin's favourite tools.
+Choose between a x86 and an amd64 version depending on your needs
+or just grab the multiboot ISO grml96,
+providing 64bit and 32bit ISOs in one single place.
+
+Grml provides several scripts and utils which make life easier.
+The default interactive shell is Zsh
+and is configured with a very powerful setup,
+including a nifty completion mechanism.
+grml-x is a wrapper for configuring and using the X window system.
+grml2usb is a tool for installing Grml ISO(s) on a USB device for booting.
+grml-crypt is a program that provides an easy wrapper
+around cryptsetup, mkfs, losetup, and mount.
+grml-live is a build framework based on FAI (Fully Automatic Installation)
+for generating a Grml and Debian based Linux Live system (CD/ISO).
+grml-tips provides useful tips and tricks for daily life on the command line.
+
+> -- [$url]{http://grml.org/features}
+'''
+
+[ address.related ]
+
+  zoo         = 'https://wiki.debian.org/Derivatives/Census/Grml'
+
+[ address.web_site ]
+
+  about       = 'main|/features'
+  main        = 'http://grml.org'

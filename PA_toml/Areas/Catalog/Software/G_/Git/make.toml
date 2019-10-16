@@ -1,0 +1,16 @@
+# cat_sof|Git/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/git'
+  upstream    = 'https://git-scm.com'
+
+[ os.debian ]
+
+  package     = 'debian_pkgs|buster/git'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'git'

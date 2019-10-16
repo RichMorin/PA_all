@@ -1,10 +1,10 @@
-# con_ove|PP_Perkian_Storage/main.toml
+# con_ove|PP_VOISS_Storage/main.toml
 
 [ meta ]
 
   actions     = 'publish'
-  id_str      = 'PP_Perkian_Storage'
-  title       = "Perkian - Storage"
+  id_str      = 'PP_VOISS_Storage'
+  title       = "VOISS - Storage"
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "thoughts on long-term storage for Perkian systems"
+  precis      = "thoughts on long-term storage for VOISS systems"
 
   verbose     = '''
 The [F123]{cat_gro|F123} folks
@@ -37,7 +37,7 @@ These decisions may also be relevant to any systems
 ### Background
 
 The current VOISS models are based on the
-[Raspberry Pi]{ext_wp|Raspberry_Pi} 3 Model B.
+[Raspberry Pi]{ext_wp|Raspberry_Pi} 3 Model B (aka 3B+).
 This is an economical, relatively compact, and very popular
 [single-board computer]{ext_wp|Single-board_computer}.
 It has moderate power reqirements,
@@ -46,7 +46,7 @@ and is supported by a variety of operating systems.
 (VOISS develops and distributes [F123Light]{cat_sof|F123Light_OS},
 a blind-friendly variant of [Arch Linux]{ext_wp|Arch_Linux}.
 
-While writing a [HowTo]{con_how|PP_VOISS_HowTo_1}
+While writing a [HowTo]{con_how|PP_VOISS_HowTo}
 for constructing a homebrew VOISS system, I started thinking about data storage.
 Eventually, I realized that I have some issues with the system's emphasis
 on the [microSD]{ext_wp|SD_card#Micro-cards} card (especially for blind users).
@@ -91,7 +91,7 @@ I'm delighted that you asked; read on...
 #### The microSD Card
 
 The microSD card is an amazing triumph of technology.
-To begin with, it's bout the size of a fingernail
+To begin with, it's about the size of a fingernail
 (small enough to be used in a cell phone).
 Today's microSD cards can store up to 1 TB of data
 (e.g., images, music, software, videos);
@@ -110,9 +110,9 @@ installing or replacing the microSD card is still a hassle.
 (Things could get a lot worse if you've put together your own system
 and mounted the enclosure in some inaccessible manner.)
 
-Unlike all of the other connectors on the RasPi,
+Unlike all of the other connectors on the 3B+,
 the microSD socket is located on the bottom of the board.
-So, you have to remove the RasPi enclosure from the satchel,
+So, you have to remove the enclosure from the satchel,
 locate the socket, deal with the card, and then put everything
 (includng any other connections you may have dislodged) back in place.
 
@@ -127,8 +127,8 @@ depending on its contents, your luck, and your capabilities.
 Another issue has to do with labeling.
 There isn't much room to write on a microSD card;
 even using a sharp pencil or fine-point pen,
-all I can fit on a card is a short ID code.
-There might be enough room for a braille cell or two,
+all I can fit on a card is a two-character ID code.
+There might be enough room for one braille cell,
 but labeling tape (even without the raised dots)
 would prevent the card from being inserted into the socket.
 Nor is there any practical (let alone convenient) way to attach a tag.
@@ -237,13 +237,24 @@ pi-3-booting-part-i-usb-mass-storage-boot} from Gordon Hollingworth
 for an explanation of why some USB mass storage devices don't work,
 as well as for some background information. ...
 
-> The Raspberry Pi 3A+ and 3B+ are able to boot from USB without any changes,
-but the Raspberry Pi 3A and 3B require the USB boot bit to be set in the OTP
-(one-time programmable) memory. ...
+> The Raspberry Pi 3A+ and 3B+ are able to boot from USB without any changes ...
 
-So, I've ordered a RasPi 3B+ kit and some of the recommended flash drives.
-I plan to load up a copy of an operating system image and try it out.
-Stay tuned...
+Following up on this lead, I did a bunch of reading and experimentation.
+As a result, I have been able to boot a copy of Raspbian on a 3B+,
+using [balenaEtcher]{https://www.balena.io/etcher}
+and some of the recommended flash drives.
+For details, see the [VOISS - Booting]{con_ove|PP_VOISS_Booting} page.
+
+##### Bootable Devices
+
+Some USB flash drives do not support use as a RasPi boot device,
+possibly because they take too long to power up.
+I couldn't find an up-to-date list of bootable devices,
+so I started the [RPi USB booting]{https://elinux.org/RPi_USB_booting} page
+on the [Embedded Linux Wiki]{https://elinux.org/Main_Page}.
+Please report any additional working devices!
+(If signing up in order to edit the wiki page is too much work,
+feel free to email errors or omissions to me.)
 '''
 
 [ zoo ]

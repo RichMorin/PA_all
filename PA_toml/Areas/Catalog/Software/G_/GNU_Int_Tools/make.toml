@@ -1,0 +1,16 @@
+# cat_sof|GNU_Int_Tools/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|gnuit'
+  upstream    = 'ext_gs|gnuit'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/gnuit'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'gnuit'

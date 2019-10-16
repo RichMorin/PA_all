@@ -1,0 +1,49 @@
+# cat_sof|GNU_a2ps/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_a2ps'
+  title       = 'GNU a2ps'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application, document processor'
+  standards   = 'DVI, groff, PostScript, TeX'
+  supports    = 'documentation'
+
+[ about ]
+
+  precis      = 'an Any to PostScript filter'
+
+  verbose     = '''
+> GNU a2ps is an Any to PostScript filter.
+Of course it processes plain text files,
+but [it] also pretty prints quite a few popular languages.
+Its slogan is precisely "Do The Right Thing",
+which means that though it is highly configurable,
+everything was made so that a novice user
+can do complicated PostScript manipulations.
+For instance, it has the ability to delegate the processing of some files
+to other filters (such as groff, texi2dvi, dvips, gzip, etc.),
+[which] allows a uniform treatment (n-up, page selection, duplex etc.)
+of heterogeneous files.
+
+> -- [$url]{https://savannah.gnu.org/projects/a2ps}
+'''
+
+[ address.related ]
+
+  zoo         = 'https://savannah.gnu.org/projects/a2ps'
+
+[ address.web_site ]
+
+  main        = 'ext_gs|a2ps'

@@ -1,0 +1,42 @@
+# cat_sof|GIMP/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GIMP'
+  title       = 'GIMP'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'command line, GUI'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'image editor'
+
+[ about ]
+
+  precis      = 'a program for calculating and printing calendars'
+
+  verbose     = '''
+> GIMP is an advanced picture editor.
+You can use it to edit, enhance, and retouch photos and scans, create drawings,
+and make your own images.
+It has a large collection of professional-level editing tools and filters,
+similar to the ones you might find in Photoshop.
+Numerous fine-control settings and features like layers, paths, masks,
+and scripting give you total control over your images.
+
+> Many image file formats are supported, including JPEG, Photoshop (.psd),
+and Paint Shop Pro (.psp) files.
+It can also be used to scan and print photos.
+
+> -- [$url]{https://packages.debian.org/buster/gimp}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://www.gimp.org'

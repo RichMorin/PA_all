@@ -10,12 +10,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/screen'
-  search      = 'debi_pkgs|search?keywords=screen'
-  track       = 'https://tracker.debian.org/pkg/screen'
-  wiki        = 'https://wiki.debian.org/screen'
+  package     = 'debi_pkgs|buster/screen'
 
-  commands    = 'sudo apt-get install screen'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'screen'

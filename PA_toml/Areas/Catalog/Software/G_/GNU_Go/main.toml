@@ -1,0 +1,38 @@
+# cat_sof|GNU_Go/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_Go'
+  title       = 'GNU Go'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application, game'
+
+[ about ]
+
+  precis      = 'a go-playing program'
+
+  verbose     = '''
+> GNU Go is a free program that plays the game of Go.
+GNU Go has played thousands of games on the NNGS Go server.
+GNU Go is now also playing regularly on the Legend Go Server in Taiwan,
+on the WING server in Japan, and many volunteers run GNU Go clients on KGS.
+GNU Go has established itself as the leading non-commercial go program
+in the recent tournaments that it has taken part in.
+
+> -- [$url]{ext_gs|gnugo}
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gs|gnugo'

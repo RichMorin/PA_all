@@ -1,0 +1,16 @@
+# cat_sof|GNU_a2ps/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/a2ps/'
+  upstream    = 'ext_gs|a2ps'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|unstable/bc'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'a2ps'

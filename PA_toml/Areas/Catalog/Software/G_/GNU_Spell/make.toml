@@ -1,0 +1,13 @@
+# cat_sof|GNU_Spell/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/spell'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'spell'

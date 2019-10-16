@@ -1,0 +1,16 @@
+# cat_sof|GNU_plotutils/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/plotutils'
+  upstream    = 'ext_gs|plotutils'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/plotutils'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'plotutils'

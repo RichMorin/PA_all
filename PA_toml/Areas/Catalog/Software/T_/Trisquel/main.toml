@@ -1,0 +1,41 @@
+# cat_sof|Trisquel/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Trisquel'
+  title       = 'Trisquel'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'screen reader, speech generation'
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, GPLv3, open source'
+  roles       = 'operating system'
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'a blind-friendly Linux distribution'
+
+  verbose     = '''
+> Trisquel is a fully free operating system based on GNU/Linux.
+Trisquel is derived from Ubuntu, but only includes free software.
+It's free in the freedom sense.
+Users may run, copy, distribute, study, change and improve Trisquel
+(or any part of it).
+These freedoms support users' autonomy and civil liberties.
+
+> -- [$url]{https://trisquel.info/en/wiki/about-trisquel}
+'''
+
+[ address.web_site ]
+
+  about       = 'main|/wiki/about-trisquel'
+  main        = 'https://trisquel.info/en'

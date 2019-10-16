@@ -1,4 +1,4 @@
-# cat_sof|JOE/make.toml
+# cat_sof|Jupyter/make.toml
 
 [ meta ]
 
@@ -10,5 +10,9 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/jupyter-notebook'
+  package     = 'debi_pkgs|buster/jupyter-notebook'
   wiki        = 'https://wiki.debian.org/Jupyter'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'jupyter-notebook'

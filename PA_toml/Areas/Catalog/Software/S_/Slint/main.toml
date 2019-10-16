@@ -37,6 +37,10 @@ and can be tailored to fit most computing requirements.
 > -- [$url]{http://slint.fr/wiki/en/start}
 '''
 
+[ address.related ]
+
+  zoo         = 'ext_wp|Salix_OS, ext_wp|Slackware_OS'
+
 [ address.web_site ]
 
   main        = 'http://slint.fr/wiki/en/start'

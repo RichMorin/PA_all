@@ -17,7 +17,7 @@
   impairments = 'blindness, low vision'
   interfaces  = 'command line, terminal-based, text-based'
   licenses    = 'free, GNU GPL, open source'
-  roles       = 'terminal multiplexer, utility'
+  roles       = 'terminal multiplexer, utility, window manager'
   supports    = 'communication'
 
 [ about ]

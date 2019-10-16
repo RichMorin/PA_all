@@ -1,0 +1,43 @@
+# cat_sof|GNU_Chess/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_Chess'
+  title       = 'GNU Chess'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, GUI, terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application, game'
+
+[ about ]
+
+  precis      = 'a chess-playing program'
+
+  verbose     = '''
+> GNU Chess is a chess-playing program.
+It can be used to play chess against the computer on a terminal or,
+more commonly, as a chess engine for graphical chess frontends such as XBoard.
+
+> -- [$url]{ext_gs|gnuchess}
+
+> Gnuchess is an updated version of the GNU chess playing program.
+It is now based on the fruit chess engine
+and uses the UCI chess engine protocol.
+It has a simple alpha-numeric board display,
+and is also compatible with frontends like xboard, scid, and eboard.
+
+> -- [$url]{debi_pkgs|buster/gnuchess}
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gs|gnuchess'

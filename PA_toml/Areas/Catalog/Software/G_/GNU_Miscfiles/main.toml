@@ -1,0 +1,37 @@
+# cat_sof|GNU_Miscfiles/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_Miscfiles'
+  title       = 'GNU Miscfiles'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'file system'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'data set, reference'
+
+[ about ]
+
+  precis      = 'a set of miscellaneous reference files'
+
+  verbose     = '''
+> [The GNU Miscfiles package] is a collection of files
+not of crucial importance for system administration or operation,
+but which have come to be common on various systems over the years.
+It includes data files for country codes, airport codes, currency information,
+and so on.
+
+> -- [$url]{ext_gs|miscfiles}
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gs|miscfiles'

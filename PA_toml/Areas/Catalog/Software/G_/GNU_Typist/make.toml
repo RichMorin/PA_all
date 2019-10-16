@@ -1,0 +1,16 @@
+# cat_sof|GNU_Typist/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|gtypist'
+  upstream    = 'ext_gs|gtypist/gtypist.html'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/gtypist'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'gtypist'

@@ -9,11 +9,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/ircii'
-  search      = 'debi_pkgs|search?keywords=ircii'
-  track       = 'https://tracker.debian.org/pkg/ircii'
+  package     = 'debi_pkgs|buster/ircii'
 
-  commands    = 'sudo apt-get install ircii'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'ircii'

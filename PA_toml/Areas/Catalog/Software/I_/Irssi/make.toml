@@ -10,12 +10,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/irssi'
-  search      = 'debi_pkgs|search?keywords=irssi'
-  track       = 'https://tracker.debian.org/pkg/irssi'
-  wiki        = 'https://wiki.debian.org/irssi'
+  package     = 'debi_pkgs|buster/irssi'
 
-  commands    = 'sudo apt-get install irssi'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'irssi'

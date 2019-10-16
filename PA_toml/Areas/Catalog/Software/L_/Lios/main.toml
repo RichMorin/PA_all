@@ -1,0 +1,42 @@
+# cat_sof|Lios/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Lios'
+  title       = 'Lios'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'GUI, text'
+  licenses    = 'free, GPL, open source'
+  roles       = 'application, OCR utility'
+  standards   = 'PDF'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'an intelligent OCR solution for Linux'
+
+  verbose     = '''
+> Lios is free and open source software for converting print into text
+using either a scanner or a camera.
+It can also produce text out of scanned images from other sources
+such as PDF, Image, Folder containing Images, or screenshot.
+Program is given total accessibility for visually impaired.
+A Tesseract Trainer GUI is also shipped with this package.
+
+
+
+> -- [$url]{http://www.linphone.org}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://sourceforge.net/projects/lios'

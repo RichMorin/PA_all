@@ -1,0 +1,40 @@
+# cat_sof|httptunnel/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'httptunnel'
+  title       = 'httptunnel'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  roles       = 'utility'
+  standards   = 'HTTP, TCP/IP'
+
+[ about ]
+
+  precis      = 'creates a data path tunnelled in HTTP requests'
+
+  verbose     = '''
+> httptunnel creates a bidirectional virtual data path
+tunnelled in HTTP requests.
+The requests can be sent via an HTTP proxy if so desired.
+
+> This can be useful for users behind restrictive firewalls.
+If WWW access is allowed through an HTTP proxy,
+it's possible to use httptunnel and, say, telnet or PPP
+to connect to a computer outside the firewall.
+
+> -- [$url]{ext_gh|larsbrinkhoff/httptunnel}
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gh|larsbrinkhoff/httptunnel'

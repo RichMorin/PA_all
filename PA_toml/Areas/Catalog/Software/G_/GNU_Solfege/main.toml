@@ -1,0 +1,51 @@
+# cat_sof|GNU_Solfege/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_Solfege'
+  title       = 'GNU Solfege'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'audio, command line, terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application, ear train'
+  supports    = 'education, music'
+
+[ about ]
+
+  precis      = 'music education and ear training software'
+
+  verbose     = '''
+> When you study music on high school, college, music conservatory,
+you usually have to do ear training.
+Some of the exercises, like sight singing, are easy to do alone.
+But often you have to be at least two people, one making questions,
+the other answering.
+
+> This is ok, as long as both have time to do it.
+And if you sit in your room, practicing your instrument many hours a day,
+it can be nice to see other people :-).
+But my experience when I got my education, was that most people were very busy
+and that it was difficult to practise regularly.
+And to get really good results, you should practise a little almost every day.
+Not just a session before your next ear training lesson.
+
+> GNU Solfege tries to help out with this.
+With Solfege you can practise the more simple and mechanical exercises
+without the need to get others to help you.
+Just don't forget that this program only touches a part of the subject.
+
+> -- [$url]{ext_gs|solfege}
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gs|solfege'

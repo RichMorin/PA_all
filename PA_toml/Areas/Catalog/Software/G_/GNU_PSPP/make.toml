@@ -1,0 +1,16 @@
+# cat_sof|GNU_PSPP/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|pspp'
+  upstream    = 'ext_gs|pspp'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/pspp'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'pspp'

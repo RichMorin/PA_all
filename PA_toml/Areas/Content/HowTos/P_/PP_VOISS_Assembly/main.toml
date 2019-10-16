@@ -1,10 +1,10 @@
-# con_how|PP_VOISS_HowTo_2/main.toml
+# con_how|PP_VOISS_Assembly/main.toml
 
 [ meta ]
 
   actions     = 'publish'
-  id_str      = 'PP_VOISS_HowTo_2'
-  title       = "Perkian - VOISS HowTo, Part 2"
+  id_str      = 'PP_VOISS_Assembly'
+  title       = "VOISS - Assembly"
 
 [ meta.refs ]
 
@@ -17,10 +17,8 @@
 
   verbose     = '''
 This is part two of a HowTo for putting together a F123 / VOISS system.
-See [Part 1]{con_how|PP_VOISS_HowTo_1} for background information.
+See [VOISS - Components]{con_how|PP_VOISS_Components} for background information.
 Again, please let me know about any errors or omissions!
-
-### Assembly
 
 To be continued...
 '''

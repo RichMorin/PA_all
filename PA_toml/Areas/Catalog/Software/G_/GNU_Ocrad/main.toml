@@ -1,0 +1,43 @@
+# cat_sof|GNU_Ocrad/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_Ocrad'
+  title       = 'GNU Ocrad'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application, OCR program'
+  standards   = 'pbm, pgm, ppm, UTF-8'
+
+[ about ]
+
+  precis      = 'an OCR (Optical Character Recognition) program'
+
+  verbose     = '''
+> GNU Ocrad is an OCR (Optical Character Recognition) program
+based on a feature extraction method.
+It reads images in pbm (bitmap), pgm (greyscale) or ppm (color) formats
+and produces text in byte (8-bit) or UTF-8 formats.
+
+> Also includes a layout analyser able to separate the columns
+or blocks of text normally found on printed pages.
+
+> Ocrad can be used as a stand-alone console application
+or as a backend to other programs.
+
+> -- [$url]{ext_gs|ocrad/ocrad.html}
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gs|ocrad/ocrad.html'

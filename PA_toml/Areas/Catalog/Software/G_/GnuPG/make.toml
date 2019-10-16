@@ -1,0 +1,16 @@
+# cat_sof|GnuPG/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/gnupg'
+  upstream    = 'https://www.gnupg.org'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/gnupg'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'gnupg'

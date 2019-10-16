@@ -5,7 +5,7 @@
 [ os.arch ]
 
   package     = 'arch_pkgs|community/any/emacs-muse'
-  upstream    = 'https://www.gnu.org/software/emacs-muse/index.html'
+  upstream    = 'ext_gs|emacs-muse/index.html'
 
 [ os.debian ]
 

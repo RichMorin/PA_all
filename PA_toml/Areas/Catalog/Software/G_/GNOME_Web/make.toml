@@ -1,4 +1,4 @@
-# cat_sof|GNOME/make.toml
+# cat_sof|GNOME_Web/make.toml
 
 [ meta ]
 
@@ -11,3 +11,7 @@
 [ os.debian ]
 
   package     = 'debi_pkgs|unstable/epiphany'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'epiphany'

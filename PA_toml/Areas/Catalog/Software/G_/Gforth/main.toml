@@ -1,0 +1,44 @@
+# cat_sof|Gforth/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Gforth'
+  title       = 'Gforth'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'command line'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'programming language'
+
+[ about ]
+
+  precis      = 'a program for calculating and printing calendars'
+
+  verbose     = '''
+> This is the GNU'ish implementation of a Forth programming environment.
+
+> Forth, as a language, is best known for being stack-based
+and completely extensible.
+Each Forth environment provides one or more dictionaries of pre-defined words,
+and programming in Forth consists of defining and executing new words
+that are combinations of previously defined words.
+It has been said that learning Forth changes forever
+the way you think about writing programs.
+
+> -- [$url]{https://packages.debian.org/buster/gforth}
+'''
+
+[ address.related ]
+
+  zoo    = 'http://www.complang.tuwien.ac.at/forth/gforth/Docs-html/Goals.html'
+
+[ address.web_site ]
+
+  main        = 'http://www.gnu.org/software/gforth'

@@ -1,0 +1,16 @@
+# cat_sof|Gcal/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|gcal'
+  upstream    = 'http://www.gnu.org/software/gcal'
+
+[ os.debian ]
+
+  package     = 'debian_pkgs|buster/gcal'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'gcal'

@@ -1,0 +1,16 @@
+# cat_sof|GNU_Solfege/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/solfege'
+  upstream    = 'ext_gs|solfege'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/solfege'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'solfege'

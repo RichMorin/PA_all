@@ -1,0 +1,36 @@
+# cat_sof|Git/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Git'
+  title       = 'Git'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'command line'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'revision control system'
+
+[ about ]
+
+  precis      = 'fast, scalable, distributed revision control system'
+
+  verbose     = '''
+> Git is a free and open source distributed version control system
+designed to handle everything from small to very large projects
+with speed and efficiency.
+
+> Git is easy to learn and has a tiny footprint with lightning fast performance. It outclasses SCM tools like Subversion, CVS, Perforce, and ClearCase with features like cheap local branching, convenient staging areas, and multiple workflows.
+
+> -- [$url]{https://packages.debian.org/buster/git}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://git-scm.com'

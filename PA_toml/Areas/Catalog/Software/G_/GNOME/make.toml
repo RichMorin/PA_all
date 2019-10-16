@@ -9,8 +9,10 @@
 
 [ os.debian ]
 
-  package     = 'https://packages.debian.org/buster/gnome'
+  package     = 'debian_pkgs|buster/gnome'
   wiki        = 'https://wiki.debian.org/Gnome'
   # Debian Stretch includes GNOME 3.22.
 
+[ os.perkify_ubuntu ]
 
+  add_apt     = 'gnome'

@@ -29,11 +29,12 @@
 
   verbose     = '''
 > HighLine was designed to ease the tedious tasks of doing console input
-and output with low-level methods like gets and puts.  HighLine provides
-a robust system for requesting data from a user, without needing to code
-all the error checking and validation rules and without needing to convert
-the typed strings into what your program really needs.  Just tell HighLine
-what you're after, and let it do all the work.
+and output with low-level methods like gets and puts.
+HighLine provides a robust system for requesting data from a user,
+without needing to code all the error checking and validation rules
+and without needing to convert the typed strings
+into what your program really needs.
+Just tell HighLine what you're after, and let it do all the work.
 
 > -- [$url]{ext_gh|JEG2/highline}
 '''
@@ -46,4 +47,4 @@ what you're after, and let it do all the work.
 
 [ address.web_site ]
 
-  main        = 'https://weechat.org'
+  main        = 'http://www.rubydoc.info/github/JEG2/highline'

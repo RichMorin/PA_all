@@ -1,0 +1,62 @@
+# cat_sof|GNU_plotutils/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_plotutils'
+  title       = 'GNU plotutils'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'C/C++, command line'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application, library, plotting utility'
+  standards   = 'PNG, PostScript, SVG'
+
+[ about ]
+
+  precis      = 'a vector graphics plotting library and utility'
+
+  verbose     = '''
+> The GNU plotutils package contains software
+for both programmers and technical users.
+Its centerpiece is libplot, a powerful C/C++ function library
+for exporting 2-D vector graphics in many file formats, both vector and bitmap.
+On the X Window System, it can also do 2-D vector graphics animations.
+
+> libplot is device-independent, in the sense that its API (application
+programming interface) does not depend on the type of graphics file to be
+exported.
+A PostScript-like API is used both for file export and for graphics animations.
+A libplot programmer needs to learn only one API:
+not the details of many graphics file formats.
+
+> The package also contains command-line programs for plotting scientific data,
+such as GNU graph for XY plotting.
+Many of them use libplot to export graphics.
+So, they can export graphics in any of libplot's supported formats, such as
+
+> - SVG (Scalable Vector Graphics format),
+the XML-based format for Web graphics,
+which is standardized by the W3 Consortium.
+
+> - PNG, the open format for bitmap graphics.
+(Whenever a bitmap output format is being generated,
+libplot converts PostScript-style paths to bitmaps.)
+
+> - The format used by the free xfig drawing editor.
+(Edit a 2-D drawing with a mouse, after generating it programmatically!)
+PostScript itself.
+
+> -- [$url]{ext_gs|plotutils}
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gs|plotutils'

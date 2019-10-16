@@ -1,0 +1,182 @@
+# con_ove|PP_Perkify_Packaging/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_Perkify_Packaging'
+  title       = "Perkify - Packaging"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "overview of Perkify's approach to packaging"
+
+  verbose     = '''
+This page is an overview of Perkify's approach to packaging
+(i.e., selecting and integrating software packages).
+
+### Motivation
+
+[Perkify]{con_ove|PP_Perkify_Intro} is supposed to be a "turnkey" collection
+of popular [open source]{ext_wp|Open_source} software packages.
+Blind, sighted, and visually impaired users should all be able
+to install and use the [virtual machine]{ext_wp|Virtual_machine}.
+The packages it contains should "Just Work",
+without requiring extra configuration for common use cases.
+
+In addition, the collection is supposed to be convenient and very substantial:
+"a well-furnished workbench, just down the hall".
+Although it can't contain every possible package,
+it should have pretty much everything a typical user might want.
+And a pony...
+
+### Constraints
+
+Although download speeds and data storage capacities continue to increase,
+there are still some practical limits on the size of a software distribution.
+For example, I can buy a [128 GB Samsung]{https://www.amazon.com/dp/B07D7PDLXC}
+[flash drive]{ext_wp|USB_flash_drive} for about $26, including shipping.
+So, storing 10 GB of software would cost me about two dollars.
+That seems pretty reasonable,
+but 500 GB ($100) might be too much for my budget.
+
+Download speeds and volume limits can also be an issue.
+If the [download]{ext_wp|Download} speed is 20 Mbps,
+5 GB (40 Gb) of image data will take about 34 minutes (2000 seconds).
+And, if your Internet Service Provider ([ISP]{ext_wp|Internet_service_provider})
+imposes a volume-based cap or surcharge, downloading a large image could fail
+or cost an unexpected amount of money.
+
+Inter-package conflicts can also get in the way.
+For example, one package might need an older version of a library
+than another is able to use.
+Variations on this scenario are commonly referred to
+as [dependency hell]{ext_wp|Dependency_hell}.
+
+### Discussion
+
+If downloading and data storage constraints were of no consequence,
+and no inter-package conflicts existed,
+Perkify could include every available package.
+However, because these constraints and conflicts do exist,
+we need to take them into account.
+
+So, we find ourselves balancing each package's "cost"
+(in terms of downloading and data storage)
+against its likely value to the user.
+No decision we could make is going to be perfect for every user,
+but we can try for some sort of "happy medium".
+
+### Approach
+
+Our planned approach starts by acknowledging and taking advantage
+of the excellent work of the Ubuntu developers.
+Ubuntu is a solid and well-regarded desktop distribution,
+so that's our starting point.
+[Grml]{cat_sof|Grml}, [Knoppix]{cat_sof|Knoppix}, and
+[Trisquel]{cat_sof|Trisquel} all make an effort to be accessible;
+because they (like Ubuntu) are based on Debian,
+it's trivial to fold in their additions.
+
+Folding in packages from other Linux releases (e.g.,
+[F123Light OS]{cat_sof|F123Light_OS},
+[Slint]{cat_sof|Slint},
+[TalkingArch]{cat_sof|TalkingArch}) isn't as easy, but we'll give it a try.
+Basically, it requires us to look up the corresponding Debian packages.
+We can also include various other packages that have come to our attention.
+These are listed in the [Software]{cat_sof|:a} area of [Pete's Alley]{/}.
+
+The result, at this point, is likely to be about five GB in size.
+However, if we're willing to consider a ten GB distribution,
+we still have lots of room for expansion.
+The [Ubuntu Popularity Contest]{https://popcon.ubuntu.com} (aka popcon)
+lists about 320K packages that Ubuntu users have reported installing.
+By folding in packages from this list, in decreasing order of popularity,
+we can bring our distribution up to ten GB.
+
+### Details
+
+The implementation details are a bit ugly, but fairly simple.
+Basically, we:
+
+- use `curl` to get the Ubuntu Popularity Contest list
+- use `apt-cache pkgnames` to list the available packages
+- use `dpkg -l` to list the currently installed packages
+- use `apt show ...` to get information on each package
+- build a hash of relationship and other information
+- traverse `by_inst`, adding only the top-level packages
+
+#### `curl -o by_inst $url`
+
+We can download the Ubuntu Popularity Contest information as follows:
+
+    $ url=https://popcon.ubuntu.com/by_inst
+    $ curl -o by_inst $url
+    $ cat by_inst
+    # ...
+    1     ncurses-base                   2797435  ...
+    ...
+
+#### `apt-cache pkgnames`
+
+This command provides a sorted list of all available packages:
+
+    $ apt-cache pkgnames | sort
+    accountsservice
+    acct
+    ...
+
+#### `dpkg -l`
+
+This command provides a sorted list of currently installed packages:
+
+    $ dpkg -l | sort
+    ...
+    ii  gnome  1:3.30+1ubuntu1  amd64  Full GNOME Desktop Environment, ...
+    ...
+
+#### `apt show apt`
+
+This command provides about two dozen kinds of information on package `apt`.
+Here is an abbreviated listing, showing the information of interest to us:
+
+    $ apt show apt
+    Breaks:         apt-transport-https (<< 1.5~alpha4~), ...
+    Depends:        adduser, gpgv | gpgv1, libc6 (>= 2.15), ...
+    Download-Size:  1,209 kB
+    Provides:       apt-transport-https (= 1.8.1)
+    Recommends:     ca-certificates
+    Replaces:       apt-transport-https (<< 1.5~alpha4~), ...
+    Suggests:       aptitude | wajig, dpkg-dev (>= 1.17.2), ...
+
+#### Result Hash
+
+The result hash contains both forward and reverse information on package
+relationships, plus some incidental metadata:
+
+    {
+      apt: {
+        breaks_f:     [ 'apt-transport-https', ... ],
+        breaks_r:     [ ... ],
+        ...
+      }, ...
+    }
+        
+---
+
+
+
+Most of the packages listed in the `dpkg -l` output are dependencies
+(e.g., libraries), so we don't need to pay explicit attention to them.
+
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

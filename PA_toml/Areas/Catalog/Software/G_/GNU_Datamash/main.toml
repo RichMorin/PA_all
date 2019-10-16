@@ -1,0 +1,36 @@
+# cat_sof|GNU_Datamash/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_Datamash'
+  title       = 'GNU Datamash'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application, data manipulation'
+
+[ about ]
+
+  precis      = 'a progrsm for manipulation of textual data'
+
+  verbose     = '''
+> GNU Datamash is a command-line program which performs basic numeric,
+textual, and statistical operations on input textual data files.
+It is designed to be portable and reliable, and aid researchers
+to easily automate analysis pipelines, without writing C.
+
+> -- [$url]{https://savannah.gnu.org/projects/datamash}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://savannah.gnu.org/projects/datamash'

@@ -1,0 +1,16 @@
+# cat_sof|Gcal/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|gforth'
+  upstream    = 'http://www.gnu.org/software/gforth/'
+
+[ os.debian ]
+
+  package     = 'debian_pkgs|buster/gforth'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'gforth'

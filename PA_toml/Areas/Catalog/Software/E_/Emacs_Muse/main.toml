@@ -29,7 +29,7 @@ is an authoring and publishing environment for Emacs.
 It simplifies the process of writing documents and publishing them
 to various output formats.
 
-> -- [$url]{https://www.gnu.org/software/emacs-muse/index.html}
+> -- [$url]{ext_gs|emacs-muse/index.html}
 '''
 
 [ address.related ]
@@ -38,4 +38,4 @@ to various output formats.
 
 [ address.web_site ]
 
-  main        = 'https://www.gnu.org/software/emacs-muse/index.html'
+  main        = 'ext_gs|emacs-muse/index.html'

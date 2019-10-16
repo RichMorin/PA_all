@@ -1,0 +1,40 @@
+# cat_sof|JACAL/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'JACAL'
+  title       = 'JACAL'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, GPL, open source'
+  requires    = 'Scheme'
+  roles       = 'application, symbolic mathematics system'
+
+[ about ]
+
+  precis      = 'a symbolic mathematics system written in Scheme'
+
+  verbose     = '''
+> JACAL is an interactive symbolic mathematics program.
+JACAL can manipulate and simplify equations, scalars, vectors, and matrices
+of single and multiple valued algebraic expressions
+containing numbers, variables, radicals, and algebraic differential,
+and holonomic functions.
+
+> -- [$url]{http://people.csail.mit.edu/jaffer/JACAL.html}
+'''
+
+[ address.web_site ]
+
+  _1          = 'http://people.csail.mit.edu/jaffer'
+  main        = '_1|/JACAL.html'
+  manual      = '_1|/jacal'

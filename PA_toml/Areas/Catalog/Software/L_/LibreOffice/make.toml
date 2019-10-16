@@ -4,4 +4,16 @@
 
 [ os.arch ]
 
+# lots of versions; punting for now...
+
 [ os.debian ]
+
+  package     = '''
+debi_pkgs|buster/libreoffice,
+debi_pkgs|buster/libreoffice-gnome,
+debi_pkgs|buster/libreoffice-kde,
+'''
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'libreoffice, libreoffice-gnome, libreoffice-kde'

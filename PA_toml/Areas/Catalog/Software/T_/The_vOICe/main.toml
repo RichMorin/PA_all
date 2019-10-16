@@ -4,7 +4,7 @@
 
   actions     = 'build, publish'
   id_str      = 'The_vOICe'
-  title       = 'The vOICe (aka Seeing with Sound)'
+  title       = 'The vOICe (Seeing with Sound)'
 
 [ meta.refs ]
 

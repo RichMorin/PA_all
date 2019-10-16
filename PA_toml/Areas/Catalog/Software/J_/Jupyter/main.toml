@@ -13,13 +13,14 @@
 
 [ meta.tags ]
 
-  features    = 'Unix integration'
   impairments = 'blindness, low vision'
   interfaces  = 'command line, terminal-based, text-based'
   licenses    = 'open source'
   requires    = 'Python'
-  roles       = 'application, text editor'
-  standards   = 'CSS, HTML, JSON, LaTeX, Markdown, PDF, WebSockets, ZMQ'
+  roles       = 'application, interactive notebook, text editor'
+  standards   = '''
+CSS, HTML, JSON, LaTeX, Markdown, PDF, ReStructuredText, WebSockets, ZMQ
+'''
 
 [ about ]
 

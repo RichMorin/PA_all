@@ -9,11 +9,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/links'
-  search      = 'debi_pkgs|search?keywords=links'
-  track       = 'https://tracker.debian.org/pkg/links'
+  package     = 'debi_pkgs|buster/links'
 
-  commands    = 'sudo apt-get install links'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'links'

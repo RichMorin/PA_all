@@ -1,0 +1,16 @@
+# cat_sof|intltool/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/any/intltool'
+  upstream    = 'https://launchpad.net/intltool'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/intltool'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'intltool'

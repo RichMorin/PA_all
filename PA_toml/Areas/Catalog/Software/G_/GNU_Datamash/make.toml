@@ -1,0 +1,16 @@
+# cat_sof|GNU_Datamash/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/datamash'
+  upstream    = 'ext_gs|datamash'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/datamash'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'datamash'

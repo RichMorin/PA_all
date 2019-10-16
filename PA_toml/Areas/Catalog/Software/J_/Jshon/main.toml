@@ -1,0 +1,45 @@
+# cat_sof|Jshon/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Jshon'
+  title       = 'Jshon'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'open source'
+  requires    = 'Jansson'
+  roles       = 'application, JSON manipulation'
+
+[ about ]
+
+  precis      = 'a JSON manipulation tool'
+
+  verbose     = '''
+> Jshon parses, reads and creates JSON.
+It is designed to be as usable as possible from within the shell
+and replaces fragile adhoc parsers made from grep/sed/awk
+as well as heavyweight one-line parsers made from perl/python. ...
+
+> Jshon loads json text from stdin, performs actions,
+then displays the last action on stdout.
+Some of the options output json, others output plain text meta information.
+Because Bash has very poor nested data structures,
+Jshon does not try to return a native bash data structure
+as a typical library would.
+Instead, Jshon provides a history stack containing all the manipulations.
+
+> -- [$url]{http://kmkeen.com/jshon}
+'''
+
+[ address.web_site ]
+
+  main        = 'http://kmkeen.com/jshon/'

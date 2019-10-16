@@ -1,0 +1,46 @@
+# cat_sof|GNU_Spell/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_Spell'
+  title       = 'GNU Spell'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application, spell checker'
+  supports    = 'communication, education'
+
+[ about ]
+
+  precis      = 'a spell checking program'
+
+  verbose     = '''
+> A spell checking program which prints each misspelled word
+on a line of its own.
+It is designed as a clone of the standard Unix 'spell' program,
+and implemented as a wrapper for 'GNU aspell' and 'ispell'.
+Spell accepts its arguments as a list of files to read from.
+Within that list, the magical file name "-" causes spell
+to read from the standard input.
+In addition, when called with no file name arguments,
+Spell assumes that it should process standard input.
+
+> -- [$url]{http://savannah.gnu.org/projects/spell}
+'''
+
+[ address.related ]
+
+  zoo         = 'https://directory.fsf.org/wiki/Spell'
+
+[ address.web_site ]
+
+  main        = 'http://savannah.gnu.org/projects/spell'

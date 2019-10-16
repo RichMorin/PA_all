@@ -1,0 +1,16 @@
+# cat_sof|Gnumeric/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/gnumeric'
+  upstream    = 'https://www.gnome.org/projects/gnumeric'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/gnumeric'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'gnumeric'

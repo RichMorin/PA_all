@@ -28,11 +28,13 @@
 
   verbose     = '''
 > The ircII program is a full screen, termcap based interface to Internet
-Relay Chat.  It gives full access to all of the normal IRC functions,
-plus a variety of additional options.  This version is able to display
-mIRC colors. It supports "/encrypt -cast".
+Relay Chat.
+It gives full access to all of the normal IRC functions,
+plus a variety of additional options.
+This version is able to display mIRC colors.
+It supports "/encrypt -cast".
 
-> -- [$url]{debi_pkgs|unstable/ircii}
+> -- [$url]{debi_pkgs|buster/ircii}
 '''
 
 [ address.related ]

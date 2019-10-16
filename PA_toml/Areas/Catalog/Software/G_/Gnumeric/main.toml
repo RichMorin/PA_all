@@ -1,0 +1,69 @@
+# cat_sof|Gnumeric/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Gnumeric'
+  title       = 'Gnumeric'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'C/C++, command line'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application, library, plotting utility'
+  standards   = '''
+as, csv, dif, HTML, me, mps, OASIS XML, oleo, OpenOffice.org XML,
+pln, StarOffice, sxc, sylk, tex, tm, wk1, wks, XBase, xls'
+'''
+
+[ about ]
+
+  precis      = 'a spreadsheet application'
+
+  verbose     = '''
+> Gnumeric is a spreadsheet application that interoperates well
+with other spreadsheets.
+It comes with plugins that enable it to deal
+with commonly used spreadsheet file formats.
+
+> The following formats can be imported and exported:
+
+> - Microsoft Excel 97/2000/XP (.xls);
+> - Microsoft Excel 95 (.xls);
+> - OASIS XML, OpenOffice.org XML, StarOffice (.sxc);
+> - Comma/Character Separated Values (.csv);
+> - Data Interchange Format (.dif);
+> - Applix version 4 (.as).
+
+> Additionally, the following formats can be imported:
+
+> - GNU Oleo (.oleo);
+> - Linear and integer program expression format (.mps);
+> - Lotus 1-2-3 (.wks, .wk1);
+> - MS MultiPlan SYLK (.sylk);
+> - WordPerfect family "Plan Perfect" (.pln);
+> - Quattro Pro (tm);
+> - XSpread or SC;
+> - XBase (.dbf).
+
+> Gnumeric can export to LaTeX 2e (.tex), TROFF (.me), and HTML as well.
+
+> Gnumeric should be easy to use, in particular for users familiar with Excel.
+
+> Gnumeric is a GNOME application.
+GNOME (GNU Network Object Model Environment) is a user-friendly set
+of applications and desktop tools to be used in conjunction
+with a window manager for the X Window System.
+
+> -- [$url]{debi_pkgs|buster/gnumeric}
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.gnumeric.org'

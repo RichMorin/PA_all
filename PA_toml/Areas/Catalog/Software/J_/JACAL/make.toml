@@ -1,0 +1,16 @@
+# cat_sof|JACAL/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|jacal'
+  upstream    = 'http://people.csail.mit.edu/jaffer/JACAL.html'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/jacal'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'jacal'

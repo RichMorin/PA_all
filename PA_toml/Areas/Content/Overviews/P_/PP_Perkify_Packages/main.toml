@@ -32,8 +32,7 @@ So, be sure to visit [Perkify - APT]{con_ove|PP_Perkify_APT}!
 
 ### Inspirations
 
-As discussed in the Related Work section
-of the [Perkian Introduction]{con_ove|PP_Perkian_Intro} page,
+As discussed on the [Related Work]{con_ove|PP_Perkian_Related} page,
 there are several existing attempts at creating a blind-friendly version
 of [Linux]{ext_wp|Linux}.
 These are obvious places to find packages which Perkify could include.

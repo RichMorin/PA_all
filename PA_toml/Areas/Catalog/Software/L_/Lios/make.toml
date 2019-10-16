@@ -1,0 +1,16 @@
+# cat_sof|Lios/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|lios-git'
+  upstream    = 'https://gitlab.com/groups/Nalin-x-Linux'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/lios'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'lios'

@@ -1,0 +1,16 @@
+# cat_sof|GNU_Go/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/gnugo'
+  upstream    = 'ext_gs|gnugo'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/gnugo'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'gnugo'

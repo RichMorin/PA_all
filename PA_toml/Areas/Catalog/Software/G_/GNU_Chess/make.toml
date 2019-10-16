@@ -1,0 +1,16 @@
+# cat_sof|GNU_Chess/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/gnuchess'
+  upstream    = 'ext_gs|chess/chess.html'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/gnuchess'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'gnuchess'

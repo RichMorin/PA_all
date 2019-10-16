@@ -1,0 +1,50 @@
+# cat_sof|Gcal/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Gcal'
+  title       = 'Gcal'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'command line'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application'
+  standards   = 'HTML, LaTeX'
+
+[ about ]
+
+  precis      = 'a program for calculating and printing calendars'
+
+  verbose     = '''
+> GNU gcal is a command line program for calculation and display calendars.
+This is an implementation of the UNIX cal command developed in 1994
+by Thomas Esken, then maintained for the GNU project by Giuseppe Scrivano.
+
+> Gcal, the GNU Gregorian calendar program,
+displays hybrid and proleptic Julian and Gregorian calendar sheets, respectively, for one month, three months or a whole year.
+It also displays eternal holiday lists for many countries around the globe
+and provides very powerful methods to create fixed date lists
+that can be used for reminding purposes.
+
+> Gcal can calculate various astronomical data and times of the Sun and the Moon
+for at pleasure any location; precisely enough for most civil purposes.
+It further contains a META-TEXT interface that creates input
+for formatting or displaying systems -- such as LaTeX,
+or WWW browser programs that visualize HTML.
+Gcal supports some other calendar systems, for example
+the Chinese and Japanese calendar, the Hebrew calendar,
+the civil Islamic calendar, too.
+
+> -- [$url]{https://directory.fsf.org/wiki/Gcal}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://directory.fsf.org/wiki/Gcal'

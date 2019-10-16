@@ -1,0 +1,49 @@
+# cat_sof|GNU_Int_Tools/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_Int_Tools'
+  title       = 'GNU Interactive Tools'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'command line, terminal-based, text-based'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application, utility'
+
+[ about ]
+
+  precis      = 'a set of interactive text-mode tools'
+
+  verbose     = '''
+> gnuit (GNU Interactive Tools) is a set of interactive text-mode tools,
+closely integrated with the shell.
+It contains an extensible file system browser, an ascii/hex file viewer,
+a process viewer/killer and some other related utilities and shell scripts.
+
+> It can be used to increase the speed and efficiency
+of most of the daily tasks such as copying and moving files and directories,
+invoking editors, compressing and uncompressing files,
+creating and expanding archives, compiling programs, sending mail, etc.
+It looks nice, has colors (if the standard ANSI color sequences are supported)
+and is user-friendly.
+
+> One of the main advantages of gnuit is its flexibility.
+It is not limited to a given set of commands.
+The configuration file can be easily enhanced,
+allowing the user to add new commands or file operations,
+depending on [their] needs or preferences.
+
+> -- [$url]{ext_gs|gnuit}
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gs|gnuit'

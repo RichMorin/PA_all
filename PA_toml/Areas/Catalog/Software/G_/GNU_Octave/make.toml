@@ -1,0 +1,16 @@
+# cat_sof|GNU_Ocrad/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/octave'
+  upstream    = 'http://www.octave.org'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/octave'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'octave'

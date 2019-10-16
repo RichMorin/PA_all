@@ -21,7 +21,18 @@ including their friends, relatives, and other supporters.
 It indexes and reviews resources, provides a curated channel
 for long-form communication (e.g., articles, howtos), etc.
 
-### Announcing Perkify
+### VOISS Pages (2019.10)
+
+[VOISS]{con_ove|PP_VOISS_Index} has released
+an open source design for an economical talking computer
+that is completely adapted for use by the blind.
+A compliant system can be assembled and maintained by a blind user,
+using open source software and readily-available hardware components.
+In an effort to encourage uptake of this platform,
+[Rich Morin]{cat_peo|Rich_Morin} has created several
+[Overview]{con_ove|:a} pages and a start on a [HowTo]{con_how|PP_VOISS_HowTo}.
+
+### Announcing Perkify (2019.09)
 
 [Rich Morin]{cat_peo|Rich_Morin} has put together
 an early release of [Perkify]{con_ove|PP_Perkify_Intro},

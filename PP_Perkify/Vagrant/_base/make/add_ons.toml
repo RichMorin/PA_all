@@ -54,20 +54,21 @@ debian_apt = '''
   GNU Chess,          gnuchess,           game program
   GNU Datamash,       datamash,           statistics
   GNU Denemo,         denemo,             music typesetting
-  GNU emacs,          emacs,              IDE, text editor, etc.
+  GNU Emacs,          emacs,              IDE, text editor, etc.
   GNU Go,             gnugo,              game program
   GNU Interactive Tools, gnuit,           system admin
   GNU Miscfiles,      miscfiles,          reference data
-  GNU ocrad,          ocrad,              OCR support
+  GNU Ocrad,          ocrad,              OCR support
   GNU Octave,         octave,             programming language
   GNU plotutils,      plotutils,          plotting support
-  GNU Privacy Guard,  gnupg,              system admin
   GNU PSPP,           pspp,               statistics support
   GNU R,              r-base,             programming language
+  GNU Screen,         screen,             terminal multiplexer
   GNU Solfege,        solfege,            ear/music training
   GNU Spell,          spell,              spell checker
   GNU Typist,         gtypist,            typing tutor
   Gnumeric,           gnumeric,           spreadsheet
+  GnuPG,              gnupg,              system admin
   Graphviz,           graphviz,           graph visualization
   hostapd,            hostapd,            network admin
   httptunnel,         httptunnel,         network admin
@@ -79,7 +80,7 @@ debian_apt = '''
   irssi,              irssi,              chat client
   JACAL,              jacal,              symbolic math
   JOE,                joe,                text editor
-  jshon,              jshon,              JSON tools
+  Jshon,              jshon,              JSON tools
   Jupyter Notebook,   jupyter-notebook,   interactive notebook
   Liblouis,           liblouis-bin,       braille translation
   Liblouis Data,      liblouis-data,      braille translation
@@ -88,6 +89,7 @@ debian_apt = '''
   LibreOffice KDE,    libreoffice-kde,    KDE integration
   Links,              links,              web browser
   Linphone,           linphone,           VOIP client
+
   lios,               lios,               OCR support
   lxterminal,         lxterminal,         LXDE terminal emulator
   Lynx,               lynx,               web browser

@@ -26,8 +26,8 @@
   # Your text mode chatting application since 1999
 
   verbose     = '''
-> Irssi is a terminal based IRC client for UNIX systems.  It also supports
-SILC and ICB protocols via plugins.
+> Irssi is a terminal based IRC client for UNIX systems.
+It also supports SILC and ICB protocols via plugins.
 
 > -- [$url]{debi_pkgs|unstable/irssi}
 '''

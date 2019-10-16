@@ -19,7 +19,7 @@
   roles       = 'application, image processor, library'
  
   standards   = '''
-DPX, EXR, JPEG, GIF, HEIC, PDF, PNG, PostScript, TIFF, WebP, SVG
+DPX, EXR, GIF, HEIC, JPEG, PDF, PNG, PostScript, SVG, TIFF, WebP
 '''
 
   supports    = 'communication, education'

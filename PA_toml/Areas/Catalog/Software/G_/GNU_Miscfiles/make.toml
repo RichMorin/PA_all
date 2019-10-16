@@ -1,0 +1,16 @@
+# cat_sof|GNU_Miscfiles/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|miscfiles'
+  upstream    = 'ext_gs|miscfiles'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/miscfiles'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'miscfiles'

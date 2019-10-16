@@ -1,0 +1,16 @@
+# cat_sof|Hunspell/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/hunspell'
+  upstream    = 'https://hunspell.github.io'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/hunspell'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'hunspell'

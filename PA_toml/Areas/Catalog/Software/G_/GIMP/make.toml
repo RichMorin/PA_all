@@ -1,0 +1,15 @@
+# cat_sof|GIMP/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+# Bazillions of possibilities.  Punting for now...
+
+[ os.debian ]
+
+  package     = 'debian_pkgs|buster/gimp'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'gimp'

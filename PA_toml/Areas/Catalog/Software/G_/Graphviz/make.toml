@@ -10,3 +10,7 @@
 [ os.debian ]
 
   package     = 'debi_pkgs|unstable/graphviz'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'graphviz'
