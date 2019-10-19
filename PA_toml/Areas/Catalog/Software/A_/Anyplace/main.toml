@@ -14,10 +14,11 @@
 [ meta.tags ]
 
   features    = 'crowdsourced, multiple formats'
+  impairments = 'blindness, low vision'
   interfaces  = 'image, text, web'
   licenses    = 'MIT, open source'
   roles       = 'application, document viewer, eBook reader'
-  standards   = 'GIF, JPG, JSON, PNG'
+  standards   = 'GIF, JPEG, JSON, PNG'
 
 [ about ]
 

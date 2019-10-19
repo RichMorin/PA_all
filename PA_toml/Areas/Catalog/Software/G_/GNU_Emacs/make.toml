@@ -6,14 +6,12 @@
 
   package     = 'arch_pkgs|extra/x86_64/emacs/'
   upstream    = 'http://www.gnu.org/software/emacs/emacs.html'
+  wiki        = 'arch_wiki|Emacs'
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/emacs'
-  search      = 'debi_pkgs|search?keywords=emacs'
-  track       = 'https://tracker.debian.org/pkg/emacs'
+  package     = 'debi_pkgs|buster/emacs'
 
-  commands    = 'sudo apt-get install emacs'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'GNU Emacs is included in Ubuntu, but not in Raspbian.'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'emacs'

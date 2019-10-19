@@ -6,6 +6,7 @@
 
   package     = 'arch_pkgs|extra/x86_64/gnumeric'
   upstream    = 'https://www.gnome.org/projects/gnumeric'
+  wiki        = 'arch_wiki|Gnumeric'
 
 [ os.debian ]
 

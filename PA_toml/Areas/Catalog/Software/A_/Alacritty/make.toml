@@ -2,6 +2,8 @@
 
 [ meta ]
 
+#! https://wiki.archlinux.org/index.php/List_of_applications/Utilities#Terminal_emulators
+
 [ os.arch ]
 
   package     = 'arch_pkgs|community/x86_64/alacritty'

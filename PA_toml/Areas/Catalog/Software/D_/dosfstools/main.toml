@@ -13,7 +13,7 @@
 
 [ meta.tags ]
 
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   roles       = 'system software, utility'
   standards   = 'DOS, FAT file system'
@@ -29,6 +29,10 @@
 
 > -- [$url]{ext_gh|dosfstools/dosfstools}
 '''
+
+[ address.related ]
+
+  zoo         = 'arch_wiki|FAT, arch_wiki|File_systems'
 
 [ address.web_site ]
 

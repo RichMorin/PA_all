@@ -86,7 +86,7 @@ defmodule InfoToml.Emitter do
       [ 'Atril' ]
 
         actions     = 'build, publish'
-        package     = 'debi_pkgs|unstable/atril'
+        package     = 'debi_pkgs|buster/atril'
         precis      = 'the official document viewer for MATE'
         title       = 'Atril'
   """

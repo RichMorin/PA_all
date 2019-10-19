@@ -14,12 +14,11 @@
 [ meta.tags ]
 
   features    = 'menu generation'
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   requires    = 'Ruby'
   roles       = 'API, library, user interface'
-  supports    = 'software development'
+  supports    = 'programming'
 
 [ about ]
 

@@ -13,7 +13,7 @@
 
 [ meta.tags ]
 
-  interfaces  = 'chat, command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   roles       = 'application, chat client'
   standards   = 'IRC, Jabber, XMPP'
@@ -40,3 +40,4 @@ commonly used IRC clients (weechat, irssi, etc).
 [ address.web_site ]
 
   main        = 'https://poez.io/en'
+  manual      = 'https://buildmedia.readthedocs.org/media/pdf/poezio/latest/poezio.pdf'

@@ -1,0 +1,16 @@
+# cat_sof|TuxType/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|tuxtype'
+  upstream    = 'http://tux4kids.alioth.debian.org'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/tuxtype'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'tuxtype'

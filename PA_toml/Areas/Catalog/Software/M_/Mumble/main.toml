@@ -14,8 +14,7 @@
 [ meta.tags ]
 
   features    = 'encryption, high sound quality, low latency'
-  impairments = 'blindness, low vision'
-  interfaces  = 'audio, command line'
+  interfaces  = 'audio, text'
   licenses    = 'free, open source'
   roles       = 'application, chat client, VoIP client'
   supports    = 'communication'

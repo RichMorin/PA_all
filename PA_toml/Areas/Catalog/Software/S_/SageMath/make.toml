@@ -1,0 +1,16 @@
+# cat_sof|SageMath/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = '''
+arch_pkgs|community/x86_64/sagemath,
+arch_pkgs|community/any/sagemath-doc,
+arch_pkgs|community/x86_64/sagemath-jupyter
+'''
+  wiki        = 'arch_wiki|SageMath'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/sagemath'

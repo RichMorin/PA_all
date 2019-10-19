@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/catdoc'
+  package     = 'debi_pkgs|buster/catdoc'
 
 [ os.perkify_ubuntu ]
 

@@ -15,7 +15,7 @@
 
   features    = 'image-to-sound renderings, sensory substitution'
   impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   roles       = 'application, library'
 

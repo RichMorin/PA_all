@@ -1,0 +1,17 @@
+# cat_sof|mbrola/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|mbrola'
+  upstream    = 'http://tcts.fpms.ac.be/synthesis/mbrola.html'
+  wiki        = 'arch_wiki|Mbrola'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/mbrola'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'mbrola, mbrola-en1, mbrola-us1, mbrola-us2, mbrola-us3'

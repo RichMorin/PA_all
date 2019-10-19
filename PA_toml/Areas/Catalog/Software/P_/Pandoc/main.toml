@@ -14,8 +14,7 @@
 [ meta.tags ]
 
   features    = 'extensible, many formats'
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   requires    = 'Haskell'
   roles       = 'application, library'
@@ -38,7 +37,7 @@ and a set of writers, which convert this native representation into a
 target format.  Thus, adding an input or output format requires only adding
 a reader or writer.
 
-> -- [$url]{debi_pkgs|unstable/pandoc}
+> -- [$url]{debi_pkgs|buster/pandoc}
 '''
 
 [ address.related ]

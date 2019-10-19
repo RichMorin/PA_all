@@ -13,10 +13,10 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line'
+  interfaces  = 'text'
   licenses    = 'free, GNU GPL, open source'
   roles       = 'application, language, statistics package'
+  supports    = 'mathematics, statistics'
 
 [ about ]
 

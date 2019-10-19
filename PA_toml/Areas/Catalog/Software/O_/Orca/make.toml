@@ -10,12 +10,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/orca'
-  search      = 'debi_pkgs|search?keywords=orca'
-  track       = 'https://tracker.debian.org/pkg/orca'
-  wiki        = 'https://wiki.debian.org/Orca'
+  package     = 'debi_pkgs|buster/orca'
 
-  commands    = 'sudo apt-get install orca'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'Orca is included in the Raspberry VI and Ubuntu distributions.'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'orca'

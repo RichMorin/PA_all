@@ -1,0 +1,46 @@
+# cat_sof|mblaze/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'mblaze'
+  title       = 'mblaze'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'CC0-1.0, free, open source'
+  roles       = 'application, email client'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'Unix utilities to deal with Maildir'
+
+  verbose     = '''
+> The mblaze message system is a set of Unix utilities to deal with mail
+kept in Maildir folders.
+It is a classic command line MUA and has no features for receiving
+or transferring mail;
+you are expected to fetch your mail using fdm(1), getmail(1), offlineimap(1),
+procmail(1), or similar, and send it using dma(8), msmtp(1), sendmail(8),
+as provided by OpenSMTPD, Postfix, or similar.
+mblaze expects your mail to reside in Maildir folders.
+
+Its design is roughly inspired by MH, the RAND Message Handling System,
+but it is a complete implementation from scratch.
+mblaze operates directly on Maildir folders and doesn't use its own caches
+or databases.
+There is no setup needed for many uses.
+
+> -- [$url]{deb_pkgs|buster/mblaze}
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gh|leahneukirchen/mblaze'

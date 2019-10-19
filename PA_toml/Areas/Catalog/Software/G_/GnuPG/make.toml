@@ -6,6 +6,7 @@
 
   package     = 'arch_pkgs|extra/x86_64/gnupg'
   upstream    = 'https://www.gnupg.org'
+  wiki        = 'arch_wiki|GnuPG'
 
 [ os.debian ]
 

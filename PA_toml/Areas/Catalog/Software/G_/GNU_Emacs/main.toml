@@ -14,13 +14,12 @@
 [ meta.tags ]
 
   features    = 'extensible'
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'free, GNU GPL, open source'
   requires    = 'Lisp'
   roles       = 'application, IDE, text editor'
   standards   = 'POSIX 1003.2'
-  supports    = 'software development'
+  supports    = 'programming'
 
 [ about ]
 

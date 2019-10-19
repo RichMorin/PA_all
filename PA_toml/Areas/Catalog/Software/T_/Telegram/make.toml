@@ -1,0 +1,17 @@
+# cat_sof|Telegram/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/telegram-desktop'
+  upstream    = 'https://desktop.telegram.org'
+  wiki        = 'arch_wiki|Telegram'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/telegram-desktop'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'telegram-cli, telegram-desktop'

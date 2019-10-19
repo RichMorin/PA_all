@@ -13,7 +13,7 @@
 
 [ meta.tags ]
 
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'GUI, text'
   licenses    = 'free, open source'
   requires    = 'Linux'
   roles       = 'operating system'

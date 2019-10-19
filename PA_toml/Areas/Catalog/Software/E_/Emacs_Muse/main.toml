@@ -13,11 +13,9 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'free, GNU GPL, open source'
   requires    = 'Emacs, Lisp'
-  standards   = 'braille'
 
 [ about ]
 
@@ -35,6 +33,7 @@ to various output formats.
 [ address.related ]
 
   github      = 'ext_gh|alexott/muse'
+  zoo         = 'arch_wiki|Emacs'
 
 [ address.web_site ]
 

@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/accerciser'
+  package     = 'debi_pkgs|buster/accerciser'
 
 [ os.perkify_ubuntu ]
 

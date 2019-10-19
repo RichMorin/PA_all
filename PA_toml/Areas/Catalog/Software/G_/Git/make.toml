@@ -6,6 +6,7 @@
 
   package     = 'arch_pkgs|extra/x86_64/git'
   upstream    = 'https://git-scm.com'
+  wiki        = 'arch_wiki|Git'
 
 [ os.debian ]
 

@@ -1,0 +1,17 @@
+# cat_sof|TeX_Live/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'https://www.archlinux.org/groups/x86_64/texlive-most'
+  upstream    = 'http://tug.org/texlive'
+  wiki        = 'arch_wiki|index.php/TeX_Live'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/texlive-xetex'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'texlive-xetex'

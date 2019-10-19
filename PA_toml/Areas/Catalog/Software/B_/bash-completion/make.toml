@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/bash-completion'
+  package     = 'debi_pkgs|buster/bash-completion'
 
 [ os.perkify_ubuntu ]
 

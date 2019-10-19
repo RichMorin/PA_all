@@ -11,7 +11,7 @@
 
 # Last Debian port was for stretch.
 
-# package     = 'debi_pkgs|unstable/ekiga'
+# package     = 'debi_pkgs|stretch/ekiga'
 
 [ os.perkify_ubuntu ]
 

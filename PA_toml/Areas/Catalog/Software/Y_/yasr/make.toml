@@ -2,12 +2,14 @@
 
 [ meta ]
 
-  summary     = 'Version 0.6.9 is dated 2008.0202'
-
 [ os.arch ]
 
-# package     = 'none found, as of 2019.0307'
+# package     = 'none found, as of 2019.1017'
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|jessie/admin/yasr'
+  package     = 'debi_pkgs|buster/yasr'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'yasr'

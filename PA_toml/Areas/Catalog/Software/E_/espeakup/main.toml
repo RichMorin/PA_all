@@ -15,7 +15,7 @@
 
   features    = 'lets speakup use the eSpeak software synthesizer'
   impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'audio, speech, text'
   licenses    = 'open source'
   requires    = 'eSpeak, speakup'
   roles       = 'connector, daemon'

@@ -1,0 +1,50 @@
+# cat_sof|Notify_OSD/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Notify_OSD'
+  title       = 'Notify_OSD'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  licenses    = 'free, GPL, open source'
+  roles       = 'notification daemon'
+
+[ about ]
+
+  precis      = 'daemon that displays passive pop-up notifications'
+
+  verbose     = '''
+> Canonical's on-screen-display notification agent, implementing
+the freedesktop.org Desktop Notifications Specification
+with semi-transparent click-through bubbles.
+
+> The freedesktop.org Desktop Notifications Specification
+provides a standard way for applications to display pop-up notifications.
+These are designed to make you aware of something,
+without interrupting your work with a window you must close.
+
+> Notify OSD presents these notifications as ephemeral overlays,
+which can be clicked through so they don't block your work.
+It queues notifications, to prevent them from flooding your screen.
+And as well as handling standard notification updates,
+Notify OSD introduces the idea of appending —
+allowing notifications to grow over time, for example in the case
+of instant messages from a particular person.
+
+> -- [$url]{https://launchpad.net/notify-osd}
+'''
+
+[ address.related ]
+
+  zoo         = 'arch_wiki|Desktop_notifications'
+
+[ address.web_site ]
+
+  main        = 'https://launchpad.net/notify-osd'

@@ -15,7 +15,7 @@
 [ meta.tags ]
 
   impairments = 'blindness, dyslexia, low vision'
-  interfaces  = 'terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   roles       = 'application, DAISY production suite'
   standards   = 'DAISY, DTB, EPUB3, MP3, SMIL, XML'

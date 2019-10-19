@@ -14,8 +14,7 @@
 [ meta.tags ]
 
   features    = 'scriptable'
-  impairments = 'blindness, low vision'
-  interfaces  = 'chat, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   roles       = 'application, chat client'
   standards   = 'IRC'

@@ -1,0 +1,16 @@
+# cat_sof|Notify_OSD/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/notify-osd'
+  upstream    = 'https://launchpad.net/notify-osd'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/notify-osd'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'notify-osd'

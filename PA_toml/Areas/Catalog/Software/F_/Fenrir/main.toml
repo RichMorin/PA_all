@@ -16,7 +16,7 @@
 
   features    = 'configurable, driver-based, flexible, modular'
   impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'audio, speech, text'
   licenses    = 'open source'
   requires    = 'Python 3'
   roles       = 'application, screen reader'

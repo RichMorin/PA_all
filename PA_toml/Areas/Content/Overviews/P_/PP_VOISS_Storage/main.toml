@@ -16,9 +16,9 @@
   precis      = "thoughts on long-term storage for VOISS systems"
 
   verbose     = '''
-The [F123]{cat_gro|F123} folks
-(currently rebranding themselves as [VOISS]{https://www.voiss.tech/en})
-recently introduced some portable computers for the blind.
+[VOISS]{https://www.voiss.tech/en}) recently introduced
+the [VOISS Classic]{cat_har|VOISS_Classic} series
+of portable computers for the blind.
 These systems are economical, extremely modular,
 and should be both extendable and maintainable by their users.
 I applaud this effort and expect to learn a great deal from it.
@@ -43,7 +43,7 @@ This is an economical, relatively compact, and very popular
 It has moderate power reqirements,
 supports a truly amazing number of interfacing options,
 and is supported by a variety of operating systems.
-(VOISS develops and distributes [F123Light]{cat_sof|F123Light_OS},
+(VOISS develops and distributes [F123Light]{cat_sof|F123Light},
 a blind-friendly variant of [Arch Linux]{ext_wp|Arch_Linux}.
 
 While writing a [HowTo]{con_how|PP_VOISS_HowTo}

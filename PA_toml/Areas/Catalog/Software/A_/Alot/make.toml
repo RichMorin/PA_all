@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/alot'
+  package     = 'debi_pkgs|buster/alot'
 
 [ os.perkify_ubuntu ]
 

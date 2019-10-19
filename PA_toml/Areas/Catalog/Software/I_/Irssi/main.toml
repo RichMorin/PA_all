@@ -13,8 +13,7 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'chat, command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   roles       = 'application, client, chat client'
   standards   = 'ICB, IRC, SILC'
@@ -29,7 +28,7 @@
 > Irssi is a terminal based IRC client for UNIX systems.
 It also supports SILC and ICB protocols via plugins.
 
-> -- [$url]{debi_pkgs|unstable/irssi}
+> -- [$url]{debi_pkgs|buster/irssi}
 '''
 
 [ address.related ]

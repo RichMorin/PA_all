@@ -4,6 +4,12 @@
 
 [ os.arch ]
 
+  package     = 'arch_pkgs|community/x86_64/sox'
+
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/sox'
+  package     = 'debi_pkgs|buster/sox'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'sox'

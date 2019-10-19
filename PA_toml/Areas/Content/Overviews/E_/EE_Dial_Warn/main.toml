@@ -20,6 +20,8 @@ Many of Dialyzer's warnings are explained, with example code,
 by Dialyxir's online help (e.g., `mix dialyzer.explain <warning>`).
 The following list summarizes these, for convenience.
 
+### Warning List
+
 - `apply`<br>
   The function being invoked exists, and has the correct arity,
   but will not succeed.
@@ -122,7 +124,7 @@ The following list summarizes these, for convenience.
 - `unused_fun`<br>
   Unknown warning named: unknown_fun
 
-#### Unexplained Warnings
+### Unexplained Warnings
 
 Quite a few of the warnings have no explanation at present:
 `app_call`, `bin_construction`, `call_with_opaque`, `contract_diff`,

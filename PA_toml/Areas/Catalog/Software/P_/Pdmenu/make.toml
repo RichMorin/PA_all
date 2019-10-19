@@ -1,0 +1,16 @@
+# cat_sof|Pdmenu/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|pdmenu'
+  upstream    = 'debi_pkgs/buster/source/pdmenu'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|sid/pdmenu'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'pdmenu'

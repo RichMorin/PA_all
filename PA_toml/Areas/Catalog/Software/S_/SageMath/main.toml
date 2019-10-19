@@ -1,0 +1,46 @@
+# cat_sof|SageMath/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'SageMath'
+  title       = 'SageMath'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'GUI, text'
+  licenses    = 'free, open source'
+  roles       = 'application'
+  supports    = 'education, mathematics'
+
+[ about ]
+
+  precis      = 'a screenreader with support for braille and/or speech'
+
+  verbose     = '''
+> SageMath is a free open-source mathematics software system
+licensed under the GPL.
+It builds on top of many existing open-source packages:
+NumPy, SciPy, matplotlib, Sympy, Maxima, GAP, FLINT, R, and many more.
+Access their combined power through a common, Python-based language
+or directly via interfaces or wrappers.
+
+> Mission: Creating a viable free open source alternative
+to Magma, Maple, Mathematica, and Matlab.
+
+> -- [$url]{http://www.sagemath.org}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|SageMath'
+
+[ address.web_site ]
+
+  faq         = 'http://doc.sagemath.org/html/en/faq'
+  main        = 'http://www.sagemath.org'

@@ -13,7 +13,7 @@
 
 [ meta.tags ]
 
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   requires    = 'Linux'
   roles       = 'daemon, supplicant, network software, system software'
@@ -36,8 +36,12 @@ EAP authenticator (i.e., allow full authentication without requiring
 an external RADIUS authentication server), and RADIUS authentication
 server for EAP authentication.
 
-> -- [$url]{debi_pkgs|unstable/hostapd}
+> -- [$url]{debi_pkgs|buster/hostapd}
 '''
+
+[ address.related ]
+
+  zoo         = 'arch_wiki|software_access_point'
 
 [ address.web_site ]
 

@@ -1,0 +1,16 @@
+# cat_sof|ne/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|ne'
+  upstream    = 'http://ne.di.unimi.it'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/ne'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'ne'

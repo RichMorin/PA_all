@@ -16,7 +16,7 @@
   precis      = "introduction to APT usage on Perkify"
 
   verbose     = '''
-Most of Perkify's added [packages]{con_ove|PP_Perkify_Packages} are installed
+Most of Perkify's added [packages]{con_ove|PP_Perkify_Pkg_List} are installed
 using Debian's Advanced Package Toolkit ([APT]{ext_wp|APT_(Package_Manager)}).
 So, we can use APT and related tooling to find out what we have.
 

@@ -13,8 +13,7 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'free, GNU GPL, open source'
   roles       = 'application, data manipulation'
 
@@ -30,6 +29,10 @@ to easily automate analysis pipelines, without writing C.
 
 > -- [$url]{https://savannah.gnu.org/projects/datamash}
 '''
+
+[ address.related ]
+
+  zoo         = 'https://savannah.gnu.org/projects/datamash'
 
 [ address.web_site ]
 

@@ -17,7 +17,7 @@
   produces    = 'conference, trade show'
   products    = 'CSUN AT'
   roles       = 'organization'
-  supports    = 'assistive, disability'
+  supports    = 'assistive technology, disability'
 
 [ about ]
 

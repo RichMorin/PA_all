@@ -19,11 +19,24 @@
 This is an informal, hand-edited index of pages on Pete's Alley
 that are related to VOISS systems, etc.
 
-### HowTo
+### Pete's Alley
+
+#### Catalog
+
+- [F123Light
+  ]{cat_sof|F123Light}
+
+- [VOISS
+  ]{cat_gro|VOISS}
+
+- [VOISS Classic
+  ]{cat_har|VOISS_Classic}
+
+#### HowTo
 
 - [VOISS - Assembly
   ]{con_how|PP_VOISS_Assembly}</br>
-  how to put together a F123 / VOISS system
+  how to put together a VOISS system
 
 - [VOISS HowTo
   ]{con_how|PP_VOISS_HowTo}</br>
@@ -35,9 +48,9 @@ that are related to VOISS systems, etc.
 
 - [VOISS HowTo - Components
   ]{con_how|PP_VOISS_Components}</br>
-  what's included in a F123 / VOISS system
+  what's included in a VOISS system
 
-### Overview
+#### Overview
 
 - [VOISS - Booting
   ]{con_ove|PP_VOISS_Booting}</br>
@@ -62,6 +75,44 @@ that are related to VOISS systems, etc.
 - [VOISS - Storage
   ]{con_ove|PP_VOISS_Storage}</br>
   thoughts on long-term storage for VOISS systems
+
+### VOISS
+
+VOISS (formerly F123) is located in Brazil.
+Consequently, many of their web pages are available
+in both English and Portuguese.
+
+#### English
+
+- [About Us
+  ]{https://www.voiss.tech/en/our-company}
+
+- [F123 - Technology that enables
+  ]{https://www.linkedin.com/in/f123org} (LinkedIn)
+
+- [F123e@groups.io
+  ]{https://groups.io/g/F123e}
+
+- [F123e@groups.io topics
+  ]{https://groups.io/g/F123e/topics}
+
+- [F123Light User Guide
+  ]{https://public.f123.org/guide/on-disk/F123Light_User_Guide.html}
+
+- [F123Light
+  ]{https://gitlab.com/f123/F123Light} (GitLab)
+
+- [VOISS
+  ]{https://www.voiss.tech/en} (home page)
+
+#### Portuguese
+
+- [Guia do Usuário do F123Light
+  ]{https://public.f123.org/guide/on-disk/
+    Guia_do_Usuário_do_F123Light.html}
+
+- [Loja virtual Voiss
+  ]{https://store.voiss.tech}
 
 To be continued...
 '''

@@ -10,11 +10,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/tmux'
-  search      = 'debi_pkgs|search?keywords=tmux'
-  track       = 'https://tracker.debian.org/pkg/tmux'
+  package     = 'debi_pkgs|buster/tmux'
 
-  commands    = 'sudo apt-get install tmux'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'tmux'

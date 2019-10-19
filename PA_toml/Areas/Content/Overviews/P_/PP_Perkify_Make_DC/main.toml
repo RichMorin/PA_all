@@ -31,7 +31,7 @@ For general information, see
 
 The `Perkify/_base` file tree contains two sets of files
 ([make]{ext_rm|PA_all/tree/master/PP_docker/Perkify/_base/make}, 
- [ship]{ext_tm|PA_all/tree/master/PP_docker/Perkify/_base/ship}):
+ [ship]{ext_rm|PA_all/tree/master/PP_docker/Perkify/_base/ship}):
 
     make/             used in making the image
     | add_ons         installs add-on packages

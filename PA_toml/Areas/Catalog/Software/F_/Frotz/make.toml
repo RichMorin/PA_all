@@ -2,6 +2,8 @@
 
 [ meta ]
 
+#! https://github.com/RetroPie/RetroPie-Setup/wiki/Zmachine
+
 [ os.arch ]
 
   package     = 'arch_aur|frotz/'
@@ -9,7 +11,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/frotz'
+  package     = 'debi_pkgs|buster/frotz'
 
 [ os.perkify_ubuntu ]
 

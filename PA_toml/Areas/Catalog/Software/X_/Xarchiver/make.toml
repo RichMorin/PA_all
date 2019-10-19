@@ -1,0 +1,18 @@
+# cat_sof|Xarchiver/make.toml
+
+[ meta ]
+
+#! https://wiki.archlinux.org/index.php/List_of_applications/Utilities
+
+[ os.arch ]
+
+  package     = 'arch_aur|xarchiver'
+  upstream    = 'ext_gh|ib/xarchiver'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/xarchiver'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'xarchiver'

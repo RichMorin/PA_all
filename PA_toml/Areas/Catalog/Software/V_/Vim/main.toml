@@ -14,8 +14,7 @@
 [ meta.tags ]
 
   features    = 'Unix integration'
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   requires    = 'curses'
   roles       = 'application, text editor'
@@ -38,7 +37,7 @@ Among its features are:
 > - powerful search and replace
 > - integrates with many tools
 
-> -- [$url]{debi_pkgs|unstable/vim}
+> -- [$url]{debi_pkgs|buster/vim}
 '''
 
 [ address.related ]

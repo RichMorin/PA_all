@@ -11,6 +11,7 @@
     arch_aur|chef-dk-server,
     arch_aur|chef-workstation,
   '''
+  wiki        = 'arch_wiki|Chef'
 
 [ os.debian ]
 

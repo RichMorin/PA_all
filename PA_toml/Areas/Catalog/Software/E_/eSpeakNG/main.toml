@@ -15,7 +15,7 @@
 
   features    = 'compact, provides many languages'
   impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'audio, speech, text'
   licenses    = 'open source'
   requires    = 'eSpeak'
   roles       = 'speech synthesizer'
@@ -38,7 +38,7 @@ using rule files with feedback from native speakers.
 
   github      = 'ext_gh|espeak-ng/espeak-ng'
   sourceforge = 'ext_sf|projects/espeak'
-  wikipedia   = 'ext_wp|ESpeakNG'
+  wikipedia   = 'ext_wp|ESpeak, ext_wp|ESpeakNG'
 
   #  https://launchpad.net/python-espeak
 

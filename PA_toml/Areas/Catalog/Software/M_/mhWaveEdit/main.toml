@@ -1,0 +1,40 @@
+# cat_sof|mhWaveEdit/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'mhWaveEdit'
+  title       = 'mhWaveEdit'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'audio, GUI, text'
+  licenses    = 'free, open source'
+  roles       = 'application, sound editor'
+  standards   = 'GTK2, JACK, ALSA, OSS, PulseAudio'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'simple and fast GTK2 sound editor'
+
+  verbose     = '''
+> mhWaveEdit is a graphical program for editing sound files.
+It is intended to be user-friendly and robust.
+It does not require a fast computer.
+
+> -- [$url]{deb_pkgs|buster/mhwaveedit}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|magnush/mhwaveedit'
+
+[ address.web_site ]
+
+  main        = 'http://gna.org/projects/mhwaveedit'

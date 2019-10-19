@@ -2,6 +2,10 @@
 
 [ meta ]
 
+#! https://wiki.archlinux.org/index.php/List_of_games
+#! https://www.archlinux.org/packages/extra/x86_64/gnome-chess/
+#! https://www.archlinux.org/packages/community/x86_64/xboard/
+
 [ os.arch ]
 
   package     = 'arch_pkgs|extra/x86_64/gnuchess'

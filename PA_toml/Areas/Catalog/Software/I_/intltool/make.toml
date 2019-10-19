@@ -2,6 +2,8 @@
 
 [ meta ]
 
+#! https://aur.archlinux.org/packages/intltool-debian
+
 [ os.arch ]
 
   package     = 'arch_pkgs|extra/any/intltool'

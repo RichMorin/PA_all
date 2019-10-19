@@ -13,13 +13,13 @@
 
 [ meta.tags ]
 
-  interfaces  = 'command line, GUI'
+  interfaces  = 'GUI, image, text'
   licenses    = 'free, GNU GPL, open source'
-  roles       = 'image editor'
+  roles       = 'application, image editor'
 
 [ about ]
 
-  precis      = 'a program for calculating and printing calendars'
+  precis      = 'advanced image editor'
 
   verbose     = '''
 > GIMP is an advanced picture editor.

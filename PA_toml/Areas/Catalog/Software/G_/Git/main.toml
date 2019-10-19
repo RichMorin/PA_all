@@ -13,9 +13,10 @@
 
 [ meta.tags ]
 
-  interfaces  = 'command line'
+  features    = 'distributed, fast, scalable'
+  interfaces  = 'text'
   licenses    = 'free, GNU GPL, open source'
-  roles       = 'revision control system'
+  roles       = 'distributed revision control system'
 
 [ about ]
 

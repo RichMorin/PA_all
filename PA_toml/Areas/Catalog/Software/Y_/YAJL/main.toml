@@ -1,0 +1,40 @@
+# cat_sof|YAJL/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'YAJL'
+  title       = 'YAJL (Yet Another JSON Library)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'ISC, open source'
+  roles       = 'library, JSON parser'
+  supports    = 'programming'
+
+[ about ]
+
+  precis      = 'JSON parser and validating generator'
+
+  verbose     = '''
+> Yet Another JSON Library.
+YAJL is a small event-driven (SAX-style) JSON parser written in ANSI C,
+and a small validating JSON generator.
+YAJL is released under the ISC license.
+
+> -- [$url]{http://lloyd.github.io/yajl}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|lloyd/yajl'
+
+[ address.web_site ]
+
+  main        = 'http://lloyd.github.io/yajl'

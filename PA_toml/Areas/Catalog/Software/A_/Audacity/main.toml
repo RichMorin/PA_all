@@ -13,8 +13,7 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, GUI, terminal-based, text-based'
+  interfaces  = 'audio, GUI, text'
   licenses    = 'CCPL, GPL, open source'
   roles       = 'application, audio editor, audio recorder'
   standards   = 'Audio Unit, LADSPA, LV2, Nyquist, VST'

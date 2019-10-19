@@ -10,11 +10,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/mutt'
-  search      = 'debi_pkgs|search?keywords=mutt'
-  track       = 'https://tracker.debian.org/pkg/mutt'
+  package     = 'debi_pkgs|buster/mutt'
 
-  commands    = 'sudo apt-get install mutt'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'mutt'

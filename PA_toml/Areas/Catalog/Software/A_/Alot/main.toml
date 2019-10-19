@@ -13,12 +13,11 @@
 
 [ meta.tags ]
 
-  features    = 'modular'
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, email, prompt driven, terminal-based, text-based'
+  features    = 'modular, prompt driven'
+  interfaces  = 'text'
   licenses    = 'open source'
   requires    = 'Notmuch, Python, Urwid'
-  roles       = 'application, user agent'
+  roles       = 'application, email client'
   supports    = 'communication'
 
 [ about ]
@@ -39,7 +38,7 @@ alternative to the Emacs mode shipped with Notmuch.
 [ address.related ]
 
   github      = 'ext_gh|pazz/alot'
-  zoo         = 'https://notmuchmail.org, http://urwid.org'
+  zoo         = 'arch_wiki|Notmuch, https://notmuchmail.org, http://urwid.org'
 
 [ address.web_site ]
 

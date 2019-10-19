@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/alpine'
+  package     = 'debi_pkgs|buster/alpine'
 
 [ os.perkify_ubuntu ]
 

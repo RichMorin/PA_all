@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/emacspeak'
+  package     = 'debi_pkgs|buster/emacspeak'
 
   issues      = '''
 Default speech server - espeak

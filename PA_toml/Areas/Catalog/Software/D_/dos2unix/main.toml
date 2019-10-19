@@ -13,9 +13,9 @@
 
 [ meta.tags ]
 
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
-  roles       = 'system software, utility'
+  roles       = 'format converter, system software, utility'
   standards   = 'DOS, FAT file system'
   supports    = 'system administration'
 

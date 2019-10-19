@@ -13,8 +13,7 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'chat, command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   roles       = 'application, chat client'
   standards   = 'IRC'
@@ -25,10 +24,11 @@
   precis      = 'a fast, light, and extensible chat client'
 
   verbose     = '''
-> WeeChat (Wee Enhanced Environment for Chat) is a fast and light chat
-client for many operating systems.  Everything can be done with a keyboard.
+> WeeChat (Wee Enhanced Environment for Chat)
+is a fast and light chat client for many operating systems.
+Everything can be done with a keyboard.
 
-> -- [$url]{debi_pkgs|unstable/weechat}
+> -- [$url]{debi_pkgs|buster/weechat}
 '''
 
 [ address.related ]

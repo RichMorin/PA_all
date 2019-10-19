@@ -1,0 +1,39 @@
+# cat_sof|YAD/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'YAD'
+  title       = 'YAD (yet another dialog)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'open source'
+  roles       = 'dialog generator, library'
+  supports    = 'programming'
+
+[ about ]
+
+  precis      = 'tool for creating graphical dialogs from shell scripts'
+
+  verbose     = '''
+> YAD allows you to display GTK+ dialog boxes from the command line
+or shell scripts.
+It is similar to Zenity, but with more dialog types and options.
+
+> -- [$url]{debi_pkgs|buster/yad}
+'''
+
+[ address.related ]
+
+  sourceforge = 'ext_sf|projects/yad-dialog'
+
+[ address.web_site ]
+
+  main        = 'ext_gh|v1cont/yad'

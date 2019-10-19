@@ -1,0 +1,20 @@
+# cat_sof|Pidgin/make.toml
+
+[ meta ]
+
+#! https://www.archlinux.org/packages/community/x86_64/pidgin-otr/
+#! https://otr.cypherpunks.ca/
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/pidgin'
+  upstream    = 'https://pidgin.im'
+  wiki        = 'arch_wiki|Pidgin'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/pidgin'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'pidgin, pidgin-otr'

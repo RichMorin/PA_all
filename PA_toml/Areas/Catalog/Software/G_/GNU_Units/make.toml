@@ -1,0 +1,16 @@
+# cat_sof|GNU_Units/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/units'
+  upstream    = 'ext_gs|units/units.html'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/units'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'units'

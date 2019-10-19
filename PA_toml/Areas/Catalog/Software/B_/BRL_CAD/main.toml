@@ -14,7 +14,7 @@
 [ meta.tags ]
 
   features    = 'interactive geometry editing, ray-tracing'
-  interfaces  = 'C language, GUI, terminal-based, text-based'
+  interfaces  = 'C/C++, GUI, text'
   licenses    = 'open source'
   roles       = 'application, library, 3D design software'
   supports    = 'education, engineering'
@@ -44,6 +44,7 @@ for robust high-performance geometric representation and analysis.
 ext_wp|BRL-CAD,
 ext_wp|Constructive_solid_geometry,
 '''
+  zoo         = 'https://brlcad.org/wiki/Compiling'
 
 [ address.web_site ]
 

@@ -1,0 +1,16 @@
+# cat_sof|mu/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|mu'
+  upstream    = 'http://www.djcbsoftware.nl/code/mu'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/mu4e'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'mu4e'

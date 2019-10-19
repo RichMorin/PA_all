@@ -10,11 +10,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/netatalk'
-  search      = 'debi_pkgs|search?keywords=netatalk'
-  track       = 'https://tracker.debian.org/pkg/netatalk'
+  package     = 'debi_pkgs|buster/netatalk'
 
-  commands    = 'sudo apt-get install netatalk'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'netatalk'

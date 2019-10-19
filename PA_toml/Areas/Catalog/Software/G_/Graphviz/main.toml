@@ -10,12 +10,12 @@
 
   f_authors   = 'cat_peo|Rich_Morin'
   f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_sof|xdot'
 
 [ meta.tags ]
 
   features    = 'multiple sessions, session management, virtual consoles'
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'EPL, free, open source'
   roles       = 'application, visualization software'
   standards   = 'DOT, PDF, PostScript, SVG'

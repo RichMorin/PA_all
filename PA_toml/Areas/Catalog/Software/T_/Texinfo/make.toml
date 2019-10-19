@@ -1,0 +1,16 @@
+# cat_sof|Texinfo/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|core/x86_64/texinfo'
+  upstream    = 'https://www.gnu.org/software/texinfo'
+  wiki        = 'arch_wiki|GNU#Texinfo'
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/texinfo'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'texinfo'

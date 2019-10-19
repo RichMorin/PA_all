@@ -13,9 +13,9 @@
 
 [ meta.tags ]
 
-  features    = 'speech generation'
+  features    = 'speech synthesis'
   impairments = 'blindness, low vision'
-  interfaces  = 'audio, command line, terminal-based, text-based'
+  interfaces  = 'audio, text'
   licenses    = 'free, GNU GPL, open source'
   requires    = 'Emacs, Lisp'
   roles       = '''

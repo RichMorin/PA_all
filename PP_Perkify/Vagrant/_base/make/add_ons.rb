@@ -21,7 +21,8 @@
 
     for type in types do
       for line in data_pkgs[type].split("\n") do
-        next if line =~ /^#/
+        next if line =~ /^#/        # Skip comment lines.
+        next if line =~ /^\s*$/     # Skip empty lines.
         puts fmt_1 % [type, line]
 
         title, name, notes = get_fields(line)

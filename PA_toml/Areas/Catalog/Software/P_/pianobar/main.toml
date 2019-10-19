@@ -1,0 +1,47 @@
+# cat_sof|pianobar/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'pianobar'
+  title       = 'pianobar'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'free, open source'
+  roles       = 'application, music player'
+  supports    = 'entertainment, music'
+
+[ about ]
+
+  precis      = 'simple full screen menu program'
+
+  verbose     = '''
+> pianobar is a cross-platform console client
+for the personalized web radio Pandora,
+supporting all important features the official Flash™ client has:
+
+> - Create, delete, rename stations and add more music
+
+> - Rate and temporary ban tracks as well as move them to another station
+
+> - “Shared stations”
+
+and some that it does not have (yet):
+
+> - last.fm scrobbling
+
+> - Proxy support for use in areas not supported by Pandora (outside the USA)
+
+> -- [$url]{https://packages.debian.org/buster/pianobar}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://6xq.net/pianobar'

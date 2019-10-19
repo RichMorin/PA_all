@@ -13,10 +13,9 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based, web'
+  interfaces  = 'text'
   licenses    = 'open source'
-  roles       = 'application, browser'
+  roles       = 'application, web browser'
   standards   = 'HTML, HTTP'
   supports    = 'communication, reading'
 
@@ -28,7 +27,7 @@
 > ELinks is a feature-rich program for browsing the web in text mode.
 It is like enhanced Lynx and Links.
 
-> -- [$url]{debi_pkgs|unstable/elinks}
+> -- [$url]{debi_pkgs|buster/elinks}
 '''
 
 [ address.related ]

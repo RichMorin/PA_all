@@ -14,11 +14,10 @@
 [ meta.tags ]
 
   features    = 'encryption, mIRC colors'
-  impairments = 'blindness, low vision'
-  interfaces  = 'chat, command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   requires    = 'termcap'
-  roles       = 'application, IRC client'
+  roles       = 'application, chat client'
   standards   = 'IRC'
   supports    = 'communication'
 

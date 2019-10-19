@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/epiphany'
+  package     = 'debi_pkgs|buster/epiphany'
 
 [ os.perkify_ubuntu ]
 

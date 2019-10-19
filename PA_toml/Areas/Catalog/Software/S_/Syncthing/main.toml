@@ -14,7 +14,7 @@
 [ meta.tags ]
 
   features    = 'safety, security'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   requires    = 'Android, BSD, Darwin, Linux, macOS, MS Windows, Solaris'
   roles       = 'daemon, network software, system software, utility'
@@ -31,7 +31,7 @@ Darwin, and BSD.  It can sync files between devices on a local network
 or between remote devices over the Internet.  Data security and data
 safety are built into the design of the software.
 
-> -- [$url]{debi_pkgs|unstable/syncthing}
+> -- [$url]{debi_pkgs|buster/syncthing}
 '''
 
 [ address.related ]

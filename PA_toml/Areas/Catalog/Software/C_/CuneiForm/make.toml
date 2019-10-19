@@ -1,0 +1,18 @@
+# cat_sof|CuneiForm/make.toml
+
+[ meta ]
+
+#! https://wiki.archlinux.org/index.php/YAGF
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/cuneiform'
+  upstream    = 'https://launchpad.net/cuneiform-linux'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/cuneiform'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'cuneiform'

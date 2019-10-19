@@ -146,7 +146,7 @@ so let's go over the conceptual model and some
 of the operational details.
 
 Each item has a set of tags, organized by value within type.
-So, for example, values such as `immersable` or `speech generation`
+So, for example, values such as `immersable` or `speech synthesis`
 might appear under the `features` type.
 This helps to ease specification of tags, reduce ambiguity, etc.
 For a detailed discussion of this topic,

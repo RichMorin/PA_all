@@ -13,10 +13,10 @@
 
 [ meta.tags ]
 
-  interfaces  = 'terminal-based, text-based'
-  licenses    = 'GPLv3 or later, free, open source'
+  interfaces  = 'text'
+  licenses    = 'free, GPLv3 or later, open source'
   roles       = 'application, utility'
-  supports    = 'communication, education'
+  supports    = 'communication, education, writing'
 
 [ about ]
 

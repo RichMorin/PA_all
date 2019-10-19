@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/fizmo'
+  package     = 'debi_pkgs|buster/fizmo'
 
 [ os.perkify_ubuntu ]
 

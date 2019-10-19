@@ -14,8 +14,7 @@
 [ meta.tags ]
 
   features    = 'Unix integration'
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   requires    = 'curses'
   roles       = 'application, text editor'
@@ -34,7 +33,7 @@ a powerful configuration file, and regular expression search system.
 It also has six help reference cards which are always available,
 and an intuitive, simple, and well thought-out user interface.
 
-> -- [$url]{debi_pkgs|unstable/joe}
+> -- [$url]{debi_pkgs|buster/joe}
 '''
 
 [ address.related ]

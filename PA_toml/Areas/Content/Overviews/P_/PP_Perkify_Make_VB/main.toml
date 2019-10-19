@@ -77,8 +77,8 @@ Start up an SSH session to the VM:
 
     $ vagrant ssh
     ...
-    76 updates can be installed immediately.
-    47 of these updates are security updates.
+    91 updates can be installed immediately.
+    50 of these updates are security updates.
 
 Apply the available Ubuntu updates (twice, for good measure):
 
@@ -108,9 +108,9 @@ Fold in the Perkify add-on packages, then tidy up a bit:
 
     Loading issues: none
 
-    Named packages:     99
-    Total packages:   2439
-    Duration: 3685.6 seconds (61.4 minutes)
+    Named packages:    169
+    Total packages:   3103
+    Duration: 6103.0 seconds (101.7 minutes)
 
     vagrant@perkify-make:~$ sudo apt autoremove
 
@@ -121,11 +121,14 @@ Kick the tires a bit, then exit:
 
 Save the VM image as a package:
 
-    $ vagrant package --output ../perk_06.box --vagrantfile Vagrantfile.dist
+    $ vagrant package --output ../perk_07.box --vagrantfile Vagrantfile.dist
 
-    $ wc -c ../perk_06.box
-    4995933241 ../perk_06.box
-  
+    $ wc -c ../perk_07.box
+    7683603206 ../perk_07.box
+
+    $ shasum ../perk_07.box
+    fc52b20b9812642a939f28b3180014cb13f8ed19  ../perk_07.box
+
 Set up and populate a new version of Perkify on Vagrant Cloud.
 Note that we need to work out details for handling upgrades...
 
@@ -142,13 +145,23 @@ Note that we need to work out details for handling upgrades...
 
 - Under "File Hosting":
   - Make sure "Upload to Vagrant Cloud" is selected.
-  - Click the "Continue to upload" button.
+
+- Under "Checksum Type":
+  - Select SHA1
+
+- Under "Checksum":
+  - paste in fc52b20b9812642a939f28b3180014cb13f8ed19
+
+- Click the "Continue to upload" button.
+
+- Under "Add Provider File"
   - Click the "Choose file" button.
-  - Select `~/perk06.box`.
+  - Select `~/perk07.box`.
   - Click the "Open" button.
-  - Wait for upload to complete.
+
+- Wait for upload to complete.
   - Click "Perkify" link.
-  - Click "Release" link for `v0.1.6`.
+  - Click "Release" link for `v0.1.7`.
   - Click the "Release version" button.
 
 Download and try out, largely per `.../PP_Perkify_Install/main.toml`:
@@ -198,11 +211,11 @@ on the VM.  These can be inspected for problems via `vagrant ssh`.
 - [HOWTO: Backport and host Debian & Ubuntu packages on the OBS
   ]{http://forums.debian.net/viewtopic.php?f=16&t=130057}
 
+- [openSuse Build Service
+  ]{https://build.opensuse.org}
+
 - [Pale Moon Web Browser
   ]{https://build.opensuse.org/project/show/home:stevenpusser] (OBS example)
-
-- [Portal:Build Service
-  ]{https://en.opensuse.org/Portal:Build_Service}
 
 #### Packer
 

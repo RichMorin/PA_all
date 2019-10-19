@@ -1,0 +1,16 @@
+# cat_sof|Opus_tools/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/opus-tools'
+  upstream    = 'http://wiki.xiph.org/Opus-tools'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/opus-tools'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'opus-tools'

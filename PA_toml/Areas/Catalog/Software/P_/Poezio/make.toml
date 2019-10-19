@@ -9,4 +9,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|sid/poezio'
+  package     = 'debi_pkgs|buster/poezio'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'poezio'

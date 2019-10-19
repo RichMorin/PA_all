@@ -13,10 +13,10 @@
 
 [ meta.tags ]
 
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   roles       = 'utility'
-  standards   = 'HTTP, TCP/IP'
+  standards   = 'HTTP, TCP'
 
 [ about ]
 
@@ -38,3 +38,4 @@ to connect to a computer outside the firewall.
 [ address.web_site ]
 
   main        = 'ext_gh|larsbrinkhoff/httptunnel'
+  wiki        = 'arch_wiki|HTTP_tunneling'

@@ -13,9 +13,9 @@
 
 [ meta.tags ]
 
-  features    = 'screen reader, speech generation'
+  features    = 'screen reader, speech synthesis'
   impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'free, open source'
   requires    = 'Linux, Raspberry Pi'
   roles       = 'operating system'
@@ -41,6 +41,11 @@ for installing Arch Linux using the TalkingArch live media can be found
 at the TalkingArch wiki page.
 
 > -- [$url]{https://talkingarch.tk}
+
+> TalkingArch project is dead since 2017, but Tarch is fork with last release
+from June 2019.
+
+> -- [$url]{arch_wiki|TalkingArch}
 '''
 
 [ address.web_site ]

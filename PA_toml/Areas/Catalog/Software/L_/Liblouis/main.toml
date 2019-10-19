@@ -15,7 +15,7 @@
 
   features    = 'multilingual'
   impairments = 'blindness, low vision'
-  interfaces  = 'C'
+  interfaces  = 'C/C++'
   licenses    = 'free, GNU Lesser GPL, open source'
   roles       = 'formatter, library, translator'
   standards   = 'braille'

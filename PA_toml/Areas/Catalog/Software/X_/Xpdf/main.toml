@@ -14,8 +14,7 @@
 [ meta.tags ]
 
   features    = 'extensible, many formats'
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   roles       = 'application, text extractor, viewer'
   standards   = 'PDF'
@@ -30,7 +29,7 @@
 (PDF) files (also called 'Adobe Acrobat' or 'Acrobat' files).  It includes
 a PDF text extractor (pdf2text).
 
-> -- [$url]{debi_pkgs|unstable/xpdf}
+> -- [$url]{debi_pkgs|buster/xpdf}
 '''
 
 [ address.related ]

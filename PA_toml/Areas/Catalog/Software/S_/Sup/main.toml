@@ -14,8 +14,7 @@
 [ meta.tags ]
 
   features    = 'fast searching, multiple accounts, rich query language'
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, email, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   requires    = 'Ruby'
   roles       = 'application, email client'

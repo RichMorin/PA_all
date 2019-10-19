@@ -9,13 +9,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/reportbug'
-  search      = 'debi_pkgs|search?keywords=reportbug'
-  track       = 'https://tracker.debian.org/pkg/reportbug'
-  wiki        = 'https://wiki.debian.org/reportbug'
-  # https://www.debian.org/Bugs/Reporting
+  package     = 'debi_pkgs|buster/reportbug'
 
-  commands    = 'sudo apt-get install reportbug'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'recoll'

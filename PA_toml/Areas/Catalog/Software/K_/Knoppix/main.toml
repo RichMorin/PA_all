@@ -13,11 +13,11 @@
 
 [ meta.tags ]
 
-  features    = 'screen reader, speech generation'
+  features    = 'screen reader, speech synthesis'
   impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'free, GPLv3, open source'
-  requires    = 'dialog, Linux, espeak'
+  requires    = 'dialog, Linux, eSpeak'
   roles       = 'operating system'
   standards   = 'braille'
 

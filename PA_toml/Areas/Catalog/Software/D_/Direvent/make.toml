@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/direvent'
+  package     = 'debi_pkgs|buster/direvent'
 
 [ os.perkify_ubuntu ]
 

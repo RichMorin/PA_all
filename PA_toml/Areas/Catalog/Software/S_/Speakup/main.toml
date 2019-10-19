@@ -15,7 +15,7 @@
 
   features    = 'speech synthesis'
   impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'audio, speech, text'
   licenses    = 'open source'
   roles       = 'kernel module, system software'
   supports    = 'communication, reading'

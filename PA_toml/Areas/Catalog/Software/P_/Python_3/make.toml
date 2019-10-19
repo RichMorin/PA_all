@@ -1,0 +1,16 @@
+# cat_sof|Python_3/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/python'
+  upstream    = 'https://www.python.org'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/python3'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'python3'

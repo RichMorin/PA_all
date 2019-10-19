@@ -1,0 +1,42 @@
+# cat_sof|PCManFM/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'PCManFM'
+  title       = 'PCManFM'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'extensible, many formats'
+  interfaces  = 'text'
+  licenses    = 'free, GPL, open source'
+  roles       = 'file manager, utility'
+  supports    = 'system administration'
+
+[ about ]
+
+  precis      = 'extremely fast and lightweight file manager'
+
+  verbose     = '''
+> PCMan File Manager (PCManFM) is a file manager application,
+developed by Hong Jen Yee from Taiwan.
+It is meant to be a replacement for Nautilus, Konqueror, and Thunar.
+Released under the GNU General Public License, PCManFM is free software.
+PCManFM is the standard file manager in LXDE,
+which is also developed by the same author in conjunction with other developers. Since 2010, PCManFM has undergone a complete rewrite from scratch. So the new PCManFM is totally different from the old 0.5.x series. Build instructions, the ways to setup, and configuration files are different, too.
+
+PCManFM is intended to follow the specifications given by Freedesktop.org
+for interoperability in free software.
+
+> -- [$url]{https://wiki.lxde.org/en/PCManFM}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://wiki.lxde.org/en/PCManFM'

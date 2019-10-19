@@ -15,11 +15,12 @@
 
   features    = 'multiple formats'
   impairments = 'blindness, low vision'
-  interfaces  = 'terminal-based, text-based'
+  interfaces  = 'GUI, text'
   licenses    = 'open source'
   requires    = 'GNOME, Python'
   roles       = 'application, accessibility explorer'
-  standards   = 'DJVU, DVI, EPS, PDF, PS, XPS'
+  standards   = 'AT-SPI2, DjVu, DVI, EPS, PDF, PS, XPS'
+  supports    = 'programming'
 
 [ about ]
 
@@ -42,6 +43,7 @@ to create custom views of accessibility information.
 [ address.related ]
 
   github      = 'ext_gh|GNOME/accerciser'
+  zoo         = 'https://wiki.gnome.org/Apps/Accerciser/Documentation'
 
 [ address.web_site ]
 

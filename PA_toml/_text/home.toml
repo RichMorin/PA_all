@@ -45,7 +45,7 @@ Perkify can be used on most 64-bit Intel platforms
 [Windows]{ext_wp|Microsoft_Windows}).
 The initial distribution contains about 2500
 [open source]{ext_wp|Open_source}
-[packages]{con_ove|PP_Perkify_Packages},
+[packages]{con_ove|PP_Perkify_Pkg_List},
 mostly installed via
 [Debian]{ext_wp|Debian}'s
 Advanced Package Toolkit ([APT]{ext_wp|APT_(Package_Manager)}).

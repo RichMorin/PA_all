@@ -16,8 +16,7 @@
 [ meta.tags ]
 
   features    = 'extensible, flexible, speech synthesis'
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'free, open source'
   requires    = 'Tesseract'
   roles       = 'screen reader, utility'

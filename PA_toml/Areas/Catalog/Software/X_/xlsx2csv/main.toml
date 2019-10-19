@@ -1,0 +1,38 @@
+# cat_sof|xlsx2csv/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'xlsx2csv'
+  title       = 'xlsx2csv'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'free, open source'
+  roles       = 'application, archive manager'
+  standards   = 'CSV, xlsx, XML'
+  supports    = 'system administration'
+
+[ about ]
+
+  precis      = 'convert xslx files to csv format'
+
+  verbose     = '''
+> xlsx files are zip archives where spreadsheet data is stored.
+In order to process a file, various bits inside the archive need to be located.
+This utility uses the Expat SAX parser to collect the strings
+into a simple dictionary, keyed by their relative position in the XML file.
+This makes it possible to process files of any size.
+
+> -- [$url]{debi_pkgs|buster/xlsx2csv}
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gh|dilshod/xlsx2csv'

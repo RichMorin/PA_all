@@ -1,0 +1,17 @@
+# cat_sof|OfflineIMAP/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|offlineimap'
+  upstream    = 'http://offlineimap.org'
+  wiki        = 'arch_wiki|OfflineIMAP'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/offlineimap'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'offlineimap'

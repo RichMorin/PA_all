@@ -2,6 +2,8 @@
 
 [ meta ]
 
+#! https://wiki.archlinux.org/index.php/Emacs
+
 [ os.arch ]
 
   package     = 'arch_pkgs|community/any/emacs-muse'
@@ -9,7 +11,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/elpa-muse'
+  package     = 'debi_pkgs|buster/elpa-muse'
 
 [ os.perkify_ubuntu ]
 

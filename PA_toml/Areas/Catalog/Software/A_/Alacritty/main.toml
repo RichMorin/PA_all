@@ -14,10 +14,10 @@
 [ meta.tags ]
 
   features    = 'cross-platform, GPU-accelerated'
-  impairments = 'blindness, low vision'
-  interfaces  = 'terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'Apache, open source'
   roles       = 'application, terminal emulator'
+  runs_on     = 'BSD, Linux, macOS, Windows'
 
 [ about ]
 
@@ -27,7 +27,6 @@
 > Alacritty is the fastest terminal emulator in existence.
 Using the GPU for rendering enables optimizations
 that simply aren't possible without it.
-Alacritty currently supports macOS, Linux, BSD, and Windows.
 
 > -- [$url]{ext_gh|jwilm/alacritty}
 '''

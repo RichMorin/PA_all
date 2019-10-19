@@ -14,7 +14,6 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
   interfaces  = 'audio, video'
   licenses    = 'free, GPL, open source'
   roles       = 'application, IM client, VoIP client'
@@ -35,6 +34,7 @@ Video Conferencing, and Instant Messenger application over the Internet.
 [ address.related ]
 
   wikipedia   = 'ext_wp|Ekiga'
+  zoo         = 'http://wiki.ekiga.org/index.php/Installing_Ekiga_on_Linux'
 
 [ address.web_site ]
 

@@ -1,0 +1,54 @@
+# cat_sof|ne/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'ne'
+  title       = 'ne (nice editor)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  licenses    = 'free, GPL, open source'
+  roles       = 'application, text editor'
+  supports    = 'communication, writing'
+
+[ about ]
+
+  precis      = 'easy-to-use and powerful text editor'
+
+  verbose     = '''
+> ne is a free (GPL'd) text editor based on the POSIX standard
+that runs (we hope) on almost any UN*X machine.
+ne is easy to use for the beginner, but powerful and fully configurable
+for the wizard, and most sparing in its resource usage.
+If you have the resources and the patience to use emacs
+or the right mental twist to use vi then probably ne is not for you.
+However, if you need an editor that:
+
+> - compiles without effort everywhere (or almost everywhere),
+  is packaged for all Linux distributions,
+  and ported to other operating systems (such as Mac OS X);
+
+> - is fast, small, powerful and simple to use;
+
+> - has standard keystrokes (e.g., copy is CTRL-C);
+
+> - uses little bandwidth, so it is ideal for email,
+  editing through phone line (or slow GSM/GPRS/UMTS) connections;
+
+> - has a very compact internal text representation,
+  so you can easily load and modify very large files...
+
+> ... then you should try ne.
+
+> -- [$url]{https://packages.debian.org/buster/ne}
+'''
+
+[ address.web_site ]
+
+  main        = 'http://ne.di.unimi.it'

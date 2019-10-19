@@ -2,6 +2,8 @@
 
 [ meta ]
 
+#! https://aur.archlinux.org/packages/brltty-minimal
+
 [ os.arch ]
 
   package     = 'arch_pkgs|extra/x86_64/brltty'
@@ -9,8 +11,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/brltty'
-  search      = 'debi_pkgs|search?keywords=brltty'
+  package     = 'debi_pkgs|buster/brltty'
 
   status      = 'BRLTTY is included in Ubuntu, but not in Raspbian.'
 

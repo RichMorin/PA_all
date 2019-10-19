@@ -15,7 +15,7 @@
 
   features    = 'screen reader, speech synthesis'
   impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'audio, speech, text'
   licenses    = 'open source'
   requires    = 'Emacspeak'
   roles       = 'screen reader, system software, utility'

@@ -15,7 +15,7 @@
 [ meta.tags ]
 
   impairments = 'dexterity'
-  interfaces  = 'terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'free, GNU GPL, open source'
   roles       = 'system software, utility'
   supports    = 'communication, education'

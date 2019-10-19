@@ -14,8 +14,7 @@
 [ meta.tags ]
 
   features    = 'session management'
-  impairments = 'blindness, low vision'
-  interfaces  = 'GUI, text-based'
+  interfaces  = 'GUI, text'
   licenses    = 'free, GNU GPL, open source'
   requires    = 'GNOME 2'
   roles       = 'desktop environment, system software'

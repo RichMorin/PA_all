@@ -4,6 +4,8 @@
 
 [ os.arch ]
 
+  wiki        = 'arch_wiki|GIMP'
+
 # Bazillions of possibilities.  Punting for now...
 
 [ os.debian ]

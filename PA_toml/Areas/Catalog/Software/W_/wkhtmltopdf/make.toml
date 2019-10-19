@@ -4,9 +4,13 @@
 
 [ os.arch ]
 
-  package     = 'arch_pkgs|wkhtmltopdf'
+  package     = 'arch_pkgs|community/x86_64/wkhtmltopdf'
   upstream    = 'https://wkhtmltopdf.org'
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|wkhtmltopdf/wkhtmltopdf'
+  package     = 'debi_pkgs|buster/wkhtmltopdf'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'wkhtmltopdf'

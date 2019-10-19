@@ -2,18 +2,17 @@
 
 [ meta ]
 
+#! https://wiki.archlinux.org/index.php/List_of_applications/Documents#Document_converters
+
 [ os.arch ]
 
-  package     = 'arch_pkgs|community/x86_64/pandoc/'
+  package     = 'arch_pkgs|community/x86_64/pandoc'
   upstream    = 'https://pandoc.org'
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/pandoc'
-  search      = 'debi_pkgs|search?keywords=pandoc'
-  track       = 'https://tracker.debian.org/pkg/pandoc'
+  package     = 'debi_pkgs|buster/pandoc'
 
-  commands    = 'sudo apt-get install pandoc'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'pandoc'

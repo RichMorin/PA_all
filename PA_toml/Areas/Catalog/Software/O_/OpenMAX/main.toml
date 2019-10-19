@@ -14,8 +14,7 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'audio, images, media, video'
+  interfaces  = 'audio, image, media, video'
   licenses    = 'open source'
   roles       = 'API, standard'
   standards   = 'DAISY'

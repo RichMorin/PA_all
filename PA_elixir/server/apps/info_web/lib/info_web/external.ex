@@ -53,7 +53,7 @@ defmodule InfoWeb.External do
       else
         ii(link_url, :link_url) #!T
 
-        {call_status, response}  = HTTPoison.get(link_url, headers, options)
+        {call_status, response}  = HTTPoison.head(link_url, headers, options)
 
         if call_status == :ok do
           code    = response.status_code

@@ -1,0 +1,39 @@
+# cat_sof|youtube_dl/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'youtube_dl'
+  title       = 'youtube-dl'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text, video'
+  licenses    = 'open source, public domain'
+  roles       = 'application, video downloader'
+
+[ about ]
+
+  precis      = 'a general-purpose, console-based screen reader'
+
+  verbose     = '''
+> youtube-dl is a command-line program to download videos from YouTube.com
+and a few more sites.
+It requires the Python interpreter (2.6, 2.7, or 3.2+)
+and it is not platform specific.
+We also provide a Windows executable that includes Python.
+youtube-dl should work in your Unix box, in Windows or in macOS.
+It is released to the public domain, which means you can modify it,
+redistribute it or use it however you like.
+
+> -- [$url]{https://ytdl-org.github.io/youtube-dl/index.html}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://ytdl-org.github.io/youtube-dl/index.html'

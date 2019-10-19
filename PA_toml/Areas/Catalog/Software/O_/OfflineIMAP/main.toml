@@ -1,0 +1,41 @@
+# cat_sof|OfflineIMAP/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'OfflineIMAP'
+  title       = 'OfflineIMAP'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'free, GPL, open source'
+  roles       = 'application, email client'
+  standards   = 'IMAP'
+  supports    = 'communication, email'
+
+[ about ]
+
+  precis      = 'perform OCR on DjVu files'
+
+  verbose     = '''
+> OfflineIMAP is a GPLv2 software to dispose your mailbox(es)
+as a local Maildir(s).
+
+> For example, this allows reading the mails while offline without the need
+for your mail reader (MUA) to support disconnected operations.
+
+> OfflineIMAP will synchronize both sides via IMAP.
+
+> -- [$url]{http://www.offlineimap.org}
+'''
+
+[ address.web_site ]
+
+  about       = 'main/about'
+  main        = 'http://www.offlineimap.org'

@@ -1,0 +1,16 @@
+# cat_sof|RipIT/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|ripit'
+  upstream    = 'https://www.ripit.pl'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/ripit'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'ripit'

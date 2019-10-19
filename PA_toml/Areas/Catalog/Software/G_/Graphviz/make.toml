@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/graphviz'
+  package     = 'debi_pkgs|buster/graphviz'
 
 [ os.perkify_ubuntu ]
 

@@ -13,7 +13,7 @@
 
 [ meta.tags ]
 
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'free, GPL, open source'
   roles       = 'application, internationalization tool'
   standards   = 'bonobo ui, glade, nautilus theme, oaf, po, XML'

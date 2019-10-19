@@ -4,7 +4,7 @@
 
   actions     = 'build, publish'
   id_str      = 'Lios'
-  title       = 'Lios'
+  title       = 'Lios (Linux-intelligent-ocr-solution)'
 
 [ meta.refs ]
 
@@ -13,12 +13,11 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'GUI, text'
+  interfaces  = 'GUI, image, text'
   licenses    = 'free, GPL, open source'
-  roles       = 'application, OCR utility'
+  roles       = 'application, OCR program'
   standards   = 'PDF'
-  supports    = 'communication'
+  supports    = 'communication, education'
 
 [ about ]
 
@@ -31,8 +30,6 @@ It can also produce text out of scanned images from other sources
 such as PDF, Image, Folder containing Images, or screenshot.
 Program is given total accessibility for visually impaired.
 A Tesseract Trainer GUI is also shipped with this package.
-
-
 
 > -- [$url]{http://www.linphone.org}
 '''

@@ -73,8 +73,16 @@ Here is some ordering information, including the tax and shipping I paid:
 
 - [batteries]{https://www.18650batterystore.com/ProductDetails.asp
     ?ProductCode=Samsung-50e} (~$20)
+- [charger]{https://www.amazon.com/dp/B07Q8KBSMK} ($4)
 - [Pi-UpTime]{https://www.amazon.com/dp/B07YF45H2X} ($55)
-- [spacers]{https://www.amazon.com/dp/B01M71WKMS} ($9)
+
+*Note:*
+A card shipped with the Pi-UpTime UPS 2.0 says:
+"Ensure [that] both batteries are fully charged or have [the]
+same amount of charge before you insert them."
+So, you'll need a way to pre-charge the batteries.
+You'll also need four (22 mm) spacers (etc),
+to keep the UPS from coming loose from the RasPi.
 
 ##### Battery Notes
 

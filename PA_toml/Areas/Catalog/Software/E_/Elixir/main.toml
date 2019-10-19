@@ -16,7 +16,7 @@
   features    = 'concurrency, distribution, failsoft, macros'
   licenses    = 'open source'
   roles       = 'programming language'
-  supports    = 'development'
+  supports    = 'programming'
 
 [ about ]
 

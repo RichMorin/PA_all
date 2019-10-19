@@ -14,7 +14,7 @@
 [ meta.tags ]
 
   features    = 'PIN-based'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'free, GNU LGPLv3, open source'
   produces    = 'hardware support'
   requires    = 'C/C++, GPIO, Raspberry Pi, RTB (BASIC)'

@@ -6,7 +6,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/audacious'
+  package     = 'debi_pkgs|buster/audacious'
   wiki        = 'debi_wiki|Aptitude'
 
 [ os.perkify_ubuntu ]

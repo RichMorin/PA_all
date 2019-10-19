@@ -1,0 +1,20 @@
+# cat_sof|Python_2/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/python2'
+  upstream    = 'https://www.python.org'
+  wiki        = 'arch_wiki|Python'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/python'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = '''
+python-cairo, python-daemonize, python-dbus, python-evdev,
+python-pyte, python-pyudev, python-setuptools
+'''

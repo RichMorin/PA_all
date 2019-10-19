@@ -14,11 +14,10 @@
 [ meta.tags ]
 
   features    = 'hex/octal/binary, trig functions, unit conversions'
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   roles       = 'application, calculator, language'
-  supports    = 'math'
+  supports    = 'mathematics'
 
 [ about ]
 
@@ -32,7 +31,7 @@ variables, a command history, hex/octal/binary input and output, unit
 conversions, embedded comments, and an expandable expression entry field.
 It evaluates expressions using the standard order of operations.
 
-> -- [$url]{debi_pkgs|unstable/wcalc}
+> -- [$url]{debi_pkgs|buster/wcalc}
 '''
 
 [ address.web_site ]

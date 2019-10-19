@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/dosfstools'
+  package     = 'debi_pkgs|buster/dosfstools'
 
   status      = 'dosfstools appears to be included in Raspbian Stretch'
 

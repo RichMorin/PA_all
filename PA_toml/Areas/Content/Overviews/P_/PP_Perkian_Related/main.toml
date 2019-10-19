@@ -41,14 +41,13 @@ that [Perkian]{con_ove|PP_Perkian_Intro} and
 [Perkify]{con_ove|PP_Perkify_Intro} should include.
 Here are the ones I know about (more suggestions welcome!):
 
-#### F123Light OS
+#### F123Light
 
-[F123Light OS]{cat_sof|F123Light_OS} is based on
+[F123Light]{cat_sof|F123Light} is based on
 [Arch Linux ARM]{ext_wp|Arch_Linux_ARM},
 a port of Arch Linux for [ARM]{ext_wp|ARM_architecture} processors.
-It is produced by the [F123]{cat_gro|F123} project
-and intended for use on
-[single-board computers]{ext_wp|Single-board_computer}
+It is produced by [VOISS]{cat_gro|VOISS} and intended for use
+on [single-board computers]{ext_wp|Single-board_computer}
 such as the [Raspberry Pi]{ext_wp|Raspberry_Pi}.
 
 #### Grml
@@ -109,6 +108,11 @@ but adds speech and braille packages to make it possible
 for blind and visually impaired users to install Arch Linux eyes-free.
 
 > -- [$url]{https://talkingarch.tk}
+
+> TalkingArch project is dead since 2017, but Tarch is fork with last release
+from June 2019.
+
+> -- [$url]{arch_wiki|TalkingArch}
 
 #### Trisquel GNU/Linux
 

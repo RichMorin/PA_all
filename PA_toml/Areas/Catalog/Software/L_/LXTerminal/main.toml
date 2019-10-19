@@ -1,0 +1,39 @@
+# cat_sof|LXTerminal/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'LXTerminal'
+  title       = 'LXTerminal'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'GUI, text'
+  licenses    = 'free, GPL, open source'
+  roles       = 'application, terminal emulator'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'an intelligent OCR solution for Linux'
+
+  verbose     = '''
+> LXTerminal is a VTE-based terminal emulator
+for the Lightweight X11 Desktop Environment (LXDE).
+
+It supports multiple tabs and has only minimal dependencies,
+thus being completely desktop-independent.
+In order to reduce memory usage and increase the performance,
+all instances of the terminal are sharing a single process.
+
+> -- [$url]{https://packages.debian.org/buster/lxterminal}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://lxde.org'

@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/bridge-utils'
+  package     = 'debi_pkgs|buster/bridge-utils'
 
 [ os.perkify_ubuntu ]
 

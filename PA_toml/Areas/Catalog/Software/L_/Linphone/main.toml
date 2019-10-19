@@ -13,8 +13,7 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'audio, video'
+  interfaces  = 'audio, text, video'
   licenses    = 'free, GPL, open source'
   roles       = 'application, IM client, VoIP client'
   runs_on     = 'Android, iOS, Windows UVP'

@@ -1,0 +1,44 @@
+# cat_sof|Python_2/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Python_2'
+  title       = 'Python 2'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'open source'
+  roles       = 'application, programming language'
+  supports    = 'programming'
+
+[ about ]
+
+  precis      = 'interactive high-level object-oriented language'
+
+  verbose     = '''
+> Python is an interpreted, high-level, general-purpose programming language.
+Created by Guido van Rossum and first released in 1991,
+Python's design philosophy emphasizes code readability
+with its notable use of significant whitespace.
+Its language constructs and object-oriented approach
+aim to help programmers write clear, logical code
+for small and large-scale projects.
+
+> -- [$url]{ext_wp|Python_(programming_language)}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Python_(programming_language)'
+
+[ address.web_site ]
+
+  about       = 'main|/about'
+  main        = 'https://www.python.org/about'

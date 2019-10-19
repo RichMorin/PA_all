@@ -2,11 +2,14 @@
 
 [ meta ]
 
+#! https://wiki.archlinux.org/index.php/Language_checking
+#! https://wiki.archlinux.org/index.php/Category:Dictionaries
+
 [ os.arch ]
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/diction'
+  package     = 'debi_pkgs|buster/diction'
 
 [ os.perkify_ubuntu ]
 

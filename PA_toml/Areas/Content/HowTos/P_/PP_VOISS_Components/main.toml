@@ -13,19 +13,12 @@
 
 [ about ]
 
-  precis      = "what's included in a F123 / VOISS system"
+  precis      = "what's included in a VOISS system"
 
   verbose     = '''
-*Note:*
-As of September 2019, the [F123]{cat_gro|F123} folks are in the early stages
-of rebranding themselves as [VOISS]{https://www.voiss.tech/en}.
-Although this may cause some confusion, stay calm:
-their basic mission is unchanged.
-In any case, I'll use a mixture of names in my pages, as seems appropriate.
-When the dust settles a little, I'll come back and edit the nomenclature.
-
 The [VOISS - Introduction]{con_ove|PP_VOISS_Intro} page
-describes the motivation, design, and components of the VOISS Classic system.
+describes the motivation, design, and components
+of the [VOISS Classic]{cat_har|VOISS_Classic} system.
 This page is part one of a HowTo for putting together a similar system.
 It provides links to background information, covers component selection, etc.
 As usual, please let me know about any errors or omissions!

@@ -1,0 +1,40 @@
+# cat_sof|TeX_Live/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'TeX_Live'
+  title       = 'TeX Live'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'free, open source'
+  roles       = 'application, document converter'
+  supports    = 'documentation, writing'
+
+[ about ]
+
+  precis      = 'render HTML into PDF and various image formats'
+
+  verbose     = '''
+> TeX Live is an easy (we hope) way to get up and running
+with the TeX document production system.
+It provides a comprehensive TeX system with binaries
+for most flavors of Unix, including GNU/Linux, macOS, and also Windows.
+It includes all the major TeX-related programs, macro packages,
+and fonts that are free software,
+including support for many languages around the world.
+Many operating systems provide it via their own distributions.
+
+> -- [$url]{http://www.tug.org/texlive}
+'''
+
+[ address.web_site ]
+
+  main        = 'http://www.tug.org/texlive'

@@ -1,0 +1,16 @@
+# cat_sof|Recoll/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/recoll'
+  upstream    = 'https://www.lesbonscomptes.com/recoll'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/recoll'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'recoll'

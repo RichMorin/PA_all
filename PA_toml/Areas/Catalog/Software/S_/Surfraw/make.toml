@@ -1,0 +1,17 @@
+# cat_sof|Surfraw/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|surfraw'
+  upstream    = 'http://sup-heliotrope.github.io'
+  wiki        = 'arch_wiki|Surfraw'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/surfraw'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'surfraw'

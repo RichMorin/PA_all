@@ -10,11 +10,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/mpd'
-  search      = 'debi_pkgs|search?keywords=mpd'
-  track       = 'https://tracker.debian.org/pkg/mpd'
+  package     = 'debi_pkgs|buster/mpd'
 
-  commands    = 'sudo apt-get install mpd'
-  issues      = '?'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'mpd'

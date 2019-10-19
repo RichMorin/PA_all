@@ -14,7 +14,7 @@
 [ meta.tags ]
 
   features    = 'C-based, fast'
-  interfaces  = 'chat, command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   requires    = 'ircII'
   roles       = 'application, chat client'

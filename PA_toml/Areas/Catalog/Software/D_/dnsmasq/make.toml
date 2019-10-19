@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/dnsmasq'
+  package     = 'debi_pkgs|buster/dnsmasq'
 
 [ os.perkify_ubuntu ]
 

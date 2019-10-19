@@ -1,0 +1,18 @@
+# cat_sof|youtube_dl/make.toml
+
+[ meta ]
+
+# https://jlk.fjfi.cvut.cz/arch/manpages/man/youtube-dl.1.html
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/any/youtube-dl'
+  upstream    = 'https://rg3.github.io/youtube-dl'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/youtube-dl'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'youtube-dl'

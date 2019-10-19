@@ -10,4 +10,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/ocrmypdf'
+  package     = 'debi_pkgs|buster/ocrmypdf'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'ocrmypdf, ocrmypdf-doc'

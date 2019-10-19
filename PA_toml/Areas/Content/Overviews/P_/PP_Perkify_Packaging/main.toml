@@ -83,7 +83,7 @@ because they (like Ubuntu) are based on Debian,
 it's trivial to fold in their additions.
 
 Folding in packages from other Linux releases (e.g.,
-[F123Light OS]{cat_sof|F123Light_OS},
+[F123Light]{cat_sof|F123Light},
 [Slint]{cat_sof|Slint},
 [TalkingArch]{cat_sof|TalkingArch}) isn't as easy, but we'll give it a try.
 Basically, it requires us to look up the corresponding Debian packages.

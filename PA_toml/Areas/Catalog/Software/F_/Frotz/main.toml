@@ -13,8 +13,7 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   roles       = 'application, game interpreter'
   standards   = 'Infocom, Inform, Z-code, Z-Machine'
@@ -34,7 +33,7 @@ Examples of such story files include the adventure games published by
 Infocom, as well as any games produced by compilers to this format,
 such as Inform.
 
-> -- [$url]{debi_pkgs|unstable/frotz}
+> -- [$url]{debi_pkgs|buster/frotz}
 '''
 
 [ address.related ]

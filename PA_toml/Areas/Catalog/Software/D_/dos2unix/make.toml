@@ -2,6 +2,8 @@
 
 [ meta ]
 
+#! https://wiki.archlinux.org/index.php/Convert
+
 [ os.arch ]
 
   package     = 'arch_pkgs|community/x86_64/dos2unix'
@@ -9,7 +11,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/dos2unix'
+  package     = 'debi_pkgs|buster/dos2unix'
 
 [ os.perkify_ubuntu ]
 

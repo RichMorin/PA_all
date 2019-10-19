@@ -13,10 +13,9 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based, web'
+  interfaces  = 'text'
   licenses    = 'open source'
-  roles       = 'application, browser, terminal pager'
+  roles       = 'application, terminal pager, web browser'
   standards   = 'HTML, HTTP, SSL'
   supports    = 'communication'
 
@@ -36,7 +35,6 @@ form as true to their original layout as possible.
 
 [ address.related ]
 
-  github      = 'ext_gh|tmux/tmux'
   sourceforge = 'http://w3m.sourceforge.net'
   wikipedia   = 'ext_wp|W3m'
   zoo         = 'http://pub.ks-and-ks.ne.jp/prog/w3mmee'

@@ -1,0 +1,16 @@
+# cat_sof|mblaze/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|mblaze-git'
+  upstream    = 'https://github.com/chneukirchen/mblaze'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/mblaze'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'mblaze'

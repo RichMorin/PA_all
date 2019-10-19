@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/dialog'
+  package     = 'debi_pkgs|buster/dialog'
 
 [ os.perkify_ubuntu ]
 

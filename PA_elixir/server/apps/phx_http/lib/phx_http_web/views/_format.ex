@@ -78,7 +78,7 @@ defmodule PhxHttpWeb.View.Format do
     #   /area?key=Areas/Catalog/_area.toml
     #   /area?key=Areas/Catalog/Groups/_area.toml
 
-    nodes   = key           # "Areas/Catalog/Groups/F123/main.toml"
+    nodes   = key           # "Areas/Catalog/Groups/VOISS/main.toml"
     |> String.split("/")    # [ "Areas", "Catalog", ... ]
     |> Enum.slice(1..2)     # [ "Catalog", "Groups" ]
 
@@ -176,8 +176,8 @@ defmodule PhxHttpWeb.View.Format do
       "<b>#{ label }:</b>&nbsp; #{ link_str }"
     end
 
-    ref_val                     # "cat_sof|F123_Access, ..."
-    |> csv_split()              # [ "cat_sof|F123_Access", ... ]
+    ref_val                     # "cat_ser|F123_Access, ..."
+    |> csv_split()              # [ "cat_ser|F123_Access", ... ]
     |> Enum.map(tuple_fn)       # [ {<link>, <title>}, ... ]
     |> sort_by_elem(0, :dc)     # ditto, but sorted by title
     |> Enum.map(link_fn)        # [ <link>, ... ]

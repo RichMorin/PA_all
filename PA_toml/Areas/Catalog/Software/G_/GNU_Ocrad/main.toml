@@ -13,8 +13,7 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line'
+  interfaces  = 'text'
   licenses    = 'free, GNU GPL, open source'
   roles       = 'application, OCR program'
   standards   = 'pbm, pgm, ppm, UTF-8'
@@ -37,6 +36,10 @@ or as a backend to other programs.
 
 > -- [$url]{ext_gs|ocrad/ocrad.html}
 '''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Ocrad'
 
 [ address.web_site ]
 

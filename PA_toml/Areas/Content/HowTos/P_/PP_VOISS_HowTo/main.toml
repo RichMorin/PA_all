@@ -10,6 +10,7 @@
 
   f_authors   = 'cat_peo|Rich_Morin'
   f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_gro|VOISS, cat_har|VOISS_Classic'
 
 [ about ]
 
@@ -17,7 +18,7 @@
 
   verbose     = '''
 I'm writing a multi-part series of HowTo pages
-for putting together a F123 / VOISS system.
+for putting together a VOISS system.
 The list below lays out a suggested reading order.
 As usual, please let me know about any errors or omissions!
 

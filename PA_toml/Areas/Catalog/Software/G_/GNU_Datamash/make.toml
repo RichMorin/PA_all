@@ -2,6 +2,9 @@
 
 [ meta ]
 
+#! https://wiki.archlinux.org/index.php/GNU
+#! https://www.gnu.org/software/datamash/download/
+
 [ os.arch ]
 
   package     = 'arch_pkgs|extra/x86_64/datamash'

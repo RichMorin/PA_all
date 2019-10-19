@@ -13,11 +13,11 @@
 
 [ meta.tags ]
 
-  interfaces  = 'terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'free, LGPL2.1, open source'
   requires    = 'curses'
   roles       = 'system software, utility'
-  supports    = 'communication, education'
+  supports    = 'programming'
 
 [ about ]
 

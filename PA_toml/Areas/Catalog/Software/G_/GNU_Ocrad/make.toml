@@ -2,6 +2,8 @@
 
 [ meta ]
 
+#! https://en.wikipedia.org/wiki/List_of_GNU_packages
+
 [ os.arch ]
 
   package     = 'arch_pkgs|community/x86_64/ocrad'

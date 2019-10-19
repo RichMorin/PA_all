@@ -14,12 +14,12 @@
 
 [ meta.tags ]
 
-  features    = 'speech generation'
+  features    = 'speech synthesis'
   impairments = 'blindness, low vision'
-  interfaces  = 'media'
+  interfaces  = 'audio, media, speech'
   licenses    = 'open source'
   requires    = 'JAWS, MS Windows, SAPI'
-  roles       = 'application, DAISY reader'
+  roles       = 'application, DAISY player'
   standards   = 'DAISY'
 
 [ about ]

@@ -14,7 +14,7 @@
 [ meta.tags ]
 
   features    = 'many formats'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   roles       = 'application, image processor, library'
  

@@ -13,7 +13,6 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
   interfaces  = 'file system'
   licenses    = 'free, GNU GPL, open source'
   roles       = 'data set, reference'

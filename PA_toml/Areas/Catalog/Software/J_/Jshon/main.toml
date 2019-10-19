@@ -13,18 +13,17 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   requires    = 'Jansson'
-  roles       = 'application, JSON manipulation'
+  roles       = 'application, JSON parser'
 
 [ about ]
 
   precis      = 'a JSON manipulation tool'
 
   verbose     = '''
-> Jshon parses, reads and creates JSON.
+> Jshon parses, reads, and creates JSON.
 It is designed to be as usable as possible from within the shell
 and replaces fragile adhoc parsers made from grep/sed/awk
 as well as heavyweight one-line parsers made from perl/python. ...

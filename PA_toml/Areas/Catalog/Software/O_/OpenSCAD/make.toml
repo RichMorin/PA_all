@@ -10,4 +10,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/openscad'
+  package     = 'debi_pkgs|buster/openscad'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'openscad'

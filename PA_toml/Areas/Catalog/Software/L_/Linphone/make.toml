@@ -2,6 +2,8 @@
 
 [ meta ]
 
+#! https://aur.archlinux.org/packages/linphone-desktop-all/
+
 [ os.arch ]
 
   package     = 'arch_aur|linphone'

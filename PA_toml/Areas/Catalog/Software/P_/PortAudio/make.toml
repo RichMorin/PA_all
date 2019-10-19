@@ -1,0 +1,18 @@
+# cat_sof|PortAudio/make.toml
+
+[ meta ]
+
+#! https://wiki.archlinux.org/index.php/Professional_audio
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|/extra/x86_64/portaudio'
+  upstream    = 'http://www.portaudio.com'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/portaudio'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'portaudio'

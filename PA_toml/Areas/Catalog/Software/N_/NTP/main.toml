@@ -1,0 +1,45 @@
+# cat_sof|NTP/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'NTP'
+  title       = 'NTP (Network Time Protocol)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  licenses    = 'free, open source'
+  roles       = 'daemon'
+  standards   = 'DCF-77, GPS, NIST, NTP, RFC-5905'
+
+[ about ]
+
+  precis      = 'Network Time Protocol daemon and utility programs'
+
+  verbose     = '''
+> This distribution is an implementation of RFC-5905
+"Network Time Protocol Version 4: Protocol and Algorithms Specification".
+NTP is widely used to synchronize a computer to Internet time servers
+or other sources, such as a radio or satellite receiver
+or telephone modem service.
+It can also be used as a server for dependent clients.
+It provides accuracies typically less than a millisecond on LANs
+and up to a few milliseconds on WANs.
+Typical NTP configurations utilize multiple redundant servers
+and diverse network paths in order to achieve high accuracy and reliability.
+
+> -- [$url]{https://www.eecis.udel.edu/~mills/ntp/html/index.html}
+'''
+
+[ address.related ]
+
+  zoo         = 'https://www.eecis.udel.edu/~mills/ntp/html/index.html'
+
+[ address.web_site ]
+
+  main        = 'http://www.ntp.org'

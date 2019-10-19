@@ -1,0 +1,52 @@
+# cat_sof|mbrola/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'mbrola'
+  title       = 'mbrola'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'audio, speech, text'
+  licenses    = 'free, open source'
+  roles       = 'application, speech synthesizer'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'multilingual software speech synthesizer'
+
+  verbose     = '''
+> Mbrola is Thierry Dutoit's phonemizer for multilingual speech synthesis.
+The various diphone databases are distributed on separate packages,
+but they must be used with and only with Mbrola because of license matters.
+Read the copyright for details.
+
+Mbrola itself doesn't provide full TTS.
+It is a speech synthesizer based on the concatenation of diphones.
+It takes a list of phonemes as input, together with prosodic information
+(duration of phonemes and a piecewise linear description of pitch),
+and produces speech samples on 16 bits (linear),
+at the sampling frequency of the diphone database.
+
+Use Mbrola along with Freephone, cicero, or espeak
+to have a complete text-to-speech in English.
+
+> -- [$url]{deb_pkgs|buster/mbrola}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|numediart/MBROLA, ext_gh|numediart/MBROLA-voices'
+  wikipedia   = 'ext_wp|MBROLA'
+
+[ address.web_site ]
+
+  main        = 'http://tcts.fpms.ac.be/synthesis/mbrola.html'

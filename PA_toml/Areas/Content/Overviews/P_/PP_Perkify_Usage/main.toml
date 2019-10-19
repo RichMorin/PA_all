@@ -159,8 +159,7 @@ For details, read the [Forwarded Ports
 
 The Apache server normally communicates via port 80.
 By convention, Vagrant forwards this port on the VM to port 8080 on the host.
-So, you can access this web server as 
-[$url]{http://localhost:8080}.
+So, you can access this web server as `http://localhost:8080`.
 All you'll get if you access this URL is a placeholder `index.html` file,
 located in the `~/_base/html` directory.
 Feel free to season to taste...
@@ -178,7 +177,8 @@ For details, read Vagrant's
 ### Resources
 
 At this point, you should have enough knowledge to go off on your own.
-Check out the [Packages]{con_ove|PP_Perkify_Packages} page for ideas.
+Check out the [Package Index]{con_ove|PP_Perkify_Pkg_Index} and
+[Package List]{con_ove|PP_Perkify_Pkg_List} pages for ideas.
 Also, you'll certainly have questions about Linux, Ubuntu, and Vagrant.
 See the [Perkify - Resources]{con_ove|PP_Perkify_Resources} page
 for some pointers.

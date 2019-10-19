@@ -13,8 +13,7 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'C/C++, command line'
+  interfaces  = 'C/C++, text'
   licenses    = 'free, GNU GPL, open source'
   roles       = 'application, library, plotting utility'
   standards   = 'PNG, PostScript, SVG'
@@ -56,6 +55,10 @@ PostScript itself.
 
 > -- [$url]{ext_gs|plotutils}
 '''
+
+[ address.related ]
+
+  wikipedia     = 'ext_wp|Plotutils'
 
 [ address.web_site ]
 

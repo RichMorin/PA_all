@@ -13,14 +13,14 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'C/C++, command line'
+  interfaces  = 'text'
   licenses    = 'free, GNU GPL, open source'
   roles       = 'application, library, plotting utility'
   standards   = '''
-as, csv, dif, HTML, me, mps, OASIS XML, oleo, OpenOffice.org XML,
-pln, StarOffice, sxc, sylk, tex, tm, wk1, wks, XBase, xls'
+as, CSV, dif, HTML, me, mps, OASIS XML, oleo, OpenOffice.org XML,
+pln, StarOffice, sxc, sylk, tex, tm, wk1, wks, XBase, xls
 '''
+  supports    = 'mathematics'
 
 [ about ]
 

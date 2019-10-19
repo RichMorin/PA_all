@@ -1,0 +1,34 @@
+# cat_sof|CuneiForm/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'CuneiForm'
+  title       = 'CuneiForm'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'GPL, open source'
+  roles       = 'application, OCR program'
+
+[ about ]
+
+  precis      = 'optical character recognition (OCR) program'
+
+  verbose     = '''
+> CuneiForm is an OCR system originally developed and open sourced
+by Cognitive Technologies.
+This project aims to create a fully portable version of CuneiForm.
+
+> -- [$url]{https://launchpad.net/cuneiform-linux}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://launchpad.net/cuneiform-linux'

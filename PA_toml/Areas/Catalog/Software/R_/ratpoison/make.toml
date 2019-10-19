@@ -1,0 +1,17 @@
+# cat_sof|ratpoison/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/ratpoison'
+  upstream    = 'http://www.nongnu.org/ratpoison'
+  wiki        = 'arch_wiki|Ratpoison'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/ratpoison'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'ratpoison'

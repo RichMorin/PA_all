@@ -8,11 +8,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/ruby-gpio'
-  search      = 'debi_pkgs|search?keywords=ruby-gpio'
-  track       = 'https://tracker.debian.org/pkg/ruby-gpio'
+  package     = 'debi_pkgs|buster/ruby-gpio'
 
-  commands    = 'sudo gem install ruby-gpio'
-  issues      = 'installs automagically'
-  origin      = 'RubyGems'
-  status      = 'ruby-gpio is available as a Ruby Gem.'
+[ os.perkify_ubuntu ]
+
+# add_apt     = 'ruby-gpio'   # Only makes sense for RasPi

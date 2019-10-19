@@ -14,11 +14,11 @@
 [ meta.tags ]
 
   features    = 'cross-platform'
-  interfaces  = 'terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   requires    = 'Ruby'
   roles       = 'application, software, utility'
-  supports    = 'configuration, deployment, systems administration'
+  supports    = 'configuration, deployment, programming, system administration'
 
 [ about ]
 

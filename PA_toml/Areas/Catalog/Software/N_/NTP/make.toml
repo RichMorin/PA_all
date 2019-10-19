@@ -1,0 +1,17 @@
+# cat_sof|NTP/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/ntp'
+  upstream    = 'http://www.ntp.org'
+  wiki        = 'arch_wiki|Network_Time_Protocol_daemon'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/ntp'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'ntp'

@@ -1,0 +1,17 @@
+# cat_sof|mpv/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|mpv-full'
+  upstream    = 'https://mpv.io'
+  wiki        = 'arch_wiki|Mpv'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/mpv'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'mpv'

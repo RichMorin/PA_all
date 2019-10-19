@@ -13,7 +13,7 @@
 
 [ meta.tags ]
 
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   produces    = 'hardware support'
   requires    = 'GPIO, Raspberry Pi, Ruby, sysfs'

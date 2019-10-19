@@ -10,4 +10,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/mumble'
+  package     = 'debi_pkgs|buster/mumble'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'mumble'

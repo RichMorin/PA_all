@@ -1,0 +1,46 @@
+# cat_sof|Pdmenu/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Pdmenu'
+  title       = 'Pdmenu'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'free, open source'
+  roles       = 'library'
+  supports    = 'programming'
+
+[ about ]
+
+  precis      = 'simple full screen menu program'
+
+  verbose     = '''
+> Pdmenu is a full screen menuing system for Unix.
+It is designed to be easy to use, and is suitable as a login shell
+for inexperienced users, or it can just be run at the command line
+as a handy menu.
+
+> Pdmenu features color support and GPM mouse support at the Linux console.
+It was developed on Linux, and has now been compiled on many other unixes
+without problems.
+
+> I was prompted to write Pdmenu when I took a look at a shell script
+that used dialog to generate similar menus.
+The shell script was huge, complicated, and ugly,
+and had to be modified manually to add anything to the menu.
+I hope that Pdmenu is better.
+
+> -- [$url]{https://joeyh.name/code/pdmenu}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://joeyh.name/code/pdmenu'

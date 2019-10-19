@@ -13,20 +13,20 @@
 
 [ meta.tags ]
 
-  features    = 'speech generation'
+  features    = 'speech synthesis'
   impairments = 'blindness, low vision'
-  interfaces  = 'speech, terminal-based, text-based'
+  interfaces  = 'speech, text'
   licenses    = 'open source'
   requires    = 'MS Windows, Visual Studio'
   roles       = 'IDE, plugin'
-  supports    = 'C#, debugging, programming, Python'
+  supports    = 'C#, debugging, development, programming, Python'
 
 [ about ]
 
   precis      = 'a blind-accessible IDE for Visual Studio'
 
   verbose     = '''
-> Code Talk is a step towards making programming IDEs more accessible.
+> CodeTalk is a step towards making programming IDEs more accessible.
 The plugin currently concentrates on three main aspects of Programming:
 
 - Glanceability

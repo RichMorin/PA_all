@@ -14,10 +14,10 @@
 [ meta.tags ]
 
   features    = 'multiplexes traffic into one output'
-  interfaces  = 'chat, command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   requires    = 'ircII'
-  roles       = 'application, client'
+  roles       = 'application, chat client'
   standards   = 'IRC'
   supports    = 'communication'
 
@@ -31,7 +31,7 @@ from standard input and prints all server output to standard output.  It
 also multiplexes all channel traffic into one output.  That way you don't
 have to switch different channel buffers.  So that's actually a feature.
 
-> -- [$url]{debi_pkgs|unstable/sic}
+> -- [$url]{debi_pkgs|buster/sic}
 '''
 
 [ address.related ]

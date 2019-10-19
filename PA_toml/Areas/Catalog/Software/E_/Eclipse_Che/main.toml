@@ -14,13 +14,12 @@
 [ meta.tags ]
 
   features    = 'containerization, multi-user support'
-  impairments = 'blindness, low vision'
   interfaces  = 'HTML'
   licenses    = 'open source'
   requires    = 'Docker'
   roles       = 'application, IDE'
   standards   = 'HTML'
-  supports    = 'development'
+  supports    = 'programming'
 
 [ about ]
 

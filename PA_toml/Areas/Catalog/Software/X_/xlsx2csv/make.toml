@@ -1,0 +1,16 @@
+# cat_sof|xlsx2csv/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|python-xlsx2csv'
+  upstream    = 'ext_gh|dilshod/xlsx2csv'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/xlsx2csv'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'xlsx2csv'

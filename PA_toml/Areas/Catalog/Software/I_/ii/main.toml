@@ -14,9 +14,9 @@
 [ meta.tags ]
 
   features    = 'filesystem-based'
-  interfaces  = 'chat, command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
-  roles       = 'application, IRC client, FIFO'
+  roles       = 'application, chat client, FIFO'
   standards   = 'IRC'
   supports    = 'communication'
 

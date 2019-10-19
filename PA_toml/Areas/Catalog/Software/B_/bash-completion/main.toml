@@ -13,12 +13,9 @@
 
 [ meta.tags ]
 
-  features    = 'connect multiple devices'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
-  requires    = 'Linux, Linux Ethernet bridge'
-  roles       = 'network bridge, utility'
-  standards   = 'Ethernet'
+  roles       = 'system software'
 
 [ about ]
 
@@ -31,12 +28,13 @@ This project was conceived to produce programmable completion routines
 for the most common Linux/UNIX commands, reducing the amount
 of typing sysadmins and programmers need to do on a daily basis.
 
-> -- [$url]{debi_pkgs|unstable/bash-completion}
+> -- [$url]{debi_pkgs|buster/bash-completion}
 '''
 
 [ address.related ]
 
   github      = 'ext_gh|scop/bash-completion'
+  zoo         = 'arch_wiki|Bash'
 
 [ address.web_site ]
 

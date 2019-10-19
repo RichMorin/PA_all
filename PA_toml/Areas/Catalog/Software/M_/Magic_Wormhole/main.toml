@@ -1,0 +1,47 @@
+# cat_sof|Magic_Wormhole/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Magic_Wormhole'
+  title       = 'Magic Wormhole'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'file transfer, library, system software, utility'
+
+[ about ]
+
+  precis      = 'securely and simply transfer data between computers'
+
+  verbose     = '''
+> Magic Wormhole provides a command-line tool and Python library
+named "wormhole" which makes it possible to very easily transfer short pieces
+of text or arbitrary-sized files or directories from one computer to another.
+
+The two endpoints are identified by using identical "wormhole codes":
+in general, the sending machine generates and displays the code,
+which must then be typed into the receiving machine.
+The codes are short and human-pronounceable,
+using a phonetically-distinct wordlist.
+The receiving side offers tab-completion on the codewords,
+so usually only a few characters must be typed.
+Wormhole codes are single-use and do not need to be memorized.
+
+> -- [$url]{https://packages.debian.org/buster/magic-wormhole}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|warner/magic-wormhole'
+
+[ address.web_site ]
+
+  main        = 'https://magic-wormhole.readthedocs.io/en/latest'

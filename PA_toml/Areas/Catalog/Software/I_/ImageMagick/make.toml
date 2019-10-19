@@ -2,11 +2,13 @@
 
 [ meta ]
 
+#! https://aur.archlinux.org/packages/imagemagick-full
+
 [ os.arch ]
 
   package     = 'arch_aur|imagemagick-full'
   upstream    = 'https://www.imagemagick.org/'
-  wiki        = 'https://wiki.archlinux.org/index.php/ImageMagick'
+  wiki        = 'arch_wiki|ImageMagick'
 
 [ os.debian ]
 

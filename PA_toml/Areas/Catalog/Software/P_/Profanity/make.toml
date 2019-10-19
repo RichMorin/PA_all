@@ -9,12 +9,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|jessie/profanity'
-  search      = 'debi_pkgs|search?keywords=profanity'
-  track       = 'https://tracker.debian.org/pkg/profanity'
+  package     = 'debi_pkgs|buster/profanity'
 
-  commands    = 'sudo apt-get install profanity'
-  origin      = 'APT'
-  status      = '''
-As of 2017.0917, there is no "profanity" package for Raspbian Stretch.
-'''
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'profanity'

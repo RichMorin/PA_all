@@ -1,0 +1,39 @@
+# cat_sof|Thunderbird/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Thunderbird'
+  title       = 'Thunderbird'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'open source'
+  roles       = 'application, email client'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'standalone mail and news reader from mozilla.org'
+
+  verbose     = '''
+> Thunderbird is an email client suitable for free distribution.
+The goal of Thunderbird is to produce a cross platform, stand-alone,
+mail application using the XUL user interface language.
+It supports different mail accounts, no matter of the used protocol
+like POP(s) or IMAP(s), has an integrated learning spam filter,
+and offers easy organization of mails with tagging and virtual folders.
+Also, more features can be added by installing extensions.
+
+> -- [$url]{https://packages.debian.org/buster/thunderbird}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://www.mozilla.org/thunderbird'

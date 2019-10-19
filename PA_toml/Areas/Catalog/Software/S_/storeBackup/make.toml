@@ -1,0 +1,16 @@
+# cat_sof|storebackup/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|storebackup'
+  upstream    = 'http://savannah.nongnu.org/projects/storebackup'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/storebackup'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'storebackup'

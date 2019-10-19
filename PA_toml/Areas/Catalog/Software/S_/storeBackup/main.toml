@@ -1,0 +1,52 @@
+# cat_sof|storeBackup/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'storeBackup'
+  title       = 'storeBackup'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'open source'
+  roles       = 'file backup, utility, system management'
+
+[ about ]
+
+  precis      = 'a backup suite that stores files on other disks'
+
+  verbose     = '''
+> Storebackup is a backup suite that stores files on other disks.
+
+> It uses deduplication based optimizations that reduce the disk space needed
+and improve performance.
+StoreBackup unifies the advantages of traditional full and incremental backups.
+It supports fast backup over high latency lines like vpn connections.
+It includes tools for analysing backup data and restoring.
+Once archived, files are simply accessible by mounting file systems
+(eg. locally, via Samba or NFS).
+
+> StoreBackup also supports very efficient backups of big image files
+(from eg. TrueCrypt, mbox, Xen, KVM, VMware, etc.)
+or complete devices via deduplication.
+
+> It also supports:
+
+> - integrity checks of backups (via md5 sums generated from source)
+
+> - isolated incremental backups without direct access to the repositories (later integration in master backup)
+
+> - time shifted replication of backups to additional other disks / locations ("backup of backups")
+
+> -- [$url]{http://savannah.nongnu.org/projects/storebackup}
+'''
+
+[ address.web_site ]
+
+  main        = 'http://savannah.nongnu.org/projects/storebackup'

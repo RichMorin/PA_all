@@ -4,9 +4,12 @@
 
 [ os.arch ]
 
+  package     = 'archpkgs|community/x86_64/bsd-games'
+  upstream    = 'http://ibiblio.org/pub/linux/games'
+
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/bsdgames'
+  package     = 'debi_pkgs|buster/bsdgames'
 
 [ os.perkify_ubuntu ]
 

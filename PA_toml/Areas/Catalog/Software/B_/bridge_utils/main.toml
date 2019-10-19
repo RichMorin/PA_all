@@ -14,7 +14,7 @@
 [ meta.tags ]
 
   features    = 'connect multiple devices'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   requires    = 'Linux, Linux Ethernet bridge'
   roles       = 'network bridge, utility'
@@ -31,12 +31,13 @@ Ethernet devices together.  The connecting is fully transparent: hosts
 connected to one Ethernet device see hosts connected to the other Ethernet
 devices directly.
 
-> -- [$url]{debi_pkgs|unstable/bridge-utils}
+> -- [$url]{debi_pkgs|buster/bridge-utils}
 '''
 
 [ address.related ]
 
   github      = 'ext_gh|Gandi/bridge-utils'
+  zoo         = 'arch_wiki|Network_bridge, arch_wiki|Bridge_with_netctl'
 
 [ address.web_site ]
 

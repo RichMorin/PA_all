@@ -1,0 +1,40 @@
+# cat_sof|TuxMath/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'TuxMath'
+  title       = 'TuxMath'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'open source'
+  roles       = 'application, game, math tutor'
+  supports    = 'education, entertainment, mathematics'
+
+[ about ]
+
+  precis      = 'a terminal session multiplexer'
+
+  verbose     = '''
+> In "Tux, of Math Command," you play the part of Commander Tux,
+as he defends his friends from an attack of math equations.
+Comets are crashing towards the friendly penguins in their igloos,
+and you must destroy the comets by solving their equations.
+
+As of version 1.7.0, TuxMath also includes a completely new game activity,
+"Factoroids", which gives practice in factoring numbers
+and simplifying fractions, as well as zapping rocks floating through space.
+
+> -- [$url]{ext_gh|tux4kids/tuxmath/blob/master/doc/README}
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gh|tux4kids/tuxmath'

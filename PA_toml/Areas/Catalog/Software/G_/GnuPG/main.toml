@@ -13,11 +13,11 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'C/C++, command line'
+  interfaces  = 'text'
   licenses    = 'free, GNU GPL, open source'
-  roles       = 'application, library, plotting utility'
+  roles       = 'application, encryption utility'
   standards   = 'OpenPGP, PGP, RFC4880, S/MIME, SSH'
+  supports    = 'privacy'
 
 [ about ]
 

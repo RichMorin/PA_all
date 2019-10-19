@@ -2,6 +2,8 @@
 
 [ meta ]
 
+#! https://wiki.archlinux.org/index.php/TalkingArch
+
   summary     = '''
 Speakup is included in the Raspberry VI distribution.
 
@@ -32,11 +34,4 @@ need for a speech-dispatcher module for OpenMAX to allow Orca to use it.
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/speakup'
-  search      = 'debi_pkgs|search?keywords=speakup'
-  track       = 'https://tracker.debian.org/pkg/speakup'
-
-  commands    = 'sudo apt-get install sic'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-
+# package     = 'debi_pkgs|buster/speakup'    # Not sure wazzup here...

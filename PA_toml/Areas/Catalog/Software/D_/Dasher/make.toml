@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/dasher'
+  package     = 'debi_pkgs|buster/dasher'
 
 [ os.perkify_ubuntu ]
 

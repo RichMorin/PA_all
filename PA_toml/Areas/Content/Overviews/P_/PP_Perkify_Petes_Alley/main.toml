@@ -39,7 +39,7 @@ Advanced Package Toolkit ([APT]{ext_wp|APT_(Package_Manager)})
 to install most packages.
 However, it isn't that much trouble (and actually quite handy)
 to keep track of the corresponding information for
-[Arch]{ext_wp|Arch_Linux} (and hence, [F123Light]{cat_har|F123Light}).
+[Arch]{ext_wp|Arch_Linux} (and hence, [F123Light]{cat_sof|F123Light}).
 Once all of that information is in place,
 a script can scan each item's `make.toml` file
 and create something like the current `add_ons.toml` file.
@@ -66,7 +66,7 @@ taken from the item page for [Fizmo]{cat_sof|Fizmo}:
 
     [ os.debian ]
 
-      package     = 'debi_pkgs|unstable/fizmo'
+      package     = 'debi_pkgs|buster/fizmo'
 
     [ os.perkify_ubuntu ]
 

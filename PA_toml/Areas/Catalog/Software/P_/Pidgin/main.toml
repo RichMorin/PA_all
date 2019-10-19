@@ -1,0 +1,63 @@
+# cat_sof|Pidgin/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Pidgin'
+  title       = 'Pidgin'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'free, GPL, open source'
+  roles       = 'application, chat client'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'multi-protocol chat client'
+
+  verbose     = '''
+> Pidgin is a chat program which lets you log in to accounts
+on multiple chat networks simultaneously.
+This means that you can be chatting with friends on Jabber/XMPP,
+talking to a friend on Google Talk,
+and sitting in an IRC chat room all at the same time.
+
+> Pidgin runs on Windows, Linux, and other UNIX operating systems.
+Looking for Pidgin for OS X? Try Adium!
+
+> Pidgin is compatible with the following chat networks out of the box:
+Google Talk, Jabber/XMPP, Bonjour, Gadu-Gadu, IRC, Novell GroupWise Messenger,
+Lotus Sametime, SILC, SIMPLE, and Zephyr.
+It can support many more with plugins.
+
+> Pidgin supports many features of these chat networks, such as file transfers,
+away messages, buddy icons, custom smilies, and typing notifications.
+Numerous plugins also extend Pidgin's functionality above and beyond
+the standard features.
+
+> Pidgin integrates with the system tray on Windows, GNOME2, KDE 3, and KDE 4.
+
+> Pidgin is under constant development.
+Releases are usually frequent and driven by user contributions,
+such as bug reports and patches.
+
+> Pidgin is free and contains no ads.
+All our code is open source and licensed under the GNU General Public License.
+This means you can get Pidgin's underlying code
+and modify it to suit your needs, as long as you publish the changes you make
+for everyone to benefit from as well.
+
+> -- [$url]{http://www.pidgin.im/about}
+'''
+
+[ address.web_site ]
+
+  about       = 'main|/about'
+  main        = 'http://www.pidgin.im'

@@ -1,0 +1,46 @@
+# cat_sof|WordGrinder/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'WordGrinder'
+  title       = 'WordGrinder'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'free, open source'
+  roles       = 'application, text editor'
+  supports    = 'communication, writing'
+
+[ about ]
+
+  precis      = 'render HTML into PDF and various image formats'
+
+  verbose     = '''
+> WordGrinder is a Unicode-aware character cell word processor
+that runs in a terminal (or a Windows console).
+It is designed to get the hell out of your way and let you get some work done.
+...
+
+> WordGrinder is a word processor for processing words.
+It is not WYSIWYG.
+It is not point and click.
+It is not a desktop publisher.
+It is not a text editor.
+It does not do fonts and it barely does styles.
+What it does do is words.
+It's designed for writing text.
+It gets out of your way and lets you type.
+
+> -- [$url]{http://cowlark.com/wordgrinder}
+'''
+
+[ address.web_site ]
+
+  main        = 'http://cowlark.com/wordgrinder'

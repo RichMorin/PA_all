@@ -13,10 +13,10 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, email, terminal-based, text-based'
+  interfaces  = 'audio, text'
   licenses    = 'open source'
   roles       = 'application, audio player'
+  supports    = 'entertainment, music'
 
 [ about ]
 

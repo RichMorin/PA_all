@@ -13,8 +13,7 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'free, open source'
   roles       = 'PDF enhancer, utility'
   supports    = 'communication, reading'
@@ -41,3 +40,4 @@ OCRmyPDF makes it easy to apply image processing and OCR to existing PDFs.
 [ address.web_site ]
 
   main        = 'http://ocrmypdf.readthedocs.io'
+  manual      = 'https://buildmedia.readthedocs.org/media/pdf/ocrmypdf/latest/ocrmypdf.pdf'

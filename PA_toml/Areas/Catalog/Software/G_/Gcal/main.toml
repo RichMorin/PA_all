@@ -13,9 +13,9 @@
 
 [ meta.tags ]
 
-  interfaces  = 'command line'
+  interfaces  = 'text'
   licenses    = 'free, GNU GPL, open source'
-  roles       = 'application'
+  roles       = 'application, calendar'
   standards   = 'HTML, LaTeX'
 
 [ about ]

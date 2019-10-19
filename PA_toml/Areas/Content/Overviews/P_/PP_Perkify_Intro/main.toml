@@ -164,8 +164,9 @@ The [Perkify - Install]{con_ove|PP_Perkify_Install} page
 describes the steps needed to install Perkify and its prerequisites.
 Once things are working, you can move on Perkify's
 [Usage]{con_ove|PP_Perkify_Usage},
-[Configuration]{con_ove|PP_Perkify_Config}, and
-[Packages]{con_ove|PP_Perkify_Packages} pages.
+[Configuration]{con_ove|PP_Perkify_Config},
+[Package Index]{con_ove|PP_Perkify_Pkg_Index}, and
+[Package List]{con_ove|PP_Perkify_Pkg_List} pages.
 
 To be continued...
 '''

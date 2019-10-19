@@ -2,6 +2,8 @@
 
 [ meta ]
 
+#! https://www.fosslinux.com/6832/how-to-install-mate-desktop-on-arch-linux.htm
+
 [ os.arch ]
 
   package     = 'arch_pkgs|community/x86_64/mate-desktop'
@@ -10,14 +12,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/mate-desktop'
-  search      = 'debi_pkgs|search?keywords=mate-desktop'
-  track       = 'https://tracker.debian.org/pkg/mate-desktop'
-  wiki        = 'https://wiki.debian.org/Mate'
+  package     = 'debi_pkgs|buster/mate-desktop'
 
-  commands    = 'sudo apt-get install mate-desktop'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = '''
-MATE is included in the Raspberry VI distribution, but not in Raspbian.
-'''
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'mate-desktop'

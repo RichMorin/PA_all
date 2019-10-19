@@ -2,6 +2,8 @@
 
 [ meta ]
 
+#! https://wiki.archlinux.org/index.php/list_of_applications
+
 [ os.arch ]
 
 # package     = 'none found, as of 2019.0307'

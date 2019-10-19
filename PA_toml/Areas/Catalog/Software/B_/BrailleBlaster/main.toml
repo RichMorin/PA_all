@@ -14,7 +14,7 @@
 [ meta.tags ]
 
   impairments = 'blindness, low vision'
-  interfaces  = 'braille displays, text-based'
+  interfaces  = 'braille displays, text'
   licenses    = 'freeware, gratis, proprietary'
   requires    = 'Liblouis'
   roles       = 'transcription program, utility'

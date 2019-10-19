@@ -1,0 +1,65 @@
+# cat_gro|VOISS/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'VOISS'
+  title       = 'VOISS (formerly F123)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  provides    = 'cat_har|VOISS_Classic, cat_sof|F123Light'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'web'
+  produces    = 'hardware, operating system, software'
+  products    = 'F123Light, VOISS Classic'
+  roles       = 'social enterprise, manufacturer, software developer'
+  supports    = 'daily living, education, employment'
+
+[ about ]
+
+  precis      = 'provides computer technology for the visually impaired'
+
+  verbose     = '''
+> VOISS - Technology that enables
+
+> A scalable strategy for the education and employment of persons
+with disabilities
+
+> VOISS, a Brazilian social enterprise devoted to improving opportunities
+for education and employment for the blind and visually impaired, has
+developed a portable, affordable talking computer to help visually
+impaired people.  The idea is to help those suffering from blindness or
+partial vision by providing them with high-quality, low-cost, multi-lingual
+software that allows them to live with a degree of personal independence
+that they could not have otherwise.
+
+> -- [$url]{http://f123.org/en}
+
+*Note:*
+The F123 folks are rebranding themselves as [VOISS]{https://www.voiss.tech/en}.
+Although this may cause some confusion, stay calm:
+their basic mission is unchanged.
+When the dust settles a little, I'll come back and edit the nomenclature.
+'''
+
+[ address.email ]
+
+  info        = 'information@f123.org'
+
+[ address.related ]
+
+  facebook    = 'ext_fb|F123.org'
+  google_p    = 'ext_gp|101435277630496590882/posts'
+  linked_in   = 'ext_li|in/f123org' 
+  twitter     = 'ext_tw|F123org'
+
+[ address.web_site ]
+
+  contact     = 'main|/contact'
+  main        = 'http://f123.org/en'

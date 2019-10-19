@@ -13,8 +13,7 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'free, open source'
   roles       = 'application, 3D modeler'
   supports    = 'design, education'
@@ -50,8 +49,11 @@ or make designs that are defined by configurable parameters.
   wikipedia   = 'ext_wp|OpenSCAD'
 
   zoo         = '''
+http://edutechwiki.unige.ch/en/OpenScad_beginners_tutorial,
 https://en.wikibooks.org/wiki/OpenSCAD_User_Manual,
-https://www.thingiverse.com/jumpstart/openscad,
+https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Building_on_Linux/UNIX,
+https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/The_OpenSCAD_Language,
+https://www.thingiverse.com/jumpstart/openscad
 '''
 
 [ address.web_site ]

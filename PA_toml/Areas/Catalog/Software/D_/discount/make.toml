@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/discount'
+  package     = 'debi_pkgs|buster/discount'
 
 [ os.perkify_ubuntu ]
 

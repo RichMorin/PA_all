@@ -17,7 +17,7 @@
   interfaces  = 'video, web'
   produces    = 'consulting, software, testing, video player'
   products    = 'AccessibilityOz, OzART, OzPlayer, OzWiki'
-  roles       = 'company, consultancy, software developer'
+  roles       = 'company, consultant, software developer'
   supports    = 'reading, testing'
 
 [ about ]

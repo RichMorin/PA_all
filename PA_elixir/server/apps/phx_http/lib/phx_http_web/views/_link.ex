@@ -142,7 +142,7 @@ defmodule PhxHttpWeb.View.Link do
       do_links_h1(trim_1, trim_2, s_pair)
     end
 
-    #K Preprocess A$...$ inclusions (in PP_Perkify_Packages).
+    #K Preprocess A$...$ inclusions (in PP_Perkify_Pkg_List).
     
     pattern     = ~r{A\$([-\w+]+)\$}
     pre_base    = "https://packages.ubuntu.com"

@@ -10,11 +10,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/weechat'
-  search      = 'debi_pkgs|search?keywords=weechat'
-  track       = 'https://tracker.debian.org/pkg/weechat'
+  package     = 'debi_pkgs|buster/weechat'
 
-  commands    = 'sudo apt-get install weechat'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'weechat'

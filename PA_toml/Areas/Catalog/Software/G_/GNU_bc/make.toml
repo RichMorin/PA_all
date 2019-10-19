@@ -2,6 +2,8 @@
 
 [ meta ]
 
+#! https://wiki.archlinux.org/index.php/List_of_applications/Science
+
 [ os.arch ]
 
   package     = 'arch_pkgs|extra/x86_64/bc/'
@@ -9,11 +11,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/bc'
-  search      = 'debi_pkgs|search?keywords=bc'
-  track       = 'https://tracker.debian.org/pkg/bc'
+  package     = 'debi_pkgs|buster/bc'
 
-  commands    = 'sudo apt-get install bc'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'bc'

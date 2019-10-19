@@ -13,14 +13,14 @@
 
 [ meta.tags ]
 
-  interfaces  = 'terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'GPLv3 or later, free, open source'
-  roles       = 'application, utility'
-  supports    = 'communication, education'
+  roles       = 'application, daemon, utility'
+  supports    = 'programming'
 
 [ about ]
 
-  precis      = 'utilities to help with style and diction'
+  precis      = 'file system event monitor'
 
   verbose     = '''
 > GNU Direvent monitors events in the file system directories.

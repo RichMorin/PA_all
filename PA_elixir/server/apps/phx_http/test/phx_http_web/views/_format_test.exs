@@ -43,7 +43,7 @@ defmodule PhxHttpWeb.FormatViewTest do
 
   test "formats a file path as desired" do
 
-    test_key  = "Areas/Catalog/Groups/F123/main.toml"
+    test_key  = "Areas/Catalog/Groups/VOISS/main.toml"
     output    = fmt_path(test_key)
 
     test_out  = """

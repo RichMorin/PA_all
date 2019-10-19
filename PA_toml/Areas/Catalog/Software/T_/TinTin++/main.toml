@@ -1,0 +1,51 @@
+# cat_sof|TinTin++/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'TinTin++'
+  title       = 'TinTin++ (tt++)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'open source'
+  roles       = 'application, MUD client'
+  standards   = 'MCCP, MMCP, xterm'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'classic text-based MUD client'
+
+  verbose     = '''
+> TinTin++ (aka tt++) is a Mud client for Android, iOS, Linux, macOS,
+and Windows.
+TinTin++ can be accessed remotely on an SSH shell account as well. ...
+
+> While TinTin++ is primarily a MUD client, it can be used
+as a Unix shell command language, multiplexer/demultiplexer, and automator.
+Most console programs (including bash) can be launched from within the client,
+allowing you to create highlights, substitions, triggers, timers, aliases,
+divert text to different subwindows, combine multiple streams into one, etc.
+This allows you to modify the appearance, interface, and behavior
+of most console applications.
+
+> Protocols supported by TinTin++ are MCCP (Mud Client Compression Protocol),
+MMCP (Mud Master Chat Protocol), xterm 256 colors, truecolors,
+and most TELNET options used by MUDs.
+Being a console client, TinTin++ works with most screen readers,
+and its accessible non graphical command interface makes the client
+particularly screen reader / blind friendly.
+
+> -- [$url]{https://tintin.sourceforge.io}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://tintin.sourceforge.io'

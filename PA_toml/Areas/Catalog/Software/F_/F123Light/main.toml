@@ -1,0 +1,50 @@
+# cat_sof|F123Light/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'F123Light'
+  title       = 'F123Light'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_gro|VOISS, cat_har|VOISS_Classic'
+
+[ meta.tags ]
+
+  features    = 'screen reader, speech synthesis'
+  impairments = 'blindness, low vision'
+  interfaces  = 'audio, speech, text'
+  licenses    = 'free, GPLv3, open source'
+  requires    = 'Arch Linux ARM, Linux, Raspberry Pi'
+  roles       = 'operating system'
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'a blind-friendly Linux distribution'
+
+  verbose     = '''
+> The VOISS team has developed F123Light,
+the world’s most affordable fully functional talking computer for the blind.
+The project’s objective is to enhance access to education and employment
+for the blind through the use of low-cost competitive technologies,
+training, and technical support.
+The strategy is to scale-up through the use of mass-produced
+and easily assembled hardware kits,
+as well as freely distributed and cooperatively developed open source software.
+
+The first version of F123Light will be launched in early 2019
+and will be available in English, Brazilian Portuguese, Spanish, and Arabic.
+Contributors to F123Light come from countries as varied as
+Algeria, Brazil, Egypt, Germany, India, Latvia, Russia,
+the United Arab Emirates, the United Kingdom, and the United States.
+
+> -- [$url]{https://public.f123.org/guide.html}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://public.f123.org/guide.html'

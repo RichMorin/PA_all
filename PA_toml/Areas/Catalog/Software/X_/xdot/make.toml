@@ -1,0 +1,16 @@
+# cat_sof|xdot/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/any/xdot'
+  upstream    = 'https://github.com/jrfonseca/xdot.py'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/xdot'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'xdot'

@@ -21,6 +21,8 @@ use `speechd.el` to connect Emacspeak to speech-dispatcher.
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/speechd'
-  search      = 'debi_pkgs|search?keywords=speechd'
-  track       = 'https://tracker.debian.org/pkg/speechd'
+  package     = 'debi_pkgs|buster/speechd'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'speechd'

@@ -1,0 +1,16 @@
+# cat_sof|Magic_Wormhole/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|magic-wormhole'
+  upstream    = 'https://pypi.python.org/pypi/magic-wormhole/0.11.2'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/magic-wormhole'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'magic-wormhole'

@@ -1,0 +1,16 @@
+# cat_sof|TuxMath/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|tuxmath'
+  upstream    = 'ext_gh|tux4kids/tuxmath'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/tuxmath'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'tuxmath'

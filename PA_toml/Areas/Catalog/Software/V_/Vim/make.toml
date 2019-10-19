@@ -6,14 +6,13 @@
 
   package     = 'arch_pkgs|extra/x86_64/vim'
   upstream    = 'https://www.vim.org'
+  wiki        = 'arch_wiki|Vim'
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/vim'
-  search      = 'debi_pkgs|search?keywords=vim'
-  track       = 'https://tracker.debian.org/pkg/vim'
+  package     = 'debi_pkgs|buster/vim'
 
-  commands    = 'sudo apt-get install vim'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+
+[ os.perkify_ubuntu ]
+
+# add_apt     = 'vim'   # Already in Ubuntu

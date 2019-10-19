@@ -1,0 +1,16 @@
+# cat_sof|WordGrinder/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|wordgrinder'
+  upstream    = 'http://cowlark.com/wordgrinder'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/wordgrinder'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'wordgrinder'

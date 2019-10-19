@@ -9,11 +9,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/scrollz'
-  search      = 'debi_pkgs|search?keywords=scrollz'
-  track       = 'https://tracker.debian.org/pkg/scrollz'
+  package     = 'debi_pkgs|buster/scrollz'
 
-  commands    = 'sudo apt-get install scrollz'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'scrollz'

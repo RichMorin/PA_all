@@ -16,7 +16,7 @@
 
   features    = 'extensible, flexible, speech synthesis'
   impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  interfaces  = 'audio, speech, text'
   licenses    = 'free, GNU GPL, open source'
   requires    = 'GNOME'
   roles       = 'screen reader, utility'

@@ -27,8 +27,9 @@ system software, time server
 
   verbose     = '''
 > Netatalk is a free, open-source implementation of the Apple Filing
-Protocol [AFP].  It allows Unix-like operating systems to serve as
-file, print, and time servers for Macintosh computers.
+Protocol [AFP].
+It allows Unix-like operating systems to serve as file, print, and time servers
+for Macintosh computers.
 
 > -- [$url]{ext_wp|Netatalk}
 '''

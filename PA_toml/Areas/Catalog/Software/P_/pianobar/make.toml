@@ -1,0 +1,17 @@
+# cat_sof|pianobar/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|pianobar'
+  upstream    = 'http://6xq.net/projects/pianobar'
+  wiki        = 'arch_wiki|Pianobar'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/pianobar'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'pianobar'

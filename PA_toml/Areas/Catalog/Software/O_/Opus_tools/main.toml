@@ -1,0 +1,36 @@
+# cat_sof|Opus_tools/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Opus_tools'
+  title       = 'Opus-tools'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'audio, text'
+  licenses    = 'free, open source'
+  roles       = 'application, audio codec'
+  supports    = 'design, education'
+
+[ about ]
+
+  precis      = 'Opus codec command line tools'
+
+  verbose     = '''
+> This package provides the reference implementations of encoder
+and decoder utilities for libopus.
+People implementing their own support for Opus are encouraged
+to check their code for interoperability with these tools.
+
+> -- [$url]{https://packages.debian.org/buster/opus-tools}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://wiki.xiph.org/Opus-tools'

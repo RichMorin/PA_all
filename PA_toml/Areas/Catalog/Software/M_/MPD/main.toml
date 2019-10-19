@@ -14,11 +14,11 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'media'
+  interfaces  = 'audio, media'
   licenses    = 'open source'
   roles       = 'daemon, music server, system software'
   standards   = 'DAISY'
+  supports    = 'entertainment, music'
 
 [ about ]
 

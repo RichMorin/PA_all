@@ -13,6 +13,7 @@
 
 [ meta.tags ]
 
+  features    = 'multilingual'
   licenses    = 'free, LGPL3, open source'
   roles       = 'application, office suite'
   standards   = 'odf'

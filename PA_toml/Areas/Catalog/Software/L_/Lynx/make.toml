@@ -9,11 +9,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/lynx'
-  search      = 'debi_pkgs|search?keywords=lynx'
-  track       = 'https://tracker.debian.org/pkg/lynx'
+  package     = 'debi_pkgs|buster/lynx'
 
-  commands    = 'sudo apt-get install lynx'
-  issues      = 'installs automagically'
-  origin      = 'APT'
-  status      = 'ok'
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'lynx'

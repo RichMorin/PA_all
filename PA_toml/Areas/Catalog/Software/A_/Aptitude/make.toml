@@ -2,13 +2,15 @@
 
 [ meta ]
 
+#! https://wiki.archlinux.org/index.php/Pacman/Rosetta
+
 [ os.arch ]
 
 # This package is Debian-specific and will not appear in Arch Linux.
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/aptitude'
+  package     = 'debi_pkgs|buster/aptitude'
   wiki        = 'debi_wiki|Aptitude'
 
 [ os.perkify_ubuntu ]

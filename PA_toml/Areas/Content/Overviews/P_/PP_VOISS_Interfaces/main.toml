@@ -19,7 +19,10 @@
 The "full-size" RasPi models,
 as used in the [VOISS]{con_ove|PP_VOISS_Intro} systems,
 support an amazing range of external interfaces.
-Here are some quick summaries of the most popular ones,
+
+### Interface Summaries
+
+Here are some quick summaries of the most popular interfaces,
 with the usual links for more detailed information ...
 
 *Note:*
@@ -30,7 +33,7 @@ Once your system is working reliably with these,
 you can try swapping in devices that use alternative interfaces.
 If this doesn't work, you can always get back to a working setup.
 
-##### Audio
+#### Audio
 
 The RasPi has a single, miniature size (1/8", 3.5 mm)
 [stereo connector]{ext_wp|Phone_connector_(audio)#Miniature_size}.
@@ -41,7 +44,7 @@ Finally, the RasPi's general-purpose input/output ([GPIO]{ext_wp|GPIO}) pins
 can be used to generate digital audio by means of
 pulse-code modulation ([PCM]{ext_wp|Pulse-code_modulation}).
 
-##### Bluetooth
+#### Bluetooth
 
 [Bluetooth]{ext_wp|Bluetooth} supports short-range wireless connections,
 roughly 30 feet or 9 meters.
@@ -53,7 +56,7 @@ Until a computer and device are "introduced" to each other,
 they will generally ignore each other's presence.
 This provides a modicum of security in public places.
 
-##### Ethernet
+#### Ethernet
 
 The RasPi supports
 [Ethernet over twisted pair]{ext_wp|Ethernet_over_twisted_pair}.
@@ -63,7 +66,7 @@ Because Ethernet access is provided through a physical interface,
 typically controlled by a network administration staff,
 security is seldom much of an issue.
 
-##### GPIO
+#### GPIO
 
 The RasPi's general-purpose input/output ([GPIO]{ext_wp|GPIO}) interface
 is supplied thtough a 40-pin (2x20) set of "header" pins.
@@ -90,7 +93,7 @@ of sensor, actuator, and interface functions.
 They aren't terribly expensive and work with various processor types.
 So, you can trade them back and forth with other aspiring hardware hackers.
 
-##### USB
+#### USB
 
 The RasPi provides four [USB]{ext_wp|USB} sockets.
 These can support short-range wired connections,
@@ -116,7 +119,7 @@ Aside from the dangers of poorly controlled and filtered power,
 the 3B+ needs more power than most of these sources can provide.
 See below for more information on this topic.
 
-##### Video
+#### Video
 
 The RasPi has a pair of ribbon-cable sockets
 that support a directly-attached camera and/or display screen.
@@ -128,7 +131,7 @@ is commonly used to provide high-resolution digital audio and video.
 Typical output devices include display screens, projectors,
 and television sets.
  
-##### Wi-Fi
+#### Wi-Fi
 
 [Wi-Fi]{ext_wp|Wi-Fi} supports longer-range wireless connections,
 roughly 100 feet or 30 meters.

@@ -1,0 +1,76 @@
+# cat_sof|RipIT/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'RipIT'
+  title       = 'RipIT'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  impairments = 'blindness, low vision'
+  interfaces  = 'audio, music, text'
+  licenses    = 'free, open source'
+  roles       = 'application, CD ripper'
+  supports    = 'entertainment, music'
+
+[ about ]
+
+  precis      = 'text-based audio CD ripper'
+
+  verbose     = '''
+> RipIT is used to create MPEG-1 Layer 3 (mp3) using Lame, or uses Flac (flac),
+Ogg Vorbis (ogg), Faac (m4a), Musepack (mpc), mp4als (als), Wavpack (wv),
+or ffmpeg to convert audio files (wav) extracted from an audio CD.
+It is a console based front-end (no GUI here), written in Perl,
+for these programs (which must be installed --
+at least one out of each category):
+
+> - dagrab, cdparanoia or cdda2wav (tosha and cdd are also supported)
+  for ripping the audio CD tracks
+
+> - Lame, OggVorbis, Flac or Faac, Musepack, mp4als, Wavpack or ffmpeg
+  for encoding the wav files to a compressed format (find some info and links)
+
+> - CDDB_get 2.27 or higher, a Perl module for CDDB retrieval (info and links).
+
+> - LWP::simple, a Perl module to access web pages and eventually Digest::MD5
+  and Unicode::UCD depending on your choice of options.
+  When using Musicbrainz DB, one needs additionally:
+  WebService::MusicBrainz and the discid-tool or MusicBrainz::DiscID.
+
+> The program will do the following without user intervention:
+
+> - getting the audio CD Album/Artist/Tracks information from MusicBrainz
+  or freeCDDB,
+
+> - ripping the audio CD Tracks,
+
+> - encoding to Flac, mp3, Ogg-Vorbis, mpc, m4a or als,
+
+> - id3 tags encoded songs,
+
+> - creating an playlist (m3u) file,
+
+> - optionally generating a toc or inf files for DAO burning with, CD-text
+
+> - optionally preparing and send a CDDB submission and save it locally,
+
+> - optionally extracting hidden songs and split ghost songs,
+
+> - optionally creating md5sum files for all tracks,
+
+> - running several encoder processes at the same time and same run.
+
+> -- [$url]{http://www.ripit.pl/ripit/about.php?}
+'''
+
+[ address.web_site ]
+
+  about       = 'main|/ripit/about.php?'
+  main        = 'https://www.ripit.pl'

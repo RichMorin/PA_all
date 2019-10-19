@@ -1,0 +1,16 @@
+# cat_sof|TinTin++/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|tintin'
+  upstream    = 'http://tintin.sourceforge.net'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/tintin++'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'tintin++'

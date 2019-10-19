@@ -9,4 +9,8 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/atril'
+  package     = 'debi_pkgs|buster/atril'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'atril'

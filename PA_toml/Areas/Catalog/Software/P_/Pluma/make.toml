@@ -1,0 +1,17 @@
+# cat_sof|Pluma/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/pluma'
+  upstream    = 'https://mate-desktop.org'
+  wiki        = 'arch_wiki|MATE'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/pluma'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'pluma'

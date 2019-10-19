@@ -13,13 +13,12 @@
 
 [ meta.tags ]
 
-  features    = 'algebraic, arbitrary precision'
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based'
+  features    = 'algebraic, arbitrary precision, interactive'
+  interfaces  = 'text'
   licenses    = 'free, GNU GPL, open source'
   roles       = 'application, calculator, language'
   standards   = 'POSIX 1003.2'
-  supports    = 'math'
+  supports    = 'mathematics'
 
 [ about ]
 
@@ -31,7 +30,7 @@ which follows the POSIX 1003.2 draft standard, with several extensions
 including multi-character variable names, an `else` statement, and full
 Boolean expressions.
 
-> -- [$url]{debi_pkgs|unstable/bc}
+> -- [$url]{debi_pkgs|buster/bc}
 '''
 
 [ address.related ]

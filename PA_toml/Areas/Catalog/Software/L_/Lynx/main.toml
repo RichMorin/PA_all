@@ -13,10 +13,9 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, terminal-based, text-based, web'
+  interfaces  = 'text'
   licenses    = 'open source'
-  roles       = 'application, browser'
+  roles       = 'application, web browser'
   standards   = 'HTML, HTTP'
   supports    = 'communication'
 

@@ -16,22 +16,15 @@
   precis      = "an overview of the VOISS project"
 
   verbose     = '''
-*Note:*
-As of September 2019, the [F123]{cat_gro|F123} folks are in the early stages
-of rebranding themselves as [VOISS]{https://www.voiss.tech/en}.
-Although this may cause some confusion, stay calm:
-their basic mission is unchanged.
-In any case, I'll use a mixture of names in my pages, as seems appropriate.
-When the dust settles a little, I'll come back and edit the nomenclature.
-
-F123 was started by
+VOISS (formerly F123) was started by
 [Fernando Botelho]{https://www.ashoka.org/en-US/fellow/fernando-botelho},
 a blind "social entrepreneur" who wants to make accessible and economical
 computers available to the blind and visually impaired.
 He is an [Ashoka Fellow]{https://www.ashoka.org/en-US/about-ashoka}
 and has received many honors and awards for his work.
 
-VOISS has recently started selling the F123 system as an assembled product.
+VOISS has recently started selling the [VOISS Classic]{cat_har|VOISS_Classic}
+as an assembled product.
 However, you may find the [Loja virtual VOISS]{https://store.voiss.tech}
 (i.e., VOISS Online Store) page a bit difficult to read until they put up
 an English version.
@@ -39,8 +32,8 @@ So, I had Chrome translate the page and then edited the content a bit.
 This is my recasting of its content;
 [YMMV]{https://www.lifewire.com/what-is-ymmv-2483722}:
 
-> The VOISS Classic is a talking computer that is completely adapted for use
-by the blind.
+> The VOISS Classic is a talking computer that is completely adapted
+for use by the blind.
 The hardware is basically a collection of readily available components,
 including:
 

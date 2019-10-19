@@ -1,0 +1,59 @@
+# cat_sof|Recoll/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Recoll'
+  title       = 'Recoll'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'free, GPL, open source'
+  roles       = 'application, search tool'
+  supports    = 'programming'
+
+[ about ]
+
+  precis      = 'desktop full-text search tool'
+
+  verbose     = '''
+> Recoll finds documents based on their contents as well as their file names.
+
+> - Versions are available for Linux, MS Windows and Mac OS X.
+
+> - It can search most document formats.
+  You may need external applications for text extraction.
+
+> - It can reach any storage place: files, archive members, email attachments,
+  transparently handling decompression.
+
+> - One click will open the document inside a native editor
+  or display an even quicker text preview.
+
+> - A WEB front-end with preview and download features
+  can replace or supplement the GUI for remote use.
+  
+> - The software is free, open source, and licensed under the GPL.
+
+> - Detailed features and application requirements for supported document types.
+
+> Recoll will index an MS-Word document stored as an attachment
+to an e-mail message inside a Thunderbird folder archived in a Zip file
+(and more...).
+It will also help you search for it with a friendly and powerful interface,
+and let you open a copy of a PDF at the right page with two clicks.
+There is little that will remain hidden on your disk.
+
+> -- [$url]{https://www.lesbonscomptes.com/recoll}
+'''
+
+[ address.web_site ]
+
+  main        = 'https://www.lesbonscomptes.com/recoll'
+  manual      = 'https://www.lesbonscomptes.com/recoll/usermanual/recoll_user_manual.pdf'

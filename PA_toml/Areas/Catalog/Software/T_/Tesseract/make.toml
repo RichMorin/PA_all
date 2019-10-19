@@ -2,12 +2,15 @@
 
 [ meta ]
 
-  summary     = 'Tesseract is widely available.'
-
 [ os.arch ]
 
   package     = 'arch_pkgs|community/x86_64/tesseract'
+  upstream    = 'https://github.com/tesseract-ocr/tesseract'
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/tesseract-ocr'
+  package     = 'debi_pkgs|buster/tesseract-ocr'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'tesseract-ocr'

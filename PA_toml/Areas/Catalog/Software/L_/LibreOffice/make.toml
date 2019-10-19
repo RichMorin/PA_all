@@ -2,7 +2,12 @@
 
 [ meta ]
 
+#! https://wiki.archlinux.org/index.php/Apache_OpenOffice
+# Since Wheezy, LibreOffice replaced OpenOffice.
+
 [ os.arch ]
+
+  wiki        = 'arch_wiki|LibreOffice'
 
 # lots of versions; punting for now...
 

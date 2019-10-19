@@ -13,13 +13,13 @@
 
 [ meta.tags ]
 
-  interfaces  = 'command line'
+  interfaces  = 'text'
   licenses    = 'free, GNU GPL, open source'
   roles       = 'programming language'
 
 [ about ]
 
-  precis      = 'a program for calculating and printing calendars'
+  precis      = 'implementation of a Forth programming environment'
 
   verbose     = '''
 > This is the GNU'ish implementation of a Forth programming environment.

@@ -1,0 +1,45 @@
+# cat_sof|Pyspread/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Pyspread'
+  title       = 'Pyspread'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'free, GPLv3, open source'
+  roles       = 'application, spreadsheet'
+  supports    = 'mathematics, programming'
+
+[ about ]
+
+  precis      = 'cross-platform Python spreadsheet application'
+
+  verbose     = '''
+> Pyspread is a non-traditional spreadsheet that is based on
+and written in the programming language Python.
+
+> The goal of pyspread is to be the most pythonic spreadsheet.
+
+> Pyspread expects Python expressions in its grid cells,
+which makes a spreadsheet-specific language obsolete.
+Each cell returns a Python object that can be accessed from other cells.
+These objects can represent anything including lists or matrices.
+
+> -- [$url]{https://manns.github.io/pyspread}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Pyspread'
+
+[ address.web_site ]
+
+  main        = 'https://manns.github.io/pyspread'

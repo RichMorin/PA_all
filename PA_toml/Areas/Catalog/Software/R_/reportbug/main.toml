@@ -13,8 +13,7 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, email, terminal-based, text-based'
+  interfaces  = 'email, text'
   licenses    = 'free, open source'
   requires    = 'Debian, GnuPG, Linux, mh/nmh, mutt, PGP'
   roles       = 'email-based bug reporter, library, system software'
@@ -43,7 +42,7 @@ configuration file and send reports using any available mail server.
 > This package also includes the "querybts" script for browsing the Debian
 bug tracking system.
 
-> -- [$url]{debi_pkgs|unstable/reportbug}
+> -- [$url]{debi_pkgs|buster/reportbug}
 '''
 
 [ address.web_site ]

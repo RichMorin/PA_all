@@ -1,0 +1,16 @@
+# cat_sof|mhWaveEdit/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|mhwaveedit'
+  upstream    = 'ext_gh|magnush/mhwaveedit'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/mhwaveedit'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'mhwaveedit'

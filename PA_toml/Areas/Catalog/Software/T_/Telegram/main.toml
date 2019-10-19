@@ -1,0 +1,38 @@
+# cat_sof|Telegram/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Telegram'
+  title       = 'Telegram'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'open source'
+  roles       = 'application, chat client'
+  supports    = 'communication'
+
+[ about ]
+
+  precis      = 'official telegram messaging app'
+
+  verbose     = '''
+> Telegram is a messaging app with a focus on speed and security;
+it is super-fast, simple, and free.
+You can use Telegram on all your devices at the same time —
+your messages sync seamlessly across any number of your phones, tablets,
+or computers.
+
+> -- [$url]{debi_pkgs|buster/telegram-desktop}
+'''
+
+[ address.web_site ]
+
+  forum       = 'https://forum.syncthing.net'
+  main        = 'https://syncthing.net'

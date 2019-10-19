@@ -6,10 +6,11 @@
 
   package     = 'arch_pkgs|community/x86_64/elinks'
   upstream    = 'http://elinks.or.cz'
+  wiki        = 'arch_wiki|ELinks'
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/elinks'
+  package     = 'debi_pkgs|buster/elinks'
 
 [ os.perkify_ubuntu ]
 

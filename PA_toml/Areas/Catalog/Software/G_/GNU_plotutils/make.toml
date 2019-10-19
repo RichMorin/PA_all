@@ -2,6 +2,8 @@
 
 [ meta ]
 
+#! https://www.archlinux.org/packages/extra/x86_64/gnuplot/
+
 [ os.arch ]
 
   package     = 'arch_pkgs|extra/x86_64/plotutils'

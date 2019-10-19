@@ -6,6 +6,7 @@
 
   package     = 'arch_pkgs|extra/x86_64/gnugo'
   upstream    = 'ext_gs|gnugo'
+  wiki        = 'arch_wiki|Go'
 
 [ os.debian ]
 

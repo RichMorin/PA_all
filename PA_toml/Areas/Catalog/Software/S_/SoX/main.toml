@@ -13,8 +13,7 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, dyslexia, low vision'
-  interfaces  = 'terminal-based, text-based'
+  interfaces  = 'audio, text'
   licenses    = 'open source'
   roles       = 'application, sound processing program'
   standards   = '''

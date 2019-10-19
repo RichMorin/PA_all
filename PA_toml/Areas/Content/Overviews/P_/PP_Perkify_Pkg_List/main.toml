@@ -1,0 +1,229 @@
+# con_ove|PP_Perkify_Pkg_List/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_Perkify_Pkg_List'
+  title       = "Perkify - Package List"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "summary of Perkify's installed packages"
+
+  verbose     = '''
+This page lists the software
+that we install on [Ubuntu]{ext_wp|Ubuntu} (e.g., the "disco" release)
+while creating [Perkify]{con_ove|PP_Perkify_Intro}.
+We only add a few hundred packages explicitly,
+but [Debian]{ext_wp|Debian}'s Advanced Package Manager
+([APT]{ext_wp|APT_(Package_Manager)}) increases this radically
+by fulfilling dependencies and honoring recommendations.
+
+This page is a useful starting point
+in understanding Perkify's capabilities and offerings.
+However, if you want to explore the available and installed packages,
+you'll need to learn about some APT commands and web pages.
+So, be sure to visit [Perkify - APT]{con_ove|PP_Perkify_APT}!
+
+### Inspirations
+
+As discussed on the [Related Work]{con_ove|PP_Perkian_Related} page,
+there are several existing attempts at creating a blind-friendly version
+of [Linux]{ext_wp|Linux}.
+These are obvious places to find packages which Perkify could include.
+In particular, I've been harvesting prospects
+from the package list for [F123Light]{cat_sof|F123Light}.
+This is an emerging operating system
+for the [Raspberry Pi]{ext_wp|Raspberry_Pi},
+based on [Arch Linux]{ext_wp|Arch_Linux}.
+I have also received useful suggestions from folks on several mailing lists.
+Finally, the Arch and Debian package archives contain a wealth
+of open source software; perusing these often yields inspirations.
+
+### Explicit Additions
+
+The following table provides the title, name, and category
+for every package we explicitly install using APT.
+Each "APT name" entry links to an Ubuntu information page for the package.
+Don't miss the [Package Index]{PP_Perkify_Pkg_Index} page;
+it indexes major packages by their categories (e.g., document converters).
+
+| Title                   | APT name                | Category / Notes          |
+| -------                 | ----------              | ----------------          |
+| Accerciser              | A$accerciser$           | accessibility support     |
+| Alot                    | A$alot$                 | email clients             |
+| Alpine                  | A$alpine$               | email clients             |
+| apcalc                  | A$apcalc$               | desk calculators          |
+| Aptitude                | A$aptitude$             | APT extensions            |
+| Atril                   | A$atril$                | document viewers          |
+| Audacious               | A$audacious$            | audio players             |
+| Audacity                | A$audacity$             | audio editors             |
+| bash-completion         | A$bash-completion$      | bash shell support        |
+| bridge-utils            | A$bridge-utils$         | network admin utilities   |
+| BRLTTY                  | A$brltty$               | braille support           |
+| brltty-espeak           | A$brltty-espeak$        | braille support           |
+| bsdgames                | A$bsdgames$             | text-based games          |
+| catdoc                  | A$catdoc$               | document converters       |
+| CuneiForm               | A$cuneiform$            | OCR support               |
+| DAISY Player            | A$daisy-player$         | ebook readers             |
+| Dasher                  | A$dasher$               | text entry support        |
+| dialog                  | A$dialog$               | programming support       |
+| Diction                 | A$diction$              | text processors           |
+| Direvent                | A$direvent$             | system admin utilities    |
+| discount                | A$discount$             | document converters       |
+| dnsmasq                 | A$dnsmasq$              | network admin utilities   |
+| dos2unix                | A$dos2unix$             | document converters       |
+| dosfstools              | A$dosfstools$           | system admin utilities    |
+| ELinks                  | A$elinks$               | web browsers              |
+| Elixir                  | A$elixir$               | programming support       |
+| Emacs Muse              | A$elpa-muse$            | text processors           |
+| eSpeak NG               | A$espeak-ng$            | speech synthesizers       |
+| eSpeak NG Data          | A$espeak-ng-data$       | speech synthesizers       |
+| espeakup                | A$espeakup$             | speech synthesizers       |
+| Fenrir                  | A$fenrir$               | screen readers            |
+| Fizmo (ncurses)         | A$fizmo-ncursesw$       | text game engines         |
+| Fizmo (console)         | A$fizmo-console$        | text game engines         |
+| Frotz                   | A$frotz$                | text game engines         |
+| Gcal                    | A$gcal$                 | calendar tools            |
+| Gforth                  | A$gforth$               | programming support       |
+| GIMP                    | A$gimp$                 | image processors          |
+| Git                     | A$git-all$              | programming support       |
+| GNOME                   | A$gnome$                | desktop environments      |
+| GNOME Web               | A$epiphany$             | web browsers              |
+| GNU a2ps                | A$a2ps$                 | document converters       |
+| GNU bc                  | A$bc$                   | desk calculators          |
+| GNU Chess               | A$gnuchess$             | game programs             |
+| GNU Datamash            | A$datamash$             | mathematics support       |
+| GNU Denemo              | A$denemo$               | music typesetters         |
+| GNU Emacs               | A$emacs$                | IDEs, text editors, etc.  |
+| GNU Go                  | A$gnugo$                | game programs             |
+| GNU Interactive Tools   | A$gnuit$                | system admin utilities    |
+| GNU Miscfiles           | A$miscfiles$            | reference data sets       |
+| GNU Ocrad               | A$ocrad$                | OCR support               |
+| GNU Octave              | A$octave$               | programming support       |
+| GNU plotutils           | A$plotutils$            | plotting support          |
+| GNU PSPP                | A$pspp$                 | mathematics support       |
+| GNU R                   | A$r-base$               | mathematics support       |
+| GNU Screen,             | A$screen$,              | terminal multiplexer      |
+| GNU Solfege             | A$solfege$              | ear/music training        |
+| GNU Spell               | A$spell$                | spelling checkers         |
+| GNU Typist              | A$gtypist$              | typing tutors             |
+| GNU Units,              | A$units$                | unit converter            |
+| Gnumeric                | A$gnumeric$             | spreadsheets              |
+| GnuPG                   | A$gnupg$                | system admin utilities    |
+| Graphviz                | A$graphviz$             | graph visualizers         |
+| hostapd                 | A$hostapd$              | network admin utilities   |
+| httptunnel              | A$httptunnel$           | network admin utilities   |
+| hunspell                | A$hunspell$             | spelling checkers         |
+| ii                      | A$ii$                   | chat clients              |
+| ImageMagick             | A$imagemagick$          | image processors          |
+| intltool                | A$intltool$             | document converters       |
+| ircII                   | A$ircii$                | chat clients              |
+| irssi                   | A$irssi$                | chat clients              |
+| JACAL                   | A$jacal$                | mathematics support       |
+| JOE                     | A$joe$                  | text editors              |
+| Jshon                   | A$jshon$                | document converters       |
+| Jupyter Notebook        | A$jupyter-notebook$     | interactive notebook      |
+| Liblouis                | A$liblouis-bin$         | braille translation       |
+| Liblouis Data           | A$liblouis-data$        | braille translation       |
+| LibreOffice             | A$libreoffice$          | productivity suite        |
+| LibreOffice GNOME       | A$libreoffice-gnome$    | GNOME integration         |
+| LibreOffice KDE         | A$libreoffice-kde$      | KDE integration           |
+| Links                   | A$links$                | web browsers              |
+| Linphone                | A$linphone$             | VOIP clients              |
+| Lios                    | A$lios$                 | OCR support               |
+| LXTerminal              | A$lxterminal$           | terminal emulators        |
+| Lynx                    | A$lynx$                 | web browsers              |
+| Magic Wormhole          | A$magic-wormhole$       | network admin utilities   |
+| MATE                    | A$mate-desktop$         | desktop environment       |
+| mblaze,                 | A$mblaze$,              | email support             |
+| mbrola-en1              | A$mbrola-en1$           | speech synthesizers       |
+| mbrola-us1              | A$mbrola-us1$           | speech synthesizers       |
+| mbrola-us2              | A$mbrola-us2$           | speech synthesizers       |
+| mbrola-us3              | A$mbrola-us3$           | speech synthesizers       |
+| mhwaveedit              | A$mhwaveedit$           | audio editors             |
+| MPD                     | A$mpd$                  | music players             |
+| mpv                     | A$mpv$                  | video players             |
+| mu4e                    | A$mu4e$                 | email clients             |
+| Mumble                  | A$mumble$               | VOIP clients              |
+| Mutt                    | A$mutt$                 | email clients             |
+| ne                      | A$ne$                   | text editors              |
+| Netatalk                | A$netatalk$             | network admin utilities   |
+| Notify OSD              | A$notify-osd$           | system admin utilities    |
+| NTP                     | A$ntp$                  | network admin utilities   |
+| OCRFeeder               | A$ocrfeeder$            | OCR support               |
+| OCRmyPDF                | A$ocrmypdf$             | OCR support               |
+| OCRmyPDF Doc.           | A$ocrmypdf-doc$         | OCR support               |
+| ocrodjvu                | A$ocrodjvu$             | OCR support               |
+| OfflineIMAP             | A$offlineimap$          | email support             |
+| OpenSCAD                | A$openscad$             | 3D modeling               |
+| opus-tools              | A$opus-tools$           | audio processors          |
+| Orca                    | A$orca$                 | screen readers            |
+| Pandoc                  | A$pandoc$               | document converters       |
+| PCmanFM                 | A$pcmanfm$              | system admin utilities    |
+| Pdmenu                  | A$pdmenu$               | programming support       |
+| pianobar                | A$pianobar$             | music players             |
+| Pidgin                  | A$pidgin$               | music players             |
+| pidgin-otr              | A$pidgin-otr$           | music players             |
+| Pluma                   | A$pluma$                | text editors              |
+| Poezio                  | A$poezio$               | chat clients              |
+| PortAudio               | A$portaudio19-dev$      | programming support       |
+| Profanity               | A$profanity$            | chat clients              |
+| Pyspread,               | A$pyspread$             | Python spreadsheet        |
+| python-cairo            | A$python-cairo$         | programming support       |
+| python-daemonize        | A$python-daemonize$     | programming support       |
+| python-dbus             | A$python-dbus$          | programming support       |
+| python-evdev            | A$python-evdev$         | programming support       |
+| python-pyte             | A$python-pyte$          | terminal emulators        |
+| python-pyudev           | A$python-pyudev$        | programming support       |
+| python-setuptools       | A$python-setuptools$    | programming support       |
+| ratpoison               | A$ratpoison$            | window managers           |
+| Recoll                  | A$recoll$               | text processors           |
+| reportbug               | A$reportbug$            | bug reporters             |
+| RipIT                   | A$ripit$                | audio CD rippers          |
+| Ruby                    | A$ruby-full$            | programming support       |
+| SageMath,               | A$sagemath$             | mathematics tool          |
+| ScrollZ                 | A$scrollz$              | chat clients              |
+| sic                     | A$sic$                  | chat clients              |
+| socat                   | A$socat$                | network admin utilities   |
+| SoX                     | A$sox$                  | audio processors          |
+| speechd                 | A$speech-dispatcher$    | speech synthesizers       |
+| storebackup             | A$storebackup$          | system admin utilities    |
+| Surfraw                 | A$surfraw$              | web browsers              |
+| Sup                     | A$sup-mail$             | email clients             |
+| Syncthing               | A$syncthing$            | network admin utilities   |
+| Telegram CLI            | A$telegram-cli$         | chat clients              |
+| Telegram Desktop        | A$telegram-desktop$     | chat clients              |
+| Tesseract               | A$tesseract-ocr$        | OCR support               |
+| TeX Live                | A$texlive-xetex$        | document converters       |
+| Texinfo                 | A$texinfo$              | documentation support     |
+| Thunderbird             | A$thunderbird$          | email clients             |
+| TinTin++                | A$TinTin++$             | MUD clients               |
+| tmux,                   | A$tmux$                 | terminal multiplexer      |
+| TuxMath                 | A$tuxmath$              | text-based games          |
+| TuxType                 | A$tuxtype$              | text-based games          |
+| w3m                     | A$w3m$                  | web browsers              |
+| wcalc                   | A$wcalc$                | desk calculators          |
+| WeeChat                 | A$weechat$              | chat clients              |
+| wkhtmltopdf             | A$wkhtmltopdf$          | document converters       |
+| WordGrinder             | A$wordgrinder$          | word processors           |
+| Xarchiver               | A$xarchiver$            | system admin utilities    |
+| xdot,                   | A$xdot$                 | graph viewers             |  
+| xlsx2csv                | A$xlsx2csv$             | document converters       |
+| Xpdf                    | A$xpdf$                 | PDF viewers, etc.         |
+| YAD                     | A$yad$                  | programming support       |
+| YAJL                    | A$yajl-tools$           | programming support       |
+| yasr                    | A$yasr$                 | screen readers            |
+| youtube-dl              | A$youtube-dl$           | media downloaders         |
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

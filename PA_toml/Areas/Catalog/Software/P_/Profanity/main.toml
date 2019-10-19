@@ -13,7 +13,7 @@
 
 [ meta.tags ]
 
-  interfaces  = 'chat, command line, terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'open source'
   requires    = 'IRSSI'
   roles       = 'application, chat client'
@@ -29,7 +29,7 @@
 protocol based chat.  It is written in C and ncurses, and is inspired by
 popular IRC client IRSSI.
 
-> -- [$url]{debi_pkgs|jessie/profanity}
+> -- [$url]{debi_pkgs|buster/profanity}
 '''
 
 [ address.related ]

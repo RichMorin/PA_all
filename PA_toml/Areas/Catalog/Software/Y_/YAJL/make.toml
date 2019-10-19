@@ -1,0 +1,16 @@
+# cat_sof|YAJL/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/yajl'
+  upstream    = 'http://lloyd.github.com/yajl'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/yajl-tools'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'yajl-tools'

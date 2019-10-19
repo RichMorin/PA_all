@@ -1,0 +1,16 @@
+# cat_sof|Pyspread/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|pyspread'
+  upstream    = 'https://manns.github.io/pyspread'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/pyspread'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'pyspread'

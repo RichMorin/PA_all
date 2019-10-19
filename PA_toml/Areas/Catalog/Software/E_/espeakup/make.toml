@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/espeakup'
+  package     = 'debi_pkgs|buster/espeakup'
 
   status      = '''
 espeakup is included in the Raspberry VI distribution.

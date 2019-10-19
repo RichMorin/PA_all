@@ -13,10 +13,10 @@
 
 [ meta.tags ]
 
-  impairments = 'blindness, low vision'
-  interfaces  = 'command line, GUI'
+  interfaces  = 'GUI, text'
   licenses    = 'free, GNU GPL, open source'
   roles       = 'application, statistics package'
+  supports    = 'mathematics, statistics'
 
 [ about ]
 
@@ -46,6 +46,10 @@ or the more traditional syntax commands.
 
 > -- [$url]{ext_gs|pspp}
 '''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|PSPP'
 
 [ address.web_site ]
 

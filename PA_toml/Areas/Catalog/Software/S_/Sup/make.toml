@@ -6,16 +6,12 @@
 
   package     = 'arch_aur|sup'
   upstream    = 'http://sup-heliotrope.github.io'
+  wiki        = 'arch_wiki|Sup'
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/sup-mail'
-  search      = 'debi_pkgs|search?keywords=sup-mail'
-  track       = 'https://tracker.debian.org/pkg/sup-mail'
+  package     = 'debi_pkgs|buster/sup'
 
-[ os.zoo ]
+[ os.perkify_ubuntu ]
 
-  commands    = 'sudo gem install sup'
-  issues      = 'installs automagically'
-  origin      = 'RubyGems'
-  status      = 'Sup is available as a Ruby Gem.'
+  add_apt     = 'sup'

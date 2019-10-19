@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'debi_pkgs|unstable/elixir'
+  package     = 'debi_pkgs|buster/elixir'
 
 [ os.perkify_ubuntu ]
 

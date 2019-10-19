@@ -13,9 +13,9 @@
 
 [ meta.tags ]
 
-  interfaces  = 'terminal-based, text-based'
+  interfaces  = 'text'
   licenses    = 'BSD, open source'
-  roles       = 'application, document conversion'
+  roles       = 'application, document converter'
   supports    = 'communication, education'
 
 [ about ]
