@@ -66,7 +66,7 @@ It is typically rated at about 3000 mAh.
 
 [Alchemy Power]{http://alchemy-power.com}
 manufactures several power management products.
-Its proprietor, Percy Kamas,
+Its proprietor, Percy Kawas,
 has been very responsive to my (many!) requests for more information.
 I wish more company representatives were as supportive as he has been.
 
@@ -114,7 +114,7 @@ say much about what this device needs.  Grumble.
 
 The Alchemy [FAQ]{http://alchemy-power.com/faq} indicates
 that the Pi-UpTimeUPS and PiZ-UpTime should use unprotected batteries.
-Percy Kamas says that most unprotected batteries have flat tops,
+Percy Kawas says that most unprotected batteries have flat tops,
 but that either the button top or flat top style will work.
 That leaves us with the question of current vs. power capacity,
 which I've attempted to estimate, as follows...
@@ -157,7 +157,7 @@ so I put the bolts in with the heads up.
 The GPIO pins that stick up from the Pi-UpTime board are about 0.19" long.
 This is far shorter than the .32" pins used on the RasPi
 and might prevent them from being used (reliably) to attach another HAT.
-Percy Kamas is looking into the possibility of finding a GPIO socket
+Percy Kawas is looking into the possibility of finding a GPIO socket
 with longer pins; here's hoping he finds something!
 
 I found an old, pre-release version of the
