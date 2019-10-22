@@ -21,29 +21,30 @@ A variety of Hardware Attached on Top
 ([HAT]{https://www.raspberrypi.org/blog/introducing-raspberry-pi-hats})
 boards can be used with the 3B+.
 One of the most useful types, which I'm calling a Power HAT,
-contains a [Lithium-ion battery]{ext_wp|Lithium-ion_battery}
+contains one or more [Lithium-ion batteries]{ext_wp|Lithium-ion_battery}
 and some associated circuitry.
-This allows it to act,
-like a [USB power bank]{ext_wp|Battery_charger#Power_bank},
-as a dedicated uninterruptable power supply
+So, like a [USB power bank]{ext_wp|Battery_charger#Power_bank},
+it can act as a dedicated uninterruptable power supply
 ([UPS]{ext_wp|Uninterruptible_power_supply}) for the computer.
 
 However, because it is connected to the 3B+ using the
 General purpose input-output ([GPIO]{
   https://en.wikipedia.org/wiki/Raspberry_Pi
   #General_purpose_input-output_(GPIO)_connector}) connector,
-it _should_ be able to report its status to the operating system.
-If so, this information could be used to support power management functions
+it can report its status to the operating system.
+This information can then be used to support power management functions
 (e.g., alerting the user, shutting down the computer).
 
-Unfortunately, none of the units I've found to date seem to be ready
-for use on a 3B+.
-Most of them lack documentation and/or software, have too little power, etc.
-So, I'm still looking...
+Unfortunately, most  of the units I've found to date lack documentation
+and/or software, have too little power for a 3B+, etc.
+However, the "Pi-UpTime UPS 2.0", from Alchemy Power seems quite promising.
+I'm still in the process of setting this up and evaluating it.
+Meanwhile, I'll stay on the lookout for other alternatives.
 
 The models I've found fall into two categories.
-One uses one or more cylindrical batteries;
-the other uses a rectangular battery. 
+The first uses one or more cylindrical batteries;
+the second uses a single, rectangular battery.
+See below for a discussion of each approach.
 
 ### Cylindrical Battery
 
@@ -65,24 +66,42 @@ It is typically rated at about 3000 mAh.
 
 [Alchemy Power]{http://alchemy-power.com}
 manufactures several power management products.
-The Pi-UpTime UPS 2.0 is designed to work with full-size Raspberry Pi computers.
-It holds a pair of (3000 mAh) 18650 Lithium-ion cells (but can run on one cell).
-A set of [Python]{ext_wp|Python_(programming_language)} scripts is available
-to use the reported data.
-Here is some ordering information, including the tax and shipping I paid:
+Its proprietor, Percy Kamas,
+has been very responsive to my (many!) requests for more information.
+I wish more company representatives were as supportive as he has been.
 
-- [batteries]{https://www.18650batterystore.com/ProductDetails.asp
-    ?ProductCode=Samsung-50e} (~$20)
-- [charger]{https://www.amazon.com/dp/B07Q8KBSMK} ($4)
-- [Pi-UpTime]{https://www.amazon.com/dp/B07YF45H2X} ($55)
+The Pi-UpTime UPS 2.0 is designed to work with full-size Raspberry Pi computers.
+It holds two (e.g., 3000 mAh) 18650 Lithium-ion cells, wired in parallel.
+Consequently, it can run on one cell (with reduced battery lifetime).
+The unit can also be used with Lithium iron phosphate
+([LiFePO4]{ext_wp|Lithium_iron_phosphate_battery}) batteries.
+
+The HAT contains a [TLA 202X]{https://www.ti.com/lit/ds/symlink/tla2024.pdf}.
+This is a four-channel 12-bit analog to digital converter
+([ADC]{ext_wp|Analog-to-digital_converter}) which monitors battery temperature,
+as well as the input, output, and battery voltages.
+A set of [Python]{ext_wp|Python_(programming_language)} scripts
+is available to use this data.
+I haven't had a chance to read or try out this code,
+but I presume that it's a reasonable starting point for shutdown logic.
 
 *Note:*
 A card shipped with the Pi-UpTime UPS 2.0 says:
 "Ensure [that] both batteries are fully charged or have [the]
 same amount of charge before you insert them."
 So, you'll need a way to pre-charge the batteries.
-You'll also need four (22 mm) spacers (etc),
-to keep the UPS from coming loose from the RasPi.
+Also, because the power supply must handle both running and charging current,
+Alchemy recommends using a 3.5A unit with a USB-C cable.
+
+Here is some ordering information, including the tax and shipping I paid.
+All told, this experiment has added about $100 to the system cost:
+
+- [batteries]{https://www.18650batterystore.com/ProductDetails.asp
+    ?ProductCode=Samsung-50e} (~$20)
+- [charger]{https://www.amazon.com/dp/B07Q8KBSMK} ($4)
+- [Pi-UpTime]{https://www.amazon.com/dp/B07YF45H2X} ($55)
+- [PiJuice case]{https://vilros.com/products/pijuice-tall-case} ($14)
+- [power supply]{https://www.amazon.com/dp/B07TYQRXTK} ($10)
 
 ##### Battery Notes
 
@@ -95,16 +114,17 @@ say much about what this device needs.  Grumble.
 
 The Alchemy [FAQ]{http://alchemy-power.com/faq} indicates
 that the Pi-UpTimeUPS and PiZ-UpTime should use unprotected batteries.
-By email, I found out that most unprotected batteries have flat tops,
+Percy Kamas says that most unprotected batteries have flat tops,
 but that either the button top or flat top style will work.
 That leaves us with the question of current vs. power capacity,
 which I've attempted to estimate, as follows...
 
-The 3B+ would like to have a 12.5W (5V, 2.5A) power source.
-The 18659 only supplies 3.7V, so a single cell
-would have to provide about 3.4A in order to yield 12.5W.
+The 3B+ would like to have a 12.5W (5V, 2.5A) power source,
+but the 18650 only supplies 3.7V.
+Assuming 85% conversion efficiency (90% is typical),
+a single cell would have to provide about 3.9A in order to yield 12.5W.
 (Using two cells, we could cut this amount in half.)
-In any event, any 18650 that can supply 4A should be just fine.
+In any event, a pair of cells that can supply 4A should be just fine.
 This means that we can optimize for high power capacity,
 which the (5000 mAh, 9.8A) Samsung batteries listed above certainly provide.
 
@@ -112,6 +132,40 @@ which the (5000 mAh, 9.8A) Samsung batteries listed above certainly provide.
 [The Best 18650 Battery and How to Avoid Buying Fakes
 ]{https://www.makeuseof.com/tag/18650-battery} covers a number
 of issues and pitfalls associated with purchasing 18650 batteries.
+
+##### Mounting Notes
+
+This HAT is rather tall, due to the batteries, holders, and such.
+Obviously, this precludes the use of any normal RasPi enclosure.
+So, I've ordered the "extra tall" enclosure for the PiJuice.
+The RasPi sits in the bottom of this enclosure, below the HAT.
+This case is designed for use with a different HAT,
+so there is no guarantee whether (or how well) it will work.
+However, at $14, it seemed worth taking a chance.
+I'll report here once I know how well this approach works.
+
+The RasPi's 40-pin connector has enough friction to hold boards together
+under light handling and vibration, but it's better to add some bolts
+and/or spacers.
+The RasPi has four mounting holes, large enough for a 4-40 (or 2.5M) bolt.
+FWIW, I'm using 3/4" long nylon spacers, 1" long bolts, etc.
+One of the nuts didn't want to fit next to the battery holder,
+so I put the bolts in with the heads up.
+
+##### Miscellanea
+
+The GPIO pins that stick up from the Pi-UpTime board are about 0.19" long.
+This is far shorter than the .32" pins used on the RasPi
+and might prevent them from being used (reliably) to attach another HAT.
+Percy Kamas is looking into the possibility of finding a GPIO socket
+with longer pins; here's hoping he finds something!
+
+I found an old, pre-release version of the
+[User Guide]{http://alchemy-power.com/wp-content/uploads/2016/11/
+  Configuring-Alchemy-HATs-for-Pi.pdf} on the web.
+I'd like to have a newer version, but the [FAQ]{http://alchemy-power.com/faq}
+and the [data sheet]{http://alchemy-power.com/wp-content/uploads/2019/09/
+  Pi-UpTimeUPSv2-DS-20190920.pdf} answered most of my questions.
 
 #### [Vetco PI-UPTIMEUPS
      ]{https://vetco.net/products/uninterruptible-power-supply-ups-hat-
@@ -122,6 +176,7 @@ This HAT, which costs $70, appears to be the Alchemy Power Pi-UpTime UPS
 (as opposed to the Pi-UpTime UPS 2.0).
 It includes a pair of (3000 mAh) 18650 Lithium-ion cells.
 The maximum current is said to be 1.7A, which is a bit low...
+OTOH, Vetco may actually be selling the current model.
 
 #### [Waveshare]{https://www.geekbuying.com/item/
       Waveshare-Li-ion-Battery-HAT-for-Raspberry-Pi-Blue-405193.html}

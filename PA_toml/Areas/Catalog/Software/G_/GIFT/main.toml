@@ -1,0 +1,67 @@
+# cat_sof|GIFT/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GIFT'
+  title       = 'GIFT (GNU Image Finding Tool)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application, image classification, image searching'
+
+[ about ]
+
+  precis      = 'index and search images by content'
+
+  verbose     = '''
+> The GIFT (the GNU Image-Finding Tool) is a Content Based Image Retrieval
+System (CBIRS: http://en.wikipedia.org/wiki/CBIR).
+It enables you to do Query By Example (QBE: http://en.wikipedia.org/wiki/QBE)
+on images,
+giving you the opportunity to improve query results by relevance feedback.
+For processing your queries, the program relies entirely on the content
+of the images, freeing you from the need to annotate all images
+before querying the collection.
+
+> The GIFT comes with a tool which lets you index whole directory trees
+containing images in one go.
+You then can use the GIFT server and its client,
+to browse your own image collections.
+
+> The GIFT is an open framework for content-based image retrieval.
+We explicitly have taken into account the possibility of adding new ways
+of querying to the framework.
+Our communication protocol for client-server communication, MRML,
+is XML based and fully documented (http://www.mrml.net).
+This aims at promoting code reuse among researchers and application developers.
+Inquiries about APIs and how to integrate new clients/servers into the framework
+are welcome (send questions to http://mail.gnu.org/mailman/listinfo/help-gift
+or the maintainer mailto:juri@solarnetone.org).
+
+> The current version of the GIFT can be seen in action
+at http://gift.faikvm.com/.
+The image database was seeded from Openclipart.
+
+> The latest version can be found and downloaded at ftp://ftp.gnu.org/gnu/gift
+
+> The GIFT (ex Viper) is the result of a research effort at the Vision Group
+at the CUI (computer science center) of the University of Geneva (see
+http://vision.unige.ch/).
+This cutting-edge research has been the subject of several publications and
+conference talks.
+Details can be found at http://viper.unige.ch/.
+
+> -- [$url]{ext_gs|gift}
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gs|gift'

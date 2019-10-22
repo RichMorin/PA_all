@@ -6,6 +6,7 @@
   meta      = @item.meta
   about     = @item.about
   authors   = get_in(meta,  [:refs, :f_authors])
+  see_also  = get_in(meta,  [:refs, :see_also])
 %>
 
 <div class="hs-base1">
@@ -17,7 +18,9 @@
 
   <%= fmt_precis(about.precis) %>
   
-  <%= render(ItemView, "_show_refs.html", assigns) %>
+  <%= if see_also do %>
+    <%= fmt_ref(:see_also, see_also) %>
+  <% end %>
 
   <%= fmt_section(@item, [:about, :verbose]) %>
 </div>

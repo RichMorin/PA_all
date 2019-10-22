@@ -10,6 +10,7 @@
 
   f_authors   = 'cat_peo|Rich_Morin'
   f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'con_ove|PP_Perkify_Packaging, con_ove|PP_Perkify_Pkg_Index'
 
 [ about ]
 
@@ -50,8 +51,8 @@ of open source software; perusing these often yields inspirations.
 The following table provides the title, name, and category
 for every package we explicitly install using APT.
 Each "APT name" entry links to an Ubuntu information page for the package.
-Don't miss the [Package Index]{PP_Perkify_Pkg_Index} page;
-it indexes major packages by their categories (e.g., document converters).
+Don't miss the [Package Index]{con_ove|PP_Perkify_Pkg_Index} page;
+it indexes major packages by topical category (e.g., document converters).
 
 | Title                   | APT name                | Category / Notes          |
 | -------                 | ----------              | ----------------          |
@@ -82,6 +83,7 @@ it indexes major packages by their categories (e.g., document converters).
 | ELinks                  | A$elinks$               | web browsers              |
 | Elixir                  | A$elixir$               | programming support       |
 | Emacs Muse              | A$elpa-muse$            | text processors           |
+| Emacspeak               | A$emacspeak$            | accessible editor         |
 | eSpeak NG               | A$espeak-ng$            | speech synthesizers       |
 | eSpeak NG Data          | A$espeak-ng-data$       | speech synthesizers       |
 | espeakup                | A$espeakup$             | speech synthesizers       |
@@ -91,6 +93,7 @@ it indexes major packages by their categories (e.g., document converters).
 | Frotz                   | A$frotz$                | text game engines         |
 | Gcal                    | A$gcal$                 | calendar tools            |
 | Gforth                  | A$gforth$               | programming support       |
+| GIFT                    | A$gnuift$               | image processors          |
 | GIMP                    | A$gimp$                 | image processors          |
 | Git                     | A$git-all$              | programming support       |
 | GNOME                   | A$gnome$                | desktop environments      |
@@ -103,23 +106,26 @@ it indexes major packages by their categories (e.g., document converters).
 | GNU Emacs               | A$emacs$                | IDEs, text editors, etc.  |
 | GNU Go                  | A$gnugo$                | game programs             |
 | GNU Interactive Tools   | A$gnuit$                | system admin utilities    |
+| GNU Mailutils           | A$mailutils$            | email support             |
 | GNU Miscfiles           | A$miscfiles$            | reference data sets       |
 | GNU Ocrad               | A$ocrad$                | OCR support               |
 | GNU Octave              | A$octave$               | programming support       |
 | GNU plotutils           | A$plotutils$            | plotting support          |
+| GNU Prolog              | A$gprolog$              | programming language      |
 | GNU PSPP                | A$pspp$                 | mathematics support       |
 | GNU R                   | A$r-base$               | mathematics support       |
-| GNU Screen,             | A$screen$,              | terminal multiplexer      |
+| GNU Screen              | A$screen$               | terminal multiplexer      |
 | GNU Solfege             | A$solfege$              | ear/music training        |
 | GNU Spell               | A$spell$                | spelling checkers         |
 | GNU Typist              | A$gtypist$              | typing tutors             |
-| GNU Units,              | A$units$                | unit converter            |
+| GNU Units               | A$units$                | unit converter            |
 | Gnumeric                | A$gnumeric$             | spreadsheets              |
 | GnuPG                   | A$gnupg$                | system admin utilities    |
 | Graphviz                | A$graphviz$             | graph visualizers         |
 | hostapd                 | A$hostapd$              | network admin utilities   |
 | httptunnel              | A$httptunnel$           | network admin utilities   |
 | hunspell                | A$hunspell$             | spelling checkers         |
+| ID Utils                | A$id-utils$             | programming support       |
 | ii                      | A$ii$                   | chat clients              |
 | ImageMagick             | A$imagemagick$          | image processors          |
 | intltool                | A$intltool$             | document converters       |
@@ -141,7 +147,7 @@ it indexes major packages by their categories (e.g., document converters).
 | Lynx                    | A$lynx$                 | web browsers              |
 | Magic Wormhole          | A$magic-wormhole$       | network admin utilities   |
 | MATE                    | A$mate-desktop$         | desktop environment       |
-| mblaze,                 | A$mblaze$,              | email support             |
+| mblaze                  | A$mblaze$               | email support             |
 | mbrola-en1              | A$mbrola-en1$           | speech synthesizers       |
 | mbrola-us1              | A$mbrola-us1$           | speech synthesizers       |
 | mbrola-us2              | A$mbrola-us2$           | speech synthesizers       |
@@ -154,6 +160,7 @@ it indexes major packages by their categories (e.g., document converters).
 | Mutt                    | A$mutt$                 | email clients             |
 | ne                      | A$ne$                   | text editors              |
 | Netatalk                | A$netatalk$             | network admin utilities   |
+| nodm                    | A$nodm$                 | X11 display manager       |
 | Notify OSD              | A$notify-osd$           | system admin utilities    |
 | NTP                     | A$ntp$                  | network admin utilities   |
 | OCRFeeder               | A$ocrfeeder$            | OCR support               |
@@ -174,7 +181,7 @@ it indexes major packages by their categories (e.g., document converters).
 | Poezio                  | A$poezio$               | chat clients              |
 | PortAudio               | A$portaudio19-dev$      | programming support       |
 | Profanity               | A$profanity$            | chat clients              |
-| Pyspread,               | A$pyspread$             | Python spreadsheet        |
+| Pyspread                | A$pyspread$             | Python spreadsheet        |
 | python-cairo            | A$python-cairo$         | programming support       |
 | python-daemonize        | A$python-daemonize$     | programming support       |
 | python-dbus             | A$python-dbus$          | programming support       |
@@ -187,7 +194,7 @@ it indexes major packages by their categories (e.g., document converters).
 | reportbug               | A$reportbug$            | bug reporters             |
 | RipIT                   | A$ripit$                | audio CD rippers          |
 | Ruby                    | A$ruby-full$            | programming support       |
-| SageMath,               | A$sagemath$             | mathematics tool          |
+| SageMath                | A$sagemath$             | mathematics tool          |
 | ScrollZ                 | A$scrollz$              | chat clients              |
 | sic                     | A$sic$                  | chat clients              |
 | socat                   | A$socat$                | network admin utilities   |
@@ -204,7 +211,7 @@ it indexes major packages by their categories (e.g., document converters).
 | Texinfo                 | A$texinfo$              | documentation support     |
 | Thunderbird             | A$thunderbird$          | email clients             |
 | TinTin++                | A$TinTin++$             | MUD clients               |
-| tmux,                   | A$tmux$                 | terminal multiplexer      |
+| tmux                    | A$tmux$                 | terminal multiplexer      |
 | TuxMath                 | A$tuxmath$              | text-based games          |
 | TuxType                 | A$tuxtype$              | text-based games          |
 | w3m                     | A$w3m$                  | web browsers              |
@@ -213,7 +220,7 @@ it indexes major packages by their categories (e.g., document converters).
 | wkhtmltopdf             | A$wkhtmltopdf$          | document converters       |
 | WordGrinder             | A$wordgrinder$          | word processors           |
 | Xarchiver               | A$xarchiver$            | system admin utilities    |
-| xdot,                   | A$xdot$                 | graph viewers             |  
+| xdot                    | A$xdot$                 | graph viewers             |  
 | xlsx2csv                | A$xlsx2csv$             | document converters       |
 | Xpdf                    | A$xpdf$                 | PDF viewers, etc.         |
 | YAD                     | A$yad$                  | programming support       |

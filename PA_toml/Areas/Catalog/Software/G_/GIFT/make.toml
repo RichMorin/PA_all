@@ -1,0 +1,13 @@
+# cat_sof|GIFT/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|unstable/gnuift'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'gnuift'

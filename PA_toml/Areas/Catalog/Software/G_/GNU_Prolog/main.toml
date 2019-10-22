@@ -1,0 +1,57 @@
+# cat_sof|GNU_Prolog/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_Prolog'
+  title       = 'GNU Prolog'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'constraint solving'
+  interfaces  = 'text'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'application, math program, programming language'
+  supports    = 'programming'
+
+[ about ]
+
+  precis      = 'Prolog compiler with constraint solving over finite domains'
+
+  verbose     = '''
+> GNU Prolog is a free Prolog compiler
+with constraint solving over finite domains.
+GNU Prolog accepts a Prolog+constraint program and produces a native binary
+(like gcc does from a C source).
+The obtained executable is then stand-alone.
+The size of this executable can be quite small since GNU Prolog can avoid
+ linking the code of most unused built-in predicates.
+The performance of GNU Prolog is very encouraging
+(comparable to commercial systems).
+Beside the native-code compilation,
+GNU Prolog offers a classical interactive interpreter (top-level).
+
+> The Prolog part conforms to the ISO standard for Prolog
+with many extensions that are very useful in practice
+(global variables, OS interface, sockets, ...).
+
+> GNU Prolog also includes an efficient constraint solver
+over Finite Domains (FD).
+This opens contraint logic pogramming to the user combining the power
+of constraint programming to the declarativity of logic programming.
+
+> More information about GNU Prolog can be found at the
+[GNU Prolog web site]{http://www.gprolog.org}.
+
+> -- [$url]{ext_gs|gprolog}
+'''
+
+[ address.web_site ]
+
+  also        = 'http://www.gprolog.org'
+  main        = 'ext_gs|gprolog'

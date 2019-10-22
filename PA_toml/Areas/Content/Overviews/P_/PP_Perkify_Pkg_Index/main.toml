@@ -10,6 +10,7 @@
 
   f_authors   = 'cat_peo|Rich_Morin'
   f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'con_ove|PP_Perkify_Packaging, con_ove|PP_Perkify_Pkg_List'
 
 [ about ]
 
@@ -17,8 +18,9 @@
 
   verbose     = '''
 This page categorizes the software
-that we install on [Ubuntu]{ext_wp|Ubuntu} (e.g., the "disco" release)
+that we explicitly install on [Ubuntu]{ext_wp|Ubuntu}
 while creating [Perkify]{con_ove|PP_Perkify_Intro}.
+See [Perkify - Package List]{PP_Perkify_Pkg_List} for a tabular presentation.
 
 ### Categories
 
@@ -71,7 +73,7 @@ Braille support is very important to blind users.
 - chat clients            - ii, ircII, irssi, Pidgin, Poezio, Profanity,
                             ScrollZ, sic, WeeChat
 - email clients           - Alot, Alpine, mu4e, Mutt, Sup
-- email support           - mblaze, OfflineIMAP
+- email support           - GNU Mailutils, mblaze, OfflineIMAP
 - terminal emulators      - LXTerminal, python-pyte
 - terminal multiplexers   - GNU Screen, tmux
 - VOIP clients            - Linphone, Mumble
@@ -81,7 +83,7 @@ Braille support is very important to blind users.
 - graph visualizers       - Graphviz
 - interactive notebooks   - Jupyter Notebook
 - spelling checkers       - GNU Spell, hunspell
-- text editors            - GNU emacs, JOE, ne, Pluma
+- text editors            - Emacspeak, GNU emacs, JOE, ne, Pluma
 - text processors         - Diction, Emacs Muse
 - typing tutors           - GNU Typist
 - word processors         - LibreOffice, WordGrinder
@@ -111,8 +113,9 @@ There are many document formats; we want to make them all accessible.
 #### Graphics
 
 - 3D modelers             - OpenSCAD
+- display managers        - nodm
 - graph visualizers       - Graphviz
-- image processors        - ImageMagick, GIMP, GNU Image Finding Tool
+- image processors        - ImageMagick, GIFT, GIMP
 - plotting support        - GNU plotutils, Jupyter Notebook
 
 #### Mathematics
@@ -129,8 +132,8 @@ There are many document formats; we want to make them all accessible.
 #### Programming
 
 - interactive notebooks   - Jupyter Notebook (includes Python)
-- programming support     - dialog, Elixir, Gforth, GNU Octave, GNU R,
-                            Pdmenu, PortAudio, Ruby
+- programming support     - dialog, Elixir, Gforth, GNU Octave, GNU Prolog,
+                            GNU R, ID Utils, Pdmenu, PortAudio, Ruby
 - text editors            - GNU Emacs, JOE
 
 To be continued...

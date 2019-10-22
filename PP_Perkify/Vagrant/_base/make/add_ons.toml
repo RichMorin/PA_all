@@ -5,194 +5,200 @@
 # Included
 
 debian_apt = '''
-# Title               APT Name            Notes
-# -----               --------            -----
-  Accerciser,         accerciser,         a11y explorer
-  Alot,               alot,               email client
-  Alpine,             alpine,             email client
-  apcalc,             apcalc,             desk calculator
-  Aptitude,           aptitude,           APT extensions
-  Atril,              atril,              document viewer
-  Audacious,          audacious,          audio player
-  Audacity,           audacity,           audio editor
+# Title                     APT Name            Notes
+# -----                     --------            -----
+  Accerciser,               accerciser,         a11y explorer
+  Alot,                     alot,               email client
+  Alpine,                   alpine,             email client
+  apcalc,                   apcalc,             desk calculator
+  Aptitude,                 aptitude,           APT extensions
+  Atril,                    atril,              document viewer
+  Audacious,                audacious,          audio player
+  Audacity,                 audacity,           audio editor
 
-  bash-completion,    bash-completion,    bash support
-  bridge-utils,       bridge-utils,       network admin
-  BRLTTY,             brltty,             Braille output
-  brltty-espeak,      brltty-espeak,      Braille output
-  bsdgames,           bsdgames,           text-based games
+  bash-completion,          bash-completion,    bash support
+  bridge-utils,             bridge-utils,       network admin
+  BRLTTY,                   brltty,             Braille output
+  brltty-espeak,            brltty-espeak,      Braille output
+  bsdgames,                 bsdgames,           text-based games
 
-  catdoc,             catdoc,             document conversion
-  CuneiForm,          cuneiform,          OCR support
+  catdoc,                   catdoc,             document conversion
+  CuneiForm,                cuneiform,          OCR support
 
-  DAISY Player,       daisy-player,       ebook reader
-  Dasher,             dasher,             text entry
-  dialog,             dialog,             dialog box generator
-  Diction,            diction,            text processing
-  Direvent,           direvent,           system admin
-  discount,           discount,           document conversion
-  dnsmasq,            dnsmasq,            network admin
-  dos2unix,           dos2unix,           document conversion
-  dosfstools,         dosfstools,         system admin
+  DAISY Player,             daisy-player,       ebook reader
+  Dasher,                   dasher,             text entry
+  dialog,                   dialog,             dialog box generator
+  Diction,                  diction,            text processing
+  Direvent,                 direvent,           system admin
+  discount,                 discount,           document conversion
+  dnsmasq,                  dnsmasq,            network admin
+  dos2unix,                 dos2unix,           document conversion
+  dosfstools,               dosfstools,         system admin
 
-  ELinks,             elinks,             web browsing
-  Elixir,             elixir,             programming language
-  Emacs Muse,         elpa-muse,          text processing
-  eSpeak NG,          espeak-ng,          speech synthesis
-  eSpeak NG Data,     espeak-ng-data,     speech synthesis
-  espeakup,           espeakup,           speech synthesis
+  ELinks,                   elinks,             web browsing
+  Elixir,                   elixir,             programming language
+  Emacs Muse,               elpa-muse,          text processing
+  Emacspeak,                emacspeak,          accessible editor
+  eSpeak NG,                espeak-ng,          speech synthesis
+  eSpeak NG Data,           espeak-ng-data,     speech synthesis
+  espeakup,                 espeakup,           speech synthesis
 
-  Fenrir,             fenrir,             screen reader
-  Fizmo (console),    fizmo-console,      text game engine
-  Fizmo (ncurses),    fizmo-ncursesw,     text game engine
-  Fizmo (SDL2),       fizmo-sdl2,         text game engine
-  Frotz,              frotz,              text game engine
+  Fenrir,                   fenrir,             screen reader
+  Fizmo (console),          fizmo-console,      text game engine
+  Fizmo (ncurses),          fizmo-ncursesw,     text game engine
+  Fizmo (SDL2),             fizmo-sdl2,         text game engine
+  Frotz,                    frotz,              text game engine
 
-  Gcal,               gcal,               calendar tool
-  Gforth,             gforth,             programming language
-  GIMP,               gimp,               image processing
-  Git,                git-all,            source code control
-  GNOME,              gnome,              desktop environment
-  GNOME Web,          epiphany,           web browser
-  GNU a2ps,           a2ps,               document conversion
-  GNU bc,             bc,                 desk calculator
-  GNU Chess,          gnuchess,           game program
-  GNU Datamash,       datamash,           statistics
-  GNU Denemo,         denemo,             music typesetting
-  GNU Emacs,          emacs,              IDE, text editor, etc.
-  GNU Go,             gnugo,              game program
-  GNU Interactive Tools, gnuit,           system admin
-  GNU Miscfiles,      miscfiles,          reference data
-  GNU Ocrad,          ocrad,              OCR support
-  GNU Octave,         octave,             programming language
-  GNU plotutils,      plotutils,          plotting support
-  GNU PSPP,           pspp,               statistics support
-  GNU R,              r-base,             programming language
-  GNU Screen,         screen,             terminal multiplexer
-  GNU Solfege,        solfege,            ear/music training
-  GNU Spell,          spell,              spell checker
-  GNU Typist,         gtypist,            typing tutor
-  GNU Units,          units,              unit converter
-  Gnumeric,           gnumeric,           spreadsheet
-  GnuPG,              gnupg,              system admin
-  Graphviz,           graphviz,           graph visualization
+  Gcal,                     gcal,               calendar tool
+  Gforth,                   gforth,             programming language
+  GIFT,                     gnuift,             image processing
+  GIMP,                     gimp,               image processing
+  Git,                      git-all,            source code control
+  GNOME,                    gnome,              desktop environment
+  GNOME Web,                epiphany,           web browser
+  GNU a2ps,                 a2ps,               document conversion
+  GNU bc,                   bc,                 desk calculator
+  GNU Chess,                gnuchess,           game program
+  GNU Datamash,             datamash,           statistics
+  GNU Denemo,               denemo,             music typesetting
+  GNU Emacs,                emacs,              IDE, text editor, etc.
+  GNU Go,                   gnugo,              game program
+  GNU Interactive Tools,    gnuit,              system admin
+  GNU Mailutils,            mailutils,          email support
+  GNU Miscfiles,            miscfiles,          reference data
+  GNU Ocrad,                ocrad,              OCR support
+  GNU Octave,               octave,             programming language
+  GNU plotutils,            plotutils,          plotting support
+  GNU Prolog,               gprolog,            programming language
+  GNU PSPP,                 pspp,               statistics support
+  GNU R,                    r-base,             programming language
+  GNU Screen,               screen,             terminal multiplexer
+  GNU Solfege,              solfege,            ear/music training
+  GNU Spell,                spell,              spell checker
+  GNU Typist,               gtypist,            typing tutor
+  GNU Units,                units,              unit converter
+  Gnumeric,                 gnumeric,           spreadsheet
+  GnuPG,                    gnupg,              system admin
+  Graphviz,                 graphviz,           graph visualization
 
-  hostapd,            hostapd,            network admin
-  httptunnel,         httptunnel,         network admin
-  hunspell,           hunspell,           spell checker
+  hostapd,                  hostapd,            network admin
+  httptunnel,               httptunnel,         network admin
+  hunspell,                 hunspell,           spell checker
 
-  ii,                 ii,                 chat client
-  ImageMagick,        imagemagick,        image manipulation
-  intltool,           intltool,           XML internationalization
-  ircII,              ircii,              chat client
-  irssi,              irssi,              chat client
+  ID Utils,                 id-utils,           system admin
+  ii,                       ii,                 chat client
+  ImageMagick,              imagemagick,        image manipulation
+  intltool,                 intltool,           XML internationalization
+  ircII,                    ircii,              chat client
+  irssi,                    irssi,              chat client
 
-  JACAL,              jacal,              symbolic math
-  JOE,                joe,                text editor
-  Jshon,              jshon,              JSON tools
-  Jupyter Notebook,   jupyter-notebook,   interactive notebook
+  JACAL,                    jacal,              symbolic math
+  JOE,                      joe,                text editor
+  Jshon,                    jshon,              JSON tools
+  Jupyter Notebook,         jupyter-notebook,   interactive notebook
 
-  Liblouis,           liblouis-bin,       braille translation
-  Liblouis Data,      liblouis-data,      braille translation
-  LibreOffice,        libreoffice,        productivity suite
-  LibreOffice GNOME,  libreoffice-gnome,  GNOME integration
-  LibreOffice KDE,    libreoffice-kde,    KDE integration
-  Links,              links,              web browser
-  Linphone,           linphone,           VOIP client
-  lios,               lios,               OCR support
-  LXTerminal,         lxterminal,         LXDE terminal emulator
-  Lynx,               lynx,               web browser
+  Liblouis,                 liblouis-bin,       braille translation
+  Liblouis Data,            liblouis-data,      braille translation
+  LibreOffice,              libreoffice,        productivity suite
+  LibreOffice GNOME,        libreoffice-gnome,  GNOME integration
+  LibreOffice KDE,          libreoffice-kde,    KDE integration
+  Links,                    links,              web browser
+  Linphone,                 linphone,           VOIP client
+  lios,                     lios,               OCR support
+  LXTerminal,               lxterminal,         LXDE terminal emulator
+  Lynx,                     lynx,               web browser
 
-  Magic Wormhole,     magic-wormhole,     file transfer
-  MATE,               mate-desktop,       desktop environment
-  mblaze,             mblaze,             email support
-  mbrola-en1,         mbrola-en1,         speech synthesis
-  mbrola-us1,         mbrola-us1,         speech synthesis
-  mbrola-us2,         mbrola-us2,         speech synthesis
-  mbrola-us3,         mbrola-us3,         speech synthesis
-  mhwaveedit,         mhwaveedit,         audio editor
-  MPD,                mpd,                music player daemon
-  mpv,                mpv,                video player
-  mu4e,               mu4e,               email client
-  Mumble,             mumble,             VOIP client
-  Mutt,               mutt,               email client
+  Magic Wormhole,           magic-wormhole,     file transfer
+  MATE,                     mate-desktop,       desktop environment
+  mblaze,                   mblaze,             email support
+  mbrola-en1,               mbrola-en1,         speech synthesis
+  mbrola-us1,               mbrola-us1,         speech synthesis
+  mbrola-us2,               mbrola-us2,         speech synthesis
+  mbrola-us3,               mbrola-us3,         speech synthesis
+  mhwaveedit,               mhwaveedit,         audio editor
+  MPD,                      mpd,                music player daemon
+  mpv,                      mpv,                video player
+  mu4e,                     mu4e,               email client
+  Mumble,                   mumble,             VOIP client
+  Mutt,                     mutt,               email client
 
-  ne,                 ne,                 text editor
-  Netatalk,           netatalk,           network admin
-  Notify OSD,         notify-osd,         notification daemon
-  NTP,                ntp,                network admin
+  ne,                       ne,                 text editor
+  Netatalk,                 netatalk,           network admin
+  nodm,                     nodm,               X11 display manager
+  Notify OSD,               notify-osd,         notification daemon
+  NTP,                      ntp,                network admin
 
-  OCRFeeder,          ocrfeeder,          OCR support
-  OCRmyPDF,           ocrmypdf,           OCR support
-  OCRmyPDF Doc.,      ocrmypdf-doc,       OCR support
-  ocrodjvu,           ocrodjvu,           OCR support
-  OfflineIMAP,        offlineimap,        email support
-  OpenSCAD,           openscad,           3D modeling
-  opus-tools,         opus-tools,         audio processing
-  Orca,               orca,               screen reader
+  OCRFeeder,                ocrfeeder,          OCR support
+  OCRmyPDF,                 ocrmypdf,           OCR support
+  OCRmyPDF Doc.,            ocrmypdf-doc,       OCR support
+  ocrodjvu,                 ocrodjvu,           OCR support
+  OfflineIMAP,              offlineimap,        email support
+  OpenSCAD,                 openscad,           3D modeling
+  opus-tools,               opus-tools,         audio processing
+  Orca,                     orca,               screen reader
 
-  Pandoc,             pandoc,             document conversion
-  PCmanFM,            pcmanfm,            file manager
-  Pdmenu,             pdmenu,             menu generation system
-  pianobar,           pianobar,           Pandora client
-  Pidgin,             pidgin,             chat client
-  pidgin-otr,         pidgin-otr,         chat client
-  Pluma,              pluma,              text editor
-  Poezio,             poezio,             chat client
-  PortAudio,          portaudio19-dev,    Portable audio I/O
-  Profanity,          profanity,          chat client
-  Pyspread,           pyspread,           Python spreadsheet
-  python-cairo,       python-cairo,       Cairo library
-  python-daemonize,   python-daemonize,   Python 2 daemonizer
-  python-dbus,        python-dbus,        Python 2 messaging
-  python-evdev,       python-evdev,       Python 2 Linux input
-  python-pyte,        python-pyte,        terminal emulator
-  python-pyudev,      python-pyudev,      libudev binding
-  python-setuptools,  python-setuptools,  Python setup tools
+  Pandoc,                   pandoc,             document conversion
+  PCmanFM,                  pcmanfm,            file manager
+  Pdmenu,                   pdmenu,             menu generation system
+  pianobar,                 pianobar,           Pandora client
+  Pidgin,                   pidgin,             chat client
+  pidgin-otr,               pidgin-otr,         chat client
+  Pluma,                    pluma,              text editor
+  Poezio,                   poezio,             chat client
+  PortAudio,                portaudio19-dev,    Portable audio I/O
+  Profanity,                profanity,          chat client
+  Pyspread,                 pyspread,           Python spreadsheet
+  python-cairo,             python-cairo,       Cairo library
+  python-daemonize,         python-daemonize,   Python 2 daemonizer
+  python-dbus,              python-dbus,        Python 2 messaging
+  python-evdev,             python-evdev,       Python 2 Linux input
+  python-pyte,              python-pyte,        terminal emulator
+  python-pyudev,            python-pyudev,      libudev binding
+  python-setuptools,        python-setuptools,  Python setup tools
 
-  ratpoison,          ratpoison,          window manager
-  Recoll,             recoll,             text search tool
-  reportbug,          reportbug,          bug reporting
-  RipIT,              ripit,              audio CD ripper
-# Ruby,               ruby-full,          programming language
+  ratpoison,                ratpoison,          window manager
+  Recoll,                   recoll,             text search tool
+  reportbug,                reportbug,          bug reporting
+  RipIT,                    ripit,              audio CD ripper
+# Ruby,                     ruby-full,          programming language
 
-  SageMath,           sagemath,           mathematics tool
-  ScrollZ,            scrollz,            chat client
-  sic,                sic,                chat client
-  socat,              socat,              data transfer relay
-  SoX,                sox,                audio processing
-  speechd,            speech-dispatcher,  speech synthesis
-  storebackup,        storebackup,        file backup utility
-  Sup,                sup-mail,           email client
-  Surfraw,            surfraw,            web browser
-  Syncthing,          syncthing,          network admin
+  SageMath,                 sagemath,           mathematics tool
+  ScrollZ,                  scrollz,            chat client
+  sic,                      sic,                chat client
+  socat,                    socat,              data transfer relay
+  SoX,                      sox,                audio processing
+  speechd,                  speech-dispatcher,  speech synthesis
+  storebackup,              storebackup,        file backup utility
+  Sup,                      sup-mail,           email client
+  Surfraw,                  surfraw,            web browser
+  Syncthing,                syncthing,          network admin
 
-  Telegram CLI,       telegram-cli,       messaging CLI
-  Telegram Desktop,   telegram-desktop,   messaging app
-  Tesseract,          tesseract-ocr,      OCR support
-  TeX Live,           texlive-xetex,      document conversion
-  Texinfo,            texinfo,            documentation support
-  Thunderbird,        thunderbird,        email (etc) client
-  TinTin++,           tintin++,           MUD client
-  tmux,               tmux,               terminal multiplexer
-  TuxMath,            tuxmath,            math game for kids
-  TuxType,            tuxtype,            typing game for kids
+  Telegram CLI,             telegram-cli,       messaging CLI
+  Telegram Desktop,         telegram-desktop,   messaging app
+  Tesseract,                tesseract-ocr,      OCR support
+  TeX Live,                 texlive-xetex,      document conversion
+  Texinfo,                  texinfo,            documentation support
+  Thunderbird,              thunderbird,        email (etc) client
+  TinTin++,                 tintin++,           MUD client
+  tmux,                     tmux,               terminal multiplexer
+  TuxMath,                  tuxmath,            math game for kids
+  TuxType,                  tuxtype,            typing game for kids
 
-  w3m,                w3m,                web browser, etc.
-  wcalc,              wcalc,              desk calculator
-  WeeChat,            weechat,            chat client
-  wkhtmltopdf,        wkhtmltopdf,        document conversion
-  WordGrinder,        wordgrinder,        word processor
+  w3m,                      w3m,                web browser, etc.
+  wcalc,                    wcalc,              desk calculator
+  WeeChat,                  weechat,            chat client
+  wkhtmltopdf,              wkhtmltopdf,        document conversion
+  WordGrinder,              wordgrinder,        word processor
 
-  Xarchiver,          xarchiver,          archive manager
-  xdot,               xdot,               graph viewer
-  xlsx2csv,           xlsx2csv,           document conversion
-  Xpdf,               xpdf,               PDF viewer, etc.
+  Xarchiver,                xarchiver,          archive manager
+  xdot,                     xdot,               graph viewer
+  xlsx2csv,                 xlsx2csv,           document conversion
+  Xpdf,                     xpdf,               PDF viewer, etc.
 
-  YAD,                yad,                dialog box generator
-  YAJL,               yajl-tools,         JSON-handling library
-  yasr,               yasr,               screen reader
-  youtube-dl,         youtube-dl,         video downloader
+  YAD,                      yad,                dialog box generator
+  YAJL,                     yajl-tools,         JSON-handling library
+  yasr,                     yasr,               screen reader
+  youtube-dl,               youtube-dl,         video downloader
 '''
 
 # https://www.gnu.org/manual/blurbs.html
@@ -214,42 +220,117 @@ ruby_gems = '''
 
 # Title               APT name            Notes
 # -----               --------            -----
+
 # Alacritty,          ?,                  TTY emulation             (-b)
+# https://gist.github.com/Aaronmacaron/8a4e82ed0033290cb2e12d9df4e77efe
+# This installs alacritty terminal on ubuntu (https://github.com/jwilm/alacritty)
+# You have to have rust/cargo installed for this to work.
+
 # BitchX,             ?,                  chat client               (-b)
+# ubuntu forums: How to install BitchX
+# https://ubuntuforums.org/showthread.php?t=830388
+
 # Bookworm,           ?,                  eBook reader              (-b)
+# How to Install the Best Ebook Reader “Bookworm” on Ubuntu
+# https://www.ubuntupit.com/install-best-ebook-reader-bookworm-ubuntu/
+
 # BRL-CAD,            ?,                  solid modeling            (-b)
+# How To Install BRL-CAD 7.28.0 on Ubuntu 18.10, Ubuntu 18.04 And Derivative Systems
+# https://linuxg.net/how-to-install-brl-cad-7-28-0-on-ubuntu-18-10-ubuntu-18-04-and-derivative-systems/
+
 # Crystal,            ?,                  programming language      (-b)
+# How to install Crystal on Ubuntu
+# https://snapcraft.io/install/crystal/ubuntu
+
 # DAISY Pipeline 2,   ?,                  document conversion       (-b)
+# Download
+# https://daisy.github.io/pipeline/Download.html
+# Installation
+# https://daisy.github.io/pipeline/Get-Help/User-Guide/Installation/
+
 # Eclipse Che,        ?,                  IDE, text editor, etc.    (-b)
-# Ekiga,              ekiga,              online conferencing       (-b+js)
+# How to Install Eclipse IDE on Ubuntu 18.04
+# https://linuxize.com/post/how-to-install-the-latest-eclipse-ide-on-ubuntu-18-04/
+
+# Ekiga,              ekiga,              online conferencing       (-bu+js)
+# https://help.ubuntu.com/community/Ekiga
+# In trusty (14.04) and later, Ekiga is available in the Universe repository.
+# The package name is ekiga.
+
 # Elm ME+,            ?,                  email client              (-b)
+# elm-me+ binary package in Ubuntu Bionic amd64
+# https://launchpad.net/ubuntu/bionic/amd64/elm-me+
+
 # Eolie,              ?,                  web browser               (-b)
-# ERC,                erc,                chat client               (-b+j)
+# Eolie Web Browser For GNOME – The Simplest Web Browser
+# http://www.linuxandubuntu.com/home/eolie-web-browser-for-gnome-the-simplest-web-browser
+
+# ERC,                erc,                chat client               (-bu+j)
+# https://packages.ubuntu.com/search?keywords=erc
+
 # Eww,                ?,                  web browser               (-b)
+#-
+
 # GIFT,               ?,                  image processing          (-b)
-# GMediaServer,       gmediaserver,       media support             (-b+js)
+#-
+
+# GMediaServer,       gmediaserver,       media support             (-bu+js)
+# Package: gmediaserver (0.13.0-8ubuntu2) [universe]
+# https://packages.ubuntu.com/bionic/gmediaserver
+
 # GNU Bool,           ?,                  text searching            (-b)
+#-
+
 # GNU Cursynth,       ?,                  music generation          (-b)
+#-
+
 # GNU Dap,            ?,                  statistics                (-b)
+#-
+
 # GNU Dionysus,       ?,                  retrieving constants      (-b)
+#-
+
 # GNU Freetalk,       ?,                  Jabber/XMPP client        (-b)
-# GNU Image Finding Tool, gnuift,         image processing          (-b+js)
+#-
+
 # GNU Moe,            ?,                  text editor               (-b)
+#-
+
 # GNU Oleo,           ?,                  spreadsheet               (-b)
-# GNU Prolog,         gprolog,            programming language      (-b+js)
+#-
+
 # GSEGrafix,          ?,                  plot generation           (-b)
+#-
+
 # GURGLE,             ?,                  programming language      (-b)
-# ID Utils,           ?,                  system admin              (-b+js)
+#-
+
 # latex-access,       ?,                  braille translation       (-b)
+# File list of package brltty in cosmic of architecture amd64
+# https://packages.ubuntu.com/cosmic/amd64/brltty/filelist
+
 # Lucidor,            ?,                  ebook reader              (-b)
+#-
+
 # OCRdesktop,         ?,                  OCR support               (-b)
-# PINN,               ?,                  Raspberry Pi support      (-b)
+# Versions for ocrdesktop
+# https://repology.org/project/ocrdesktop/versions
+
 # sbl,                ?,                  screen reader             (-b)
+#-
+
 # Speakup,            speakup,            speech synthesis          (?)
+# Speakup Doc.,       speakup-doc,        speech synthesis          (?)
+#-
+
 # tdsr,               ?,                  screen reader             (-b)
+#-
+
 # Termux,             ?,                  terminal multiplexer      (-b)
+# https://wiki.termux.com/wiki/Ubuntu
+
 # The vOICe,          ?,                  sensory substitution      (-b)
-# WiringPi,           ?,                  Raspberry Pi support      (-b)
+#-
 
 ## Other APT issues
 
@@ -257,22 +338,26 @@ ruby_gems = '''
 # -----               --------            -----
 # Chef,               chef,               systems integration       (APT hangs)
 # Chef,               chef-zero,          configuration management
-#   It wants the URL of the Chef Infra server.  ???
+#   It wants the URL of the Chef Infra server.
+#   I sent email asking about a way to pre-set this to (say) localhost.
+#   This should probably be localhost:4000 or somesuch...
 #
 # Emacspeak,          emacspeak,          accessible editor         (APT hangs)
-#   It wants to know about support SW & HW.  ???
+# Use -y option to override questions.
 #
 # GNU Mailutils,      mailutils,          email support             (APT hangs)
-#   It wants to know the Postfix configuration.
+# Seems to load OK now ?!?!?
 #
 # nodm
-#   It wants to chat about configuration.
 #   nodm,             nodm,               X11 display manager
+# Use -y option to override questions.
 
 ## Miscellaneous issues
 
 # Title               APT name            Notes
 # -----               --------            -----
 # man2html,           man2html,           how to configure?
+# PINN,               ?,                  Raspberry Pi support      (-b)
 # ruby-gpio,          ruby-gpio,          Raspberry Pi support
 # Stretch Backports,  stretch-backports,  backward compatibility
+# WiringPi,           ?,                  Raspberry Pi support      (-b)

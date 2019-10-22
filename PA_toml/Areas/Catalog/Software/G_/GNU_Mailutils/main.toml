@@ -1,0 +1,72 @@
+# cat_sof|GNU_Mailutils/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'GNU_Mailutils'
+  title       = 'GNU Mailutils'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'free, GNU GPL, open source'
+  roles       = 'email support, utility'
+  standards   = 'IMAP, POP3, SMTP'
+
+[ about ]
+
+  precis      = 'utilities for handling mail'
+
+  verbose     = '''
+> Mailutils is a swiss army knife of electronic mail handling.
+It offers a rich set of utilities and daemons for processing e-mail.
+
+> All Mailutils programs are able to operate on mailboxes
+of any existing format, ranging from standard UNIX maildrops, through maildir,
+and up to remote mailboxes, which are transparently accessed
+using IMAP4, POP3, and SMTP.
+
+> Mailutils is oriented toward three kinds of audiences: regular users,
+system administrators, and developers of email-handling software.
+
+> *Regular users* will find here an implementation
+of the traditional UNIX mail reader `mail`,
+command line utilities such as `frm`, `messages`, `readmsg`,
+and `sieve` -- a flexible utility for filtering the incoming mail.
+
+> A special feature of Mailutils is an implementation
+of the MH Message Handling System, which combines a power of the UNIX philosophy
+with a flexibility of Mailutils libraries,
+thus allowing to easily incorporate mail from remote mailboxes.
+
+> For *system administrators*, Mailutils provides a set of daemons
+for delivering and reading electronic mail, including `pop3d`, `imap4d`,
+and a universal mail delivery agent, called `maidag`.
+
+> Some utilities are of equal interest for both audiences.
+One of them is `movemail`, which owes its name to a program from the
+GNU Emacs distribution, but provides a much richer set of possibilities
+than its predecessor.
+The Mailutils `movemail` is a full-fledged mail retrieval agent
+which can easily be used to fetch mail from remote servers.
+At the same time, it is also a multi-purpose tool for converting mail storages
+between various mailbox formats,
+which will be of particular interest for system administrators.
+
+> Finally, for *software developers*,
+Mailutils offers a set of libraries for doing almost any mail-related task
+on any existing mailbox format, and all that using a consistent,
+format-independent, interface.
+
+> -- [$url]{http://mailutils.org}
+'''
+
+[ address.web_site ]
+
+  also        = 'ext_gs|mailutils'
+  main        = 'http://mailutils.org'

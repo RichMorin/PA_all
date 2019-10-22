@@ -1,0 +1,16 @@
+# cat_sof|GNU_Mailutils/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/mailutils'
+  upstream    = 'ext_gs|mailutils'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/mailutils'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'mailutils'

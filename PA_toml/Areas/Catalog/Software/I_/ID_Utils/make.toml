@@ -1,0 +1,16 @@
+# cat_sof|ID_Utils/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_aur|idutils'
+  upstream    = 'ext_gs|idutils'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|sid/id-utils'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'id-utils'

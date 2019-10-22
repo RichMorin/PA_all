@@ -3,7 +3,7 @@
 #
 # Written by Rich Morin, CFCL, 2019.
 
-  cmd="apt-get -y install $2"
+  cmd="apt-get install -y $2"
   log=$1/$2
 
   $cmd > $log 2>&1

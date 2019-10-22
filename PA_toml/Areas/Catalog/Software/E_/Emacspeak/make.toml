@@ -11,44 +11,6 @@
 
   package     = 'debi_pkgs|buster/emacspeak'
 
-  issues      = '''
-Default speech server - espeak
-Hardware port - none
+[ os.perkify_ubuntu ]
 
-"Use of unitialized value $_[1] in join or string at
-/usr/share/perl5/Debconf/Client/ConfModule.pm line 121,
-<STDIN> line {14,16}" twice after "Preconfiguring packages ...".
-'''
-
-  origin      = 'APT'
-
-  status      = '''
-Emacspeak is not included in the Ubuntu distribution.  The apt-get version
-of Emacspeak was dated, so Amanda downloaded the source code and built a
-copy from that.
-
-Under Debian's Jessie release (including derivatives such as Raspbian and
-Ubuntu), Emacspeak relies on the espeak server.  It also requires the line
-"export DTK_PROGRAM=espeak" in the ~/.bashrc file.
-
-Mike Ray says that the version in Raspberry VI stutters badly, it's
-probably not usable until he finishes the server.  He also says:
-
-If you are running Arch Linux, the recommended way to run Emacspeak is to
-put it somewhere like "/usr/local/share/emacspeak" and then load it via
-your .emacs.d directory.  (I can provide a usable .emacs.d/ directory and
-the files below that path if necessary.)
-
-Also, if you want the auditory icons, which are fun, you will need to
-install mplayer.  Or maybe that is for the start-up music, I forget.
-
-Emacspeak starts by playing a bit of Bach and then says "all my circuits
-are working perfectly" etc.
-
-Rill is the list Emacspeak expert.
-
-
-Amanda had a problem on Ubuntu with Emacspeak being silent.  She says:
-"I fixed it by installing tclx. The command tcl doesn't work when I test
-the espeak server but tclx now does."
-'''
+  add_apt     = 'emacspeak'

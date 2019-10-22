@@ -1,0 +1,13 @@
+# cat_sof|nodm/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/nodm'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'nodm'

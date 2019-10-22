@@ -1,0 +1,43 @@
+# cat_sof|nodm/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'nodm'
+  title       = 'nodm'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  licenses    = 'free, GPL, open source'
+  roles       = 'daemon, display manager'
+  standards   = 'X11'
+  supports    = 'communication, network management, system management'
+
+[ about ]
+
+  precis      = 'automatic X11 display manager'
+
+  verbose     = '''
+> nodm is a minimal display manager that simply logs in as a given user
+and starts an X session, without asking for username or password.
+
+> On a normal computer, using nodm is a big security issue
+because it would give anyone access to the computer.
+
+> However, there are cases where automatic login is needed:
+for example, in an embedded system such as a mobile phone,
+or in a kiosk setup, or in a control panel for industrial machinery.
+For those cases, nodm is simple to setup, lightweight,
+and it should do exactly the right thing.
+
+> -- [$url]{ext_gh|spanezz/nodm}
+'''
+
+[ address.web_site ]
+
+  main        = 'ext_gh|spanezz/nodm'
