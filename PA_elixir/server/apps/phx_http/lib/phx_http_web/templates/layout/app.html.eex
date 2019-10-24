@@ -89,9 +89,8 @@
       <%= render(@view_module, @view_template, assigns) %>
     </main>
 
-    <hr>
-
     <footer>
+      <hr>
       <nav>
         &nbsp;
         <%=

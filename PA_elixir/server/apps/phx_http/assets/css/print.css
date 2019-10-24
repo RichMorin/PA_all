@@ -3,10 +3,10 @@
 @media print {
 
   main {
-    font-size:    smaller;
+    font-size:    small;
   }
 
-  header, footer {
+  header, footer, p.alert, div.path {
     display:      none;
   }
 
@@ -26,6 +26,11 @@
     font-size:    smaller;
     margin:       0 0;
     padding:      0 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 { 
+    margin-bottom:          0.25rem;
+    margin-top:             0.50rem;
   }
 
 }

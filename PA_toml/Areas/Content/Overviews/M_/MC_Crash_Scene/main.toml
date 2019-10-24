@@ -1,0 +1,94 @@
+# con_ove|MC_Crash_Scene/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'MC_Crash_Scene'
+  title       = "Crash Scene Field Reference"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "a field reference sheet for motorcycle crashes"
+
+  verbose     = '''
+The material in this sheet was provided by Paul Willett,
+an experienced first responder living in Northern California.
+Read it, then print it out, fold it up, and carry it with you on rides.
+Even better, carry some copies to give out to your fellow riders!
+
+### Enlist other riders
+
+There will be a lot to do, get help!
+
+- making the scene safe
+- reporting information
+- rendering first aid
+
+### Make the scene safe
+
+Ask other riders to help you with everything!
+
+- Use available bikes, cars, flares, and/or riders
+  to close off the lanes<br> at least 100 feet from the accident. 
+- Turn off ignition switches to prevent fires from spilled fuel.
+- Turn off fuel valves to avoid spilling more fuel.
+- Direct traffic around the scene, as necessary.
+
+### Report Information
+
+Gather, record, and report pertinent information.
+Report urgent information at once to 911.
+
+- Where are you? Cross street, direction of travel, lane position.
+- How many are injured?
+- Nature of injuries? Moderate to severe, conscious or unconscious,<br>
+  specific complaints of pain/deformity.
+- Specific scene considerations: is access difficult for rescuers?
+
+Report pertinent information to first responders as they arrive.
+
+- Locate the most useful witness; have that person report to responders.
+- Determine the mechanism of injury. (What did the crash look like?)
+- Estimate the directions and speeds involved.
+- How did the rider(s) behave after crashing?
+- Information on rider(s): name, age, DOB, pertinent medical history
+
+### Render First Aid
+
+- Immobilize the patient.
+- Protect airway / breathing.
+- Stop any major bleeding.
+- Expose the injury to view.
+- Monitor the patient for shock.
+
+#### Details
+
+- Avoid moving the patient, unless his airway is compromised.
+- If necessary, roll the patient to turn his face upwards. 
+- Remove the visor.  Remove the helmet only if necessary for airway. 
+- Immobilize head and neck if appropriate.
+- Immobilize suspected fractures. 
+- Expose suspected injuries; consider cutting away clothing.
+
+#### Stop Major Bleeding
+
+1. Apply hemostatic dressings.
+2. Apply direct pressure.
+3. Elevate the extremity.
+4. Apply pressure to the femoral or brachial artery.
+5. Apply tourniquet only as a last resort.
+
+#### Prevent Shock
+
+- Maintain temperature by shielding from heat or cold.
+- Withhold fluids; give nothing by mouth.
+'''
+
+[ zoo ]
+
+  snippets    = '...'

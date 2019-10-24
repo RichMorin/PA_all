@@ -133,7 +133,8 @@ defmodule PhxHttpWeb.View.Markup do
           <b>Earmark #{ type }:</b>
           <pre>
       diagnostic:   "#{ message }"
-      get_in list:  #{ inspect(gi_list) }#{ line_info }</pre>
+      get_in list:  #{ inspect(gi_list) }
+      #{ line_info }</pre>
         </p>
       """
     end

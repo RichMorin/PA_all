@@ -100,10 +100,11 @@ defmodule PhxHttpWeb.View.Format do
     end
 
     common  = """
-    <b>Path:</b>&nbsp;
-    <a href="/area"
-      title="#{ title_fn.("Areas") }"
-      >Areas</a>,&nbsp;
+    <div class="path">
+      <b>Path:</b>&nbsp;
+      <a href="/area"
+        title="#{ title_fn.("Areas") }"
+        >Areas</a>,&nbsp;
     """
 
     extras  = if String.ends_with?(key, "/_area.toml") do
@@ -121,7 +122,7 @@ defmodule PhxHttpWeb.View.Format do
          title="#{ title_fn.("Areas/" <> t2) }"
         >#{ tl(nodes) }</a>
       """
-    end
+    end <> "\n</div>"
 
     (common <> extras) |> raw()
   end

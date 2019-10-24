@@ -1,0 +1,256 @@
+# con_ove|MC_R80ST_Mods/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'MC_R80ST_Mods'
+  title       = "BMW R80ST Modifications"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "modifications I've made to my BMW R80ST"
+
+  verbose     = '''
+I bought my BMW R80ST (a street/trail "airhead") back in 1984.
+It's a great, nimble bike, ideal for the "twisties" I like to ride
+around the west side of the San Francisco Bay area.
+Over the years, I've made a number of additions and modifications,
+for safety and convenience.
+This note presents the changes, including my rationale and approach.
+
+### Physical Modifications
+
+Most of the physical modifications are too minor to warrant much discussion.
+For example:
+
+- Replaced the stock rack with a larger and stronger one.
+- Replaced the stock seat with a semi-custom one by [Corbin]{http://www.corbin.com}.
+- Added an X-Grip [cell phone holder]{https://www.amazon.com/gp/product/B006X387ZS}
+  from [RAM Mounts]{https://www.rammount.com}.
+- Added a [deflector screen]{
+  http://www.nationalcycle.com/catalogsearch/result/?q=25030}
+  (model 25030) from [National Cycle]{http://www.nationalcycle.com}.
+- Added foam padding to soften the handlebar grips.
+
+#### Mirrors
+
+I recently got a very promising pair of
+[mirrors]{https://www.ebay.com/itm/332731623129}.
+I'm particularly pleased by the multiple (4) degrees of freedom allowed
+by the design.
+However, I'm not entranced by the mirror itself.
+The body is pointy and small; the lens is flat, rather than convex.
+So, I'm thinking about ways to improve the situation.
+Probably a good task for [SketchUp]{ext_wp|SketchUp} and some
+[3D printing]{ext_wp|3D_printing}...
+
+I used a pair of metric bolts (10 mm diam., 1.5 mm pitch, 100 mm long) 
+and four lock nuts to raise the mirrors away from the handlebars and controls.
+The threads on readily available bolts don't come all the way to the heads,
+where I needed to attach the mirrors.
+So, I extended the threads, using a [die]{ext_wp|Tap_and_die} and a lot of oil.
+
+#### Suspension
+
+I'm vaguely considering adding pneumatic suspension,
+to even out some bumps on the twisties I ride. 
+Specifically, an economical air shock and something like this
+[Motorcycle Air Ride Suspension Modification Kit
+]{https://hornblasters.com/products/
+  motorcycle-air-ride-suspension-modification-kit}.
+
+#### Tail Box, etc.
+
+I added a [tail box]{https://www.ebay.com/itm/362784359966} to the rack,
+then mounted eight [J-bolts]{https://www.acehardware.com/
+  departments/hardware/hooks-and-screw-eyes/hooks/57931} on the lid
+for use with bungee cords, etc.
+Held down by some of these mount points, there is a canvas satchel
+which has compartments for various commonly needed objects
+(e.g., scarf, water bottle).
+So, the satchel provides low security, "soft" storage
+and the tail box provides (slightly) higher security, "hard" storage.
+
+The threaded portions of the J-bolts extend well into the interior of the lid.
+So, I took advantage of this by using them as mount points
+for an elastic storage web.
+This does a nice job of retaining light (e.g., medical) supplies,
+leaving the lower section of the box free for heavy and/or lumpy items.
+
+The web is strung by a single piece of 3/32"
+[shock cord]{https://www.amazon.com/gp/product/B078135PHK},
+forming a 9-node [Eulerian circuit]{ext_wp|Eulerian_path}.
+That is, all nodes are fully connected to each other,
+with no duplicate links.
+The circuit connects each of the eight (two back; six side) mount points,
+as well as a bolt at the center of the forward (hinge) wall.
+Being lazy, I let a [Python]{ext_wp|Python_(programming_language)} script
+work out the path.
+Conveniently, I was able to use
+[this site]{https://www.wikitechy.com/technology/
+ fleurys-algorithm-printing-eulerian-path-circuit} as my starting point.
+
+### Wiring Modifications
+
+Most of the significant changes to the bike have taken place in this area.
+In general, they have been motivated by adding accessories
+or increasing the bike's visibility.
+However, I also replaced the fuse block,
+to ease maintenance, increase robustness, and accommodate new wiring.
+
+#### Fuse Block
+
+I've been adding assorted lighting and such to the R80ST.
+In the process, I became concerned with the original fuse block and wiring.
+There were several issues I wanted to resolve.  For example:
+
+- I wanted a good way to add new circuits to the bike.
+- I wanted to turn two complex circuits into four simpler ones.
+- I wanted cool features such as LED indicators for blown fuses.
+- I wanted (ATC/ATO) fuses that were robust and easier to handle.
+- I wanted to be able to purchase fuses in a wider variety of sizes.
+
+So, I bought and installed a 10-circuit [Waterproof Blade Fuse Box
+]{https://www.amazon.com/gp/product/B01N25TJV3}.
+It's quite a bit larger than the original block (5 x 3.6 x 2 inches), so I:
+
+- wired it up via an umbilical cable
+- added a protective rear cover plate
+- put it in a padded plastic envelope
+- lodged it in the battery (etc) bay
+
+In the process, I replaced each of the original pair of fuses
+with a pair of new fuses.
+I now have four, LED-indicated fuses covering the original two circuits.
+Two more fuses supply the USB car charger
+and the power circuits for the add-on signal lamps.
+At this point, only six of the ten fuse locations are in use,
+allowing substantial room for growth.
+
+#### Fuse Usage
+
+The fuse block is organized as two columns, numbered 1-5 and 6-10.
+Fuses 1-3 and 6-8 are driven, respectively, by the bike's grey and green wires.
+The other fuses are wired directly to the battery's positive terminal.
+Here is a rundown of the circuit(s) that each fuse supplies:
+
+1.  green/black: tail lights
+2.  green/black: marker (aka parking) light, etc.
+3.  (none)
+4.  Jelly Comb USB car charger
+5.  (none)
+6.  grey/black: rear brake
+7.  grey/black: front brake, horn, stock signals,
+    relay coils for add-on signals
+8.  (none)
+9.  relay (LED) power for add-on signals
+10. (none)
+
+### Brake and Tail Lights
+
+I replaced the stock brake/tail light bulb with a LED version.
+I then added a (4 x 4 inch) panel containing a 3x3 grid of LEDs.
+The center column serves as a tail light;
+the outer two serve as brake lights.
+
+### Headlight
+
+The [halogen]{ext_wp|Halogien} bulb that BMW used is actually fairly bright,
+as such things go.
+And, although there are LED headlight bulbs that fit the fixture,
+the really powerful ones have a huge cooling apparatus on the rear.
+Aside from the fact that this doesn't fit, it implies that there is a lot
+of heat that has to be disposed of.
+Trying this inside the sealed BMW headlight shell wouldn't work well.
+
+So, I purchased a 6" long spotlight bar with 12 LEDs and a slide mount.
+I plan to mount this just beneath the stock headlight
+and wire it to the high beam circuit.
+
+### Turn signals
+
+I've done a lot of work in this area.
+First, I replaced the stock turn signal and indicator bulbs with LEDs.
+In order to make the indicator LEDs fit, I had to trim off some plastic.
+I also had to replace the blinker unit, to accommodate low-current bulbs.
+
+I then added four 4.15" diameter (truck-style) turn signals.
+Each of these has 21 substantial LEDs, facing both front and rear.
+They have two light-level circuits: running and signal.
+I use the latter for both purposes,
+providing either continuous or intermittent light, as explained below.
+A simple switch and a pair of diodes also adds emergency flasher capability.
+
+The added signals are connected to a (right/left) pair of SPDT relays,
+using the normally closed (NC) contacts to invert the sense of the flash.
+This causes the added signals' LEDs to be on full, by default,
+giving me very visible running lights.
+They also blink off (rather than on) when the flasher relay closes
+introducing both contrast and a slight appearance of motion.
+In short, these lights are **extremely** visible.
+
+#### Components
+
+- [2pcs 42LED Amber Yellow Fender Turn Signal Parking Lights Lamp
+   For Truck Trailer
+  ]{https://www.ebay.com/itm/123482593164}
+
+- [5-PACK 12V 30/40 Amp 5-Pin SPDT Automotive Relay
+   w/ Wires & Harness Socket NEW
+  ]{https://www.ebay.com/itm/274061530703}
+
+### Electrical Accessories
+
+There are all sorts of handy electrical accessories for motorcycles.
+Conveniently, there are also two popular, low voltage power interfaces
+that make sense to have on a bike: SAE and USB.
+
+#### SAE
+
+The [SAE connector]{ext_wp|DC_connector#SAE_connector} provides
+up to 15 A of 12 VDC.
+This is a small, [hermaphroditic]{
+ext_wp|Gender_of_connectors_and_fasteners#Genderless_(hermaphroditic)},
+and well designed lump of metal and neoprene rubber.
+A wide variety of accessories (e.g., chargers, compressors, lamps)
+support the standard.
+The bike has a fused SAE connector wired directly to the battery.
+
+#### USB
+
+A [USB]{ext_wp|USB} Type-A connector
+can provide a small (but negotiable) amount of current at 5 VDC,
+driving an immense number of devices
+(e.g., cell phones, tire pressure gauges).
+(USB was dragged into popularity by Apple;
+Microsoft had been tacitly ignoring it.
+However, it has grown far past its origins.)
+
+The bike has a 6-port "Jelly Comb" car charger,
+mounted on the left windshield support.
+Originally supplied with a cigarette-lighter adaptor,
+it is now wired directly into fuse #4 in the fuse block.
+
+- [Car Charger, Jelly Comb 65W/13A 6 Ports Rapid USB Multi-Port Car Charger ...
+  ]{ https://www.amazon.com/gp/product/B0141Y4IRG}
+
+### Minor Materials
+
+The notes above call out only the major components used in these changes.
+Here is a list of some minor but important (i.e., supporting) materials.
+
+- crimp connectors (e.g., 1/4" disconnect)
+- Euro Style barrier/terminal blocks/strips
+- insulated wire (e.g., #10, #18)
+- shrink tubing, plastic electrical tape, zip ties
+- small hardware (e.g., bolts, nuts, washers)
+'''
+
+[ zoo ]
+
+  snippets    = '...'

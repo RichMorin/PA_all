@@ -47,16 +47,18 @@ defmodule PhxHttpWeb.FormatViewTest do
     output    = fmt_path(test_key)
 
     test_out  = """
-    <b>Path:</b>&nbsp;
-    <a href="/area"
-      title="Go to the Areas index page."
-      >Areas</a>,&nbsp;
-    <a href="/area?key=Areas/Catalog/_area.toml"
-       title="Go to the Areas/Catalog index page."
-      >Catalog</a>,&nbsp;
-    <a href="/area?key=Areas/Catalog/Groups/_area.toml"
-       title="Go to the Areas/Catalog/Groups index page."
-      >Groups</a>
+    <div class="path">
+      <b>Path:</b>&nbsp;
+      <a href="/area"
+        title="Go to the Areas index page."
+        >Areas</a>,&nbsp;
+      <a href="/area?key=Areas/Catalog/_area.toml"
+         title="Go to the Areas/Catalog index page."
+        >Catalog</a>,&nbsp;
+      <a href="/area?key=Areas/Catalog/Groups/_area.toml"
+         title="Go to the Areas/Catalog/Groups index page."
+        >Groups</a>
+    </div>
     """
 
     assert output == { :safe, test_out }

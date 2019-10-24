@@ -1,0 +1,33 @@
+# con_ove|PP_Index/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'MC_Index'
+  title       = "MC - Index"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "informal index of pages related motorcycling"
+
+  verbose     = '''
+This is an informal, hand-edited index of pages on Pete's Alley
+that are related to motorcycling.
+
+- [Crash Scene Field Reference
+  ]{con_ove|MC_Crash_Scene/main.toml}
+
+- [R80ST Modifications
+  ]{con_ove|MC_R80ST_Mods}
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'
