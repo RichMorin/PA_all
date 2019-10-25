@@ -16,7 +16,7 @@
   precis      = "a field reference sheet for motorcycle crashes"
 
   verbose     = '''
-The material in this sheet was provided by Paul Willett,
+The material in this reference page was provided by Paul Willett,
 an experienced first responder living in Northern California.
 Read it, then print it out, fold it up, and carry it with you on rides.
 Even better, carry some copies to give out to your fellow riders!
@@ -66,7 +66,7 @@ Report pertinent information to first responders as they arrive.
 - Expose the injury to view.
 - Monitor the patient for shock.
 
-#### Details
+#### Caution!
 
 - Avoid moving the patient, unless his airway is compromised.
 - If necessary, roll the patient to turn his face upwards. 
@@ -77,16 +77,27 @@ Report pertinent information to first responders as they arrive.
 
 #### Stop Major Bleeding
 
+Here are some things to try, in rough order by difficulty:
+
 1. Apply hemostatic dressings.
 2. Apply direct pressure.
 3. Elevate the extremity.
 4. Apply pressure to the femoral or brachial artery.
-5. Apply tourniquet only as a last resort.
+5. Apply a tourniquet only as a last resort.
 
 #### Prevent Shock
 
 - Maintain temperature by shielding from heat or cold.
 - Withhold fluids; give nothing by mouth.
+
+### Supplies
+
+Here are some supplies you should consider keeping on your bike:
+
+- emergency flares and/or flashers, flashlights
+- protective (e.g., Nitrile) gloves and CPR masks
+- cold packs, roll-up splint, tactical trauma kit, tourniquet
+- microfiber cloths, paper towels, package tape, zip ties
 '''
 
 [ zoo ]

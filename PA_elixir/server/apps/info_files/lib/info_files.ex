@@ -11,16 +11,13 @@ defmodule InfoFiles do
 
   # Define the public interface.
 
-  @doc """
-  Return a map describing the code files.
-  ([`CntCode`](InfoFiles.CntCode.html#get_code_info/1))
-  """
-  defdelegate get_code_info(tree_base),             to: CntCode
+  ## CntCode
 
-  @doc """
-  Return a map describing the TOML files.
-  ([`CntData`](InfoFiles.CntData.html#get_data_info/1))
-  """
-  defdelegate get_data_info(tree_base),             to: CntData
+  @doc delegate_to: {CntCode, :get_code_info, 1}
+  defdelegate get_code_info(tree_base), to: CntCode
 
+  ## CntData
+
+  @doc delegate_to: {CntData, :get_data_info, 1}
+  defdelegate get_data_info(tree_base), to: CntData
 end

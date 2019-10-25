@@ -11,22 +11,17 @@ defmodule InfoWeb do
 
   # Define the public interface.
 
-  @doc """
-  Crawl the web site, checking any links found on it.
-  ([`Checker`](InfoWeb.Checker.check_pages.html#check_pages/0))
-  """
-  defdelegate check_pages(),                        to: Checker
+  ## Checker
 
-  @doc """
-  Return the data structure for the latest snapshot.
-  ([`Server`](InfoWeb.Server.get_snap.html#get_snap/0))
-  """
-  defdelegate get_snap(),                           to: Server
+  @doc delegate_to: {Checker, :check_pages, 0}
+  defdelegate check_pages(), to: Checker
 
-  @doc """
-  Reload from the snapshot file.
-  ([`Server`](InfoWeb.Server.reload.html#reload/0))
-  """
-  defdelegate reload(),                             to: Server
+  ## Server
+
+  @doc delegate_to: {Server, :get_snap, 0}
+  defdelegate get_snap(), to: Server
+
+  @doc delegate_to: {Server, :reload, 0}
+  defdelegate reload(), to: Server
 
 end

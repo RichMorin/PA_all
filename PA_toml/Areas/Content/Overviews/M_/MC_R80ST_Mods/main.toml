@@ -30,11 +30,12 @@ For example:
 
 - Replaced the stock rack with a larger and stronger one.
 - Replaced the stock seat with a semi-custom one by [Corbin]{http://www.corbin.com}.
+- Added a [Crampbuster CB 1 Throttle-mounted Cruise Assist]{
+    https://www.amazon.com/dp/B000GZPH1G}. 
+- Added a [National Cycle deflector screen]{
+  http://www.nationalcycle.com/catalogsearch/result/?q=25030} (model 25030).
 - Added an X-Grip [cell phone holder]{https://www.amazon.com/gp/product/B006X387ZS}
   from [RAM Mounts]{https://www.rammount.com}.
-- Added a [deflector screen]{
-  http://www.nationalcycle.com/catalogsearch/result/?q=25030}
-  (model 25030) from [National Cycle]{http://www.nationalcycle.com}.
 - Added foam padding to soften the handlebar grips.
 
 #### Mirrors
@@ -49,6 +50,7 @@ So, I'm thinking about ways to improve the situation.
 Probably a good task for [SketchUp]{ext_wp|SketchUp} and some
 [3D printing]{ext_wp|3D_printing}...
 
+The installation took a bit of creativity and elbow grease.
 I used a pair of metric bolts (10 mm diam., 1.5 mm pitch, 100 mm long) 
 and four lock nuts to raise the mirrors away from the handlebars and controls.
 The threads on readily available bolts don't come all the way to the heads,
@@ -247,7 +249,7 @@ Here is a list of some minor but important (i.e., supporting) materials.
 - crimp connectors (e.g., 1/4" disconnect)
 - Euro Style barrier/terminal blocks/strips
 - insulated wire (e.g., #10, #18)
-- shrink tubing, plastic electrical tape, zip ties
+- plastic electrical tape, shrink tubing, zip ties
 - small hardware (e.g., bolts, nuts, washers)
 '''
 
