@@ -143,14 +143,13 @@ Here is a rundown of the circuit(s) that each fuse supplies:
 
 1.  green/black: tail lights
 2.  green/black: marker (aka parking) light, etc.
-3.  (none)
+3.  relay (LED) power for add-on signals
 4.  Jelly Comb USB car charger
 5.  (none)
 6.  grey/black: rear brake
 7.  grey/black: front brake, horn, stock signals,
-    relay coils for add-on signals
 8.  (none)
-9.  relay (LED) power for add-on signals
+9.  (none)
 10. (none)
 
 ### Brake and Tail Lights
@@ -205,6 +204,18 @@ In short, these lights are **extremely** visible.
 - [5-PACK 12V 30/40 Amp 5-Pin SPDT Automotive Relay
    w/ Wires & Harness Socket NEW
   ]{https://www.ebay.com/itm/274061530703}
+
+#### Relay Wiring
+
+The relay wires are color coded and numbered, as follows:
+
+| Color   | Number | Description |
+| ------- | ------ | ----------- |
+| black   | 30     | armature    |
+| blue    | 87a    | NC contact  |
+| red     | 87     | NO contact  |
+| white   | 85     | relay coil  |
+| yellow  | 86     | relay coil  |
 
 ### Electrical Accessories
 

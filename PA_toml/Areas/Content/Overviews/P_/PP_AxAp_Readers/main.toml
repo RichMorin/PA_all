@@ -1,0 +1,81 @@
+# con_ove|PP_AxAp_Readers/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_AxAp_Readers'
+  title       = "AxAp - Screen Readers"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'notes on control key use in AxAp'
+
+  verbose     = '''
+Clearly, AxAp needs to play nicely with screen readers.
+Making this rather difficult, there are quite a few screen readers.
+Also (in general), a web server can't tell which reader is being used.
+
+### Hot Keys
+
+- BRLTTY uses ControlLeft, Shiftleft, and numeric keypad keys on full keyboards.
+  On laptops, it can make use of Caps Lock, Delete, etc.
+
+- Jaws uses the Insert key (on the numeric keypad) to modify the behaviour
+  of other keys on a desktop keyboard.  On a laptop keyboard, it can use
+  the Caps lock key.  Either way, this is known as the Jaws key.
+
+- Narrator is the integrated screen reader available in Windows.
+  In Windows 10, turn Narrator on/off with Windows + Enter.
+  Narrator uses the Caps lock key to modify the behaviour of other keys
+  on a desktop or laptop keyboard.  This is known as the Narrator key.
+
+- NVDA uses the Insert key (on the numeric keypad) to modify the behaviour
+  of other keys on a desktop keyboard.  On a laptop keyboard, it can use
+  the Caps lock key.  Either way, this is known as the NVDA key.
+
+- Orca can be toggled using the Alt + Super + S keyboard shortcut. 
+
+- VoiceOver uses the Control + Option keys to modify the behaviour of other keys.
+  This is known as the VoiceOver (VO) key.
+
+### Resources
+
+- [Basic screen reader commands for accessibility testing
+  ]{https://developer.paciellogroup.com/blog/2015/01/
+    basic-screen-reader-commands-for-accessibility-testing}
+
+- [Common Screen Reader Hotkeys for Website Navigation
+  ]{https://www.xfinity.com/support/articles/screen-reader-hot-keys}
+
+- [Detecting screen readers in analytics: Pros and cons
+  ]{https://www.powermapper.com/blog/accessibility-analytics}
+
+- [Key Table: Bindings for Full Keyboards
+   https://mielke.cc/brltty/doc/KeyBindings/kbd-desktop.html}
+
+- [Key Table: Bindings for Keyboards without a Keypad
+  ]{https://mielke.cc/brltty/doc/KeyBindings/kbd-laptop.html}
+
+- [On Screen Reader Detection
+  ]{https://adrianroselli.com/2014/03/on-screen-reader-detection.html}
+
+- [Screen Reader Keyboard Shortcuts and Gestures
+  ]{https://dequeuniversity.com/screenreaders}
+
+- [Screen readers
+  ]{https://www.afb.org/blindness-and-low-vision/using-technology/
+    assistive-technology-products/screen-readers}
+
+- [Screen readers are keyboard shortcut monsters
+  ]{https://www.accessibility-developer-guide.com/knowledge/
+    desktop-screen-readers/shortcut-monsters}
+'''
+
+[ zoo ]
+
+  snippets    = '...'

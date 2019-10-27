@@ -14,18 +14,18 @@ defmodule Common do
   ## Maps
 
   @doc delegate_to: {Maps, :get_map_max, 1}
-  defdelegate get_map_max(inp_map),               to: Maps
+  defdelegate get_map_max(inp_map), to: Maps
 
   @doc delegate_to: {Maps, :keyss, 1}
-  defdelegate keyss(map),                         to: Maps
+  defdelegate keyss(map), to: Maps
 
   ## Sorting
 
   @doc delegate_to: {Strings, :sort_by_elem, 3}
-  defdelegate sort_by_elem(tuples, index, mode),  to: Sorting
+  defdelegate sort_by_elem(tuples, index, mode), to: Sorting
 
   @doc delegate_to: {Strings, :sort_by_elem, 2}
-  defdelegate sort_by_elem(tuples, index),        to: Sorting
+  defdelegate sort_by_elem(tuples, index), to: Sorting
 
   ## Strings
 

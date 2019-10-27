@@ -1,4 +1,4 @@
-# con_ove|PP_Index/main.toml
+# con_ove|MC_Index/main.toml
 
 [ meta ]
 
@@ -20,7 +20,7 @@ This is an informal, hand-edited index of pages on Pete's Alley
 that are related to motorcycling.
 
 - [Crash Scene Field Reference
-  ]{con_ove|MC_Crash_Scene/main.toml}
+  ]{con_ove|MC_Crash_Scene}
 
 - [R80ST Modifications
   ]{con_ove|MC_R80ST_Mods}
