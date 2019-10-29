@@ -1,0 +1,65 @@
+# con_ove|PP_Perkify_Audio/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_Perkify_Audio'
+  title       = "Perkify - Audio Support"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "introduction to audio support on Perkify"
+
+  verbose     = '''
+Because Perkify runs as a [virtual machine]{ext_wp|Virtual_machine},
+adding audio (e.g., speech) support is different than it might be
+on a native [Linux]{ext_wp|Linux} installation.
+This page is an early attempt at gathering information on the differences
+and underlying issues.
+
+### Packages
+
+#### BRLTTY
+
+There are two Debian packages for BRLTTY:
+
+- brltty-espeak  - uses espeak directly
+- brltty-speechd - uses speech-dispatcher
+
+#### Emacspeak
+
+Emacspeak supports several hardware and software speech synthesizers,
+but ViaVoice TTS appears to be the golden path, in terms of software.
+
+#### Orca
+
+
+#### Speakup
+
+- speakup - uses espeak
+
+### Resources
+
+- [Debian Wiki - accessibility
+  ]{https://wiki.debian.org/accessibility}
+
+- [Installing Emacspeak HOWTO
+  ]{http://emacspeak.sourceforge.net/install-guide/installing-emacspeak.html}
+
+- [Installing Emacspeak HOWTO - 4. Requirements
+  ]{http://emacspeak.sourceforge.net/install-guide/requirements.html}
+
+- [Installing Emacspeak HOWTO - Appendix B: Installing ViaVoice TTS
+  ]{http://emacspeak.sourceforge.net/install-guide/appendixb.html}
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

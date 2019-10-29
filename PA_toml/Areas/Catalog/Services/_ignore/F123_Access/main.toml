@@ -47,10 +47,14 @@ We apologize for this interruption in service to our users
 in more than 70 countries.
 
 > -- [$url]{https://www.google.com/search?q=F123+Access}
-
 '''
 
-# [ address.web_site ]
+[ address.web_site ]
 
-#  faq         = 'main|/what-is-f123-access'
-#  main        = 'http://f123access.com'
+  faq         = 'main|/what-is-f123-access'
+  main        = 'http://f123access.com'
+  zoo         = '''
+main|/operation,
+main|/script-packages,
+main|/web-accessibility-challenges
+'''

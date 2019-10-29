@@ -13,14 +13,15 @@
 
 [ about ]
 
-  precis      = "a field reference sheet for motorcycle crashes"
+  precis      = "a field reference for motorcycle crash scenes"
 
   verbose     = '''
 The material in this reference page was provided by Paul Willett,
 an experienced first responder living in Northern California.
 Read it, then print it out, fold it up, and carry it with you on rides.
 Even better, carry some copies to give out to your fellow riders!
-
+(This version was edited on 10/28/2019.)
+ 
 ### Enlist other riders
 
 There will be a lot to do, get help!
@@ -98,7 +99,7 @@ Here are some supplies you should consider keeping on your bike:
 - protective (e.g., Nitrile) gloves and CPR masks
 - cold packs, roll-up splint, tactical trauma kit, tourniquet
 - microfiber cloths, paper towels, package tape, zip ties
-- index cards, pens
+- index cards or a small note pad, pencils or pens
 '''
 
 [ zoo ]

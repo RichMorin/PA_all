@@ -3,7 +3,7 @@
 @media print {
 
   main {
-    font-size:    small;
+    font-size:    1.00rem;
   }
 
   header, footer, p.alert, div.path {
@@ -23,7 +23,7 @@
 
   code.inline {
     font-family:  "Lucida Console", Monaco, monospace;
-    font-size:    smaller;
+    font-size:    1.00rem;
     margin:       0 0;
     padding:      0 0;
   }

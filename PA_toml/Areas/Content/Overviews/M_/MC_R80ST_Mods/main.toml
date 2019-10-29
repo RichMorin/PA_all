@@ -22,6 +22,7 @@ around the west side of the San Francisco Bay area.
 Over the years, I've made a number of additions and modifications,
 for safety and convenience.
 This note presents the changes, including my rationale and approach.
+(I needed to document things anyway; why not make it public?)
 
 ### Physical Modifications
 
@@ -51,8 +52,9 @@ Probably a good task for [SketchUp]{ext_wp|SketchUp} and some
 [3D printing]{ext_wp|3D_printing}...
 
 The installation took a bit of creativity and elbow grease.
-I used a pair of metric bolts (10 mm diam., 1.5 mm pitch, 100 mm long) 
-and four lock nuts to raise the mirrors away from the handlebars and controls.
+I used a pair of metric bolts (10 mm diam., 1.5 mm pitch, 100 mm long),
+along with four lock nuts and assorted washers,
+to raise the mirrors away from the handlebars and controls.
 The threads on readily available bolts don't come all the way to the heads,
 where I needed to attach the mirrors.
 So, I extended the threads, using a [die]{ext_wp|Tap_and_die} and a lot of oil.
@@ -161,7 +163,7 @@ the outer two serve as brake lights.
 
 ### Headlight
 
-The [halogen]{ext_wp|Halogien} bulb that BMW used is actually fairly bright,
+The [halogen]{ext_wp|Halogen} bulb that BMW used is actually fairly bright,
 as such things go.
 And, although there are LED headlight bulbs that fit the fixture,
 the really powerful ones have a huge cooling apparatus on the rear.
@@ -209,13 +211,13 @@ In short, these lights are **extremely** visible.
 
 The relay wires are color coded and numbered, as follows:
 
-| Color   | Number | Description |
-| ------- | ------ | ----------- |
-| black   | 30     | armature    |
-| blue    | 87a    | NC contact  |
-| red     | 87     | NO contact  |
-| white   | 85     | relay coil  |
-| yellow  | 86     | relay coil  |
+| Color   | Number | Connection        | Description                   |
+| ------- | ------ | ----------        | -----------                   |
+| black   | 30     | fuse #3 in block  | relay armature                |
+| blue    | 87a    | added turn signal | normally closed (NC) contact  |
+| red     | 87     | no connection     | normally open   (NO) contact  |
+| white   | 85     | stock turn signal | relay coil                    |
+| yellow  | 86     | motorcycle frame  | relay coil                    |
 
 ### Electrical Accessories
 
