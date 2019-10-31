@@ -49,17 +49,16 @@ See below for a discussion of each approach.
 ### Cylindrical Battery
 
 There are several [common formats]{ext_wp|List_of_battery_sizes
-  #Lithium-ion_batteries_(rechargeable)} (e.g., 14500, 18650)
+  #Lithium-ion_batteries_(rechargeable)} (e.g., 18650)
 for cylindrical Lithium-ion batteries.
 Their primary advantage is availability:
 finding a replacement should be very easy.
 Their primary disadvantage is bulk: the cylindrical format wastes quite a bit
 of space, making the HAT larger than it would otherwise need to be.
 
-The 14500 is 14 mm in diameter and 53 mm long; about the size of a AA cell.
-It is typically rated at about 800 mAh.
-The 18650 is a bit larger: 18 mm in diameter and 65 mm long.
-It is typically rated at about 3000 mAh.
+The 18650 is 18 mm in diameter and 65 mm long.
+Cells can be optimized for maximum current or maximum capacity, but not both.
+The low-current cells we need for this use case are rated at up to 3600 mAh.
 
 #### [Pi-UpTime UPS 2.0
      ]{http://alchemy-power.com/pi-uptime-ups-2-0}
@@ -71,7 +70,7 @@ has been very responsive to my (many!) requests for more information.
 I wish more company representatives were as supportive as he has been.
 
 The Pi-UpTime UPS 2.0 is designed to work with full-size Raspberry Pi computers.
-It holds two (e.g., 3000 mAh) 18650 Lithium-ion cells, wired in parallel.
+It holds two (e.g., 3600 mAh) 18650 Lithium-ion cells, wired in parallel.
 Consequently, it can run on one cell (with reduced battery lifetime).
 The unit can also be used with Lithium iron phosphate
 ([LiFePO4]{ext_wp|Lithium_iron_phosphate_battery}) batteries.
@@ -96,11 +95,15 @@ Alchemy recommends using a 3.5A unit with a USB-C cable.
 Here is some ordering information, including the tax and shipping I paid.
 All told, this experiment has added about $100 to the system cost:
 
-- [batteries]{https://www.18650batterystore.com/ProductDetails.asp
-    ?ProductCode=Samsung-50e} (~$20)
+- [batteries]{https://www.18650batterystore.com/18650-p/samsung-36g.htm} (~$20)
 - [charger]{https://www.amazon.com/dp/B07Q8KBSMK} ($4)
 - [Pi-UpTime]{https://www.amazon.com/dp/B07YF45H2X} ($55)
-- [PiJuice case]{https://vilros.com/products/pijuice-tall-case} ($14)
+- [ModMyPi Modular RPi 2/3 Case (Black)
+  ]{https://thepihut.com/products/modmypi-modular-rpi-b-plus-case-black} ($8)
+- [ModMyPi Modular RPi 2 Case - 10mm Spacer (Black)
+  ]{https://thepihut.com/products/
+    modmypi-modular-rpi-b-plus-case-10mm-spacer-black} ($5 for 2)
+
 - [power supply]{https://www.amazon.com/dp/B07TYQRXTK} ($10)
 
 ##### Battery Notes
@@ -119,14 +122,15 @@ but that either the button top or flat top style will work.
 That leaves us with the question of current vs. power capacity,
 which I've attempted to estimate, as follows...
 
-The 3B+ would like to have a 12.5W (5V, 2.5A) power source,
-but the 18650 only supplies 3.7V.
+The 3B+ would like to have a 12.5W (5V at 2.5A) power source,
+but the 18650 only supplies 3.6V.
 Assuming 85% conversion efficiency (90% is typical),
-a single cell would have to provide about 3.9A in order to yield 12.5W.
+a single cell would have to provide about 4A (12.5 / 0.85 / 3.6 = 4.08)
+in order to yield 12.5W.
 (Using two cells, we could cut this amount in half.)
 In any event, a pair of cells that can supply 4A should be just fine.
 This means that we can optimize for high power capacity,
-which the (5000 mAh, 9.8A) Samsung batteries listed above certainly provide.
+which the (3600 mAh, 10A) Samsung batteries listed above certainly provide.
 
 *Note:*
 [The Best 18650 Battery and How to Avoid Buying Fakes
@@ -137,12 +141,11 @@ of issues and pitfalls associated with purchasing 18650 batteries.
 
 This HAT is rather tall, due to the batteries, holders, and such.
 Obviously, this precludes the use of any normal RasPi enclosure.
-So, I've ordered the "extra tall" enclosure for the PiJuice.
+So, I ordered the ModMyPi modular enclosure (plus two spacers) from the PiHut.
 The RasPi sits in the bottom of this enclosure, below the HAT.
-This case is designed for use with a different HAT,
-so there is no guarantee whether (or how well) it will work.
-However, at $14, it seemed worth taking a chance.
-I'll report here once I know how well this approach works.
+There is no guarantee whether (let alone how well) this will work,
+but it seemed worth taking a chance.
+I'll report here once I've had a chance to try it out.
 
 The RasPi's 40-pin connector has enough friction to hold boards together
 under light handling and vibration, but it's better to add some bolts
@@ -151,6 +154,31 @@ The RasPi has four mounting holes, large enough for a 4-40 (or 2.5M) bolt.
 FWIW, I'm using 3/4" long nylon spacers, 1" long bolts, etc.
 One of the nuts didn't want to fit next to the battery holder,
 so I put the bolts in with the heads up.
+
+##### Power Consumption
+
+*Note:*
+Estimating power consumption on a real-world system is a chancy business.
+A lot depends on what apps, daemons, and peripherals are involved.
+So, the following should only be taken as rough estimates (YMMV).
+
+A Lithium-ion cell produces about 3.6 VDC.
+So, accounting for some conversion inefficiency,
+a pair of 3600 mAh cells can supply nearly 5000 mAh at 5 VDC
+(2 \* 3600 \* 3.6 \* 0.9 / 5.0 = 4665.6). 
+According to [Power Consumption Benchmarks
+]{https://www.pidramble.com/wiki/benchmarks/power-consumption},
+a 3B+ needs about 350 mA when idle and 1000 mA at full throttle.
+Because we won't be using the HDMI port and can shut down some daemons,
+we can guess 333 mA as the idle current
+and three times that for normal operation.
+
+This tells us that a 3B+ can idle for about 15 hours,
+perform useful work for perhaps 5 hours, and combinations thereof.
+Of course, we can also shut the system down entirely for periods
+when we don't expect to be using it,
+carry a power bank and/or power supply to recharge the batteries, etc.
+All told, this should give us reasonably acceptable battery lifetimes.
 
 ##### Miscellanea
 

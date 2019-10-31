@@ -209,15 +209,20 @@ In short, these lights are **extremely** visible.
 
 #### Relay Wiring
 
-The relay wires are color coded and numbered, as follows:
+I wired up the relays using #18 zip cord,
+relying on the ridged/smooth distinction to keep track of the wires.
+There are three pieces of zip cord, handling the input power
+and the two (L/R) sets of turn signals, respectively.
+The relay harness wires are color coded and numbered.
+Here are the connections, descriptions, etc:
 
-| Color   | Number | Connection        | Description                   |
-| ------- | ------ | ----------        | -----------                   |
-| black   | 30     | fuse #3 in block  | relay armature                |
-| blue    | 87a    | added turn signal | normally closed (NC) contact  |
-| red     | 87     | no connection     | normally open   (NO) contact  |
-| white   | 85     | stock turn signal | relay coil                    |
-| yellow  | 86     | motorcycle frame  | relay coil                    |
+| Connection                 | Color   | Number | Description  |
+| ----------                 | ------- | ------ | -----------  |
+| block  / ridged - fuse #3  | black   | 30     | armature     |
+| block  / smooth - ground   | yellow  | 86     | relay coil   |
+| no connection              | red     | 87     | NO contact   |
+| signal / ridged - add-on   | blue    | 87a    | NC contact   |
+| signal / smooth - stock    | white   | 85     | relay coil   |
 
 ### Electrical Accessories
 
