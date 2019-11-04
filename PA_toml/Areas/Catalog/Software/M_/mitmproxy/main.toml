@@ -1,0 +1,52 @@
+# cat_sof|mitmproxy/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'mitmproxy'
+  title       = 'mitmproxy'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'open source'
+  requires    = 'Python'
+  roles       = 'daemon, HTTP proxy, utility'
+  standards   = 'HTTP, SSL'
+
+[ about ]
+
+  precis      = 'SSL-capable man-in-the-middle HTTP proxy'
+
+  verbose     = '''
+> mitmproxy is an SSL-capable man-in-the-middle HTTP proxy.
+It provides a console interface that allows traffic flows
+to be inspected and edited on the fly.
+
+> Also shipped is mitmdump, the command-line version of mitmproxy, 
+with the same functionality but without the frills.
+Think tcpdump for HTTP.
+
+> Features:
+
+> - intercept and modify HTTP traffic on the fly
+> - save HTTP conversations for later replay and analysis
+> - replay both HTTP clients and servers
+> - make scripted changes to HTTP traffic using Python
+> - SSL interception certs generated on the fly
+
+> -- [$url]{debian_pkgs|buster/mitmproxy}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|rtomayko/ronn'
+
+[ address.web_site ]
+
+  main        = 'https://rtomayko.github.io/ronn'

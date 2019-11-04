@@ -36,8 +36,46 @@ There are two Debian packages for BRLTTY:
 Emacspeak supports several hardware and software speech synthesizers,
 but ViaVoice TTS appears to be the golden path, in terms of software.
 
+#### eSpeak
+
+According to the eSpeak
+[installation page]{http://espeak.sourceforge.net/commands.html},
+"eSpeak uses the PortAudio sound library (version 18)".
+
+#### eSpeak NG
+
+eSpeak NG is based on eSpeak, but has many changes and extensions.
+For example, it can use MBROLA voices.
+Optionally, it needs:
+
+- the pcaudiolib development library to enable audio output;
+- the sonic development library to enable sonic audio speed up support;
+- the ronn man-page markdown processor to build the man pages.
+
+#### Liblouis
+
+http://liblouis.org
+
 #### Orca
 
+According to [Getting Orca and Its Dependencies
+]{https://wiki.gnome.org/Projects/Orca#Getting_Orca_and_Its_Dependencies},
+Orca depends on BRLTTY, Liblouis, and Speech Displatcher.
+
+- [at-spi2-core
+  ]{https://gitlab.gnome.org/GNOME/at-spi2-core} (D-Bus AT-SPI)
+
+- [at-spi2-atk
+  ]{https://gitlab.gnome.org/GNOME/at-spi2-atk} (D-Bus AT-SPI)
+
+- [ATK - The Accessibility Toolkit
+  ]{https://gitlab.gnome.org/GNOME/atk}
+
+- [pyatspi2
+  ]{https://gitlab.gnome.org/GNOME/pyatspi2} (D-Bus AT-SPI)
+
+- [Speech Dispatcher
+  ]{https://freebsoft.org/speechd}
 
 #### Speakup
 

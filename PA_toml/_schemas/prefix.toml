@@ -46,6 +46,8 @@
 
   # External - unclassified
 
+  ext_am    = 'Amazon'
+  ext_eb    = 'eBay'
   ext_fb    = 'Facebook'
   ext_gh    = 'GitHub'
   ext_gl    = 'GitLab'

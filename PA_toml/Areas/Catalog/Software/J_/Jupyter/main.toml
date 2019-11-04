@@ -48,6 +48,7 @@ or "jupyter nbconvert" command line interface in a shell.
 
 
   github      = '''
+ext_gh|jupyter/accessibility,
 ext_gh|jupyter/jupyter,
 ext_gh|jupyter/jupyter/wiki/Jupyter-kernels,
 ext_gh|jupyter/notebook,
@@ -57,6 +58,9 @@ ext_gh|jupyter/notebook,
 ext_wp|Project_Jupyter,
 ext_wp|Project_Jupyter#Jupyter_Notebook
 '''
+
+  zoo         = 'https://jupyter-notebook.readthedocs.io/en/stable'
+
 
 [ address.web_site ]
 

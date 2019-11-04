@@ -1,0 +1,16 @@
+# cat_sof|ronn/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'ruby-ronn'
+  upstream    = 'http://rtomayko.github.com/ronn'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/ronn'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'ronn'

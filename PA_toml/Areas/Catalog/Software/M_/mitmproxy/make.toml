@@ -1,0 +1,16 @@
+# cat_sof|mitmproxy/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/any/mitmproxy'
+  upstream    = 'https://mitmproxy.org'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/mitmproxy'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'mitmproxy'

@@ -107,8 +107,8 @@ Amazon lists power banks with various capacities, features, prices, and sizes.
 I haven't found any that provide a full 2.5 A, but several claim
 to provide 2.4 A, which is probably good enough.
 For example, here are
-a [5,200 mAh]{https://www.amazon.com/dp/B07CYNBNVW} unit for $10 and
-a [25,000 mAh]{https://www.amazon.com/dp/B07KYGZ6WC} unit for $35.
+a [5,200 mAh]{ext_am|B07CYNBNVW} unit for $10 and
+a [25,000 mAh]{ext_am|B07KYGZ6WC} unit for $35.
 As noted above, accessibility adds quite a bit to the cost. 
 
 Having a power bank fail isn't likely to be a catastrophe,
@@ -154,8 +154,7 @@ Thus, 110/220 VAC or 50/60 Hz are equally good in its estimation.
 
 That said, be sure to get an appropriate "power source" for the system.
 As noted above, it needs to supply 5 VDC at 2.5A, via a USB micro-B connector.
-[This one]{https://www.amazon.com/dp/B00MARDJZ4}, for example,
-is designed to work with the 3B+.
+[This one]{ext_am|B00MARDJZ4}, for example, is designed to work with the 3B+.
 
 ### Cables
 

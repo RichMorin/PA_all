@@ -5,12 +5,13 @@
 [ os.arch ]
 
   package     = '''
-    arch_aur|chef-client,
-    arch_aur|chef-dk,
-    arch_aur|chef-dk-free,
-    arch_aur|chef-dk-server,
-    arch_aur|chef-workstation,
-  '''
+arch_aur|chef-client,
+arch_aur|chef-dk,
+arch_aur|chef-dk-free,
+arch_aur|chef-dk-server,
+arch_aur|chef-workstation,
+'''
+
   wiki        = 'arch_wiki|Chef'
 
 [ os.debian ]

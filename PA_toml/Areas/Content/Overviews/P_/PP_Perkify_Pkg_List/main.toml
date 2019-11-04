@@ -135,6 +135,8 @@ it indexes major packages by topical category (e.g., document converters).
 | JOE                     | A$joe$                  | text editors              |
 | Jshon                   | A$jshon$                | document converters       |
 | Jupyter Notebook        | A$jupyter-notebook$     | interactive notebook      |
+| KDE                     | A$kde-full$             | window managers           |
+| KmPlot                  | A$kmplot$               | plotting support          |
 | Liblouis                | A$liblouis-bin$         | braille translation       |
 | Liblouis Data           | A$liblouis-data$        | braille translation       |
 | LibreOffice             | A$libreoffice$          | productivity suite        |
@@ -153,6 +155,7 @@ it indexes major packages by topical category (e.g., document converters).
 | mbrola-us2              | A$mbrola-us2$           | speech synthesizers       |
 | mbrola-us3              | A$mbrola-us3$           | speech synthesizers       |
 | mhwaveedit              | A$mhwaveedit$           | audio editors             |
+| mitmproxy               | A$mitmproxy$            | network admin utilities   |
 | MPD                     | A$mpd$                  | music players             |
 | mpv                     | A$mpv$                  | video players             |
 | mu4e                    | A$mu4e$                 | email clients             |
@@ -193,6 +196,7 @@ it indexes major packages by topical category (e.g., document converters).
 | Recoll                  | A$recoll$               | text processors           |
 | reportbug               | A$reportbug$            | bug reporters             |
 | RipIT                   | A$ripit$                | audio CD rippers          |
+| ronn                    | A$ronn$                 | document converters       |
 | Ruby                    | A$ruby-full$            | programming support       |
 | SageMath                | A$sagemath$             | mathematics tool          |
 | ScrollZ                 | A$scrollz$              | chat clients              |
@@ -200,6 +204,7 @@ it indexes major packages by topical category (e.g., document converters).
 | socat                   | A$socat$                | network admin utilities   |
 | SoX                     | A$sox$                  | audio processors          |
 | speechd                 | A$speech-dispatcher$    | speech synthesizers       |
+| speechd (pico)        | A$speech-dispatcher-pico$ | speech synthesizers       |
 | storebackup             | A$storebackup$          | system admin utilities    |
 | Surfraw                 | A$surfraw$              | web browsers              |
 | Sup                     | A$sup-mail$             | email clients             |

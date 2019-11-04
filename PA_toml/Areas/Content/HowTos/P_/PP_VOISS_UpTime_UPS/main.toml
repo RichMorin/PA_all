@@ -1,0 +1,190 @@
+# con_ove|PP_VOISS_UpTime_UPS/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_VOISS_UpTime_UPS'
+  title       = "VOISS HowTo - Pi-UpTime UPS 2.0"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'con_ove|PP_VOISS_Power, con_ove|PP_VOISS_Power_HATs'
+
+[ about ]
+
+  precis      = "adding an Alchemy Power Pi-UpTime UPS 2.0"
+
+  verbose     = '''
+As discussed in the [VOISS - Power HATs]{con_ove|PP_VOISS_Power_HATs} overview,
+[Alchemy Power]{http://alchemy-power.com}
+manufactures several power management products.
+This [HowTo]{ext_wp|How-to} discusses my efforts to create a VOISS system,
+incorporating their
+[Pi-UpTime UPS 2.0]{http://alchemy-power.com/pi-uptime-ups-2-0}
+Hardware Attached on Top
+([HAT]{https://www.raspberrypi.org/blog/introducing-raspberry-pi-hats}).
+
+*Note:* Alchemy's proprietor, Percy Kawas,
+has been very responsive to my (many!) requests for more information.
+I wish more company representatives were as supportive as he has been.
+
+### Background
+
+The Pi-UpTime UPS 2.0 (aka UPS) is designed
+to work with full-size Raspberry Pi (aka RasPi) computers.
+It holds two (e.g., 3600 mAh) 18650 Lithium-ion cells, wired in parallel.
+Consequently, it can run on one cell (with reduced battery lifetime).
+It can also be configured to work with Lithium iron phosphate
+([LiFePO4]{ext_wp|Lithium_iron_phosphate_battery}) batteries.
+
+The UPS contains a [TLA 202X]{https://www.ti.com/lit/ds/symlink/tla2024.pdf}.
+This is a four-channel 12-bit analog to digital converter
+([ADC]{ext_wp|Analog-to-digital_converter}) which monitors battery temperature,
+as well as the input, output, and battery voltages.
+A set of [Python]{ext_wp|Python_(programming_language)} scripts
+is available to use this data.
+I haven't had a chance to read or try out this code,
+but I presume that it's a reasonable starting point for alert messages,
+shutdown logic, etc.
+
+*Note:*
+A card shipped with the UPS says:
+"Ensure [that] both batteries are fully charged or have [the]
+same amount of charge before you insert them."
+So, you'll need a way to pre-charge the batteries.
+Also, because the power supply must handle both running and charging current,
+Alchemy recommends using a 3.5A unit with a USB-C cable.
+
+Here is some ordering information, generally including the ancillary charges
+(e.g., handling, shipping, taxes) I paid.
+All told, these additions added about $100 to the cost of the VOISS system:
+
+- [18650 batteries]{https://www.18650batterystore.com/18650-p/samsung-36g.htm}
+  (~$20 for 2)
+- [3.5A power supply]{ext_am|B07TYQRXTK} ($10)
+- [battery charger]{ext_am|B07Q8KBSMK} ($4)
+- [ModMyPi Case]{https://thepihut.com/products/
+   modmypi-modular-rpi-b-plus-case-black} ($8, plus S/H))
+- [ModMyPi 10mm Spacer]{https://thepihut.com/products/
+   modmypi-modular-rpi-b-plus-case-10mm-spacer-black} ($5 for 2, plus S/H)
+- [Pi-UpTime UPS]{ext_am|B07YF45H2X} ($55)
+
+##### Battery Notes
+
+The 18650 designation covers a wide variety of batteries.
+Some have built-in overcurrent protection; others do not.
+Some have flat tops; others have button tops.
+Some have high current capacity but limited power capacity (and vice versa).
+Making matters worse, neither Alchemy Power nor any of its resellers
+say much about what this device needs.  Grumble.
+
+The Alchemy [FAQ]{http://alchemy-power.com/faq} indicates
+that the Pi-UpTimeUPS and PiZ-UpTime should use unprotected batteries.
+Percy says that most unprotected batteries have flat tops,
+but either the button top or flat top style will work.
+This leaves us with the question of current vs. power capacity,
+which I've attempted to estimate, as follows...
+
+The 3B+ would like to have a 12.5W (5V at 2.5A) power source,
+but the 18650 only supplies 3.6V.
+Assuming 85% conversion efficiency (90% is typical),
+a single cell would have to provide about 4A (12.5 / 0.85 / 3.6 = 4.08)
+in order to yield 12.5W.
+(Using two cells, we could cut this amount in half.)
+In any event, a pair of cells that can supply 4A should be just fine.
+This means that we can optimize for high power capacity,
+which the (3600 mAh, 10A) Samsung batteries listed above provide.
+
+##### Mounting Notes
+
+The UPS is rather tall for a HAT, due to the batteries, holders, and such.
+Obviously, this precludes the use of any normal Raspberry Pi enclosure.
+So, I ordered the ModMyPi modular enclosure (plus two spacers) from the PiHut.
+The 3B+ sits in the bottom of this enclosure, below the UPS.
+There is no guarantee whether (let alone how well) this will work,
+but it seemed worth taking a chance.
+I'll report here once I've had a chance to try it out.
+
+The 40-pin GPIO connector on the 3B+ provides enough friction
+to hold boards together under light handling and vibration,
+but it's better to add some bolts and/or spacers for strain relief.
+The 3B+ has four mounting holes, large enough for a 4-40 (or 2.5M) bolt.
+FWIW, I'm using 3/4" long nylon spacers, 1" long bolts, etc.
+One of the nuts didn't fit well next to the battery holder,
+so I put the bolts in with the heads on top.
+
+##### Power Consumption
+
+*Note:*
+Estimating power consumption on a real-world system is a chancy business.
+A lot depends on what apps, daemons, and peripherals are involved.
+So, the following should only be taken as rough estimates (YMMV).
+
+A Lithium-ion cell produces about 3.6 VDC.
+So, accounting for some conversion inefficiency,
+a pair of 3600 mAh cells can supply nearly 5000 mAh at 5 VDC
+(2 \* 3600 \* 3.6 \* 0.9 / 5.0 = 4665.6). 
+According to [Power Consumption Benchmarks
+]{https://www.pidramble.com/wiki/benchmarks/power-consumption},
+a 3B+ needs about 350 mA when idle and 1000 mA at full throttle.
+Because we won't be using the HDMI port and can shut down some daemons,
+we can guess 333 mA as the idle current
+and three times that for normal operation.
+
+This tells us that a 3B+ can idle for about 15 hours,
+perform useful work for perhaps 5 hours, and combinations thereof.
+Of course, we can also shut the system down entirely for periods
+when we don't expect to be using it,
+carry a power bank and/or power supply to recharge the batteries, etc.
+All told, this should give us reasonably acceptable battery lifetimes.
+
+One notion I'm playing with is to detect the presence of a keyboard.
+If none is detected, maybe we can assume that the system is quiescent
+and shut down assorted daemons and such.
+Obviously, this will take some fiddling to get right...
+
+##### Wiring Notes
+
+The 3B+ and the UPS bolt together into a tidy little brick,
+which you may or may not wish to enclose in some manner.
+Regardless, you'll be dealing with a number of cables.
+Some of these will only be used occasionally or by certain users.
+My development setup, in any event, includes the following cables:
+
+| Content | Source    | Connector      | Sink                         |
+| ------- | ------    | ---------      | ----                         |
+| audio   | RasPi     | 3.5mm phone    | headphones, speakers, etc.   |
+| control | switch    | two-pin socket | "Pi Power" pins on the UPS   |
+| power   | wall wart | proprietary    | power socket on the display  |
+| power   | wall wart | USB  Type C    | "Pwr In" pins on the UPS     |
+| USB     | keyboard  | USB  Type A    | USB socket on the RasPi      |
+| USB     | mouse     | USB  Type A    | USB socket on the RasPi      |
+| video   | RasPi     | HDMI Type A    | input socket on the display  |
+
+*Note:* The control switch cable is a rather specialized component,
+so I had to put one together myself.
+Basically, it's just a small SPST switch, wired to a two-pin socket.
+It replaces the jumper that normally bridges the "Pi Power" pins.
+
+The GPIO pins that stick up from the Pi-UpTime board are about 0.19" long.
+This is far shorter than the 0.32" pins used on the 3B+
+and might prevent them from being used (reliably) to attach another HAT.
+Percy is looking into the possibility of finding a GPIO socket
+with longer pins; here's hoping he finds something!
+
+### Resources
+
+I found an old, pre-release version of the
+[User Guide]{http://alchemy-power.com/wp-content/uploads/2016/11/
+  Configuring-Alchemy-HATs-for-Pi.pdf} on the web.
+I'd like to have a newer version, but the [FAQ]{http://alchemy-power.com/faq}
+and the [data sheet]{http://alchemy-power.com/wp-content/uploads/2019/09/
+  Pi-UpTimeUPSv2-DS-20190920.pdf} answered most of my questions.
+Again, Percy has been very helpful.
+'''
+
+[ zoo ]
+
+  snippets    = '...'

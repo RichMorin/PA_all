@@ -97,6 +97,9 @@ debian_apt = '''
   Jshon,                    jshon,              JSON tools
   Jupyter Notebook,         jupyter-notebook,   interactive notebook
 
+  KDE,                    | kde-full,           window managers
+  KmPlot,                   kmplot,             plotting support
+
   Liblouis,                 liblouis-bin,       braille translation
   Liblouis Data,            liblouis-data,      braille translation
   LibreOffice,              libreoffice,        productivity suite
@@ -116,6 +119,7 @@ debian_apt = '''
   mbrola-us2,               mbrola-us2,         speech synthesis
   mbrola-us3,               mbrola-us3,         speech synthesis
   mhwaveedit,               mhwaveedit,         audio editor
+  mitmproxy,                mitmproxy,          network admin
   MPD,                      mpd,                music player daemon
   mpv,                      mpv,                video player
   mu4e,                     mu4e,               email client
@@ -160,6 +164,7 @@ debian_apt = '''
   Recoll,                   recoll,             text search tool
   reportbug,                reportbug,          bug reporting
   RipIT,                    ripit,              audio CD ripper
+  ronn,                     ronn,               document conversion
 # Ruby,                     ruby-full,          programming language
 
   SageMath,                 sagemath,           mathematics tool
@@ -168,6 +173,7 @@ debian_apt = '''
   socat,                    socat,              data transfer relay
   SoX,                      sox,                audio processing
   speechd,                  speech-dispatcher,  speech synthesis
+  speechd (pico),      speech-dispatcher-pico,  speech synthesis
   storebackup,              storebackup,        file backup utility
   Sup,                      sup-mail,           email client
   Surfraw,                  surfraw,            web browser

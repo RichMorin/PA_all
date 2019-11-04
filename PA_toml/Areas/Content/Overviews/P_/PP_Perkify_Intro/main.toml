@@ -29,7 +29,7 @@ The [Perkian - Index]{con_ove|PP_Perkian_Index} page
 is an informal, hand-edited index of pages on Pete's Alley
 that are related to Perkian, Perkify, etc.
 
-### Motivation
+### Original Motivation
 
 The open source community has produced a wealth of software,
 much of which could be of use to the visually disabled.
@@ -48,7 +48,8 @@ Even when everything goes "as designed",
 the process tends to be confusing, tedious, and time consuming.
 
 The [Perkian Project]{con_ove|PP_Perkian_Intro} has been
-cataloging and evaluating accessibility-focused software,
+cataloging and evaluating accessibility-focused 
+(and more generally, text-based) software,
 in the hope of making it more widely available.
 Eventually, Perkian may be released as a Linux distribution
 for [mobile phones]{ext_wp|Mobile_phone},
@@ -63,6 +64,14 @@ at the [SF LightHouse]{cat_gro|LHBVI} in May 2019.
 The first part discusses Pete's Alley;
 the second part discusses Perkian
 and describes the general approach taken in Perkify.
+
+### The Text-Based Camel 
+
+Once one lets the nose of the text-based camel into the tent,
+keeping the rest of the beast outside can be a challenge.
+Indeed, we seem to have invited the whole caravan inside.
+However, if the result is our desired
+"well-equipped workshop, just down the hall", maybe that's OK...
 
 ### Project Approach
 

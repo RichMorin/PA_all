@@ -45,6 +45,8 @@
 
   # External - unclassified
 
+  ext_am    = 'https://www.amazon.com/gp/product/'
+  ext_eb    = 'https://www.ebay.com/itm/'
   ext_fb    = 'https://www.facebook.com/'
   ext_gh    = 'https://github.com/'
   ext_gl    = 'https://gitlab.com/'

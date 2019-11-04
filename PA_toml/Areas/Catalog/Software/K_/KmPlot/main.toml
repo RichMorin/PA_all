@@ -1,0 +1,63 @@
+# cat_sof|KmPlot/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'KmPlot'
+  title       = 'KmPlot'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'open source'
+  requires    = 'Python'
+  roles       = 'application'
+
+[ about ]
+
+  precis      = 'mathematical function plotter for KDE'
+
+  verbose     = '''
+> KmPlot is a powerful mathematical plotter for KDE,
+capable of plotting multiple functions simultaneously
+and combining them into new functions.
+
+> Cartesian, parametric, and differential functions are supported,
+as well as functions using polar coordinates.
+Plots are printed with high precision at the correct aspect ratio.
+
+> KmPlot also provides numerical and visual features
+such as filling and calculating the area between the plot and the first axis,
+finding maxima and minima, changing function parameters dynamically,
+and plotting derivatives and integral functions.
+
+> This package is part of the KDE education module.
+
+> -- [$url]{debian_pkgs|buster/kmplot}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|KDE/kmplot'
+  wikipedia   = 'ext_wp|KmPlot'
+
+  zoo         = '''
+https://directory.fsf.org/wiki/Kmplot,
+https://docs.kde.org/stable5/en/kdeedu/kmplot/index.html,
+https://docs.kde.org/trunk5/en/kdeedu/kmplot/dbus.html,
+https://edu.kde.org/kmplot,
+https://kde.org/applications/education/kmplot,
+https://userbase.kde.org/KmPlot,
+https://www.linuxjournal.com/content/plotting-linux-kmplot,
+'''
+
+[ address.web_site ]
+
+  also        = 'https://cgit.kde.org/kmplot.git'
+  main        = 'https://kde.org/applications/education/org.kde.kmplot'
+  man_page    = 'http://manpages.ubuntu.com/manpages/cosmic/man1/kmplot.1.html'

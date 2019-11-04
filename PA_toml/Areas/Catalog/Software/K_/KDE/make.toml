@@ -1,0 +1,15 @@
+# cat_sof|KmPlot/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+# Too many to list...
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/kde-full'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'kde-full'

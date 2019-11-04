@@ -50,4 +50,5 @@ and bindings for the Guile/Scheme programming language.
 
 [ address.web_site ]
 
+  also        = 'http://www.djcbsoftware.nl/code/mu4e'
   main        = 'http://www.djcbsoftware.nl/code/mu'

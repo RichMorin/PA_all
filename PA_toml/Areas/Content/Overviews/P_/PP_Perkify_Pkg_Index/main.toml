@@ -39,7 +39,7 @@ you should expect a certain amount of duplication.
 #### Administration
 
 - network admin utilities - bridge-utils, dnsmasq, hostapd, httptunnel,
-                            Netatalk, Syncthing
+                            mitmproxy, Netatalk, Syncthing
 - system admin utilities  - Direvent, dosfstools, GNU Interactive Tools,
                           	gnuit, GNU Privacy Guard, storebackup
 
@@ -62,7 +62,8 @@ Audio support (e.g., communication, music, speech) is an important target.
 
 #### Braille
 
-Braille support is very important to blind users.
+Although Braille literacy is far from universal,
+Braille support is very important to many blind users.
 
 - braille output          - BRLTTY
 - braille translators     - Liblouis
@@ -93,7 +94,7 @@ Braille support is very important to blind users.
 There are many document formats; we want to make them all accessible.
 
 - document converters     - discount, dos2unix, GNU a2ps, intltool, jshon,
-                            man2html, Pandoc, TeX Live, wkhtmltopdf
+                            man2html, Pandoc, ronn, TeX Live, wkhtmltopdf
 - document viewers        - Atril
 - documentation tools     - Texinfo, XeTeX
 - ebook readers           - DAISY Player
@@ -101,7 +102,7 @@ There are many document formats; we want to make them all accessible.
 - OCR support             - GNU Ocrad, Lios, OCRFeeder, OCRmyPDF, ocrodjvu,
                             Tesseract
 - PDF support             - OCRmyPDF, Xpdf
-- plotting support        - GNU plotutils, xdot
+- plotting support        - GNU plotutils, Jupyter Notebook, KmPlot, xdot
 - web browsers            - Elinks, GNOME Web, Links, Lynx, Surfraw, w3m
 
 #### Games
@@ -116,7 +117,6 @@ There are many document formats; we want to make them all accessible.
 - display managers        - nodm
 - graph visualizers       - Graphviz
 - image processors        - ImageMagick, GIFT, GIMP
-- plotting support        - GNU plotutils, Jupyter Notebook
 
 #### Mathematics
 

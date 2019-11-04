@@ -13,20 +13,12 @@
 
 [ about ]
 
-  precis      = "field reference for motorcycle crash scenes; 10/30/2019"
+  precis      = 'field reference for motorcycle crash scenes'
 
   verbose     = '''
-Paul Willett is a highly experienced first responder
-(Fire Fighter, Paramedic, Search and Rescue) and motorcyclist
-who has been at the scene of many accidents.  
-The following material is based on Paul's
-"Crash Scene - Life and Death Workshop" sessions, given at
-[Doc Wong's Street Riding Clinics]{http://www.docwong.com/st-clinc}.
-After carefully reading these notes (twice!),
+After carefully reading this reference (twice is good!),
 print out a copy, fold it up, and carry it with you on rides.
-Even better, carry some copies to give out to your fellow riders!
-
-### Overview
+Even better, print extra copies and give them out to your fellow riders.
 
 Your challenge is to make the scene safe,
 collect and report information to 911,
@@ -51,9 +43,10 @@ Here goes...
 
 ### Report Information
 
-Gather, record, and report pertinent information.
+Gather and record pertinent information.
 Report urgent information at once to 911.
-If need be, send riders out with critical information.
+If need be, send drivers and/or riders out (in multiple directions)
+with critical information.
 
 - Where are you?
   Street, mile markers, nearest cross streets, nearby landmarks, etc.
@@ -61,7 +54,8 @@ If need be, send riders out with critical information.
   and position (lane 1 is nearest the center of the roadway).
 - What is the nature of the emergency?  How many people are injured?
   Describe the nature and severity of injuries.
-  Are patients conscious?  Are there specific complaints of pain or deformity?
+  Are the patients conscious? 
+  Are there specific complaints of pain or deformity?
 - Assess scene considerations.  Will access be difficult?
   Will any special equipment be needed?
 
@@ -81,28 +75,35 @@ Paramedics just need a quick medical summary; police may want more details.
 
 ### Render First Aid
 
-- Immobilize the patient.
-- Protect airway / breathing.
-- Stop any major bleeding.
-- Expose the injury to view.
-- Monitor the patient for shock.
-
-#### Caution!
+Who has recent first aid training?  Use them for this part!
+Your tasks are to: immobilize the patient, protect airway / breathing,
+stop any major bleeding, expose the injury to view, and
+monitor the patient for shock.
 
 - Avoid moving the patient, unless his airway is compromised.
   Try to avoid rotating the patient's neck.
 - Roll the patient to turn his face upwards.
-  If he needs to vomit, roll him onto his left side.
+  If he needs to vomit, roll him onto his (ideally, left) side.
 - Remove any visible obstructions from the patient's airway.
 - Open or remove the visor.  Remove the helmet only if necessary for breathing. 
 - Immobilize and support the patient's head and neck, as appropriate.
 - Immobilize any suspected fractures, using some sort of splint. 
-- Expose suspected injuries; cut away clothing (up the outer seams), if need be.
+- Expose suspected injuries;
+  cut away clothing, if need be (up the outer seams works best).
 
-It takes three people to safely flip a body: one person stabilizes the head,
-one pulls on the upper arm and hip, one pulls on the leg and knee.
-It takes two people to safely remove a helmet: one person supports the neck;
-the other spreads the helmet, rotates it back, and slides it off.
+**Flipping over the patient:**
+This takes three people.
+One person, kneeling just past the head, supports the head and neck,
+while keeping thm aligned with the body.
+The other two people kneel by the patient's side:
+one grasps the upper arm and hip; one grasps the leg and knee.
+On the count of three, flip the patient over. 
+
+**Removing the patient's helmet:**
+This takes two people.  One person supports the neck;
+the other spreads the helmet opening,
+tilts (rotates) the helmet back and slides it off,
+while supporting the patient's head.
 
 #### Stop Major Bleeding
 
@@ -119,24 +120,37 @@ Here are some things to try, in rough order by difficulty:
 
 #### Prevent Shock
 
-- Maintain temperature by shielding from heat or cold.
+- Maintain the patient's temperature by shielding him from heat or cold.
 - Monitor patient for shock symptoms: anxiety, increased thirst,
   fast breathing or heart rate, pallor, sweating, weakness.
 - Talk with the patient to calm him and monitor his condition.
-- Withhold fluids and food; give nothing by mouth.
+- Withhold fluids and food from the patient; give nothing by mouth.
 
 ### Supplies
 
 If you have any allergies or other medical conditions,
 be sure to carry a medical ID card in your wallet.
-Here are some supplies you should consider keeping on your bike:
+Here are some supplies you should consider keeping on your bike,
+if you can spare the room:
 
-- CAUTION tape, emergency flares and/or flashers, flashlights
+- CAUTION tape, emergency flares and/or flashers, flashlights, reflective blanket
 - disposable gloves (Latex or Nitrile) and masks; protective glassses
 - cohesive bandage wrap, elastic bandages, hemostatic dressings
-- cold packs, roll-up splint, tourniquet, trauma kit and/or shears
-- cleansing wipes, microfiber cloths, paper towels, package tape, zip ties
-- index cards or a small note pad, pencils or pens, permanent markers
+- cold packs, roll-up splint, tourniquet, trauma kit, trauma shears
+- baby and hand cleansing wipes, clean microfiber cloths,
+  paper towels, package tape, zip ties
+- index cards and/or a small note pad, pencils and/or pens, permanent markers
+
+### Credits
+
+Paul Willett is a highly experienced first responder
+(Fire Fighter, Paramedic, Search and Rescue) and motorcyclist
+who has been at the scene of many accidents.  
+The following material is based on Paul's
+"Crash Scene - Life and Death Workshop" sessions, given at
+[Doc Wong's Street Riding Clinics]{http://www.docwong.com/st-clinc}.
+[This page]{https://tinyurl.com/PW-CrashScene}
+was last edited by Rich Morin (rdm@cfcl.com) on November 3, 2019.
 '''
 
 [ zoo ]

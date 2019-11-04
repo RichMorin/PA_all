@@ -1,0 +1,16 @@
+# cat_sof|KmPlot/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/kmplot'
+  upstream    = 'https://kde.org/applications/education/kmplot'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/kmplot'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'kmplot'

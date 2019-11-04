@@ -47,6 +47,8 @@ to have a complete text-to-speech in English.
   github      = 'ext_gh|numediart/MBROLA, ext_gh|numediart/MBROLA-voices'
   wikipedia   = 'ext_wp|MBROLA'
 
+  zoo         = 'http://espeak.sourceforge.net/mbrola.html'
+
 [ address.web_site ]
 
   main        = 'http://tcts.fpms.ac.be/synthesis/mbrola.html'

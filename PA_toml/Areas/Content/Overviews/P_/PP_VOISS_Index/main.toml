@@ -50,6 +50,10 @@ that are related to VOISS systems, etc.
   ]{con_how|PP_VOISS_Components}</br>
   what's included in a VOISS system
 
+- [con_how|PP_VOISS_UpTime_UPS
+  ]{VOISS HowTo - Pi-UpTime UPS 2.0}</br>
+  adding an Alchemy Power Pi-UpTime UPS 2.0
+
 #### Overview
 
 - [VOISS - Booting

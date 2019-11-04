@@ -30,28 +30,30 @@ Most of the physical modifications are too minor to warrant much discussion.
 For example:
 
 - Replaced the stock rack with a larger and stronger one.
-- Replaced the stock seat with a semi-custom one by [Corbin]{http://www.corbin.com}.
-- Added a [Crampbuster CB 1 Throttle-mounted Cruise Assist]{
-    https://www.amazon.com/dp/B000GZPH1G}. 
+- Replaced the stock seat with a semi-custom one
+  by [Corbin]{http://www.corbin.com}.
+- Added a [Crampbuster CB 1 Throttle-mounted Cruise Assist]{ext_am|B000GZPH1G}. 
 - Added a [National Cycle deflector screen]{
   http://www.nationalcycle.com/catalogsearch/result/?q=25030} (model 25030).
-- Added an X-Grip [cell phone holder]{https://www.amazon.com/gp/product/B006X387ZS}
+- Added an X-Grip [cell phone holder]{ext_am|B006X387ZS}
   from [RAM Mounts]{https://www.rammount.com}.
 - Added foam padding to soften the handlebar grips.
 
 #### Mirrors
 
-I recently got a very promising pair of
-[mirrors]{https://www.ebay.com/itm/332731623129}.
+I recently got a very promising pair of [mirrors]{ext_eb|332731623129}.
 I'm particularly pleased by the multiple (4) degrees of freedom allowed
 by the design.
 However, I'm not entranced by the mirror itself.
 The body is pointy and small; the lens is flat, rather than convex.
+
 So, I'm thinking about ways to improve the situation.
 Probably a good task for [SketchUp]{ext_wp|SketchUp} and some
-[3D printing]{ext_wp|3D_printing}...
+[3D printing]{ext_wp|3D_printing}.
+Meanwhile, I've ordered a convex, larger, and smoother mirror to play with.
+It will be interesting to see what I come up with...
 
-The installation took a bit of creativity and elbow grease.
+The current installation took a bit of creativity and elbow grease.
 I used a pair of metric bolts (10 mm diam., 1.5 mm pitch, 100 mm long),
 along with four lock nuts and assorted washers,
 to raise the mirrors away from the handlebars and controls.
@@ -70,13 +72,13 @@ Specifically, an economical air shock and something like this
 
 #### Tail Box, etc.
 
-I added a [tail box]{https://www.ebay.com/itm/362784359966} to the rack,
+I added a [tail box]{ext_eb|362784359966} to the rack,
 then mounted eight [J-bolts]{https://www.acehardware.com/
   departments/hardware/hooks-and-screw-eyes/hooks/57931} on the lid
 for use with bungee cords, etc.
-Held down by some of these mount points, there is a canvas satchel
-which has compartments for various commonly needed objects
-(e.g., scarf, water bottle).
+Held down by a rope to some of these mount points,
+there is a canvas satchel which has compartments
+for various commonly needed objects (e.g., scarf, water bottle).
 So, the satchel provides low security, "soft" storage
 and the tail box provides (slightly) higher security, "hard" storage.
 
@@ -84,10 +86,10 @@ The threaded portions of the J-bolts extend well into the interior of the lid.
 So, I took advantage of this by using them as mount points
 for an elastic storage web.
 This does a nice job of retaining light (e.g., medical) supplies,
-leaving the lower section of the box free for heavy and/or lumpy items.
+as discussed in the [Crash Scene Field Reference]{con_ove|MC_Crash_Scene}.
+The lower section of the box is thus freed for heavy and/or lumpy items.
 
-The web is strung by a single piece of 3/32"
-[shock cord]{https://www.amazon.com/gp/product/B078135PHK},
+The web is strung by a single piece of 3/32" [shock cord]{ext_am|B078135PHK},
 forming a 9-node [Eulerian circuit]{ext_wp|Eulerian_path}.
 That is, all nodes are fully connected to each other,
 with no duplicate links.
@@ -113,14 +115,14 @@ I've been adding assorted lighting and such to the R80ST.
 In the process, I became concerned with the original fuse block and wiring.
 There were several issues I wanted to resolve.  For example:
 
-- I wanted a good way to add new circuits to the bike.
 - I wanted to turn two complex circuits into four simpler ones.
+- I wanted a good way to add a few new circuits to the bike.
 - I wanted cool features such as LED indicators for blown fuses.
 - I wanted (ATC/ATO) fuses that were robust and easier to handle.
 - I wanted to be able to purchase fuses in a wider variety of sizes.
 
-So, I bought and installed a 10-circuit [Waterproof Blade Fuse Box
-]{https://www.amazon.com/gp/product/B01N25TJV3}.
+So, I bought and installed a 10-circuit
+[Waterproof Blade Fuse Box]{ext_am|B01N25TJV3}.
 It's quite a bit larger than the original block (5 x 3.6 x 2 inches), so I:
 
 - wired it up via an umbilical cable
@@ -132,9 +134,10 @@ In the process, I replaced each of the original pair of fuses
 with a pair of new fuses.
 I now have four, LED-indicated fuses covering the original two circuits.
 Two more fuses supply the USB car charger
-and the power circuits for the add-on signal lamps.
-At this point, only six of the ten fuse locations are in use,
-allowing substantial room for growth.
+and the power circuits for the add-on horn and signal lamps.
+At this point, only seven of the ten fuse locations are in use,
+and some of these could be shared, in a pinch.
+So, there is room for growth.
 
 #### Fuse Usage
 
@@ -145,14 +148,16 @@ Here is a rundown of the circuit(s) that each fuse supplies:
 
 1.  green/black: tail lights
 2.  green/black: marker (aka parking) light, etc.
-3.  relay (LED) power for add-on signals
+3.  relay power for add-on (LED) signals
 4.  Jelly Comb USB car charger
-5.  (none)
+5.  relay power for add-on horn (yellow #10)
 6.  grey/black: rear brake
-7.  grey/black: front brake, horn, stock signals,
+7.  grey/black: front brake, stock horn and signals,
 8.  (none)
 9.  (none)
 10. (none)
+
+I'm using 7.5 A fuses for everything except the add-on horn; it needs 20 A (!).
 
 ### Brake and Tail Lights
 
@@ -171,9 +176,49 @@ Aside from the fact that this doesn't fit, it implies that there is a lot
 of heat that has to be disposed of.
 Trying this inside the sealed BMW headlight shell wouldn't work well.
 
-So, I purchased a 6" long spotlight bar with 12 LEDs and a slide mount.
-I plan to mount this just beneath the stock headlight
-and wire it to the high beam circuit.
+Since I try not to ride my motorcycle at night or in bad weather,
+my motivation for getting a brighter headlight comes down to visibility.
+So, I decided to go in a completely different direction.
+This [headlight modulator]{ext_am|B00HS2V6G0} causes the high beam
+to flash a few times each second, greatly increasing my visibility.
+
+*Note:*
+The other day, I was cruising down a rural, two-lane highway.
+As usual, I had my high beam and running lights on.
+Imagine my surprise when some idiot decided to make a U-turn
+from a cross street, in the middle of the highway I was on!
+Although I was able to maneuver around the idiot,
+the experience told me that I still wasn't visible enough.
+
+I also have a 6" long spotlight bar with 12 LEDs.
+Unless and until I mount this on the bike, I plan to carry it in the tail box
+as emergency lighting for crash scenes, roadside repairs, etc.
+
+### Horn
+
+The stock horn on the bike is functional, but kind of meh.
+Given the experience described above, I decided to get something LOUD.
+So, I'm putting in a [DENALI SoundBomb Compact Dual-Tone Motorcycle Air Horn
+]{https://www.twistedthrottle.com/denali-soundbomb-compact-dual-tone-air-horn}.
+Every review I've found indicates that this is loud and robust,
+if installed as directed.
+
+The horn has a built-in air compressor
+which draws *far* more current than the stock horn requires.
+The vendor supplies a 30 A relay, which solves part of the problem;
+I'm solving the rest by giving the horn its own 20 A fuse,
+wired with a (yellow #10) lead.
+Another issue with air horns is that they aren't instaneous:
+the relay and compressor need to kick in and the horn itself needs
+to come up to pressure.
+
+If I'm trying to get some idiot in my path to stop moving,
+milliseconds could matter.
+So, my plan is to wire the air horn relay in parallel with the stock horn.
+That way, the stock horn will still do its best
+while the air horn is coming up to speed.
+This may also give me a way to give folks a friendly toodle
+without blowing them off the road.
 
 ### Turn signals
 
@@ -200,26 +245,27 @@ In short, these lights are **extremely** visible.
 #### Components
 
 - [2pcs 42LED Amber Yellow Fender Turn Signal Parking Lights Lamp
-   For Truck Trailer
-  ]{https://www.ebay.com/itm/123482593164}
+   For Truck Trailer]{ext_eb|123482593164}
 
 - [5-PACK 12V 30/40 Amp 5-Pin SPDT Automotive Relay
-   w/ Wires & Harness Socket NEW
-  ]{https://www.ebay.com/itm/274061530703}
+   w/ Wires & Harness Socket NEW]{ext_eb|274061530703}
 
 #### Relay Wiring
 
 I wired up the relays using #18 zip cord,
 relying on the ridged/smooth distinction to keep track of the wires.
-There are three pieces of zip cord, handling the input power
+There are two pieces of zip cord, handling the input power
 and the two (L/R) sets of turn signals, respectively.
+
+The (blue #10) ground wire, which connects directly to the battery,
+is shared with the horn relay.
 The relay harness wires are color coded and numbered.
 Here are the connections, descriptions, etc:
 
 | Connection                 | Color   | Number | Description  |
 | ----------                 | ------- | ------ | -----------  |
 | block  / ridged - fuse #3  | black   | 30     | armature     |
-| block  / smooth - ground   | yellow  | 86     | relay coil   |
+| blue #10 - ground          | yellow  | 86     | relay coil   |
 | no connection              | red     | 87     | NO contact   |
 | signal / ridged - add-on   | blue    | 87a    | NC contact   |
 | signal / smooth - stock    | white   | 85     | relay coil   |
@@ -257,7 +303,7 @@ Originally supplied with a cigarette-lighter adaptor,
 it is now wired directly into fuse #4 in the fuse block.
 
 - [Car Charger, Jelly Comb 65W/13A 6 Ports Rapid USB Multi-Port Car Charger ...
-  ]{ https://www.amazon.com/gp/product/B0141Y4IRG}
+  ]{ext_am|B0141Y4IRG}
 
 ### Minor Materials
 

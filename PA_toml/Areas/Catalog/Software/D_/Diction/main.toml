@@ -43,7 +43,7 @@ Both commands support English and German documents.
 
   main        = 'ext_gs|diction'
   man_page    = '''
-    https://man.cx/diction(1),
-    https://man.cx/style(1),
-  '''
+https://man.cx/diction(1),
+https://man.cx/style(1),
+'''
     
