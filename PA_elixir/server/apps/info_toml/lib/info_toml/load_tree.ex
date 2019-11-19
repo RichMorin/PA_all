@@ -84,7 +84,12 @@ defmodule InfoToml.LoadTree do
     #
     # Return data from the specified file.
 
-#     Common.ii(file_rel, :file_rel) #!T
+      if false do #!G
+        keyss = Common.keyss(schema_map)
+        Common.ii(keyss, :keyss)
+        Common.ii(file_rel, :file_rel)
+      end
+
       LoadFile.do_file(file_rel, id_num, schema_map)
     end
 

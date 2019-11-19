@@ -1,0 +1,16 @@
+# con_ove|EE_2019_1119_PA/s_0011_Approaches.toml
+
+[ meta ]
+
+  title       = 'Approaches'
+
+[ about ]
+
+  verbose     = '''
+- Keep the input data convenient to edit and use.
+- Keep the output styling spare and accessible.
+- Keep the edited files small(ish) and cohesive.<br><br>
+- Use `@doc`, `@moduledoc`, and `@spec` pervasively.
+- Prefer doctests over separate test modules.
+- Do lots of automated checks on code and data.
+'''

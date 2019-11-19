@@ -1,0 +1,22 @@
+# con_ove|EE_2019_1119_DT/s_0070_Example_map_key.toml
+
+[ meta ]
+
+  title       = 'Example: map_key'
+
+[ about ]
+
+  verbose     = '''
+Define a type in `Common.Types` (`_common_t.ex`):
+
+    @typedoc "Constrain map keys to atoms and strings."
+    @type map_key :: atom | st
+    @typep st :: String.t
+
+Use the type in `Common.Maps` (`maps.ex`):
+
+    alias Common.Types, as: CT
+    @doc "Get the maximum value of a non-empty map."
+    @spec get_map_max( %{required(CT.map_key) => any} ) :: any
+    def get_map_max(map), do: map |> Map.values |> Enum.max()
+'''

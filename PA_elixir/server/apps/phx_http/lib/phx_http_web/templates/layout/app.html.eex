@@ -1,19 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<%
+  alias PhxHttpWeb.LayoutView
 
-    <%= render(PhxHttpWeb.LayoutView, "_head.html", assigns) %>
-  </head>
-
-  <%
     import Common, warn: false, only: [ chk_local: 1, ii: 2, ssw: 2 ]
 
     path_str    = @conn.path_info     |> Enum.join("/")
     query_str   = @conn.query_string
-    local_user  = chk_local(@conn)
 
     rel_url     = case query_str do
       ""    -> "/#{ path_str }"
@@ -21,109 +13,43 @@
     end
 
     item_page   = path_str == "item"
+    slide_page  = path_str =~ ~r{^slide}
     edit_link   = item_page && ssw(@key, "Areas/Catalog/")
     source_link = item_page || (path_str == "text")
 
 #   ii(get_run_mode(), "get_run_mode") #!T
 #   ii(@item, "item") #!T
-  %>
+
+    my_assigns  = assigns
+    |> Map.put(:edit_link,    edit_link)
+    |> Map.put(:rel_url,      rel_url)
+    |> Map.put(:source_link,  source_link)
+%>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <%= render(LayoutView, "_head.html", assigns) %>
+  </head>
 
   <body>
-    <header>
-      <nav>
-        <h1>&nbsp;<%=
-          title   = "Go to: home page [local]"
-          link("Pete's Alley", title: title, to: "/")
-        %></h1>
-
-        <br>&nbsp;
-        <%=
-          title   = "Go to: About [local]"
-          url     = "/text?key=_text/about.toml"
-          link("About", title: title, to: url)
-        %>
-
-        &nbsp;
-        <%=
-          title   = "Go to: Catalog [local]"
-          url     = "/area?key=Areas/Catalog/_area.toml"
-          link("Catalog", title: title, to: url)
-        %>
-
-        &nbsp;
-        <%=
-          title   = "Go to: Content [local]"
-          url     = "/area?key=Areas/Content/_area.toml"
-          link("Content", title: title, to: url)
-        %>
-
-        &nbsp;
-        <%=
-          title   = "Go to: Search [local]"
-          link("Search", title: title, to: "/search/find")
-        %>
-
-        &nbsp;
-        <%=
-          title   = "Go to: Usage [local]"
-          url     = "/text?key=_text/usage.toml"
-          link("Usage", title: title, to: url)
-        %>
-
-        <%= if local_user do %>
-          &nbsp;|&nbsp;
-          <%=
-            title   = "Reload the site's content."
-            url     = "/reload?redirect=#{ rel_url }"
-            link("Reload", title: title, to: url)
-          %>
-        <% end %>
-      </nav>
-    </header>
+    <%= unless slide_page do %>
+      <%= render(LayoutView, "_header.html", my_assigns) %>
+    <% end %>
 
     <main>
       <p class="alert alert-info"   role="alert"
         ><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"
         ><%= get_flash(@conn, :error) %></p>
-      <%= render(@view_module, @view_template, assigns) %>
+      <%= render(@view_module, @view_template, my_assigns) %>
     </main>
 
-    <footer>
-      <hr>
-      <nav>
-        &nbsp;
-        <%=
-          title   = "Go to this item's Feedback page."
-          url     = "/mail/feed?url=#{ rel_url }"
-          link("Feedback", title: title, to: url)
-        %>
-
-        <%= if source_link do %>
-          &nbsp;
-          <%=
-            title   = "Go to this item's Source page."
-            url     = "/source?key=#{ @key }"
-            link("Source", title: title, to: url)
-          %>
-        <% end %>
-
-        <%= if edit_link do %>
-          &nbsp;
-          <%=
-            title   = "Go to this item's Edit page."
-            url     = "/edit?key=#{ @key }"
-            link("Edit", title: title, to: url)
-          %>
-        <% end %>
-
-        &nbsp;
-        <%=
-          title     = "Go to the site's Dashboard page."
-          link("Dashboard", title: title, to: "/dash")
-        %>
-      </nav>
-    </footer>
+    <%= unless slide_page do %>
+      <%= render(LayoutView, "_footer.html", my_assigns) %>
+    <% end %>
 
     <script type="text/javascript"
             src="<%= Routes.static_path(@conn, "/js/app.js") %>"

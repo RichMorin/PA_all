@@ -1,0 +1,17 @@
+# con_ove|EE_2019_1119_DT/s_0000_Title.toml
+
+[ meta ]
+
+  title       = 'Title'
+
+[ about ]
+
+  verbose     = '''
+### A Gentle Introduction to Dialyzer and Typespecs
+
+by Rich Morin (rdm@cfcl.com)<br>
+Canta Forda Computer Laboratory
+
+Erlang & Elixir SF<br>
+November 19, 2019
+'''

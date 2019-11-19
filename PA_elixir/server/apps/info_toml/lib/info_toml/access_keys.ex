@@ -80,6 +80,13 @@ defmodule InfoToml.AccessKeys do
 
   @doc """
   Return a list of Area names, e.g.: `[ "Catalog", ... ]`.
+
+      iex> v1   = get_area_names()
+      iex> t1   = is_list(v1)
+      iex> v2   = hd(v1)
+      iex> t2   = is_binary(v2)
+      iex> t1 && t2
+      true
   """
 
   @spec get_area_names() :: [String.t, ...]
@@ -109,6 +116,13 @@ defmodule InfoToml.AccessKeys do
   @doc """
   Return a list of Area (really, Section) names.
   Given `"Content"`, returns `[ "HowTos", ... ]`.
+
+      iex> v1   = get_area_names("Content")
+      iex> t1   = is_list(v1)
+      iex> v2   = hd(v1)
+      iex> t2   = is_binary(v2)
+      iex> t1 && t2
+      true
   """
 
   @spec get_area_names(st) :: [st, ...]

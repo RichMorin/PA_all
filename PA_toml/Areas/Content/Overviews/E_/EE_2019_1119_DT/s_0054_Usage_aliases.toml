@@ -1,0 +1,22 @@
+# con_ove|EE_2019_1119_DT/s_0054_Usage_aliases.toml
+
+[ meta ]
+
+  title       = 'Usage: Aliases'
+
+[ about ]
+
+  verbose     = '''
+Long, complicated specs can be hard to read:
+
+    @spec do_files(String.t,
+      (String.t -> {String.t, InfoToml.Types.schema}))
+      :: [InfoToml.Types.schema]
+
+So, use aliases and guards to keep things tidy:
+
+    alias InfoToml.Types, as: ITT
+
+    @spec do_files(st, (st -> {st, sc})) :: [sc]
+      when sc: ITT.schema, st: String.t
+'''

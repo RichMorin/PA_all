@@ -1,0 +1,25 @@
+# con_ove|EE_2019_1119_DT/s_0062_Advice_reformat.toml
+
+[ meta ]
+
+  title       = 'Advice: Reformat'
+
+[ about ]
+
+  verbose     = '''
+Dialyzer’s report (and spec) syntax can be challenging to read:
+
+    Foo.bar( _inp_map :: %{atom() | binary() => %{atom()
+      | binary() => binary() | map()}}, ... )
+
+It can help a lot to reformat things for readability:
+
+    Foo.bar(_inp_map ::
+      %{
+        atom() | binary() => %{
+          atom() |
+          binary() => binary() |
+          map()
+        }
+      }, ... )
+'''

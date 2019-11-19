@@ -1,0 +1,18 @@
+<!-- templates/item/_slides.html.eex -->
+
+<%= if !Enum.empty?(@slides) do %>
+  <h3>Slides</h3>
+
+  <ul>
+    <%= for key <- @slides do %>
+      <%
+        item    = InfoToml.get_item(key)
+        title   = item.meta.title
+        href    = "/slide?key=#{ key }"
+      %>
+      <li>
+        <a href="<%= href %>"><%= title %></a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

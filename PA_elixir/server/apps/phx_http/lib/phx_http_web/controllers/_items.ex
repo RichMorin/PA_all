@@ -11,12 +11,16 @@ defmodule PhxHttpWeb.Cont.Items do
 #   get_item_map/2
 #     Generate an "item map", based on `gi_bases` and `gi_pairs`.
 #   get_make/1
-#     Get any `make.toml` information for an item.
+#     Get `make.toml` information for an item.
 #   get_reviews/1
 #     Get a list of keys for this item's reviews.
+#   get_slides/1
+#     Get `s_*.toml` information for an item.
 #
 # Private functions
 #
+#   get_extras/1
+#     Get information for an item's "extras".
 #   get_gi_path/1
 #     Get a `gi_path`, based on a `dot_path`
 
@@ -150,23 +154,43 @@ defmodule PhxHttpWeb.Cont.Items do
 
   def get_reviews(key) do
 
-    review_fn   = fn {path, _title, _precis} ->
-    #
-    # Return true for review items.
+    pattern   = ~r{ / text \. \w+ \. toml $ }x
+    get_extras(key, pattern)
+  end
 
-      text_patt   = ~r{ / text \. \w+ \. toml $ }x
-      String.match?(path, text_patt)
-    end
+  @doc """
+  Get a list of keys for this item's slides.
+  """
 
-    key
-    |> String.replace_trailing("/main.toml", "/")
-    |> InfoToml.get_item_tuples()
-    |> Enum.filter(review_fn)
-    |> sort_by_elem(0)
-    |> Enum.map(fn x -> elem(x, 0) end)
+  @spec get_slides(st) :: [st] when st: String.t
+
+  def get_slides(key) do
+    pattern   = ~r{ / s_\w+ \. toml $ }x
+    get_extras(key, pattern)
   end
 
   # Private Functions
+
+  @spec get_extras(st, Regex.t) :: [st] when st: String.t
+
+  def get_extras(key, pattern) do
+  #
+  # Get a list of keys for some of this item's extra files.
+
+    extra_fn   = fn {path, _title, _precis} ->
+    #
+    # Return true for extra items.
+
+      String.match?(path, pattern)
+    end
+
+    key
+    |> String.replace(~r{[^/]+$}, "")
+    |> InfoToml.get_item_tuples()
+    |> Enum.filter(extra_fn)
+    |> sort_by_elem(0)
+    |> Enum.map(fn x -> elem(x, 0) end)
+  end
 
   @spec get_gi_path(String.t) :: [atom, ...]
 

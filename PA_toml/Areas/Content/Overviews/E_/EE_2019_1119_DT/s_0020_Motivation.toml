@@ -1,0 +1,17 @@
+# con_ove|EE_2019_1119_DT/s_0020_Motivation.toml
+
+[ meta ]
+
+  title       = 'Motivation'
+
+[ about ]
+
+  verbose     = '''
+Using Dialyzer and Typespecs will let your project:
+
+- document how internal interfaces use data types
+- verify this documentation against the code base
+- enhance visibility of data types and structures
+- encourage careful analysis of internal interfaces
+- make the code base more robust and maintainable
+'''

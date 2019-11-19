@@ -45,13 +45,25 @@ defmodule InfoToml.AccessData do
   @doc """
   Return a list of item tuples (`{key, title, precis}`),
   given a base string (e.g., `"Areas/Catalog/Hardware/"`) for the key.
+
+      iex> key_base = "Areas/Catalog/Hardware/"
+      iex> v1  = get_item_tuples(key_base)
+      iex> t1  = is_list(v1)
+      iex> v2  = hd(v1)
+      iex> t2  = is_tuple(v2)
+      iex> {key, title, precis} = v2
+      iex> t3  = is_binary(key)
+      iex> t4  = is_binary(title)
+      iex> t5  = is_binary(precis)
+      iex> t1 && t2 && t3 && t4 && t5
+      true
   """
 
   @spec get_item_tuples(st) :: {st, st, st}
     when st: String.t
 
   def get_item_tuples(key_base) do
-
+ 
     filter_fn   = fn item_key ->
     #
     # Return true if the item key starts with the provided key base.
@@ -84,6 +96,14 @@ defmodule InfoToml.AccessData do
 
   @doc """
   Return the entire `toml_map` data structure (mostly for testing).
+
+      iex> v1   = get_map()
+      iex> t1   = is_map(v1)
+      iex> keys = Common.keyss(v1)
+      iex> test = [:index, :items, :prefix]
+      iex> t2   = (keys == test)
+      iex> t1 && t2
+      true
   """
 
   @spec get_map() :: ITT.toml_map
@@ -95,6 +115,15 @@ defmodule InfoToml.AccessData do
   @doc """
   Return a specified portion of `toml_map`.  If `gi_list` is empty,
   return all of `toml_map`.
+
+      iex> get_part( [] ) == get_map()
+      true
+
+      iex> v1   = get_part( [:index] )
+      iex> keys = Common.keyss(v1)
+      iex> test = [:id_num_by_key, :id_nums_by_tag, :key_by_id_num]
+      iex> keys == test
+      true
   """
 
   @spec get_part( [CT.map_key] ) :: any
@@ -113,6 +142,11 @@ defmodule InfoToml.AccessData do
 
   @doc """
   Return the TOML source code, given its key (e.g., `"_text/about.toml"`).
+
+      iex> path = "_text/about.toml"
+      iex> v1   = get_toml(path)
+      iex> is_binary(v1)
+      true
   """
 
   @spec get_toml(st) :: st
@@ -145,6 +179,8 @@ defmodule InfoToml.AccessData do
   @spec put_item(st, ITT.toml_map) :: atom
     when st: String.t
 
+  #!W Figure out how to test this.
+
   def put_item(key, item), do: put_part(item, [:items, key])
 
   @doc """
@@ -154,6 +190,8 @@ defmodule InfoToml.AccessData do
 
   @spec put_part(any, [CT.map_key] | nil) :: :ok
   # Yep, this could be just about anything...
+
+  #!W Figure out how to test this.
 
   def put_part(new_val, key_list \\ nil) do
 

@@ -73,7 +73,7 @@ defmodule InfoToml.CheckTree do
 
     reject_fn   = fn {key, _item} ->
     #
-    # Return true for make, review, and schema files.
+    # Return true for make, review, schema, and slide files.
 
       force   =
 #       key =~ ~r{ / Clever_Cutter / }x ||  #!D uncomment to enable
@@ -82,6 +82,7 @@ defmodule InfoToml.CheckTree do
       by_key  =
         ssw(key, "_schemas/") ||                    # "_schemas/main.toml"
         String.ends_with?(key, "/make.toml")  ||    # ".../make.toml"
+        key =~ ~r{^ .+ / s_[^.]+ \. toml $ }x  ||   # ".../s_*.toml"
         key =~ ~r{^ .+ / text \. \w+ \. toml $ }x   # ".../text.Rich_Morin.toml"
 
       by_key && !force
@@ -92,7 +93,7 @@ defmodule InfoToml.CheckTree do
     # Return true if the id_str has been used more than once.
 
     dup_list    = toml_map.items    # Get all items in the TOML map.
-    |> Enum.reject(reject_fn)       # Reject make, review, and schema files.
+    |> Enum.reject(reject_fn)       # Reject some ancillary files.
     |> Enum.reduce(%{}, reduce_fn)  # Build a map of id_str usage.
     |> Enum.filter(filter_fn)       # Retain cases of duplicate usage. 
     |> sort_by_elem(0, :dc)         # Sort results by their ID strings.

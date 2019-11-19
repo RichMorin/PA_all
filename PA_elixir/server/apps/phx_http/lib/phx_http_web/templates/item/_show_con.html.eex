@@ -23,4 +23,6 @@
   <% end %>
 
   <%= fmt_section(@item, [:about, :verbose]) %>
+
+  <%= if @slides, do: render(ItemView, "_slides.html", assigns) %>
 </div>

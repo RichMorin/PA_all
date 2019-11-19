@@ -39,7 +39,23 @@ defmodule Server.MixProject do
 #       main:                 "?",
 #       logo:                 "path/to/logo.png",
         extras:               ["README.md"]
-      ]
+      ],
+
+      preferred_cli_env: [
+        coveralls:            :test,
+        "coveralls.detail":   :test,
+        "coveralls.post":     :test,
+        "coveralls.html":     :test
+      ],
+
+      preferred_cli_env: [
+        coveralls:            :test,
+        "coveralls.detail":   :test,
+        "coveralls.post":     :test,
+        "coveralls.html":     :test
+      ],
+
+      test_coverage:          [ tool: ExCoveralls ],
     ]
   end
 
@@ -73,6 +89,11 @@ defmodule Server.MixProject do
 
       { :ex_doc,              "~> 0.20.2",
           only:               [:dev]
+      },
+
+      { :excoveralls,           "~> 0.12.0",
+          only:               [:test],
+          runtime:            false
       },
 
       { :inch_ex,             "~> 2.0",

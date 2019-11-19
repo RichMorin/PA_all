@@ -1,0 +1,43 @@
+# cat_sof|LXQt/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'LXQt'
+  title       = 'LXQt'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'GUI, text'
+  licenses    = 'free, GPL, open source'
+  roles       = 'utility, desktop environment'
+
+[ about ]
+
+  precis      = 'The Lightweight Qt Desktop Environment'
+
+  verbose     = '''
+> LXQt is a lightweight Qt desktop environment.
+
+> It will not get in your way.
+It will not hang or slow down your system.
+It is focused on being a classic desktop with a modern look and feel.
+
+> LXQt has already been included in most Linux and BSD distributions
+so you may just try it out on your regular system or in a VM.
+
+> -- [$url]{https://lxqt.org/about}
+'''
+
+[ address.web_site ]
+
+  about       = 'main|/about'
+  forum       = 'http://forum.lxqt.org'
+  main        = 'https://lxqt.org'
+  wiki        = 'ext_gh|lxqt/lxqt'
+  

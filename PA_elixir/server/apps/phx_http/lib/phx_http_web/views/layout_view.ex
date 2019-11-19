@@ -64,11 +64,17 @@ defmodule PhxHttpWeb.LayoutView do
     "#{ field_2 } [#{ title }/#{ field_3 }]"
   end
 
-  def get_title(:item,      _key, item,  title) do
+  def get_title(:item, _key, item, title) do
     "#{ item.meta.title } [#{ title }]"
   end
 
-  def get_title(:source,     key, item,  title) do
+  def get_title(:slide, key, _item, title) do
+    pattern  = ~r{^ .+/ (.+) \.toml $}x
+    slide    = String.replace(key, pattern, "\\1")
+    "#{ slide } [#{ title }]"
+  end
+
+  def get_title(:source, key, item,  title) do
     if ssw(key, "_") do
       "#{ key } [#{ title }]"
     else

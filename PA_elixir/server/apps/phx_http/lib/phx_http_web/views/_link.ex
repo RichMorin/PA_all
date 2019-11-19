@@ -84,13 +84,13 @@ defmodule PhxHttpWeb.View.Link do
       iex> do_links("[Groups]{cat_gro|:a}")
       "[Groups](/area?key=Areas/Catalog/Groups/_area.toml 'Go to: Groups [area]')"
 
-      iex> do_links("[Test]{test|Me}")
-      "[Test](/item?key=Test/Me/main.toml 'Go to: Test [item]')"
+      iex> do_links("[A1]{cat_gro|A2}")
+      "[A1](/item?key=Areas/Catalog/Groups/A2/main.toml 'Go to: A1 [item]')"
 
   The source code for item-related TOML files can be displayed as follows:
 
-      iex> do_links("[Test]{test|Me:s}")
-      "[Test](/source?key=Test/Me/main.toml 'Go to: Test [source]')"
+      iex> do_links("[A1]{cat_gro|A2:s}")
+      "[A1](/source?key=Areas/Catalog/Groups/A2/main.toml 'Go to: A1 [source]')"
 
   The source code for other TOML files can be displayed as follows:
 
@@ -142,7 +142,7 @@ defmodule PhxHttpWeb.View.Link do
       do_links_h1(trim_1, trim_2, s_pair)
     end
 
-    #K Preprocess A$...$ inclusions (in PP_Perkify_Pkg_List).
+    #!K Preprocess A$...$ inclusions (in PP_Perkify_Pkg_List).
     
     pattern     = ~r{A\$([-\w+]+)\$}
     pre_base    = "https://packages.ubuntu.com"
@@ -168,6 +168,8 @@ defmodule PhxHttpWeb.View.Link do
   defp do_links_h1(trim_1, trim_2, {head_2, tail_2}) do
   #
   # Handle links with prefixes.
+  #
+  #!K - Routine must be edited if a new Area is added.
 
     type    = cond do
       head_2 =~ ~r{ ^ (cat|con) }x ->
@@ -179,15 +181,6 @@ defmodule PhxHttpWeb.View.Link do
 
       head_2 == "ext_wp"  ->  :ext_wp       # "ext_wp|..."
       true                ->  :ext_zoo      # "..._...|..."  
-    end
-
-    if false and tail_2 == ":a" do #TG
-      IO.puts ""
-      ii(head_2, :head_2)
-      ii(tail_2, :tail_2)
-      ii(trim_1, :trim_1)
-      ii(trim_2, :trim_2)
-      ii(type,   :type)
     end
 
     do_links_h2(type, trim_1, trim_2)

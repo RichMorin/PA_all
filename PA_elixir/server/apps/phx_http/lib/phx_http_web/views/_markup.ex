@@ -77,7 +77,7 @@ defmodule PhxHttpWeb.View.Markup do
 
   # Private Functions
 
-  @spec markup_err(st, st) :: st
+  @spec markup_err(st, iodata) :: st
     when st: String.t
 
   defp markup_err(inp_str, message) do

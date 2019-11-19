@@ -50,7 +50,7 @@ defmodule PhxHttpWeb.FormatViewTest do
     <div class="path">
       <b>Path:</b>&nbsp;
       <a href="/area"
-        title="Go to the Areas index page."
+         title="Go to the Areas index page."
         >Areas</a>,&nbsp;
       <a href="/area?key=Areas/Catalog/_area.toml"
          title="Go to the Areas/Catalog index page."
@@ -71,7 +71,7 @@ defmodule PhxHttpWeb.FormatViewTest do
     output  = fmt_ref(ref_key, ref_val)
     href    = "/item?key=Areas/Catalog/People/Rich_Morin/main.toml"
     html    = "<b>Foo:</b>&nbsp; <a href='#{ href }' " <>
-              "title='Go to: Foo page'>Rich Morin</a>\n"
+              "title='Go to: Foo page'>Rich Morin</a>"
 
     assert output == { :safe, html }
   end

@@ -1,0 +1,22 @@
+# con_ove|EE_2019_1119_DT/s_0055_Usage_modules.toml
+
+[ meta ]
+
+  title       = 'Usage: Modules'
+
+[ about ]
+
+  verbose     = '''
+The libraries in Pete's Alley are structured as follows:
+
+    .../apps/foo/lib/
+    | foo/
+    | | _foo_t.ex   # Foo.Types (eg, @type, @typedoc, typep)
+    | | bar.ex      # Foo.Bar   (eg, @doc, @spec, def, defp)
+    | | ...
+    | foo.ex        # Foo       (eg, @doc, defdelegate)
+
+- app-specific types are defined in `_foo_t.ex`
+- external interfaces are defined in `foo.ex`
+- implementations are defined in `foo/*.ex`
+'''

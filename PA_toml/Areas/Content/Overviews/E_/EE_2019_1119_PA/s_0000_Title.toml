@@ -1,0 +1,17 @@
+# con_ove|EE_2019_1119_PA/s_0000_Title.toml
+
+[ meta ]
+
+  title       = 'Title'
+
+[ about ]
+
+  verbose     = '''
+### A Brief Look at Pete's Alley
+
+by Rich Morin (rdm@cfcl.com)<br>
+Canta Forda Computer Laboratory
+
+Erlang & Elixir SF<br>
+November 19, 2019
+'''

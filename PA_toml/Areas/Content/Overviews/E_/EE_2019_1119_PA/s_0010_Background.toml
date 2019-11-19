@@ -1,0 +1,17 @@
+# con_ove|EE_2019_1119_PA/s_0010_Background.toml
+
+[ meta ]
+
+  title       = 'Background'
+
+[ about ]
+
+  verbose     = '''
+Pete's Alley isn't really a "production" Elixir project:
+
+- It's my first "real" project in Elixir and Phoenix.
+- It's largely a design and implementation testbed.
+- After a year and 33 KLOC, it's still a prototype.
+
+So, I'm free to try some unusual approaches. (YMMV!)
+'''

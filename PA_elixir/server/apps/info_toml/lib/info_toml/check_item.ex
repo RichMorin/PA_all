@@ -48,6 +48,7 @@ defmodule InfoToml.CheckItem do
   @spec check(ITT.item_map, String.t, ITT.schema_map) :: boolean
 
   def check(inp_map, file_key, schema_map) do
+
     allowed   = check_allowed( inp_map, file_key, schema_map)
     publish   = check_publish( inp_map, file_key, schema_map)
     refs_ok   = check_refs_ok( inp_map, file_key)
@@ -123,6 +124,8 @@ defmodule InfoToml.CheckItem do
 
   @spec check_refs_ok(map, String.t) :: boolean
 
+  #!W Figure out how to test this.
+  
   defp check_refs_ok(inp_map, file_key) do
   #
   # Check whether any meta.ref value has a major syntax problem.
@@ -169,6 +172,8 @@ defmodule InfoToml.CheckItem do
 
   @spec check_required(map, String.t, ITT.schema_map) :: boolean
 
+  #!W Figure out how to test this.
+  
   defp check_required(inp_map, file_key, schema_map) do
   #
   # Check whether all of the required map keys (from the schema) are present.

@@ -1,0 +1,19 @@
+# con_ove|EE_2019_1119_DT/s_0052_Syntax_type.toml
+
+[ meta ]
+
+  title       = 'Syntax: @type'
+
+[ about ]
+
+  verbose     = '''
+    @typedoc "Atoms and strings are common map keys."
+    @type map_key :: atom | st
+
+    @typep st :: String.t
+
+- `@type` and `@typep` define derived types.
+- They are generally placed in `*.ex` files.
+- Attribute placement order isn't critical.
+- `@typedoc` can be used to document `@type`.
+'''

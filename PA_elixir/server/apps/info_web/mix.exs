@@ -25,7 +25,9 @@ defmodule InfoWeb.MixProject do
       elixir:             "~> 1.9",
       elixirc_paths:      elixirc_paths(Mix.env()),
       start_permanent:    Mix.env() == :prod,
-      deps:               deps()
+      deps:               deps(),
+
+      test_coverage:      [ tool: ExCoveralls ]
     ]
   end
 

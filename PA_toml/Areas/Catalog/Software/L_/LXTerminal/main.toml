@@ -20,7 +20,7 @@
 
 [ about ]
 
-  precis      = 'an intelligent OCR solution for Linux'
+  precis      = 'VTE-based terminal emulator for LXDE'
 
   verbose     = '''
 > LXTerminal is a VTE-based terminal emulator

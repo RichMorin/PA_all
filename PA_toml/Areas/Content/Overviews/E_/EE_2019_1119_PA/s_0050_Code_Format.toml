@@ -1,0 +1,26 @@
+# con_ove|EE_2019_1119_PA/s_0050_Code_Format.toml
+
+[ meta ]
+
+  title       = 'Code Format'
+
+[ about ]
+
+  verbose     = '''
+- `mix format` makes sense for large teams.
+- For personal projects, it's mostly a burden.
+
+The biggest problem is the ban on in-line spacing:
+
+    item_keys  = ref_map          # %{ foo: "a|b, ..." }
+    |> Enum.map(fields_fn)        # [ [ "a|b", "c|d", ... ], ... ]
+    |> List.flatten()             # [ "a|b", "c|d", ... ]
+    ...
+
+    @type kv_info ::
+      %{
+        :kv_cnts    => kv_cnts,   # %{ <key>: <count> }
+        :kv_descs   => kv_descs,  # %{ <key>: <desc> }
+        ...
+      }
+'''

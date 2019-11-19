@@ -57,6 +57,12 @@ defmodule InfoToml do
   @doc delegate_to: {Common, :get_area_name, 1}
   defdelegate get_area_name(area_key), to: Common
 
+  @doc delegate_to: {Common, :get_file_abs, 1}
+  defdelegate get_file_abs(file_rel), to: Common
+
+  @doc delegate_to: {Common, :get_tree_abs, 1}
+  defdelegate get_tree_abs(), to: Common
+
   ## Emitter
 
   @doc delegate_to: {Emitter, :emit_toml, 3}

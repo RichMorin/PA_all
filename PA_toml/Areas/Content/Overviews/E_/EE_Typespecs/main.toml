@@ -180,7 +180,7 @@ Here is a spec and function definition for `foo/2`:
 
     @spec foo(atom, number) :: map
 
-    @def foo(key, val), do: %{ key => val }
+    def foo(key, val), do: %{ key => val }
 
 The spec declares the intended data type (e.g., `atom`)
 for each argument (e.g., `key`), as well as the return value.
@@ -328,16 +328,14 @@ for describing the "success typing" of a function.  For example:
 I find it helps quite a bit to copy this into a text editor
 and add some strategic white space:
 
-    Foo.bar(
-      _inp_map :: %{
+    Foo.bar(_inp_map ::
+      %{
         atom() | binary() => %{
           atom() |
           binary() => binary() |
           map()
         }
-      },
-      ...
-    )
+      }, ... )
 
 #### Progressive Refinement
 
@@ -354,6 +352,7 @@ but you might want to flag the spec for a revisit.
 Once a function has a working spec, you can tighten it up.
 Here is a progression of tightening steps, based on the example above:
 
+    @spec get_kv_info(any)  :: map                      #!V - any, map
     @spec get_kv_info(atom) :: map                      #!V - map
     @spec get_kv_info(atom) :: %{ any  => any }         #!V - any
     @spec get_kv_info(atom) :: %{ atom => any }         #!V - any
@@ -391,7 +390,12 @@ Here are some common offenders:
 - `any` typically hides a confused interface
 - `list`, `map`, and `tuple` can hide a lot of complexity
 - `number` should be promoted to `float`, `integer`, etc.
-- complex literals may warrant definition as types
+
+You can also help yourself by keeping the code tidy
+and [DRY]{ext_wp|Don't_repeat_yourself}:
+
+- Aliases and guards can make specs easier to read.
+- Complex literals may warrant definition as types.
 
 #### Inspection
 

@@ -24,7 +24,7 @@ defmodule PhxHttpWeb.ItemController do
   use PhxHttpWeb, :controller
 
   import PhxHttpWeb.Cont.Items,
-    only: [ get_make: 1, get_reviews: 1 ]
+    only: [ get_make: 1, get_reviews: 1, get_slides: 1 ]
 
   alias InfoToml.Types, as: ITT
   alias PhxHttp.Types,  as: PHT
@@ -77,11 +77,11 @@ defmodule PhxHttpWeb.ItemController do
       |> redirect(to: "/area?key=#{ InfoToml.get_area_key(key) }")
     else
       item      = show_h2(item, key)
-      reviews   = get_reviews(key)
 
       conn
       |> base_assigns(:item, "PA Item", item, key)
-      |> assign(:reviews,     reviews)
+      |> assign(:reviews,     get_reviews(key))
+      |> assign(:slides,      get_slides(key))
       |> render("show.html")
     end
   end

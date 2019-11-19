@@ -1,0 +1,19 @@
+# con_ove|EE_2019_1119_DT/s_0053_Tooling.toml
+
+[ meta ]
+
+  title       = 'Tooling'
+
+[ about ]
+
+  verbose     = '''
+Jeremy Huffman’s Dialyxir package:
+
+- is the most popular Mix wrapper (~1M downloads)
+- provides "Mix tasks to simplify use of Dialyzer"
+- translates Dialyzer's reports from Erlang to Elixir
+
+Dialyxir’s default output is rather verbose, so I use it as follows:
+
+    mix dialyzer --quiet
+'''

@@ -7,5 +7,4 @@ defmodule PhxHttpWeb.DashViewTest do
   import  PhxHttpWeb.DashView
 
   doctest PhxHttpWeb.DashView
-
 end

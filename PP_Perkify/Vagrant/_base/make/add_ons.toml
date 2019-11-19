@@ -97,7 +97,7 @@ debian_apt = '''
   Jshon,                    jshon,              JSON tools
   Jupyter Notebook,         jupyter-notebook,   interactive notebook
 
-  KDE,                    | kde-full,           window managers
+  KDE,                    | kde-full,           window manager
   KmPlot,                   kmplot,             plotting support
 
   Liblouis,                 liblouis-bin,       braille translation
@@ -109,6 +109,7 @@ debian_apt = '''
   Linphone,                 linphone,           VOIP client
   lios,                     lios,               OCR support
   LXTerminal,               lxterminal,         LXDE terminal emulator
+  LXQt,                     lxqt,               desktop environment
   Lynx,                     lynx,               web browser
 
   Magic Wormhole,           magic-wormhole,     file transfer
@@ -158,7 +159,7 @@ debian_apt = '''
   python-evdev,             python-evdev,       Python 2 Linux input
   python-pyte,              python-pyte,        terminal emulator
   python-pyudev,            python-pyudev,      libudev binding
-  python-setuptools,        python-setuptools,  Python setup tools
+  python-setuptools,        python-setuptools,  Python setup tool
 
   ratpoison,                ratpoison,          window manager
   Recoll,                   recoll,             text search tool
@@ -277,9 +278,6 @@ ruby_gems = '''
 # Eww,                ?,                  web browser               (-b)
 #-
 
-# GIFT,               ?,                  image processing          (-b)
-#-
-
 # GMediaServer,       gmediaserver,       media support             (-bu+js)
 # Package: gmediaserver (0.13.0-8ubuntu2) [universe]
 # https://packages.ubuntu.com/bionic/gmediaserver
@@ -347,16 +345,6 @@ ruby_gems = '''
 #   It wants the URL of the Chef Infra server.
 #   I sent email asking about a way to pre-set this to (say) localhost.
 #   This should probably be localhost:4000 or somesuch...
-#
-# Emacspeak,          emacspeak,          accessible editor         (APT hangs)
-# Use -y option to override questions.
-#
-# GNU Mailutils,      mailutils,          email support             (APT hangs)
-# Seems to load OK now ?!?!?
-#
-# nodm
-#   nodm,             nodm,               X11 display manager
-# Use -y option to override questions.
 
 ## Miscellaneous issues
 

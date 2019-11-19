@@ -8,9 +8,9 @@ defmodule CommonTest do
 
 # doctest Common
   doctest Common.Maps
+# doctest Common.Server
   doctest Common.Sorting
   doctest Common.Strings
-# doctest Common.Tracing
+  doctest Common.Tracing
   doctest Common.Zoo
-
 end

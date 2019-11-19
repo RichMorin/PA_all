@@ -116,7 +116,7 @@ defmodule PhxHttpWeb.View.Address do
       |> Enum.map(link_fn)          # [ "<a href='url'>url</a>", ... ]
       |> Enum.sort()                # same, but sorted
 
-      if false do #TG
+      if false do #!G
         ii(links_cnt,  :links_cnt)
         ii(links_rare, :links_rare)
         ii(links_raw,  :links_raw)

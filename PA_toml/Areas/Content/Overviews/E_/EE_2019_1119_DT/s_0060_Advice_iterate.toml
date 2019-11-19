@@ -1,0 +1,18 @@
+# con_ove|EE_2019_1119_DT/s_0060_Advice_iterate.toml
+
+[ meta ]
+
+  title       = 'Advice: Iterate'
+
+[ about ]
+
+  verbose     = '''
+I recommend using a cautious, iterative approach:
+
+- Before writing *any* specs, run Dialyzer.
+- Clean up problems until it goes quiet.
+- Add (or tighten) a few specs at a time.<br><br>
+- Fix (or work around) reported problems.
+- If need be, loosen or even disable specs.
+- Rinse, repeat...
+'''

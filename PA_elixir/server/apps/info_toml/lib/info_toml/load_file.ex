@@ -81,7 +81,7 @@ defmodule InfoToml.LoadFile do
     file_abs           = get_file_abs(file_rel)
     {:ok, file_stat}   = File.stat(file_abs, time: :posix)
 
-    patt_item   = ~r{ / [^/]+ / ( main | make ) \. toml $ }x
+    patt_item   = ~r{ / [^/]+ / ( main | make | s_\w+ ) \. toml $ }x
     patt_misc   = ~r{ / [^/]+ \. toml $ }x
 
     directories   = file_key

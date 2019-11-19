@@ -231,15 +231,29 @@ but it can still overheat if operated in a totally enclosed container.
 So, for example, if you have it mounted inside a briefcase,
 be sure to leave the lid open!
 
-##### Cables
+##### Cabling
 
-You'll need a few USB cables to hook things together.
+You'll need several USB cables to hook things together.
 One will go from the power bank to the processor board.
-Another may go from a USB outlet to the power bank.
-Fortunately, USB cables are really cheap;
-so, get a variety and find out which one(s) work best for what purposes.
-You should also have a USB power supply (aka wall wart) and possibly
-a lightweight extension cord, so that you can charge up the power bank.
+Another may go from a power supply (aka wall wart) to the power bank.
+Finally, you may want to add audio or USB peripherals
+(e.g., braille display, headphones, keyboard, mouse) or even Ethernet.
+
+Fortunately, computer cables are really cheap on eBay.
+So, get a variety and find out which one(s) work best for what purposes.
+A lightweight extension cord or "triple tap" can also be useful
+if you need to share a crowded wall outlet when you charge up your power bank.
+A 3.5 mm (1/8") stereo audio cable or a twisted-pair Ethernet cable
+can also be useful on occasions.
+
+Playing with Hardware Attached on Top
+([HAT]{https://www.raspberrypi.org/blog/introducing-raspberry-pi-hats}) boards
+can be a hassle, because the RasPi case tends to get in the way.
+So, the most convenient approach might be to get the
+[Pimoroni Mini Black Hat Hack3r]{ext_am|B01D0Z9BCY} ($20).
+This kit includes an adaptor board which can host a HAT,
+a pHAT used by the Pi Zero), or "pin wires".
+It also has a short, 40-pin cable, rubber feet, etc.
 
 ### Moving On
 

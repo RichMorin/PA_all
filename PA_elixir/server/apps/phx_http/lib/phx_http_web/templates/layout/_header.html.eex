@@ -1,0 +1,53 @@
+<%  local_user  = chk_local(@conn) %>
+
+<header>
+  <nav>
+    <h1>&nbsp;<%=
+      title   = "Go to: home page [local]"
+      link("Pete's Alley", title: title, to: "/")
+    %></h1>
+
+    <br>&nbsp;
+    <%=
+      title   = "Go to: About [local]"
+      url     = "/text?key=_text/about.toml"
+      link("About", title: title, to: url)
+    %>
+
+    &nbsp;
+    <%=
+      title   = "Go to: Catalog [local]"
+      url     = "/area?key=Areas/Catalog/_area.toml"
+      link("Catalog", title: title, to: url)
+    %>
+
+    &nbsp;
+    <%=
+      title   = "Go to: Content [local]"
+      url     = "/area?key=Areas/Content/_area.toml"
+      link("Content", title: title, to: url)
+    %>
+
+    &nbsp;
+    <%=
+      title   = "Go to: Search [local]"
+      link("Search", title: title, to: "/search/find")
+    %>
+
+    &nbsp;
+    <%=
+      title   = "Go to: Usage [local]"
+      url     = "/text?key=_text/usage.toml"
+      link("Usage", title: title, to: url)
+    %>
+
+    <%= if local_user do %>
+      &nbsp;|&nbsp;
+      <%=
+        title   = "Reload the site's content."
+        url     = "/reload?redirect=#{ @rel_url }"
+        link("Reload", title: title, to: url)
+      %>
+    <% end %>
+  </nav>
+</header>

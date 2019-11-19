@@ -1,0 +1,18 @@
+# con_ove|EE_2019_1119_PA/s_0060_Comments.toml
+
+[ meta ]
+
+  title       = 'Comments'
+
+[ about ]
+
+  verbose     = '''
+Comments can be used strategically:
+
+- Include a partial path at the top of each file.
+- Include a TOC at the top of each code file.
+- Define and use semantic flags (e.g., `#!T`).<br><br>
+- Describe each part of multi-line literals.
+- Describe data flow in multi-line pipelines.
+- Describe private functions, macros, etc.
+'''

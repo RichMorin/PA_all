@@ -79,6 +79,11 @@ Braille support is very important to many blind users.
 - terminal multiplexers   - GNU Screen, tmux
 - VOIP clients            - Linphone, Mumble
 
+#### Desktop Support
+
+- desktop environments    - GNOME, LXQt, MATE, 
+- window managers         - KDE, ratpoison
+
 #### Document Preparation
 
 - graph visualizers       - Graphviz

@@ -117,12 +117,16 @@ defmodule InfoFiles.CntData do
       patt_1    = ~r{ ^ .+ / ( [^/]+ ) \. [^/]+ $ }x
       repl_1    = "\\1.toml"
 
-      patt_2    = ~r{ ^ text \. \w+ \. toml $ }x
-      repl_2    = "text.*.toml"
+      patt_2    = ~r{ ^ s_ \w+ \. toml $ }x
+      repl_2    = "s_*.toml"
+
+      patt_3    = ~r{ ^ text \. \w+ \. toml $ }x
+      repl_3    = "text.*.toml"
 
       file_path
       |> String.replace(patt_1, repl_1)
       |> String.replace(patt_2, repl_2)
+      |> String.replace(patt_3, repl_3)
     end
 
     CntAny.add_cnts(file_info, :name, name_fn)

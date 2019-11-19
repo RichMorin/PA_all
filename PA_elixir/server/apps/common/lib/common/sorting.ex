@@ -15,8 +15,6 @@ defmodule Common.Sorting do
 
   # Public functions
 
-  @spec sort_by_elem([], non_neg_integer) :: []
-
   @doc """
   Sort a list by an indexed element.
 
@@ -26,6 +24,8 @@ defmodule Common.Sorting do
       iex> sort_by_elem(list, 1)
       [ {1, 10}, {3, 20}, {2, 30} ]
   """
+
+  @spec sort_by_elem([], non_neg_integer) :: []
 
   def sort_by_elem(list, index), do: sort_by_elem(list, index, nil)
 
@@ -40,6 +40,8 @@ defmodule Common.Sorting do
       iex> sort_by_elem(list, 0, nil)
       [ {:Abc, 10}, {:Ghi, 20}, {:def, 30} ]
   """
+
+  @spec sort_by_elem([], non_neg_integer, atom | nil) :: []
 
   def sort_by_elem(list, index, mode) do
 

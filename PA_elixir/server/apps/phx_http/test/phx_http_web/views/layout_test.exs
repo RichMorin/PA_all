@@ -8,5 +8,4 @@ defmodule PhxHttpWeb.LayoutViewTest do
   import  PhxHttpWeb.LayoutView
 
   doctest PhxHttpWeb.LayoutView
-
 end

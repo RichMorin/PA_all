@@ -98,7 +98,7 @@ defmodule InfoToml.Server do
   # Load and index a set of TOML files.
   # Used by both `first_load/0` and `reload/0`.
 
-    Common.lts "Begin loading of TOML files." #!T
+    IO.puts Common.lts("Begin loading of TOML files.") #!T
 
     toml_map    = LoadTree.load(old_map)
     toml_ndx    = IndexTree.index(toml_map)
@@ -113,7 +113,7 @@ defmodule InfoToml.Server do
 #   ii(keyss(toml_map), "keyss(toml_map)") #!T
 #   ii(toml_ndx, "toml_ndx") #!T
 
-    Common.lts "End loading of TOML files." #!T
+    IO.puts Common.lts("End loading of TOML files.") #!T
 
     {status, messages, toml_map}
   end

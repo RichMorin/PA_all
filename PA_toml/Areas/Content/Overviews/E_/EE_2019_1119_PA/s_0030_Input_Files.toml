@@ -1,0 +1,16 @@
+# con_ove|EE_2019_1119_PA/s_0030_Input_Files.toml
+
+[ meta ]
+
+  title       = 'Input Files'
+
+[ about ]
+
+  verbose     = '''
+- TOML works well for semi-structured metadata.
+- Markdown works well for simple, formatted text.
+- So, I use TOML, with some embedded Markdown.<br><br>
+- The combination is convenient and very flexible.
+- It's also accessible for visually impaired users.
+- A few extensions make it even more convenient.
+'''

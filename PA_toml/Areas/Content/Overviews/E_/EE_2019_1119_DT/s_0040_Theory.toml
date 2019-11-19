@@ -1,0 +1,21 @@
+# con_ove|EE_2019_1119_DT/s_0040_Theory.toml
+
+[ meta ]
+
+  title       = 'Theory'
+
+[ about ]
+
+  verbose     = '''
+All BEAM-based languages are strongly typed:
+
+- Type errors can be detected in various ways.
+- Some type errors can be detected statically.
+- Others can slip through into running code.
+
+Dialyzer compares function calls to definitions:
+
+- Determine the union of its type signatures.
+- Calls which conform to a signature "succeed".
+- The remainder are reported as possible errors.
+'''

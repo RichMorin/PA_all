@@ -1,0 +1,24 @@
+# con_ove|EE_2019_1119_PA/s_0040_App_Layout.toml
+
+[ meta ]
+
+  title       = 'App Layout'
+
+[ about ]
+
+  verbose     = '''
+Per Dave Thomas, I separate interfaces and implementations:
+
+    .../apps/foo/lib/
+    | foo/
+    | | _foo_t.ex   # Foo.Types (@type, @typedoc, typep, ...)
+    | | bar.ex      # Foo.Bar   (@doc, @spec, def, defp, ...)
+    | | ...
+    | foo.ex        # Foo       (@doc, defdelegate, ...)
+
+This makes the code much easier to read and maintain:
+
+- Files are smaller, so they are easier to read and safer to edit. 
+- Modules are also smaller, less coupled, and more cohesive. 
+- Implementation functions and modules can be documented.
+'''

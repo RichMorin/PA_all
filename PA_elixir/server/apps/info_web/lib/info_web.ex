@@ -3,11 +3,11 @@
 defmodule InfoWeb do
 
   @moduledoc """
-  This module defines the external API for the InfoWeb component.  See
-  `info_web/*.ex` for the implementation code.
+  This module defines the external API for the InfoWeb component.
+  See `info_web/*.ex` for the implementation code.
   """
 
-  alias InfoWeb.{Checker, Server}
+  alias InfoWeb.{Checker, Common, Server}
 
   # Define the public interface.
 
@@ -15,6 +15,11 @@ defmodule InfoWeb do
 
   @doc delegate_to: {Checker, :check_pages, 0}
   defdelegate check_pages(), to: Checker
+
+  ## Common
+
+  @doc delegate_to: {Common, :validate_uri, 1}
+  defdelegate validate_uri(uri_str), to: Common
 
   ## Server
 

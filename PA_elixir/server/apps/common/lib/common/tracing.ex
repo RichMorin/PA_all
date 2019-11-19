@@ -28,6 +28,8 @@ defmodule Common.Tracing do
   @spec ii(any, atom | String.t) :: any
   # As with IO.inspect, the inspected (and returned) value can be anything.
 
+  #!W Figure out how to test this.
+
   def ii(float, label) when is_float(float) do
     float
     |> :erlang.float_to_binary(decimals: 2)
@@ -37,7 +39,7 @@ defmodule Common.Tracing do
   def ii(thing, label), do: IO.inspect(thing, label: label)
 
   @doc """
-  Print a labeled time stamp, e.g.:
+  Return a labeled time stamp for printing, e.g.:
   
       lts>> 22.837 - PhxHttpWeb.TextController.show/2
 
@@ -45,9 +47,13 @@ defmodule Common.Tracing do
   is unambiguous, but also long and complicated.  So, it's difficult
   to digest in a single glance.  Printing just the seconds and milliseconds
   (e.g., `22.837`) works much better for informal timing analysis.
+
+      iex> output = lts("foo")
+      iex> output =~ ~r[^lts>> \\d+\\.\\d{3} - foo$]
+      true
   """
 
-  @spec lts(String.t) :: :ok
+  @spec lts(st) :: st when st: String.t
 
   def lts(label) do
     iso8601   = DateTime.utc_now()
@@ -57,7 +63,7 @@ defmodule Common.Tracing do
     trimmed   = iso8601
     |> String.replace(pattern, "\\1")   # 22.837
 
-    IO.puts "lts>> #{ trimmed } - #{ label }"
+    "lts>> #{ trimmed } - #{ label }"
   end
 
 end

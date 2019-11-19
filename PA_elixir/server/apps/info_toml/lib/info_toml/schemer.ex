@@ -52,9 +52,10 @@ defmodule InfoToml.Schemer do
   def get_schema(schema_map, file_key) do
 
     schema_key = cond do
+      file_key =~ ~r{ / _area \. toml $ }x            ->  "_schemas/area.toml"
+      file_key =~ ~r{ ^ .* / s_\w+ \. toml $ }x       ->  "_schemas/slide.toml"
       file_key =~ ~r{ ^ .* / text \. \w+ \. toml $ }x ->  "_schemas/text.toml"
       file_key =~ ~r{ _text / \w+ \. toml $ }x        ->  "_schemas/text.toml"
-      file_key =~ ~r{ / _area \. toml $ }x            ->  "_schemas/area.toml"
       true    ->  String.replace(file_key, ~r{ ^ .+ / }x, "_schemas/")
     end
 

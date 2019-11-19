@@ -1,0 +1,18 @@
+# con_ove|EE_2019_1119_DT/s_0061_Advice_refine.toml
+
+[ meta ]
+
+  title       = 'Advice: Refine'
+
+[ about ]
+
+  verbose     = '''
+Start with a working spec, then refine (i.e., tighten) it:
+
+    @spec get_kv_info(any)  :: map
+    @spec get_kv_info(atom) :: map
+    @spec get_kv_info(atom) :: %{ any  => any }
+    @spec get_kv_info(atom) :: %{ atom => any }
+    @spec get_kv_info(atom) :: %{ atom => list | map }
+    @spec get_kv_info(atom) :: ITT.kv_info
+'''

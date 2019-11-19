@@ -1,0 +1,18 @@
+# con_ove|EE_2019_1119_DT/s_0051_Syntax_spec.toml
+
+[ meta ]
+
+  title       = 'Syntax: @spec'
+
+[ about ]
+
+  verbose     = '''
+    @doc "Create a simple Map data structure."
+    @spec foo(atom, number) :: map
+    def foo(key, val), do: %{ key => val }
+
+- Some types are namespaced (e.g., `Regex.t`).
+- Specs can be written using multiple lines.
+- Aliases and guards can shorten type names.
+- Custom types can (and should!) be defined.
+'''

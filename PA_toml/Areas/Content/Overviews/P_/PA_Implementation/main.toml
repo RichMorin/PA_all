@@ -188,13 +188,15 @@ For example, I tend to put an abridged form of the directory path
 at the start of each file.
 I also use the following flags for specific code attributes:
 
-- #!D   - debugging code
-- #!G   - tracing guard
-- #!K   - kludgy code
-- #!R   - recursive code
-- #!T   - tracing code
-- #!V   - vague `@spec`
-- #!W   - work in progress
+- #!D   - This is debugging code (possibly broken).
+- #!G   - This guard controls a block (e.g., of traces).
+- #!I   - This issue may deserve investigation.
+- #!K   - This code is kludgy.
+- #!N   - This is a side note (e.g., in a make.toml file)
+- #!R   - This code is recursive (see #!R).
+- #!T   - This is tracing code; enable as needed.
+- #!V   - This `@spec` is rather vague.
+- #!W   - This code is a work in progress.
 
 ### Futures
 

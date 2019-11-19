@@ -1,0 +1,22 @@
+# con_ove|EE_2019_1119_PA/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'EE_2019_1119_PA'
+  title       = "Elixir, etc. - A Brief Look at Pete's Alley"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "slides for a lightning talk on Pete's Alley"
+
+  verbose     = '''
+I'm planning to give a lightning talk on Pete's Alley at the
+[Erlang & Elixir SF]{https://www.meetup.com/ErlangElixirSF} meetup
+on November 19, 2019.
+'''

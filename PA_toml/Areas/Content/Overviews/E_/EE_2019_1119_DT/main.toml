@@ -1,0 +1,31 @@
+# con_ove|EE_2019_1119_DT/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'EE_2019_1119_DT'
+  title       = "Elixir, etc. - Dialyzer Talk (2019.1119)"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "a gentle introduction to Dialyzer and Typespecs"
+
+  verbose     = '''
+I'm scheduled to give a short, introductory talk
+([A Gentle Introduction to Dialyzer and Typespecs
+ ]{https://www.meetup.com/ErlangElixirSF/events/266300287}) at the
+[Erlang & Elixir SF]{https://www.meetup.com/ErlangElixirSF} meetup
+on November 19, 2019.
+This item contains the slides for the talk.
+See [Elixir, etc. - Typespecs]{con_ove|EE_Typespecs}
+for broader and deeper coverage, links to resources, etc.
+'''
+
+[ zoo ]
+
+  snippets    = '...'

@@ -1,4 +1,4 @@
-# info_files/mix.ex
+# info_files/mix.exs
 
 defmodule InfoFiles.MixProject do
 
@@ -24,7 +24,9 @@ defmodule InfoFiles.MixProject do
 
       elixir:             "~> 1.9",
       start_permanent:    Mix.env() == :prod,
-      deps:               deps()
+      deps:               deps(),
+
+      test_coverage:      [ tool: ExCoveralls ]
     ]
   end
 

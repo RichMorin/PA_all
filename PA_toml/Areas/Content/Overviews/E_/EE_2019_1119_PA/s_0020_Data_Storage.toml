@@ -1,0 +1,23 @@
+# con_ove|EE_2019_1119_PA/s_0020_Data_Storage.toml
+
+[ meta ]
+
+  title       = 'Data Storage'
+
+[ about ]
+
+  verbose     = '''
+Why I don't use Ecto:
+
+- This is a read-mostly application.
+- The amount of data is pretty small.
+- Ecto brings in a lot of complexity.
+- The relational model isn't a good fit.
+
+What I do, instead:
+
+- Load input files into a tree of maps.
+- Build some index data structures.
+- Store and access all this via actors.
+- Code up search logic (etc), as needed.
+'''

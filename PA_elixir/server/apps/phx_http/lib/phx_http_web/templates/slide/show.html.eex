@@ -1,0 +1,37 @@
+<!-- templates/slide/show.html.eex -->
+
+<%
+  title       = get_in(@item, [:meta, :title])
+  final       = length(@slides) - 1
+  ndx_fn      = fn x -> x == @key end
+  ndx         = Enum.find_index(@slides, ndx_fn)
+  key_main    = String.replace(@key, ~r{[^/]+$}, "main.toml")
+  key_next    = if ndx < final do Enum.at(@slides, ndx+1) else nil end
+  key_prev    = if ndx > 0 do Enum.at(@slides, ndx-1) else nil end
+  local_user  = chk_local(@conn)
+%>
+
+<h4><%= title %></h4>
+
+<nav>
+  <%= if key_next do %>
+    <a href="/slide?key=<%= key_next %>">Next</a> &nbsp;
+  <% end %>
+
+  <%= if key_prev do %>
+    <a href="/slide?key=<%= key_prev %>">Prev</a> &nbsp;
+  <% end %>
+
+  <a href="/item?key=<%= key_main %>">Main</a>
+
+  <%= if local_user do %>
+    &nbsp;|&nbsp;
+    <%=
+      title   = "Reload the site's content."
+      url     = "/reload?redirect=#{ @rel_url }"
+      link("Reload", title: title, to: url)
+    %>
+  <% end %>
+</nav>
+
+<%= fmt_section(@item, [:about, :verbose]) %>

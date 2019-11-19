@@ -48,6 +48,6 @@
 
   PATH=$PATH:.
 # cd "$( dirname "${BASH_SOURCE[0]}" )"
-  cd /vagrant/make #K
+  cd /vagrant/make #!K - hard-coded path
   add_ons.rb $log_dir
   $summ > $data/apt_summ.2

@@ -8,5 +8,4 @@ defmodule PhxHttpWeb.SearchViewTest do
   import  PhxHttpWeb.SearchView
 
   doctest PhxHttpWeb.SearchView
-
 end

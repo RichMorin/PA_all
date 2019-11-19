@@ -73,7 +73,8 @@ is supplied thtough a 40-pin (2x20) set of "header" pins.
 Although the pins can be addressed, connected and used individually,
 the most convenient way to wire them up is by using a female header socket.
 This may be at the end of a ribbon cable (e.g., going to another board)
-or mounted on the bottom of a "HAT" (Hardware Attached on Top) board.
+or mounted on the bottom of a Hardware Attached on Top
+([HAT]{https://www.raspberrypi.org/blog/introducing-raspberry-pi-hats})(HAT).
 
 For an easy way to get started on wiring up electronic devices,
 consider adding a "breakout board" of some sort.

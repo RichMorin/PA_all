@@ -1,0 +1,18 @@
+# con_ove|EE_2019_1119_DT/s_0010_Biography.toml
+
+[ meta ]
+
+  title       = 'Biography'
+
+[ about ]
+
+  verbose     = '''
+- started programming in 1969 (on Wylbur, at SF State)
+- wrote lots of asm, AWK, C, Fortran, Perl, sed, sh, ...
+- dabbled in Clojure, COBOL, Icon, Prolog, Python, ...
+- mostly programs in Ruby and Elixir these days<br><br>
+- columnist for MacTech, SunExpert, and Unix Review
+- edited several collections of open source software
+- consults on design, development, and documentation
+- volunteers on several disability-related projects
+'''

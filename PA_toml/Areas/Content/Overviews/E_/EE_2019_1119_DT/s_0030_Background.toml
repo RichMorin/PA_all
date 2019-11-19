@@ -1,0 +1,21 @@
+# con_ove|EE_2019_1119_DT/s_0030_Background.toml
+
+[ meta ]
+
+  title       = 'Background'
+
+[ about ]
+
+  verbose     = '''
+Dialyzer is a workaround, motivated by a conundrum:
+
+- Erlang, like Prolog, is dynamically typed.
+- Static type checking might reveal coding errors.
+- Adding static typing could break existing code.
+
+Changing the language definition was not an option:
+
+- Many lines of Erlang code were in production.
+- An optional, unintrusive approach was needed.
+- Success typing was the "least worst option".
+'''

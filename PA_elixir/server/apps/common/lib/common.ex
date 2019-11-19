@@ -77,5 +77,4 @@ defmodule Common do
 
   @doc delegate_to: {Zoo, :type_of, 1}
   defdelegate type_of(thing), to: Zoo
-
 end

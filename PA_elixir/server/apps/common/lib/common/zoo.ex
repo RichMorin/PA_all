@@ -33,6 +33,9 @@ defmodule Common.Zoo do
   @spec chk_local(Plug.Conn.t) :: boolean
 
   def chk_local(conn) do
+  #
+  #!I Find a way to test the chk_local/1 function.
+
     case conn.remote_ip do
       { 127,   0, 0, 1 }  -> true   # localhost
       { 192, 168, 1, 1 }  -> false  # LAN access to cfcl.com, for testing
@@ -48,6 +51,7 @@ defmodule Common.Zoo do
   @spec get_http_port() :: String.t
 
   def get_http_port() do #!K
+
     System.get_env("PORT") || "4000"
   end
 
@@ -60,7 +64,7 @@ defmodule Common.Zoo do
       "c/d"
   """
 
-  @spec get_rel_path(s, s) :: s when s: String.t
+  @spec get_rel_path(st, st) :: st when st: String.t
 
   def get_rel_path(tree_abs, file_abs) do
 
@@ -92,6 +96,9 @@ defmodule Common.Zoo do
 
   @doc """
   Get the absolute file path for the base directory (eg, `.../PA_all`).
+
+      iex> get_tree_base() =~ ~r{ ^ .* / PA_all }x
+      true
   """
 
   @spec get_tree_base() :: String.t

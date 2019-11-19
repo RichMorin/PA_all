@@ -49,6 +49,8 @@ defmodule PhxHttpWeb.Router do
     get   "/search/find",     SearchController,   :find
     post  "/search/show",     SearchController,   :show
 
+    get   "/slide",           SlideController,    :show
+
     get   "/source",          SourceController,   :show
     get   "/source/down",     SourceController,   :down
 

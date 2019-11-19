@@ -103,26 +103,26 @@ defmodule PhxHttpWeb.View.Format do
     <div class="path">
       <b>Path:</b>&nbsp;
       <a href="/area"
-        title="#{ title_fn.("Areas") }"
+         title="#{ title_fn.("Areas") }"
         >Areas</a>,&nbsp;
     """
 
     extras  = if String.ends_with?(key, "/_area.toml") do
       """
-      <a href="#{ href_fn.(t1) }"
-         title="#{ title_fn.("Areas/" <> t1) }"
-        >#{ hd(nodes) }</a>
+        <a href="#{ href_fn.(t1) }"
+           title="#{ title_fn.("Areas/" <> t1) }"
+          >#{ hd(nodes) }</a>
       """
     else
       """
-      <a href="#{ href_fn.(t1) }"
-         title="#{ title_fn.("Areas/" <> t1) }"
-        >#{ hd(nodes) }</a>,&nbsp;
-      <a href="#{ href_fn.(t2) }"
-         title="#{ title_fn.("Areas/" <> t2) }"
-        >#{ tl(nodes) }</a>
+        <a href="#{ href_fn.(t1) }"
+           title="#{ title_fn.("Areas/" <> t1) }"
+          >#{ hd(nodes) }</a>,&nbsp;
+        <a href="#{ href_fn.(t2) }"
+           title="#{ title_fn.("Areas/" <> t2) }"
+          >#{ tl(nodes) }</a>
       """
-    end <> "\n</div>"
+    end <> "</div>\n"
 
     (common <> extras) |> raw()
   end
@@ -142,7 +142,7 @@ defmodule PhxHttpWeb.View.Format do
   end
 
   @doc """
-  This function formats a reference from `meta.refs.*`.
+  This function formats one or more references from `meta.refs.*`.
   """
 
   @spec fmt_ref(atom, String.t) :: tuple #!V - tuple
@@ -160,10 +160,7 @@ defmodule PhxHttpWeb.View.Format do
       href      = "/item?key=#{ key }"
       link_text = InfoToml.get_item(key).meta.title
       title     = "Go to: #{ label } page"
-
-      link      = """
-      <a href='#{ href }' title='#{ title }'>#{ link_text }</a>
-      """
+      link      = "<a href='#{ href }' title='#{ title }'>#{ link_text }</a>"
 
       {link, title}
     end

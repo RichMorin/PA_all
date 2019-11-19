@@ -146,9 +146,10 @@ it indexes major packages by topical category (e.g., document converters).
 | Linphone                | A$linphone$             | VOIP clients              |
 | Lios                    | A$lios$                 | OCR support               |
 | LXTerminal              | A$lxterminal$           | terminal emulators        |
+| LXQt                    | A$lxqt$                 | desktop environments      |
 | Lynx                    | A$lynx$                 | web browsers              |
 | Magic Wormhole          | A$magic-wormhole$       | network admin utilities   |
-| MATE                    | A$mate-desktop$         | desktop environment       |
+| MATE                    | A$mate-desktop$         | desktop environments      |
 | mblaze                  | A$mblaze$               | email support             |
 | mbrola-en1              | A$mbrola-en1$           | speech synthesizers       |
 | mbrola-us1              | A$mbrola-us1$           | speech synthesizers       |

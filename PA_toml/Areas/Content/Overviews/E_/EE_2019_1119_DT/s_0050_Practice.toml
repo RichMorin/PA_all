@@ -1,0 +1,21 @@
+# con_ove|EE_2019_1119_DT/s_0050_Practice.toml
+
+[ meta ]
+
+  title       = 'Practice'
+
+[ about ]
+
+  verbose     = '''
+In summary, Dialyzer:
+
+- performs program-wide detection of type conflicts
+- uses both type inference and explicit specifications
+
+The diagnostics are generally reliable, but imperfect:
+
+- Dialyzer very seldom produces false positives.
+- Reports can be incomplete, opaque, and voluminous.
+- Interpreting the results can take a bit of practice.
+- Loose or missing specs may prevent error detection.
+'''

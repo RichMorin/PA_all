@@ -45,8 +45,17 @@ Think tcpdump for HTTP.
 
 [ address.related ]
 
-  github      = 'ext_gh|rtomayko/ronn'
+  github      = '''
+ext_gh|mitmproxy/mitmproxy,
+ext_gh|mitmproxy/mitmproxy/tree/master/examples/addons,
+'''
 
+  zoo         = '''
+https://docs.mitmproxy.org/stable,
+https://docs.mitmproxy.org/stable/addons-overview,
+'''
+  
 [ address.web_site ]
 
-  main        = 'https://rtomayko.github.io/ronn'
+  forum       = 'https://discourse.mitmproxy.org'
+  main        = 'https://mitmproxy.org'

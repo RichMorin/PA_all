@@ -1,0 +1,24 @@
+# con_ove|EE_2019_1119_PA/s_0031_Extensions.toml
+
+[ meta ]
+
+  title       = 'Extensions'
+
+[ about ]
+
+  verbose     = '''
+Make it easier to enter lists of items in TOML:
+
+    'free, GPL, open source'
+    [ 'free', 'GPL', 'open source' ]
+
+Make it easier to link to web sites in Markdown:
+
+    [TOML]!{ext_wp|TOML} ->
+    [TOML](https://en.wikipedia.org/wiki/TOML
+      'Go to: TOML [WP]')
+
+    [$url]!{http://foo.com/bar} ->
+    [http://foo.com/bar](http://foo.com/bar
+      'Go to: foo.com [site]')
+'''

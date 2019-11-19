@@ -1,0 +1,19 @@
+# _schemas/slide.toml
+#
+# This file defines the map keys that are allowed in PA's `s_###.toml` files,
+# with terse descriptions of leaf nodes.  It also lists processing rules
+# (eg, required key paths).
+
+  _required   = '''
+  about, about.verbose, meta
+'''
+
+# Allowed keys
+
+[ meta ]
+
+  title       = 'slide title'
+
+[ about ]
+
+  verbose     = 'verbose slide content'

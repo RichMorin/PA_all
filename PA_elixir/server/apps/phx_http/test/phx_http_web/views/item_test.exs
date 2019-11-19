@@ -7,5 +7,4 @@ defmodule PhxHttpWeb.ItemViewTest do
   import  PhxHttpWeb.ItemView
 
   doctest PhxHttpWeb.ItemView
-
 end

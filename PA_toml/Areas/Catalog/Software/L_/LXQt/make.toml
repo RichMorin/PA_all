@@ -1,0 +1,16 @@
+# cat_sof|LXQt/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+# wiki        = 'https://wiki.archlinux.org/index.php/LXQt'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/lxqt'
+  wiki        = 'https://wiki.debian.org/LXQt'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'lxqt'
