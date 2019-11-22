@@ -6,7 +6,7 @@
     font-size:    1.00rem;
   }
 
-  header, footer, p.alert, div.path {
+  header, footer, p.alert, div.no_print {
     display:      none;
   }
 

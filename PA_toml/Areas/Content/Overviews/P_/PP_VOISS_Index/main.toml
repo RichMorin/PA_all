@@ -18,6 +18,8 @@
   verbose     = '''
 This is an informal, hand-edited index of pages on Pete's Alley
 that are related to VOISS systems, etc.
+VOISS is an economical talking computer for the blind;
+see [VOISS - Introduction]{con_ove|PP_VOISS_Intro} to get started...
 
 ### Pete's Alley
 
@@ -50,10 +52,6 @@ that are related to VOISS systems, etc.
   ]{con_how|PP_VOISS_Components}</br>
   what's included in a VOISS system
 
-- [VOISS HowTo - Pi-UpTime UPS 2.0
-  ]{con_how|PP_VOISS_UpTime_UPS}</br>
-  adding an Alchemy Power Pi-UpTime UPS 2.0
-
 #### Overview
 
 - [VOISS - Booting
@@ -72,6 +70,14 @@ that are related to VOISS systems, etc.
   ]{con_ove|PP_VOISS_Intro}</br>
   an overview of the VOISS project
 
+- [VOISS - Pi-UpTime UPS 2.0
+  ]{con_ove|PP_VOISS_UpTime_UPS}</br>
+  notes on the Alchemy Power Pi-UpTime UPS 2.0
+
+- [VOISS - PiJuice HAT
+  ]{con_ove|PP_VOISS_PiJuice_HAT}</br>
+  notes on the PiJuice HAT
+
 - [VOISS - Power
   ]{con_ove|PP_VOISS_Power}</br>
   an overview of VOISS (etc) USB power handling
@@ -80,6 +86,10 @@ that are related to VOISS systems, etc.
   ]{con_ove|PP_VOISS_Power_HATs}</br>
   a discursion on USB power HATs
 
+- [VOISS - Power Management
+  ]{con_ove|PP_VOISS_Power_Mgmt}</br>
+  a discursion on Raspberry Pi power management
+
 - [VOISS - Storage
   ]{con_ove|PP_VOISS_Storage}</br>
   thoughts on long-term storage for VOISS systems
@@ -87,8 +97,8 @@ that are related to VOISS systems, etc.
 ### VOISS
 
 VOISS (formerly F123) is located in Brazil.
-Consequently, many of their web pages are available
-in both English and Portuguese.
+Consequently, their web pages may be available
+in English, Portuguese, or (occasionally) both.
 
 #### English
 

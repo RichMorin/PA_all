@@ -1,0 +1,52 @@
+# con_ove|MC_Resources/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'MC_Resources'
+  title       = "Motorcycle Resources"
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'links to resources for motorcycle riders'
+
+  verbose     = '''
+This page lists assorted links to resources for motorcycle riders.
+
+### Add-on Equipment
+
+The [BMW R80ST Modifications]{con_ove|MC_R80ST_Mods} page
+provides links to the places where I purchased add-on equipment.
+
+### Medical Supplies
+
+The [Crash Scene Field Reference]{con_ove|MC_Crash_Scene}
+lists a variety of useful medical supplies.
+Some of these items can be hard to find, so here are some links.
+
+- [CAUTION tape             ]{ext_am|B01DUY93XC}
+- [cohesive bandage wraps   ]{ext_am|B07KK4WC46}
+- [cold packs               ]{ext_am|B07HB67XK4}
+- [elastic bandage wraps    ]{ext_am|B07R2D594Z}
+- [emergency flares         ]{ext_am|B07P614ZZ8}
+- [face masks               ]{ext_am|B07WJL94TP}
+- [face masks (CPR)         ]{ext_am|B0784XJ75S}
+- [hemostatic dressings     ]{ext_am|B00HJTH5L2}
+- [medical ID cards         ]{ext_am|B003VVQ83I}
+- [microfiber cloths        ]{ext_am|B07HRCDDL1}
+- [nitrile gloves           ]{ext_am|B004BR8KB4}
+- [protective glassses      ]{ext_am|B01KGJTAQ4}
+- [reflective blankets      ]{ext_am|B00DZ1NFSK}
+- [rolled splints           ]{ext_am|B001J5H92C}
+- [tourniquets              ]{ext_am|B06XD55992}
+- [trauma kit]{https://www.galls.com/elite-first-aid-tactical-trauma-kit}
+'''
+
+[ zoo ]
+
+  snippets    = '...'

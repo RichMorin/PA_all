@@ -10,7 +10,7 @@
 
   f_authors   = 'cat_peo|Rich_Morin'
   f_editors   = 'cat_peo|Rich_Morin'
-  see_also    = 'con_ove|PP_VOISS_Power, con_how|PP_VOISS_UpTime_UPS'
+  see_also    = 'con_ove|PP_VOISS_Power, con_ove|PP_VOISS_UpTime_UPS'
 
 [ about ]
 
@@ -69,23 +69,12 @@ of issues and pitfalls associated with purchasing 18650 batteries.
 [Alchemy Power]{http://alchemy-power.com}'s Pi-UpTime UPS 2.0
 is designed to work with full-size Raspberry Pi computers.
 It holds two (e.g., 3600 mAh) 18650 Lithium-ion cells, wired in parallel.
-Consequently, it can run on one cell (with reduced battery lifetime).
-The unit can also be used with Lithium iron phosphate
-([LiFePO4]{ext_wp|Lithium_iron_phosphate_battery}) batteries.
+This is a substantial amount of capacity, making this unit attractive
+for a system that will be used heavily on battery power and/or
+left in an idle state for many hours at a time.
 
-The HAT contains a [TLA 202X]{https://www.ti.com/lit/ds/symlink/tla2024.pdf}.
-This is a four-channel 12-bit analog to digital converter
-([ADC]{ext_wp|Analog-to-digital_converter}) which monitors battery temperature,
-as well as the input, output, and battery voltages.
-A set of [Python]{ext_wp|Python_(programming_language)} scripts
-is available to use this data.
-I haven't had a chance to read or try out this code,
-but I presume that it's a reasonable starting point for shutdown logic.
-
-I'm currently in the process of setting up a VOISS system,
-incorporating this board.
-For details, see the (WIP!)
-[VOISS HowTo - Pi-UpTime UPS 2.0]{PP_VOISS_UpTime_UPS}.
+I've been setting up a prototype VOISS system, incorporating this board.
+For details, see [VOISS - Pi-UpTime UPS 2.0]{con_ove|PP_VOISS_UpTime_UPS}.
 
 #### [Vetco PI-UPTIMEUPS
      ]{https://vetco.net/products/uninterruptible-power-supply-ups-hat-
@@ -178,8 +167,11 @@ So far, very little technical information is available for it.
 Again, YMMV...
 
 #### [VILROS PiJuice HAT
-     ]{https://vilros.com/products/pijuice-hat-a-portable-power-platform-for-every-raspberry-pi?variant=29427567558750
-       &currency=USD&gclid=CjwKCAjwlovtBRBrEiwAG3XJ-_Qrn8gYxWqsmPP4H_W14cYABvFbrXViL0siSN19mRwnI1p8qC1lOxoCir4QAvD_BwE}
+     ]{https://vilros.com/products/
+       pijuice-hat-a-portable-power-platform-for-every-raspberry-pi
+       ?variant=29427567558750&currency=USD
+       &gclid=CjwKCAjwlovtBRBrEiwAG3XJ-_Qrn8gYxWqsmPP4H_W14cYABvFbrXViL
+       0siSN19mRwnI1p8qC1lOxoCir4QAvD_BwE}
 
 This HAT costs $70.
 It contains a flat, 1820 mAh Lithium-ion battery

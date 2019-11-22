@@ -16,7 +16,6 @@
   precis      = "slides for a lightning talk on Pete's Alley"
 
   verbose     = '''
-I'm planning to give a lightning talk on Pete's Alley at the
-[Erlang & Elixir SF]{https://www.meetup.com/ErlangElixirSF} meetup
-on November 19, 2019.
+Here are some slides I prepared in November 2019
+for a proposed lightning talk on Pete's Alley.
 '''

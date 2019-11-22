@@ -19,7 +19,9 @@
   <%= fmt_precis(about.precis) %>
   
   <%= if see_also do %>
-    <%= fmt_ref(:see_also, see_also) %>
+    <div class="no_print">
+      <%= fmt_ref(:see_also, see_also) %>
+    </div>
   <% end %>
 
   <%= fmt_section(@item, [:about, :verbose]) %>

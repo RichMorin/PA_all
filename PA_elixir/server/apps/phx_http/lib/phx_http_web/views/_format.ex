@@ -100,7 +100,7 @@ defmodule PhxHttpWeb.View.Format do
     end
 
     common  = """
-    <div class="path">
+    <div class="no_print">
       <b>Path:</b>&nbsp;
       <a href="/area"
          title="#{ title_fn.("Areas") }"

@@ -21,19 +21,21 @@ including their friends, relatives, and other supporters.
 It indexes and reviews resources, provides a curated channel
 for long-form communication (e.g., articles, howtos), etc.
 
-### Motorcycle Pages (2019.10)
+### Advice to New Users
 
-When [Rich Morin]{cat_peo|Rich_Morin} isn't working
-on projects such as Pete's Alley and Perkify,
-he likes to ride his motorcycle (a 1983 BMW R80ST)
-into the hills around the San Francisco Bay Area.
-Here are a couple of pages that may be of interest to other riders:
+This web site is still a prototype, so some problems are to be expected.
+Please report any errors or accessibility issues you encounter,
+using the Feedback link at the end of the affected page.
+This will alert us to problems, so that they can be addressed.
+More generally, before trying to make serious use of the web site,
+please skim the [About]{_text/about.toml} and [Usage]{_text/usage.toml} pages.
+They should help you to avoid confusion and get up to speed quickly.
 
-- [Crash Scene Field Reference]{con_ove|MC_Crash_Scene}
+### Noteworthy Content
 
-- [R80ST Modifications]{con_ove|MC_R80ST_Mods}
+Here are some brief notes about noteworthy content on the site.
 
-### VOISS Pages (2019.10)
+#### VOISS - an economical talking computer
 
 [VOISS]{con_ove|PP_VOISS_Index} has released
 an open source design for an economical talking computer
@@ -43,11 +45,12 @@ using open source software and readily-available hardware components.
 In an effort to encourage uptake of this platform,
 [Rich Morin]{cat_peo|Rich_Morin} has created several
 [Overview]{con_ove|:a} pages and a start on a [HowTo]{con_how|PP_VOISS_HowTo}.
+For details, see the VOISS [index page]{con_ove|PP_VOISS_Index}.
 
-### Announcing Perkify (2019.09)
+#### Perkify - a blind-friendly virtual machine
 
-[Rich Morin]{cat_peo|Rich_Morin} has put together
-an early release of [Perkify]{con_ove|PP_Perkify_Intro},
+[Rich Morin]{cat_peo|Rich_Morin} has put together and published
+some early releases of [Perkify]{con_ove|PP_Perkify_Intro},
 a blind-friendly [virtual machine]{ext_wp|Virtual_machine}
 for use on [personal computers]{ext_wp|Personal_computer}.
 Based on [Ubuntu]{ext_wp|Ubuntu}, [Vagrant]{ext_wp|Vagrant_(software)},
@@ -55,30 +58,14 @@ and [VirtualBox]{ext_wp|VirtualBox},
 Perkify can be used on most 64-bit Intel platforms
 (e.g, [Linux]{ext_wp|Linux}, [macOS]{ext_wp|MacOS},
 [Windows]{ext_wp|Microsoft_Windows}).
-The initial distribution contains about 2500
-[open source]{ext_wp|Open_source}
-[packages]{con_ove|PP_Perkify_Pkg_List},
-mostly installed via
-[Debian]{ext_wp|Debian}'s
-Advanced Package Toolkit ([APT]{ext_wp|APT_(Package_Manager)}).
+For details, see the Perkify [introduction]{con_ove|PP_Perkify_Intro}.
 
-Although most of the commands should Just Work,
-the accessibility-related packages clearly need to be tested.
-Some (e.g., BRLTTY, Orca) will need configuration and/or porting.
-There are also several programs (e.g., Emacspeak, The vOICe)
-which were left out because they lack APT installation packages.
-If this effort sounds intriguing,
-please [check it out]{con_ove|PP_Perkify_Intro}!
+#### Motorcycle-related Resources
 
-### Advice to New Users
-
-This web site is an early prototype, in limited public release.
-So, some problems are to be expected.
-Please report any errors or accessibility issues you encounter,
-using the Feedback link at the end of the affected page.
-This will alert us to problems, so that they can be addressed.
-
-More generally, before trying to make serious use of the web site,
-please skim the [About]{_text/about.toml} and [Usage]{_text/usage.toml} pages.
-They should help you to avoid confusion and get up to speed quickly.
+When [Rich Morin]{cat_peo|Rich_Morin} isn't working
+on projects such as Pete's Alley and Perkify,
+he likes to ride his motorcycle (a 1983 BMW R80ST)
+into the hills around the San Francisco Bay Area.
+He has also written up some pages that may be useful to other riders.
+For details, see the [index page]{con_ove|MC_Index}.
 '''
