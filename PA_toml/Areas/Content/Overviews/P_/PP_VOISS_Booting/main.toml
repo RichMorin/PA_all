@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_VOISS_Booting'
-  title       = "VOISS - Booting"
+  title       = 'VOISS - Booting'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "thoughts on the booting of VOISS systems"
+  precis      = 'thoughts on the booting of VOISS systems'
 
   verbose     = '''
 The [Raspberry Pi]{ext_wp|Raspberry_Pi} 3 Model B+ (aka 3B+)

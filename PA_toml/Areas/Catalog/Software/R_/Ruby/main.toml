@@ -1,0 +1,45 @@
+# cat_sof|Ruby/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Ruby'
+  title       = 'Ruby'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'open source'
+  roles       = 'application, programming language'
+
+[ about ]
+
+  precis      = 'a popular, elegant programming language'
+
+  verbose     = '''
+> Ruby is an interpreted, high-level, general-purpose programming language.
+It was designed and developed in the mid-1990s by Yukihiro "Matz" Matsumoto
+in Japan.
+
+> Ruby is dynamically typed and uses garbage collection.
+It supports multiple programming paradigms,
+including procedural, object-oriented, and functional programming.
+According to the creator, Ruby was influenced by Perl, Smalltalk, Eiffel,
+Ada, Basic, and Lisp.
+
+> -- [$url]{ext_wp|Ruby_(programming_language)}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Ruby_(programming_language)'
+
+[ address.web_site ]
+
+  about       = 'main|/about'
+  main        = 'http://www.ruby-lang.org/en'

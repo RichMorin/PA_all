@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_VOISS_Power_Mgmt'
-  title       = "VOISS - Power Management"
+  title       = 'VOISS - Power Management'
 
 [ meta.refs ]
 
@@ -19,7 +19,7 @@ con_ove|PP_VOISS_UpTime_UPS,
 
 [ about ]
 
-  precis      = "a discursion on VOISS power management"
+  precis      = 'a discursion on VOISS power management'
 
   verbose     = '''
 If you're running a Raspberry Pi 3B+ from an adequate power supply
@@ -114,10 +114,10 @@ It may also be possible to disable or suspend some when the RasPi is idling.
 #### HDMI (off)
 
 The typical VOISS user will not be using an HDMI monitor.
-HDMI can be disabled by a line in `/etc/rc.local`:
+This interface can be disabled by a line in `/etc/rc.local`:
 
-    /usr/bin/tvservice -o (disable)
-    /usr/bin/tvservice -p (enable)
+    /usr/bin/tvservice -o   # disable
+    /usr/bin/tvservice -p   # enable
 
 Q: Can this setting be changed at runtime?  How?
 

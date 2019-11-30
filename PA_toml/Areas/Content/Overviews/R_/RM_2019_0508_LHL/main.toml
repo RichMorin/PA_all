@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'RM_2019_0508_LHL'
-  title       = "LightHouse Labs talk, 2019.0508"
+  title       = 'LightHouse Labs talk, 2019.0508'
 
 [ meta.refs ]
 

@@ -1,0 +1,16 @@
+# cat_sof|Tcl/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/tcl'
+  upstream    = 'http://tcl.sourceforge.net'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/tcl'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'tcl'

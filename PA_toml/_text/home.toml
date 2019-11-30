@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'home'
-  title       = "Welcome!"
+  title       = 'Welcome!'
 
 [ meta.refs ]
 

@@ -39,7 +39,7 @@ Videos with subtitles can be accessed directly through our Courses with
 Subtitled Audio/Video list.
 '''
 
-  precis      = "provides free and open material from thousands of courses"
+  precis      = 'provides free and open material from thousands of courses'
 
   verbose     = '''
 > OCW is a free and open publication of material from thousands of MIT

@@ -25,7 +25,7 @@ in accessible and inclusive web design.
 See [Pete's Alley - Accessibility]{con_voe|PA_Accessibility} for details.
 '''
 
-  precis      = "an online resource for the disabled community"
+  precis      = 'an online resource for the disabled community'
 
   verbose     = '''
 > This site is an online resource for the disabled community,

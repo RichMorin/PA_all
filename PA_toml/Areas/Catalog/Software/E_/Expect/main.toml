@@ -1,0 +1,48 @@
+# cat_sof|Expect/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Expect'
+  title       = 'Expect'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  licenses    = 'open source'
+  requires    = 'Tcl'
+  roles       = 'programming support'
+  supports    = 'programming'
+
+[ about ]
+
+  precis      = 'tool for automating interactive terminal sessions'
+
+  verbose     = '''
+> Expect is a tool for automating interactive applications
+such as telnet, ftp, passwd, fsck, rlogin, tip, etc.
+Expect really makes this stuff trivial.
+Expect is also useful for testing these same applications.
+And by adding Tk, you can also wrap interactive applications in X11 GUIs.
+
+> Expect can make easy all sorts of tasks
+that are prohibitively difficult with anything else.
+You will find that Expect is an absolutely invaluable tool -
+using it, you will be able to automate tasks
+that you've never even thought of before -
+and you'll be able to do this automation quickly and easily.
+
+> -- [$url]{https://core.tcl-lang.org/expect/index}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Expect'
+
+[ address.web_site ]
+
+  main        = 'https://core.tcl-lang.org/expect/index'

@@ -43,7 +43,7 @@ meta, meta.actions, meta.id_str, meta.refs
   interfaces  = 'ways to access or use this item'
   licenses    = 'licenses imposed by this item'
   miscellany  = 'miscellaneous tags for this item'
-  produces    = "types of things this item produces"
+  produces    = 'types of things this item produces'
   products    = "trade names of this item's products"
   replaces    = 'things that this item could replace'
   requires    = 'commands, libraries, etc.'

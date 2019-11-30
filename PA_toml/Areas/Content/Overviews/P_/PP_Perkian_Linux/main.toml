@@ -1,0 +1,125 @@
+# con_ove|PP_Perkian_Linux/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'PP_Perkian_Linux'
+  title       = 'Perkian - Linux'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'notes on Linux, Perkian, Perkify, and VOISS'
+
+  verbose     = '''
+[Linux]{ext_wp|Linux} plays a vital role in
+[Perkian]{con_ove|PP_Perkian_Intro},
+[Perkify]{con_ove|PP_Perkify_Intro}, and
+[VOISS]{con_ove|PP_VOISS_Intro}.
+This note provides some useful background
+(e.g., "Why Linux?", "Which Linux?").
+
+### Why Linux?
+
+Linux is certainly not the most popular
+[operating system]{ext_wp|Operating_system} among blind users;
+that would be [Microsoft Windows]{ext_wp|Microsoft_Windows}.
+Nor is it the most accessible OS;
+that might arguably be be [macOS]{ext_wp|MacOS}.
+So, why are we choosing Linux as the basis
+for [Perkian]{con_ove|PP_Perkian_Intro}
+and [Perkify]{con_ove|PP_Perkify_Intro}?
+
+We're glad you asked (:-).
+The primary reason has to do with legal restrictions and cost.
+Because Linux is both *libre* and *gratis*,
+we can obtain, modify, and redistribute it without paying fees to anyone.
+This frees us to make any desired changes and give the result away.
+
+A related reason has to do with the relationship between Linux
+and the rest of the [open source]{ext_wp|Open_source} software community.
+Although free and open source software can be ported to other systems,
+it is generally developed on and for Linux.
+So, more packages are readily available and things (typically) Just Work.
+
+The lineage of Linux also plays a part.
+Because it was strongly inspired by [Unix]{ext_wp|Unix},
+Linux shares that system's orientation towards text-based tooling.
+Administrative functions can all be performed on the command line
+and/or by editing text files.
+The base Linux distribution has a wealth of text-based commands
+and add-on packages provide even more.
+Although text-based packages are not always accessible to the blind,
+they have a far better chance of being so than GUI-based apps.
+
+Finally, although there are a variety of window managers for Linux systems,
+they are all based on the [X Window System]{ext_wp|X_Window_System} (aka X11).
+Unlike the native window managers in macOS and Microsoft Windows,
+X11 is designed to be used in a distributed fashion,
+with clients and servers running on isolated machines.
+This is particularly relevant to Perkify.
+A (sighted) user can run GUI-based applications
+on the Perkify [virtual machine]{ext_wp|Virtual_machine}
+and access them on the host platform.
+
+### Which Linux?
+
+> Almost six hundred Linux distributions exist,
+with close to five hundred out of those in active development.
+
+> [$url]{ext_wp|Linux_distribution}
+
+Although these distributions are all based
+on a common [kernel]{ext_wp|Linux_kernel},
+they vary markedly in terms of popularity,
+what other software they include,
+how (and how often) updates are released,
+which [instruction set architectures]{ext_wp|Instruction_set_architecture}
+they support, etc.
+
+Although this might seem overwhelming on first inspection,
+these variations provide useful criteria
+for projects trying to decide on a base distribution.
+For example:
+
+- Popular distributions have more support,
+  in terms of add-on packages, documentation, etc.
+
+- Some distributions target cautious, naive users;
+  others target experienced, adventurous ones.
+
+- The distribution needs to support the target hardware
+  (e.g., architecture, devices, interfaces).
+
+- The expected users may prefer infrequent, stable releases
+  over (say) [rolling releases]{ext_wp|Rolling_release}.
+
+#### Examples
+
+F123Light (used by VOISS) is based on
+[Arch Linux ARM]{ext_wp|Arch_Linux_ARM},
+a variant of [Arch Linux]{ext_wp|Arch_Linux}
+for the [ARM architecture]{ext_wp|ARM_architecture}
+(as used in [Raspberry Pi]{ext_wp|Raspberry_Pi} systems).
+Although Arch Linux tends to target experienced users,
+F123Light adds a "talking", menu-based interface
+which caters to the needs of blind, naive users.
+
+Perkify is based on the [X86-64]{ext_wp|X86-64} variant
+of [Ubuntu]{ext_wp|Ubuntu},
+a very popular distribution which targets casual users.
+Ubuntu, in turn, is based on [Debian]{ext_wp|Debian},
+whose Advanced Package Tool ([APT]{ext_wp|APT_(software)})
+is well respected (and supported by over 25,000 packages).
+Ubuntu releases occur every six months
+and are based (with additional integration and testing)
+on Debian's so-called "unstable" branch.
+'''
+
+[ zoo ]
+
+  snippets    = '...'

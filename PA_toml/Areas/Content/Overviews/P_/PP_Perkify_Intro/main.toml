@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkify_Intro'
-  title       = "Perkify - Introduction"
+  title       = 'Perkify - Introduction'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "introduction to Perkify (VM-based Perkian)"
+  precis      = 'introduction to Perkify (VM-based Perkian)'
 
   verbose     = '''
 Perkify provides a convenient and unintrusive way

@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "processing presentation videos into DAISY"
+  precis      = 'processing presentation videos into DAISY'
 
   verbose     = '''
 Presentation videos typically contain inaccessible content.

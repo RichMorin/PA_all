@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkify_APT'
-  title       = "Perkify - APT"
+  title       = 'Perkify - APT'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "introduction to APT usage on Perkify"
+  precis      = 'introduction to APT usage on Perkify'
 
   verbose     = '''
 Most of Perkify's added [packages]{con_ove|PP_Perkify_Pkg_List} are installed

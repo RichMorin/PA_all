@@ -4,7 +4,7 @@
 
   actions     = 'build, publish'
   id_str      = 'Jupyter'
-  title       = "Jupyter"
+  title       = 'Jupyter'
 
 [ meta.refs ]
 

@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkian_Chef'
-  title       = "Perkian - Chef"
+  title       = 'Perkian - Chef'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "notes on using Chef to implement Perkian"
+  precis      = 'notes on using Chef to implement Perkian'
 
   verbose     = '''
 Our current prototyping path (known as [Perkify]{con_ove|PP_Perkify_Intro})

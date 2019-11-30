@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_VOISS_Power_HATs'
-  title       = "VOISS - Power HATs"
+  title       = 'VOISS - Power HATs'
 
 [ meta.refs ]
 
@@ -14,7 +14,7 @@
 
 [ about ]
 
-  precis      = "a discursion on USB power HATs"
+  precis      = 'a discursion on USB power HATs'
 
   verbose     = '''
 A variety of Hardware Attached on Top

@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkify_Wish_List'
-  title       = "Perkify - Wish List"
+  title       = 'Perkify - Wish List'
 
 [ meta.refs ]
 
@@ -19,7 +19,7 @@ con_ove|PP_Perkify_Pkg_List
 
 [ about ]
 
-  precis      = "an informal wish list for Perkify packages"
+  precis      = 'an informal wish list of packages for Perkify'
 
   verbose     = '''
 This page lists some packages that might be nice to put into Perkify.

@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_VOISS_Intro'
-  title       = "VOISS - Introduction"
+  title       = 'VOISS - Introduction'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "an overview of the VOISS project"
+  precis      = 'an overview of the VOISS project'
 
   verbose     = '''
 VOISS (formerly F123) was started by

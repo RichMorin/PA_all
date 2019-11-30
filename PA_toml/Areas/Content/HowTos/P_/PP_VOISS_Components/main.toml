@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_VOISS_Components'
-  title       = "VOISS HowTo - Components"
+  title       = 'VOISS HowTo - Components'
 
 [ meta.refs ]
 

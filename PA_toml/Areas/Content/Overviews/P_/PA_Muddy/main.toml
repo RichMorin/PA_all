@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "an overview of the Muddy Map Explorer"
+  precis      = 'an overview of the Muddy Map Explorer'
 
   verbose     = '''
 The Muddy Map Explorer ([Muddy]{http://wiki.cfcl.com/Projects/Muddy/WebHome})

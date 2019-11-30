@@ -13,7 +13,8 @@ defmodule InfoToml.CheckTree do
   This module runs tests on a prospective toml_map.
   """
 
-  import Common, only: [ csv_split: 1, ii: 2, sort_by_elem: 3, ssw: 2 ]
+  import Common, only:
+    [ csv_split: 1, fmt_list: 1, ii: 2, sort_by_elem: 3, ssw: 2 ]
 
   alias InfoToml.Schemer
   alias InfoToml.Types, as: ITT
@@ -92,6 +93,10 @@ defmodule InfoToml.CheckTree do
     #
     # Return true if the id_str has been used more than once.
 
+    map_fn      = fn {id_str, _keys} -> id_str end
+    #
+    # Return the id_str from each tuple.
+
     dup_list    = toml_map.items    # Get all items in the TOML map.
     |> Enum.reject(reject_fn)       # Reject some ancillary files.
     |> Enum.reduce(%{}, reduce_fn)  # Build a map of id_str usage.
@@ -101,7 +106,8 @@ defmodule InfoToml.CheckTree do
     if Enum.empty?(dup_list) do
       { :ok, "" }
     else
-      message = "problematic duplication(s) of id_str"
+      dup_fmt   = dup_list |> Enum.map(map_fn)
+      message   = "id_str(s) duplicated: #{ dup_fmt }"
       IO.puts ">>> #{ message }\n"
       ii(dup_list, "dup_list") #!T
       IO.puts ""
@@ -181,11 +187,13 @@ defmodule InfoToml.CheckTree do
     |> Enum.reduce([], wanted_fn)     # Get a list of "wanted" item keys.
     |> Enum.uniq()                    # Discard duplicate keys.
     |> Enum.reject(defined_fn)        # Discard defined keys.
+    |> Enum.sort()                    # Produce a sorted list.
 
     if Enum.empty?(undef_list) do
       { :ok, "" }
     else
-      message = "reference to undefined item"
+      undef_fmt = fmt_list(undef_list)
+      message = "undefined item(s) referenced: #{ undef_fmt }"
       IO.puts ">>> #{ message }\n"
       ii(undef_list, :undef_list) #!T
       IO.puts ""

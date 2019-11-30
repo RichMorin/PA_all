@@ -25,12 +25,12 @@
   precis      = 'a blind-friendly live Linux distribution'
 
   verbose     = '''
-> Grml provides an excellent selection of software packages for installation,
-deployment, and system rescue.
+> Grml provides an excellent selection of software packages
+for installation, deployment, and system rescue.
 You'll get sysadmin's favourite tools.
 Choose between a x86 and an amd64 version depending on your needs
 or just grab the multiboot ISO grml96,
-providing 64bit and 32bit ISOs in one single place.
+providing 64-bit and 32-bit ISOs in one single place.
 
 Grml provides several scripts and utils which make life easier.
 The default interactive shell is Zsh

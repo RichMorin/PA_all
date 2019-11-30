@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'EE_Typespecs'
-  title       = "Elixir, etc. - Typespecs"
+  title       = 'Elixir, etc. - Typespecs'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "introduction to Typespecs, Dialyzer, etc."
+  precis      = 'introduction to Typespecs, Dialyzer, etc.'
 
   verbose     = '''
 This page is an introduction to the use of

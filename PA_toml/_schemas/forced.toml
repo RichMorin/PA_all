@@ -15,8 +15,10 @@
 
 [ urls ]
 
+  code_401    = 'Unauthorized'
   code_403    = 'Forbidden'
   code_404    = 'Not Found'
+  code_405    = 'Method Not Allowed'
   code_410    = 'Gone'
   code_500    = 'Internal Server Error'
   code_502    = 'Bad Gateway'
@@ -24,6 +26,7 @@
   code_999    = 'LinkedIn filter'
 
   closed      = '?'
+  error       = '?'
   invalid_redirection   = '?'
   max_redirect_overflow = '?'
   nxdomain    = 'non-existent domain'

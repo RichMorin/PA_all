@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkify_Search'
-  title       = "Perkify - Search"
+  title       = 'Perkify - Search'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "introduction to searching for Perkify commands"
+  precis      = 'introduction to searching for Perkify commands'
 
   verbose     = '''
 Once you have gained SSH access to Perkify

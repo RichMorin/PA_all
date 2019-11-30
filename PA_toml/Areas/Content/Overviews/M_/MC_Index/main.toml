@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'MC_Index'
-  title       = "MC - Index"
+  title       = 'MC - Index'
 
 [ meta.refs ]
 
@@ -13,11 +13,14 @@
 
 [ about ]
 
-  precis      = "informal index of pages related to motorcycling"
+  precis      = 'informal index of pages related to motorcycling'
 
   verbose     = '''
 This is an informal, hand-edited index of pages on Pete's Alley
 that are related to motorcycling.
+
+- [A Mirror Bagatelle
+  ]{con_ove|MC_Bagatelle}
 
 - [Crash Scene Field Reference
   ]{con_ove|MC_Crash_Scene}

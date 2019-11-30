@@ -11,7 +11,7 @@
 
 [ os.debian ]
 
-  package     = 'debian_pkgs|buster/gnome'
+  package     = 'debi_pkgs|buster/gnome'
   wiki        = 'https://wiki.debian.org/Gnome'
   # Debian Stretch includes GNOME 3.22.
 

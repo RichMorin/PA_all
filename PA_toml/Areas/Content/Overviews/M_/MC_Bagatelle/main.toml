@@ -1,0 +1,157 @@
+# con_ove|MC_Bagatelle/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'MC_Bagatelle'
+  title       = 'A Mirror Bagatelle'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'con_ove|MC_R80ST_Mods'
+
+[ about ]
+
+  precis      = 'mirror modifications on a BMW R80ST'
+
+  verbose     = '''
+This note describes a series of modifications I've made
+to the mirrors on my BMW R80ST motorcycle.
+
+> bagatelle noun (SMALL AMOUNT)
+
+> something, especially an amount of money, that is small and not important:<br>
+A thousand pounds is a mere bagatelle to him.
+
+> -- [$url]{https://dictionary.cambridge.org/us/dictionary/english/bagatelle}
+
+Many motorcyclists seem to consider mirrors
+to be a minor (i.e., "small and not important") consideration.
+And, if they're always driving faster than everyone around them,
+this may be largely true.
+However, as a slow-riding geezer, I like to be able to see what may be
+coming up behind me.
+So, I've played around with a variety
+of rear-view mirrors and mounting approaches.
+
+### The Stock Setup
+
+The R80ST's mounting arrangements for mirrors consist of two holes,
+located next to the bases of the brake and clutch levers.
+These holes were originally used to mount a pair of circular, flat mirrors,
+about 4" in diameter.
+Although the (10 mm) holes are threaded,
+the stock mirrors did not take advantage of this.
+Instead, their (8 mm) shafts went through the holes and
+met a lock washer and a lock nut on the other (bottom) side.
+This seems a bit hacky for the exalted Bayerische Motoren Werke
+([BMW]{ext_wp|BMW}), but it's actually a perfectly serviceable approach.
+
+### The Napoleonic Era
+
+That said, I soon replaced the stock mirrors
+with some that were convex, larger, and rectangular.
+These let me see more of my surroundings without the need
+to move my head into a particular position.
+Some black plastic mirrors (about 3.5" x 5"), made by Napoleon,
+served me well for many years.
+Over time, however, the mirrors became difficult to adjust.
+In addition, there were some emerging maintenance issues.
+Because these mirrors _did_ use the threaded holes,
+removing them required swiveling them through the space now occupied
+by my windscreen, etc.
+
+So, I recently started looking around for another solution.
+I wasn't sure what the end result would be,
+so I decided to try some inexpensive experiments.
+[eBay]{ext_wp|EBay} has a lot of overseas vendors
+who offer inexpensive products, particularly if one isn't in a big hurry.
+So, that's where I've been shopping...
+
+### Degrees of Freedom
+
+I began with an inexpensive and very promising
+[pair of mirrors]{ext_eb|332731623129}.
+They have several adjustable joints and I was particularly pleased
+by the multiple degrees of freedom (4) this offered.
+Unfortunately, the actual mirrors aren't what I wanted.
+The bodies are pointy and small; the lenses are flat, rather than convex.
+I inquired about alternative mirror bodies
+and was told (basically) that there weren't any.
+
+So, I thought about ways to improve the situation.
+I could probably fashion an adaptor (or even new mirror bodies!)
+using [SketchUp]{ext_wp|SketchUp} and some [3D printing]{ext_wp|3D_printing}.
+However, I don't really want to work that hard
+and there's no guarantee that I'd be pleased with the result.
+Also, although the design is extremely adjustable,
+it also seems to *need* frequent adjustments.
+So, I've decided to call this an educational experiment and move on.
+
+My current experiment is based on another inexpensive
+[pair of mirrors]{https://www.ebay.com/itm/254368741753}.
+These are largish, convex, and roughly rectangular in shape.
+The production values aren't going to win any awards,
+but they seem to be quite servicable and well worth what I paid for them.
+In fact, I just ordered a second pair, to keep as spares.
+
+### Details, Take 1
+
+Working out how to mount these mirrors has been an ongoing design project.
+I wanted a flexible approach that would make maintenance convenient
+(e.g., no need to remove the windshield).
+I also liked the idea of raising things away from the controls.
+My solution was to raise the mounts up on a pair of long bolts.
+I'm quite pleased with this approach and am still using it,
+albeit with some slight modifications along the way.
+
+Specifically, I'm using a pair of 120 mm long metric bolts.
+A nut and a lock washer at the bottom of each bolt
+keep it firmly attached to the bike.
+Near the top of the bolt, another nut and a spring washer
+provide an adjustable "platform" for mounting mirrors.
+
+My first pair of eBay mirrors were "universal",
+designed to mount by means of a metal ring and a bolt.
+So, I was able to mount each ring near the top of the long bolt.
+Conveniently, this also allowed another degree of freedom,
+because the ring (and thus the entire mirror assembly)
+could now be rotated around the bolt.
+
+*Note:*
+The threads on readily available bolts don't come all the way to the heads,
+where I wanted to attach the mirrors.
+So, I extended the threads, using a [die]{ext_wp|Tap_and_die},
+elbow grease, and a lot of oil.
+If you know of a convenient and economical source of fully threaded bolts,
+let me know and I'll mention it here...
+
+### Details, Take 2
+
+My second pair of eBay mirrors mount by means of a threaded shaft.
+Building on the approach taken with the first pair of mirrors,
+I fashioned a pair of steel [mezzanine]{ext_wp|Mezzanine} plates.
+These are rectangular, 1/4" thick, and about 1" by 2" in size.
+Each plate has holes for the bolt and the mirror shaft.
+So, each plate can be rotated into the desired position;
+the mirror can then be set and tightened up to taste.
+
+My first try at using this capability puts the base of each mirror's shaft
+about an inch forward (toward the front of the bike) from the bolt.
+This keeps it out of the way of the front brake reservoir, etc.
+As an experiment, I'm hanging the mirrors down from their swivel mounts.
+This keeps them from extending out to the sides past the handlebars,
+but I won't know how well I'll like this orientation until I try it out.
+
+Even if I decide that I don't like these mirrors at all,
+I'm now in a position to try out other mirrors with very little hassle.
+The "bolt and mezzanine platform" approach will let me install
+pretty much any pair of mirrors I want, in just a few minutes.
+Stay tuned...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

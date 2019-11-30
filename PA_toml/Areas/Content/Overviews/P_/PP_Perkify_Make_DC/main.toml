@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkify_Make_DC'
-  title       = "Perkify - Making Docker Containers"
+  title       = 'Perkify - Making Docker Containers'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "notes on making Docker-based Perkify containers"
+  precis      = 'notes on making Docker-based Perkify containers'
 
   verbose     = '''
 This page describes the current procedure
@@ -30,8 +30,8 @@ For general information, see
 ### Background
 
 The `Perkify/_base` file tree contains two sets of files
-([make]{ext_rm|PA_all/tree/master/PP_docker/Perkify/_base/make}, 
- [ship]{ext_rm|PA_all/tree/master/PP_docker/Perkify/_base/ship}):
+([make]{ext_rm|PA_all/tree/master/PP_Perkify/Docker/basis/make}, 
+ [ship]{ext_rm|PA_all/tree/master/PP_Perkify/Docker/basis/ship}):
 
     make/             used in making the image
     | add_ons         installs add-on packages

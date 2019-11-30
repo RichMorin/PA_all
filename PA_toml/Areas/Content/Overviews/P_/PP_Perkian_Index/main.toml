@@ -4,20 +4,28 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkian_Index'
-  title       = "Perkian - Index"
+  title       = 'Perkian - Index'
 
 [ meta.refs ]
 
   f_authors   = 'cat_peo|Rich_Morin'
   f_editors   = 'cat_peo|Rich_Morin'
 
+  see_also    = '''
+con_ove|PP_Perkify_Index,
+con_ove|PP_VOISS_Index,
+'''
+
 [ about ]
 
-  precis      = "informal index of pages related to Perkian"
+  precis      = 'informal index of pages related to Perkian'
 
   verbose     = '''
-This is an informal, hand-edited index of pages on Pete's Alley
-that are related to Perkian, Perkify, etc.
+This is an informal, hand-edited index
+of pages on Pete's Alley that are related to the
+[Perkian]{con_ove|PP_Perkian_Intro} Project.
+The [Perkify]{con_ove|PP_Perkify_Intro} and
+[VOISS]{con_ove|PP_VOISS_Intro} sub-projects have their own indexes.
 
 ### Perkian
 
@@ -41,71 +49,9 @@ that are related to Perkian, Perkify, etc.
   ]{con_ove|PP_Perkian_Intro}</br>
   introduction to the Perkian Project
 
-### Perkify
-
-- [Perkify - APT
-  ]{con_ove|PP_Perkify_APT}</br>
-  introduction to APT usage on Perkify
-
-- [Perkify - Configuration
-  ]{con_ove|PP_Perkify_Config}</br>
-  introduction to Perkify configuration
-
-- [Perkify - Docker
-  ]{con_ove|PP_Perkify_Docker}</br>
-  a technical overview of Docker-based Perkify
-
-- [Perkify - Install
-  ]{con_ove|PP_Perkify_Install}</br>
-  installation notes for Vagrant-based Perkify
-
-- [Perkify - Introduction
-  ]{con_ove|PP_Perkify_Intro}</br>
-  introduction to Perkify (VM-based Perkian)
-
-- [Perkify - Issues
-  ]{con_ove|PP_Perkify_Issues}</br>
-  summary of Perkify's known issues
-
-- [Perkify - Making Docker Containers
-  ]{con_ove|PP_Perkify_Make_DC}</br>
-  notes on making Docker-based Perkify containers
-
-- [Perkify - Making Vagrant Boxes
-  ]{con_ove|PP_Perkify_Make_VB}</br>
-  notes on making Vagrant-based Perkify boxes
-  
-- [Perkify - Manual
-  ]{con_ove|PP_Perkify_Manual}</br>
-  introduction to using the Perkify manual
-  
-- [Perkify - Package Index
-  ]{con_ove|PP_Perkify_Pkg_Index}</br>
-  topical index of Perkify's installed packages
-
-- [Perkify - Package List
-  ]{con_ove|PP_Perkify_Pkg_List}</br>
-  table of Perkify's installed packages
-
-- [Perkify - Pete's Alley
-  ]{con_ove|PP_Perkify_Petes_Alley}</br>
-  how Perkify works with Pete's Alley
-
-- [Perkify - Resources
-  ]{con_ove|PP_Perkify_Resources}</br>
-  resources for using Vagrant-based Perkify
-
-- [Perkify - Search
-  ]{con_ove|PP_Perkify_Search}</br>
-  introduction to searching for Perkify commands
-
-- [Perkify - Usage
-  ]{con_ove|PP_Perkify_Usage}</br>
-  usage notes for Vagrant-based Perkify
-
-- [Perkify - Wish List
-  ]{con_ove|PP_Perkify_Wish_List}</br>
-  an informal wish list for Perkify packages
+- [Perkian - Linux
+  ]{con_ove|PP_Perkian_Linux}</br>
+  notes on Linux, Perkian, Perkify, and VOISS
 
 ### Zoo
 

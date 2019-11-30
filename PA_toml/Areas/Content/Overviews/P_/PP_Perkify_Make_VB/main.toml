@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkify_Make_VB'
-  title       = "Perkify - Making Vagrant Boxes"
+  title       = 'Perkify - Making Vagrant Boxes'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "notes on making Vagrant-based Perkify boxes"
+  precis      = 'notes on making Vagrant-based Perkify boxes'
 
   verbose     = '''
 My current approach to making [Vagrant]{ext_wp|Vagrant_(software)}-based
@@ -215,7 +215,7 @@ on the VM.  These can be inspected for problems via `vagrant ssh`.
   ]{https://build.opensuse.org}
 
 - [Pale Moon Web Browser
-  ]{https://build.opensuse.org/project/show/home:stevenpusser] (OBS example)
+  ]{https://build.opensuse.org/project/show/home:stevenpusser} (OBS example)
 
 #### Packer
 

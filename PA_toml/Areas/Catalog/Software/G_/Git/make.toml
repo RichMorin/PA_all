@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'debian_pkgs|buster/git'
+  package     = 'debi_pkgs|buster/git'
 
 [ os.perkify_ubuntu ]
 

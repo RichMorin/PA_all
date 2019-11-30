@@ -32,16 +32,19 @@
     mv $base/bin $home
     $summ > $data/apt_summ.0
 
-    # Set up Ruby infrastructure.
+    # Set up some infrastructure.
 
     apt-get update;                 echo $bar
-    $summ > $data/apt_summ.1a
+    $summ > $data/apt_summ.update
+
+    apt-get -y install expect;      echo $bar
+    $summ > $data/apt_summ.expect
 
     apt-get -y install ruby-full;   echo $bar
-    $summ > $data/apt_summ.1b
+    $summ > $data/apt_summ.ruby-full
 
     gem install toml-rb;            echo $bar
-    $summ > $data/apt_summ.1c
+    $summ > $data/apt_summ.toml-rb
   ) >> $log 2>&1
 
   # Install APT packages, RubyGems, etc.

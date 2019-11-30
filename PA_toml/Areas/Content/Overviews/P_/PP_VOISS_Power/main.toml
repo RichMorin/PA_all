@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_VOISS_Power'
-  title       = "VOISS - Power"
+  title       = 'VOISS - Power'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "an overview of VOISS (etc) USB power handling"
+  precis      = 'an overview of VOISS (etc) USB power handling'
 
   verbose     = '''
 The [VOISS Classic]{con_ove|PP_VOISS_Intro} systems

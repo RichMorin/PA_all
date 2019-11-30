@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_AxAp_Readers'
-  title       = "AxAp - Screen Readers"
+  title       = 'AxAp - Screen Readers'
 
 [ meta.refs ]
 

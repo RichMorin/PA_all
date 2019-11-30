@@ -47,7 +47,7 @@ defmodule PhxHttpWeb.FormatViewTest do
     output    = fmt_path(test_key)
 
     test_out  = """
-    <div class="path">
+    <div class="no_print">
       <b>Path:</b>&nbsp;
       <a href="/area"
          title="Go to the Areas index page."

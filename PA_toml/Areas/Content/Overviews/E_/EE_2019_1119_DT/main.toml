@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'EE_2019_1119_DT'
-  title       = "Elixir, etc. - Dialyzer Talk (2019.1119)"
+  title       = 'Elixir, etc. - Dialyzer Talk (2019.1119)'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "a gentle introduction to Dialyzer and Typespecs"
+  precis      = 'a gentle introduction to Dialyzer and Typespecs'
 
   verbose     = '''
 I gave a short, introductory talk

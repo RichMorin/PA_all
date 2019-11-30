@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkify_Docker'
-  title       = "Perkify - Docker"
+  title       = 'Perkify - Docker'
 
 [ meta.refs ]
 

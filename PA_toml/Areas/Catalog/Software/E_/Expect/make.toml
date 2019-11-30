@@ -1,0 +1,16 @@
+# cat_sof|Expect/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/expect'
+  upstream    = 'http://www.nist.gov/el/msid/expect.cfm'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/expect'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'expect'

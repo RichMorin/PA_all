@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "splitting up an Elixir / Phoenix source code tree"
+  precis      = 'splitting up an Elixir / Phoenix source code tree'
 
   verbose     = '''
 I've been playing with splitting built and imported files out of a

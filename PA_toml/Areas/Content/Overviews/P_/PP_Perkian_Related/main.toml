@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkian_Related'
-  title       = "Perkian - Related Work"
+  title       = 'Perkian - Related Work'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "Perkian Project - Related Work"
+  precis      = 'Perkian Project - Related Work'
 
   verbose     = '''
 Most personal computer operating systems (e.g., [Linux]{ext_wp|Linux},

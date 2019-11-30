@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkify_Pkg_Index'
-  title       = "Perkify - Package Index"
+  title       = 'Perkify - Package Index'
 
 [ meta.refs ]
 
@@ -20,7 +20,7 @@
 This page categorizes the software
 that we explicitly install on [Ubuntu]{ext_wp|Ubuntu}
 while creating [Perkify]{con_ove|PP_Perkify_Intro}.
-See [Perkify - Package List]{PP_Perkify_Pkg_List} for a tabular presentation.
+See [Perkify - Package List]{con_ove|PP_Perkify_Pkg_List} for a tabular presentation.
 
 ### Categories
 

@@ -19,7 +19,7 @@ con_ove|PP_VOISS_UpTime_UPS,
 
 [ about ]
 
-  precis      = "notes on the PiJuice HAT"
+  precis      = 'notes on the PiJuice HAT'
 
   verbose     = '''
 The [PiJuice HAT
@@ -53,6 +53,9 @@ but it's possible that some accommodations can be made.  Stay tuned...
 
 - [PiJuice Quick Start Guide and FAQ
   ]{https://learn.pi-supply.com/make/pijuice-quick-start-guide-faq}
+
+- [PiJuice Software
+  ]{ext_gh|PiSupply/PiJuice/tree/master/Software}
 
 - [PiJuice - Short Case
   ]{https://uk.pi-supply.com/products/pijuice-short-case}

@@ -1,0 +1,16 @@
+# cat_sof|Ruby/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/ruby'
+  upstream    = 'https://www.ruby-lang.org/en'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/ruby-full'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'ruby-full'

@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkify_Audio'
-  title       = "Perkify - Audio Support"
+  title       = 'Perkify - Audio Support'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "introduction to audio support on Perkify"
+  precis      = 'introduction to audio support on Perkify'
 
   verbose     = '''
 Because Perkify runs as a [virtual machine]{ext_wp|Virtual_machine},

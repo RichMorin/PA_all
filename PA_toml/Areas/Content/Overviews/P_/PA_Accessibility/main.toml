@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "notes on our approach to accessibility"
+  precis      = 'notes on our approach to accessibility'
 
   verbose     = '''
 The goals of Pete's Alley do not require fancy layouts

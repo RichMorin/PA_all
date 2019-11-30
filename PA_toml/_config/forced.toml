@@ -11,13 +11,67 @@
 
   closed    = '?'
 
+# 401 Unauthorized
+
+  code_401  = 'https://build.opensuse.org'
+
 # 403 Forbidden
 
-  code_403  = 'https://lynx.invisible-island.net'
+  code_403  = '''
+https://distrowatch.com/table.php?distribution=sonar,
+https://distrowatch.com/table.php?distribution=sonar&pkglist=true&version=17.01-alpha#pkglist,
+https://distrowatch.com/dwres.php?resource=faq#distrostatus,
+https://lynx.invisible-island.net,
+'''
 
 # 404 Not Found
 
-  code_404  = '?'
+  code_404  = '''
+https://build.opensuse.org/project/show/home:stevenpusser,
+'''
+
+# 405 Method Not Allowed
+
+  #!K - we shouldn't have to list all these cases.
+
+  code_405  = '''
+https://www.amazon.com/gp/product/B000GZPH1G,
+https://www.amazon.com/gp/product/B001J5H92C,
+https://www.amazon.com/gp/product/B003VVQ83I,
+https://www.amazon.com/gp/product/B004BR8KB4,
+https://www.amazon.com/gp/product/B006FEPRO4,
+https://www.amazon.com/gp/product/B006X387ZS,
+https://www.amazon.com/gp/product/B00D3VH4IO,
+https://www.amazon.com/gp/product/B00DZ1NFSK,
+https://www.amazon.com/gp/product/B00HJTH5L2,
+https://www.amazon.com/gp/product/B00HS2V6G0,
+https://www.amazon.com/gp/product/B00MARDJZ4,
+https://www.amazon.com/gp/product/B0141Y4IRG,
+https://www.amazon.com/gp/product/B01D0Z9BCY,
+https://www.amazon.com/gp/product/B01DUY93XC,
+https://www.amazon.com/gp/product/B01F1PSFY6,
+https://www.amazon.com/gp/product/B01KGJTAQ4,
+https://www.amazon.com/gp/product/B01N25TJV3,
+https://www.amazon.com/gp/product/B06XD55992,
+https://www.amazon.com/gp/product/B06XWZWYVP,
+https://www.amazon.com/gp/product/B078135PHK,
+https://www.amazon.com/gp/product/B0784XJ75S,
+https://www.amazon.com/gp/product/B07CYNBNVW,
+https://www.amazon.com/gp/product/B07D7PDLXC,
+https://www.amazon.com/gp/product/B07HB67XK4,
+https://www.amazon.com/gp/product/B07HRCDDL1,
+https://www.amazon.com/gp/product/B07KK4WC46,
+https://www.amazon.com/gp/product/B07KYGZ6WC,
+https://www.amazon.com/gp/product/B07P614ZZ8,
+https://www.amazon.com/gp/product/B07Q8KBSMK,
+https://www.amazon.com/gp/product/B07QJ4YJ53,
+https://www.amazon.com/gp/product/B07R2D594Z,
+https://www.amazon.com/gp/product/B07SG5DK13,
+https://www.amazon.com/gp/product/B07TYQRXTK,
+https://www.amazon.com/gp/product/B07WJL94TP,
+https://www.amazon.com/gp/product/B07YF45H2X,
+https://www.amazon.com/s?k=headphones+under+5+dollars,
+'''
 
 # 410 Gone
 
@@ -25,7 +79,12 @@
 
 # 500 Internal Server Error
 
-  code_500  = 'http://vinuxproject.org, http://visioneers.org'
+  code_500  = '''
+https://packages.ubuntu.com/disco/mailutils,
+https://packages.ubuntu.com/disco/ronn,
+http://vinuxproject.org,
+http://visioneers.org,
+'''
 
 # 502 Bad Gateway
 
@@ -50,13 +109,36 @@ https://www.linkedin.com/in/f123org,
 https://www.linkedin.com/in/richmorin,
 '''
 
+# Error (???)
+
+  #!K - we should figure out what's going on here...
+
+  error     = '''
+https://groups.io/g/F123e,
+https://groups.io/g/F123e/topics,
+https://wiki.gnome.org/Projects/Orca#Getting_Orca_and_Its_Dependencies,
+https://www.acehardware.com/departments/hardware/hooks-and-screw-eyes/hooks/57931,
+http://www.confreaks.com,
+https://www.ti.com/lit/ds/symlink/tla2024.pdf,
+'''
+
+# Invalid Redirection
+
   invalid_redirection   = 'https://www.youtube.com'
+
+# Maximum Redirection Overflow
 
   max_redirect_overflow = 'https://wiki.linuxfoundation.org/networking/bridge'
 
+# NXDOMAIN (domain does not exist)
+
   nxdomain  = '?'
 
+# Time Out
+
   timeout   = '?'
+
+# TLS Alert
 
   tls_alert = '''
 http://www.attainmentcompany.com,

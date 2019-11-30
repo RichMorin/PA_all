@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_VOISS_UpTime_UPS'
-  title       = "VOISS - Pi-UpTime UPS 2.0"
+  title       = 'VOISS - Pi-UpTime UPS 2.0'
 
 [ meta.refs ]
 
@@ -20,7 +20,7 @@ con_ove|PP_VOISS_Power_Mgmt,
 
 [ about ]
 
-  precis      = "notes on the Alchemy Power Pi-UpTime UPS 2.0"
+  precis      = 'notes on the Alchemy Power Pi-UpTime UPS 2.0'
 
   verbose     = '''
 As discussed in the [VOISS - Power HATs]{con_ove|PP_VOISS_Power_HATs} overview,
@@ -77,7 +77,7 @@ All told, these additions added about $100 to the cost of the VOISS system:
    modmypi-modular-rpi-b-plus-case-10mm-spacer-black} ($5 for 2, plus S/H)
 - [Pi-UpTime UPS]{ext_am|B07YF45H2X} ($55)
 
-##### Battery Notes
+#### Battery Notes
 
 The 18650 designation covers a wide variety of batteries.
 Some have built-in overcurrent protection; others do not.
@@ -103,7 +103,7 @@ In any event, a pair of cells that can supply 4A should be just fine.
 This means that we can optimize for high power capacity,
 which the (3600 mAh, 10A) Samsung batteries listed above provide.
 
-##### Mounting Notes
+#### Mounting Notes
 
 Due to the batteries and holders, the UpTime is quite a tall HAT.
 Unfortunately, this precludes the use of any normal RasPi enclosure.
@@ -121,7 +121,7 @@ FWIW, I'm using 3/4" long nylon spacers, 1" long bolts, etc.
 One of the nuts didn't fit well next to the battery holder,
 so I put the bolts in with the heads on top.
 
-##### Power Consumption
+#### Power Consumption
 
 *Note:*
 Estimating power consumption on a real-world system is a chancy business.
@@ -158,7 +158,7 @@ If none is detected, maybe we can assume that the system is quiescent
 and shut down assorted daemons and such.
 Obviously, this will take some fiddling to get right...
 
-##### Wiring Notes
+#### Wiring Notes
 
 The 3B+ and the UpTime bolt together into a tidy little brick,
 which you may or may not wish to enclose in some manner.

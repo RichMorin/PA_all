@@ -4,7 +4,7 @@
 
   actions     = 'build, publish'
   id_str      = 'Vim'
-  title       = "Vim (Vi Improved)"
+  title       = 'Vim (Vi Improved)'
 
 [ meta.refs ]
 

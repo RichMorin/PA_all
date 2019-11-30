@@ -9,7 +9,7 @@
 
 [ os.debian ]
 
-  package     = 'debian_pkgs|buster/gforth'
+  package     = 'debi_pkgs|buster/gforth'
 
 [ os.perkify_ubuntu ]
 

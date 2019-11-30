@@ -40,7 +40,7 @@ Think tcpdump for HTTP.
 > - make scripted changes to HTTP traffic using Python
 > - SSL interception certs generated on the fly
 
-> -- [$url]{debian_pkgs|buster/mitmproxy}
+> -- [$url]{debi_pkgs|buster/mitmproxy}
 '''
 
 [ address.related ]

@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkian_Impl'
-  title       = "Perkian - Implementation"
+  title       = 'Perkian - Implementation'
 
 [ meta.refs ]
 

@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkify_Packaging'
-  title       = "Perkify - Packaging"
+  title       = 'Perkify - Packaging'
 
 [ meta.refs ]
 

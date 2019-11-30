@@ -4,12 +4,13 @@
 
   actions     = 'publish'
   id_str      = 'MC_R80ST_Mods'
-  title       = "BMW R80ST Modifications"
+  title       = 'BMW R80ST Modifications'
 
 [ meta.refs ]
 
   f_authors   = 'cat_peo|Rich_Morin'
   f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'con_ove|MC_Bagatelle'
 
 [ about ]
 
@@ -41,26 +42,11 @@ For example:
 
 #### Mirrors
 
-I recently got a very promising pair of [mirrors]{ext_eb|332731623129}.
-I'm particularly pleased by the multiple (4) degrees of freedom allowed
-by the design.
-However, I'm not entranced by the mirror itself.
-The body is pointy and small; the lens is flat, rather than convex.
-
-So, I'm thinking about ways to improve the situation.
-Probably a good task for [SketchUp]{ext_wp|SketchUp} and some
-[3D printing]{ext_wp|3D_printing}.
-Meanwhile, I've ordered a pair of convex, larger, and smoother mirrors
-to play with.
-It will be interesting to see what I can come up with...
-
-The current installation took a bit of creativity and elbow grease.
-I used a pair of metric bolts (10 mm diam., 1.5 mm pitch, 100 mm long),
-along with four lock nuts and assorted washers,
-to raise the mirrors away from the handlebars and controls.
-The threads on readily available bolts don't come all the way to the heads,
-where I needed to attach the mirrors.
-So, I extended the threads, using a [die]{ext_wp|Tap_and_die} and a lot of oil.
+I've been experimenting with various ways of mounting mirrors.
+I think I may be converging on something I'll like,
+but the details are unlikely to be interesting to most readers.
+That said, I've written them up in
+[A Mirror Bagatelle]{con_ove|MC_Bagatelle}.
 
 #### Suspension
 

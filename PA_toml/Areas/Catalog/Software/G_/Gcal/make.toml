@@ -11,7 +11,7 @@
 
 [ os.debian ]
 
-  package     = 'debian_pkgs|buster/gcal'
+  package     = 'debi_pkgs|buster/gcal'
 
 [ os.perkify_ubuntu ]
 

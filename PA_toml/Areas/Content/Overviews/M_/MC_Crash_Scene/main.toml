@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'MC_Crash_Scene'
-  title       = "Crash Scene Field Reference"
+  title       = 'Crash Scene Field Reference'
 
 [ meta.refs ]
 

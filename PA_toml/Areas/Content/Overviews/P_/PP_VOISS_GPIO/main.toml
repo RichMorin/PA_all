@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_VOISS_GPIO'
-  title       = "VOISS - GPIO"
+  title       = 'VOISS - GPIO'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "an overview of VOISS (etc) GPIO handling"
+  precis      = 'an overview of VOISS (etc) GPIO handling'
 
   verbose     = '''
 The Raspberry Pi had several connectors for standardized electrical interfaces,

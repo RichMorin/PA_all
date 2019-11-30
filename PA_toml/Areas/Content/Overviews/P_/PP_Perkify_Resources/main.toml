@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkify_Resources'
-  title       = "Perkify - Resources"
+  title       = 'Perkify - Resources'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "resources for using Vagrant-based Perkify"
+  precis      = 'resources for using Vagrant-based Perkify'
 
   verbose     = '''
 Perkify is based on a huge amount of existing work,

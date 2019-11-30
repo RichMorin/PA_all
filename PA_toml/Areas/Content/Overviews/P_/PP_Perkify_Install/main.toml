@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_Perkify_Install'
-  title       = "Perkify - Install"
+  title       = 'Perkify - Install'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "installation notes for Vagrant-based Perkify"
+  precis      = 'installation notes for Vagrant-based Perkify'
 
   verbose     = '''
 The [Vagrant]{ext_wp|Vagrant_(software)}-based version

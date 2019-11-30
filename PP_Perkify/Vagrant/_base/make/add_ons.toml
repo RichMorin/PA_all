@@ -4,6 +4,9 @@
 
 # Included
 
+# Some packages (e.g., Expect, Ruby) are installed as infrastructure.
+# These are commented out in the following list.
+
 debian_apt = '''
 # Title                     APT Name            Notes
 # -----                     --------            -----
@@ -42,6 +45,7 @@ debian_apt = '''
   eSpeak NG,                espeak-ng,          speech synthesis
   eSpeak NG Data,           espeak-ng-data,     speech synthesis
   espeakup,                 espeakup,           speech synthesis
+# Expect,                   expect,             terminal interaction
 
   Fenrir,                   fenrir,             screen reader
   Fizmo (console),          fizmo-console,      text game engine

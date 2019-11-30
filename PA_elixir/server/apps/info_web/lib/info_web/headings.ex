@@ -80,18 +80,22 @@ defmodule InfoWeb.Headings do
       {this_level, messages}
     end
 
-    base_acc  = { 0, [] }
+    pattern   = ~r{^ .*/ s_\w+ \.toml $}x
 
-    {_level, messages}  = headings
-    |> Enum.reduce(base_acc, reduce_fn)
+    unless page_url =~ pattern do
+      base_acc  = { 0, [] }
 
-    if !Enum.empty?(messages) do
-      msg_str   = messages
-      |> Enum.reverse
-      |> Enum.join("\n  ")
+      {_level, messages}  = headings
+      |> Enum.reduce(base_acc, reduce_fn)
 
-      IO.puts "\n>>> #{ page_url }"
-      IO.puts "  #{ msg_str }"
+      if !Enum.empty?(messages) do
+        msg_str   = messages
+        |> Enum.reverse
+        |> Enum.join("\n  ")
+
+        IO.puts "\n>>> #{ page_url }"
+        IO.puts "  #{ msg_str }"
+      end
     end
 
     headings

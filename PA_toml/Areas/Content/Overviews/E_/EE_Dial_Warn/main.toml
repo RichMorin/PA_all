@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'EE_Dial_Warn'
-  title       = "Elixir, etc. - Dialyzer Warnings"
+  title       = 'Elixir, etc. - Dialyzer Warnings'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "a summary of Dialyzer warnings"
+  precis      = 'a summary of Dialyzer warnings'
 
   verbose     = '''
 Many of Dialyzer's warnings are explained, with example code,

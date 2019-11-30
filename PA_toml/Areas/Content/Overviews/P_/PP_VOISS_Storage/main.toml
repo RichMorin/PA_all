@@ -4,7 +4,7 @@
 
   actions     = 'publish'
   id_str      = 'PP_VOISS_Storage'
-  title       = "VOISS - Storage"
+  title       = 'VOISS - Storage'
 
 [ meta.refs ]
 
@@ -13,7 +13,7 @@
 
 [ about ]
 
-  precis      = "thoughts on long-term storage for VOISS systems"
+  precis      = 'thoughts on long-term storage for VOISS systems'
 
   verbose     = '''
 [VOISS]{https://www.voiss.tech/en}) recently introduced

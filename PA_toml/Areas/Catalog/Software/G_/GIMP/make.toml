@@ -10,7 +10,7 @@
 
 [ os.debian ]
 
-  package     = 'debian_pkgs|buster/gimp'
+  package     = 'debi_pkgs|buster/gimp'
 
 [ os.perkify_ubuntu ]
 
