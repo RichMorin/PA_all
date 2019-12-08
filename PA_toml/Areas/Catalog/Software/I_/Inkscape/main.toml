@@ -1,0 +1,46 @@
+# cat_sof|Inkscape/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Inkscape'
+  title       = 'Inkscape'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  licenses    = 'open source'
+  roles       = 'application, vector graphics editor'
+ 
+  standards   = 'AI, EPS, PDF, PNG, PostScript, SVG'
+
+  supports    = 'design, education'
+
+[ about ]
+
+  precis      = 'vector graphics editor'
+
+  verbose     = '''
+> Inkscape is professional quality vector graphics software
+which runs on Windows, Mac OS X, and GNU/Linux.
+It is used by design professionals and hobbyists worldwide,
+for creating a wide variety of graphics
+such as illustrations, icons, logos, diagrams, maps and web graphics.
+Inkscape uses the W3C open standard SVG (Scalable Vector Graphics)
+as its native format, and is free and open-source software.
+
+> -- [$url]{https://inkscape.org/about}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Inkscape'
+
+[ address.web_site ]
+
+  about       = 'main|/about'
+  main        = 'https://inkscape.org'

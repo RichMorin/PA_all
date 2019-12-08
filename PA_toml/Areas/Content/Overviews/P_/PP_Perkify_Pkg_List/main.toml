@@ -128,6 +128,7 @@ it indexes major packages by topical category (e.g., document converters).
 | ID Utils                | A$id-utils$             | programming support       |
 | ii                      | A$ii$                   | chat clients              |
 | ImageMagick             | A$imagemagick$          | image processors          |
+| Inkscape                | A$inkscape$             | graphics editors          |
 | intltool                | A$intltool$             | document converters       |
 | ircII                   | A$ircii$                | chat clients              |
 | irssi                   | A$irssi$                | chat clients              |
@@ -200,6 +201,7 @@ it indexes major packages by topical category (e.g., document converters).
 | ronn                    | A$ronn$                 | document converters       |
 | Ruby                    | A$ruby-full$            | programming support       |
 | SageMath                | A$sagemath$             | mathematics tool          |
+| Scribus                 | A$scribus$              | desktop publishing        |
 | ScrollZ                 | A$scrollz$              | chat clients              |
 | sic                     | A$sic$                  | chat clients              |
 | socat                   | A$socat$                | network admin utilities   |

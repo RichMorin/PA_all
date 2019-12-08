@@ -98,6 +98,7 @@ Braille support is very important to many blind users.
 
 There are many document formats; we want to make them all accessible.
 
+- desktop publishing      - Scribus
 - document converters     - discount, dos2unix, GNU a2ps, intltool, jshon,
                             man2html, Pandoc, ronn, TeX Live, wkhtmltopdf
 - document viewers        - Atril
@@ -121,6 +122,7 @@ There are many document formats; we want to make them all accessible.
 - 3D modelers             - OpenSCAD
 - display managers        - nodm
 - graph visualizers       - Graphviz
+- graphics editors        - Inkscape
 - image processors        - ImageMagick, GIFT, GIMP
 
 #### Mathematics

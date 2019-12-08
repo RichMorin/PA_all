@@ -1,0 +1,43 @@
+# cat_sof|Scribus/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'Scribus'
+  title       = 'Scribus'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  licenses    = 'open source'
+  roles       = 'application, desktop publishing software'
+  standards   = 'EPS, JPEG, PDF, PNG, PostScript, SVG, TIFF, XML, xpm'
+  supports    = 'communication, education'
+
+[ about ]
+
+  precis      = 'desktop publishing software'
+
+  verbose     = '''
+> Scribus is free open-source desktop publishing (DTP) software,
+available for most desktop operating systems.
+It is designed for layout, typesetting,
+and preparation of files for professional-quality image-setting equipment.
+Scribus can also create animated and interactive PDF presentations and forms.
+Example uses include writing newspapers, brochures, newsletters, posters,
+and books.
+
+> -- [$url]{ext_wp|Scribus}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|Scribus'
+
+[ address.web_site ]
+
+  main        = 'https://www.scribus.net'

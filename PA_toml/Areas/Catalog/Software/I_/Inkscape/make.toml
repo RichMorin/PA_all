@@ -1,0 +1,17 @@
+# cat_sof|Inkscape/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/inkscape'
+  upstream    = 'https://inkscape.org'
+  wiki        = 'arch_wiki|Inkscape'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/inkscape'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'inkscape'

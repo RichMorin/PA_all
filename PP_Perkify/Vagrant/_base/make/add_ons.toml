@@ -92,6 +92,7 @@ debian_apt = '''
   ID Utils,                 id-utils,           system admin
   ii,                       ii,                 chat client
   ImageMagick,              imagemagick,        image manipulation
+  Inkscape,                 inkscape,           vector graphics editor
   intltool,                 intltool,           XML internationalization
   ircII,                    ircii,              chat client
   irssi,                    irssi,              chat client
@@ -173,6 +174,7 @@ debian_apt = '''
 # Ruby,                     ruby-full,          programming language
 
   SageMath,                 sagemath,           mathematics tool
+  Scribus,                  scribus,            desktop publishing
   ScrollZ,                  scrollz,            chat client
   sic,                      sic,                chat client
   socat,                    socat,              data transfer relay

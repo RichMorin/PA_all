@@ -1,0 +1,16 @@
+# cat_sof|Scribus/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|community/x86_64/scribus'
+  upstream    = 'https://www.scribus.net'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/scribus'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'scribus'
