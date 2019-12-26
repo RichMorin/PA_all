@@ -13,11 +13,9 @@ defmodule InfoFiles do
 
   ## CntCode
 
-  @doc delegate_to: {CntCode, :get_code_info, 1}
-  defdelegate get_code_info(tree_base), to: CntCode
+  defdelegate get_code_info(tree_base),           to: CntCode
 
   ## CntData
 
-  @doc delegate_to: {CntData, :get_data_info, 1}
-  defdelegate get_data_info(tree_base), to: CntData
+  defdelegate get_data_info(tree_base),           to: CntData
 end

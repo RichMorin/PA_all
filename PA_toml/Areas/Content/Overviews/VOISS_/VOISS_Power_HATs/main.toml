@@ -1,0 +1,184 @@
+# con_ove|VOISS_Power_HATs/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'VOISS_Power_HATs'
+  title       = 'VOISS - Power HATs'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'con_ove|VOISS_Power, con_ove|VOISS_UpTime_UPS'
+
+[ about ]
+
+  precis      = 'a discursion on USB power HATs'
+
+  verbose     = '''
+A variety of Hardware Attached on Top
+([HAT]{https://www.raspberrypi.org/blog/introducing-raspberry-pi-hats})
+boards can be used with the 3B+.
+One of the most useful types, which I'm calling a Power HAT,
+contains one or more [Lithium-ion batteries]{ext_wp|Lithium-ion_battery}
+and some associated circuitry.
+So, like a [USB power bank]{ext_wp|Battery_charger#Power_bank},
+it can act as a dedicated uninterruptable power supply
+([UPS]{ext_wp|Uninterruptible_power_supply}) for the computer.
+
+However, because it is connected to the 3B+ using the
+General purpose input-output ([GPIO]{
+  https://en.wikipedia.org/wiki/Raspberry_Pi
+  #General_purpose_input-output_(GPIO)_connector}) connector,
+it can report its status to the operating system.
+This information can then be used to support power management functions
+(e.g., alerting the user, shutting down the computer).
+
+Unfortunately, most  of the units I've found to date lack documentation
+and/or software, have too little power for a 3B+, etc.
+However, the "Pi-UpTime UPS 2.0", from Alchemy Power seems quite promising.
+I'm still in the process of setting this up and evaluating it.
+Meanwhile, I'll stay on the lookout for other alternatives.
+
+The models I've found fall into two categories.
+The first uses one or more cylindrical batteries;
+the second uses a single, rectangular battery.
+See below for a discussion of each approach.
+
+### Cylindrical Battery
+
+There are several [common formats]{ext_wp|List_of_battery_sizes
+  #Lithium-ion_batteries_(rechargeable)} (e.g., 18650)
+for cylindrical Lithium-ion batteries.
+Their primary advantage is availability:
+finding a replacement should be very easy.
+Their primary disadvantage is bulk: the cylindrical format wastes quite a bit
+of space, making the HAT larger than it would otherwise need to be.
+
+The 18650 is 18 mm in diameter and 65 mm long.
+Cells can be optimized for maximum current or maximum capacity, but not both.
+Making matters more difficult, there's a number of liars in the industry.
+[The Best 18650 Battery and How to Avoid Buying Fakes
+]{https://www.makeuseof.com/tag/18650-battery} covers a number
+of issues and pitfalls associated with purchasing 18650 batteries.
+
+#### [Pi-UpTime UPS 2.0
+     ]{http://alchemy-power.com/pi-uptime-ups-2-0}
+
+[Alchemy Power]{http://alchemy-power.com}'s Pi-UpTime UPS 2.0
+is designed to work with full-size Raspberry Pi computers.
+It holds two (e.g., 3600 mAh) 18650 Lithium-ion cells, wired in parallel.
+This is a substantial amount of capacity, making this unit attractive
+for a system that will be used heavily on battery power and/or
+left in an idle state for many hours at a time.
+
+I've been setting up a prototype VOISS system, incorporating this board.
+For details, see [VOISS - Pi-UpTime UPS 2.0]{con_ove|VOISS_UpTime_UPS}.
+
+#### [Vetco PI-UPTIMEUPS
+     ]{https://vetco.net/products/uninterruptible-power-supply-ups-hat-
+       for-raspberry-pi-pi-uptimeups?gclid=CjwKCAjwlovtBRBrEiwAG3XJ-
+       xrskZk58lgQTXpaugrebN-iDNFEc-jNhdzzfPidM0VVyDFlnYvo4hoCnBUQAvD_BwE}
+
+This HAT, which costs $70, appears to be the Alchemy Power Pi-UpTime UPS
+(as opposed to the Pi-UpTime UPS 2.0).
+It includes a pair of (3000 mAh) 18650 Lithium-ion cells.
+The maximum current is said to be 1.7A, which is a bit low...
+OTOH, Vetco may actually be selling the current model, so YMMV.
+
+#### [Waveshare]{https://www.geekbuying.com/item/
+      Waveshare-Li-ion-Battery-HAT-for-Raspberry-Pi-Blue-405193.html}
+
+This HAT costs $19.
+It holds one (800 mAh) 14500 Lithium-ion cell (not included).
+It seems to be the same unit sold by AliExpress, et al.
+Similarly, very little technical information is available for it.
+Again, YMMV...
+
+#### [XINLINDA KEJI]{https://www.aliexpress.com/item/32900341200.html}
+
+This HAT (sold via [AliExpress]{https://www.aliexpress.com}
+by "XINLINDA KEJI CO., LTD Store") costs $19.
+It holds one (800 mAh) 14500 Lithium-ion cell (not included).
+So far, very little technical information is available for it.
+[YMMV]{https://www.lifewire.com/what-is-ymmv-2483722}...
+
+### Rectangular Battery
+
+None of the models listed below appear to have much in the way of documentation,
+so I'm skipping them for the moment.
+If you get one and have information you can share, please get in touch!
+
+The batteries used in the listings below
+are all a bit smaller than the RasPi in height and width
+and about a centimeter thick.
+They have no mounting fixtures and connect to the HAT
+by means of a short cable and a plug.
+So, you should use something (e.g., a [cable tie]{ext_wp|Cable_tie})
+to keep it from falling out.
+The other advantages and disadvantages of this battery format
+are the converse of those mentioned above for the cylindrical format.
+They are efficient in terms of space, but finding a replacement may be hard.
+
+#### [Alibaba UPS HAT]{https://www.alibaba.com/product-detail/
+      UPS-HAT-with-Battery-for-Raspberry_60672286249.html}
+     
+This HAT costs $19.
+It contains a flat, 2500 mAh Lithium-ion battery,
+sandwiched between a pair of circuit boards.
+It comes with example code to detect and display the battery current, level,
+voltage etc.
+The maximum current is 2A, which is a bit low...
+
+#### [Aostek Geekworm
+     ]{https://www.bonanza.com/listings/Geekworm-UPS-HAT-Board-2500mAh-
+       Lithium-Battery-For-Raspberry-Pi-3-Model-B-Pi/742175815
+       ?search_term_id=91598702}
+
+This HAT costs $26.
+It contains a flat, 2500 mAh Lithium-ion battery,
+sandwiched between a pair of circuit boards.
+It comes with example code to detect and display the battery current, level,
+voltage etc.
+
+#### [Geekworm RPi
+     ]{https://www.dx.com/p/geekworm-rpi-ups-pack-3-7v-3800mah-
+       lithium-battery-battery-expansion-board-power-supply-charging-module-
+       for-raspberry-pi-2085312.html}
+     
+This HAT costs $15.
+It contains a flat, 3800 mAh Lithium-ion battery,
+sandwiched between the RasPi and another (lower) circuit board.
+There is a [wiki page]{http://www.raspberrypiwiki.com/index.php/RPi_UPSPack}
+and a [Python script]{ext_gh|rcdrones/UPSPACK_V2},
+but no English explanation or schematics.
+Also, apparently, there is no way to monitor the battery level.
+Again, YMMV...
+
+#### [RPI Powerpack]{ext_eb|282350503216}
+
+This HAT costs $7.
+It contains a flat, ? mAh Lithium-ion battery,
+sandwiched between the RasPi and another (lower) circuit board.
+It comes with example code to detect and display the battery current, level,
+voltage etc.
+So far, very little technical information is available for it.
+Again, YMMV...
+
+#### [VILROS PiJuice HAT
+     ]{https://vilros.com/products/
+       pijuice-hat-a-portable-power-platform-for-every-raspberry-pi
+       ?variant=29427567558750&currency=USD
+       &gclid=CjwKCAjwlovtBRBrEiwAG3XJ-_Qrn8gYxWqsmPP4H_W14cYABvFbrXViL
+       0siSN19mRwnI1p8qC1lOxoCir4QAvD_BwE}
+
+This HAT costs $70.
+It contains a flat, 1820 mAh Lithium-ion battery
+and a [real time clock]{ext_wp|Real-time_clock}.
+It comes with a "guide", but I don't know what information that contains.
+'''
+
+[ zoo ]
+
+  snippets    = '...'

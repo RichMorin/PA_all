@@ -1,0 +1,133 @@
+# con_ove|Perkian_Related/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkian_Related'
+  title       = 'Perkian - Related Work'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'Perkian Project - Related Work'
+
+  verbose     = '''
+Most personal computer operating systems (e.g., [Linux]{ext_wp|Linux},
+[macOS]{ext_wp|MacOS}, [Windows]{ext_wp|Microsoft_Windows})
+support a minimal level of accessibility.
+For example, they may provide [screen readers]{ext_wp|Screen_reader},
+support for [braille displays]{ext_wp|Refreshable_braille_display}, etc.
+However, supporting visually disabled users is not their primary goal,
+so there is no comprehensive effort to make these systems accessible.
+
+### Linux Variants
+
+Several Linux variants have been developed
+which explicitly strive for accessibility.
+Some of these are aimed at (Intel-based) personal computers;
+others concentrate on (e.g., ARM-based) single-board computers.
+Most of these systems are based on popular Linux distributions,
+such as [Arch Linux]{ext_wp|Arch_Linux}, [Debian]{ext_wp|Debian},
+[Slackware]{ext_wp|Slackware}, or [Ubuntu]{ext_wp|Ubuntu}.
+
+Some of these distributions have substantial user communities;
+others seem to have disappeared from the Internet.
+However, all of them should be examined for examples of packages
+that [Perkian]{con_ove|Perkian_Intro} and
+[Perkify]{con_ove|Perkify_Intro} should include.
+Here are the ones I know about (more suggestions welcome!):
+
+#### F123Light
+
+[F123Light]{cat_sof|F123Light} is based on
+[Arch Linux ARM]{ext_wp|Arch_Linux_ARM},
+a port of Arch Linux for [ARM]{ext_wp|ARM_architecture} processors.
+It is produced by [VOISS]{cat_gro|VOISS} and intended for use
+on [single-board computers]{ext_wp|Single-board_computer}
+such as the [Raspberry Pi]{ext_wp|Raspberry_Pi}.
+
+#### Grml
+
+[Grml]{cat_sof|Grml} is based on Debian.
+It is a "live" distribution, intended for use by system administrators.
+It includes support for [BRLTTY]{cat_sof|BRLTTY}
+and [espeakup]{cat_sof|espeakup}.
+
+#### Knoppix
+
+[Knoppix]{cat_sof|Knoppix} is based on Debian.
+
+#### Raspberry VI
+
+[Raspberry VI]{cat_sof|Raspberry_VI} is based on Raspbian (and thus Debian).
+The project was motivated by the desire to resolve some problems
+in Raspbian's speech synthesis support and is largely inactive at present.
+
+#### Slint
+
+[Slint]{cat_sof|Slint} is based on [Salix OS]{ext_wp|Salix_OS}
+(and thus [Slackware]{ext_wp|Slackware}).
+
+#### Sonar GNU/Linux
+
+Sonar GNU/Linux was based on [Manjaro]{ext_wp|Manjaro} (and thus Arch Linux).
+According to Distrowatch, this distribution is
+[discontinued]{https://distrowatch.com/dwres.php?resource=faq#distrostatus}.
+However, here is the [package list]{https://distrowatch.com/table.php?
+distribution=sonar&pkglist=true&version=17.01-alpha#pkglist}.
+
+> Sonar GNU/Linux aims to be an accessible GNU/Linux distribution
+to people of all needs.
+The project's goal is to bring awareness of free accessible software
+to people that depend on assistive technology.
+
+> -- [Distrowatch]{https://distrowatch.com/table.php?distribution=sonar}
+
+See also: [Sonar GNU Linux merges with Vinux
+]{https://lists.ubuntu.com/archives/ubuntu-accessibility/2017-March/007286.html}
+
+#### Speakup modified Fedora
+
+"Speakup modified Fedora" was a blind-friendly variant
+of the [Fedora]{ext_wp|Fedora_(operating_system)} Linux distribution.
+Unfortunately, the project seems to have disappeared.
+For example, the link [$url]{http://speakupmodified.org}
+now goes to a site that displays residential furniture.
+
+#### TalkingArch
+
+[TalkingArch]{cat_sof|TalkingArch} is based on Arch Linux.
+
+> This is TalkingArch, a re-spin of the Arch Linux live ISO,
+modified to include speech and braille output
+for blind and visually impaired users.
+Arch Linux is designed to be simple, lightweight, and flexible.
+TalkingArch retains all the features of the Arch Linux live image,
+but adds speech and braille packages to make it possible
+for blind and visually impaired users to install Arch Linux eyes-free.
+
+> -- [$url]{https://talkingarch.tk}
+
+> TalkingArch project is dead since 2017, but Tarch is fork with last release
+from June 2019.
+
+> -- [$url]{arch_wiki|TalkingArch}
+
+#### Trisquel GNU/Linux
+
+[Trisquel GNU/Linux]{cat_sof|Trisquel} is based on Ubuntu (and thus Debian).
+However, it only includes free (*libre*) software.
+
+#### Vinux
+
+[Vinux]{cat_sof|Vinux} is based on Ubuntu (and thus Debian).
+
+'''
+
+[ zoo ]
+
+  snippets    = '...'

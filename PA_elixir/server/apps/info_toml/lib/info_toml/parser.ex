@@ -15,6 +15,8 @@ defmodule InfoToml.Parser do
 #     Wrapper for Toml.decode/1; allows :string as `atom_key`.
 #   filter/2
 #     Filter the parsing results, reporting and removing cruft.
+#   includes/2
+#     Process file inclusions within the current directory.
 #   parse_h1/2
 #     Read the file, check for valid Unicode, and (maybe) parse it.
 #   parse_h2/2
@@ -133,14 +135,59 @@ defmodule InfoToml.Parser do
     end
   end
 
+  @spec includes(st, st) :: st
+    when st: String.t
+
+  defp includes(inp_text, file_abs) do
+  #
+  # Process file inclusions within the current directory, using Jekyll syntax:
+  #
+  #   {% include_relative filepath %}
+
+    incl_patt   = ~r< {% \s+ include_relative \s+ ([\w\.]+) \s+ %} >x
+
+    replace_f   = fn incl_str ->
+    #
+    # Process include files, if any.
+
+      incl_rel  = String.replace(incl_str, incl_patt, "\\1")
+
+      file_abs
+      |> String.replace(~r{ [^/]+ $ }x, incl_rel)
+      |> File.read!()
+    end
+
+    out_text  = String.replace(inp_text, incl_patt, replace_f, global: true)
+
+    # Check for leftover Jekyll syntax.
+
+    if out_text =~ ~r<{%> || out_text =~ ~r<%}> do
+      lines = String.split(out_text, "\n")
+      for line <- lines do
+        if line =~ ~r<{%> || line =~ ~r<%}> do
+          unless line =~ ~r[{% include_relative <filepath> %}] do #!K
+            file_tail = String.replace(file_abs, ~r{^.+/Areas/}, ".../")
+            IO.puts "leftover Jekyll syntax in '#{ file_tail }':"
+            IO.puts ">> #{ line }"
+          end
+        end
+      end
+    end
+
+    out_text
+  end
+
   @spec parse_h1(st, atom) :: {atom, ITT.item_map | st}
     when st: String.t
 
   defp parse_h1(file_abs, atom_key) do
   #
-  # Read the file, check for valid Unicode, and (maybe) parse it.
+  # Read the file, process any include files, check for valid Unicode,
+  # and (maybe) parse it.
 
-    file_text   = file_abs |> File.read!()      # "<TOML file text>"
+    file_text   = file_abs
+    |> File.read!()             # "<TOML file text>"
+    |> includes(file_abs)       # Process include files, if any.
 
     if String.valid?(file_text) do
       {status, payload} = tuple = parse_h2(file_text, atom_key)

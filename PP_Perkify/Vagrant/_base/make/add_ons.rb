@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 #
-#  add_ons.rb - Ruby-based helper for the add_ons script
+# add_ons.rb - Ruby-based helper for the add_ons script
 #
 # Written by Rich Morin, CFCL, 2019.
 
@@ -9,22 +9,57 @@
 
   def main()
     log_dir     = ARGV[0]
+    pkg_lim     = (ARGV[1] || '9999').to_i
 
-    fmt_1       = '%-12s  %s'
+    fmt_1       = '%4d  %-20s  %s'
     fmt_2       = "%s  %7.1f  %4d\n\n"
 
     info_pkgs   = {}
     toml_path   = 'add_ons.toml'
     toml_data   = TomlRB.load_file(toml_path)
     data_pkgs   = toml_data['packages']
-    types       = %w(debian_apt ruby_gems)
+    pkg_cnt     = 0
+
+    # The add_ons.toml file contains ~200 Debian APT packages.  To retain some
+    # useful order and support debugging, these are divided into topical types
+    # (e.g., debian_apt_a11y).  The tags below are the type name suffixes:
+
+    tags    = [
+      'a11y',   # accessibility
+      'admin',  # administration
+      'comm',   # communication
+      'desk',   # desktops, tools
+      'docs',   # documentation
+      'games',  # games, etc.
+      'image',  # images, etc.
+      'math',   # mathematics
+      'media',  # audio, video
+      'ocr',    # OCR support
+      'prog',   # programming
+      'term',   # terminal support
+      'web',    # world wide web
+      'zoo'     # everything else
+    ]
+
+    if false #!D - set to true for debugging
+      tags    = %w(a11y media) #!D
+      types   = debian(tags)
+    else
+      types   = debian(tags) + %w(ruby_gems)
+    end
 
     for type in types do
-      for line in data_pkgs[type].split("\n") do
-        next if line =~ /^#/        # Skip comment lines.
-        next if line =~ /^\s*$/     # Skip empty lines.
-        puts fmt_1 % [type, line]
 
+      lines   = data_pkgs[type].split("\n")
+      for line in lines do
+        next if line =~ /^#/        # Skip comment lines.
+        next if line =~ /^\s*$/     # Skip blank and empty lines.
+        next if pkg_cnt >= pkg_lim
+
+        pkg_cnt += 1
+        puts fmt_1 % [pkg_cnt, type, line]
+
+        line.sub!(/^!/, ' ')        # Remove leading bangs (!).
         title, name, notes = get_fields(line)
         unless name && notes
           puts 'Parse error detected; exiting.'
@@ -33,10 +68,10 @@
         time_start  = Time.now()
 
         case type
-        when 'debian_apt'
+        when /^debian_apt/
           system('get_apt', log_dir, name)
           status      = $?
-        when 'ruby_gems'
+        when /^ruby_gems/
           system('get_gem', log_dir, name)
           status      = $?
         end
@@ -59,6 +94,10 @@
       end
     end
     report(info_pkgs)
+  end
+
+  def debian(tags)
+    tags.map {|tag| "debian_apt_#{ tag }" }
   end
 
   def get_fields(line)

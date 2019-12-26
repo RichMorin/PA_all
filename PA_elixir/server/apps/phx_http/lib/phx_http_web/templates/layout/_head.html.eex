@@ -30,6 +30,8 @@
     $('table').tablesorter({
       headerTitle_useAria   : true,
       headerTitle_tooltip   : 'tooltip',
+      ignoreCase            : true,
+      sortList              : [[0,0], [1,0], [2,0], [3,0], [4,0], [5,0]],
       sortReset             : true,
       sortRestart           : true,
       widgets               : ['zebra', 'headerTitles']

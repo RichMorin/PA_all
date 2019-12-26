@@ -1,0 +1,69 @@
+# con_ove|VOISS_PiJuice_HAT/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'VOISS_PiJuice_HAT'
+  title       = 'VOISS - PiJuice HAT'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+  see_also    = '''
+con_ove|VOISS_Power,
+con_ove|VOISS_Power_HATs,
+con_ove|VOISS_UpTime_UPS,
+'''
+
+[ about ]
+
+  precis      = 'notes on the PiJuice HAT'
+
+  verbose     = '''
+The [PiJuice HAT
+]{https://uk.pi-supply.com/products/pijuice-standard}
+is a promising piece of infrastucture for a self-powered VOISS system.
+
+Two custom-made enclosures are available.
+The Short Case can hold a RasPi and a PiJuice;
+the Tall Case can also hold an additional HAT.
+Tool-free (dis-)assembly is said to be possible, easing maintenance.
+
+The battery capacity is somewhat limited (1820 mAh),
+but the vendor claims that this can run a RasPi 3B+ for a few hours.
+Given that one can carry along a power bank and/or a power supply,
+this might be fine for many users.
+
+However, the standard battery can't really keep a RasPi idling
+for an extended period of time.
+So, the user would have to start up and shut down the computer
+for each usage session.
+This doesn't provide the "instant on" behavior that I'd like to support,
+but it's possible that some accommodations can be made.  Stay tuned...
+
+### Resources
+
+- [PiJuice Battery Discharge Time Calculator
+  ]{https://learn.pi-supply.com/battery-levels}
+
+- [PiJuice HAT - A Portable Power Platform For Every Raspberry Pi
+  ]{https://uk.pi-supply.com/products/pijuice-standard}
+
+- [PiJuice Quick Start Guide and FAQ
+  ]{https://learn.pi-supply.com/make/pijuice-quick-start-guide-faq}
+
+- [PiJuice Software
+  ]{ext_gh|PiSupply/PiJuice/tree/master/Software}
+
+- [PiJuice - Short Case
+  ]{https://uk.pi-supply.com/products/pijuice-short-case}
+
+- [PiJuice - Tall Case
+  ]{https://uk.pi-supply.com/products/pijuice-tall-case}
+'''
+
+[ zoo ]
+
+  snippets    = '...'

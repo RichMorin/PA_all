@@ -1,0 +1,228 @@
+# con_ove|Perkian_Android/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkian_Android'
+  title       = 'Perkian - Android'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'notes on porting Perkian to the Android operating system'
+
+  verbose     = '''
+[Google]{ext_wp|Google}'s
+[Android]{ext_wp|Android_(operating_system)}
+[operating system]{ext_wp|Operating_system}
+supports cellular phones, tablet computers, and other devices.
+It is extremely popular, with billions of active users.
+However, it is not particularly popular
+in the blind and visually-disabled communities,
+where [Apple]{ext_wp|Apple_Inc.}'s [iOS]{ext_wp|IOS}
+is generally perceived as being more accessible.
+
+Improving the accessibility of Android's basic user interface
+is Google's responsibility (and far beyond my pay grade!).
+However, it may be possible to extend Android in various ways,
+adding accessible workarounds and supplementary applications.
+For example, a [personal web server]{ext_wp|Personal_web_server}
+could transform both local and remote content.
+
+In addition, because Android is based on [Linux]{ext_wp|Linux},
+it can support a wide range of [open source]{ext_wp|Open_source} software.
+This might include data transformation tools (e.g.,
+[digital image processing]{ext_wp|Digital_image_processing},
+[text processing]{ext_wp|Text_processing}),
+support for braille output and speech input, etc.
+See the [Perkian]{con_ove|Perkian_Intro} page
+for more information on this general idea.
+
+### Software Constraints
+
+Google has released several versions of Android over the past decade or so.
+These have been augmented by device vendors and delivered with the devices.
+As the devices get older, operating system support tends to diminish.
+Specifically, each device type tends to be limited to a range of OS versions.
+And, if a given OS feature is not present in the available versions,
+the device will not be able to take advantage of it.
+
+Also, although Android is based on Linux,
+it is not a pure open-source offering.
+Parts of the operating system are proprietary
+and cannot be modified or removed
+without [rooting]{ext_wp|Rooting_(Android)} the system.
+This can pose an obstacle to maintaining current versions of the OS.
+
+### Storage Constraints
+
+Most Android devices have fairly limited internal storage (e.g., 32 GB).
+Some devices allow the use of SD cards, but these can't be used directly
+for executable binaries:
+
+> External SD cards usually are formatted in FAT32 or exFAT file systems
+which don't have support for Unix permissions (chmod/chown)
+and special files such as sockets or symlinks.
+Also, Android enforces noexec mount option for user's storage,
+so you won't be able to execute binaries.
+
+> -- [$url]{https://wiki.termux.com/wiki/FAQ}
+
+Notion: It should be possible to store arbitrary content on the SD card
+and copy it over to a cache in (say) `/tmp` for use.  The content could be
+stored in Zip format, saving space and allowing permissions to be restored
+automagically.  Of course, data files could also be kept on the SD card...
+
+To be continued...
+
+### Related Work
+
+There are a number of ways to extend (or even replace) Android.
+Here are some notes and links on options that we're currently tracking...
+
+#### Anyfed
+
+Anyfed is a "universal Fedora chroot tool which lets you
+run Fedora anywhere on anything, with or without root".
+It uses a Fedora Docker image.
+
+- [$url]{ext_gh|nmilosev/anyfed}
+
+#### Chroot (Debian)
+
+There are various ways to run a Debian chroot on an Android device.
+
+- [$url]{http://man7.org/linux/man-pages/man2/chroot.2.html}
+- [$url]{ext_wp|Chroot}
+- [$url]{ext_gh|guardianproject/lildebi/wiki}
+- [$url]{https://guardianproject.info/code/lildebi}
+- [$url]{https://wiki.debian.org/chroot}
+- [$url]{https://wiki.debian.org/ChrootOnAndroid}
+
+#### Crouton
+
+Crouton is a set of scripts that bundle up into an easy-to-use,
+Chromium OS-centric chroot generator. 
+
+- [$url]{ext_gh|dnschneid/crouton}
+
+#### DebianKit
+
+> DebianKit aims to provide a single Debian install directly in parallel
+with the existing Android install.
+This is possible since Android uses almost none of the standard UNIX paths,
+so Debian can just be copied directly onto the same file system.
+The one notable exception is that Android has a symlink
+to `/system/etc` at `/etc`, and there are a few files in `/system/etc`.
+
+> -- [$url]{ext_sf|projects/debian-kit}
+
+Status: The most recent commit is five years old.
+
+#### Docker
+
+Success has been reported for installing Docker Engine on Android (>= 3.10)
+and using Termux to access Docker containers.
+
+- [$url]{https://android.jlelse.eu/where-android-and-docker-meet-a2a34130a504}
+- [$url]{ext_wp|Docker_(software)}
+- [$url]{https://hub.docker.com/r/bitriseio/docker-android}
+- [$url]{https://termux.com/}
+
+#### Lil' Debi
+
+> Lil' Debi uses cdebootstrap to run the full install process
+on the Android device, then manage starting and stopping the chroot.
+It aims to provide a single Debian install in parallel with Android
+while touching the Android internals as little as possible.
+It provides a complete Debian install process and transparent boot integration.
+
+Status: The Guardian Project is no longer supporting this effort and is
+asking for someone to take it over.
+
+- [$url]{ext_gh|guardianproject/lildebi}
+- [$url]{ext_gh|guardianproject/lildebi/wiki}
+- [$url]{https://guardianproject.info/code}
+- [$url]{https://guardianproject.info/code/lildebi}
+
+#### Linux Deploy
+
+Linux Deploy is a tool for creating Linux disk images on an SD card:
+
+> This application is open source software for quick and easy installation
+of the operating system (OS) GNU/Linux on your Android device.
+
+> The application creates a disk image on a flash card, mounts it
+and installs an OS distribution.
+Applications of the new system are run in a chroot environment
+and work together with the Android platform.
+All changes made on the device are reversible,
+i.e. the application and components can be removed completely.
+Installation of a distribution is done by downloading files
+from official mirrors online over the internet.
+The application requires superuser rights (ROOT).
+
+> -- [$url]{https://github.com/meefik/linuxdeploy}
+
+Status: The documentation is minimal and needs copy editing.
+
+#### Maru
+
+Maru, based on Android Marshmallow,
+is a replacement OS for Android-compatible cell phones.
+It provides two user interfaces: Desktop (via HDMI) and Mobile.
+
+Status: It only supports Nexus cell phones (e.g., Nexus 5),
+which have limited storage (32 GB) and no SD card.
+
+- [$url]{http://www.linux-magazine.com/Issues/2016/189/Maru-OS}
+- [$url]{ext_gh|maruos/maruos}
+- [$url]{ext_gh|maruos/maruos/wiki/FAQ}
+- [$url]{https://maruos.com}
+
+#### postmarketOS
+
+This project, based on Alpine Linux, hopes to provide a Linux release
+that can work on a wide range of "obsolete" Android cell phones.
+It is still in Alpha stage and has no current efforts toward accessibility.
+
+- https://postmarketos.org
+- https://postmarketos.org/blog/2017/05/26/intro/
+- https://postmarketos.org/faq.html
+- https://wiki.postmarketos.org/wiki/Main_Page
+= https://wiki.postmarketos.org/wiki/Contributing
+
+#### PRoot
+
+> PRoot is a user-space implementation of `chroot`, `mount --bind`,
+and `binfmt_misc`.  This means that users don't need any privileges or setup
+to do things like using an arbitrary directory as the new root filesystem.
+
+> -- [$url]{https://proot-me.github.io}
+
+- [$url]{https://github.com/proot-me/PRoot}
+- [$url]{https://proot-me.github.io}
+- [$url]{https://wiki.termux.com/wiki/PRoot}
+
+#### Termux
+
+> Termux is an Android terminal emulator and Linux environment app
+that works directly with no rooting or setup required.
+A minimal base system is installed automatically -
+additional packages are available using the APT package manager.
+
+> -- [$url]{https://termux.com}
+
+- [$url]{https://opensource.com/article/18/5/termux}
+- [$url]{https://termux.com}
+- [$url]{https://wiki.termux.com/wiki/Main_Page}
+- [$url]{https://wiki.termux.com/wiki/FAQ}
+'''
+
+[ zoo ]
+
+  snippets    = '...'

@@ -1,0 +1,122 @@
+# con_ove|Perkify_Resources/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Resources'
+  title       = 'Perkify - Resources'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'resources for using Vagrant-based Perkify'
+
+  verbose     = '''
+Perkify is based on a huge amount of existing work,
+so you could easily spend years reading up on its underpinnings.
+Fortunately, a few selected resources should be enough to get you started.
+
+### Debian
+
+#### Debian Administrator's Handbook
+
+The "Debian Administrator's Handbook" is a gold mine (albeit slightly dated)
+of useful advice and information.  Here are some links:
+
+- [Front matter
+  ]{https://debian-handbook.info}
+- [Chapter 1. The Debian Project
+  ]{https://debian-handbook.info/browse/stable/the-debian-project.html}
+- [Chapter 2. Presenting the Case Study
+  ]{https://debian-handbook.info/browse/stable/case-study.html}
+- [Chapter 3. Analyzing the Existing Setup and Migrating
+  ]{https://debian-handbook.info/browse/stable/existing-setup.html}
+- [Chapter 4. Installation
+  ]{https://debian-handbook.info/browse/stable/installation.html}
+- [Chapter 5. Packaging System: Tools and Fundamental Principles
+  ]{https://debian-handbook.info/browse/stable/packaging-system.html}
+- [Chapter 6. Maintenance and Updates: The APT Tools
+  ]{https://debian-handbook.info/browse/stable/apt.html}
+- [Chapter 7. Solving Problems and Finding Relevant Information
+  ]{https://debian-handbook.info/browse/stable/solving-problems.html}
+- [Chapter 8. Basic Configuration: Network, Accounts, Printing...
+  ]{https://debian-handbook.info/browse/stable/basic-configuration.html}
+- [Chapter 9. Unix Services
+  ]{https://debian-handbook.info/browse/stable/unix-services.html}
+- [Chapter 10. Network Infrastructure
+  ]{https://debian-handbook.info/browse/stable/network-infrastructure.html}
+- [Chapter 11. Network Services:
+   Postfix, Apache, NFS, Samba, Squid, LDAP, SIP, XMPP, TURN
+  ]{https://debian-handbook.info/browse/stable/network-services.html}
+- [Chapter 12. Advanced Administration
+  ]{https://debian-handbook.info/browse/stable/advanced-administration.html}
+- [Chapter 13. Workstation
+  ]{https://debian-handbook.info/browse/stable/workstation.html}
+- [Chapter 14. Security
+  ]{https://debian-handbook.info/browse/stable/security.html}
+- [Chapter 15. Creating a Debian Package
+  ]{https://debian-handbook.info/browse/stable/debian-packaging.html}
+- [Chapter 16. Conclusion: Debian's Future
+  ]{https://debian-handbook.info/browse/stable/conclusion.html}
+- [Appendix A. Derivative Distributions
+  ]{https://debian-handbook.info/browse/stable/derivative-distributions.html}
+- [Appendix B. Short Remedial Course
+  ]{https://debian-handbook.info/browse/stable/short-remedial-course.html}
+
+#### Debian New Maintainers' Guide
+
+The "Debian New Maintainers' Guide" contains a great deal of information on
+creating Debian packages, etc.  Here are some links:
+
+- [Debian New Maintainers' Guide
+  ]{https://www.debian.org/doc/manuals/maint-guide/index.en.html}
+
+### Linux
+
+There are hundreds of Linux distributions, each with its own "secret sauce".
+There are also hundreds of books and web sites on Linux.
+Here are a few pointers to information for "newbies".
+
+- [Linux Beginner Tutorials
+  ]{https://www.linux.org/forums/linux-beginner-tutorials.123}
+
+- [The Linux command line for beginners
+  ]{https://tutorials.ubuntu.com/tutorial/command-line-for-beginners}
+
+- [UNIX / LINUX Tutorial
+  ]{https://www.tutorialspoint.com/unix/index.htm}
+
+### Vagrant
+
+Although [Vagrant: Up and Running]{ext_am|B00D3VH4IO}
+is a bit dated, it's still a very useful reference.
+I also recommend skimming some of the online documentation, including:
+
+- [Command-Line Interface
+  ]{https://www.vagrantup.com/docs/cli}
+
+- [Forwarded Ports
+  ]{https://www.vagrantup.com/docs/networking/forwarded_ports.html}
+
+- [Networking
+  ]{https://www.vagrantup.com/docs/networking}
+
+- [Synced Folders
+  ]{https://www.vagrantup.com/docs/synced-folders}
+
+- [Vagrant Documentation
+  ]{https://www.vagrantup.com/docs/index.html}
+
+- [Vagrantfile
+  ]{https://www.vagrantup.com/docs/vagrantfile}
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

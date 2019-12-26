@@ -1,0 +1,22 @@
+# cat_sof|JACK/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'pkgs_arch|community/x86_64/jack2'
+# package     = 'pkgs_arch|extra/x86_64/jack'
+
+  wiki        = 'arch_wiki|JACK_Audio_Connection_Kit'
+
+  # FAQ: what are the differences between JACK 1 and JACK2
+  # https://github.com/jackaudio/jackaudio.github.com/wiki/Q_difference_jack1_jack2
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|jackd2'
+  wiki        = 'debi_wiki|JACK'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'jackd2'

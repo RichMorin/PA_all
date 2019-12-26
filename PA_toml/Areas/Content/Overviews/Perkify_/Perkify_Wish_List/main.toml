@@ -1,0 +1,122 @@
+# con_ove|Perkify_Wish_List/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Wish_List'
+  title       = 'Perkify - Wish List'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+  see_also    = '''
+con_how|Perkify_Packaging,
+con_ove|Perkify_Pkg_Index,
+con_ove|Perkify_Pkg_List
+'''
+
+[ about ]
+
+  precis      = 'an informal wish list of packages for Perkify'
+
+  verbose     = '''
+This page lists some packages that might be nice to put into Perkify.
+Generally, the reason they aren't currently included is that there
+is no easy way to mechanize their installation.
+Perhaps some kind (and clueful) souls will help me resolve these issues.
+
+- [Alacritty]{cat_sof|Alacritty}
+  (terminal emulator)
+
+- [BitchX]{cat_sof|BitchX}
+  (IRC client)
+
+- [Bookworm]{cat_sof|Bookworm}
+  (eBook reader)
+
+- [Bool]{ext_gs|bool}
+  (boolean file searching tool)
+
+- [BRL-CAD]{cat_sof|BRL_CAD}
+  (3D solid modeling system)
+
+- [Crystal]{ext_wp|Crystal_(programming_language)}
+  (programming language, ala Ruby)
+
+- [Cursynth]{ext_gs|cursynth}
+  (polyphonic music synthesizer)
+
+- [DAISY Pipeline 2]{cat_sof|DAISY_Pipeline_2}
+  (document conversion suite)
+
+- [Dap]{ext_gs|dap}
+  (statistics and graphics package)
+
+- [Dionysus]{ext_gs|dionysus}
+  (search engine for universal constants)
+
+- [Eclipse Che]{cat_sof|Eclipse_Che}
+  (IDE, text editor, etc.)
+
+- [Ekiga]{cat_sof|Ekiga}
+  (audio/video conferencing application)
+
+- [Elm ME+]{cat_sof|Elm}
+  (email client)
+
+- [Eolie]{cat_sof|Eolie}
+  (web browser)
+
+- [ERC]{cat_sof|ERC}
+  (Emacs-based chat client)
+
+- [Eww]{cat_sof|Eww}
+  (Emacs-based web browser)
+
+- [Freetalk]{ext_gs|freetalk}
+  (chat client)
+
+- [GMediaServer]{ext_gs|gmediaserver}
+  (media server)
+
+- [GSEGrafix]{ext_gs|gsegrafix}
+  (plotting program)
+
+- [GURGLE]{https://homepages.inf.ed.ac.uk/timc/gurgle}
+  (report generation language)
+
+- [latex-access]{cat_sof|latex_access}
+  (braille translator for LaTeX)
+
+- [Lucidor]{cat_sof|Lucidor}
+  (eBook reader and manager)
+
+- [Moe]{ext_gs|moe}
+  (text editor)
+
+- [OCRdesktop]{cat_sof|OCRdesktop}
+  (screen-based OCR tool)
+
+- [Oleo]{ext_gs|oleo}
+  (light-weight spreadsheet)
+
+- [sbl]{cat_sof|sbl}
+  (screen reader)
+
+- [tdsr]{cat_sof|tdsr}
+  (console-based screen reader)
+
+- [Termux]{cat_sof|Termux}
+  (terminal multiplexer)
+
+- [The vOICe]{cat_sof|The_vOICe}
+  (sensory substitution tool)
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

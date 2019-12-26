@@ -1,13 +1,26 @@
 :
 # add_ons - install add-on packages
 #
+# Calling Tree:
+#
+#   add_ons             Bash    install add-on packages
+#   | add_ons.rb        Ruby    install specified add_ons
+#   | | add_ons.toml    TOML    specify Perkify add-on packages
+#   | | get_apt         Bash    get an APT package
+#   | | get_gem         Bash    get a Ruby Gem
+#   | apt_presets       text    specify APT configuration presets
+#
 # Written by Rich Morin, CFCL, 2019.
 
-  export TZ=America/Los_Angeles     # really, San Bruno...
+# set -x  #!T
+  export TZ=America/Los_Angeles           # really, San Bruno...
+  pkg_lim=$1
 
   # Set up logging infrastructure.
   
-  bar='-----------------------------------------------------------------------'
+  foo='---------'
+  bar="$foo $foo $foo $foo $foo"
+
   log_dir=/tmp/add_ons_log
   rm -rf $log_dir
   mkdir  $log_dir
@@ -23,27 +36,28 @@
   ( # Adjust the default sort order for ls(1).
     # Copy in a snaphot of the "_base" directory.
 
-    echo "\n# Perkify additions"    >> $home/.profile
-    echo "export LC_COLLATE=C"      >> $home/.profile
+    echo "\n# Perkify additions"          >> $home/.profile
+    echo "export LC_COLLATE=C"            >> $home/.profile
 
-    cp    -R /vagrant               $base
-    chmod -R 755                    $base
-    chown -R vagrant.vagrant        $base
+    cp    -R /vagrant                     $base
+    chmod -R 755                          $base
+    chown -R vagrant.vagrant              $base
     mv $base/bin $home
     $summ > $data/apt_summ.0
 
     # Set up some infrastructure.
 
-    apt-get update;                 echo $bar
+    apt-get update; echo $bar
     $summ > $data/apt_summ.update
 
-    apt-get -y install expect;      echo $bar
-    $summ > $data/apt_summ.expect
+    pkgs='debconf-utils expect'
+    for pkg in $pkgs; do
+      ./get_apt $log_dir $pkg
+      echo $bar
+      $summ > $data/apt_summ.$pkg
+    done
 
-    apt-get -y install ruby-full;   echo $bar
-    $summ > $data/apt_summ.ruby-full
-
-    gem install toml-rb;            echo $bar
+    gem install toml-rb; echo $bar
     $summ > $data/apt_summ.toml-rb
   ) >> $log 2>&1
 
@@ -52,5 +66,7 @@
   PATH=$PATH:.
 # cd "$( dirname "${BASH_SOURCE[0]}" )"
   cd /vagrant/make #!K - hard-coded path
-  add_ons.rb $log_dir
+
+  debconf-set-selections apt_presets        # specify APT configuration presets
+  add_ons.rb $log_dir $pkg_lim              # install specified add_on packages
   $summ > $data/apt_summ.2

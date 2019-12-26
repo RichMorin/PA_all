@@ -1,0 +1,171 @@
+# con_ove|RM_2019_0508_LHL/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'RM_2019_0508_LHL'
+  title       = 'LightHouse Labs talk, 2019.0508'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "introductory talk on Pete's Alley and Perkian"
+
+  verbose     = '''
+*Note:*
+LightHouse Labs ([LHL]{http://lighthouse-sf.org/lighthouse-labs/}),
+held at the [San Francisco LightHouse]{cat_gro|LHBVI},
+is a monthly gathering that examines emerging technologies
+of relevance to the blind and visually impaired.
+This page is adapted from my LHL talk, given on May 8, 2019.
+See the [Perkian]{con_ove|Perkian_Intro}
+and [Perkify]{con_ove|Perkify_Intro}
+introduction pages for current information on these projects.
+
+## Introduction
+
+I tend to introduce myself here as a "volunteer developer",
+but it may be useful for you to know a little more about me.
+
+- I'm a semi-retired software developer, writer, and editor.
+  - I've been programming for 50 years (and still enjoy it).
+  - I mostly use tools such as [Unix]{ext_wp|Unix},
+    [Ruby]{ext_wp|Ruby_(programming_language)}, and
+    [Elixir]{ext_wp|Elixir_(programming_language)}.
+  - I've done a number of projects involving documentation.
+  - I've published a number of free software collections.
+
+- I have some experience with accommodation and disabilities.
+  - I've had a number of disabled friends and relatives.
+  - I'm mildly disabled; both hard of hearing and nearsighted.
+  - I've been physically disabled several times in my life.
+  - I've worked on several disability-related projects.
+
+This evening, I'd like to tell you about a pair of related projects.
+I'll start with [Pete's Alley]{/text?key=_text/about.toml},
+a web site for the disabled community.
+Then, I'll segue into [Perkian]{con_ove|Perkian_Intro},
+my attempt to make computers and cell phones more useful to blind users.
+
+## Pete's Alley
+
+Pete's Alley is a web site for the disabled community.
+
+- My experience with disabilities isn't that unusual.
+  - Disabilities aren't inevitable, but they _are_ common.
+  - Many senior citizens have at least one disability.
+  - Most people have disabled friends and relatives.
+
+- The disabled community is very fragmented.
+  - The LightHouse serves the blind and visually impaired.
+  - Other organizations serve the deaf and hearing impaired.
+  - This fragmentation is understandable, but also problematic. 
+
+- Pete's Alley is a web site for the _entire_ disabled community.
+  - Covering various impairments promotes an inclusive community.
+  - At present, the site mostly concentrates on visual impairments.
+  - More coverage of mental and physical impairments is needed.
+
+- The current site concentrates on presenting curated text and data.
+  - The Catalog Area has entries for several sorts of resources,<br>
+    including groups, hardware, people, services, and software.
+  - The Content Area has sections for long-form textual content,<br>
+    including Essays, HowTos, and Overviews.
+
+- The site's content will be curated by volunteer authors and editors.
+  - Anyone can submit additions, corrections, or other feedback.
+  - Publication requires agreement among the authors and editors.
+  - Substantial contributions will be credited in the byline.
+  - This process is intended to maintain a high level of quality.
+
+- Pete's Alley is a bit like a wiki and a bit like a set of blogs.
+  - Content creation and maintenance are both crowdsourced.
+  - However, each item has known, credited authors and editors.
+  - Items are expected to be accurate, relevant, and well written.
+
+- Please check out the prototype sertver for Pete's Alley.
+  - The prototype server is currently available at `cfcl.com:64000`.
+  - I need feedback on the site's accessibility, design, and so forth.
+  - I also need folks who want to be authors and editors.
+
+- Would you like to contribute content to Pete's Alley?
+  - Are there any resources you'd like folks to know about?
+  - Would you like to submit some well-considered reviews?
+  - Are there howtos, overviews, or essays you want to write?
+
+*Note:*
+The site is still a prototype, so there are some raw edges.
+For example, the site passes Chrome's Accessibility Audit,
+but there are some problems I'm still discovering.
+For example, I recently found out that I should be using
+the `aria-hidden` attribute on my hide/show links.
+I expect to fix this quickly, but other problems will no doubt
+become evident as folks with various screen readers explore the site.
+So, [Your Mileage May Vary...
+]{https://www.urbandictionary.com/define.php?term=ymmv}
+
+## Perkian
+
+Perkian is my attempt to make computing devices more useful,
+particularly for blind, visually impaired, and dyslexic users.
+The basic approach involves making it easy to install software.
+
+- Perkian's immediate goal is to create turnkey software distributions.
+  - Pete's Alley already covers [several dozen]{/dash/make} software packages.
+  - Most of these are text-based and run from the command line.
+  - The packages include browsers, email clients, and much more.
+  - The data from their descriptions can be used to drive a tool chain. 
+  - The tool chain can create sets of OS-independent
+    "[containers]{ext_wp|OS-level_virtualisation}".
+
+- Let's assume that the user has a working personal computer.
+  - This might run [Linux]{ext_wp|Linux},
+    [macOS]{ext_wp|MacOS},
+    [Microsoft Windows]{ext_wp|Microsoft_Windows}, etc.
+  - Step 1 is to install the [Docker]{ext_wp|Docker_(software)} infrastructure.
+  - Step 2 is to install a collection of containers.
+  - Step 3 is to use the added commands, as desired.
+  
+- The installation needs to be accessible to our users, so:
+  - We mechanize and pre-configure everything we can.
+  - We make sure that all interaction can be text-based.
+  - We concentrate on adding capabilities to the host system.
+
+At the same time, we can work on other approaches and targets.
+For example, the Docker-based approach doesn't fit every use case.
+
+  - It may not work well on tiny machines
+    such as the [Raspberry Pi]{ext_wp|Raspberry_Pi}.
+  - A few billion [Android]{ext_wp|Android_(operating_system)} devices
+    don't even support Docker.
+  - So, we need to be able to build and deploy "native" packages.
+
+Because [command-line interfaces]{ext_wp|Command-line_interface}
+are based on text, they are inherently more accessible than 
+[graphical user interfaces]{ext_wp|Graphical_user_interface}.
+However, not everyone is a huge fan of the command line.
+As an anonymous wag put it:
+
+> Contrary to popular belief, Unix is user friendly.<br>
+It just happens to be very selective about who it decides
+to make friends with.
+
+- So, for users that don't like the command-line (and vice versa):
+  - We can set up menu-driven and web-based interfaces.
+  - We can collect and redistribute curated wrapper commands.
+  - We can listen to these users and try to meet their needs.
+
+Perkian is very much a Work In Progress.
+I can generate a control file for the build process,
+but I still need to assemble the corresponding set
+of [Chef]{ext_wp|Chef_(software)} cookbooks and recipes.
+Feedback and offers of assistance are both welcome.
+'''
+
+[ zoo ]
+
+  snippets    = '...'

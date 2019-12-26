@@ -55,7 +55,8 @@ defmodule PhxHttpWeb.View.Markup do
 
   @doc """
   This function extracts a section containing markup (extended Markdown)
-  to HTML.  In the process, it expands some prefix strings.
+  and converts it to HTML.  In the process, it handles file inclusions
+  and expands some prefix strings.
   """
 
   @spec fmt_section(ITT.item_map, [atom]) :: PHT.safe_html

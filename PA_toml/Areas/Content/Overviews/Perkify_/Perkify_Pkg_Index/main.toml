@@ -1,0 +1,204 @@
+# con_ove|Perkify_Pkg_Index/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Pkg_Index'
+  title       = 'Perkify - Package Index'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'con_how|Perkify_Packaging, con_ove|Perkify_Pkg_List'
+
+[ about ]
+
+  precis      = "topical index to Perkify's installed packages"
+
+  verbose     = '''
+This page is a topical index of the software
+we explicitly install on [Ubuntu]{ext_wp|Ubuntu}
+while creating [Perkify]{con_ove|Perkify_Intro}.
+See [Perkify - Package List]{con_ove|Perkify_Pkg_List} for a tabular presentation.
+
+### Categories
+
+The categories listed below are mostly drawn from the Package List.
+However, some packages fall into multiple categories,
+so you should expect a certain amount of duplication.
+
+- accessibility     - braille, screen readers, speech, ... 
+- administration    - network and system administration 
+- audio, video      - music players, sound editors, ... 
+- communication     - chat, email, messages, VoIP, ... 
+- desktops, tools   - desktop environments, apps, ... 
+- documentation     - document generation tools and suites
+- games, etc.       - game engines and programs 
+- images, etc.      - image generators and processors 
+- mathematics       - calculators, spreadsheets, ...
+- OCR support       - optical character recognition tools
+- programming       - commands, languages, libraries, ... 
+- terminal support  - emulators, multiplexers, ...
+- world wide web    - HTTP servers, web browsers, ...
+- everything else   - ... 
+
+#### Accessibility
+
+Most of our support for accessibility has to do with visual impairments.
+For example, although Braille literacy is far from universal,
+Braille support is very important to many blind users.
+Speech input and output (e.g., screen readers) is also very important.
+
+- braille output          - BRLTTY, brltty-espeak
+- braille translators     - Liblouis
+- ebook readers           - DAISY Player
+- predictive text input   - Dasher
+- screen readers          - Fenrir, Orca, yasr
+- speech synthesis        - eSpeak NG, espeakup, MBROLA, speechd
+
+#### Administration
+
+One of the nice things about Linux is that system and network administration
+can be done by running commands and editing text files.
+
+- archives, packages      - Aptitude, Xarchiver
+- database                - ID Utils
+- encryption              - GNU Privacy Guard (GPG)
+- event notification      - Direvent, Notify OSD
+- file system management  - dosfstools, GNU Interactive Tools, Magic Wormhole,
+                            Netatalk, pcmanfm, socat, storebackup, Syncthing
+- network support         - bridge-utils, dnsmasq, hostapd, httptunnel,
+                            mitmproxy, Netatalk, Network Time Protocol (NTP)
+- system configuration    - debconf-utils
+- window systems          - X applications                            
+
+#### Audio, Video
+
+Audio and video support is important for a broad class of users.
+
+- audio CD rippers        - RipIT
+- audio editors           - Audacity, mhwaveedit
+- audio players           - Audacious, mpg123
+- audio processors        - opus-tools, SoX
+- audio support           - ALSA Utilities, PortAudio, opus-tools
+- ear/music trainers      - GNU Solfege
+- ebook readers           - DAISY Player
+- multimedia players      - MPlayer, mpv, VLC
+- music players           - MPD, pianobar
+- music typesetters       - GNU Denemo
+- screen readers          - Fenrir, Orca, yasr
+- speech synthesizers     - eSpeak NG, espeakup, speechd
+- video downloaders       - youtube-dl
+- VOIP clients            - Linphone, Mumble
+
+#### Communication
+
+Linux has lots of accessible tools for communication,
+via chat, email, messages, VoIP, etc.
+
+- chat clients            - ii, ircII, irssi, Pidgin, pidgin-otr, Poezio,
+                            Profanity, ScrollZ, sic, WeeChat
+- email clients           - Alot, Alpine, mu4e, Mutt, Sup, Thunderbird
+- email support           - GNU Mailutils, mblaze, OfflineIMAP
+- encryption support      - GnuPG
+- messaging client        - Telegram CLI, Telegram Desktop
+- terminal emulators      - LXTerminal, python-pyte
+- terminal multiplexers   - GNU Screen, tmux
+- VoIP clients            - Linphone, Mumble
+
+#### Desktops, Tools
+
+- calendar generators     - Gcal
+- desktop environments    - GNOME, LXQt, MATE
+- window managers         - ratpoison
+
+#### Documentation
+
+- desktop publishing      - Scribus
+- document converters     - dos2unix, intltool
+- document generators     - discount, Emacs Muse, GNU a2ps, man2html, Pandoc,
+                            ronn, TeX Live, wkhtmltopdf
+- document viewers        - Atril
+- documentation tools     - ronn, Texinfo, XeTeX
+- graph visualizers       - Graphviz
+- interactive notebooks   - Jupyter Notebook
+- music notation editor   - GNU Denemo
+- spelling checkers       - GNU Spell, hunspell
+- text editors            - Emacspeak, GNU Emacs, JOE, ne, Pluma
+- text processors         - catdoc, Diction, Emacs Muse
+- text searching tools    - Recoll
+- PDF support             - OCRmyPDF, Xpdf
+- plotting support        - GNU plotutils, Jupyter Notebook, KmPlot, xdot
+- word processors         - LibreOffice, WordGrinder
+
+#### Games, etc.
+
+- game programs           - bsdgames, GNU Chess, GNU Go, TuxMath, TuxType
+- MUD clients             - TinTin++
+- text game engines       - Fizmo, Frotz
+
+#### Images, etc.
+
+- 3D modelers             - OpenSCAD
+- display managers        - nodm
+- function plotters       - KmPlot
+- graph visualizers       - Graphviz, xdot
+- graphics editors        - Inkscape
+- image processors        - GIMP, ImageMagick
+- indexing and search     - GIFT
+
+#### Mathematics
+
+- desk calculators        - apcalc, GNU bc, GNU Units, wcalc
+- interactive notebooks   - Jupyter Notebook
+- spreadsheets            - Gnumeric, LibreOffice, Pyspread
+- mathematics tools       - GNU Datamash, GNU PSPP, GNU R, JACAL, SageMath
+
+#### OCR Support
+
+- accessible OCR tools    - Lios, Tesseract
+- multi-language OCR      - CuneiForm
+- OCR on DjVu files       - ocrodjvu
+- OCR, layout analysis    - GNU Ocrad, OCRFeeder, OCRmyPDF
+- OCR-based PDF enhancers - OCRmyPDF
+
+#### Programming
+
+- bug reporting tools     - bugreport
+- dialog/menu generators  - dialog, Pdmenu, YAD
+- JSON support            - Jshon, YAJL
+- programming languages   - Elixir, Gforth, GNU Octave, GNU Prolog,
+                            GNU R, Python 2 & 3, Ruby, Tcl
+- source code control     - Git                            
+- term completion         - bash-completion
+- interaction automators  - Expect
+- interactive notebooks   - Jupyter Notebook (includes Python)
+- programming support     - dialog, Elixir, Gforth, GNU Octave, GNU Prolog,
+                            GNU R, ID Utils, Pdmenu, PortAudio, Ruby
+- text editors            - GNU Emacs, JOE
+- windowing shells        - Tk
+
+#### Terminal Support
+
+- terminal emulators      - GNU Screen, LXTerminal, python-pyte
+- terminal multiplexers   - GNU Screen, tmux
+
+#### World Wide Web
+
+
+- HTTP servers            - Apache HTTP Server
+- web browsers (CLI)      - Elinks, Links, Lynx, Surfraw, w3m
+- web browsers (GUI)      - GNOME Web
+
+#### Everything Else
+
+- reference data files    - GNU Miscfiles
+- touch typing tutor      - GNU Typist
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

@@ -1,0 +1,36 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# This is the `Vagrantfile.dist` file for Perkify.  It specifies the
+# VM configuration that should be distributed (packaged and uploaded
+# to the Vagrant Cloud).
+
+  Vagrant.configure('2') do |config|
+    vm = config.vm
+
+    # Set the box name and version.
+
+    vm.box          = 'Rich_Morin/Perkify'
+    vm.box_version  = '0.2.0'
+
+    # Create forwarded port mappings.
+
+    vm.network('forwarded_port',
+      guest:    80,
+      host:     8080,
+      host_ip:  '127.0.0.1'
+    )
+
+    # Provision and customize (see vf_common.rb).
+
+    vm.provision :shell, inline: <<-SHELL
+      set -ex
+      hostname perkify
+      apt-get update
+    SHELL
+
+    prov_alsa(vm)     # Provision ALSA.
+    prov_apache(vm)   # Provision Apache.
+
+    cust_alsa(vm)     # Customize ALSA.
+  end

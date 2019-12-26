@@ -1,0 +1,16 @@
+# cat_sof|ALSA/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  # built in to Arch
+  wiki        = 'arch_wiki|Advanced_Linux_Sound_Architecture'
+
+[ os.debian ]
+
+  wiki        = 'debi_wiki|ALSA'
+
+[ os.perkify_ubuntu ]
+
+# add_apt     = 'alsa'

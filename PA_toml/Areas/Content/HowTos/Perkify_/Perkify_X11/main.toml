@@ -1,0 +1,88 @@
+# con_how|Perkify_X11/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_X11'
+  title       = 'Perkify - X11'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'using Perkify via the X Window System (X11)'
+
+  verbose     = '''
+This page is an introduction to using Perkify via the X Window System (X11).
+Let's start with a bit of terminology:
+
+> An X client is an application program that displays on an X server
+but which is otherwise independent of that server.
+
+> -- [$url]{http://www.linfo.org/x_client.html}
+
+So, if Perkify has an X-based application (i.e., client),
+we should be able to run it from the host OS, using an appropriate server.
+
+### Preliminaries
+
+The procedure for installing an "appropriate server" varies from OS to OS.
+
+- Linux
+
+  Most Linux distributions include a configured X11 server.
+
+- macOS
+
+  Although macOS no longer supplies an X11 server by default,
+  a `dmg` file for the [XQuartz]{https://www.xquartz.org} server
+  can easily be downloaded and installed.
+  By default, XQuartz will be stored in the Applications > Utilities folder.
+  After the system has been rebooted, this will be the default X11 server.
+
+- Microsoft Windows
+
+  There are various X11 servers for Microsoft Windows.
+  [Cygwin/X]{ext_wp|Cygwin/X} is *libre*;
+  [Xming]{ext_wp|Xming} is proprietary.  YMMV...
+
+### Usage
+
+Perkify ships with X forwarding enabled
+and includes a few dozen common X11 clients.
+So, starting up an X11 client should Just Work.  Try these:
+
+    $ vagrant ssh -- -X -p 2222 xclock
+    $ vagrant ssh -- -X -p 2222 xeyes
+
+*Note:*
+[Run graphical programs within Vagrantboxes
+]{https://coderwall.com/p/ozhfva/run-graphical-programs-within-vagrantboxes}
+gives a nice rundown on X installation and basic usage.  
+
+### Accessibility
+
+The state of accessibility in the X11 ecosystem seems very fragmented,
+varying by the particular stack of software that is being used.
+Apparently, the
+[AT-SPI2]{https://www.freedesktop.org/wiki/Accessibility/AT-SPI2} protocol
+will typically be a major player in any accessible X11 stack.
+However, this still leaves open the question of what your app is doing,
+what libraries it is using, what screen reader you are using, etc.
+
+This is all too deep for me, but if you're interested in digging further,
+check out [Samuel Thibault
+]{https://raphaelhertzog.com/2012/04/19/people-behind-debian-
+  samuel-thibault-working-on-accessibility-and-the-hurd}'s 
+[Accessibility]{https://www.freedesktop.org/wiki/Accessibility} page.
+It provides an overview and lists a lot of useful resources.
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

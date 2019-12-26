@@ -1,0 +1,17 @@
+# cat_sof|VLC/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/vlc'
+  upstream    = 'https://www.videolan.org/vlc'
+  wiki        = 'arch_wiki|VLC_media_player'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/vlc'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'vlc'

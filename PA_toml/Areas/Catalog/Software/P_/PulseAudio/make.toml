@@ -1,0 +1,15 @@
+# cat_sof|PulseAudio/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/pulseaudio'
+  wiki        = 'arch_wiki|PulseAudio'
+
+[ os.debian ]
+
+  wiki        = 'debi_wiki|PulseAudio'
+  # PulseAudio is a dependency of most Linux desktops.
+
+[ os.perkify_ubuntu ]

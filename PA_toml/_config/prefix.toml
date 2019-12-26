@@ -57,6 +57,7 @@
   ext_hd    = 'https://hexdocs.pm/'
   ext_ig    = 'https://www.instagram.com/'
   ext_li    = 'https://www.linkedin.com/'
+  ext_lm    = 'https://linux.die.net/man/'
   ext_pi    = 'https://www.pinterest.com/'
   ext_rd    = 'https://www.rubydoc.info/gems/'
   ext_rg    = 'https://rubygems.org/gems/'
@@ -65,6 +66,7 @@
   ext_sf    = 'https://sourceforge.net/'
   ext_so    = 'https://stackoverflow.com/'
   ext_tw    = 'https://twitter.com/'
+  ext_vc    = 'https://app.vagrantup.com/'
   ext_wp    = 'https://en.wikipedia.org/wiki/'
   ext_yt    = 'https://www.youtube.com/'
 

@@ -1,0 +1,170 @@
+# con_how|VOISS_Power/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'VOISS_Power'
+  title       = 'VOISS - Power'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'an overview of VOISS (etc) USB power handling'
+
+  verbose     = '''
+The [VOISS Classic]{con_ove|VOISS_Intro} systems
+include two components for USB power handling:
+a "power bank" and a "power source".
+These devices work together to provide clean, reliable power
+for the computer and its USB peripherals.
+Let's examine how these devices differ and how they relate to each other.
+  
+### Power Bank
+
+The typical [USB power bank]{ext_wp|Battery_charger#Power_bank}
+contains one or more [Lithium-ion batteries]{ext_wp|Lithium-ion_battery}
+and some electronics for monitoring and control.
+So, it's basically a rechargeable battery that plays nicely with USB.
+Being able to use the VOISS anywhere you like
+(e.g., sitting on a park bench) is pretty awesome,
+but that's just part of the story.
+
+Even if you only expect to use the VOISS in a location
+with generally reliable and easily available power,
+I'd recommend running your power feed through a power bank.
+Because this acts as a dedicated uninterruptable power supply
+([UPS]{ext_wp|Uninterruptible_power_supply}),
+your computer can keep working during transient power outages.
+(Like when someone (oops!) unplugs your power supply.)
+The power bank also provides quite a bit of protection
+against power line transients that could damage your system.
+
+#### Description
+
+A USB "power bank" is a sealed unit
+which contains some batteries and electronics.
+The bank can accept power (5 VDC) from a USB source, store it,
+and dispense it to other USB devices.
+The power bank, like the RasPi processor board,
+receives power via a micro-B USB socket.
+The power exits the bank via a pair of standard USB (Type A) sockets.
+
+Power bank capacities are listed in mAh (milliampere-hours);
+a typical unit might claim to store 10,000 mAh.
+Removing three zeroes from the number lets us get rid of the "milli" prefix,
+resulting in a claim of 10 Ampere-hours (10 Ah).
+So, it should be able to supply 2.5 Amperes for about four hours.
+
+A set of tiny [LEDs]{ext_wp|Light-emitting_diode}
+(or even a tiny [LCD]{ext_wp|Liquid-crystal_display} panel)
+typically indicates the charging and operational status.
+This isn't going to be particularly useful to most blind users,
+but it shouldn't be all that big a problem in practice.
+If you charge up your power bank on a regular basis,
+you won't have to worry about the details.
+
+That said, if you find any power banks with an audible indicator
+or [Bluetooth]{ext_wp|Bluetooth} capability, be sure to let me know!
+So far, I know about the following products:
+
+- [Energrid VS150X Power Bank
+  ]{https://accessibility.energrid.us.com/products/
+    energrid-vs150x-power-bank}</br>
+  3A; 15,000 mAh; $75.00
+
+- [iWalk 10000 mAh Talking Power Bank with Included Audio Tutorial
+  ]{https://www.mysticaccess.com/product/
+    iwalk-10000-mah-talking-power-bank-with-included-audio-tutorial}</br>
+  2.4A; 10000 mAh; $76.00
+
+#### Requirements
+
+When selecting a power bank, get one that can supply close to 2.5 Amperes.
+As the introductory blog post for the 3B+
+([Raspberry Pi 3 Model B+ on sale now at $35
+]{https://www.raspberrypi.org/blog/raspberry-pi-3-model-bplus-sale-now-35})
+says:
+
+> Note that Raspberry Pi 3B+ does consume substantially more power
+than its predecessor.
+We strongly encourage you to use a high-quality 2.5A power supply,
+such as the official Raspberry Pi Universal Power Supply.
+
+By way of clarification, the 3B+ only needs about 1.5A,
+even when all of its four procesing cores are working hard.
+However, any USB devices the computer powers (e.g., headphones, keyboard)
+must be added to the total current requirement.
+(Devices with their own power sources do not, in general,
+draw any power from the computer.)
+
+#### Selection
+
+Amazon lists power banks with various capacities, features, prices, and sizes.
+I haven't found any that provide a full 2.5 A, but several claim
+to provide 2.4 A, which is probably good enough.
+For example, here are
+a [5,200 mAh]{ext_am|B07CYNBNVW} unit for $10 and
+a [25,000 mAh]{ext_am|B07KYGZ6WC} unit for $35.
+As noted above, accessibility adds quite a bit to the cost. 
+
+Having a power bank fail isn't likely to be a catastrophe,
+but I'd still pay attention to the reviews before making a purchase.
+Bear in mind is that you can carry around more than one power bank.
+That way, if one bank runs out of power, you can plug in another.
+
+### Power HATs
+
+A variety of Hardware Attached on Top
+([HAT]{https://www.raspberrypi.org/blog/introducing-raspberry-pi-hats})
+boards can be used with the 3B+.
+One of the most useful types, which I'm calling a Power HAT,
+contains a [Lithium-ion battery]{ext_wp|Lithium-ion_battery}
+and some associated circuitry.
+This allows it to act, like a Power Bank, as a UPS for the computer.
+
+However, because it is connected to the 3B+ using the
+General purpose input-output ([GPIO]{
+  https://en.wikipedia.org/wiki/Raspberry_Pi
+  #General_purpose_input-output_(GPIO)_connector}) connector,
+it _should_ be able to report its status to the operating system.
+If so, this information could be used to support power management functions
+(e.g., alerting the user, shutting down the computer).
+For details, see [VOISS - Power HATs]{con_ove|VOISS_Power_HATs}.
+
+### Power Source
+
+The USB power source (aka "wall wart") is a small, sealed power supply
+that plugs into an AC power outlet.
+It typically several feet of cord attached, ending in a micro-B plug.
+
+Although the built-in plug will be designed to work with the sockets
+in a particular country, the power source itself doesn't care much
+about the local voltage or frequency.
+A simple set of adapter plugs will let the device work almost anywhere.
+
+Details?  Because the device uses a
+[switched-mode power supply]{ext_wp|Switched-mode_power_supply},
+it is taking very short and rapid sips from the available power.
+So, as long as it gets what it needs, it's happy.
+Thus, 110/220 VAC or 50/60 Hz are equally good in its estimation.
+
+That said, be sure to get an appropriate "power source" for the system.
+As noted above, it needs to supply 5 VDC at 2.5A, via a USB micro-B connector.
+[This one]{ext_am|B00MARDJZ4}, for example, is designed to work with the 3B+.
+
+### Cables
+
+You'll need a few USB cables to hook things together.
+One will go from the power bank to the processor board.
+Another may go from a USB outlet to the power bank.
+Fortunately, USB cables are really cheap;
+so, get a variety and find out which one(s) work best for what purposes.
+'''
+
+[ zoo ]
+
+  snippets    = '...'

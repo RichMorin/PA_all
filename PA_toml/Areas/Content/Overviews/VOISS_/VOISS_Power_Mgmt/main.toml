@@ -1,0 +1,216 @@
+# con_ove|VOISS_Power_Mgmt/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'VOISS_Power_Mgmt'
+  title       = 'VOISS - Power Management'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+  see_also    = '''
+con_ove|VOISS_PiJuice_HAT,
+con_ove|VOISS_Power_HATs,
+con_ove|VOISS_UpTime_UPS,
+'''
+
+[ about ]
+
+  precis      = 'a discursion on VOISS power management'
+
+  verbose     = '''
+If you're running a Raspberry Pi 3B+ from an adequate power supply
+(2.5 Amp is recommended), power management isn't a real concern.
+However, if you're running it for an extended period of time (even idling),
+and your power source is a battery, power management can be an issue.
+
+I'd like to develop a battery-powered VOISS system
+which retains the "instant on" capability of braille notetakers, etc.
+One way to accomplish this is to use a fairly substantial battery
+and minimize the amount of power the VOISS uses while idling.
+This might let the VOISS "sleep", using relatively little power.
+When user activity is detected (e.g., via a push button),
+the system could come up to full operating mode.
+
+*Note:*
+Although I like the idea of booting from a USB flash drive,
+powering the USB bus and devices while sleeping seems rather silly.
+So, let's assume that we're not doing that.
+Of course, it's quite possible to boot from a microSD card,
+but keep the user files on a (mountable) USB-based storage device.
+
+### Option Summary
+
+I've found a number of articles (detailed in the Resources section)
+which discuss options for reducing the power used by a RasPi.
+The assumption here is that the RasPi is basically sleeping
+and waiting for the user to request its attention.
+I plan to try out some of these options, using a 3B+ and an ammeter.
+I'll report here about any significant power savings I observe.
+
+*Note:*
+The "Savings (mA)" values in the table below are drawn from things I've read.
+They will be replaced (Real Soon Now :-) with measured values.
+
+| Option             | Savings (mA) |
+| ------             | ------------ |
+| Bluetooth (off)    |            ? |
+| CPU Clock (slower) |            5 |
+| CPU Cores (fewer)  |            5 |
+| Daemons (minimize) |            ? |
+| HDMI (off)         |           30 |
+| LEDs (off)         |           30 |
+| USB devices (off)  |            ? |
+| USB/LAN (off)      |          100 |
+| Video (off)        |            ? |
+| Wi-Fi (off)        |            ? |
+
+### Option Details
+
+This section presents some details about the options listed above.
+It is very much a Work In Progress...
+
+#### Bluetooth (off)
+
+Aside from being a power sink, Bluetooth could be a security hole.
+Bluetooth can be disabled by a line in `/boot/config.txt`:
+
+    dtoverlay=pi3-disable-bt
+
+#### CPU Clock (slower)
+
+While the RasPi is sleeping,
+the CPU clock only has to run fast enough to detect user activity
+and keep the dynamic RAM refreshed.
+If it can slow down and speed up as needed, some power might be saved.
+The clock speed can be set by a line in `/boot/config.txt`:
+
+    arm_freq_min=250
+    core_freq_min=100
+    sdram_freq_min=150
+    over_voltage_min=0
+
+Q: Can these settings be changed at runtime?  How?
+
+#### CPU Cores (fewer)
+
+The 3B+ has four CPU cores; only one should bve needed to detect user activity.
+The maximum number of cores can be set by a line in `/boot/cmdline.txt`:
+
+    # replace N with the number of cores you want to keep using
+    maxcpus=N
+
+Q: Can this setting be changed at runtime?  How?
+
+#### Daemons (minimize)
+
+Daemons (aka "background processes") are run to provide system services.
+A VOISS system shouldn't be running all that many to begin with.
+It may also be possible to disable or suspend some when the RasPi is idling.
+
+#### HDMI (off)
+
+The typical VOISS user will not be using an HDMI monitor.
+This interface can be disabled by a line in `/etc/rc.local`:
+
+    /usr/bin/tvservice -o   # disable
+    /usr/bin/tvservice -p   # enable
+
+Q: Can this setting be changed at runtime?  How?
+
+#### LEDs (off)
+
+The typical VOISS user will not be using the status LEDs.
+They can be disabled by a pair of lines in `boot/config.txt`:
+
+    dtparam=act_led_trigger=none
+    dtparam=act_led_activelow=on
+
+Q: Can these settings be changed at runtime?  How?
+
+#### USB devices (off)
+
+Each device (e.g., keyboard) on the USB bus uses some power.
+This can be disabled by the following command:
+
+    echo 0x0 > /sys/devices/platform/bcm2708_usb/buspower
+
+Q: How can this setting be re-enabled?
+
+#### USB/LAN (off)
+
+A single chip handles both the USB and the LAN (Ethernet) sockets.
+This chip can be turned on and off at runtime:
+
+    echo '1-1' | sudo tee /sys/bus/usb/drivers/usb/unbind   # off
+    echo '1-1' | sudo tee /sys/bus/usb/drivers/usb/bind     # on
+
+Q: What exactly, is being done here?
+
+#### Video (off)
+
+The RasPi has hard-wired video input and output interfaces.
+The typical VOISS user will not be using these.
+In any case, they should not be enabled at run time.
+
+Q: Are these interfaces enabled by default?
+
+Q: How can they be enabled and disabled?
+
+#### Wi-Fi (off)
+
+Aside from being a power sink, Wi-Fi could be a security hole.
+Wi-Fi can be disabled by a line in `/boot/config.txt`:
+
+    dtoverlay=pi3-disable-wifi
+
+Q: Can this setting be changed at runtime?  How?
+
+### Resources
+
+- [Deactivate Cores
+  ]{https://www.raspberrypi.org/forums/viewtopic.php?f=29&t=99372}
+
+- [Goodnight Pi: Reducing Raspberry Pi Power Consumption
+  ]{https://projects-raspberry.com/
+    goodnight-pi-reducing-raspberry-pi-power-consumption-2}
+   
+- [How Much Power Does Raspberry Pi 3B+ Use? Power Measurements
+  ]{https://raspi.tv/2018/
+    how-much-power-does-raspberry-pi-3b-use-power-measurements}
+  
+- [How to achieve Low Power Consumption on Raspberry Pi
+   via Software and Hardware control
+  ]{https://raspberrypi.stackexchange.com/questions/33723}
+
+- [How to make the Raspberry Pi consume less power
+  ]{https://raspberrypi.stackexchange.com/questions/32562}
+
+- [How to save Power on your Raspberry Pi
+  ]{https://learn.pi-supply.com/make/how-to-save-power-on-your-raspberry-pi}
+
+- [Minimising power consumption
+  ]{https://raspberry-projects.com/pi/pi-hardware/
+    raspberry-pi-zero/minimising-power-consumption}
+
+- [Power Consumption Benchmarks
+  ]{https://www.pidramble.com/wiki/benchmarks/power-consumption}
+
+- [Raspberry Pi Power Consumption Data
+  ]{https://www.raspberrypi-spy.co.uk/2018/11/
+    raspberry-pi-power-consumption-data}
+
+- [Raspberry Pi Zero - Conserve power and reduce draw to 80mA
+  ]{https://www.jeffgeerling.com/blogs/jeff-geerling/
+    raspberry-pi-zero-conserve-energy}
+
+- [Sleepy Pi FAQ
+  ]{https://spellfoundry.com/sleepy-pi/sleepy-pi-faq}
+  '''
+
+[ zoo ]
+
+  snippets    = '...'

@@ -1,0 +1,46 @@
+# con_ove|Perkify_Releases/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Releases'
+  title       = 'Perkify - Releases'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'summary of Perkify releases'
+
+  verbose     = '''
+Perkify uses [semantic versioning]{https://semver.org}:
+each version number is a dotted triple (`<major>.<minor>.<patch>`).
+This page mostly discusses major and minor releases.
+
+### 0.2.x
+
+These are "production candidate" releases,
+containing about 200 explicitly-requested packages.
+We've made a start on providing support for audio, X11, etc.
+However, a lot of testing and debugging is still needed.
+
+### 0.1.x
+
+These were the initial public releases of Perkify,
+peaking at about 100 explicitly-requested packages.
+They were basically "proof of concept" releases,
+demonstrating that we could generate and distribute a
+[virtual machine]{ext_wp|Virtual_machine} image based on
+[Vagrant   ]{ext_wp|Vagrant_(software)},
+[VirtualBox]{ext_wp|VirtualBox}, and
+[Ubuntu    ]{ext_wp|Ubuntu}.
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

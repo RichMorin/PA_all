@@ -1,0 +1,16 @@
+# cat_sof|mpg123/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/mpg123'
+  upstream    = 'https://sourceforge.net/projects/mpg123'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/mpg123'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'mpg123'

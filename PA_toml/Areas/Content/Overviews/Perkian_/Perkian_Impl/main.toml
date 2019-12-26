@@ -1,0 +1,164 @@
+# con_ove|Perkian_Impl/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkian_Impl'
+  title       = 'Perkian - Implementation'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "notes on Perkian's implementation"
+
+  verbose     = '''
+This page sketches out my current implementation notions
+for creating and distributing [Perkian]{con_ove|Perkian_Intro} packages.
+
+### Overview
+
+Creating a turnkey collection of several dozen software packages
+is a lot of work.
+Creating collections for multiple [operating systems]{ext_wp|Operating_system}
+and processor types increases the difficulty, for a variety of reasons.
+For example, each OS (e.g., [Linux]{ext_wp|Linux}, [macOS]{ext_wp|MacOS},
+[Windows]{ext_wp|Microsoft_Windows}) will have its own default packages,
+package management tools, and overall system environment.
+Differences in the processor family
+(e.g., [AMD]{ext_wp|Advanced_Micro_Devices},
+[Intel]{ext_wp|Intel}) and other characteristics
+(e.g., [word size]{ext_wp|Word_(computer_architecture)})
+also complicate turnkey distribution of software packages. 
+
+Each operating system has its own collection of
+default [libraries]{ext_wp|Library_(computing)} and
+[utilities]{ext_wp|Utility_software}.
+The available compilers and libraries may vary,
+along with the file tree layout, configuration files, I/O devices,
+processor architecture, etc.
+This affects the runtime environment for both
+[deployment]{ext_wp|Deployment_environment} and
+[development]{ext_wp|Deployment_environment#Development}.
+
+#### Combinatorics
+
+Supporting a large number of packages on arbitrary operating systems,
+processor families, and word sizes could yield dozens of combinations,
+producing a [combinatorial explosion]{ext_wp|Combinatorial_explosion}
+of [complexity]{ext_wp|Complexity}.
+Fortunately, we can work around this problem by
+abstracting away the operating system issues
+and limiting the number of supported architectures.
+
+[Docker]{ext_wp|Docker} containers based on Linux
+can be run on any Linux system that has the same processor architecture
+(e.g., 64-bit Intel).
+With a bit of work, these containers can also be run
+on [Apple]{ext_wp|Apple_Inc}'s [macOS]{ext_wp|MacOS} or
+[Microsoft Windows]{ext_wp|Microsoft_Windows}.
+Appropriate containers can also be built for 32-bit ARM processors, etc.
+See [Perkify - Docker]{con_ove|Perkify_Docker} for details.
+
+That said, we are currently concentrating on using
+[Vagrant]{ext_wp|Vagrant_(software)} and [Virtual Box]{ext_wp|Virtual_Box},
+rather than Docker.
+This combination works on Linux (albeit with some inefficiency),
+macOS, and Windows.
+If and when we have this approach in production,
+we'll look into alternatives for Linux variants,
+including [Android OS]{ext_wp|Android_(operating_system)}
+and [Raspbian]{ext_wp|Raspbian}.
+
+### Details
+
+At a high level, here are the tasks involved:
+
+- Collect package information on Pete's Alley.
+
+- Use [TOML]{ext_wp|TOML} to encode package "wish lists".
+
+- Create and augment [Ubuntu]{ext_wp|Ubuntu}-based "boxes".
+
+- Distribute the boxes via [Vagrant Cloud]{https://app.vagrantup.com}.
+
+#### Package Management
+
+There are a variety of package management archives, commands, etc.
+Some are tied to operating systems, others to programming languages.
+For example, [Alacritty]{cat_sof|Alacritty}'s 
+[GitHub page]{ext_gh|jwilm/alacritty} lists about a dozen commands
+for retrieving and/or building software packages,
+including `apt`, `brew`, `choco`, `emerge`, `eopkg`, `nix-env`,
+`pacman`, `pkg`, `urpmi`, `xbps-install`, and `zypper`.
+
+Debian's Advanced Package Toolkit ([APT]{ext_wp|APT_(software)})
+is well known as a reliable way to install software packages.
+Given that there are tens of thousands of packages in the archive,
+installation for most packages we want will "Just Work".
+Finally, numerous versions of Linux (e.g., Raspbian, Ubuntu)
+are derived from Debian,
+so they inherit APT and many other design details.
+
+Chef is a [Ruby]{ext_wp|Ruby_(programming_language)}-based
+[configuration management]{ext_wp|Configuration_management} tool
+which can abstract away the specifics of tasks such as
+building, configuring, downloading, and installing packages.
+So, any task which is done for multiple packages or targets
+only needs to be described once.
+However, if the target OS doesn't have a current and correct set
+of installation and configuration code for a package,
+we'll need to resolve this deficiency.
+Each package management system has its own notion of how to specify
+installation and configuration details,
+so we'll need a [spanning set]{ext_wp|Spanning_set} of cookbooks and recipes.
+See [Perkian - Chef]{con_ove|Perkian_Chef} for details.
+
+Docker is an
+[OS-level virtualisation]{ext_wp|OS-level_virtualisation} ecosystem
+which addresses a number of deployment issues.
+Lightweight "containers" can be created for a single OS (e.g., Debian)
+and deployed on systems ranging from personal computers
+through embedded systems to cloud-based servers.
+[Android OS]{ext_wp|Android_(operating_system)}, sadly,
+is a conspicuous exception to this coverage,
+though it still can benefit from APT and Chef.
+
+#### System Environment
+
+All Linux distributions have basically the same
+[kernel]{ext_wp|Kernel_(operating_system)},
+default [libraries]{ext_wp|Library_(computing)}, and
+[utilities]{ext_wp|Utility_software}.
+However, that doesn't mean that they have the same runtime environment,
+whether for [deployment]{ext_wp|Deployment_environment} or
+[development]{ext_wp|Deployment_environment#Development}.
+The available compilers and libraries may vary,
+along with the file tree layout, configuration files, I/O devices,
+processor architecture, etc.
+
+To minimize the number of packages we need to add
+(and the amount of support we need to provide),
+we've opted to base Perkify on Ubuntu,
+a popular, "batteries-included" Linux distribution.
+
+### Summary
+
+Our use case  presents a potentially unmanageable amount
+of development, testing, and support.
+Fortunately, there are ways to manage this,
+using readily available software and other resources.
+Stitching these resources together will be a job for custom code
+(e.g., [Elixir]{ext_wp|Elixir_(programming_language)},
+[Ruby]{ext_wp|Ruby_(programming_language)})
+and data files (e.g., [TOML]{ext_wp|TOML}).
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

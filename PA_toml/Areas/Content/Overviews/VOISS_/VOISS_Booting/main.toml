@@ -1,0 +1,255 @@
+# con_ove|VOISS_Booting/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'VOISS_Booting'
+  title       = 'VOISS - Booting'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'thoughts on the booting of VOISS systems'
+
+  verbose     = '''
+The [Raspberry Pi]{ext_wp|Raspberry_Pi} 3 Model B+ (aka 3B+)
+can boot from either the microSD card or a USB-based storage device
+(e.g., flash drive, solid state disk).
+The [VOISS - Storage]{con_ove|VOISS_Storage} page
+speculates about ways that this capability could be used in a VOISS system.
+However, it might be possible to go quite a bit further in this direction.
+
+*Note:*
+Everything on this page is highly speculative (i.e., Science Fiction),
+based on my light reading of a number of web pages.
+It is also extremely specific to the 3B+,
+which has a particular set of hardware and firmware.
+Trying to extrapolate from anything said here to any other model
+is risky business, at best.
+
+### Raspberry Pi 3 Model B+
+
+The [product page]{
+     https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus}
+for the 3B+ indicates that it is planned as a long-lived product,
+with a stable design:
+
+- The final revision of our third-generation single-board computer
+- Raspberry Pi 3 Model B+ will remain in production until at least January 2026
+
+This seems like a firm foundation for a system such as the VOISS.
+More to the point, if we want to take advantage take advantage of details
+in the RasPi's approach to booting, we definitely need some stability!
+
+#### 3B+ Booting
+
+According to the documentation I've read, nothing special needs to be done
+to the hardware in order to boot the 3B+ from a USB-based storage device.
+(Although some earlier models do not support this feature by default,
+the 3B+ does.)
+However, it appears that the operating system image also has a role to play:
+
+> Starting with the 2017-04-10 release of Raspbian
+you can install a working Raspbian system to a USB mass storage device
+by copying the operating system image directly onto your USB device,
+in the same way that you would for an SD card. ...
+
+> **Boot your Raspberry Pi from the USB mass storage device**
+
+> Attach the USB mass storage device to your Raspberry Pi and power the Pi up.
+After five to ten seconds, the Raspberry Pi should begin booting
+and show the rainbow splash screen on an attached display.
+
+> -- [USB mass storage device boot
+     ]{https://www.raspberrypi.org/documentation/
+       hardware/raspberrypi/bootmodes/msd.md}
+
+#### Boot Order
+
+According to a [posting]{https://www.raspberrypi.org/forums/viewtopic.php?t=219462}
+in the Raspberry Pi forums:
+
+> All 4 USB ports are connected to a single port on the SoC
+(through a hub chip), so there is no boot priority.
+It's more device dependent.
+Whichever one gets ready first will be seen first.
+
+So, if multiple, bootable flash drives are available via USB,
+it's pretty much a crap shoot which one will be booted.
+My take-away from this is
+"don't try to boot the 3B+ with more than one bootable USB device plugged in".
+That said, there should be no problem booting up on on device
+and then plugging in another.
+
+### Status
+
+I don't know exactly what the operating system needs to do
+in order to take advantage of this feature.
+However I do know that, while the current version of Raspbian
+boots from a USB flash drive, the current version of F123Light does not.
+
+Here is the procedure I followed (successfully),
+in getting a 3B+ to boot Raspbian from a USB flash drive:
+
+- Downloaded Raspian Buster (full) - July 2019
+- Used balenaEtcher to write a 32 GB flash drive.
+- Moved the flash drive to the RPi and powered up.
+- After a few seconds, Raspbian booted and ran.
+
+When I tried the same approach with F123Light, the system never booted.
+I'm hopeful that [Arch Linux ARM]{https://archlinuxarm.org},
+upon which F123Light is based, has implemented whatever support is needed.
+If so, this may be basically an F123Light build issue.
+
+So, I'm currently trying to replicate the problem
+using the current Arch Linux release.
+Unfortunately, balenaEtcher says that my downloaded file
+of the current release is an "Invalid Image":
+`.../ArchLinuxARM-rpi-3-latest.tar.gz` is not a supported image type.
+
+I found a recent article on how to do this manually:
+[How to Install Arch Linux on Raspberry Pi 
+]{ https://linuxize.com/post/how-to-install-arch-linux-on-raspberry-pi}.
+However, the article contains about a dozen commands
+have to be run as root.
+I find this to be rather daunting,
+so I'm hoping to find a safer and easier approach.
+
+### Resources
+
+#### ARM Cortex
+
+- [ARM Cortex-A53
+  ]{ext_wp|ARM_Cortex-A53}
+
+- [Cortex-A53
+  ]{https://developer.arm.com/ip-products/processors/cortex-a/cortex-a53}
+
+#### Arch Linux
+
+- [Arch Linux ARM
+  ]{https://archlinuxarm.org}</br>
+  (project web site)
+
+- [ArchLinux Install Guide
+  ]{https://elinux.org/ArchLinux_Install_Guide}</br>
+  (from eLinux)
+
+- [ARMv8 Raspberry Pi 3
+  ]{https://archlinuxarm.org/os/
+    ArchLinuxARM-rpi-3-latest.tar.gz}</br>
+  (root filesystem archive file)
+
+- [Downloads
+  ]{https://archlinuxarm.org/about/downloads}</br>
+  (root filesystem archive files)
+
+- [How do you make a bootable SD card?
+  ]{https://www.raspberrypi.org/forums/viewtopic.php?t=87001}
+  (forum thread)
+
+- [How to Install Arch Linux on Raspberry Pi 
+  ]{https://linuxize.com/post/how-to-install-arch-linux-on-raspberry-pi}
+  (article)
+
+#### balenaEtcher
+
+- [balena
+  ]{https://www.balena.io}</br>
+  (company)
+
+- [balena-io/etcher
+  ]{https://github.com/balena-io/etcher}</br>
+  (balenaEtcher repo on GitHub)
+
+- [balenaEtcher
+  ]{https://www.balena.io/etcher}</br>
+  (open source project)
+
+#### F123Light
+
+- [$url]{https://public.f123.org}</br>
+  (downloads directory)
+
+- [$url]{https://public.f123.org/F123Light-19.09.12.img.xz}</br>
+  (sample image archive file)
+
+- [$url]{https://public.f123.org/F123Light-19.09.12.img.xz.sha1sum}</br>
+  (sample image archive checksum)
+
+#### Manjaro
+
+- [Manjaro
+  ]{https://manjaro.org}
+
+- [Manjaro ARM Review: Easy Arch for ARM Devices
+  ]{https://www.electromaker.io/tutorial/blog/
+    manjaro-arm-review-easy-arch-for-arm-devices}
+
+- [Manjaro Downloads
+  ]{https://manjaro.org/download}
+
+- [Why I Switched From Ubuntu to Manjaro Linux
+  ]{https://www.howtogeek.com/430556/
+    why-i-switched-from-ubuntu-to-manjaro-linux}
+
+#### Raspberry Pi
+
+- [Boot sequence
+  ]{https://www.raspberrypi.org/documentation/
+    hardware/raspberrypi/bootmodes/bootflow.md}
+
+- [BCM2837B0
+  ]{https://www.raspberrypi.org/documentation/
+    hardware/raspberrypi/bcm2837b0/README.md}</br>
+  (processor used by 3B+)
+
+- [Downloads
+  ]{https://www.raspberrypi.org/downloads}
+
+- [Installing operating system images
+  ]{https://www.raspberrypi.org/documentation/
+    installation/installing-images}
+
+- [Pi 3 booting part I: USB mass storage boot beta
+  ]{https://www.raspberrypi.org/blog/pi-3-booting-part-i-usb-mass-storage-boot}
+
+- [Pi4 Bootflow
+  ]{https://www.raspberrypi.org/documentation/
+    hardware/raspberrypi/bootmodes/bootflow_2711.md} (WIP)
+
+- [Raspberry Pi 3 Model B+
+  ]{https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus}
+
+- [Raspberry Pi hardware
+  ]{https://www.raspberrypi.org/documentation/hardware/raspberrypi}
+
+- [Raspbian
+  ]{https://www.raspberrypi.org/downloads/raspbian}</br>
+  (downloads directory)
+
+- [SD card boot
+  ]{https://www.raspberrypi.org/documentation/
+    hardware/raspberrypi/bootmodes/sdcard.md}
+
+- [Terminal
+  ]{https://www.raspberrypi.org/documentation/usage/terminal}
+
+- [USB device boot mode
+  ]{https://www.raspberrypi.org/documentation/
+    hardware/raspberrypi/bootmodes/device.md}
+
+- [USB mass storage device boot
+  ]{https://www.raspberrypi.org/documentation/
+    hardware/raspberrypi/bootmodes/msd.md}
+
+To be continued ...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

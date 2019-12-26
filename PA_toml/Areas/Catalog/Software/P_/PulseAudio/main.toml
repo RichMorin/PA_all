@@ -1,0 +1,49 @@
+# cat_sof|PulseAudio/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'PulseAudio'
+  title       = 'PulseAudio'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'audio'
+  licenses    = 'open source'
+  roles       = 'library, utility'
+
+[ about ]
+
+  precis      = 'provides audio and MIDI functionality to Linux'
+
+  verbose     = '''
+> PulseAudio is a sound system for POSIX OSes,
+meaning that it is a proxy for your sound applications.
+It allows you to do advanced operations on your sound data
+as it passes between your application and your hardware.
+Things like transferring the audio to a different machine,
+changing the sample format or channel count and mixing several sounds
+into one are easily achieved using a sound server.
+
+> PulseAudio is designed for Linux systems.
+It has also been ported to and tested
+on Solaris, FreeBSD, NetBSD, MacOS X, Windows 2000 and Windows XP.
+
+> PulseAudio is an integral part of all relevant modern Linux distributions
+and used in various mobile devices by multiple vendors.
+
+> -- [$url]{https://www.freedesktop.org/wiki/Software/PulseAudio}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|PulseAudio'
+
+[ address.web_site ]
+
+  main        = 'https://www.freedesktop.org/wiki/Software/PulseAudio'

@@ -1,0 +1,51 @@
+# cat_sof|VLC/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'VLC'
+  title       = 'VLC (VideoLAN Client)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'audio'
+  licenses    = 'open source'
+  roles       = 'application, text editor'
+  standards   = '''
+DivX, DVD, FLAC, HTTP, MOV, MP3, MPEG-2, MPEG-4, MPEG, Ogg/Vorbis,
+QuickTime, VCD, WebM, WMV
+  '''
+
+[ about ]
+
+  precis      = 'media player software and streaming media server'
+
+  verbose     = '''
+> VLC is the VideoLAN project's media player.
+It plays MPEG, MPEG-2, MPEG-4, DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3,
+Ogg/Vorbis files, DVDs, VCDs, podcasts,
+and multimedia streams from various network sources.
+
+> VLC can also be used as a streaming server
+that duplicates the streams it reads
+and multicasts them through the network to other clients,
+or serves them through HTTP.
+VLC has support for on-the-fly transcoding of audio and video formats,
+either for broadcasting purposes or for movie format transformations.
+
+> -- [$url]{debi_pkgs|buster/vlc}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|VLC_media_player'
+  zoo         = 'https://www.videolan.org'
+
+[ address.web_site ]
+
+  main        = 'https://www.videolan.org/vlc'

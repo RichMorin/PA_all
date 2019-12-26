@@ -13,20 +13,15 @@ defmodule InfoWeb do
 
   ## Checker
 
-  @doc delegate_to: {Checker, :check_pages, 0}
-  defdelegate check_pages(), to: Checker
+  defdelegate check_pages(),                      to: Checker
 
   ## Common
 
-  @doc delegate_to: {Common, :validate_uri, 1}
-  defdelegate validate_uri(uri_str), to: Common
+  defdelegate validate_uri(uri_str),              to: Common
 
   ## Server
 
-  @doc delegate_to: {Server, :get_snap, 0}
-  defdelegate get_snap(), to: Server
-
-  @doc delegate_to: {Server, :reload, 0}
-  defdelegate reload(), to: Server
+  defdelegate get_snap(),                         to: Server
+  defdelegate reload(),                           to: Server
 
 end

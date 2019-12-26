@@ -1,0 +1,78 @@
+# con_ove|Perkify_Services/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Services'
+  title       = 'Perkify - Network Services'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = "introduction to Perkify's network services"
+
+  verbose     = '''
+[Ubuntu]{ext_wp|Ubuntu} is capable of providing a large number of
+[network services]{ext_wp|Network_service}, including common ones such as
+Hypertext Transfer Protocol ([HTTP]{ext_wp|Hypertext_Transfer_Protocol}) and
+Secure Shell ([SSH]{ext_wp|Secure_Shell}).
+Perkify starts with the default set and then sets up a few more.
+This page provides a summary of the provided services
+and associated [ports]{ext_wp|Port_(computer_networking)}.
+
+### Background
+
+The port number field contains 16 bits,
+allowing a range of port numbers from 0-65535.
+However, use of these numbers is subject to assorted constraints:
+
+> The port numbers are divided into three ranges: the *well-known ports*,
+the *registered ports*, and the *dynamic* or *private ports*.
+
+> The well-known ports (also known as *system ports*)
+are those from 0 through 1023.
+The requirements for new assignments in this range
+are stricter than for other registrations ...
+
+> -- [$url]{ext_wp|Port_(computer_networking)}
+
+When a service is running on a virtual machine ([VM]{ext_wp|Virtual_machine}),
+it has to avoid the ports that are being used by the host machine.
+The VM accomplishes this by using [port forwarding]{ext_wp|Port_forwarding}.
+This maps some of the VM's internal ports (e.g., 22)
+onto available dynamic ports (e.g., 2222) on the host machine.
+
+### Port Usage
+
+The following table indicates which host ports the Perkify VM uses.
+
+| Host Port | VM Port | Protocol Name | Typical Usage |
+| --------- | ------- | ------------- | ------------- |
+| 8080 | 80 | HTTP (Hypertext Transfer Protocol) | web server      |
+| 2222 | 22 | SSH  (Secure Shell)                | terminal access |
+
+### Protocols
+
+#### HTTP
+
+Port 8080 is used by an [Apache]{ext_wp|Apache_HTTP_Server} server,
+providing access to Hypertext Markup Language ([HTML]{ext_wp|HTML}) files
+located in `/home/vagrant/_base/html`.
+Other servers will, of course, need to use different ports.
+
+#### SSH
+
+Port 2222 is used to access Perkify via SSH.
+Note that SSH can also be used to tunnel
+[X11]{ext_wp|X_Window_System} and other protocols.
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

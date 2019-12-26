@@ -1,0 +1,121 @@
+# apt_presets - APT configuration presets for Perkify packages
+#
+# See con_how|Perkify_APT_Details for background information.
+
+# Emacspeak,          emacspeak,          accessible editor
+# orig: emacspeak-49.0/
+#
+#   "Default speech server: ..."
+#     -> This should probably be "espeak".
+#   "If a hardware device is used to generate speech, ..."
+#     -> This should probably be "none".
+#
+# Package Name    Database Key                    Type        Value
+# ------------    ------------                    ----        -----
+  emacspeak	      shared/emacspeak/port           string      none
+  emacspeak       shared/emacspeak/device         select      espeak
+
+
+# Chef, chef, systems integration
+# orig: chef-13.8.7/
+#
+#   "Please choose the full URI that clients will use to connect to the
+#   server (for instance: http://chef.example.com:4000)."
+#     -> This should probably be localhost:4000 or somesuch...
+#
+#   I sent email (when?) asking about a way to pre-set this to (say) localhost.
+#   On 2019.1221, I tried again via launchpad:
+#     https://answers.launchpad.net/ubuntu/+source/chef/+question/687420
+#   I've gotten some responses, but no useful information...
+#
+# Package Name    Database Key                    Type        Value
+# ------------    ------------                    ----        -----
+  chef            chef/chef_server_url            string      localhost:4000
+
+
+# GNU Mailutils, mailutils, email support
+# orig: mailutils-3.5/
+#
+#   "Postfix Configuration
+#   Please select the mail server configuration type ..."
+#     -> This should probably be "No configuration:".
+#   On 2019.1221, I posted an inquiry via launchpad:
+#     https://answers.launchpad.net/ubuntu/+source/mailutils/+question/687422
+#
+# Package Name    Database Key                    Type        Value
+# ------------    ------------                    ----        -----
+  postfix         postfix/main_mailer_type        select      No configuration
+
+
+# JACK, jackd2, audio support
+# orig: 1.9.12~dfsg/
+#
+#   "If you want to run jackd with realtime priorities, the user starting
+#   jackd needs realtime permissions. Accept this option to create the file
+#   /etc/security/limits.d/audio.conf, granting realtime priority and memlock
+#   privileges to the audio group.
+# 
+#   Running jackd with realtime priority minimizes latency, but may lead to
+#   complete system lock-ups by requesting all the available physical system
+#   memory, which is unacceptable in multi-user environments.
+#
+#   Enable realtime process priority?"
+#     -> Odd that this isn't set by the -y option.
+#     -> This should probably be answered "no".
+#
+#   Running this manually caused the MB Air to reboot (RAM issue?).
+#   Also, this may be getting installed automagically (?).  Investigate...
+#
+# Package Name    Database Key                    Type        Value
+# ------------    ------------                    ----        -----
+  jackd2          jackd/tweak_rt_limits           boolean     false
+
+
+# KDE, kde-full, window manager
+#   orig: meta-kde-102ubuntu2/
+#
+#    "A display manager is a program that provides graphical login capabilities
+#    for the X Window System.
+#
+#    Only one display manager can manage a given X server, but multiple display
+#    manager packages are installed. Please select which display manager should
+#    run by default.
+# 
+#    Multiple display managers can run simultaneously if they are configured
+#    to manage different servers; to achieve this, configure the display
+#    managers accordingly, edit each of their init scripts in /etc/init.d,
+#    and disable the check for a default display manager.
+#
+#    Default display manager:
+#
+#       gdm3
+#       sddm
+#       -> gdms=3 has been the Canonical choice since Ubuntu 17.10
+#
+# Package Name    Database Key                        Type        Value
+# ------------    ------------                        ----        -----
+  gdm3            shared/default-x-display-manager    select      nodm
+  nodm            shared/default-x-display-manager    select      nodm
+  sddm            shared/default-x-display-manager    select      nodm
+
+
+# nodm, nodm, X11 display manager
+# orig: nodm-0.13/
+#
+#   ...
+#   Default display manager:
+#   -> dialog is the same as in kde-full, except it offers nodm.
+#   -> seems to be using the information from kde-full ...
+#
+#   Designed for embedded or kiosk systems, nodm starts an X session for a user
+#   without asking for authentication. On regular machines, this has security
+#   implications and is therefore disabled by default.
+#
+#   You should enable nodm only if you need autologin on this machine. 
+#
+#   Enable nodm?
+#     -> This should probably be answered "no".
+#
+# Package Name    Database Key                        Type        Value
+# ------------    ------------                        ----        -----
+  nodm            nodm/enabled                        boolean     false

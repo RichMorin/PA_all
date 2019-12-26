@@ -1,0 +1,55 @@
+# cat_sof|BusyBox/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'BusyBox'
+  title       = 'BusyBox'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'text'
+  licenses    = 'open source'
+  roles       = 'system software, utility'
+
+[ about ]
+
+  precis      = 'utility multi-tool for small and embedded systems'
+
+  verbose     = '''
+> BusyBox combines tiny versions of many common UNIX utilities
+into a single small executable.
+It provides minimalist replacements for the most common utilities
+you would usually find on your desktop system
+(i.e., ls, cp, mv, mount, tar, etc.).
+The utilities in BusyBox generally have fewer options
+than their full-featured GNU cousins;
+however, the options that are included provide the expected functionality
+and behave very much like their GNU counterparts.
+
+> This package installs the BusyBox binary but does not install symlinks
+for any of the supported utilities.
+Some of the utilities can be used in the system by installing the busybox-syslogd, busybox-udhcpc, or busybox-udhcpd packages.
+
+> -- [$url]{debi_pkgs|buster/busybox}
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|scop/bash-completion'
+  wikipedia   = 'ext_wp|BusyBox'
+  
+  zoo         = '''
+https://git.busybox.net/busybox,
+https://busybox.net/source.html
+'''
+
+[ address.web_site ]
+
+  about       = 'main|/about.html'
+  main        = 'https://busybox.net'

@@ -1,0 +1,75 @@
+# con_how|VOISS_GPIO/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'VOISS_GPIO'
+  title       = 'VOISS - GPIO'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'an overview of VOISS (etc) GPIO handling'
+
+  verbose     = '''
+The Raspberry Pi had several connectors for standardized electrical interfaces,
+as discussed in [VOISS - Interfaces]{con_ove|VOISS_Interfaces}.
+These include Ethernet, stereo audio output, USB, and video I/O.
+However, it also provides a 40-pin digital connector for the
+general-purpose input/output
+([GPIO]{https://en.wikipedia.org/wiki/General-purpose_input/output}) interface.
+
+The pins can be used to accept and/or provide both power and digital signals.
+Although there is no provision for analog input,
+the output from a digital pulse-code modulation
+([PCM]{ext_wp|Pulse-code_modulation}) signal can be integrated
+(using a capacitor) to provide analog (e.g., audio) output.
+GPIO pins can also be used to receive and/or transmit radio signals;
+see [software-defined radio]{ext_wp|Software-defined_radio} for details.
+
+### Mechanical Details
+
+The pins in the GPIO connector are laid out in two closely spaced (0.1") rows.
+It's quite possible to connect single-wire jumpers to individual pins,
+but counting pins (to determine the correct position) can be a hassle.
+So, I'd suggest getting and using some of the available alternatives.
+
+
+
+
+---
+
+### Orientation
+
+- cable edge marking (tactile, visual)
+- pin numbering
+- bump, notch, etc.
+- jumper wires
+- seeed grove
+
+### Cabling
+
+- [Adafruit Pi T-Cobbler Plus Kit Breakout for 2x20 Raspberry Pi ...
+  ]{https://www.adafruit.com/product/1989} ($7.50)
+
+- [GPIO Ribbon Cable for Raspberry Pi Model A+/B+/Pi 2/Pi 3 - (40 pins)
+  ]{https://www.adafruit.com/product/1988} ($3)
+
+- [Stacking Header for Pi A+/B+/Pi 2/Pi 3 - 2x20 Extra Tall Header
+  ]{https://www.adafruit.com/product/1979} ($3)
+
+#### Grove System
+
+- [Grove System
+  ]{http://wiki.seeedstudio.com/Grove_System}
+
+
+'''
+
+[ zoo ]
+
+  snippets    = '...'

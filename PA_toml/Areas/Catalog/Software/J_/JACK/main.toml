@@ -1,0 +1,44 @@
+# cat_sof|JACK/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'JACK'
+  title       = 'JACK Audio Connection Kit (JACK)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'audio'
+  licenses    = 'open source'
+  roles       = 'library, utility'
+
+[ about ]
+
+  precis      = 'basic infrastructure for audio applications'
+
+  verbose     = '''
+> Have you ever wanted to take the audio output of one piece of software
+and send it to another?
+How about taking the output of that same program and send it to two others,
+then record the result in the first program?
+Or maybe you’re a programmer who writes real-time audio and music applications
+and who is looking for a cross-platform API that enables
+not only device sharing but also inter-application audio routing,
+and is incredibly easy to learn and use?
+If so, JACK may be what you’ve been looking for.
+
+> -- [$url]{https://jackaudio.org}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|JACK_Audio_Connection_Kit'
+
+[ address.web_site ]
+
+  main        = 'https://jackaudio.org'

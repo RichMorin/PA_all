@@ -1,12 +1,39 @@
 :
 # get_apt - get an APT package
 #
+# Usage:  get_apt log_dir name
+#
 # Written by Rich Morin, CFCL, 2019.
 
-  cmd="apt-get -y install $2"
-  log=$1/$2
+  export DEBIAN_FRONTEND=noninteractive
 
-  $cmd > $log 2>&1
+  log_dir=$1
+  name=$2
+
+# I tried to use apt-get magic from section 6.8.5. (The Miracle Combination)
+# in https://debian-handbook.info/browse/stable/sect.automatic-upgrades.html
+# Unfortunately, install-suggests seems to cause interminable load times and
+# the Dpkg options cause nastygrams.  Punting on all this for now...
+#
+# opt_0="--install-suggests"                     # install suggested packages
+# opt_1='-o Dpkg::Options::="--force-confdef"'   # overwrite unmod. config files
+# opt_2='-o Dpkg::Options::="--force-confold"'   # retain old config file
+# opts="-q -y $opt_0 $opt_1 $opt_2"
+# cmd="yes '' | apt-get install $opts $name"
+#
+# See also https://debian-handbook.info/browse/stable/
+#   sect.package-meta-information.html#sidebar.questions-conffiles
+
+  cmd="apt-get install -q -y $name"
+
+  if false; then     #!TG
+    echo "log_dir:  '$log_dir'"
+    echo "name:     '$name'"
+    echo "cmd:      '$cmd'"
+    echo "log:      '$log'"
+  fi
+
+  $cmd > $log_dir/$name 2>&1
   status=$?
 
   if [ $status -ne 0 ]; then

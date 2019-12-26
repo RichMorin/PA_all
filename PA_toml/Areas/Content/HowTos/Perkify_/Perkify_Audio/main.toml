@@ -1,0 +1,222 @@
+# con_how|Perkify_Audio/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Audio'
+  title       = 'Perkify - Audio Support'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'introduction to audio support on Perkify'
+
+  verbose     = '''
+Because Perkify runs as a [virtual machine]{ext_wp|Virtual_machine},
+adding audio (e.g., speech) support is slightly different
+than it might be on a native [Linux]{ext_wp|Linux} installation.
+This page discusses the approach we're taking
+and suggests some sample commands for you to try out.
+
+*Note:*
+Due to a configuration problem,
+the audio on Perkify 0.2.0 isn't working on my MacBook Air.
+So, until we resolve this, YMMV.
+
+### Approach
+
+The Golden Path for basic audio support on Linux systems seems to include
+Advanced Linux Sound Architecture ([ALSA]{cat_sof|ALSA}) and
+[PulseAudio]{cat_sof|PulseAudio}.
+ALSA supports low-level audio (e.g., devices, protocols);
+PulseAudio supports user-level audio, MIDI, etc.
+ALSA is shipped with most Linux variants, including Ubuntu.
+However, it needs to be provisioned and configured, in order to function.
+We also install the ALSA Utilities, PulseAudio, and other tooling.
+
+### Audio Files
+
+The `/usr/share/sounds` directory contains various sets of sound files
+which can be used to play with the sound infrastructure.
+The `sound-icons` sub-directory, in particular,
+contains lots of short audio samples, in WAV format.
+
+### Commands
+
+Unless otherwise noted, all commands discussed below are available in Perkify.
+
+#### aplay, arecord
+
+The [aplay and arecord]{ext_lm|1/aplay} commands
+are primarily intended to play and record audio files.
+However, they can also be used to provide information
+about the state of ALSA's sound infrastructure:
+
+    vagrant@perkify:~$ aplay -L
+    null
+        Discard all samples (playback) or generate zero samples (capture)
+    jack
+        JACK Audio Connection Kit
+    pulse
+        PulseAudio Sound Server
+    default
+        Playback/recording through the PulseAudio sound server
+    sysdefault:CARD=Intel
+        HDA Intel, STAC9221 A1 Analog
+        Default Audio Device
+    ...
+
+#### ffmpeg, ffmplay
+
+[ffmpeg]{ext_lm|1/ffmpeg} is a very fast video and audio converter
+that can also grab from a live audio/video source.
+[ffplay]{ext_lm|1/ffplay} is a very simple and portable media player
+that uses the FFmpeg libraries and the SDL library.
+It is mostly used as a testbed for the various FFmpeg APIs.
+
+#### jackd
+
+The JACK Audio Connection Kit ([JACK]{cat_sof|JACK})
+provides basic infrastructure for audio applications.
+[jackd]{ext_lm|1/jackd} is the JACK audio server daemon,
+a low-latency audio server.
+
+#### mpg123
+
+[mpg123]{ext_lm|1/mpg123} is a real time MPEG 1.0/2.0/2.5 audio player/decoder
+for layers 1, 2 and 3 (MPEG 1.0 layer 3 is also known as MP3).
+
+#### play
+
+The [play]{ext_lm|1/play} command is part of [SoX]{cat_sof|SoX}
+(Sound eXchange, the Swiss Army knife of audio manipulation).
+It will play any file format supported by sox,
+using the default audio device.
+
+#### pulseaudio
+
+PulseAudio is a networked, low-latency sound server
+for Linux, POSIX, and Windows systems.
+The [pulseaudio]{ext_lm|1/pulseaudio} command is used to administer the server.
+For example, this pair of commands tells us
+that the PulseAudio daemon is already running for the `vagrant` user:
+
+    vagrant@perkify:~$ pulseaudio --check
+    vagrant@perkify:~$ echo $?
+    0
+
+#### speaker-test
+
+The `alsa-utils` package contains utilities which support use of ALSA.
+The [speaker-test]{https://linux.die.net/man/1/speaker-test} command,
+for example, is a good way to confirm that audio output is working.
+The command has quite a few options,
+but its default behavior is to generate [pink noise]{ext_wp|Pink_noise}:
+
+    vagrant@perkify:~$ speaker-test
+    speaker-test 1.1.8
+
+    Playback device is default
+    Stream parameters are 48000Hz, S16_LE, 1 channels
+    Using 16 octaves of pink noise
+    Rate set to 48000Hz (requested 48000Hz)
+    Buffer size range from 69 to 17832
+    Period size range from 34 to 8917
+    Using max buffer size 17832
+    Periods = 4
+    was set period_size = 4458
+    was set buffer_size = 17832
+     0 - Front Left
+    Time per period = 3.200874
+    ...
+
+### Packages
+
+Here is a quick rundown on several other audio-related packages,
+most of which we'd like to include in Perkify.
+
+#### BRLTTY
+
+There are two Debian packages for BRLTTY:
+
+- brltty-espeak  - uses espeak directly
+- brltty-speechd - uses speech-dispatcher
+
+#### Emacspeak
+
+Emacspeak supports several hardware and software speech synthesizers,
+but ViaVoice TTS appears to be the golden path, in terms of software.
+
+#### eSpeak (NG)
+
+eSpeak is a speech synthesizer that supports 99 languages and accents.
+According to the eSpeak
+[installation page]{http://espeak.sourceforge.net/commands.html},
+"eSpeak uses the PortAudio sound library (version 18)".
+
+eSpeakNG is based on eSpeak, but has many changes and extensions.
+For example, it can use MBROLA voices and (optionally):
+
+- the pcaudiolib development library to enable audio output;
+- the sonic development library to enable sonic audio speed up support;
+- the ronn man-page markdown processor to build the man pages.
+
+#### Orca
+
+According to [Getting Orca and Its Dependencies
+]{https://wiki.gnome.org/Projects/Orca#Getting_Orca_and_Its_Dependencies},
+Orca depends on BRLTTY, Liblouis, and Speech Displatcher.
+
+- [at-spi2-core
+  ]{https://gitlab.gnome.org/GNOME/at-spi2-core} (D-Bus AT-SPI)
+
+- [at-spi2-atk
+  ]{https://gitlab.gnome.org/GNOME/at-spi2-atk} (D-Bus AT-SPI)
+
+- [ATK - The Accessibility Toolkit
+  ]{https://gitlab.gnome.org/GNOME/atk}
+
+- [pyatspi2
+  ]{https://gitlab.gnome.org/GNOME/pyatspi2} (D-Bus AT-SPI)
+
+- [Speech Dispatcher
+  ]{https://freebsoft.org/speechd}
+
+#### OSS
+
+On most Linux distributions,
+Open Sound System ([OSS]{cat_sof|OSS}) has been supplanted by 
+Advanced Linux Sound Architecture ([ALSA]{cat_sof|ALSA}).
+It also requires rebuilding the kernel, which is a hassle.
+And, in any event, I couldn't get it working
+in the amount of time I was willing to spend on it.
+
+#### Speakup
+
+[Speakup]{cat_sof|Speakup} is a kernel module
+that provides a text-to-speech interface at the kernel level.
+
+### Resources
+
+- [Debian Wiki - accessibility
+  ]{https://wiki.debian.org/accessibility}
+
+- [Installing Emacspeak HOWTO
+  ]{http://emacspeak.sourceforge.net/install-guide/installing-emacspeak.html}
+
+- [Installing Emacspeak HOWTO - 4. Requirements
+  ]{http://emacspeak.sourceforge.net/install-guide/requirements.html}
+
+- [Installing Emacspeak HOWTO - Appendix B: Installing ViaVoice TTS
+  ]{http://emacspeak.sourceforge.net/install-guide/appendixb.html}
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

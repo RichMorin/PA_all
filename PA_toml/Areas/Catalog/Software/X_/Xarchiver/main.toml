@@ -20,7 +20,7 @@
 
 [ about ]
 
-  precis      = 'render HTML into PDF and various image formats'
+  precis      = 'solution for handling archives'
 
   verbose     = '''
 > Xarchiver is the ultimate solution for handling archives on Linux and FreeBSD.

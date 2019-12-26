@@ -1,0 +1,69 @@
+# cat_sof|MPlayer/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'MPlayer'
+  title       = 'MPlayer'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'audio, media'
+  licenses    = 'open source'
+  roles       = 'daemon, music server, system software'
+  standards   = '''
+3Dfx, 3ivx, AAlib, AQTitle, ASF, ATI, AVI,
+DGA, DirectFB, DivX, DVB, DVD, DXR2, DXR3,
+fbdev, FILM, FLI, GGI, H.264, JACOsub,
+Matroska, Matrox, MicroDVD, MOV, MP4, MPEG, MPsub,
+NuppelVideo, NUT, Ogg, OGM, OpenGL, PJS, PVA, QT, RealMedia, RoQ, RT,
+Sami, SDL, SSA, SVCD, SubRip, SubViewer, SVGAlib,
+VESA, VideoCD, VIVO, VOB, VOBsub, VPlayer,
+Win32 DLL, WMA, WMV, X11, XAnim, Xv, YUV4MPEG
+  '''
+  supports    = 'entertainment, music'
+
+[ about ]
+
+  precis      = 'a server-side application for playing music'
+
+  verbose     = '''
+> MPlayer is a movie player which runs on many systems (see the documentation).
+It plays most MPEG/VOB, AVI, Ogg/OGM, VIVO, ASF/WMA/WMV, QT/MOV/MP4, RealMedia,
+Matroska, NUT, NuppelVideo, FLI, YUV4MPEG, FILM, RoQ, PVA files,
+supported by many native, XAnim, and Win32 DLL codecs.
+You can watch VideoCD, SVCD, DVD, 3ivx, DivX 3/4/5, WMV, and even H.264 movies.
+
+> Another great feature of MPlayer is the wide range of supported output drivers.
+It works with X11, Xv, DGA, OpenGL, SVGAlib, fbdev, AAlib, DirectFB,
+but you can use GGI, SDL (and this way all their drivers),
+VESA (on every VESA compatible card, even without X11!)
+and some low level card-specific drivers (for Matrox, 3Dfx and ATI), too!
+Most of them support software or hardware scaling,
+so you can enjoy movies in fullscreen.
+MPlayer supports displaying through some hardware MPEG decoder boards,
+such as the Siemens DVB, DXR2, and DXR3/Hollywood+.
+
+> MPlayer has an onscreen display (OSD) for status information,
+nice big antialiased shaded subtitles and visual feedback for keyboard controls.
+European/ISO 8859-1,2 (Hungarian, English, Czech, etc), Cyrillic,
+and Korean fonts are supported along with 12 subtitle formats
+(MicroDVD, SubRip, OGM, SubViewer, Sami, VPlayer, RT, SSA, AQTitle, JACOsub,
+PJS and our own: MPsub).
+DVD subtitles (SPU streams, VOBsub and Closed Captions) are supported as well.
+
+> -- [$url]{http://www.mplayerhq.hu}
+'''
+
+[ address.related ]
+
+  wikipedia   = 'ext_wp|MPlayer'
+
+[ address.web_site ]
+
+  main        = 'http://www.mplayerhq.hu'

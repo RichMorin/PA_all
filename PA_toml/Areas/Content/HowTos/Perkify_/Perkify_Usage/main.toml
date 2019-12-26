@@ -1,0 +1,192 @@
+# con_how|Perkify_Usage/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Usage'
+  title       = 'Perkify - Usage'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'Usage notes for Vagrant-based Perkify'
+
+  verbose     = '''
+The [Perkify - Install]{con_how|Perkify_Install} page
+contains installation instructions and a few example commands,
+but it doesn't really concentrate on how to use Perkify.
+So, let's dig into that topic a little...
+
+### Background
+
+Perkify is, at heart, a [Linux]{ext_wp|Linux} distribution.
+Specifically, it is based on [Ubuntu]{ext_wp|Ubuntu},
+a "batteries included" distribution intended for end users.
+Because Ubuntu is based on [Debian]{ext_wp|Debian},
+it has access to an immense suite of installable packages
+via Debian's Advanced Package Tool ([APT]{ext_wp|APT_(software)}).
+Using APT and other [package managers]{ext_wp|Package_manager},
+we fold in a variety of commands, libraries, etc. 
+If there is something you'd like us to add, please let us know!
+(Be sure to include relevant links and your reasons for its inclusion.)
+
+Perkify is distributed as a [Vagrant]{ext_wp|Vagrant_(software)} "box",
+containing a [VirtualBox]{ext_wp|Virtual_Box}
+virtual machine ([VM]{ext_wp|Virtual_machine}) image.
+Although this description hides a great deal of complexity,
+you don't need to know the details in order to manage the VM.
+And, because everything can be done from the command line,
+you won't have to deal with the vagaries of
+Graphical User Interfaces ([GUIs]{ext_wp|Graphical_user_interface}).
+
+### The `vagrant` command
+
+Most of Vagrant's operation and administration is performed
+using variations on the `vagrant` command.
+There are dozens of sub-commands,
+so this section is just a brief introduction for Perkify users.
+For more detailed information, check out this
+[Cheat Sheet]{https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4}
+or the Vagrant
+[Command-Line Interface]{https://www.vagrantup.com/docs/cli} page.
+
+#### `vagrant -h`
+
+This displays help text for the `vagrant` command.
+Mostly, it summarizes the available sub-commands:
+
+    $ vagrant -h
+    Usage: vagrant [options] <command> [<args>]
+
+      -v, --version   Print the version and exit.
+      -h, --help      Print this help.
+
+    Common commands:
+      box             manages boxes: installation, removal, etc.
+      cloud           manages everything related to Vagrant Cloud
+      ...
+    ...
+
+#### `vagrant destroy`
+
+This halts (shuts down) the Vagrant VM and destroys any saved machine state.
+Use this if you've mangled the VM and want to start over from a fresh image.
+
+#### `vagrant halt`
+
+This halts (shuts down) the Vagrant VM, saving any persistent machine state.
+
+#### `vagrant init`
+
+This initializes a new Vagrant environment by creating a `Vagrantfile`
+and a `.vagrant` directory.
+Once Vagrant has been set up, you can generally forget about this sub-command.
+
+#### `vagrant ssh`
+
+This sets up a Secure Shell ([SSH]{ext_wp|Secure_Shell}) connection
+to the Vagrant VM.
+It can be run multiple times, producing multiple shell sessions.
+It can also start up [X11]{con_how|Perkify_X11} sessions, etc.
+
+#### `vagrant status`
+
+This displays the status of the Vagrant machine(s) on the host system.
+
+#### `vagrant suspend` / `vagrant resume`
+
+This pair of commands is useful if you want to temporarily suspend the VM
+and resume its operation later.
+This approach retains both persistent and transient state
+and avoids doing a full boot of the guest OS.
+
+#### `vagrant up`
+
+This starts up a Vagrant VM, possibly downloading the needed image files.
+In general, this sub-command should be run in the `~/perkify` directory.
+
+### Access
+
+Once the Perkify VM has been started (via `vagrant up`),
+it acts very much like an Ubuntu-based system on your
+local area network ([LAN]{ext_wp|Local_area_network}).
+So, it can provide Secure Shell ([SSH]{ext_wp|Secure_Shell}) access,
+[web servers]{ext_wp|Web_server}, and other networked services.
+It can also access both its own file system and that of the host machine.
+
+#### File Access
+
+Although a running Linux system has a number of mounted file systems
+(run `df -k` for an overview), most Perkify users will only be concerned
+with a few directories:
+
+- `/home/vagrant` - the home directory for the `vagrant` user
+- `/vagrant`      - a synchronized copy of `~/perkify` on the host OS
+
+In order to access host files from within the VM,
+you may want to add more synchronized directories.
+See [Perkify - Configuration]{con_how|Perkify_Config} for details.
+
+#### Shell Access
+
+Getting access to a Perkify shell session from the host OS is simple:
+just run the `vagrant ssh` command.
+Getting access from another machine takes only a little more work:
+
+    user@foo $ ssh user@bar   # SSH to machine `bar`
+
+    user@bar $ cd perkify     # go to `~/perkify`
+    user@bar $ vagrant ssh    # SSH to the Perkify VM
+
+    vagrant@perkify:~$        # and here you are...
+
+Once you have shell access, the next thing you might want to do
+is search for interesting and/or useful packages.
+Because Perkify is so large, this can be a challenge,
+but see the [Perkify - Search]{con_ove|Perkify_Search} page for ideas.
+
+#### Web Access
+
+It's quite possible to run a web server within the Perkify VM.
+In fact, a copy of [Apache]{ext_wp|Apache_HTTP_Server} is enabled by default.
+However, in order to access web servers from outside the VM,
+their ports must be "forwarded" to the host machine.
+For details, read the [Forwarded Ports
+]{https://www.vagrantup.com/docs/networking/forwarded_ports.html} page.
+
+The Apache server normally communicates via port 80.
+By convention, Vagrant forwards this port on the VM to port 8080 on the host.
+So, you can access this web server as `http://localhost:8080`.
+All you'll get if you access this URL is a placeholder `index.html` file,
+located in the `~/_base/html` directory.
+Feel free to season to taste...
+
+#### Weird Access
+
+Although the Vagrant documentation strongly suggests the use of port forwarding,
+the Vagrant software is quite willing to let you set up
+private and public networks, etc.
+Just understand that any confusion (or security holes) you create
+are your own problem.
+For details, read Vagrant's
+[Networking]{https://www.vagrantup.com/docs/networking} page.
+
+### Resources
+
+At this point, you should have enough knowledge to go off on your own.
+Check out the [Package Index]{con_ove|Perkify_Pkg_Index} and
+[Package List]{con_ove|Perkify_Pkg_List} pages for ideas.
+Also, you'll certainly have questions about Linux, Ubuntu, and Vagrant.
+See the [Perkify - Resources]{con_ove|Perkify_Resources} page
+for some pointers.
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

@@ -1,0 +1,8 @@
+{                                                                                                                       
+  "JSON_file_comment":
+    "workaround for https://github.com/parroty/excoveralls/issues/205",
+
+  "coverage_options": {                                                                                                 
+    "treat_no_relevant_lines_as_covered": true                                                                         
+  }                                                                                                                    
+}

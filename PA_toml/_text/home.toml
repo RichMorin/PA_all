@@ -37,28 +37,28 @@ Here are some brief notes about noteworthy content on the site.
 
 #### VOISS - an economical talking computer
 
-[VOISS]{con_ove|PP_VOISS_Index} has released
+[VOISS]{con_ove|VOISS_Index} has released
 an open source design for an economical talking computer
 that is completely adapted for use by the blind.
 A compliant system can be assembled and maintained by a blind user,
 using open source software and readily-available hardware components.
 In an effort to encourage uptake of this platform,
 [Rich Morin]{cat_peo|Rich_Morin} has created several
-[Overview]{con_ove|:a} pages and a start on a [HowTo]{con_how|PP_VOISS_HowTo}.
-For details, see the VOISS [index page]{con_ove|PP_VOISS_Index}.
+[Overview]{con_ove|:a} pages and a start on a [HowTo]{con_how|VOISS_HowTo}.
+For details, see the VOISS [index page]{con_ove|VOISS_Index}.
 
 #### Perkify - a blind-friendly virtual machine
 
 [Rich Morin]{cat_peo|Rich_Morin} has put together and published
-some early releases of [Perkify]{con_ove|PP_Perkify_Intro},
+some early releases of [Perkify]{con_ove|Perkify_Intro},
 a blind-friendly [virtual machine]{ext_wp|Virtual_machine}
 for use on [personal computers]{ext_wp|Personal_computer}.
 Based on [Ubuntu]{ext_wp|Ubuntu}, [Vagrant]{ext_wp|Vagrant_(software)},
 and [VirtualBox]{ext_wp|VirtualBox},
-Perkify can be used on most 64-bit Intel platforms
+Perkify can be used on most 64-bit AMD/Intel platforms
 (e.g, [Linux]{ext_wp|Linux}, [macOS]{ext_wp|MacOS},
 [Windows]{ext_wp|Microsoft_Windows}).
-For details, see the Perkify [introduction]{con_ove|PP_Perkify_Intro}.
+For details, see the Perkify [introduction]{con_ove|Perkify_Intro}.
 
 #### Motorcycle-related Resources
 

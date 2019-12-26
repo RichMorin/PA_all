@@ -1,0 +1,160 @@
+# con_how|Perkify_APT/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_APT'
+  title       = 'Perkify - APT'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'introduction to APT usage on Perkify'
+
+  verbose     = '''
+Most of Perkify's added [packages]{con_ove|Perkify_Pkg_List} are installed
+using Debian's Advanced Package Toolkit ([APT]{ext_wp|APT_(software)}).
+So, we can use APT and related tooling to find out what we have.
+
+### Commands
+
+While we're trying out commands,
+let's have some fun with Unix command pipelines and shell magic!
+You can probably guess what many of these commands and options do,
+but you can also use `man head` (etc) to find out the gritty details
+on any unfamilar commands.
+See [Perkify - Manual]{con_how|Perkify_Manual} for a brief introduction.
+
+#### Investigation
+
+In Unix-based systems, most commands are simply "executable files".
+Although you'll seldom *need* to investigate commands,
+it's nice to know that you can.
+Some commands (called "scripts") are available for inspection.
+For example, let's investigate the `apt_summ` command (discussed below).
+First, where is it located in the file system?
+
+    vagrant@vagrant:~$ which apt_summ
+    /home/vagrant/bin/apt_summ
+
+Next, what kind of file is it?
+
+    vagrant@vagrant:~$ file /home/vagrant/bin/apt_summ
+    /home/vagrant/bin/apt_summ: Ruby script, ASCII text executable
+
+OK, it's an [ASCII]{ext_wp|ASCII} text file
+(specifically, a [Ruby]{ext_wp|Ruby_(programming_language)} script).
+Feel free to check it out and figure out how it works.
+That said, before trying to display the contents of any command,
+make **sure** that it's a text file.
+Sending anything else to the terminal will print a lot of trash
+and seriously confuse your SSH session.
+Don't go there...
+
+#### `apt_summ`
+
+Perkify's `apt_summ` command generates a one-line summary
+for each installed package.
+The first part of each line is Debian's name for the package.
+Then, in parentheses, comes the package's "version" string.
+This can help you to determine whether your version is up to date.
+Finally, there is a terse description of the package.
+
+*Note:*
+While building the Perkify "box", we run `apt_summ` a few times.
+The results are available in `~/_base/data`;
+see `~/_base/make/add_ons` for the relevant code.
+
+Given that this list is about 2500 lines long (and counting...),
+you'll usually want to filter it in some manner.
+Let's generate the list and then display only the first line:
+
+    vagrant@perkify:~$ apt_summ | head -1
+    a2ps (1:4.14-4) - GNU a2ps - 'Anything to PostScript' converter ...
+
+That worked nicely; let's number the lines and then display the last one:
+
+    vagrant@perkify:~$ apt_summ | cat -n | tail -1
+    2439  zlib1g-dev:amd64 ...
+
+Now, let's display a couple of lines that contain "PostScript",
+ignoring case distictions:
+
+    vagrant@perkify:~$ apt_summ | grep -i postscript | head -2
+    a2ps (...) - GNU a2ps - 'Anything to PostScript' converter ...
+    evince (...) - Document (PostScript, PDF) viewer
+
+#### `apropos`
+
+Often, the package name will match at least one of the commands it provides.
+So, you may have luck finding a man page with `apropos(1)`:
+
+    vagrant@perkify:~$ apropos a2ps | head
+    a2ps (1)             - format files for printing on a PostScript printer
+    a2ps-lpr-wrapper (1) - lp/lpr wrapper script for GNU a2ps on Debian
+    texi2dvi4a2ps (1)    - Compile Texinfo and LaTeX files to DVI or PDF
+
+Then, of course, you can check out any man pages that seem promising:
+
+    vagrant@perkify:~$ man a2ps
+    ...
+
+#### `apt search`
+
+You can also ask APT to help you find packages.
+For example, `apt search` performs a keyword-based search of available packages.
+The output can be voluminous, so you may want to store it in a file
+or pipe it through a filter (e.g., `head(1)`, `less(1)`):
+
+    vagrant@perkify:~$ apt search a2ps | head
+    Sorting... Done
+    Full Text Search... Done
+    a2ps/disco,now 1:4.14-4 amd64 [installed]
+      GNU a2ps - 'Anything to PostScript' converter and pretty-printer
+    ...
+
+#### `apt-cache show a2ps`
+
+If you know the name of the package, you can ask APT for detailed information.
+
+    vagrant@perkify:~$ apt-cache show a2ps
+    Package: a2ps
+    Architecture: amd64
+    Version: 1:4.14-4
+    Priority: optional
+    Section: universe/text
+    ...
+
+#### Web Sites
+
+There are several useful web sites you can visit to find out about packages.
+Our initial release is based on Ubuntu "disco" (19.04)
+and the `apt(1)` command automagically uses the appropriate archive sites.
+However, to get information on a specific package from a web site,
+you'll have to include the current base release (e.g., "disco") in the URL:
+
+- [Ubuntu Packages Search]{https://packages.ubuntu.com/}</br>
+  This page lists the available Ubuntu releases
+  and provides an online search facility.
+
+- [$url]{https://packages.ubuntu.com/disco}</br>
+  This page lists several dozen sections
+  (e.g., [Games]{https://packages.ubuntu.com/disco/games/})
+  that are available for Ubuntu disco.
+
+- [$url]{https://packages.ubuntu.com/disco/a2ps}</br>
+  This page describes `a2ps`, lists related packages, etc.
+
+- [$url]{https://launchpad.net/ubuntu/+source/a2ps}</br>
+  This page provides information of interest to `a2ps` developers.
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

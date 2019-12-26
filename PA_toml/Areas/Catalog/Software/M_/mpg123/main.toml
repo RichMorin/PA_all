@@ -1,0 +1,45 @@
+# cat_sof|mpg123/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'mpg123'
+  title       = 'mpg123'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'audio, media'
+  licenses    = 'free, open source'
+  roles       = 'daemon, music server, system software'
+  standards   = 'MPEG'
+
+  supports    = 'entertainment, music'
+
+[ about ]
+
+  precis      = 'fast console MPEG audio player and decoder library'
+
+  verbose     = '''
+> The mpg123 distribution contains a real time MPEG 1.0/2.0/2.5 audio
+player/decoder for layers 1,2 and 3 (most commonly MPEG 1.0 layer 3 aka MP3),
+as well as re-usable decoding and output libraries.
+Among others, it works on GNU/Linux, MacOSX, the BSDs, Solaris, AIX, HPUX,
+SGI Irix, OS/2, and Cygwin or plain MS Windows
+(not all more exotic platforms tested regularly, but patches welcome).
+
+> -- [$url]{http://www.mpg123.org}
+'''
+
+[ address.related ]
+
+  sourceforge = 'ext_sf|mpg123'
+  wikipedia   = 'ext_wp|Mpg123'
+
+[ address.web_site ]
+
+  main        = 'http://www.mpg123.org'

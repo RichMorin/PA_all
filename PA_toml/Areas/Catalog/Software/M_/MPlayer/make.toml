@@ -1,0 +1,17 @@
+# cat_sof|MPlayer/make.toml
+
+[ meta ]
+
+[ os.arch ]
+
+  package     = 'arch_pkgs|extra/x86_64/mplayer'
+  upstream    = 'http://www.mplayerhq.hu'
+  wiki        = 'arch_wiki|MPlayer'
+
+[ os.debian ]
+
+  package     = 'debi_pkgs|buster/mplayer'
+
+[ os.perkify_ubuntu ]
+
+  add_apt     = 'mplayer'

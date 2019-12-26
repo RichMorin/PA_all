@@ -1,0 +1,192 @@
+# con_ove|Perkify_Make_DC/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Make_DC'
+  title       = 'Perkify - Making Docker Containers'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'notes on making Docker-based Perkify containers'
+
+  verbose     = '''
+This page describes the current procedure
+for making Docker-based Perkify containers.
+It is rather convoluted and may well be simplified in the future.
+In any event, our current focus is on using Vagrant/VirtualBox "boxes".
+
+That said, the procedure appears to work and thus deserves to be documented.
+For general information, see
+[Perkian - Introduction]{con_ove|Perkian_Intro},
+[Perkify - Introduction]{con_ove|Perkify_Intro}, and
+[Perkify - Docker]{con_ove|Perkify_Docker}.
+
+### Background
+
+The `Perkify/_base` file tree contains two sets of files
+([make]{ext_rm|PA_all/tree/master/PP_Perkify/Docker/basis/make}, 
+ [ship]{ext_rm|PA_all/tree/master/PP_Perkify/Docker/basis/ship}):
+
+    make/             used in making the image
+    | add_ons         installs add-on packages
+    | add_ons.rb      helper for the add_ons script
+    | add_ons.toml    specify Perkify add-on packages
+    | Dockerfile      specifies start-up actions
+    | get_apt         get an APT package
+    | get_gem         get a Ruby Gem
+
+    ship/             used for the shipped image
+    | Dockerfile      specifies start-up actions
+
+### Procedure
+
+The build procedure uses three terminal sessions:
+
+- T1 - used to copy the _base file tree
+- T2 - used to build the Perkify image
+- T3 - used to commit Perkify images
+  
+#### Step 1 (T1)
+
+Copy the `_base` directory to `make`,  the Ubuntu virtual machine:
+
+    $ cd .../Perkify/_base
+
+    $ scp -r ../_base rdm@make:
+    rdm@make's password: ...
+    Dockerfile
+    ...
+
+#### Step 2 (T2)
+
+Allow user `rdm` to run Docker commands on `make` (without `sudo`):
+
+    $ ssh rdm@make
+    ...
+
+    rdm@make:~$ sudo usermod -aG docker rdm
+    [sudo] password for rdm: ...
+
+    rdm@make:~$ exit
+    
+#### Step 3 (T2)
+
+Tidy up and then build `mpi`, the "make Perkify image":
+
+    $ ssh rdm@make
+    ...
+
+    rdm@make:~$ docker system prune -f
+    ...
+
+    rdm@make:~$ docker build --tag=mpi _base/make
+    ...
+
+Run a `bash` session in `mpc`, the "make Perkify container".
+The `add_ons` script installs APT packages, Ruby Gems, etc:
+
+    rdm@make:~$ docker run -it --name mpc mpi bash
+
+    root@...:/# make/add_ons
+    debian_apt      Accerciser,         accerciser,         a11y explorer
+    ...
+    Loading issues: none
+
+    Named packages:     76
+    Total packages:   1677
+    Duration: 1066.0 seconds (17.8 minutes)
+
+#### Step 4 (T3)
+
+Commit the container as an image:
+
+    $ ssh rdm@make
+    ...
+
+    rdm@make:~$ docker commit mpc
+    ...
+
+#### Step 5 (T2)
+
+Exit the container:
+
+    root@...:/# exit
+
+Build `spi`, the "ship Perkify image":
+
+    rdm@make:~$ docker build --tag=spi _base/ship
+    ...
+
+Run the container and kick the tires:
+
+    rdm@make:~$ docker run -it --name spc -v /:/host spi bash
+
+    me@perk:~$ ls /
+    bin boot dev etc home host lib ... var
+
+    me@perk:~$ ls /host/
+    bin cdrom etc initrd.img lib ... vmlinuz
+
+    me@perk:~$ exit
+
+#### Step 6 (T3)
+
+Tag the image, deploy it to Docker Hub, etc:
+
+    rdm@make:~$ docker login
+    ...
+    Username: richmorin
+    Password: ...
+
+    rdm@make:~$ docker tag spi richmorin/perkify:0.1.0
+
+    rdm@make:~$ docker push    richmorin/perkify:0.1.0
+    ...
+
+#### Step 7 (T2)
+
+Exit the container, tidy up, and kick the tires again:
+
+    me@perk:/# exit
+
+    rdm@make:~$ docker system prune -f
+    ...
+
+    rdm@make:~$ docker run --name spc -it richmorin/perkify:0.1.0 bash
+    ...
+
+    me@perk:~$ ls /
+    bin boot dev etc home host lib ... var
+
+    me@perk:/# exit
+'''
+
+[ zoo ]
+
+  snippets    = '''
+### Resources
+
+- https://docs.docker.com/get-started
+- https://docs.docker.com/get-started/part2
+
+- https://gist.github.com/evanscottgray/8571828
+
+- https://docs.docker.com/engine/reference/commandline/system_prune
+
+- https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes
+
+- https://www.freecodecamp.org/news/an-introduction-to-docker-tags-9b5395636c2a
+
+- https://docs.docker.com/storage/volumes
+
+- https://forums.docker.com/t/correct-usage-of-volume-in-dockerfile/4673
+
+- [Intro Guide to Dockerfile Best Practices
+  ]{https://blog.docker.com/2019/07/intro-guide-to-dockerfile-best-practices}
+'''

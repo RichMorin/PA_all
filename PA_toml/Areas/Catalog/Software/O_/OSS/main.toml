@@ -1,0 +1,54 @@
+# cat_sof|OSS/main.toml
+
+[ meta ]
+
+  actions     = 'build, publish'
+  id_str      = 'OSS'
+  title       = 'Open Sound System (OSS)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  interfaces  = 'audio'
+  licenses    = 'open source'
+  roles       = 'kernel modules, utility'
+  standards   = 'devaudio, SADA'
+  supports    = 'audio, music'
+
+[ about ]
+
+  precis      = 'a graphical screen reader for GNOME'
+
+  verbose     = '''
+> Open Sound System is an audio subsystem that provides a cross platform API
+and device drivers for most consumer and professional audio devices
+for UNIX and POSIX based operating systems, including Linux.
+Owing to its open architecture,
+applications developed on one supporting operating system platform
+can be easily recompiled on any other platform.
+
+> Open Sound System on Solaris supports x86, AMD64, and Sparc processors.
+It also provides support for the Solaris Audio API
+(SADA or commonly known as devaudio).
+SADA applications will transparently run on top of Open Sound System drivers
+and will co-exist with OSS API compatible applications.
+
+> -- [$url]{http://ossnext.trueinstruments.com/wiki/index.php/Main_Page}
+
+*Note:*
+OSS has been supplanted by [ALSA]{cat_sof|ALSA} on most Linux distributions.
+'''
+
+[ address.related ]
+
+  github      = 'ext_gh|Open-Sound-System'
+  wikipedia   = 'ext_wp|Open_Sound_System'
+
+[ address.web_site ]
+
+  main        = 'http://www.opensound.com'
+  wiki        = 'http://ossnext.trueinstruments.com/wiki/index.php/Main_Page'

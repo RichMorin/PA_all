@@ -1,0 +1,69 @@
+  # -*- mode: ruby -*-
+  # vi: set ft=ruby :
+
+  # This is `Vagrantfile.make`.  It specifies the provisioning and
+  # configuration of the base Perkify VM (before add_ons is run).
+  #
+  # The ALSA-specific code is adapted from Christoph Neumann's vagrant-audio
+  # Vagrantfile (in https://github.com/christoph-neumann/vagrant-audio).
+
+  Vagrant.configure("2") do |config|
+    config.ssh.forward_x11  = true
+
+    vm              = config.vm
+    vm.box          = "bento/ubuntu-19.04"
+    vm.box_version  = "201906.18.0"
+
+    # Create a forwarded port mapping which allows access to a specific port
+    # within the machine from a port on the host machine and only allow access
+    # via 127.0.0.1 to disable public access.
+
+    vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+
+    vm.provision "shell", inline: <<-SHELL
+      set -ex
+      hostname perkify-make
+      apt-get update
+
+      # Provision ALSA.
+
+      extra=linux-modules-extra-$(uname -r)
+      echo "extra: $extra" #!T
+      apt-get install -y linux-image-generic $extra alsa-utils
+
+#     sudo usermod -aG audio ubuntu
+      sudo usermod -aG audio vagrant
+
+      text='pcm.!default {\n  type plug\n  slave.pcm "hw:0,1"\n}'
+      echo -e $text | tee >/dev/null /etc/asound.conf
+      modprobe snd
+      modprobe snd-hda-intel
+      sleep 2
+      amixer -c 0 set Master playback 100% unmute
+
+      # Provision Apache.
+
+      if false; then  #!D
+        apt-get install -y apache2
+        src=/var/www/html
+        tgt=/home/vagrant/_base/html
+        rm -rf $src
+        ln -fs $tgt $src
+      fi
+    SHELL
+
+    # Customize ALSA.
+
+    config.vm.provider :virtualbox do |vb|
+      audio = case RUBY_PLATFORM
+        when /darwin|mac os/;                             'coreaudio'
+        when /mswin|msys|mingw|cygwin|bccwin|wince|emc/;  'dsound'
+        when /linux/;                                     'alsa'
+      end
+
+      vb.customize [ 'modifyvm',  :id,
+        '--audio',                audio,
+        '--audiocontroller',      'hda']
+    end
+
+  end

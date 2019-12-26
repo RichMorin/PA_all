@@ -26,8 +26,7 @@ text editor
 
 [ about ]
 
-  precis      = 'a customizable (Lisp-based) text editor, IDE, etc.'
-  # "the extensible self-documenting text editor"
+  precis      = 'a blind-friendly version of Emacs'
 
   verbose     = '''
 > Emacspeak is a free computer application, a speech interface, and an audio

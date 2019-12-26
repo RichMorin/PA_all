@@ -56,6 +56,7 @@
   ext_hd    = 'HexDocs'
   ext_ig    = 'Instagram'
   ext_li    = 'LinkedIn'
+  ext_lm    = 'Linux Manuals'
   ext_pi    = 'Pinterest'
   ext_rd    = 'RubyDoc'
   ext_rg    = 'RubyGems'
@@ -64,6 +65,7 @@
   ext_sf    = 'SourceForge'
   ext_so    = 'Stack Overflow'
   ext_tw    = 'Twitter'
+  ext_vc    = 'Vagrant Cloud'
   ext_wp    = 'Wikipedia'
   ext_yt    = 'YouTube'
 

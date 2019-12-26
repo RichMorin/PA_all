@@ -93,7 +93,8 @@ defmodule InfoToml.Common do
     when st: String.t
 
   def get_map_key(file_rel) do
-    Regex.replace(~r{/[A-Z]_/}, file_rel, "/")
+    pattern   = ~r{/[0-9A-Za-z]+_/}
+    Regex.replace(pattern, file_rel, "/")
   end
 
   @doc """

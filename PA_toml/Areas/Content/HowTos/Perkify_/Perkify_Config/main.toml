@@ -1,0 +1,135 @@
+# con_how|Perkify_Config/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Config'
+  title       = 'Perkify - Configuration'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'introduction to Perkify configuration'
+
+  verbose     = '''
+This page is a gentle introduction to Vagrant configuration,
+concentrating on the `Vagrantfile`.
+(For details, see Vagrant's
+[Vagrantfile]{https://www.vagrantup.com/docs/vagrantfile} page.)
+
+### Vagrantfile
+
+Although there is a `Vagrantfile` in each project directory,
+you're not supposed to modify it.
+Instead, you're supposed to either override it completely
+or fold in your own additions.
+I prefer the latter approach, as discussed below.
+
+*Note:*
+This page contains some macOS-specific details about the host OS.
+If you're running some other OS, modify them as appropriate.
+
+#### `~/.vagrant.d`
+
+When Vagrant is installed, it creates a "hidden" directory.
+On my system, this looks like:
+
+    ~/.vagrant.d/
+    | Vagrantfile
+    | boxes/
+    | ...
+
+The `Vagrantfile` in this directory contains configuration settings
+which Vagrant adds to the ones set in Vagrant's "project" directories.
+At the moment, my file looks like this:
+
+    # ~/.vagrant.d/Vagrantfile
+    #
+    # -*- mode: ruby -*-
+    # vi: set ft=ruby :
+
+    Vagrant.configure('2') do |config|
+      config.ssh.forward_x11  = true
+
+      vm = config.vm
+
+      vm.synced_folder '../perk_sync', '/home/vagrant/_sync' 
+    end
+
+#### File Syntax
+
+Lines which begin with a sharp sign (`#`) are comments.
+These are ignored by Vagrant, but a bit of explanation may still be useful.
+The first comment line reminds me of the file path,
+reducing confusion and consequent errors.
+The last two comment lines tell text editors (e.g., emacs, vi)
+to use [Ruby]{ext_wp|Ruby_(programming_language)}-specific editing modes.
+
+The `do ... end` section tells the Ruby interpreter (run by Vagrant)
+to execute the `configure` method for the `Vagrant` object.
+The argument ('2') specifies that we're using version 2
+of the Vagrant configuration API.
+In short, this is just setting up some context for our own code.
+
+When the `configure` method runs, it executes the code "block"
+between the `do` and `end` keywords, passing in the `config` variable.
+This points to an object containing lots of stuff I don't care about.
+Because I only want to configure the virtual machine,
+I extract the `config.vm` object and save it as `vm`.
+I can then call assorted methods on this variable,
+setting configuration details for any VM that I start up. 
+
+#### Discussion
+
+In this case, what I want to do is set up a "synced folder"
+(aka directory) relationship between the host and guest operating systems.
+This causes Vagrant to synchronize ("sync") the two directories.
+Any changes I make on the host or guest OS will be duplicated
+on the other system.  Pretty cool!
+
+This folder has the relative path `../perk_sync` on the host OS.
+Because the `Vagrantfile` is located in `~/.vagrant.d`,
+this resolves to the absolute path `~/perk_sync`
+(`perk_sync` in my home directory).
+The synced folder will have the absolute path `/home/vagrant/_sync`
+(i.e., `~/_sync`) on each guest OS I run.
+
+Note that Vagrant will refuse to start up
+if it can't find `~/perk_sync` on the host OS.
+So, be sure that there is a directory on the host OS for each folder
+you want Vagrant to sync!
+
+At this point, Careful Reader may wonder why
+I don't just sync my entire home directory into the VMs.
+After all, this would certainly be more convenient
+then messing about with special-purpose directories!
+I'm glad you asked; there are a couple of reasons...
+
+The first reason has to do with safety and security.
+Syncing the user's entire home directory would expose all of it
+to damage or exposure from the VM.
+This seems imprudent, at best, so I don't do that.
+The other reason has to do with performance.
+When the VM starts up, it has to make an internal copy of the entire tree
+of synced folders from the host OS.
+If your home folder has a lot of files, this could take a lot of time
+and use up a lot of file space in the VM.
+
+In closing, I'll note that while folder syncing is very cool,
+it isn't free.
+Every time you make a change on either OS, Vagrant has to make sure
+the change is reflected on the other.
+So, if you're dealing with large files,
+the best plan is to do the Real Work (TM) in an unsynced folder on the VM,
+then copy the results back to a synced folder.
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

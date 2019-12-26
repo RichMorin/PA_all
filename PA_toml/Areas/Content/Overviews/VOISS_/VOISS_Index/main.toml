@@ -1,0 +1,144 @@
+# con_ove|VOISS_Index/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'VOISS_Index'
+  title       = 'VOISS - Index'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'informal index of pages related to VOISS'
+
+  verbose     = '''
+This is an informal, hand-edited index of pages on Pete's Alley
+that are related to VOISS systems, etc.
+VOISS is an economical talking computer for the blind;
+see [VOISS - Introduction]{con_ove|VOISS_Intro} to get started...
+
+### Pete's Alley
+
+#### Catalog
+
+- [F123Light
+  ]{cat_sof|F123Light}
+
+- [VOISS
+  ]{cat_gro|VOISS}
+
+- [VOISS Classic
+  ]{cat_har|VOISS_Classic}
+
+#### HowTo
+
+- [VOISS - Assembly
+  ]{con_how|VOISS_Assembly}</br>
+  how to put together a VOISS system
+
+- [VOISS HowTo
+  ]{con_how|VOISS_HowTo}</br>
+  introduction to the VOISS HowTo pages
+
+- [VOISS HowTo - Bluetooth
+  ]{con_how|VOISS_Bluetooth}</br>
+  setting up Bluetooth devices on VOISS systems
+
+- [VOISS HowTo - Components
+  ]{con_how|VOISS_Components}</br>
+  what's included in a VOISS system
+
+#### Overview
+
+- [VOISS - Booting
+  ]{con_ove|VOISS_Booting}</br>
+  thoughts on the booting of VOISS systems
+
+- [VOISS - Enclosures
+  ]{con_ove|VOISS_Enclosures}</br>
+  thoughts on enclosures for VOISS systems
+
+- [VOISS - GPIO
+  ]{con_ove|VOISS_GPIO}</br>
+  an overview of VOISS (etc) GPIO handling
+
+- [VOISS - Interfaces
+  ]{con_ove|VOISS_Interfaces}</br>
+  an overview of VOISS (etc) interfaces
+
+- [VOISS - Introduction
+  ]{con_ove|VOISS_Intro}</br>
+  an overview of the VOISS project
+
+- [VOISS - Pi-UpTime UPS 2.0
+  ]{con_ove|VOISS_UpTime_UPS}</br>
+  notes on the Alchemy Power Pi-UpTime UPS 2.0
+
+- [VOISS - PiJuice HAT
+  ]{con_ove|VOISS_PiJuice_HAT}</br>
+  notes on the PiJuice HAT
+
+- [VOISS - Power
+  ]{con_ove|VOISS_Power}</br>
+  an overview of VOISS (etc) USB power handling
+
+- [VOISS - Power HATs
+  ]{con_ove|VOISS_Power_HATs}</br>
+  a discursion on USB power HATs
+
+- [VOISS - Power Management
+  ]{con_ove|VOISS_Power_Mgmt}</br>
+  a discursion on Raspberry Pi power management
+
+- [VOISS - Storage
+  ]{con_ove|VOISS_Storage}</br>
+  thoughts on long-term storage for VOISS systems
+
+### VOISS
+
+VOISS (formerly F123) is located in Brazil.
+Consequently, their web pages may be available
+in English, Portuguese, or (occasionally) both.
+
+#### English
+
+- [About Us
+  ]{https://www.voiss.tech/en/our-company}
+
+- [F123 - Technology that enables
+  ]{https://www.linkedin.com/in/f123org} (LinkedIn)
+
+- [F123e@groups.io
+  ]{https://groups.io/g/F123e}
+
+- [F123e@groups.io topics
+  ]{https://groups.io/g/F123e/topics}
+
+- [F123Light User Guide
+  ]{https://public.f123.org/guide/on-disk/F123Light_User_Guide.html}
+
+- [F123Light
+  ]{https://gitlab.com/f123/F123Light} (GitLab)
+
+- [VOISS
+  ]{https://www.voiss.tech/en} (home page)
+
+#### Portuguese
+
+- [Guia do Usuário do F123Light
+  ]{https://public.f123.org/guide/on-disk/
+    Guia_do_Usuário_do_F123Light.html}
+
+- [Loja virtual Voiss
+  ]{https://store.voiss.tech}
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

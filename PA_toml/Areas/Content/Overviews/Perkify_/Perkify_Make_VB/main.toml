@@ -1,0 +1,291 @@
+# con_ove|Perkify_Make_VB/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Make_VB'
+  title       = 'Perkify - Making Vagrant Boxes'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'notes on making Vagrant-based Perkify boxes'
+
+  verbose     = '''
+My current approach to making [Vagrant]{ext_wp|Vagrant_(software)}-based
+Perkify boxes is a bit more manual than I'd prefer.
+If and when I understand [Packer]{https://www.packer.io} a bit better,
+I may start using it.
+
+### Background
+
+The `Perkify` directory contains a
+[set of files]{ext_rm|PA_all/tree/master/PP_Perkify/Vagrant/_base/make}
+used in making a new box.
+
+The `_base` sub-directory contains scripts and data files:
+
+    _base/
+    | bin/*               convenience scripts for Perkify
+    | | apt_summ          generate an APT package summary
+    | | path_chk          check $PATH for name conflicts
+    | html/               default directory for Apache
+    | | index.html        dummy "landing page" for Apache
+    | make/               files used in making the image
+    | | add_ons           install add-on packages
+    | | add_ons.rb        helper for the add_ons script
+    | | add_ons.toml      specify Perkify add-on packages
+    | | apt_presets       APT configuration preset file
+    | | get_apt           get an APT package
+    | | get_gem           get a Ruby Gem
+    | | pkg_list.rb       pkg_tbl.md generation script
+    | | Vagrantfile.dist  configuration (distributed)
+    | | Vagrantfile.make  configuration (for build)
+    | | vf_common.rb      common code for Vagrantfiles 
+
+    _save/                file snapshots, etc.
+    | mpma                make perk_make attempt (snap)
+    | V_hax/*             Vagrantfile hack snaps
+
+### Procedure
+
+This is a multi-step procedure and some of the steps are quite lengthy.
+All told, the process takes several hours.
+
+#### Create a Virtual Machine
+
+Create (if need be) and go to `~/perk_make`,
+then run the `mpma` (make perk_make attempt) script:
+
+    $ mkdir ~/perk_make     # just in case
+    $ cd ~/perk_make        # get situated
+    $ mpma
+
+This will:
+
+- clean up any existing VM and the associated files
+- load the Vagrantfile (etc) for Ubuntu 19.04
+- update the working directory and provision a VM
+
+#### Update and Upgrade the VM
+
+Start up an SSH session to the VM:
+
+    $ vagrant ssh
+    ...
+    91 updates can be installed immediately.
+    50 of these updates are security updates.
+
+Apply the available Ubuntu updates:
+
+    vagrant@perkify-make:~$ sudo apt update && sudo apt upgrade -y
+    ...
+
+*Note:*
+The GRUB upgrade puts up an interactive dialog, asking about which disk
+it should be installed on.
+It then ignores the user's input (at least under add_ons).
+So, for the moment, we're choosing not to enable any of these...
+
+Run these commands again, for good measure:
+
+    vagrant@perkify-make:~$ sudo apt update && sudo apt upgrade -y
+    ...
+    0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+#### Add the Perkify Packages
+
+Fold in the Perkify add-on packages, then tidy up a bit:
+
+    vagrant@perkify-make:~$ l /vagrant
+    bin/  html/  make/  Vagrantfile  Vagrantfile.dist  Vagrantfile.make
+
+    # Skip the next step to speed up testing. Instead, just:
+    vagrant@perkify-make:~$ cp -R /vagrant _base
+
+    vagrant@perkify-make:~$ sudo /vagrant/make/add_ons
+       1  debian_apt_a11y Accerciser, accerciser, accessibility explorer
+    Tue 24 Dec 2019 10:37:19 PM PST     41.9   649
+    ...
+     199  ruby_gems       Xiki,       xiki,       text-based menus
+    Tue 24 Dec 2019 11:55:04 PM PST     53.9    69
+
+    Loading issues: none
+
+    Named packages:    199
+    Total packages:   4186
+    Duration: 4706.1 seconds (78.4 minutes)
+
+    vagrant@perkify-make:~$ sudo apt autoremove
+
+Kick the tires a bit, then exit:
+
+    vagrant@perkify-make:~$ ...
+    vagrant@perkify-make:~$ exit
+
+#### Create and Try Out a Vagrant Package
+
+Save the VM image as a package (aka box):
+
+    $ box=../perk_0_2_0.box; rm -f $box
+    $ vagrant package --output $box --vagrantfile Vagrantfile.dist
+
+    $ wc -c $box
+    9712491857 $box
+
+    $ shasum $box
+    7e75d15f95bb24294ebacde16fb2bb5af4db13cc  $box
+
+Try it out, largely per [Perkify - Install]{con_how|Perkify_Install}:
+
+    $ rm -rf ~/perk_test                # remove any old working directory
+    $ mkdir ~/perk_test                 # create a working directory
+    $ cd ~/perk_test                    # go to the working directory
+
+    $ vagrant box add perk_test $box --force
+    ...
+    $ vagrant init perk_test
+    ...
+    $ vagrant up                        # download and boot the Perkify VM
+    ...
+
+#### Push it to Vagrant Cloud
+
+Set up and populate a new version of Perkify on Vagrant Cloud.
+Note that we need to work out details for handling upgrades...
+
+- Go to the [Rich_Morin/Perkify]{ext_vc|Rich_Morin/boxes/Perkify} page;
+  if need be, log in.
+
+- Create a new version:
+  - Click the "New version" button.
+  - Fill in the Version and Description.
+  - Click the "Create version" button.
+  - Click the "Add a provider" button.
+  - Select "virtualbox" as the Provider.
+
+- Under "File Hosting":
+  - Make sure "Upload to Vagrant Cloud" is selected.
+
+- Under "Checksum Type":
+  - Select SHA1
+
+- Under "Checksum":
+  - paste in 7e75d15f95bb24294ebacde16fb2bb5af4db13cc
+
+- Click the "Continue to upload" button.
+
+- Under "Add Provider File"
+  - Click the "Choose file" button.
+  - Select `~/perk0_2_0.box`.
+  - Click the "Open" button.
+
+- Wait for upload to complete.
+  - Click "Perkify" link.
+  - Click "Release" link for `v0.2.0`.
+  - Click the "Release version" button.
+
+Download and try out, largely per [Perkify - Install]{con_how|Perkify_Install}:
+
+    $ mkdir ~/perk_test                 # create a working directory
+    $ cd ~/perk_test                    # go to the working directory
+    $ vagrant destroy                   # kill off any running VM
+    $ rm -rf .vagrant *                 # remove cruft
+
+    $ vagrant init Rich_Morin/Perkify --box-version 0.2.0
+    $ vagrant up                        # download and boot the Perkify VM
+    ...
+
+Revoke and/or Delete any old Perkify versions:
+
+- For each old Perkify version:
+  - Click the "Edit" button.
+  - Click the "Revoke version" button.
+  - Click the "Edit" button.
+  - Click the "Delete version" button.
+
+These notes are based (very loosely!) on
+[How to Upload Vagrant Box to Vagrant Cloud]{
+http://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud}.
+
+### Notes
+
+The `add_ons` script puts most of its log output in `/tmp/add_ons_log/*`
+on the VM.  These can be inspected for problems via `vagrant ssh`.
+
+### Resources
+
+#### APT, OBS, etc.
+
+- [Chapter 2. Debian package management
+  ]{https://www.debian.org/doc/manuals/debian-reference/ch02.en.html}
+
+- [Debian New Maintainers' Guide
+  ]{https://www.debian.org/doc/manuals/maint-guide}
+
+- [Guide for Debian Maintainers
+  ]{https://www.debian.org/doc/devel-manuals#debmake-doc}
+
+- [How to make a Debian package without using a helper
+  ]{http://www.miriamruiz.es/weblog/?page_id=62}
+
+- [HOWTO: Backport and host Debian & Ubuntu packages on the OBS
+  ]{http://forums.debian.net/viewtopic.php?f=16&t=130057}
+
+- [openSuse Build Service
+  ]{https://build.opensuse.org}
+
+- [Pale Moon Web Browser
+  ]{https://build.opensuse.org/project/show/home:stevenpusser} (OBS example)
+
+#### Packer
+
+- [Packer]{https://www.packer.io}
+
+- [Packer - Build an Image
+  ]{https://www.packer.io/intro/getting-started/build-image.html}
+
+- [Building your Virtual Machine with Packer
+  ]{https://blog.codeship.com/packer-vagrant-tutorial}
+
+#### Vagrant
+
+- [add --quiet option to vagrant commands #11037
+  ]{https://github.com/hashicorp/vagrant/issues/11037}
+
+- [Boxes
+  ]{https://www.vagrantup.com/intro/getting-started/boxes.html}
+
+- [Building a Vagrant Box from Start to Finish
+  ]{https://www.engineyard.com/blog/building-a-vagrant-box-from-start-to-finish}
+
+- [Creating a New Vagrant Box
+  ]{https://www.vagrantup.com/docs/vagrant-cloud/boxes/create.html}
+
+- [Package
+  ]{https://www.vagrantup.com/docs/cli/package.html}
+
+- [Vagrantfile - Load Order and Merging
+  ]{https://www.vagrantup.com/docs/vagrantfile/#load-order}
+'''
+
+[ zoo ]
+
+  snippets    = '''
+### Open Questions
+
+- How to kill off port forwarding on the host?
+
+Nastygram:
+
+  /etc/kernel/postinst.d/initramfs-tools:
+  update-initramfs: Generating /boot/initrd.img-5.0.0-25-generic
+  cryptsetup: WARNING: The initramfs image may not contain cryptsetup binaries 
+      nor crypto modules. If that's on purpose, you may want to uninstall the 
+      'cryptsetup-initramfs' package in order to disable the cryptsetup initramfs 
+      integration and avoid this warning.
+'''
