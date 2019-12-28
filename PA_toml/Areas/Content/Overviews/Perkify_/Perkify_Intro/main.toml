@@ -24,11 +24,6 @@ The Perkify distribution provides thousands
 of command-line tools and support libraries,
 offers the prospect of personal web servers, and more.
 
-*Note:*
-The [Perkian - Index]{con_ove|Perkian_Index} page
-is an informal, hand-edited index of pages on Pete's Alley
-that are related to Perkian, Perkify, etc.
-
 ### Original Motivation
 
 The open source community has produced a wealth of software,
@@ -178,7 +173,12 @@ Once things are working, you can move on Perkify's
 [Configuration]{con_how|Perkify_Config},
 [Package Index]{con_ove|Perkify_Pkg_Index}, and
 [Package List]{con_ove|Perkify_Pkg_List} pages.
-To keep up with announcements and discussion on Perkify,
+
+At some point, be sure to check out the
+[Perkify - Index]{con_ove|Perkify_Index} page.
+It's an informal, hand-edited index of pages on Pete's Alley
+that are related to Perkify.
+Finally, to keep up with announcements and discussion on Perkify,
 be sure to join the [mailing list]{https://groups.io/g/perkify}.
 
 To be continued...

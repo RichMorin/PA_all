@@ -198,7 +198,7 @@ Download and try out, largely per [Perkify - Install]{con_how|Perkify_Install}:
 
     $ vagrant init Rich_Morin/Perkify --box-version 0.2.0
     $ vagrant up                        # download and boot the Perkify VM
-    ...
+    ... this will take about an hour ...
 
 Revoke and/or Delete any old Perkify versions:
 

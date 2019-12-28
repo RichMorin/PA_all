@@ -24,6 +24,8 @@ con_ove|VOISS_Index,
 This is an informal, hand-edited index of pages on Pete's Alley
 that are related to [Perkify]{con_ove|Perkify_Intro}.
 
+### HowTos
+
 - [Perkify - APT
   ]{con_how|Perkify_APT}</br>
   introduction to APT usage on Perkify
@@ -32,13 +34,27 @@ that are related to [Perkify]{con_ove|Perkify_Intro}.
   ]{con_how|Perkify_Config}</br>
   introduction to Perkify configuration
 
-- [Perkify - Docker
-  ]{con_ove|Perkify_Docker}</br>
-  a technical overview of Docker-based Perkify
-
 - [Perkify - Install
   ]{con_how|Perkify_Install}</br>
   installation notes for Vagrant-based Perkify
+
+- [Perkify - Manual
+  ]{con_how|Perkify_Manual}</br>
+  introduction to using the Perkify manual
+
+- [Perkify - Usage
+  ]{con_how|Perkify_Usage}</br>
+  usage notes for Vagrant-based Perkify
+
+- [Perkify - X11
+  ]{con_how|Perkify_X11}</br>
+  using Perkify via the X Window System (X11)
+
+### Overviews
+
+- [Perkify - Docker
+  ]{con_ove|Perkify_Docker}</br>
+  a technical overview of Docker-based Perkify
 
 - [Perkify - Introduction
   ]{con_ove|Perkify_Intro}</br>
@@ -55,10 +71,6 @@ that are related to [Perkify]{con_ove|Perkify_Intro}.
 - [Perkify - Making Vagrant Boxes
   ]{con_ove|Perkify_Make_VB}</br>
   notes on making Vagrant-based Perkify boxes
-  
-- [Perkify - Manual
-  ]{con_how|Perkify_Manual}</br>
-  introduction to using the Perkify manual
   
 - [Perkify - Package Index
   ]{con_ove|Perkify_Pkg_Index}</br>
@@ -84,17 +96,9 @@ that are related to [Perkify]{con_ove|Perkify_Intro}.
   ]{con_ove|Perkify_Search}</br>
   introduction to searching for Perkify commands
 
-- [Perkify - Usage
-  ]{con_how|Perkify_Usage}</br>
-  usage notes for Vagrant-based Perkify
-
 - [Perkify - Wish List
   ]{con_ove|Perkify_Wish_List}</br>
   an informal wish list for Perkify packages
-
-- [Perkify - X11
-  ]{con_how|Perkify_X11}</br>
-  using Perkify via the X Window System (X11)
 '''
 
 [ zoo ]
