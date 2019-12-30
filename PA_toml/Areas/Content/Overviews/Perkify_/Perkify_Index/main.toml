@@ -36,7 +36,19 @@ that are related to [Perkify]{con_ove|Perkify_Intro}.
 
 - [Perkify - Install
   ]{con_how|Perkify_Install}</br>
-  installation notes for Vagrant-based Perkify
+  Perkify installation notes (general)
+
+- [Perkify - Install (Linux)
+  ]{con_how|Perkify_Install_Linux}</br>
+  Perkify installation notes for Linux
+
+- [Perkify - Install (macOS)
+  ]{con_how|Perkify_Install_macOS}</br>
+  Perkify installation notes for macOS
+
+- [Perkify - Install (Windows)
+  ]{con_how|Perkify_Install_Windows}</br>
+  Perkify installation notes for Windows
 
 - [Perkify - Manual
   ]{con_how|Perkify_Manual}</br>

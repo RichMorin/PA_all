@@ -20,6 +20,24 @@ Perkify is based on a huge amount of existing work,
 so you could easily spend years reading up on its underpinnings.
 Fortunately, a few selected resources should be enough to get you started.
 
+### Books
+
+Many of the packages included in Perkify have associated books.
+Indeed, some packages have so many books that selecting one
+to buy or read can be a challenge.
+So, in case it helps, I'd suggest that you filter by publisher.
+Here are some imprints which I've generally found to do good work:
+
+- [Addison-Wesley ]{ext_wp|Addison-Wesley}
+- [Apress         ]{ext_wp|Apress}
+- [O'Reilly       ]{ext_wp|O'Reilly_Media}
+- [Manning        ]{ext_wp|Manning_Publications}
+- [Morgan Kaufmann]{ext_wp|Morgan_Kaufmann_Publishers}
+- [No Starch      ]{ext_wp|No_Starch_Press}
+- [Pragmatic      ]{https://pragprog.com}
+- [Prentice Hall  ]{ext_wp|Prentice_Hall}
+- [Wiley          ]{ext_wp|Wiley_(publisher)}
+
 ### Debian
 
 #### Debian Administrator's Handbook
@@ -78,7 +96,8 @@ creating Debian packages, etc.  Here are some links:
 ### Linux
 
 There are hundreds of Linux distributions, each with its own "secret sauce".
-There are also hundreds of books and web sites on Linux.
+There are also hundreds of books and web sites on Linux
+(and its forebear, Unix).
 Here are a few pointers to information for "newbies".
 
 - [Linux Beginner Tutorials
@@ -89,6 +108,14 @@ Here are a few pointers to information for "newbies".
 
 - [UNIX / LINUX Tutorial
   ]{https://www.tutorialspoint.com/unix/index.htm}
+
+### Unix
+
+- [The Art of Unix Programming
+  ]{http://catb.org/~esr/writings/taoup/html/preface.html}
+
+- [The Unix Programming Environment
+  ]{ext_wp|The_Unix_Programming_Environment}
 
 ### Vagrant
 

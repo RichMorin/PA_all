@@ -1,0 +1,53 @@
+# con_how|Perkify_Install_Linux/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Install_Linux'
+  title       = 'Perkify - Install (Linux)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'Perkify installation notes for Linux'
+
+  verbose     = '''
+*Note:*
+This page describes the Perkify installation process
+for [Linux]{ext_wp|Linux} distributions.
+If you're running something else on your host machine,
+go back to the [Perkify Install]{con_how|Perkify_Install} page and try again!
+
+### Infrastructure
+
+Before you can use Perkify, you'll need to install
+[VirtualBox]{ext_wp|VirtualBox} and [Vagrant]{ext_wp|Vagrant_(software)}.
+These steps are typically performed using a web browser and your host's
+default installation software.
+
+After skimming the [Download VirtualBox
+]{https://www.virtualbox.org/wiki/Downloads} page,
+proceed to the [Download VirtualBox for Linux Hosts
+]{https://www.virtualbox.org/wiki/Linux_Downloads} page.
+This describes VirtualBox installation procedures
+for a number of Linux distributions.
+The notes look pretty complete, but be sure to let us know about any problems!
+
+Now, install the appropriate Vagrant distribution from the
+[Download Vagrant]{https://www.vagrantup.com/downloads.html} page.
+Some specific Linux distributions are supported
+(e.g., Arch, Centos, Debian), along with a generic "Linux" variant.
+Be sure to select the "64-bit" option, if applicable.
+
+{% include_relative ../Perkify_Install/common_1.md %}
+{% include_relative ../Perkify_Install/common_2.md %}
+{% include_relative ../Perkify_Install/common_3.md %}
+'''
+
+[ zoo ]
+
+  snippets    = '...'

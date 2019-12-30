@@ -1,0 +1,50 @@
+# con_how|Perkify_Install_macOS/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Install_macOS'
+  title       = 'Perkify - Install (macOS)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'Perkify installation notes for macOS'
+
+  verbose     = '''
+This page describes the Perkify installation process
+for Apple's [macOS]{ext_wp|MacOS} operating system.
+If you're running something else on your host machine,
+go back to the [Perkify Install]{con_how|Perkify_Install} page and try again!
+
+### Infrastructure
+
+Before you can use Perkify, you'll need to install
+[VirtualBox]{ext_wp|VirtualBox} and [Vagrant]{ext_wp|Vagrant_(software)}.
+These steps are typically performed using a web browser and your host's
+default installation software.
+
+After skimming the [Download VirtualBox
+]{https://www.virtualbox.org/wiki/Downloads} page,
+click the "OS X hosts" link.
+This will download a DMG file (e.g., `VirtualBox-6.1.0-135406-OSX.dmg`).
+Follow the normal Apple installation procedure, accepting all defaults.
+
+Now, proceed to the [Download Vagrant]{
+https://www.vagrantup.com/downloads.html} page
+and click the "64-bit" link under "macOS".
+This will download a DMG file (e.g., `vagrant_2.2.6_x86_64.dmg`).
+Follow the normal Apple installation procedure, accepting all defaults.
+
+{% include_relative ../Perkify_Install/common_1.md %}
+{% include_relative ../Perkify_Install/common_2.md %}
+{% include_relative ../Perkify_Install/common_3.md %}
+'''
+
+[ zoo ]
+
+  snippets    = '...'

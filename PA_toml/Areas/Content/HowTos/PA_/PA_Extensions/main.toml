@@ -89,7 +89,10 @@ Looking about on the web, I've found a couple of proposed extensions:
     [!include[<title>](<filepath>)]     # DocFX Flavored Markdown:
 
 I've decided to support the Jekyll syntax, but (for security)
-require that the `filepath` be in the current directory (i.e., no slashes).
+require that the `filepath` refer to a Markdown file
+in the current directory (e.g., `foo.md`)
+or one of its siblings (e.g., `../Foo/bar.md`).
+This restriction may be relaxed in the future.
 
 #### Links
 

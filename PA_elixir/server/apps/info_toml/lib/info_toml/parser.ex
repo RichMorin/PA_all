@@ -143,8 +143,15 @@ defmodule InfoToml.Parser do
   # Process file inclusions within the current directory, using Jekyll syntax:
   #
   #   {% include_relative filepath %}
+  #
+  # The filepath must refer to a Markdown file in the current directory
+  # or one of its siblings.
 
-    incl_patt   = ~r< {% \s+ include_relative \s+ ([\w\.]+) \s+ %} >x
+    incl_patt   = ~r<
+      {% \s+ include_relative \s+ (
+          [\w\.]+\.md |                 # current directory
+          \.\./[\w\.]+/[\w\.]+\.md      # sibling directory
+      ) \s+ %} >x
 
     replace_f   = fn incl_str ->
     #
