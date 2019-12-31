@@ -84,9 +84,9 @@ Then, using [Debian]{ext_wp|Debian}'s
 Advanced Package Toolkit ([APT]{ext_wp|APT_(software)}),
 we explicitly install a "wish list" of a few hundred packages.
 APT then satisfies thousands of dependencies and recommendations.
-All told, the current release includes about 2500 packages
-and compresses to about five GB.
-This means that you'll need 10-20 GB of free disk space
+All told, the current release (0.2.0, at this writing)
+includes about 4000 packages and compresses to about nine GB.
+This means that you'll need 20-30 GB of free disk space
 to install this release (and future releases may be even larger).
 
 Although we make sure that none of our APT installations "fails",

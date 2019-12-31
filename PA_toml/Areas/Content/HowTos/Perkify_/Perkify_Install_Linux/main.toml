@@ -29,19 +29,23 @@ Before you can use Perkify, you'll need to install
 These steps are typically performed using a web browser and your host's
 default installation software.
 
+*Note:*
+At this writing, the current version of Vagrant (2.2.6)
+is incompatible with the current version of VirtualBox (6.1.0).
+The notes below have ben modified to reflect this snafu...
+
 After skimming the [Download VirtualBox
-]{https://www.virtualbox.org/wiki/Downloads} page,
-proceed to the [Download VirtualBox for Linux Hosts
-]{https://www.virtualbox.org/wiki/Linux_Downloads} page.
-This describes VirtualBox installation procedures
-for a number of Linux distributions.
-The notes look pretty complete, but be sure to let us know about any problems!
+]{https://www.virtualbox.org/wiki/Downloads} page, proceed to the
+[Download VirtualBox (Old Builds): VirtualBox 6.0
+]{https://www.virtualbox.org/wiki/Download_Old_Builds_6_0} page.
+Then, under the "VirtualBox 6.0.14" heading,
+click the link for the appropriate Linux distribution.
 
 Now, install the appropriate Vagrant distribution from the
 [Download Vagrant]{https://www.vagrantup.com/downloads.html} page.
-Some specific Linux distributions are supported
-(e.g., Arch, Centos, Debian), along with a generic "Linux" variant.
-Be sure to select the "64-bit" option, if applicable.
+Several specific Linux distributions are supported
+(e.g., Debian, Fedora, openSUSE, Oracle, Ubuntu),
+along with a generic "All distributions" variant.
 
 {% include_relative ../Perkify_Install/common_1.md %}
 {% include_relative ../Perkify_Install/common_2.md %}

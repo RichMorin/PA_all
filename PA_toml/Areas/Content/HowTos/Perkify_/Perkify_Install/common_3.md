@@ -87,7 +87,7 @@ starting up the VM will now be somewhat faster.
 However, loading the machine image into memory and booting Ubuntu
 will still take a couple of minutes.
 
-    Host: cd ~/perkify
+    Host: cd ~/V_perkify
     Host: vagrant up
     ...
 
@@ -95,6 +95,21 @@ will still take a couple of minutes.
     ...
 
     vagrant@perkify:~$ 
+
+### Sanity Check
+
+Because Perkify is very raw tchnology, it's quite possible that parts of it
+will be broken in one way or another.
+So, if you have some time and disk space to spare,
+you might want to install a "vanilla" Ubuntu VM for purposes of comparison.
+Here are some commands that should work:
+
+    Host: cd                                # go to your home directory
+    Host: mkdir V_ubuntu                    # create a working directory
+    Host: cd V_ubuntu                       # go to the working directory
+    Host: vagrant init bento/ubuntu-18.10   # initialize the directory
+    Host: vagrant up                        # download and install the VM
+    Host: vagrant ssh                       # start up an SSH session
 
 ### Discussion
 

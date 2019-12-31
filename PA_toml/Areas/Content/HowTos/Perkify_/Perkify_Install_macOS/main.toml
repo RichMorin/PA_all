@@ -28,10 +28,17 @@ Before you can use Perkify, you'll need to install
 These steps are typically performed using a web browser and your host's
 default installation software.
 
+*Note:*
+At this writing, the current version of Vagrant (2.2.6)
+is incompatible with the current version of VirtualBox (6.1.0).
+The notes below have ben modified to reflect this snafu...
+
 After skimming the [Download VirtualBox
 ]{https://www.virtualbox.org/wiki/Downloads} page,
-click the "OS X hosts" link.
-This will download a DMG file (e.g., `VirtualBox-6.1.0-135406-OSX.dmg`).
+proceed to the [Download VirtualBox (Old Builds): VirtualBox 6.0
+]{https://www.virtualbox.org/wiki/Download_Old_Builds_6_0} page.
+Then, click the "OS X Hosts" link under the "VirtualBox 6.0.14" heading.
+This will download a DMG file (`VirtualBox-6.0.14-133895-OSX.dmg`).
 Follow the normal Apple installation procedure, accepting all defaults.
 
 Now, proceed to the [Download Vagrant]{
@@ -47,4 +54,4 @@ Follow the normal Apple installation procedure, accepting all defaults.
 
 [ zoo ]
 
-  snippets    = '...'
+  snippets    = ''

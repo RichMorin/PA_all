@@ -23,8 +23,9 @@ This page mostly discusses major and minor releases.
 ### 0.2.x
 
 These are "production candidate" releases,
-containing about 200 explicitly-requested packages.
-We've made a start on providing support for audio, X11, etc.
+containing about 200 explicitly-requested packages
+and about 4000 packages brought in as dependencies or recommendations.
+We've made a start on providing support for a11y, audio, X11, etc.
 However, a lot of testing and debugging is still needed.
 
 ### 0.1.x

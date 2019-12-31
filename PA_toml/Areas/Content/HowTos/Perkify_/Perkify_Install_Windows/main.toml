@@ -21,6 +21,25 @@ for [Microsoft Windows]{ext_wp|Microsoft_Windows}.
 If you're running something else on your host machine,
 go back to the [Perkify Install]{con_how|Perkify_Install} page and try again!
 
+*Note:*
+At this writing, the current version of Vagrant (2.2.6)
+is incompatible with the current version of VirtualBox (6.1.0).
+The notes below have ben modified to reflect this snafu...
+
+After skimming the [Download VirtualBox
+]{https://www.virtualbox.org/wiki/Downloads} page,
+proceed to the [Download VirtualBox (Old Builds): VirtualBox 6.0
+]{https://www.virtualbox.org/wiki/Download_Old_Builds_6_0} page.
+Then, click the "Windows Hosts" link under the "VirtualBox 6.0.14" heading.
+This will download an `exe` file (`VirtualBox-6.0.14-133895-Win.exe`).
+Follow the normal Microsoft installation procedure, accepting all defaults.
+
+Now, proceed to the [Download Vagrant]{
+https://www.vagrantup.com/downloads.html} page
+and click the "64-bit" link under "macOS".
+This will download a DMG file (e.g., `vagrant_2.2.6_x86_64.dmg`).
+Follow the normal Apple installation procedure, accepting all defaults.
+
 {% include_relative ../Perkify_Install/common_1.md %}
 {% include_relative ../Perkify_Install/common_2.md %}
 {% include_relative ../Perkify_Install/common_3.md %}
