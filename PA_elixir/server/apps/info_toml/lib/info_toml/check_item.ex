@@ -222,8 +222,8 @@ defmodule InfoToml.CheckItem do
           do: { "warning: blank string",        gi_path }
 
       2, gi_path, str ->
-        if str =~ ~r{ \? \? }x,
-          do: { "error: string contains '??'",  gi_path }
+        if str =~ ~r{ \? \? \? }x,
+          do: { "error: string contains '???'",  gi_path }
     end
 
     err_chk_fn  = fn { message, _gi_path}, acc ->
