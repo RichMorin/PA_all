@@ -66,6 +66,7 @@
   ext_sf    = 'https://sourceforge.net/'
   ext_so    = 'https://stackoverflow.com/'
   ext_tw    = 'https://twitter.com/'
+  ext_um    = 'http://manpages.ubuntu.com/manpages/disco/'
   ext_vc    = 'https://app.vagrantup.com/'
   ext_wp    = 'https://en.wikipedia.org/wiki/'
   ext_yt    = 'https://www.youtube.com/'

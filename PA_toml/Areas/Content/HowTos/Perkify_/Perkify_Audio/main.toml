@@ -51,7 +51,7 @@ Unless otherwise noted, all commands discussed below are available in Perkify.
 
 #### aplay, arecord
 
-The [aplay and arecord]{ext_lm|1/aplay} commands
+The [aplay and arecord]{ext_um|man1/aplay.1.html} commands
 are primarily intended to play and record audio files.
 However, they can also be used to provide information
 about the state of ALSA's sound infrastructure:
@@ -72,9 +72,9 @@ about the state of ALSA's sound infrastructure:
 
 #### ffmpeg, ffmplay
 
-[ffmpeg]{ext_lm|1/ffmpeg} is a very fast video and audio converter
+[ffmpeg]{ext_um|man1/ffmpeg.1.html} is a very fast video and audio converter
 that can also grab from a live audio/video source.
-[ffplay]{ext_lm|1/ffplay} is a very simple and portable media player
+[ffplay]{ext_um|man1/ffplay.1.html} is a very simple and portable media player
 that uses the FFmpeg libraries and the SDL library.
 It is mostly used as a testbed for the various FFmpeg APIs.
 
@@ -82,7 +82,7 @@ It is mostly used as a testbed for the various FFmpeg APIs.
 
 The JACK Audio Connection Kit ([JACK]{cat_sof|JACK})
 provides basic infrastructure for audio applications.
-[jackd]{ext_lm|1/jackd} is the JACK audio server daemon,
+[jackd]{ext_um|man1/jackd.1.html} is the JACK audio server daemon,
 a low-latency audio server.
 
 #### mpg123
@@ -92,7 +92,7 @@ for layers 1, 2 and 3 (MPEG 1.0 layer 3 is also known as MP3).
 
 #### play
 
-The [play]{ext_lm|1/play} command is part of [SoX]{cat_sof|SoX}
+The [play]{ext_um|man1/play.1.html} command is part of [SoX]{cat_sof|SoX}
 (Sound eXchange, the Swiss Army knife of audio manipulation).
 It will play any file format supported by sox,
 using the default audio device.
@@ -101,7 +101,8 @@ using the default audio device.
 
 PulseAudio is a networked, low-latency sound server
 for Linux, POSIX, and Windows systems.
-The [pulseaudio]{ext_lm|1/pulseaudio} command is used to administer the server.
+The [pulseaudio]{ext_um|man1/pulseaudio.1.html} command
+is used to administer the server.
 For example, this pair of commands tells us
 that the PulseAudio daemon is already running for the `vagrant` user:
 

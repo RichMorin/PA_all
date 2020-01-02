@@ -20,7 +20,6 @@ As a side note, Perkify includes a copy of the
 [Interactive Ruby Shell]{ext_wp|Interactive_Ruby_Shell};
 here's how this calculation might be done in `irb(1)`:
 
-    Host: irb
     irb(main):001:0> secs = ( (80 * 1000) / 20) 
     => 4000
     irb(main):002:0> secs / 3600.0
@@ -63,10 +62,11 @@ then inspect the running system:
     ...
 
     vagrant@perkify:~$ uname -v     # Describe the VM's kernel version.
-    #18-Ubuntu SMP ...
+    #40-Ubuntu SMP ...
 
     vagrant@perkify:~$ exit         # Terminate the SSH session.
-    ...
+    logout
+    Connection to 127.0.0.1 closed.
 
     Host: uname -v                  # Describe the host's kernel version.
     ...

@@ -1,0 +1,211 @@
+# con_how|Perkify_Games/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Games'
+  title       = 'Perkify - Games'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'a quick dip into some Perkify games'
+
+  verbose     = '''
+Game programs have been associated with Unix since the beginning.
+Indeed, one of [Ken Thompson]{ext_wp|Ken_Thompson}'s goals in developing
+the first "Unics" (Uniplexed Information and Computing Service) system
+was to support a video game called
+[Space Travel]{ext_wp|Space_Travel_(video_game)}.
+
+Although Perkify doesn't have a copy of that game,
+it does have several dozen game programs.
+Let's explore a little, using some Unix command-line tools.
+For details on these, simply Read The Fine Manual (RTFM)
+using `man apropos`, `man wc`, etc.
+
+*Note:*
+Rather than printing the full shell prompt
+(e.g., `vagrant@perkify:~$`) below, I'll just use a dollar sign (`$`).
+This is a fairly common practice in Unix documentation.
+
+OK, how many man pages can we find for games?
+
+    $ apropos games | wc -l     # display the number of lines
+    6
+
+Well, that wasn't too exciting; only six games...
+Hmmmmm; let's try a shorter search term:
+
+    $ apropos game | wc -l      # display the number of lines
+    68
+
+    $ apropos game | head -3    # display the first three lines
+    adventure (6)        - an exploration game
+    atc (6)              - air traffic controller game
+    backgammon (6)       - the game of backgammon
+
+    $ apropos game | tail -3    # display the last three lines
+    tuxmath (6)          - a math game for kids with Tux
+    wargames (6)         - shall we play a game?
+    worm (6)             - Play the growing worm game
+
+That's a lot more promising, but also a bit misleading.
+Although most of these games are text based,
+some (e.g., `hangman`) use a cursor positioning library
+such as [curses]{ext_wp|Curses_(programming_library)}
+to create a 2D "board".
+Since these games are likely to be inaccessible to blind users,
+I'll ignore them in this HowTo.
+In addition, many of these games aren't working yet in Perkify,
+due to configuration issues, etc.
+In short, Your Mileage May Vary...
+
+### Adventure
+
+OK, let's go on an adventure!
+
+    $ adventure
+
+    Welcome to Adventure!!  Would you like instructions?
+    yes
+
+    Somewhere nearby is Colossal Cave, where others have found fortunes in
+    treasure and gold, though it is rumored that some who enter are never
+    seen again.  Magic is said to work in the cave.  I will be your eyes
+    and hands.  Direct me with commands of 1 or 2 words.  ...
+
+    help
+
+    I know of places, actions, and things.  Most of my vocabulary
+    describes places and is used to move you there.  To move, try words
+    like forest, building, downstream, enter, east, west, north, south,
+    up, or down.  ...
+
+    ^D
+    user closed input stream, quitting...
+
+### Escaping a Game
+
+There isn't any real standard for ways to exit interactive Unix commands.
+Words like "bye", "exit", and "quit" may or may not work.
+However, like most text-based Unix commands, `adventure` will quit
+when it receives an end-of-file ([EOF]{ext_wp|End-of-file}) character.
+The Control D (aka `C-d`, `CTRL+D`, `^D`, etc.) key combination produces this,
+as shown above.
+Failing that, try Control C (aka `C-c`, `CTRL+C`, `^C`, etc.).
+
+However, some programs will ignore your attempts to leave,
+burying you in piles of goo.
+I ran into this when I tried to run a math training game called `tuxmath`.
+Nothing I typed seemed to have any useful effect; was I trapped?
+
+Fortunately, there are various ways to escape from this sort of situation.
+The simplest one may be to kill off the Terminal tab in which
+the `perkify ssh` session (and thus, the offending command) is running.
+You can then start up another SSH session in another tab.
+
+Alternatively, like I did, you can try using some Unix lore to escape.
+The first thing I did was to hit Command T,
+bringing up "tab" (and shell session) in the macOS Terminal app.
+(On another host system, I might have needed a different key combination.)
+I then typed in `vagrant ssh`, starting up a second SSH session into Perkify.
+
+Using the `ps`, `grep`, and `kill` commands,
+I was then able to kill off the offending program:
+
+    $ ps a | grep tuxmath
+     2330 pts/0    Sl+    0:22 tuxmath
+     2340 pts/1    S+     0:00 grep --color=auto tuxmath
+
+    $ kill 2330
+
+Going back to the original tab,
+I found myself presented with a shell prompt (whew!).
+Sometimes there may be some residual goo left on the screen.
+Running `clear` once or twice may (erm) serve to clear this up...
+
+### Game Index
+
+Here is a Work In Progress (WIP) index to games on Perkify.
+The Type may be GNOME, KDE, term, text, or X11.
+(Only the text games are suitable for use by the blind.)
+The PS (Program Status) column provides a guess
+as to whether the command will crash, run, etc.
+
+| Command             | Type    | PS | Description                    |
+| -------             | ----    | -- | -----------                    |
+| adventure           | text    | OK | exploration                    |
+| atc                 | term    | OK | air traffic control            |
+| backgammon          | term    | OK | backgammon (board)             |
+| battlestar          | text    | OK | tropical adventure             |
+| blinken             | KDE     | ?? | memory enhancement             |
+| boggle              | term    | OK | word search                    |
+| bovo                | KDE     | ?? | Five in a Row                  |
+| bsdgames-adventure  | text    | OK | exploration                    |
+| canfield            | term    | OK | solitaire (cards)              |
+| cribbage            | term    | OK | Cribbage (cards)               |
+| dab                 | term    | OK | Dots and Boxes                 |
+| four-in-a-row       | GNOME   | ?? | four-in-a-row                  |
+| gnome-klotski       | GNOME   | ?? | sliding blocks                 |
+| gnome-mahjongg      | GNOME   | ?? | tile matching                  |
+| gnome-nibbles       | GNOME   | ?? | worm                           |
+| gnome-sudoku        | GNOME   | ?? | Sudoku logic puzzle            |
+| gnome-taquin        | GNOME   | ?? | sliding puzzle                 |
+| gnome-tetravex      | GNOME   | ?? | simple puzzle                  |
+| gnuchessx           | X11     | ?? | Chess (board)                  |
+| gnugo               | term    | OK | Go (board)                     |
+| gomoku              | term    | OK | 5 in a row (board)             |
+| hangman             | term    | OK | letter and word guessing       |
+| hitori              | GNOME   | ?? | Hitori (number grid)           |
+| hunt                | term    | OK | multi-player shooting          |
+| iagno               | GNOME   | ?? | disk flipping, ala Reversi     |
+| kblackbox           | KDE     | ?? | graphical logic, ala blackbox  |
+| kblocks             | KDE     | ?? | Blocks                         |
+| kbounce             | KDE     | ?? | Jezz Ball, ala Jezzball        |
+| kbreakout           | KDE     | ?? | Breakout                       |
+| kdiamond            | KDE     | ?? | Diamond                        |
+| kgoldrunner         | KDE     | ?? | action/puzzle, ala Loderunner  |
+| khangman            | KDE     | ?? | letter and word guessing       |
+| kigo                | KDE     | ?? | Go (board)                     |
+| killbots            | KDE     | ?? | killer robots, teleportation   |
+| kiriki              | KDE     | ?? | Yahtzee (dice)                 |
+| kjumpingcube        | KDE     | ?? | Tactical (grid)                |
+| klickety            | KDE     | ?? | ball removal, ala SameGame     |
+| klines              | KDE     | ?? | like "Color Lines"             |
+| kmahjongg           | KDE     | ?? | Mahjongg (board)               |
+| kmines              | KDE     | ?? | mine sweeper                   |
+| knetwalk            | KDE     | ?? | network admin. (grid)          |
+| kolf                | KDE     | ?? | miniature golf                 |
+| kollision           | KDE     | ?? | collision                      |
+| kpat                | KDE     | ?? | Patience (card)                |
+| ksirk               | KDE     | ?? | Risk strategy                  |
+| kspaceduel          | KDE     | ?? | two-player space duel          |
+| ksquares            | KDE     | ?? | Dots and Boxes (grid)          |
+| ksudoku             | KDE     | ?? | Sudoku logic puzzle            |
+| ktuberling          | KDE     | ?? | ala Mr. Potato Head            |
+| kubrick             | KDE     | ?? | color cube, ala Rubik's Cube   |
+| lskat               | KDE     | ?? | Lieutnant Skat (card)          |
+| monop               | text    | OK | ala Monopoly (board)           |
+| palapeli            | KDE     | ?? | Jigsaw Puzzle                  |
+| phantasia           | term    | OK | interterminal fantasy game     |
+| picmi               | KDE     | ?? | number logic (grid)            |
+| quadrapassel        | GNOME   | ?? | falling blocks, ala Tetris     |
+| snake               | term    | OK | make money; avoid the snake    | 
+| sol                 | GNOME   | ?? | solitaire games (card)         |
+| tetris-bsd          | term    | OK | falling blocks, ala Tetris     |
+| trek                | text    | OK | adventure, based on Star Trek  |
+| tuxmath             | term    | NW | math game for kids             |
+| wargames            | term    | OK | shall we play a game?          |
+| worm                | term    | OK | growing worm game              |
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'
