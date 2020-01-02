@@ -65,6 +65,7 @@
   ext_sf    = 'SourceForge'
   ext_so    = 'Stack Overflow'
   ext_tw    = 'Twitter'
+  ext_um    = 'Ubuntu Manuals'
   ext_vc    = 'Vagrant Cloud'
   ext_wp    = 'Wikipedia'
   ext_yt    = 'YouTube'
