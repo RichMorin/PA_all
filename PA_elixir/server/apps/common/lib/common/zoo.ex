@@ -37,10 +37,11 @@ defmodule Common.Zoo do
   #!I Find a way to test the chk_local/1 function.
 
     case conn.remote_ip do
-      { 127,   0, 0, 1 }  -> true   # localhost
-      { 192, 168, 1, 1 }  -> false  # LAN access to cfcl.com, for testing
-      { 192, 168, 1, _ }  -> true   # LAN access to fido.local
-      _                   -> false  # WAN access
+      { 127,   0, 0,   1 }  -> true   # using a browser on fido
+      { 192, 168, 1,   1 }  -> false  # browsing from LAN to cfcl.com (test)
+      { 192, 168, 1, 212 }  -> false  # forwarding from cfcl.com, via ProxyPass
+      { 192, 168, 1,   _ }  -> true   # browsing from LAN to fido.local
+      _                     -> false  # WAN access
     end
   end
 
