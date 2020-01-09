@@ -61,7 +61,6 @@ but nothing for Ubuntu "disco".
 | GNU Oleo             | _               | spreadsheet                 |
 | GSEGrafix            | _               | plot generation             |
 | GURGLE               | _               | programming language        |
-| ID Utils             | _               | system admin                |
 | latex-access         | _               | braille translation         |
 | Lucidor              | _               | ebook reader                |
 | OCRdesktop           | _               | OCR support                 |
@@ -71,34 +70,26 @@ but nothing for Ubuntu "disco".
 | Speakup              | speakup         | speech synthesis            |
 | Tabula               | _               | document conversion         |
 | tdsr                 | _               | screen reader               |
+| Termux               | _               | terminal multiplexer        |
 | The vOICe            | _               | sensory substitution        |
-| WiringPi             | _               | Raspberry Pi support        |
  
-#### Inquisitive APTs
+#### APT Presets
 
-The following APT archives want to ask questions during the build.
-This breaks our automation, so we need to find a workaround for each one.
+Some APT archives want to ask questions during the build.
+This breaks our automation, so we had to guess at some preset values.
+Obviously, some of these may be Science Fiction.
 
-- Chef            - wants the URL of the Chef Infra server
-- Emacspeak       - wants to know about support SW & HW
-- GNU Mailutils   - wants to know the Postfix configuration
+| Pkg. Name  | Database Key                      | Type     | Value            |
+| ---------  | ------------                      | ----     | -----            |
+| chef       | chef/chef_server_url              | string   | localhost:4000   |
+| gdm3       | shared/default-x-display-manager  | select   | nodm             |
+| jackd2     | jackd/tweak_rt_limits             | boolean  | false            |
+| nodm       | nodm/enabled                      | boolean  | false            |
+| nodm       | shared/default-x-display-manager  | select   | nodm             |
+| postfix    | postfix/main_mailer_type          | select   | No configuration |
+| sddm       | shared/default-x-display-manager  | select   | nodm             |
 
 ### Miscellaneous Issues
-
-#### `$PATH` Conflicts
-
-The `path_chk` script looks for files which appear
-in two or more directories on the search path (`$PATH`).
-The script reports the following duplications:
-
-    brltty        ["/usr/sbin", "/usr/bin"]
-    ip            ["/usr/sbin", "/usr/bin"]
-    iscsiadm      ["/usr/sbin", "/usr/bin"]
-    lsmod         ["/usr/sbin", "/usr/bin"]
-    on_ac_power   ["/usr/sbin", "/usr/bin"]
-    rpcinfo       ["/usr/sbin", "/usr/bin"]
-    udevadm       ["/usr/sbin", "/usr/bin"]
-
 
 #### I/O Hardware
 
@@ -106,12 +97,6 @@ Some programs expect to be able to communicate with hardware devices
 (e.g., audio interfaces, braille displays).
 These need to be tested for functionality on all three
 of the expected host operating systems (Linux, macOS, Windows).
-
-#### `Vagrantfile`
-
-The `Vagrantfile` is getting saved and installed _somewhere_,
-as evidenced by the fact that the `hostname` is getting set to `perkify`.
-However, it would be nice to know _where_ it's being stored...
 
 ### Resources
 
@@ -121,8 +106,10 @@ and resolving issues.
 #### GitHub
 
 The scripts and data files that are used to build Perkify
-should be made available in a GitHub repository.
+should be made available in a separate GitHub repository.
 This would also give us a place to put issues, wiki pages, etc.
+For the moment, however, they are embedded
+in the [Pete's Alley]{ext_gh|RichMorin/PA_all} repo.
 
 #### The Open Build Service
 
@@ -143,7 +130,6 @@ and is used by 60,034 confirmed developers.
 The OBS appears to be a perfect place for interested parties
 to collaborate on porting blind-friendly software packages.
 If you are interested in helping in this effort, please get in touch!
-
 
 To be continued...
 '''

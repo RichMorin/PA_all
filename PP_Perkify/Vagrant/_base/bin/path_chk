@@ -2,31 +2,35 @@
 #
 # path_chk - check $PATH for conflicting names
 #
-# Written by Rich Morin, CFCL, 2019
+# Written by Rich Morin, CFCL, 2019-2020
 
   cmd_hash  = {}
 
-  path_dirs = ENV['PATH'].split(':')
+  path_dirs = ENV['PATH'].split(':')            # Split $PATH on colons (:).
   # [ '/usr/local/sbin', ... ]
   
-  path_dirs.each do |path_dir|
-    next if File.symlink?(path_dir)
+  path_dirs.each do |path_dir|                  # Examine each directory path.
+    next if File.symlink?(path_dir)             # Ignore symbolic links.
 
-    cmd_paths = Dir.glob("#{ path_dir }/*")
+    cmd_paths = Dir.glob("#{ path_dir }/*")     # Get a list of file paths.
 
-    cmd_paths.each do |cmd_path|
-      cmd_name = cmd_path.sub(%r{^.*/},   '')
+    cmd_paths.each do |cmd_path|                # Examine each file path.
+      next if File.symlink?(cmd_path)           # Ignore symbolic links.
 
-      cmd_hash[cmd_name] ||= [] 
-      cmd_hash[cmd_name] << path_dir
+      cmd_name = cmd_path.sub(%r{^.*/},   '')   # Strip off leading nodes.
+      inode    = File.stat(path_dir).ino        # Get the inode number.
+      cmd_key  = "#{ cmd_name } #{ inode }"     # Generate a unique key.
+
+      cmd_hash[cmd_key] ||= []                  # Create entry, if need be.
+      cmd_hash[cmd_key] << path_dir             # Add the directory path.
     end
   end
 
-  cmd_names = cmd_hash.keys.sort
+  cmd_keys = cmd_hash.keys.sort                 # Get a sorted list of keys.
 
-  cmd_names.each do |cmd_name|
-    path_dirs = cmd_hash[cmd_name]
-    next if path_dirs.size == 1
+  cmd_keys.each do |cmd_key|                    # Traverse the list of keys.
+    path_dirs = cmd_hash[cmd_key]               # Get the list of dir. paths.
+    next if path_dirs.size == 1                 # Ignore singletons.
 
-    puts '%-12s  %s' % [cmd_name, path_dirs.inspect]
+    puts '%-12s  %s' % [cmd_key, path_dirs.inspect]   # Display multiples.
   end

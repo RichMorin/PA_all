@@ -347,6 +347,10 @@ ruby_gems = '''
 # Eww,                ?,                  web browser               (-b)
 #-
 
+# Excalibur,          ?,                  document conversion,      ?
+# A web interface to extract tabular data from PDFs
+# https://pypi.org/project/excalibur-py
+
 # GMediaServer,       gmediaserver,       media support             (-bu+js)
 # Package: gmediaserver (0.13.0-8ubuntu2) [universe]
 # https://packages.ubuntu.com/bionic/gmediaserver
@@ -395,6 +399,10 @@ ruby_gems = '''
 # Speakup,            speakup,            speech synthesis          (?)
 # Speakup Doc.,       speakup-doc,        speech synthesis          (?)
 #-
+
+# Tabula,             ?,                  document conversion,      ?
+# tool for liberating data tables trapped inside PDF files 
+# https://github.com/tabulapdf/tabula
 
 # tdsr,               ?,                  screen reader             (-b)
 #-

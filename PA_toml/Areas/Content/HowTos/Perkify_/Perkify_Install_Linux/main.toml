@@ -32,7 +32,7 @@ default installation software.
 *Note:*
 At this writing, the current version of Vagrant (2.2.6)
 is incompatible with the current version of VirtualBox (6.1.0).
-The notes below have ben modified to reflect this snafu...
+The notes below have been modified to reflect this snafu...
 
 After skimming the [Download VirtualBox
 ]{https://www.virtualbox.org/wiki/Downloads} page, proceed to the

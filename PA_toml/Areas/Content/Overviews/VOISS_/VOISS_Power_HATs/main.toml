@@ -87,6 +87,15 @@ It includes a pair of (3000 mAh) 18650 Lithium-ion cells.
 The maximum current is said to be 1.7A, which is a bit low...
 OTOH, Vetco may actually be selling the current model, so YMMV.
 
+#### [Waveshare]{https://www.waveshare.com/wiki/Power_Management_HAT}
+
+This HAT is available for $20 from [Seeed]{https://www.seeedstudio.com/
+Power-Management-HAT-for-Raspberry-Pi-Embedded-Arduino-MCU-and-RTC-p-4375.html}).
+It includes an Arduino, a real-time clock, a case for two 18650 batteries,
+and miscellaneous hardware.
+The [wiki]{https://www.waveshare.com/wiki/Power_Management_HAT} indicates
+that a fair amount of technical information is available for it.
+
 #### [Waveshare]{https://www.geekbuying.com/item/
       Waveshare-Li-ion-Battery-HAT-for-Raspberry-Pi-Blue-405193.html}
 
