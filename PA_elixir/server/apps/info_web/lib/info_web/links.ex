@@ -10,7 +10,7 @@ defmodule InfoWeb.Links do
 # Private functions
 #
 #   check_link_elts/2
-#     Report structural problems with link elements.
+#     Report structural problems with link elements. (unused)
 #   get_link_tuples/2
 #     Get a list of tuples describing link URLs.
 
@@ -32,7 +32,7 @@ defmodule InfoWeb.Links do
 
     html_tree
     |> Floki.find("a[href]")
-    |> check_link_elts(page_url)
+#   |> check_link_elts(page_url)    # unused at present
     |> get_link_tuples(page_url)
   end
 
@@ -41,6 +41,8 @@ defmodule InfoWeb.Links do
   @spec check_link_elts(IWT.html_tree, String.t) :: [IWT.link_work]
 
   defp check_link_elts(link_elts, page_url) do
+  #
+  # Note: This function is currently unused, but kept as a starting point.
   #
   # Report structural problems with link elements.
   #

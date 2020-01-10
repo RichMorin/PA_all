@@ -3,33 +3,29 @@
   <nav>
     &nbsp;
     <%=
-      title   = "Go to this item's Feedback page."
       url     = "/mail/feed?url=#{ @rel_url }"
-      link("Feedback", title: title, to: url)
+      link("Feedback", to: url)
     %>
 
     <%= if @source_link do %>
       &nbsp;
       <%=
-        title   = "Go to this item's Source page."
         url     = "/source?key=#{ @key }"
-        link("Source", title: title, to: url)
+        link("Source", to: url)
       %>
     <% end %>
 
     <%= if @edit_link do %>
       &nbsp;
       <%=
-        title   = "Go to this item's Edit page."
         url     = "/edit?key=#{ @key }"
-        link("Edit", title: title, to: url)
+        link("Edit", to: url)
       %>
     <% end %>
 
     &nbsp;
     <%=
-      title     = "Go to the site's Dashboard page."
-      link("Dashboard", title: title, to: "/dash")
+      link("Dashboard", to: "/dash")
     %>
   </nav>
 </footer>

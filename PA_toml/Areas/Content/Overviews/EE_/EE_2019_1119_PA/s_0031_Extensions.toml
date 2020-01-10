@@ -15,10 +15,8 @@ Make it easier to enter lists of items in TOML:
 Make it easier to link to web sites in Markdown:
 
     [TOML]!{ext_wp|TOML} ->
-    [TOML](https://en.wikipedia.org/wiki/TOML
-      'Go to: TOML [WP]')
+    [TOML](https://en.wikipedia.org/wiki/TOML)
 
     [$url]!{http://foo.com/bar} ->
-    [http://foo.com/bar](http://foo.com/bar
-      'Go to: foo.com [site]')
+    [http://foo.com/bar](http://foo.com/bar)
 '''

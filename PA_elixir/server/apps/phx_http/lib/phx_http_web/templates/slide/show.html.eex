@@ -15,27 +15,20 @@
 
 <nav>
   <%= if key_next do %>
-    <a href="/slide?key=<%= key_next %>"
-       title="Go to: next slide"
-      >Next</a> &nbsp;
+    <a href="/slide?key=<%= key_next %>">Next</a> &nbsp;
   <% end %>
 
   <%= if key_prev do %>
-    <a href="/slide?key=<%= key_prev %>"
-       title="Go to: previous slide"
-      >Prev</a> &nbsp;
+    <a href="/slide?key=<%= key_prev %>">Prev</a> &nbsp;
   <% end %>
 
-  <a href="/item?key=<%= key_main %>"
-     title="Go to: main page of slideshow"
-    >Main</a>
+  <a href="/item?key=<%= key_main %>">Main</a>
 
   <%= if local_user do %>
     &nbsp;|&nbsp;
     <%=
-      title   = "Reload the site's content."
       url     = "/reload?redirect=#{ @rel_url }"
-      link("Reload", title: title, to: url)
+      link("Reload", to: url)
     %>
   <% end %>
 </nav>

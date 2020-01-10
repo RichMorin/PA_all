@@ -8,9 +8,8 @@
   <h3>
     <%=
       precis  = get_precis(major_u)
-      title   = "Go to the #{ major_u } index page."
       url     = url_area(major_u)
-      link(major_u, title: title, to: url)
+      link(major_u, to: url)
     %>
   </h3>
 
@@ -32,9 +31,8 @@
               <%=
                 body    = "#{ major_u }/#{ minor_u }"
                 precis  = get_precis(body)
-                title   = "Go to the #{ minor_u } index page."
                 url     = url_area(body)
-                link(minor_u, title: title, to: url)
+                link(minor_u, to: url)
               %><br>
               <%= precis %>
             </p>

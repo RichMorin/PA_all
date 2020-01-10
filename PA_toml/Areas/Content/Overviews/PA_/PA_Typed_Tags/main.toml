@@ -86,87 +86,70 @@ with links to more detailed descriptions:
 <table class="types tablesorter">
   <tr>
     <td><a href="#aliases"
-           title="Go to the aliases heading."
           >aliases</a></td>
     <td>alternative names for this item</td>
   </tr><tr>
     <td><a href="#directories"
-           title="Go to the directories heading."
           >directories</a></td>
     <td>directory nodes on item's path</td>
   </tr><tr>
     <td><a href="#features"
-           title="Go to the features heading."
           >features</a></td>
     <td>noteworthy features of this item</td>
   </tr><tr>
     <td><a href="#impairments"
-           title="Go to the impairments heading."
           >impairments</a></td>
     <td>relevant impairments for this item</td>
   </tr><tr>
     <td><a href="#interfaces"
-           title="Go to the interfaces heading."
           >interfaces</a></td>
     <td>ways to access or use this item</td>
   </tr><tr>
     <td><a href="#licenses"
-           title="Go to the licenses heading."
           >licenses</a></td>
     <td>licenses imposed by this item</td>
   </tr><tr>
     <td><a href="#miscellany"
-           title="Go to the miscellany heading."
           >miscellany</a></td>
     <td>miscellaneous tags for this item</td>
   </tr><tr>
     <td><a href="#produces"
-           title="Go to the produces heading."
           >produces</a></td>
     <td>types of items produced by this item</td>
   </tr><tr>
     <td><a href="#products"
-           title="Go to the products heading."
           >products</a></td>
     <td>trade names of this item's products</td>
   </tr><tr>
     <td><a href="#replaces"
-           title="Go to the replaces heading."
           >replaces</a></td>
     <td>things that this item could replace</td>
   </tr><tr>
     <td><a href="#requires"
-           title="Go to the requires heading."
           >requires</a></td>
     <td>commands, libraries, etc.</td>
   </tr><tr>
     <td><a href="#roles"
-           title="Go to the roles heading."
           >roles</a></td>
     <td>roles which this item can play</td>
   </tr><tr>
     <td><a href="#runs_on"
-           title="Go to the runs_on heading."
           >runs_on</a></td>
     <td>platforms that this software runs on</td>
   </tr><tr>
     <td><a href="#skills"
-           title="Go to the skills heading."
           >skills</a></td>
     <td>skills which this individual claims</td>
   </tr><tr>
     <td><a href="#standards"
-           title="Go to the standards heading."
           >standards</a></td>
     <td>standards which this item follows</td>
   </tr><tr>
     <td><a href="#supports"
-           title="Go to the supports heading."
           >supports</a></td>
     <td>activities that this item supports</td>
   </tr><tr>
     <td><a href="#used_like"
-           title="Go to the used_like heading."
           >used_like</a></td>
     <td>items that are used similarly</td>
   </tr>
@@ -182,37 +165,30 @@ with links to more detailed descriptions:
 <table class="types tablesorter">
   <tr>
     <td><a href="#based_on"
-           title="Go to the based_on heading."
           >based_on</a></td>
     <td>underlying items</td>
   </tr><tr>
     <td><a href="#f_authors"
-           title="Go to the f_authors heading."
           >f_authors</a></td>
     <td>authors of this file</td>
   </tr><tr>
     <td><a href="#f_editors"
-           title="Go to the f_editors heading."
           >f_editors</a></td>
     <td >editors of this file</td>
   </tr><tr>
     <td><a href="#f_reviews"
-           title="Go to the f_reviews heading."
           >f_reviews</a></td>
     <td >catalog entry reviewers</td>
   </tr><tr>
     <td><a href="#provider"
-           title="Go to the provider heading."
           >provider</a></td>
     <td>providers of this item</td>
   </tr><tr>
     <td><a href="#provides"
-           title="Go to the provides heading."
           >provides</a></td>
     <td>items this item provides</td>
   </tr><tr>
     <td><a href="#see_also"
-           title="Go to the see_also heading."
           >see_also</a></td>
     <td>strongly related items</td>
   </tr>

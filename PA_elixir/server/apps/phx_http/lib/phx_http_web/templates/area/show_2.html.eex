@@ -8,9 +8,8 @@
   <h3>
     <%= body    = "#{ @name }/#{ section }"
         precis  = get_precis(body)
-        title   = "Go to the #{ section } index page."
         url     = url_area(body)
-        link(section, title: title, to: url)
+        link(section, to: url)
     %>
     (<%= @counts[section] || 0 %>)
   </h3>

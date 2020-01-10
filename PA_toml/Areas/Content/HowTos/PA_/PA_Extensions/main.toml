@@ -136,31 +136,31 @@ followed by the generated Markdown links.
 Careful Reader will recognize the use of URL shorthand, as described above:
 
     [Foo Bar]!{ext_gh|foo/bar}
-    [Foo Bar](https://github.com/foo/bar 'Go to: github.com [site]')
+    [Foo Bar](https://github.com/foo/bar)
 
     [HTML]!{ext_wp|HTML}
-    [HTML](https://en.wikipedia.org/wiki/HTML 'Go to: HTML [WP]')
+    [HTML](https://en.wikipedia.org/wiki/HTML)
 
     [$url]!{http://www.foo.com}
-    [http://www.foo.com](http://www.foo.com 'Go to: www.foo.com [site]')
+    [http://www.foo.com](http://www.foo.com)
 
     [$url]!{ext_gh|foo/bar}
-    [Foo Bar](https://github.com/foo/bar 'Go to: github.com [site]')
+    [Foo Bar](https://github.com/foo/bar)
 
     [Catalog]!{cat|:a}
-    [Catalog](/area?key=Areas/Catalog/_area.toml 'Go to: Catalog [area]')"
+    [Catalog](/area?key=Areas/Catalog/_area.toml)"
 
     [LHBVI]!{cat_gro|LHBVI}
-    [LHBVI](/item?key=Areas/.../LHBVI/main.toml 'Go to: LHBVI [item]')"
+    [LHBVI](/item?key=Areas/.../LHBVI/main.toml)"
 
     [LHBVI]!{cat_gro|LHBVI:s}
-    [LHBVI](/source?key=Areas/.../LHBVI/main.toml 'Go to: LHBVI [source]')"
+    [LHBVI](/source?key=Areas/.../LHBVI/main.toml)"
 
     [About]!{_text/about.toml}
-    [About](/text?key=_text/about.toml 'Go to: About [text]')"
+    [About](/text?key=_text/about.toml)"
 
     [About]!{_text/about.toml:s}
-    [About](/source?key=_text/about.toml 'Go to: About [source]')"
+    [About](/source?key=_text/about.toml)"
 
 ##### Spacing
 

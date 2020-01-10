@@ -16,7 +16,6 @@ defmodule PhxHttpWeb.FormatViewTest do
     test_val    = """
     by
     <a href='/item?key=Areas/Catalog/People/Rich_Morin/main.toml'
-       title="Go to Rich Morin's page"
       >Rich Morin</a>
     """
 
@@ -31,10 +30,8 @@ defmodule PhxHttpWeb.FormatViewTest do
     test_val    = """
     by
     <a href='/item?key=Areas/Catalog/People/Amanda_Lacy/main.toml'
-       title="Go to Amanda Lacy's page"
       >Amanda Lacy</a>
      and <a href='/item?key=Areas/Catalog/People/Rich_Morin/main.toml'
-       title="Go to Rich Morin's page"
       >Rich Morin</a>
     """
 
@@ -49,15 +46,9 @@ defmodule PhxHttpWeb.FormatViewTest do
     test_out  = """
     <div class="no_print">
       <b>Path:</b>&nbsp;
-      <a href="/area"
-         title="Go to the Areas index page."
-        >Areas</a>,&nbsp;
-      <a href="/area?key=Areas/Catalog/_area.toml"
-         title="Go to the Areas/Catalog index page."
-        >Catalog</a>,&nbsp;
-      <a href="/area?key=Areas/Catalog/Groups/_area.toml"
-         title="Go to the Areas/Catalog/Groups index page."
-        >Groups</a>
+      <a href="/area">Areas</a>,&nbsp;
+      <a href="/area?key=Areas/Catalog/_area.toml">Catalog</a>,&nbsp;
+      <a href="/area?key=Areas/Catalog/Groups/_area.toml">Groups</a>
     </div>
     """
 
@@ -70,8 +61,7 @@ defmodule PhxHttpWeb.FormatViewTest do
     ref_val = "cat_peo|Rich_Morin"
     output  = fmt_ref(ref_key, ref_val)
     href    = "/item?key=Areas/Catalog/People/Rich_Morin/main.toml"
-    html    = "<b>Foo:</b>&nbsp; <a href='#{ href }' " <>
-              "title='Go to: Foo page'>Rich Morin</a>"
+    html    = "<b>Foo:</b>&nbsp; <a href='#{ href }'>Rich Morin</a>"
 
     assert output == { :safe, html }
   end

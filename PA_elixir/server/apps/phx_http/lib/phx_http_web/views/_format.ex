@@ -49,7 +49,6 @@ defmodule PhxHttpWeb.View.Format do
 
       """
       <a href='#{ href }'
-         title="Go to #{ name }'s page"
         >#{ name }</a>
       """
     end
@@ -92,35 +91,20 @@ defmodule PhxHttpWeb.View.Format do
       "/area?key=Areas/#{ area }/_area.toml"
     end
 
-    title_fn  = fn title ->
-    #
-    # Return the title string for an area.
-
-      "Go to the #{ title } index page."
-    end
-
     common  = """
     <div class="no_print">
       <b>Path:</b>&nbsp;
-      <a href="/area"
-         title="#{ title_fn.("Areas") }"
-        >Areas</a>,&nbsp;
+      <a href="/area">Areas</a>,&nbsp;
     """
 
     extras  = if String.ends_with?(key, "/_area.toml") do
       """
-        <a href="#{ href_fn.(t1) }"
-           title="#{ title_fn.("Areas/" <> t1) }"
-          >#{ hd(nodes) }</a>
+        <a href="#{ href_fn.(t1) }">#{ hd(nodes) }</a>
       """
     else
       """
-        <a href="#{ href_fn.(t1) }"
-           title="#{ title_fn.("Areas/" <> t1) }"
-          >#{ hd(nodes) }</a>,&nbsp;
-        <a href="#{ href_fn.(t2) }"
-           title="#{ title_fn.("Areas/" <> t2) }"
-          >#{ tl(nodes) }</a>
+        <a href="#{ href_fn.(t1) }">#{ hd(nodes) }</a>,&nbsp;
+        <a href="#{ href_fn.(t2) }">#{ tl(nodes) }</a>
       """
     end <> "</div>\n"
 
@@ -150,19 +134,18 @@ defmodule PhxHttpWeb.View.Format do
 #   when st: String.t # breaks!
 
   def fmt_ref(ref_key, ref_val) do
-    label       = fmt_key(ref_key)
+    label         = fmt_key(ref_key)
 
-    tuple_fn    = fn in_item ->
+    tuple_fn      = fn in_item ->
     #
-    # Return the link HTML and the title, in a tuple.
+    # Return the link HTML and the link text, in a tuple.
  
-      key       = "#{ in_item }/main.toml" |> InfoToml.exp_prefix()
-      href      = "/item?key=#{ key }"
-      link_text = InfoToml.get_item(key).meta.title
-      title     = "Go to: #{ label } page"
-      link      = "<a href='#{ href }' title='#{ title }'>#{ link_text }</a>"
+      key         = "#{ in_item }/main.toml" |> InfoToml.exp_prefix()
+      href        = "/item?key=#{ key }"
+      link_text   = InfoToml.get_item(key).meta.title
+      link        = "<a href='#{ href }'>#{ link_text }</a>"
 
-      {link, title}
+      {link, link_text}
     end
 
     link_fn   = fn {link, _title} -> link  end
@@ -176,8 +159,8 @@ defmodule PhxHttpWeb.View.Format do
 
     ref_val                     # "cat_ser|F123_Access, ..."
     |> csv_split()              # [ "cat_ser|F123_Access", ... ]
-    |> Enum.map(tuple_fn)       # [ {<link>, <title>}, ... ]
-    |> sort_by_elem(0, :dc)     # ditto, but sorted by title
+    |> Enum.map(tuple_fn)       # [ {<link>, <link_text>}, ... ]
+    |> sort_by_elem(1, :dc)     # ditto, but sorted by link text
     |> Enum.map(link_fn)        # [ <link>, ... ]
     |> fmt_list()               # "<link>, <link>, and ..."
     |> wrap_fn.()               # "<label>: <link>, ..."

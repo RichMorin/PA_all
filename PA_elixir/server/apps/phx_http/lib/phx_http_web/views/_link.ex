@@ -43,79 +43,39 @@ defmodule PhxHttpWeb.View.Link do
   
   - elimination of all white space from URLs
   - trimming of white space from link text
-  - generation of appropriate title strings
   - shorthand syntax for link URLs (e.g., `ext_gh`, `:a`)
   - shorthand syntax for link text (`$url`)
 
-  Frequently referenced external sites, such as GitHub, get their own prefix
-  (e.g., `ext_gh`) and a title suffix of `[site]`.
-
-      iex> do_links("[Elixir]{ext_gh|foo/bar}")
-      "[Elixir](https://github.com/foo/bar 'Go to: github.com [site]')"
-
-      iex> do_links("[$url]{ext_gh|foo/bar}")
-      "[https://github.com/foo/bar](https://github.com/foo/bar 'Go to: github.com [site]')"
-
-      iex> do_links("[$url]{https://github.com}")
-      "[https://github.com](https://github.com 'Go to: github.com [site]')"
-
-      iex> do_links("[$url ]{https://  github.com}")
-      "[https://github.com](https://github.com 'Go to: github.com [site]')"
-
-  We use Wikipedia links a lot, mostly as a convenient way to define terms.
-  So, we give it a title suffix of `[WP]`.
-   
-      iex> do_links("[Foo]{ext_wp|Foo}")
-      "[Foo](https://en.wikipedia.org/wiki/Foo 'Go to: Foo [WP]')"
-
-      iex> do_links("[Bar]{ext_wp|Bar_(baz)}")
-      "[Bar](https://en.wikipedia.org/wiki/Bar_(baz) 'Go to: Bar (baz) [WP]')"
-
   Areas and items share a common set of prefixes (e.g., `cat`, `cat_gro`),
-  but have distinct file names (e.g., `_area.toml`, `main.toml`) and title
-  suffixes (e.g., `[area]`, `[item]`).
+  but have distinct file names (e.g., `_area.toml`, `main.toml`).
 
       iex> do_links("[Areas]{/Area}")
-      "[Areas](/Area 'Go to: Areas [local]')"
+      "[Areas](/Area)"
 
       iex> do_links("[Catalog]{cat|:a}")
-      "[Catalog](/area?key=Areas/Catalog/_area.toml 'Go to: Catalog [area]')"
+      "[Catalog](/area?key=Areas/Catalog/_area.toml)"
 
       iex> do_links("[Groups]{cat_gro|:a}")
-      "[Groups](/area?key=Areas/Catalog/Groups/_area.toml 'Go to: Groups [area]')"
+      "[Groups](/area?key=Areas/Catalog/Groups/_area.toml)"
 
       iex> do_links("[A1]{cat_gro|A2}")
-      "[A1](/item?key=Areas/Catalog/Groups/A2/main.toml 'Go to: A1 [item]')"
+      "[A1](/item?key=Areas/Catalog/Groups/A2/main.toml)"
 
   The source code for item-related TOML files can be displayed as follows:
 
       iex> do_links("[A1]{cat_gro|A2:s}")
-      "[A1](/source?key=Areas/Catalog/Groups/A2/main.toml 'Go to: A1 [source]')"
+      "[A1](/source?key=Areas/Catalog/Groups/A2/main.toml)"
 
   The source code for other TOML files can be displayed as follows:
 
       iex> do_links("[Prefix]{_config/prefix.toml:s}")
-      "[Prefix](/source?key=_config/prefix.toml 'Go to: Prefix [source]')"
+      "[Prefix](/source?key=_config/prefix.toml)"
 
       iex> do_links("[About]{_text/about.toml:s}")
-      "[About](/source?key=_text/about.toml 'Go to: About [source]')"
+      "[About](/source?key=_text/about.toml)"
 
       iex> do_links("[Main Schema]{_schemas/main.toml:s}")
-      "[Main Schema](/source?key=_schemas/main.toml 'Go to: Main Schema [source]')"
-
-  The remaining local pages get the title suffix `[local]`.
-
-      iex> do_links("[About]{_text/about.toml}")
-      "[About](/text?key=_text/about.toml 'Go to: About [local]')"
-
-      iex> do_links("[Dashboard]{/dash}")
-      "[Dashboard](/dash 'Go to: Dashboard [local]')"
-
-      iex> do_links("[Make Dashboard]{/dash/make}")
-      "[Make Dashboard](/dash/make 'Go to: Make Dashboard [local]')"
-
-      iex> do_links("[Search]{/search/find}")
-      "[Search](/search/find 'Go to: Search [local]')"
+      "[Main Schema](/source?key=_schemas/main.toml)"
   """
 
   @spec do_links(st) :: st
@@ -212,13 +172,7 @@ defmodule PhxHttpWeb.View.Link do
     out_2   = exp_prefix(inp_2)
     out_1   = if inp_1 == "$url" do out_2 else inp_1 end
 
-    tmp_2   = inp_2
-    |> String.replace(~r{ ^ .* \| }x, "")   # eg, "Foo_bar#..."
-    |> String.replace(~r{ \# .* $ }x, "")   # eg, "Foo_bar"
-    |> String.replace(~r{ _ }x,      " ")   # eg, "Foo bar"
-
-    title   = "Go to: #{ tmp_2 } [WP]"
-    "[#{ out_1 }](#{ out_2 } '#{ title }')"
+    "[#{ out_1 }](#{ out_2 })"
   end
 
   defp do_links_h2(:ext_zoo, inp_1, inp_2) do
@@ -228,10 +182,7 @@ defmodule PhxHttpWeb.View.Link do
     out_2     = exp_prefix(inp_2)
     out_1     = if inp_1 == "$url" do out_2 else inp_1 end
 
-    pattern   = ~r{ ^ .* // ( [^/]+ ) .* $ }x
-    site      = String.replace(out_2, pattern, "\\1")
-    title     = "Go to: #{ site } [site]"
-    "[#{ out_1 }](#{ out_2 } '#{ title }')"
+    "[#{ out_1 }](#{ out_2 })"
   end
 
   defp do_links_h2(:int_area, inp_1, inp_2) do
@@ -242,8 +193,7 @@ defmodule PhxHttpWeb.View.Link do
     |> String.replace_trailing(":a", "")
     |> exp_prefix()
 
-    title   = "Go to: #{ inp_1 } [area]"
-    "[#{ inp_1 }](/area?key=#{ out_2 }_area.toml '#{ title }')"
+    "[#{ inp_1 }](/area?key=#{ out_2 }_area.toml)"
   end
 
   defp do_links_h2(:int_item, inp_1, inp_2) do
@@ -251,8 +201,8 @@ defmodule PhxHttpWeb.View.Link do
   # Handle internal "item" links ("...|...").
 
     out_2   = exp_prefix(inp_2)
-    title   = "Go to: #{ inp_1 } [item]"
-    "[#{ inp_1 }](/item?key=#{ out_2 }/main.toml '#{ title }')"
+
+    "[#{ inp_1 }](/item?key=#{ out_2 }/main.toml)"
   end
 
   defp do_links_h2(:int_src1, inp_1, inp_2) do
@@ -264,8 +214,7 @@ defmodule PhxHttpWeb.View.Link do
     |> exp_prefix()
     |> String.replace(~r{ ^ / (\w+) }x, "source")
 
-    title   = "Go to: #{ inp_1 } [source]"
-    "[#{ inp_1 }](/source?key=#{ out_2 }/main.toml '#{ title }')"
+    "[#{ inp_1 }](/source?key=#{ out_2 }/main.toml)"
   end
 
   defp do_links_h2(:int_src2, inp_1, inp_2) do
@@ -277,24 +226,21 @@ defmodule PhxHttpWeb.View.Link do
     |> exp_prefix()
     |> String.replace(~r{ ^ / (\w+) }x, "source")
 
-    title   = "Go to: #{ inp_1 } [source]"
-    "[#{ inp_1 }](/source?key=#{ out_2 } '#{ title }')"
+    "[#{ inp_1 }](/source?key=#{ out_2 })"
   end
 
   defp do_links_h2(:int_text, inp_1, inp_2) do
   #
   # Handle internal "text" links ("_text/...").
 
-    title   = "Go to: #{ inp_1 } [local]"
-    "[#{ inp_1 }](/text?key=#{ inp_2 } '#{ title }')"
+    "[#{ inp_1 }](/text?key=#{ inp_2 })"
   end
 
   defp do_links_h2(:local_s, inp_1, inp_2) do
   #
   # Handle local links starting with slashes ("/...").
 
-    title   = "Go to: #{ inp_1 } [local]"
-    "[#{ inp_1 }](#{ inp_2 } '#{ title }')"
+    "[#{ inp_1 }](#{ inp_2 })"
   end
 
   defp do_links_h2(:remote, inp_1, inp_2) do
@@ -302,10 +248,8 @@ defmodule PhxHttpWeb.View.Link do
   # Handle remaining remote links ("...").
 
     out_1     = if inp_1 == "$url" do inp_2 else inp_1 end
-    pattern   = ~r{ ^ .* // ( [^/]+ ) .* $ }x
-    site      = String.replace(inp_2, pattern, "\\1")
-    title     = "Go to: #{ site } [site]"
-    "[#{ out_1 }](#{ inp_2 } '#{ title }')"
+
+    "[#{ out_1 }](#{ inp_2 })"
   end
 
 end

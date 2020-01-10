@@ -13,9 +13,8 @@
 
 <h3>
   <%=
-    title   = "Go to the Code Files page."
     url     = "/dash/code"
-    link("Code Files", title: title, to: url)
+    link("Code Files", to: url)
   %>
 </h3>
 <p>
@@ -25,9 +24,8 @@
 
 <h3>
   <%=
-    title   = "Go to the Data Files page."
     url     = "/dash/data"
-    link("Data Files", title: title, to: url)
+    link("Data Files", to: url)
   %>
 </h3>
 <p>
@@ -37,9 +35,8 @@
 <%= if get_http_port() == "4000" do %>
   <h3>
     <%=
-      title   = "Go to the Links Dashboard page."
       url     = "/dash/links"
-      link("Links", title: title, to: url)
+      link("Links", to: url)
     %>
   </h3>
   <p>
@@ -50,9 +47,8 @@
 
 <h3>
   <%=
-    title   = "Go to the Make Dashboard page."
     url     = "/dash/make"
-    link("Make", title: title, to: url)
+    link("Make", to: url)
   %>
 </h3>
 <p>
@@ -61,9 +57,8 @@
 
 <h3>
   <%=
-    title   = "Go to the Refs page."
     url     = "/dash/refs"
-    link("Refs", title: title, to: url)
+    link("Refs", to: url)
   %>
 </h3>
 <p>
@@ -73,9 +68,8 @@
 
 <h3>
   <%=
-    title   = "Go to the Tags page."
     url     = "/dash/tags"
-    link("Tags", title: title, to: url)
+    link("Tags", to: url)
   %>
 </h3>
 <p>

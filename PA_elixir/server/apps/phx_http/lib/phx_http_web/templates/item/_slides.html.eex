@@ -11,8 +11,7 @@
         href    = "/slide?key=#{ key }"
       %>
       <li>
-        <a href="<%= href %>"
-           title="Go to: <%= title %> [slide]"
+        <a href="<%= href %>"> [slide]"
           ><%= title %></a>
       </li>
     <% end %>

@@ -16,9 +16,8 @@
         <li>
           <p>
             <%=
-              title   = "Go to the \"#{ item_title }\" item page."
               url     = result_url(key)
-              link(item_title, title: title, to: url)
+              link(item_title, to: url)
             %>
             <br>
             <%= precis %>

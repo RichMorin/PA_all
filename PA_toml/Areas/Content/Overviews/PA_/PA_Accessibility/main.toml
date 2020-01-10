@@ -84,11 +84,9 @@ The `main` section uses headings, lists, and tables extensively.
 
 Many of the links in Pete's Alley are expanded from our flavor
 of Markdown syntax into vanilla Markdown and then into HTML.
-In the process, we generate and add `title` attributes.
 For example, `[TOML]!{ext_wp|TOML}` turns into:
 
-    <a href="https://en.wikipedia.org/wiki/TOML"
-       title="Go to: TOML [WP]">TOML</a>
+    <a href="https://en.wikipedia.org/wiki/TOML">TOML</a>
 
 See [Pete's Alley - Extensions]{con_how|PA_Extensions} for details.
 

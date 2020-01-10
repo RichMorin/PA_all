@@ -17,8 +17,7 @@
       This is the dashboard page for tag
       (i.e., searchable string) types and values.
       Note that
-      <a href="/dash/refs"
-         title="Go to: Refs dashboard">refs</a>
+      <a href="/dash/refs">refs</a>
       (i.e., item references) are mapped into tags.
     </p>
 
