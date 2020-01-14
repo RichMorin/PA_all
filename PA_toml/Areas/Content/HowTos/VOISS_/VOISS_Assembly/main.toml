@@ -16,6 +16,8 @@
   precis      = 'how to put together a VOISS system'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 This is part two of a HowTo for putting together a VOISS system.
 See [VOISS - Components]{con_how|VOISS_Components} for background information.
 Again, please let me know about any errors or omissions!

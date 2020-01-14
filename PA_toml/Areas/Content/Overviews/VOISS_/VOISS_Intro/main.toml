@@ -16,6 +16,8 @@
   precis      = 'an overview of the VOISS project'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 VOISS (formerly F123) was started by
 [Fernando Botelho]{https://www.ashoka.org/en-US/fellow/fernando-botelho},
 a blind "social entrepreneur" who wants to make accessible and economical

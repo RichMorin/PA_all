@@ -16,6 +16,8 @@
   precis      = 'an overview of VOISS (etc) USB power handling'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 The [VOISS Classic]{con_ove|VOISS_Intro} systems
 include two components for USB power handling:
 a "power bank" and a "power source".

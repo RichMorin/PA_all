@@ -17,6 +17,8 @@
   precis      = 'a discursion on USB power HATs'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 A variety of Hardware Attached on Top
 ([HAT]{https://www.raspberrypi.org/blog/introducing-raspberry-pi-hats})
 boards can be used with the 3B+.

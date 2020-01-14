@@ -22,6 +22,8 @@ con_ove|VOISS_UpTime_UPS,
   precis      = 'notes on the PiJuice HAT'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 The [PiJuice HAT
 ]{https://uk.pi-supply.com/products/pijuice-standard}
 is a promising piece of infrastucture for a self-powered VOISS system.

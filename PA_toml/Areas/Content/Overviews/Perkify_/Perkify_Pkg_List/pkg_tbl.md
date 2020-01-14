@@ -1,3 +1,5 @@
+<!-- .../Perkify_Pkg_List/pkg_tbl.md -->
+
 | Category                       | Title                          | APT name                       | Description                    |
 | --------                       | -----                          | --------                       | -----------                    |
 | audio, video                   | ALSA Utilities                 | A$alsa-utils$                  | audio support                  |

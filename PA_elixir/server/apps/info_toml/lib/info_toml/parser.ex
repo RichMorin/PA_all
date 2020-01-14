@@ -16,7 +16,7 @@ defmodule InfoToml.Parser do
 #   filter/2
 #     Filter the parsing results, reporting and removing cruft.
 #   includes/2
-#     Process file inclusions within the current directory.
+#     Process file inclusions , using Jekyll syntax.
 #   parse_h1/2
 #     Read the file, check for valid Unicode, and (maybe) parse it.
 #   parse_h2/2
@@ -26,8 +26,9 @@ defmodule InfoToml.Parser do
   This module handles reading and parsing of data from a TOML file.
   """
 
-  import Common, warn: false, only: [ii: 2]
+  import Common, warn: false, only: [get_tree_base: 0, ii: 2]
 
+  alias String, as: S
   alias InfoToml.Types, as: ITT
 
   # Public functions
@@ -40,7 +41,7 @@ defmodule InfoToml.Parser do
   Returns an empty map if the file is missing or unparseable.
   """
 
-  @spec parse(String.t, atom) :: ITT.item_maybe
+  @spec parse(S.t, atom) :: ITT.item_maybe
 
   def parse(file_abs, atom_key) do
     trim_patt   = ~r{ ^ .* / PA_toml / }x
@@ -67,7 +68,7 @@ defmodule InfoToml.Parser do
 
   # Private functions
 
-  @spec add_offsets(String.t, im) :: im
+  @spec add_offsets(S.t, im) :: im
     when im: ITT.item_map
 
   defp add_offsets(file_text, payload) do
@@ -92,12 +93,12 @@ defmodule InfoToml.Parser do
     end
 
     file_text
-    |> String.split("\n")
+    |> S.split("\n")
     |> Enum.with_index()
     |> Enum.reduce(payload, offset_fn)
   end
 
-  @spec decode(String.t, atom) :: {:ok, ITT.item_map} | {:error, any}
+  @spec decode(S.t, atom) :: {:ok, ITT.item_map} | {:error, any}
   #!V - any (see https://hexdocs.pm/toml/Toml.html#decode/2)
 
   defp decode(inp_str, atom_key) do
@@ -111,7 +112,7 @@ defmodule InfoToml.Parser do
     end
   end
 
-  @spec filter({atom, any}, String.t) :: %{} | ITT.item_map
+  @spec filter({atom, any}, S.t) :: %{} | ITT.item_map
 
   defp filter({status, payload}, trim_path) do
   #
@@ -136,45 +137,65 @@ defmodule InfoToml.Parser do
   end
 
   @spec includes(st, st) :: st
-    when st: String.t
+    when st: S.t
 
-  defp includes(inp_text, file_abs) do
+  defp includes(inp_text, user_abs) do
   #
-  # Process file inclusions within the current directory, using Jekyll syntax:
+  # Process file inclusions, using Jekyll syntax:
   #
   #   {% include_relative filepath %}
   #
-  # The filepath must refer to a Markdown file in the current directory
-  # or one of its siblings.
+  # The filepath must refer to a Markdown file under PA_toml.
 
-    incl_patt   = ~r<
-      {% \s+ include_relative \s+ (
-          [\w\.]+\.md |                 # current directory
-          \.\./[\w\.]+/[\w\.]+\.md      # sibling directory
-      ) \s+ %} >x
+    incl_patt   = ~r< {% \s+ include_relative \s+ (\S+) \s+ %} >x
+    toml_abs    = get_tree_base() <> "/PA_toml"
+    user_dir    = S.replace(user_abs, ~r{ / [^/]+ $ }x, "")
 
     replace_f   = fn incl_str ->
     #
     # Process include files, if any.
 
-      incl_rel  = String.replace(incl_str, incl_patt, "\\1")
+      incl_rel    = S.replace(incl_str, incl_patt, "\\1")
+      incl_abs    = Path.expand(incl_rel, toml_abs)
 
-      file_abs
-      |> String.replace(~r{ [^/]+ $ }x, incl_rel)
-      |> File.read!()
+      if false do #!TG
+        IO.puts "" #!T
+        ii(toml_abs,  :toml_abs)
+        ii(incl_abs,  :incl_abs)
+        ii(incl_rel,  :incl_rel)
+        ii(incl_str,  :incl_str)
+        ii(incl_abs,  :incl_abs)
+        ii(user_dir,  :user_dir)
+        IO.puts "" #!T
+      end
+
+      cond do
+        S.match?(incl_rel, ~r{^PA_toml/}) ->    # PA_toml path,  expand & read
+          incl_rel
+          |> S.replace_leading("PA_toml/", "")
+          |> Path.expand(toml_abs)
+          |> File.read!()
+
+        S.match?(incl_rel, ~r{^\.}) ->          # relative path, expand & read
+          Path.expand(incl_rel, user_dir)
+          |> File.read!()
+
+        true ->                                 # unmatched, leave it alone.
+          incl_str
+      end
     end
 
-    out_text  = String.replace(inp_text, incl_patt, replace_f, global: true)
+    out_text  = S.replace(inp_text, incl_patt, replace_f, global: true)
 
     # Check for leftover Jekyll syntax.
 
     if out_text =~ ~r<{%> || out_text =~ ~r<%}> do
-      lines = String.split(out_text, "\n")
+      lines = S.split(out_text, "\n")
       for line <- lines do
         if line =~ ~r<{%> || line =~ ~r<%}> do
           unless line =~ ~r[{% include_relative <filepath> %}] do #!K
-            file_tail = String.replace(file_abs, ~r{^.+/Areas/}, ".../")
-            IO.puts "leftover Jekyll syntax in '#{ file_tail }':"
+            user_tail = S.replace(user_abs, ~r{^.+/Areas/}, ".../")
+            IO.puts "leftover Jekyll syntax in '#{ user_tail }':"
             IO.puts ">> #{ line }"
           end
         end
@@ -184,8 +205,7 @@ defmodule InfoToml.Parser do
     out_text
   end
 
-  @spec parse_h1(st, atom) :: {atom, ITT.item_map | st}
-    when st: String.t
+  @spec parse_h1(S.t, atom) :: {atom, ITT.item_map | S.t}
 
   defp parse_h1(file_abs, atom_key) do
   #
@@ -196,7 +216,7 @@ defmodule InfoToml.Parser do
     |> File.read!()             # "<TOML file text>"
     |> includes(file_abs)       # Process include files, if any.
 
-    if String.valid?(file_text) do
+    if S.valid?(file_text) do
       {status, payload} = tuple = parse_h2(file_text, atom_key)
 
       if status == :ok do
@@ -210,8 +230,7 @@ defmodule InfoToml.Parser do
     end
   end
 
-  @spec parse_h2(st, atom) :: {atom, ITT.item_map | st}
-    when st: String.t
+  @spec parse_h2(S.t, atom) :: {atom, ITT.item_map | S.t}
 
   defp parse_h2(file_text, atom_key) do
   #
@@ -226,13 +245,13 @@ defmodule InfoToml.Parser do
     # Return true if the codepoint is contained in the bogons list.
 
     bogus_cps = file_text
-    |> String.codepoints()
+    |> S.codepoints()
     |> Enum.uniq()
     |> Enum.filter(filter_fn)
 
     if Enum.empty?(bogus_cps) do
       file_text
-      |> String.replace(~r{ +$}m, "")     # Remove trailing spaces.
+      |> S.replace(~r{ +$}m, "")     # Remove trailing spaces.
       |> decode(atom_key)                 # { <status>, <results> }
     else
       { :error, "File string contains annoying codepoints." }

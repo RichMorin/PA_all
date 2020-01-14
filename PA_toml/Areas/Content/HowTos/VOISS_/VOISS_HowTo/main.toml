@@ -17,6 +17,8 @@
   precis      = 'introduction to the VOISS HowTo pages'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 I'm writing a multi-part series of HowTo pages
 for putting together a VOISS system.
 The list below lays out a suggested reading order.

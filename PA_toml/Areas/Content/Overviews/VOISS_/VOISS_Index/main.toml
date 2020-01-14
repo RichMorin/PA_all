@@ -16,6 +16,8 @@
   precis      = 'informal index of pages related to VOISS'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 This is an informal, hand-edited index of pages on Pete's Alley
 that are related to VOISS systems, etc.
 VOISS is an economical talking computer for the blind;

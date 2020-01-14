@@ -7,7 +7,7 @@
 # con_ove|Perkify_Pkg_List.  This script remedies that situation, producing
 # Markdown code that can be included by the item's main.toml file, e.g.:
 #
-#   {% include_relative pkg_tbl.md %}
+#   {% include_relative ./pkg_tbl.md %}
 #
 # Written by Rich Morin, CFCL, 2019.
 
@@ -75,7 +75,7 @@
       'zoo'     => 'everything else'    # ... 
     }
 
-    out_list    = []
+    out_list    = [ "<!-- .../Perkify_Pkg_List/pkg_tbl.md -->\n" ]
     out_list   << format % [ 'Category', 'Title', 'APT name', 'Description' ]
     out_list   << format % [ '--------', '-----', '--------', '-----------' ]
 

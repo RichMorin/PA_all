@@ -26,6 +26,8 @@
   precis      = 'provides computer technology for the visually impaired'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 > VOISS - Technology that enables
 
 > A scalable strategy for the education and employment of persons
@@ -42,10 +44,9 @@ that they could not have otherwise.
 > -- [$url]{http://f123.org/en}
 
 *Note:*
-The F123 folks are rebranding themselves as [VOISS]{https://www.voiss.tech/en}.
-Although this may cause some confusion, stay calm:
-their basic mission is unchanged.
-When the dust settles a little, I'll come back and edit the nomenclature.
+In late 2019, the F123 folks rebranded themselves
+as [VOISS]{https://www.voiss.tech/en}.
+However, their basic mission was unchanged.
 '''
 
 [ address.email ]

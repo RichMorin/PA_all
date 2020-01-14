@@ -16,6 +16,8 @@
   precis      = 'thoughts on long-term storage for VOISS systems'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 [VOISS]{https://www.voiss.tech/en}) recently introduced
 the [VOISS Classic]{cat_har|VOISS_Classic} series
 of portable computers for the blind.

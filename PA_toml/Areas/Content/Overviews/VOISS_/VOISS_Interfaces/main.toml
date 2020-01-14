@@ -16,6 +16,8 @@
   precis      = 'an overview of VOISS (etc) interfaces'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 The "full-size" RasPi models,
 as used in the [VOISS]{con_ove|VOISS_Intro} systems,
 support an amazing range of external interfaces.

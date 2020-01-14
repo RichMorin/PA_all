@@ -16,6 +16,8 @@
   precis      = 'setting up Bluetooth devices on VOISS systems'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 There are various types of Bluetooth devices
 (e.g., 3D Mice, headphones, headsets, keyboards)
 which one might want to add to a VOISS system.

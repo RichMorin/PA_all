@@ -16,6 +16,8 @@
   precis      = 'thoughts on the booting of VOISS systems'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 The [Raspberry Pi]{ext_wp|Raspberry_Pi} 3 Model B+ (aka 3B+)
 can boot from either the microSD card or a USB-based storage device
 (e.g., flash drive, solid state disk).

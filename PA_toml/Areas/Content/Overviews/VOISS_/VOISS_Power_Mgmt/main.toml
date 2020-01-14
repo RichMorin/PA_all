@@ -22,6 +22,8 @@ con_ove|VOISS_UpTime_UPS,
   precis      = 'a discursion on VOISS power management'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 If you're running a Raspberry Pi 3B+ from an adequate power supply
 (2.5 Amp is recommended), power management isn't a real concern.
 However, if you're running it for an extended period of time (even idling),

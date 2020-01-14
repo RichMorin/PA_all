@@ -16,6 +16,8 @@
   precis      = 'thoughts on tall, modular enclosures for VOISS systems'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 This page presents some thoughts on tall, modular enclosures for VOISS systems.
 
 ### Motivation

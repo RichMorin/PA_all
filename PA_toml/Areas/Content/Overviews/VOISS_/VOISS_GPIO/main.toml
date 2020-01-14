@@ -16,6 +16,8 @@
   precis      = 'an overview of VOISS (etc) GPIO handling'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 The Raspberry Pi had several connectors for standardized electrical interfaces,
 as discussed in [VOISS - Interfaces]{con_ove|VOISS_Interfaces}.
 These include Ethernet, stereo audio output, USB, and video I/O.

@@ -86,13 +86,11 @@ has any syntax for file inclusion.
 Looking about on the web, I've found a couple of proposed extensions:
 
     {% include_relative <filepath> %}   # Jekyll
-    [!include[<title>](<filepath>)]     # DocFX Flavored Markdown:
+    [!include[<title>](<filepath>)]     # DocFX Flavored Markdown
 
-I've decided to support the Jekyll syntax, but (for security)
-require that the `filepath` refer to a Markdown file
-in the current directory (e.g., `foo.md`)
-or one of its siblings (e.g., `../Foo/bar.md`).
-This restriction may be relaxed in the future.
+I've decided to support a variation on the Jekyll syntax
+in which most file paths are relative to the including file,
+but paths starting with `PA_toml/` are special-cased.
 
 #### Links
 

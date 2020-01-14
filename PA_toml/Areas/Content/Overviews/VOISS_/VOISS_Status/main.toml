@@ -1,0 +1,57 @@
+# con_ove|VOISS_Status/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'VOISS_Status'
+  title       = 'VOISS - Status'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'status information on VOISS and F123Light'
+
+  verbose     = '''
+As of early 2020, the VOISS project and F123Light were discontinued.
+Here is a relevnt posting by Fernando Botelho:
+
+> This is a quick message to let you all know that in the next few days
+we will deactivate the F123Light pages you are used to seeing at:
+`https://public.f123.org/guide`.
+
+> Since our work is open source, others will continue it,
+and here I am thinking particularly of the new Stormux project,
+which is just getting started right here: `https://stormux.org`.
+
+> But of course, our project was much more than a distro,
+and I will share a list of contributions, as well as lessons learned,
+in the next few days.
+My hope is that just like the experiences of others helped us tremendously,
+that our own adventure may also help others in the future.
+
+> This e-mail list will continue to be fully operational
+for as long as needed, but in the medium to long term,
+you may wish to join the Stormux list by e-mailing:
+`stormux+subscribe@groups.io`.
+
+> Stormux will be mainly focused on the RPI 4,
+but for a little while they will offer a copy of F123Light,
+while they work on their own version for the RPI 3B+.
+
+> I am sorry that this version of the project did not last longer,
+but I will be back with some thoughts about how we may support Stormux
+and other initiatives, while also sharing with you
+what went well and not so well at F123Light,
+just so you avoid some of the traps that caused us difficulties.
+
+> Best wishes, Fernando
+
+FYI, I hope and expect to re-purpose quite a bit
+of F123- and VOISS-related content on Pete's Alley
+as soon as things settle down a bit...
+
+'''

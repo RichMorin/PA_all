@@ -79,7 +79,7 @@ this can be helpful in finding related packages:
 it indexes major packages by overlapping topical categories
 (e.g., document converters).
 
-{% include_relative pkg_tbl.md %}
+{% include_relative ./pkg_tbl.md %}
 
 To be continued...
 '''

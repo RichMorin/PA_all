@@ -16,6 +16,8 @@
   precis      = "what's included in a VOISS system"
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 The [VOISS - Introduction]{con_ove|VOISS_Intro} page
 describes the motivation, design, and components
 of the [VOISS Classic]{cat_har|VOISS_Classic} system.

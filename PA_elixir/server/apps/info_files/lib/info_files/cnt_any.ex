@@ -16,7 +16,7 @@ defmodule InfoFiles.CntAny do
 # Private Functions
 #
 #   sum_cols/1
-#     Summation helper  - adds a set of "Totals" to `cnts_by_x`.
+#     Summation helper  - adds a set of "__Totals__" to `cnts_by_x`.
 
   @moduledoc """
   This module implements generic file tree counting for InfoFiles.
@@ -222,7 +222,7 @@ defmodule InfoFiles.CntAny do
 
   defp sum_cols(cnts_by_x) do
   #
-  # Summation helper - adds a set of "Totals" to `cnts_by_x`.
+  # Summation helper - adds a set of "__Totals__" to `cnts_by_x`.
   # Used by some `add_cnts_by_...` functions in this module.
 
     tally_fn   = fn {_key, val}, acc ->
@@ -238,7 +238,7 @@ defmodule InfoFiles.CntAny do
 
     base_map  = %{ char: 0, file: 0, func: 0, line: 0 }
     totals    = cnts_by_x |> Enum.reduce(base_map, tally_fn)
-    final     = cnts_by_x |> Map.merge( %{ "|Totals" => totals } )
+    final     = cnts_by_x |> Map.merge( %{ "__Totals__" => totals } )
 
     final
   end

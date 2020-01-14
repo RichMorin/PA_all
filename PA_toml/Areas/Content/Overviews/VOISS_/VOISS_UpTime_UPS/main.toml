@@ -23,6 +23,8 @@ con_ove|VOISS_Power_Mgmt,
   precis      = 'notes on the Alchemy Power Pi-UpTime UPS 2.0'
 
   verbose     = '''
+{% include_relative PA_toml/_text/VOISS.md %}
+
 As discussed in the [VOISS - Power HATs]{con_ove|VOISS_Power_HATs} overview,
 [Alchemy Power]{http://alchemy-power.com}
 manufactures several power management products.
