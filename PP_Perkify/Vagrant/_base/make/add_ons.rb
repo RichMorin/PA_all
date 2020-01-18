@@ -19,6 +19,7 @@
     toml_data   = TomlRB.load_file(toml_path)
     data_pkgs   = toml_data['packages']
     pkg_cnt     = 0
+    skip_wip    = true  # Comment out to process lines for WIP packages.
 
     # The add_ons.toml file contains ~200 Debian APT packages.  To retain some
     # useful order and support debugging, these are divided into topical types
@@ -52,15 +53,17 @@
 
       lines   = data_pkgs[type].split("\n")
       for line in lines do
-        next if line =~ /^#/        # Skip comment lines.
-        next if line =~ /^\s*$/     # Skip blank and empty lines.
-        next if pkg_cnt >= pkg_lim
+        next if line =~ /^#/                  # Skip comment lines.
+        next if line =~ /^\s*$/               # Skip blank lines.
 
+        flags, title, name, notes = get_fields(line)
+        next if flags =~ /P/                  # Skip prospects.
+        next if flags =~ /I/ and skip_wip     # Skip WIP packages.
+
+        next if pkg_cnt >= pkg_lim
         pkg_cnt += 1
         puts fmt_1 % [pkg_cnt, type, line]
 
-        line.sub!(/^!/, ' ')        # Remove leading bangs (!).
-        title, name, notes = get_fields(line)
         unless name && notes
           puts 'Parse error detected; exiting.'
           exit

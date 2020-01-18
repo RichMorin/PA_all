@@ -67,7 +67,7 @@ defmodule Server.MixProject do
 
   defp deps() do
     [
-      { :credo,               "~> 1.1.1",
+      { :credo,               "~> 1.1.5",
           only:               [:dev, :test],
           runtime:            false
       },

@@ -34,10 +34,9 @@
       for line in lines do
         next if line =~ /^#/        # Skip comment lines.
         next if line =~ /^\s*$/     # Skip empty lines.
-        line.sub!(/^!/, ' ')
         pkg_cnt  += 1
 
-        title, name, notes = get_fields(line)
+        flags, title, name, notes = get_fields(line)
 
         unless name && notes
           puts 'Parse error detected; exiting.'
@@ -46,6 +45,7 @@
         end
 
         info_pkgs[title] = {
+          flags:  flags,
           name:   name,
           notes:  notes,
           tag:    tag
@@ -55,7 +55,7 @@
 
     # Format and output package data.
 
-    format  = '| %-30s | %-30s | %-30s | %-30s |'
+    format  = '| %-30s | %-30s | %-30s | %-30s | %-10s |'
     titles  = info_pkgs.keys.sort
 
     categories  = {
@@ -76,16 +76,19 @@
     }
 
     out_list    = [ "<!-- .../Perkify_Pkg_List/pkg_tbl.md -->\n" ]
-    out_list   << format % [ 'Category', 'Title', 'APT name', 'Description' ]
-    out_list   << format % [ '--------', '-----', '--------', '-----------' ]
+    out_list   << format %
+      [ 'Category', 'Title', 'APT name', 'Description', 'Flags' ]
+    out_list   << format %
+      [ '--------', '-----', '--------', '-----------', '-----' ]
 
     for title in titles do
       info_pkg    = info_pkgs[title]
-      tag         = info_pkg[:tag]
+      flags       = info_pkg[:flags]
       notes       = info_pkg[:notes]
+      tag         = info_pkg[:tag]
       category    = categories[tag]
       link        = "A$#{ info_pkg[:name] }$"
-      out_list   << format % [ category, title, link, notes ]
+      out_list   << format % [ category, title, link, notes, flags ]
     end
 
     #!K - This assumes that the script will be run from a specific directory.

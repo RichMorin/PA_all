@@ -1,275 +1,287 @@
-# add_ons.toml - add-on packages for the Perkify container
+# add_ons.toml - add-on packages for the Perkify Vagrant "box"
 
 [ packages ]
 
 # Included
 
-# Some packages (e.g., Apache, Expect, Ruby) are installed as infrastructure.
-# These are flagged by an exclamation point in column one of the relevant line.
-# Similarly, the table heading lines are commented out by sharp signs (#).
+# The following definitions describe topical sets of packages to be included
+# in the Perkify Vagrant "box".  Each line contains four (comma-separated,
+# blank-padded) fields: Flags, Title, APT Name, and Description.
+#
+# The Flags field is use to indicate the processing status, etc.
+#
+#   I  Installs
+#   P  Prospect
+#   R  Released
+#   S  Started
+#   T  Tooling
+#   W  Working
+
+# Table heading lines (etc) are commented out by a sharp sign (#).
 
 debian_apt_a11y = '''
-# Title                         APT Name                  Description
-# -----                         --------                  -----------
-  Accerciser,                   accerciser,               accessibility explorer
-  BRLTTY,                       brltty,                   braille output support
-  brltty-espeak,                brltty-espeak,            eSpeak driver for BRLTTY
-  DAISY Player,                 daisy-player,             ebook reader
-  Dasher,                       dasher,                   predictive text input
-  eSpeakNG,                     espeak-ng,                speech synthesizer
-  eSpeakNG Data,                espeak-ng-data,           voice data for eSpeak NG
-  espeakup,                     espeakup,                 eSpeak/speakup connector
-  Fenrir,                       fenrir,                   console screen reader
-  Liblouis,                     liblouis-bin,             braille translation library
-  Liblouis Data,                liblouis-data,            braille translation tables
-  MBROLA,                       mbrola,                   speech synthesizer
-  mbrola-en1,                   mbrola-en1,               British male voice data
-  mbrola-us1,                   mbrola-us1,               American female voice data
-  mbrola-us2,                   mbrola-us2,               American male voice data
-  mbrola-us3,                   mbrola-us3,               American male voice data
-  Orca,                         orca,                     scriptable screen reader
-  speechd,                      speech-dispatcher,        speech synthesis interface
-  speechd (pico),               speech-dispatcher-pico,   Pico output for speechd
-  yasr,                         yasr,                     console screen reader
+# Flags  Title                         APT Name                  Description
+# -----  -----                         --------                  -----------
+  R,     Accerciser,                   accerciser,               accessibility explorer
+  R,     BRLTTY,                       brltty,                   braille output support
+  R,     brltty-espeak,                brltty-espeak,            eSpeak driver for BRLTTY
+  R,     DAISY Player,                 daisy-player,             ebook reader
+  R,     Dasher,                       dasher,                   predictive text input
+  R,     eSpeakNG,                     espeak-ng,                speech synthesizer
+  R,     eSpeakNG Data,                espeak-ng-data,           voice data for eSpeak NG
+  R,     espeakup,                     espeakup,                 eSpeak/speakup connector
+  R,     Fenrir,                       fenrir,                   console screen reader
+  R,     Liblouis,                     liblouis-bin,             braille translation library
+  R,     Liblouis Data,                liblouis-data,            braille translation tables
+  R,     MBROLA,                       mbrola,                   speech synthesizer
+  R,     mbrola-en1,                   mbrola-en1,               British male voice data
+  R,     mbrola-us1,                   mbrola-us1,               American female voice data
+  R,     mbrola-us2,                   mbrola-us2,               American male voice data
+  R,     mbrola-us3,                   mbrola-us3,               American male voice data
+  R,     Orca,                         orca,                     scriptable screen reader
+  R,     speechd,                      speech-dispatcher,        speech synthesis interface
+  R,     speechd (pico),               speech-dispatcher-pico,   Pico output for speechd
+  R,     yasr,                         yasr,                     console screen reader
 '''
 
 debian_apt_admin = '''
-# Title                         APT Name                  Description
-# -----                         --------                  -----------
-  Aptitude,                     aptitude,                 APT package manager
-  bridge-utils,                 bridge-utils,             Ethernet bridge utilities
-  BusyBox,                      busybox,                  command-line multi-tool
-  Chef,                         chef,                     configuration management
-! debconf-utils,                debconf-utils,            Debian config. utilities
-  Direvent,                     direvent,                 directory event monitor
-  dnsmasq (DNS Masquerade),     dnsmasq,                  caching DNS proxy, etc.
-  dosfstools,                   dosfstools,               DOS FAT filesystem tools
-  GNU Interactive Tools,        gnuit,                    file and process viewers
-  GNU Privacy Guard (GPG),      gnupg,                    free PGP replacement
-  hostapd,                      hostapd,                  IEEE 802.11 authenticator
-  httptunnel,                   httptunnel,               HTTP tunneling support
-  ID Utils,                     id-utils,                 identifier database tool
-  Magic Wormhole,               magic-wormhole,           data transfer utility
-  mitmproxy,                    mitmproxy,                man-in-the-middle proxy
-  Netatalk,                     netatalk,                 Apple File (AFP) daemon
-  Notify OSD,                   notify-osd,               notification daemon
-  Network Time Protocol (NTP),  ntp,                      NTP daemon and utilities
-  PCmanFM,                      pcmanfm,                  file management app
-  socat,                        socat,                    data transfer relay
-  storebackup,                  storebackup,              file backup utility
-  Syncthing,                    syncthing,                file synchronizer
-  X applications,               x11-apps,                 assorted X11 apps
-  Xarchiver,                    xarchiver,                archive manager
+# Flags  Title                         APT Name                  Description
+# -----  -----                         --------                  -----------
+  R,     Aptitude,                     aptitude,                 APT package manager
+  R,     bridge-utils,                 bridge-utils,             Ethernet bridge utilities
+  R,     BusyBox,                      busybox,                  command-line multi-tool
+  R,     Chef,                         chef,                     configuration management
+  T,     debconf-utils,                debconf-utils,            Debian config. utilities
+  R,     Direvent,                     direvent,                 directory event monitor
+  R,     dnsmasq (DNS Masquerade),     dnsmasq,                  caching DNS proxy, etc.
+  R,     dosfstools,                   dosfstools,               DOS FAT filesystem tools
+  R,     GNU Interactive Tools,        gnuit,                    file and process viewers
+  R,     GNU Privacy Guard (GPG),      gnupg,                    free PGP replacement
+  R,     hostapd,                      hostapd,                  IEEE 802.11 authenticator
+  R,     httptunnel,                   httptunnel,               HTTP tunneling support
+  R,     ID Utils,                     id-utils,                 identifier database tool
+  R,     Magic Wormhole,               magic-wormhole,           data transfer utility
+  R,     mitmproxy,                    mitmproxy,                man-in-the-middle proxy
+  R,     Netatalk,                     netatalk,                 Apple File (AFP) daemon
+  R,     Notify OSD,                   notify-osd,               notification daemon
+  R,     Network Time Protocol (NTP),  ntp,                      NTP daemon and utilities
+  R,     PCmanFM,                      pcmanfm,                  file management app
+  R,     socat,                        socat,                    data transfer relay
+  R,     storebackup,                  storebackup,              file backup utility
+  R,     Syncthing,                    syncthing,                file synchronizer
+  R,     X applications,               x11-apps,                 assorted X11 apps
+  R,     Xarchiver,                    xarchiver,                archive manager
 '''
 
 debian_apt_comm = '''
-# Title                         APT Name                  Description
-# -----                         --------                  -----------
-  Alot,                         alot,                     email client
-  Alpine,                       alpine,                   email client
-  GNU Mailutils,                mailutils,                email support
-  ii,                           ii,                       chat (IRC) client
-  ircII,                        ircii,                    chat (IRC) client
-  irssi,                        irssi,                    chat (IRC) client
-  Linphone,                     linphone,                 VoIP client
-  mblaze,                       mblaze,                   email support utilities
-  mu4e,                         mu4e,                     Emacs/mu email client
-  Mumble,                       mumble,                   VoIP client
-  Mutt,                         mutt,                     email client
-  OfflineIMAP,                  offlineimap,              IMAP/Maildir email support
-  Pidgin,                       pidgin,                   chat (IM) client
-  pidgin-otr,                   pidgin-otr,               OTR plugin for Pidgin
-  Poezio,                       poezio,                   console-based XMPP client
-  Profanity,                    profanity,                console-based XMPP client
-  ScrollZ,                      scrollz,                  ircII-based IRC client
-  sic (simple irc client),      sic,                      chat (IRC) client
-  Sup,                          sup-mail,                 threaded email client
-  Telegram CLI,                 telegram-cli,             CLI for Telegram
-  Telegram Desktop,             telegram-desktop,         messaging app
-  Thunderbird,                  thunderbird,              email (etc) client
-  WeeChat,                      weechat,                  chat (IRC) client
+# Flags  Title                         APT Name                  Description
+# -----  -----                         --------                  -----------
+  R,     Alot,                         alot,                     email client
+  R,     Alpine,                       alpine,                   email client
+  R,     GNU Mailutils,                mailutils,                email support
+  R,     ii,                           ii,                       chat (IRC) client
+  R,     ircII,                        ircii,                    chat (IRC) client
+  R,     irssi,                        irssi,                    chat (IRC) client
+  R,     Linphone,                     linphone,                 VoIP client
+  R,     mblaze,                       mblaze,                   email support utilities
+  R,     mu4e,                         mu4e,                     Emacs/mu email client
+  R,     Mumble,                       mumble,                   VoIP client
+  R,     Mutt,                         mutt,                     email client
+  R,     OfflineIMAP,                  offlineimap,              IMAP/Maildir email support
+  R,     Pidgin,                       pidgin,                   chat (IM) client
+  R,     pidgin-otr,                   pidgin-otr,               OTR plugin for Pidgin
+  R,     Poezio,                       poezio,                   console-based XMPP client
+  R,     Profanity,                    profanity,                console-based XMPP client
+  R,     ScrollZ,                      scrollz,                  ircII-based IRC client
+  R,     sic (simple irc client),      sic,                      chat (IRC) client
+  R,     Sup,                          sup-mail,                 threaded email client
+  R,     Telegram CLI,                 telegram-cli,             CLI for Telegram
+  R,     Telegram Desktop,             telegram-desktop,         messaging app
+  R,     Thunderbird,                  thunderbird,              email (etc) client
+  R,     WeeChat,                      weechat,                  chat (IRC) client
 '''
 
 debian_apt_desk = '''
-# Title                         APT Name                  Description
-# -----                         --------                  -----------
-  Gcal,                         gcal,                     calendar generator
-  GNOME,                        gnome,                    desktop environment
-  KDE,                          kde-full,                 window manager
-  LXQt,                         lxqt,                     desktop environment
-  MATE,                         mate-desktop,             desktop environment
-  ratpoison,                    ratpoison,                CLI window manager
+# Flags  Title                         APT Name                  Description
+# -----  -----                         --------                  -----------
+  R,     Gcal,                         gcal,                     calendar generator
+  R,     GNOME,                        gnome,                    desktop environment
+  R,     KDE,                          kde-full,                 window manager
+  R,     LXQt,                         lxqt,                     desktop environment
+  R,     MATE,                         mate-desktop,             desktop environment
+  R,     ratpoison,                    ratpoison,                CLI window manager
 '''
 
 debian_apt_docs = '''
-# Title                         APT Name                  Description
-# -----                         --------                  -----------
-  Atril,                        atril,                    MATE document viewer
-  catdoc,                       catdoc,                   MS-Office text extractor
-  Diction,                      diction,                  style and diction checkers
-  discount,                     discount,                 Markdown to HTML converter
-  dos2unix,                     dos2unix,                 line ending converter
-  Emacs Muse,                   elpa-muse,                document generation tool
-  GNU a2ps,                     a2ps,                     PostScript generation tool
-  GNU Denemo,                   denemo,                   music notation editor
-  GNU Emacs,                    emacs,                    IDE, text editor, etc.
-  GNU Spell,                    spell,                    Unix-style spell checker
-  hunspell,                     hunspell,                 morphological spell checker
-  JOE (Joe's Own Editor),       joe,                      text editor
-  ne (the nice editor),         ne,                       text editor
-  Pandoc,                       pandoc,                   universal document converter
-  Pluma,                        pluma,                    MATE text editor
-  LibreOffice,                  libreoffice,              office productivity suite
-  LibreOffice GNOME,            libreoffice-gnome,        GNOME integration
-  LibreOffice KDE,              libreoffice-kde,          KDE integration
-  Recoll,                       recoll,                   desktop text searching tool
-  ronn,                         ronn,                     manual page generation tool
-  Scribus,                      scribus,                  desktop page layout tool
-  TeX Live,                     texlive-xetex,            document production system
-  Texinfo,                      texinfo,                  GNU documentation system
-  wkhtmltopdf,                  wkhtmltopdf,              HTML to PDF/image converter
-  WordGrinder,                  wordgrinder,              simple word processor
-  xlsx2csv,                     xlsx2csv,                 XLSX to CSV file converter
-  Xpdf,                         xpdf,                     PDF viewer and toolkit
+# Flags  Title                         APT Name                  Description
+# -----  -----                         --------                  -----------
+  R,     Atril,                        atril,                    MATE document viewer
+  R,     catdoc,                       catdoc,                   MS-Office text extractor
+  R,     Diction,                      diction,                  style and diction checkers
+  R,     discount,                     discount,                 Markdown to HTML converter
+  R,     dos2unix,                     dos2unix,                 line ending converter
+  R,     Emacs Muse,                   elpa-muse,                document generation tool
+  R,     GNU a2ps,                     a2ps,                     PostScript generation tool
+  R,     GNU Denemo,                   denemo,                   music notation editor
+  R,     GNU Emacs,                    emacs,                    IDE, text editor, etc.
+  R,     GNU Spell,                    spell,                    Unix-style spell checker
+  R,     hunspell,                     hunspell,                 morphological spell checker
+  R,     JOE (Joe's Own Editor),       joe,                      text editor
+  R,     ne (the nice editor),         ne,                       text editor
+  R,     Pandoc,                       pandoc,                   universal document converter
+  R,     Pluma,                        pluma,                    MATE text editor
+  R,     LibreOffice,                  libreoffice,              office productivity suite
+  R,     LibreOffice GNOME,            libreoffice-gnome,        GNOME integration
+  R,     LibreOffice KDE,              libreoffice-kde,          KDE integration
+  R,     Recoll,                       recoll,                   desktop text searching tool
+  R,     ronn,                         ronn,                     manual page generation tool
+  R,     Scribus,                      scribus,                  desktop page layout tool
+  R,     TeX Live,                     texlive-xetex,            document production system
+  R,     Texinfo,                      texinfo,                  GNU documentation system
+  R,     wkhtmltopdf,                  wkhtmltopdf,              HTML to PDF/image converter
+  R,     WordGrinder,                  wordgrinder,              simple word processor
+  R,     xlsx2csv,                     xlsx2csv,                 XLSX to CSV file converter
+  R,     Xpdf,                         xpdf,                     PDF viewer and toolkit
 '''
 
 debian_apt_games = '''
-# Title                         APT Name                  Description
-# -----                         --------                  -----------
-  bsdgames,                     bsdgames,                 text-based game collection
-  Fizmo (console),              fizmo-console,            Z-machine (text game) engine
-  Fizmo (ncurses),              fizmo-ncursesw,           Z-machine (text game) engine
-  Fizmo (SDL2),                 fizmo-sdl2,               Z-machine (text game) engine
-  Frotz,                        frotz,                    Z-machine (text game) engine
-  GNU Chess,                    gnuchess,                 chess-playing program
-  GNU Go,                       gnugo,                    Go-playing program
-  TinTin++ (aka tt++),          tintin++,                 MUD (multi-user domain) client
-  TuxMath,                      tuxmath,                  math game/tutor program
-  TuxType,                      tuxtype,                  typing game/tutor program
+# Flags  Title                         APT Name                  Description
+# -----  -----                         --------                  -----------
+  R,     bsdgames,                     bsdgames,                 text-based game collection
+  R,     Fizmo (console),              fizmo-console,            Z-machine (text game) engine
+  R,     Fizmo (ncurses),              fizmo-ncursesw,           Z-machine (text game) engine
+  R,     Fizmo (SDL2),                 fizmo-sdl2,               Z-machine (text game) engine
+  R,     Frotz,                        frotz,                    Z-machine (text game) engine
+  R,     GNU Chess,                    gnuchess,                 chess-playing program
+  R,     GNU Go,                       gnugo,                    Go-playing program
+  R,     TinTin++ (aka tt++),          tintin++,                 MUD (multi-user domain) client
+  R,     TuxMath,                      tuxmath,                  math game/tutor program
+  R,     TuxType,                      tuxtype,                  typing game/tutor program
 '''
 
 debian_apt_image = '''
-# Title                         APT Name                  Description
-# -----                         --------                  -----------
-  GIFT,                         gnuift,                   image index/search tool
-  GIMP,                         gimp,                     image manipulation program
-  GNU plotutils,                plotutils,                CLI drawing/plotting tools
-  Graphviz,                     graphviz,                 graph visualizer
-  ImageMagick,                  imagemagick,              image manipulation tools
-  Inkscape,                     inkscape,                 vector-based drawing program
-  KmPlot,                       kmplot,                   function plotter for KDE
-  OpenSCAD,                     openscad,                 text-based 3D modeling tool
-  xdot,                         xdot,                     Graphviz (DOT) file viewer
+# Flags  Title                         APT Name                  Description
+# -----  -----                         --------                  -----------
+  R,     GIFT,                         gnuift,                   image index/search tool
+  R,     GIMP,                         gimp,                     image manipulation program
+  R,     GNU plotutils,                plotutils,                CLI drawing/plotting tools
+  R,     Graphviz,                     graphviz,                 graph visualizer
+  R,     ImageMagick,                  imagemagick,              image manipulation tools
+  R,     Inkscape,                     inkscape,                 vector-based drawing program
+  R,     KmPlot,                       kmplot,                   function plotter for KDE
+  R,     OpenSCAD,                     openscad,                 text-based 3D modeling tool
+  R,     xdot,                         xdot,                     Graphviz (DOT) file viewer
 '''
 
 debian_apt_math = '''
-# Title                         APT Name                  Description
-# -----                         --------                  -----------
-  apcalc,                       apcalc,                   arbitrary prec. calculator
-  GNU bc,                       bc,                       arbitrary prec. calculator
-  GNU Datamash,                 datamash,                 CLI data manipulation tool
-  GNU PSPP,                     pspp,                     statistical analysis tool
-  GNU Units,                    units,                    unit conversion program
-  Gnumeric,                     gnumeric,                 GNU spreadsheet app
-  JACAL,                        jacal,                    symbolic math system
-  Pyspread,                     pyspread,                 Python-based spreadsheet
-  SageMath,                     sagemath,                 ginormous mathematics suite
-  wcalc,                        wcalc,                    CLI scientific calculator
+# Flags  Title                         APT Name                  Description
+# -----  -----                         --------                  -----------
+  R,     apcalc,                       apcalc,                   arbitrary prec. calculator
+  R,     GNU bc,                       bc,                       arbitrary prec. calculator
+  R,     GNU Datamash,                 datamash,                 CLI data manipulation tool
+  R,     GNU PSPP,                     pspp,                     statistical analysis tool
+  R,     GNU Units,                    units,                    unit conversion program
+  R,     Gnumeric,                     gnumeric,                 GNU spreadsheet app
+  R,     JACAL,                        jacal,                    symbolic math system
+  R,     Pyspread,                     pyspread,                 Python-based spreadsheet
+  R,     SageMath,                     sagemath,                 ginormous mathematics suite
+  R,     wcalc,                        wcalc,                    CLI scientific calculator
 '''
 
 debian_apt_media = '''
-# Title                         APT Name                  Description
-# -----                         --------                  -----------
-! ALSA Utilities,               alsa-utils,               audio support
-  Audacious,                    audacious,                audio player
-  Audacity,                     audacity,                 audio editor
-  GNU Solfege,                  solfege,                  ear/music training
-  JACK,                         jackd2,                   audio support
-  mhwaveedit,                   mhwaveedit,               GTK2 sound editor
-  MPD,                          mpd,                      music player daemon
-  mpg123,                       mpg123,                   MPEG 1/2/3 audio player
-  MPlayer,                      mplayer,                  multimedia player
-  mpv,                          mpv,                      MPlayer-based video player
-  opus-tools,                   opus-tools,               Opus codec CLI tools
-  pianobar,                     pianobar,                 CLI-based Pandora client
-  PortAudio,                    portaudio19-dev,          portable audio I/O
-  RipIT,                        ripit,                    audio CD ripper
-  SoX,                          sox,                      sound processing tool
-  VLC,                          vlc,                      multimedia player
-  youtube-dl,                   youtube-dl,               video downloading tool
+# Flags  Title                         APT Name                  Description
+# -----  -----                         --------                  -----------
+  T,     ALSA Utilities,               alsa-utils,               audio support
+  R,     Audacious,                    audacious,                audio player
+  R,     Audacity,                     audacity,                 audio editor
+  R,     GNU Solfege,                  solfege,                  ear/music training
+  B,     hamradio-morse,               hamradio-morse,           Morse Code support
+  R,     JACK,                         jackd2,                   audio support
+  R,     mhwaveedit,                   mhwaveedit,               GTK2 sound editor
+  R,     MPD,                          mpd,                      music player daemon
+  R,     mpg123,                       mpg123,                   MPEG 1/2/3 audio player
+  R,     MPlayer,                      mplayer,                  multimedia player
+  R,     mpv,                          mpv,                      MPlayer-based video player
+  R,     opus-tools,                   opus-tools,               Opus codec CLI tools
+  R,     pianobar,                     pianobar,                 CLI-based Pandora client
+  R,     PortAudio,                    portaudio19-dev,          portable audio I/O
+  R,     RipIT,                        ripit,                    audio CD ripper
+  R,     SoX,                          sox,                      sound processing tool
+  R,     VLC,                          vlc,                      multimedia player
+  R,     youtube-dl,                   youtube-dl,               video downloading tool
 '''
 
 debian_apt_ocr = '''
-# Title                         APT Name                  Description
-# -----                         --------                  -----------
-  CuneiForm,                    cuneiform,                multi-language OCR system
-  GNU Ocrad,                    ocrad,                    OCR and layout analysis tool
-  lios,                         lios,                     accessible OCR software
-  OCRFeeder,                    ocrfeeder,                OCR and layout analysis tool
-  OCRmyPDF,                     ocrmypdf,                 OCR-based PDF enhancer
-  OCRmyPDF Doc.,                ocrmypdf-doc,             documentation for OCRmyPDF
-  ocrodjvu,                     ocrodjvu,                 performs OCR on DjVu files
-  Tesseract,                    tesseract-ocr,            OCR engine and CLI program
+# Flags  Title                         APT Name                  Description
+# -----  -----                         --------                  -----------
+  R,     CuneiForm,                    cuneiform,                multi-language OCR system
+  R,     GNU Ocrad,                    ocrad,                    OCR and layout analysis tool
+  R,     lios,                         lios,                     accessible OCR software
+  R,     OCRFeeder,                    ocrfeeder,                OCR and layout analysis tool
+  R,     OCRmyPDF,                     ocrmypdf,                 OCR-based PDF enhancer
+  R,     OCRmyPDF Doc.,                ocrmypdf-doc,             documentation for OCRmyPDF
+  R,     ocrodjvu,                     ocrodjvu,                 performs OCR on DjVu files
+  R,     Tesseract,                    tesseract-ocr,            OCR engine and CLI program
 '''
 
 debian_apt_prog = '''
-# Title                         APT Name                  Description
-# -----                         --------                  -----------
-  bash-completion,              bash-completion,          term completion for Bash
-  dialog,                       dialog,                   CLI dialog box generator
-  Elixir,                       elixir,                   fail-soft functional language
-! Expect,                       expect,                   textual interaction automator
-  Git,                          git-all,                  source code control system
-  Gforth,                       gforth,                   stack-based (postfix) language
-  GNU Octave,                   octave,                   Matlab-like algebraic language
-  GNU Prolog,                   gprolog,                  logic programming language
-  GNU R,                        r-base,                   statistics programming language
-  intltool,                     intltool,                 XML internationalization tools
-  Jshon,                        jshon,                    JSON generator, parser, ...
-  Jupyter Notebook,             jupyter-notebook,         interactive coding notebook
-  Pdmenu,                       pdmenu,                   CLI menu generation system
-  Python 2,                     python,                   algebraic OOP language
-  Python 3,                     python3,                  algebraic OOP language
-  python-cairo,                 python-cairo,             Py2 bindings for Cairo
-  python-daemonize,             python-daemonize,         Py2 script daemonizer
-  python-dbus,                  python-dbus,              Py2 bindings for D-Bus
-  python-evdev,                 python-evdev,             Py2 bindings for input events
-  python-pyudev,                python-pyudev,            Python bindings for libudev
-  python-setuptools,            python-setuptools,        Python package mgmt. tools
-  reportbug,                    reportbug,                bug reporting tool for Debian
-! Ruby,                         ruby-full,                algebraic OOP language
-! Tcl (Tool Command Language),  tcl8.6,                   algebraic procedural language
-! Tk (Toolkit),                 tk8.6,                    Tcl-based windowing shell
-  YAD,                          yad,                      CLI dialog box generator
-  YAJL,                         yajl-tools,               JSON-handling library
+# Flags  Title                         APT Name                  Description
+# -----  -----                         --------                  -----------
+  R,     bash-completion,              bash-completion,          term completion for Bash
+  R,     dialog,                       dialog,                   CLI dialog box generator
+  R,     Elixir,                       elixir,                   fail-soft functional language
+  T,     Expect,                       expect,                   textual interaction automator
+  R,     Git,                          git-all,                  source code control system
+  R,     Gforth,                       gforth,                   stack-based (postfix) language
+  R,     GNU Octave,                   octave,                   Matlab-like algebraic language
+  R,     GNU Prolog,                   gprolog,                  logic programming language
+  R,     GNU R,                        r-base,                   statistics programming language
+  R,     intltool,                     intltool,                 XML internationalization tools
+  R,     Jshon,                        jshon,                    JSON generator, parser, ...
+  R,     Jupyter Notebook,             jupyter-notebook,         interactive coding notebook
+  R,     Pdmenu,                       pdmenu,                   CLI menu generation system
+  R,     Python 2,                     python,                   algebraic OOP language
+  R,     Python 3,                     python3,                  algebraic OOP language
+  R,     python-cairo,                 python-cairo,             Py2 bindings for Cairo
+  R,     python-daemonize,             python-daemonize,         Py2 script daemonizer
+  R,     python-dbus,                  python-dbus,              Py2 bindings for D-Bus
+  R,     python-evdev,                 python-evdev,             Py2 bindings for input events
+  R,     python-pyudev,                python-pyudev,            Python bindings for libudev
+  R,     python-setuptools,            python-setuptools,        Python package mgmt. tools
+  R,     reportbug,                    reportbug,                bug reporting tool for Debian
+  T,     Ruby,                         ruby-full,                algebraic OOP language
+  T,     Tcl (Tool Command Language),  tcl8.6,                   algebraic procedural language
+  T,     Tk (Toolkit),                 tk8.6,                    Tcl-based windowing shell
+  R,     YAD,                          yad,                      CLI dialog box generator
+  R,     YAJL,                         yajl-tools,               JSON-handling library
 '''
 
 debian_apt_term = '''
-# Title                         APT Name                  Description
-# -----                         --------                  -----------
-  GNU Screen,                   screen,                   terminal emulator/multiplexer
-  LXTerminal,                   lxterminal,               LXDE terminal emulator
-  python-pyte,                  python-pyte,              VTxxx terminal emulator
-  tmux,                         tmux,                     terminal multiplexer
+# Flags  Title                         APT Name                  Description
+# -----  -----                         --------                  -----------
+  R,     GNU Screen,                   screen,                   terminal emulator/multiplexer
+  R,     LXTerminal,                   lxterminal,               LXDE terminal emulator
+  R,     python-pyte,                  python-pyte,              VTxxx terminal emulator
+  R,     tmux,                         tmux,                     terminal multiplexer
 '''
 
 debian_apt_web = '''
-# Title                         APT Name                  Description
-# -----                         --------                  -----------
-! Apache HTTP Server,           apache2,                  HTTP server
-  ELinks,                       elinks,                   text-mode web browser
-  GNOME Web,                    epiphany-browser,         GNOME web browser
-  Links,                        links,                    text-mode web browser
-  Lynx,                         lynx,                     text-mode web browser
-  Surfraw,                      surfraw,                  CLI web browser
-  w3m,                          w3m,                      text-mode web browser, etc.
+# Flags  Title                         APT Name                  Description
+# -----  -----                         --------                  -----------
+  T,     Apache HTTP Server,           apache2,                  HTTP server
+  R,     ELinks,                       elinks,                   text-mode web browser
+  R,     GNOME Web,                    epiphany-browser,         GNOME web browser
+  R,     Links,                        links,                    text-mode web browser
+  R,     Lynx,                         lynx,                     text-mode web browser
+  R,     Surfraw,                      surfraw,                  CLI web browser
+  R,     w3m,                          w3m,                      text-mode web browser, etc.
 '''
 
 debian_apt_zoo = '''
-# Title                         APT Name                  Description
-# -----                         --------                  -----------
-  GNU Miscfiles,                miscfiles,                reference data files
-  GNU Typist,                   gtypist,                  touch typing tutor
+# Flags  Title                         APT Name                  Description
+# -----  -----                         --------                  -----------
+  R,     GNU Miscfiles,                miscfiles,                reference data files
+  R,     GNU Typist,                   gtypist,                  touch typing tutor
 '''
 
 ## Resources
@@ -282,11 +294,11 @@ debian_apt_zoo = '''
 ruby_gems = '''
 # Title                         Gem Name                  Description
 # -----                         --------                  -----------
-  HighLine,                     highline,                 CLI support library
-  Sinatra,                      sinatra,                  web framework
-! TOML,                         toml,                     data serialization
-  TTY::Prompt,                  tty-prompt,               CLI prompts
-  Xiki,                         xiki,                     text-based menus
+  R,     HighLine,                     highline,                 CLI support library
+  R,     Sinatra,                      sinatra,                  web framework
+  T,     TOML,                         toml,                     data serialization
+  R,     TTY::Prompt,                  tty-prompt,               CLI prompts
+  R,     Xiki,                         xiki,                     text-based menus
 '''
 
 # Works in Progress

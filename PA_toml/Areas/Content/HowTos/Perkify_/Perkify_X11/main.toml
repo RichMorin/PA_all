@@ -53,13 +53,64 @@ The procedure for installing an "appropriate server" varies from OS to OS.
 
 Perkify ships with X forwarding enabled
 and includes a few dozen common X11 clients.
-So, starting up an X11 client should Just Work.  Try these:
+So, is your host machine has a working X11 setup,
+starting up an X11 client should Just Work.
+However, the command syntax can get a little complicated.
 
-    $ vagrant ssh -- -X -p 2222 xclock
+#### Syntax
+
+As documented on Vagrant's
+[SSH page]{https://www.vagrantup.com/docs/cli/ssh.html},
+the command to access a virtual machine ([VM]{ext_wp|Virtual_machine})
+via SSH begins with `vagrant ssh`:
+
+    vagrant ssh [name|id] [-- extra_ssh_args]
+
+If our current directory is `~/perkify`
+(or any other directory with a `Vagrantfile` and such),
+we can leave off the `[name|id]` part.
+This leaves us with `[-- extra_ssh_args]`,
+which the page explains as follows:
+
+> If a `--` (two hyphens) are found on the command line,
+any arguments after this are passed directly into the `ssh` executable.
+This allows you to pass any arbitrary commands to do things such as reverse tunneling down into the `ssh` program.
+
+> -- [$url]{https://www.vagrantup.com/docs/cli/ssh.html}
+
+So now, we're in the wonderful world of ssh command options.
+The [ssh man page]{ext_um|man1/ssh.1.html} lists dozens of these,
+but fortunately we only need a couple at the moment.
+First, we use `-X` to tell SSH to enable X11
+[port forwarding]{ext_wp|Port_forwarding}.
+Then, we use `-p 2222` to tell SSH which port to use.
+Following Vagrant's suggested practice,
+Perkify forwards the VM's SSH port (22) to port 2222 on the host machine.
+
+Finally, we need the name of a command on the VM,
+along with any options we want to use with it.
+For example, we might want to run an `xclock` window,
+upating the appearance every two seconds:
+
+    $ vagrant ssh -- -X -p 2222 xclock -update 2
+
+#### Examples
+
+As a quick sanity check, let's try running some example commands
+(use Control-C to terminate the command):
+
+    $ vagrant ssh -- -X -p 2222 xclock -update 2
     $ vagrant ssh -- -X -p 2222 xeyes
 
+For a bit more of a stress test,
+try running a copy of the Firefox web browser on the VM
+and interacting with it on your host's window system.
+Although this actually works, the scrolling won't be all that fast:
+
+    $ vagrant ssh -- -X -p 2222 firefox
+
 *Note:*
-[Run graphical programs within Vagrantboxes
+The article [Run graphical programs within Vagrantboxes
 ]{https://coderwall.com/p/ozhfva/run-graphical-programs-within-vagrantboxes}
 gives a nice rundown on X installation and basic usage.  
 

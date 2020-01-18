@@ -52,12 +52,25 @@ of open source software; perusing these often yields inspirations.
 
 ### Explicit Additions
 
-The following table provides the category, title, name, and description
-for every Advanced Package Toolkit ([APT]{ext_wp|APT_(software)})
+The following table provides a brief summary for every
+Advanced Package Toolkit ([APT]{ext_wp|APT_(software)})
 package we explicitly install.
-Each "APT name" entry is unique and links to an Ubuntu information page
-for the package.
-The packages are divided into (and sorted by) about a dozen broad categories;
+The Legend section (following the table) explains the table columns, etc.
+
+*Note:*
+Also, don't miss the [Package Index]{con_ove|Perkify_Pkg_Index} page;
+it indexes major packages by overlapping topical categories
+(e.g., document converters).
+
+#### Table
+
+{% include_relative ./pkg_tbl.md %}
+
+#### Legend
+
+The preceding table has five columns:
+Category, Title, APT name, Description, and Flags.
+There are about a dozen broad categories;
 this can be helpful in finding related packages:
 
 - accessibility     - braille, screen readers, speech, ... 
@@ -75,11 +88,18 @@ this can be helpful in finding related packages:
 - world wide web    - HTTP servers, web browsers, ...
 - everything else   - ... 
 
-*Note:* Don't miss the [Package Index]{con_ove|Perkify_Pkg_Index} page;
-it indexes major packages by overlapping topical categories
-(e.g., document converters).
+The Title is my attempt at a human-readable title for the package.
+(This may vary somewhat from the "offical" package title.)
+The APT name is the unique package name, as used by APT.
+This field links to an Ubuntu information page for the package.
+The Description is an extremely terse summary of the package.
+The Flags indicate the current status of the package, in Perkify:
 
-{% include_relative ./pkg_tbl.md %}
+- I - Installs  (installs without error on test VM)
+- P - Prospect  (prospect for inclusion in Perkify)
+- R - Released  (included in the Perkify release)
+- T - Tooling   (part of the Perkify build tooling)
+- W - Working   (appears to be a working package)
 
 To be continued...
 '''
