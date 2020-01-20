@@ -45,8 +45,11 @@ defmodule PhxHttpWeb.MailController do
   def feed_post(conn, params) do
 
     feed_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_feed" #!K
-    feedback    = params["PA.message"]
     prev_url    = params["url"] || "???"
+
+    feedback    = params["PA.message"]
+    |> String.replace("\r\n", "\n")     # Fix CR/NL
+    |> String.replace("\r",   "\n")     # Fix CR
 
     feed_toml   = """
     [ feedback ]
@@ -68,6 +71,7 @@ defmodule PhxHttpWeb.MailController do
     |> put_flash(:info,         message)
     |> base_assigns(:mail_edit, "PA Feedback")
     |> assign(:prev_url,        prev_url)
+    |> assign(:save_name,       save_name)
     |> render("feed.html")
   end
 

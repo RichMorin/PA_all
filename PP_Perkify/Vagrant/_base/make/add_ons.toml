@@ -13,7 +13,6 @@
 #   I  Installs
 #   P  Prospect
 #   R  Released
-#   S  Started
 #   T  Tooling
 #   W  Working
 
@@ -51,7 +50,7 @@ debian_apt_admin = '''
   R,     bridge-utils,                 bridge-utils,             Ethernet bridge utilities
   R,     BusyBox,                      busybox,                  command-line multi-tool
   R,     Chef,                         chef,                     configuration management
-  T,     debconf-utils,                debconf-utils,            Debian config. utilities
+   T,    debconf-utils,                debconf-utils,            Debian config. utilities
   R,     Direvent,                     direvent,                 directory event monitor
   R,     dnsmasq (DNS Masquerade),     dnsmasq,                  caching DNS proxy, etc.
   R,     dosfstools,                   dosfstools,               DOS FAT filesystem tools
@@ -133,6 +132,7 @@ debian_apt_docs = '''
   R,     LibreOffice,                  libreoffice,              office productivity suite
   R,     LibreOffice GNOME,            libreoffice-gnome,        GNOME integration
   R,     LibreOffice KDE,              libreoffice-kde,          KDE integration
+   I,    MuseScore,                    musescore,                music score typesetter for Qt 
   R,     Recoll,                       recoll,                   desktop text searching tool
   R,     ronn,                         ronn,                     manual page generation tool
   R,     Scribus,                      scribus,                  desktop page layout tool
@@ -191,11 +191,11 @@ debian_apt_math = '''
 debian_apt_media = '''
 # Flags  Title                         APT Name                  Description
 # -----  -----                         --------                  -----------
-  T,     ALSA Utilities,               alsa-utils,               audio support
+   T,    ALSA Utilities,               alsa-utils,               audio support
   R,     Audacious,                    audacious,                audio player
   R,     Audacity,                     audacity,                 audio editor
   R,     GNU Solfege,                  solfege,                  ear/music training
-  B,     hamradio-morse,               hamradio-morse,           Morse Code support
+   I,    hamradio-morse,               hamradio-morse,           Morse Code support
   R,     JACK,                         jackd2,                   audio support
   R,     mhwaveedit,                   mhwaveedit,               GTK2 sound editor
   R,     MPD,                          mpd,                      music player daemon
@@ -230,7 +230,7 @@ debian_apt_prog = '''
   R,     bash-completion,              bash-completion,          term completion for Bash
   R,     dialog,                       dialog,                   CLI dialog box generator
   R,     Elixir,                       elixir,                   fail-soft functional language
-  T,     Expect,                       expect,                   textual interaction automator
+   T,    Expect,                       expect,                   textual interaction automator
   R,     Git,                          git-all,                  source code control system
   R,     Gforth,                       gforth,                   stack-based (postfix) language
   R,     GNU Octave,                   octave,                   Matlab-like algebraic language
@@ -249,9 +249,9 @@ debian_apt_prog = '''
   R,     python-pyudev,                python-pyudev,            Python bindings for libudev
   R,     python-setuptools,            python-setuptools,        Python package mgmt. tools
   R,     reportbug,                    reportbug,                bug reporting tool for Debian
-  T,     Ruby,                         ruby-full,                algebraic OOP language
-  T,     Tcl (Tool Command Language),  tcl8.6,                   algebraic procedural language
-  T,     Tk (Toolkit),                 tk8.6,                    Tcl-based windowing shell
+   T,    Ruby,                         ruby-full,                algebraic OOP language
+   T,    Tcl (Tool Command Language),  tcl8.6,                   algebraic procedural language
+   T,    Tk (Toolkit),                 tk8.6,                    Tcl-based windowing shell
   R,     YAD,                          yad,                      CLI dialog box generator
   R,     YAJL,                         yajl-tools,               JSON-handling library
 '''
@@ -268,7 +268,7 @@ debian_apt_term = '''
 debian_apt_web = '''
 # Flags  Title                         APT Name                  Description
 # -----  -----                         --------                  -----------
-  T,     Apache HTTP Server,           apache2,                  HTTP server
+   T,    Apache HTTP Server,           apache2,                  HTTP server
   R,     ELinks,                       elinks,                   text-mode web browser
   R,     GNOME Web,                    epiphany-browser,         GNOME web browser
   R,     Links,                        links,                    text-mode web browser
@@ -296,7 +296,7 @@ ruby_gems = '''
 # -----                         --------                  -----------
   R,     HighLine,                     highline,                 CLI support library
   R,     Sinatra,                      sinatra,                  web framework
-  T,     TOML,                         toml,                     data serialization
+   T,    TOML,                         toml,                     data serialization
   R,     TTY::Prompt,                  tty-prompt,               CLI prompts
   R,     Xiki,                         xiki,                     text-based menus
 '''

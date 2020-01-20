@@ -8,11 +8,15 @@
   rows      = 25
   chars     = rows * 200
   required  = "required"
+  ip_addr   = inspect(@conn.remote_ip)
 
   starter   = """
-  email: ... valid email address ...
-  name:  ... your preferred name ...
-  url:   #{ @prev_url }
+  email_addr:   ... valid email address ...
+  user_name:    ... your preferred name ...
+
+  IP_addr:      #{ ip_addr }
+  page_url:     #{ @prev_url }
+  save_name:    #{ @save_name }
   
   ... feedback ...
   """
@@ -22,13 +26,22 @@
 
 <p>
   This page allows you to compose and send us a feedback message,
-  using either an email client or an online form.
-  If you prefer to use email, click
-  <a href="<%= mailto_href(@prev_url) %>"
-     target="_top">this link</a>.
-  If you prefer to edit your message online, use the folowing form.
-  Enter your name, a valid email address, and your feedback message;
-  click the Submit button when you're done.
+  using either an online form or your preferred email client:
+  <ul>
+    <li>
+      If you prefer to edit your message online, use the folowing form.
+      Enter your name, a valid email address, and your feedback text;
+      click the Submit button when you're done.
+    </li>
+    <li>
+      If you prefer to use email, copy the contents of the form, click
+      <a href="<%= mailto_href(@prev_url) %>"
+         target="_top">this link</a>,
+      and then paste the contents into the message.
+      Enter your name, a valid email address, and your feedback text;
+      then email the completed message to us.
+    </li>
+  </ul>
 <p>
 
 <div class="mail-edit">

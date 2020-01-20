@@ -1,0 +1,42 @@
+# cat_gro|Glia/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Glia'
+  title       = 'Glia'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  licenses    = 'open source'
+  products    = 'otoscope, stethoscope, tourniquet'
+  produces    = 'hardware, software'
+  supports    = 'daily living, medicine'
+
+[ about ]
+
+  precis      = 'high-quality, low-cost, open source medical hardware'
+
+  verbose     = '''
+> High-quality, low-cost, open source medical hardware that makes a difference
+
+> We believe in creating and sharing hardware that is easily accessible
+and can be manufactured in low-resource settings.
+Hundreds of our devices are already in use around the world.
+
+> -- [$url]{https://glia.org}
+'''
+
+[ address.related ]
+
+  facebook    = 'ext_fb|glia.project'
+  github      = 'ext_gh|GliaX'
+
+[ address.web_site ]
+
+  main        = 'https://glia.org'

@@ -1,0 +1,206 @@
+# con_how|Perkify_Bug_Reports/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Bug_Reports'
+  title       = 'Perkify - Bug Reports'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'introduction to bug reporting on Perkify'
+
+  verbose     = '''
+Perkify includes several thousand packages,
+most of which can be assumed to have bugs, issues, etc.
+Discovering and reporting these bugs is an important contribution:
+if the developer(s) don't know about a bug, they are very unlikely to fix it.
+That said, the manner in which bugs are reported is very important.
+
+Learning to create and submit good bug reports is an important skill.
+First, well-documented bugs are much more likely to receive attention.
+Also, the process of analyzing and documenting a bug
+often reveals an error on the part of the user.
+
+### Caveats
+
+If you encounter something that seems to be a bug,
+start your analysis by considering the probable condition
+of the software you're trying to use.
+One way to do this is to place it in one of
+[The 6 Stages of Technology]{http://cfcl.com/vlb/Cuute/f/product_stages.html}.
+Briefly, the stages are:
+
+0. Personal     - used by the authors
+1. Recognized   - used by their friends
+2. Common       - used by friends of friends
+3. Accepted     - generally distributed
+4. Expected     - popular and well known
+5. Assumed      - best of breed
+
+As the stage number increases, the chance of finding unknown bugs diminishes.
+This can be seen as a consequence of [Linus's Law]{ext_wp|Linus's_law},
+which I'll paraphrase as "given enough examination, all bugs become obvious".
+So, if you encounter a problem while using level 5 (best of breed) software,
+you're probably doing something wrong.
+This applies to built-in Linux commands, library routines, and system calls,
+as well as popular APT packages installed from Debian or Ubuntu.
+
+On the other hand, if you're using a random command in Perkify,
+it's quite possible that we botched or omitted some configuration step.
+For example, our configuration of packages related to audio and accessibility 
+is still a Work in Progress.
+Also, if a bug only affects a small fraction of the user base,
+it may never have been reported.
+Accessibility problems are all too frequently in this category.
+
+In summary, unless something is obviously wrong with the software,
+don't submit a bug report until you've studied its documentation,
+made inquiries, etc.
+And, given that Perkify is currently at something like level 0 or 1,
+assuming that the problem is our fault is probably a good starting point.
+As a hint, the Perkify [mailing list]{http://perkify.groups.io}
+is a great place to submit early drafts of bug reports,
+ask for advice and assistance, etc.
+
+### Criteria
+
+Here are some important criteria for bug report submissions:
+
+- Novelty       - describe a previously unknown bug
+- Recipient     - report it in the proper forum
+- Context       - include usage and user information
+- Replication   - say how to reproduce the problem
+- Symptoms      - say what was expected and observed
+- Theories      - include any plausible explanations
+
+#### Novelty
+
+Ideally, the report should describe a previously unknown bug.
+Failing that, it should provide additional information about a known bug.
+After all, why repeat information that has already been submitted?
+It isn't always possible (let alone easy) to be sure that a bug is novel.
+However, it's considered good form to try,
+and bad form (generally) to submit reports about documented behavior.
+So, Read The Fine Manual (RTFM), search for strongly related issues,
+and seek advice about whether the bug is known, has workarounds, etc.
+
+#### Recipient
+
+Sending a bug report to the wrong recipient
+is inefficient and annoying to everyone involved.
+However, tracking down the correct recipient can be challenging.
+If one of Perkify's command fails to behave as documnted,
+the fault could lie in any of several places along the "food chain".
+Assuming that the command was installed via APT, here are some possibilities:
+
+- The user might have damaged something in the Perkify image. 
+- The Perkify packaging suite could have an error or omission.
+- The (Debian or Ubuntu) APT package could have an error.
+- The code for the original software could have an error.
+
+It isn't always easy to determine exactly where the error crept in,
+but it may be possible to limit the search space.
+For example, you could ask (e.g., on Stack Overflow or the package mailing list)
+whether anyone else can replicate the problem.
+If not, it's likely to be caused by something closer to you.
+
+#### Context
+
+A bug report should include contextual information on the usage environment.
+As a start, it should provide the version number of the relevant package.
+Let's say you're having problems with the `speaker-test(1)` command.
+You can track down the package name and version information
+by running the following commands in a Perkify SSH session:
+
+    $ dpkg -S $(which speaker-test)
+    alsa-utils: /usr/bin/speaker-test
+
+    $ apt list alsa-utils
+    Listing... Done
+    alsa-utils/disco,now 1.1.8-1ubuntu1 amd64 [installed]
+    alsa-utils/disco 1.1.8-1ubuntu1 i386
+
+Giving the name and version number of any related infrastructure
+(e.g., operating system, web browser) is also a good idea.
+Here are some commands to get information on the operating system:
+
+    $ lsb_release -a
+    No LSB modules are available.
+    Distributor ID:	Ubuntu
+    Description:	Ubuntu 19.04
+    Release:	19.04
+    Codename:	disco
+
+    $ uname -a
+    Linux vagrant 5.0.0-38-generic #41-Ubuntu SMP ...
+
+If the issue is related to accessibility,
+give a precis of your specific disability (e.g., blindness),
+what access software you are using (e.g., Chrome, VoiceOver), etc.
+Version numbers for the host platform may also be relevant and helpful;
+again, ask on the mailing list or the web if you need help getting them.
+
+#### Replication
+
+The report should detail how to reproduce the problem.
+In some cases, this will simply be a list of commands.
+However, if there is something unusual in your setup,
+you should discuss this, as well.
+
+#### Symptoms
+
+The report should say what was expected and observed.  For example:
+"I expected the host's speaker to produce noise, but it was silent."
+
+#### Theories
+
+The report should include any plausible explanations.
+Even it your ideas are wrong,
+they may help the developer(s) to analyze the problem.
+Also, the feedback you receive may help you in the future.
+
+### Recipients
+
+If you think the bug is related to a Perkify configuration issue
+or something you have done to affect your virtual machine,
+the best thing to do is post a message to the Perkify mailing list.
+If the message contains a reasonable start on a bug report,
+you'll probably get a better and more focused response,
+but we'll try to help you in any case.
+
+If the bug seems to be related to a packaging issue,
+you'll need to contact the folks who did the packaging.
+Bring up the Ubuntu page for the package
+(e.g., [$url]{https://packages.ubuntu.com/disco/alsa-utils})
+and skim the "Maintainer" section for contact information.
+
+If the bug seems to be in the original software,
+the best place to report it is likely to be mentioned on the project homepage
+(e.g., [Advanced Linux Sound Architecture (ALSA) project homepage
+]{https://www.alsa-project.org/wiki/Main_Page}).
+In many cases, this will be the Issues page
+for the relevant [GitHub]{ext_wp] repository.
+
+### Resources
+
+- Debian Bug Tracking System ([BTS]{debi_wiki|BTS})
+
+- [GitHub Help: Creating an Issue
+  ]{https://help.github.com/en/github/
+    managing-your-work-on-github/creating-an-issue}
+
+- [How to Report Bugs Effectively
+  ]{https://www.chiark.greenend.org.uk/~sgtatham/bugs.html}
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'
