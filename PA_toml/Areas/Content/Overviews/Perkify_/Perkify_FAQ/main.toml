@@ -32,9 +32,9 @@ regardless of whether the questions are actually frequently asked.
 
 This page is only a start on a FAQ; keep those cards and letters coming in!
 
-{% include_relative S_Accessibility   %}
-{% include_relative S_Infrastructure  %}
-{% include_relative S_Target_User     %}
+{% include_relative ./S_Accessibility.md %}
+{% include_relative ./S_Infrastructure.md %}
+{% include_relative ./S_Target_User.md %}
 
 To be continued...
 '''
