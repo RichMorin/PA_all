@@ -81,12 +81,13 @@ Audio and video support is important for a broad class of users.
 - audio editors           - Audacity, mhwaveedit
 - audio players           - Audacious, mpg123
 - audio processors        - opus-tools, SoX
-- audio support           - ALSA Utilities, PortAudio, opus-tools
+- audio support           - ALSA Utilities, apulse, PortAudio, opus-tools
 - ear/music trainers      - GNU Solfege
 - ebook readers           - DAISY Player
+- Morse code support      - hamradio-morse
 - multimedia players      - MPlayer, mpv, VLC
 - music players           - MPD, pianobar
-- music typesetters       - GNU Denemo
+- music typesetters       - GNU Denemo, MuseScore
 - screen readers          - Fenrir, Orca, yasr
 - speech synthesizers     - eSpeak NG, espeakup, speechd
 - video downloaders       - youtube-dl
@@ -124,6 +125,7 @@ via chat, email, messages, VoIP, etc.
 - graph visualizers       - Graphviz
 - interactive notebooks   - Jupyter Notebook
 - music notation editor   - GNU Denemo
+- music score typesetting - MuseScore
 - spelling checkers       - GNU Spell, hunspell
 - text editors            - Emacspeak, GNU Emacs, JOE, ne, Pluma
 - text processors         - catdoc, Diction, Emacs Muse
@@ -153,7 +155,7 @@ via chat, email, messages, VoIP, etc.
 - desk calculators        - apcalc, GNU bc, GNU Units, wcalc
 - interactive notebooks   - Jupyter Notebook
 - spreadsheets            - Gnumeric, LibreOffice, Pyspread
-- mathematics tools       - GNU Datamash, GNU PSPP, GNU R, JACAL, SageMath
+- mathematics tools       - GNU Datamash, GNU PSPP, GNU R, JACAL
 
 #### OCR Support
 

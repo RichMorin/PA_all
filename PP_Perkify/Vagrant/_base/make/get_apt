@@ -24,7 +24,7 @@
 # See also https://debian-handbook.info/browse/stable/
 #   sect.package-meta-information.html#sidebar.questions-conffiles
 
-  cmd="apt-get install -q -y $name"
+  cmd="apt-get install -qqy $name"
 
   if false; then     #!TG
     echo "log_dir:  '$log_dir'"

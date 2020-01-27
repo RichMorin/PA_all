@@ -16,7 +16,29 @@
 #   T  Tooling
 #   W  Working
 
+# Build status for Perkify 0.2.1 (Eoan Ermine)
+#
+# apulse            added; installs without issues
+#
+# hamradio-morse    added; installs without issues
+
 # Table heading lines (etc) are commented out by a sharp sign (#).
+#
+# The `debian_apt_debug` definition is only used for debugging;
+# for details, see `add_ons.rb`, et al.
+
+debian_apt_debug = '''
+# Flags  Title                         APT Name                  Description
+# -----  -----                         --------                  -----------
+  R,     ALSA Utilities,               alsa-utils,               audio support
+  R,     bridge-utils,                 bridge-utils,             Ethernet bridge utilities
+  R,     debconf-utils,                debconf-utils,            Debian config. utilities
+  R,     JACK,                         jackd2,                   audio support
+  R,     PulseAudio,                   pulseaudio,               audio support
+  R,     pulseaudio-module-jack,       pulseaudio-module-jack,   audio support
+  R,     QjackCtl,                     qjackctl,                 audio support
+  R,     SoX,                          sox,                      sound processing tool
+'''
 
 debian_apt_a11y = '''
 # Flags  Title                         APT Name                  Description
@@ -47,10 +69,11 @@ debian_apt_admin = '''
 # Flags  Title                         APT Name                  Description
 # -----  -----                         --------                  -----------
   R,     Aptitude,                     aptitude,                 APT package manager
+  R,     bash-doc,                     bash-doc,                 Bash example files
   R,     bridge-utils,                 bridge-utils,             Ethernet bridge utilities
   R,     BusyBox,                      busybox,                  command-line multi-tool
   R,     Chef,                         chef,                     configuration management
-   T,    debconf-utils,                debconf-utils,            Debian config. utilities
+  R,     debconf-utils,                debconf-utils,            Debian config. utilities
   R,     Direvent,                     direvent,                 directory event monitor
   R,     dnsmasq (DNS Masquerade),     dnsmasq,                  caching DNS proxy, etc.
   R,     dosfstools,                   dosfstools,               DOS FAT filesystem tools
@@ -126,13 +149,13 @@ debian_apt_docs = '''
   R,     GNU Spell,                    spell,                    Unix-style spell checker
   R,     hunspell,                     hunspell,                 morphological spell checker
   R,     JOE (Joe's Own Editor),       joe,                      text editor
+  R,     MuseScore,                    musescore3,               music score typesetter for Qt 
   R,     ne (the nice editor),         ne,                       text editor
   R,     Pandoc,                       pandoc,                   universal document converter
   R,     Pluma,                        pluma,                    MATE text editor
   R,     LibreOffice,                  libreoffice,              office productivity suite
   R,     LibreOffice GNOME,            libreoffice-gnome,        GNOME integration
   R,     LibreOffice KDE,              libreoffice-kde,          KDE integration
-   I,    MuseScore,                    musescore,                music score typesetter for Qt 
   R,     Recoll,                       recoll,                   desktop text searching tool
   R,     ronn,                         ronn,                     manual page generation tool
   R,     Scribus,                      scribus,                  desktop page layout tool
@@ -184,18 +207,18 @@ debian_apt_math = '''
   R,     Gnumeric,                     gnumeric,                 GNU spreadsheet app
   R,     JACAL,                        jacal,                    symbolic math system
   R,     Pyspread,                     pyspread,                 Python-based spreadsheet
-  R,     SageMath,                     sagemath,                 ginormous mathematics suite
   R,     wcalc,                        wcalc,                    CLI scientific calculator
 '''
 
 debian_apt_media = '''
 # Flags  Title                         APT Name                  Description
 # -----  -----                         --------                  -----------
-   T,    ALSA Utilities,               alsa-utils,               audio support
+  R,     ALSA Utilities,               alsa-utils,               audio support
+  R,     apulse,                       apulse,                   PulseAudio emulation
   R,     Audacious,                    audacious,                audio player
   R,     Audacity,                     audacity,                 audio editor
   R,     GNU Solfege,                  solfege,                  ear/music training
-   I,    hamradio-morse,               hamradio-morse,           Morse Code support
+  R,     hamradio-morse,               hamradio-morse,           Morse Code support
   R,     JACK,                         jackd2,                   audio support
   R,     mhwaveedit,                   mhwaveedit,               GTK2 sound editor
   R,     MPD,                          mpd,                      music player daemon
@@ -205,6 +228,9 @@ debian_apt_media = '''
   R,     opus-tools,                   opus-tools,               Opus codec CLI tools
   R,     pianobar,                     pianobar,                 CLI-based Pandora client
   R,     PortAudio,                    portaudio19-dev,          portable audio I/O
+  R,     PulseAudio,                   pulseaudio,               audio support
+  R,     pulseaudio-module-jack,       pulseaudio-module-jack,   audio support
+  R,     QjackCtl,                     qjackctl,                 audio support
   R,     RipIT,                        ripit,                    audio CD ripper
   R,     SoX,                          sox,                      sound processing tool
   R,     VLC,                          vlc,                      multimedia player
@@ -268,7 +294,7 @@ debian_apt_term = '''
 debian_apt_web = '''
 # Flags  Title                         APT Name                  Description
 # -----  -----                         --------                  -----------
-   T,    Apache HTTP Server,           apache2,                  HTTP server
+  R,     Apache HTTP Server,           apache2,                  HTTP server
   R,     ELinks,                       elinks,                   text-mode web browser
   R,     GNOME Web,                    epiphany-browser,         GNOME web browser
   R,     Links,                        links,                    text-mode web browser
@@ -404,6 +430,13 @@ ruby_gems = '''
 # OCRdesktop,         ?,                  OCR support               (-b)
 # Versions for ocrdesktop
 # https://repology.org/project/ocrdesktop/versions
+
+# R, SageMath, sagemath, ginormous mathematics suite
+#   E: Package 'sagemath' has no installation candidate (for eoan)
+#
+# There is no package for sagemath in 19.10 (and no fix coming soon).  See:
+#   https://answers.launchpad.net/ubuntu/+source/sagemath/+question/685265
+#   https://answers.launchpad.net/ubuntu/+source/sagemath/+question/85326
 
 # sbl,                ?,                  screen reader             (-b)
 #-

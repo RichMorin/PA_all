@@ -2,11 +2,11 @@
 
 | Category                       | Title                          | APT name                       | Description                    | Flags      |
 | --------                       | -----                          | --------                       | -----------                    | -----      |
-| audio, video                   | ALSA Utilities                 | A$alsa-utils$                  | audio support                  | T          |
+| audio, video                   | ALSA Utilities                 | A$alsa-utils$                  | audio support                  | R          |
 | accessibility                  | Accerciser                     | A$accerciser$                  | accessibility explorer         | R          |
 | communication                  | Alot                           | A$alot$                        | email client                   | R          |
 | communication                  | Alpine                         | A$alpine$                      | email client                   | R          |
-| world wide web                 | Apache HTTP Server             | A$apache2$                     | HTTP server                    | T          |
+| world wide web                 | Apache HTTP Server             | A$apache2$                     | HTTP server                    | R          |
 | administration                 | Aptitude                       | A$aptitude$                    | APT package manager            | R          |
 | documentation                  | Atril                          | A$atril$                       | MATE document viewer           | R          |
 | audio, video                   | Audacious                      | A$audacious$                   | audio player                   | R          |
@@ -85,6 +85,7 @@
 | audio, video                   | MPlayer                        | A$mplayer$                     | multimedia player              | R          |
 | administration                 | Magic Wormhole                 | A$magic-wormhole$              | data transfer utility          | R          |
 | communication                  | Mumble                         | A$mumble$                      | VoIP client                    | R          |
+| documentation                  | MuseScore                      | A$musescore3$                  | music score typesetter for Qt  | R          |
 | communication                  | Mutt                           | A$mutt$                        | email client                   | R          |
 | administration                 | Netatalk                       | A$netatalk$                    | Apple File (AFP) daemon        | R          |
 | administration                 | Network Time Protocol (NTP)    | A$ntp$                         | NTP daemon and utilities       | R          |
@@ -103,13 +104,14 @@
 | communication                  | Poezio                         | A$poezio$                      | console-based XMPP client      | R          |
 | audio, video                   | PortAudio                      | A$portaudio19-dev$             | portable audio I/O             | R          |
 | communication                  | Profanity                      | A$profanity$                   | console-based XMPP client      | R          |
+| audio, video                   | PulseAudio                     | A$pulseaudio$                  | audio support                  | R          |
 | mathematics                    | Pyspread                       | A$pyspread$                    | Python-based spreadsheet       | R          |
 | programming                    | Python 2                       | A$python$                      | algebraic OOP language         | R          |
 | programming                    | Python 3                       | A$python3$                     | algebraic OOP language         | R          |
+| audio, video                   | QjackCtl                       | A$qjackctl$                    | audio support                  | R          |
 | documentation                  | Recoll                         | A$recoll$                      | desktop text searching tool    | R          |
 | audio, video                   | RipIT                          | A$ripit$                       | audio CD ripper                | R          |
 | programming                    | Ruby                           | A$ruby-full$                   | algebraic OOP language         | T          |
-| mathematics                    | SageMath                       | A$sagemath$                    | ginormous mathematics suite    | R          |
 | documentation                  | Scribus                        | A$scribus$                     | desktop page layout tool       | R          |
 | communication                  | ScrollZ                        | A$scrollz$                     | ircII-based IRC client         | R          |
 | audio, video                   | SoX                            | A$sox$                         | sound processing tool          | R          |
@@ -136,12 +138,14 @@
 | programming                    | YAD                            | A$yad$                         | CLI dialog box generator       | R          |
 | programming                    | YAJL                           | A$yajl-tools$                  | JSON-handling library          | R          |
 | mathematics                    | apcalc                         | A$apcalc$                      | arbitrary prec. calculator     | R          |
+| audio, video                   | apulse                         | A$apulse$                      | PulseAudio emulation           | R          |
 | programming                    | bash-completion                | A$bash-completion$             | term completion for Bash       | R          |
+| administration                 | bash-doc                       | A$bash-doc$                    | Bash example files             | R          |
 | administration                 | bridge-utils                   | A$bridge-utils$                | Ethernet bridge utilities      | R          |
 | accessibility                  | brltty-espeak                  | A$brltty-espeak$               | eSpeak driver for BRLTTY       | R          |
 | games, etc.                    | bsdgames                       | A$bsdgames$                    | text-based game collection     | R          |
 | documentation                  | catdoc                         | A$catdoc$                      | MS-Office text extractor       | R          |
-| administration                 | debconf-utils                  | A$debconf-utils$               | Debian config. utilities       | T          |
+| administration                 | debconf-utils                  | A$debconf-utils$               | Debian config. utilities       | R          |
 | programming                    | dialog                         | A$dialog$                      | CLI dialog box generator       | R          |
 | documentation                  | discount                       | A$discount$                    | Markdown to HTML converter     | R          |
 | administration                 | dnsmasq (DNS Masquerade)       | A$dnsmasq$                     | caching DNS proxy              | R          |
@@ -150,7 +154,7 @@
 | accessibility                  | eSpeakNG                       | A$espeak-ng$                   | speech synthesizer             | R          |
 | accessibility                  | eSpeakNG Data                  | A$espeak-ng-data$              | voice data for eSpeak NG       | R          |
 | accessibility                  | espeakup                       | A$espeakup$                    | eSpeak/speakup connector       | R          |
-| audio, video                   | hamradio-morse                 | A$hamradio-morse$              | Morse Code support             | P          |
+| audio, video                   | hamradio-morse                 | A$hamradio-morse$              | Morse Code support             | R          |
 | administration                 | hostapd                        | A$hostapd$                     | IEEE 802.11 authenticator      | R          |
 | administration                 | httptunnel                     | A$httptunnel$                  | HTTP tunneling support         | R          |
 | documentation                  | hunspell                       | A$hunspell$                    | morphological spell checker    | R          |
@@ -174,6 +178,7 @@
 | audio, video                   | opus-tools                     | A$opus-tools$                  | Opus codec CLI tools           | R          |
 | audio, video                   | pianobar                       | A$pianobar$                    | CLI-based Pandora client       | R          |
 | communication                  | pidgin-otr                     | A$pidgin-otr$                  | OTR plugin for Pidgin          | R          |
+| audio, video                   | pulseaudio-module-jack         | A$pulseaudio-module-jack$      | audio support                  | R          |
 | programming                    | python-cairo                   | A$python-cairo$                | Py2 bindings for Cairo         | R          |
 | programming                    | python-daemonize               | A$python-daemonize$            | Py2 script daemonizer          | R          |
 | programming                    | python-dbus                    | A$python-dbus$                 | Py2 bindings for D-Bus         | R          |

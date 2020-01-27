@@ -1,0 +1,239 @@
+# con_ove|Perkify_Audio/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Audio'
+  title       = 'Perkify - Audio'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'con_how|Perkify_Setup_Audio'
+
+[ about ]
+
+  precis      = 'introduction to audio support on Perkify'
+
+  verbose     = '''
+[Perkify]{con_ove|Perkify_Intro}'s basic goal is to be a blind-friendly,
+full-featured, turnkey, virtual machine ([VM]{ext_wp|Virtual_machine}).
+To meet this goal,
+we'll need to support a wide range of audio-related packages, including:
+
+- assistive software, such as screen readers
+- audio-enhanced tools, such as text editors
+- media (e.g., music) editors and players
+
+Complicating matters quite a bit, we can't expect our users
+to become expert at the Linux audio infrastucture
+or to use GUI-based "wrappers" that hide the messy details.
+In short, these packages (and the audio infrastructure) should:
+
+- be operable and configurable from the command line
+- follow best practices for Linux audio routing, etc.
+- work reasonably well, with little or no user configuration
+- work with [Linux]{ext_wp|Linux}, [macOS]{ext_wp|MacOS}, or
+  [Windows]{ext_wp|Microsoft_Windows} host platforms
+
+Or, as [Alan Kay]{ext_wp|Alan_Kay} put it:
+
+> Simple things should be simple; complex things should be possible.
+
+> -- [$url]{ext_wq|Alan_Kay}
+
+So, adding audio support to Perkify is a somewhat different challenge
+than it might be on a typical [Linux]{ext_wp|Linux} installation.
+This page discusses the general situation,
+as well as the approach we're taking.
+For setup hints and example commands, see Perkify's
+[Setup Audio]{con_how|Perkify_Setup_Audio} HowTo.
+
+*Note:*
+Perkify's sound support is quite experimental at the moment.
+Bug reports (and fixes!) would be greatly appreciated.
+
+### Background
+
+The Golden Path to high-quality audio support on Linux systems
+starts with three major packages:
+
+- Advanced Linux Sound Architecture ([ALSA]{cat_sof|ALSA})
+- JACK Audio Connection Kit ([JACK]{cat_sof|JACK})
+- [PulseAudio]{cat_sof|PulseAudio}
+
+ALSA is a generic "audio driver";
+it handles low-level details such as devices and protocols.
+In general, we'll want to get it set up and then leave it alone.
+Users can then adjust the audio configuration
+using a higher-level interface such as PulseAudio or JACK:
+
+> PulseAudio is a sound server for POSIX and Win32 systems.
+A sound server is basically a proxy for your sound applications.
+It allows you to do advanced operations on your sound data
+as it passes between your application and your hardware.
+Things like transferring the audio to a different machine,
+changing the sample format or channel count,
+and mixing several sounds into one
+are easily achieved using a sound server.
+
+> PulseAudio is already installed by default on Ubuntu and flavors.
+
+> -- [$url]{https://wiki.ubuntu.com/PulseAudio}
+
+*Note:*
+The Ubuntu 19.10 (Eoan Ermine) "base box" on the Vagrant Cloud
+does *not* include PulseAudio.
+
+JACK has similar goals and capabilities, but it seems to be aimed
+at users with more challenging problems and/or more expertise.
+For example, it has very low latency,
+allowing content to be mixed together in a more synchronized manner.
+It also has a developer-friendly application programming interface
+([API]{ext_wp|Application_programming_interface}),
+so a number of audio programs rely on it:
+
+> Have you ever wanted to take the audio output
+of one piece of software and send it to another?
+How about taking the output of that same program and send it to two others,
+then record the result in the first program?
+Or maybe you’re a programmer who writes real-time audio and music applications
+and who is looking for a cross-platform API
+that enables not only device sharing but also inter-application audio routing,
+and is incredibly easy to learn and use?
+If so, JACK may be what you’ve been looking for.
+
+> -- [$url]{https://jackaudio.org}
+
+In summary, either JACK or PulseAudio can be used
+as a "router" (i.e., "patch bay"),
+allowing streams of digital audio to pass among various programs. 
+Fortunately, JACK and PulseAudio are able to play nicely together.
+This means that you can use either tool (or both) to set things up.
+
+According to an [introductory video]{ext_yt|watch?v=iaPW5v2ztEQ}
+by [Demonic Sweaters]{ext_yt|channel/UCX_iFritVPboVxwFyn3IARQ},
+the best way to do this is to
+create a "PulseAudio JACK Sink" (using `pulseaudio-module-jack`)
+and make that the default output device for your audio-related programs.
+You can then do simple routing in PulseAudio, but use JACK for complex setups.
+
+That said, some folks still find the JACK and PulseAudio commands
+to be awkward and/or intimidating.
+So, another layer of tools have been created to remedy this.
+
+- `qjackctl` - GUI wrapper for JACK
+
+### Approach
+
+The Perkify build procedure starts with an Ubuntu "base box"
+from the Vagrant Cloud.
+It then adds a large number of packages,
+provisioning and configuring a few of them.
+To support the audio-related packages, it:
+
+- adds the `snd` and `snd-hda-intel` modules to the kernel
+- adds code to `~/.profile`, setting `AUDIODRIVER`
+- creates and populates an `/etc/asound.conf` file
+- packages a customized `Vagrantfile` into the "box"
+
+Whenever the box is brought up (via `vagrant up`),
+a bit more provisioning code in the Vagrantfile sets up the audio mixer.
+
+*Note:*
+At present, Perkify is set up to use PulseAudio and ignore JACK.
+
+### Audio Files
+
+The `/usr/share/sounds` directory contains various sets of sound files
+which can be used to play with the sound infrastructure.
+The `sound-icons` sub-directory, in particular,
+contains lots of short audio samples, in WAV format.
+We also included a few audio files in `~/_base/data`.
+
+### Packages
+
+Here is a quick rundown on several other audio-related packages,
+most of which we'd like to include in Perkify.
+
+#### BRLTTY
+
+There are two Debian packages for BRLTTY:
+
+- brltty-espeak  - uses espeak directly
+- brltty-speechd - uses speech-dispatcher
+
+#### Emacspeak
+
+Emacspeak supports several hardware and software speech synthesizers,
+but ViaVoice TTS appears to be the golden path, in terms of software.
+
+#### eSpeak (NG)
+
+eSpeak is a speech synthesizer that supports 99 languages and accents.
+According to the eSpeak
+[installation page]{http://espeak.sourceforge.net/commands.html},
+"eSpeak uses the PortAudio sound library (version 18)".
+
+eSpeakNG is based on eSpeak, but has many changes and extensions.
+For example, it can use MBROLA voices and (optionally):
+
+- the pcaudiolib development library to enable audio output;
+- the sonic development library to enable sonic audio speed up support;
+- the ronn man-page markdown processor to build the man pages.
+
+#### Orca
+
+According to [Getting Orca and Its Dependencies
+]{https://wiki.gnome.org/Projects/Orca#Getting_Orca_and_Its_Dependencies},
+Orca depends on BRLTTY, Liblouis, and Speech Dispatcher.
+
+- [at-spi2-core
+  ]{https://gitlab.gnome.org/GNOME/at-spi2-core} (D-Bus AT-SPI)
+
+- [at-spi2-atk
+  ]{https://gitlab.gnome.org/GNOME/at-spi2-atk} (D-Bus AT-SPI)
+
+- [ATK - The Accessibility Toolkit
+  ]{https://gitlab.gnome.org/GNOME/atk}
+
+- [pyatspi2
+  ]{https://gitlab.gnome.org/GNOME/pyatspi2} (D-Bus AT-SPI)
+
+- [Speech Dispatcher
+  ]{https://freebsoft.org/speechd}
+
+#### OSS
+
+On most Linux distributions,
+Open Sound System ([OSS]{cat_sof|OSS}) has been supplanted by 
+Advanced Linux Sound Architecture ([ALSA]{cat_sof|ALSA}).
+It also requires rebuilding the kernel, which is a major hassle.
+So, I decided to leave it out of Perkify.
+
+#### Speakup
+
+[Speakup]{cat_sof|Speakup} is a kernel module
+that provides a text-to-speech interface at the kernel level.
+
+### Resources
+
+- [Debian Wiki - accessibility
+  ]{https://wiki.debian.org/accessibility}
+
+- [Installing Emacspeak HOWTO
+  ]{http://emacspeak.sourceforge.net/install-guide/installing-emacspeak.html}
+
+- [Installing Emacspeak HOWTO - 4. Requirements
+  ]{http://emacspeak.sourceforge.net/install-guide/requirements.html}
+
+- [Installing Emacspeak HOWTO - Appendix B: Installing ViaVoice TTS
+  ]{http://emacspeak.sourceforge.net/install-guide/appendixb.html}
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

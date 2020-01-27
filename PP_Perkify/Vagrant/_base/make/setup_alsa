@@ -1,0 +1,59 @@
+: setup_alsa - set up ALSA and related packages
+#
+# Set up ALSA (Advanced Linux Sound Architecture), JACK, and PulseAudio.
+#
+# See:  https://en.wikipedia.org/wiki/Advanced_Linux_Sound_Architecture
+#
+# This code is (loosely!) adapted from Christoph Neumann's vagrant-audio
+# Vagrantfile (in https://github.com/christoph-neumann/vagrant-audio),
+# with help from Clemens Ladisch and Eric Zuck.
+#
+# Written by Rich Morin, CFCL, 2019-2020.
+
+# set -ex #!T
+
+  # Add user `audio` to the `vagrant` group.
+
+  sudo usermod -aG audio vagrant
+
+  # The Ubuntu base VM has no /etc/asound.conf file; create one.
+  #
+  # See https://wiki.archlinux.org/index.php/
+  #       Advanced_Linux_Sound_Architecture#Configuration
+
+  sudo cat <<EOT > /etc/asound.conf
+# /etc/asound.conf - ALSA sound configuration
+#
+# This file was created by the Perkify build procedure.
+
+pcm.!default {
+  type plug
+  slave.pcm "hw:0,1"
+}
+EOT
+
+  # Add sound modules to the /etc/modules file.
+  #
+  # See http://manpages.ubuntu.com/manpages/bionic/en/man5/modules.5.html
+
+  if [ -e /etc/modules ]; then
+    sudo cat <<EOT >> /etc/modules
+
+# This file was augmented by the Perkify build procedure.
+EOT
+
+  else
+    sudo cat <<EOT > /etc/modules
+
+# /etc/modules - loadable kernel modules
+#
+# This file was created by the Perkify build procedure.
+EOT
+
+  fi
+
+  sudo cat <<EOT >> /etc/modules
+
+snd
+snd-hda-intel
+EOT

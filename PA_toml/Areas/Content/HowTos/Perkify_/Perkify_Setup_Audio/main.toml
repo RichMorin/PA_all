@@ -1,0 +1,161 @@
+# con_how|Perkify_Setup_Audio/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Setup_Audio'
+  title       = 'Perkify - Setup Audio'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'con_ove|Perkify_Audio'
+
+[ about ]
+
+  precis      = 'overview of audio support on Perkify'
+
+  verbose     = '''
+Perkify's approach to adding audio support is somewhat different
+than it might be on a typical [Linux]{ext_wp|Linux} installation.
+For background information, see [Perkify - Audio]{con_ove|Perkify_Audio}.
+This page discusses setup details
+and suggests some sample commands for you to try out.
+
+*Note:*
+Perkify's sound support is quite experimental at the moment.
+Bug reports (and fixes!) would be greatly appreciated.
+
+### Approach
+
+The Perkify build procedure starts with an Ubuntu "base box"
+from the Vagrant Cloud.
+It then adds a large number of packages,
+provisioning and configuring a few of them.
+To support the audio-related packages, it:
+
+- adds the `snd` and `snd-hda-intel` modules to the kernel
+- adds code to `~/.profile`, setting `AUDIODRIVER`
+- creates and populates an `/etc/asound.conf` file
+- packages a customized `Vagrantfile` into the "box"
+
+Whenever the box is brought up (via `vagrant up`),
+a bit more provisioning code in the Vagrantfile sets up the audio mixer.
+
+### Audio Files
+
+The `/usr/share/sounds` directory contains various sets of sound files
+which can be used to play with the sound infrastructure.
+The `sound-icons` sub-directory, in particular,
+contains lots of short audio samples, in WAV format.
+We also included a few audio files in `~/_base/data`.
+
+### Commands
+
+Unless otherwise noted, all of the commands discussed below
+can be run from the Perkify command line.
+For brevity, I have trimmed the prompt to a dollar sign (`$`).
+(If you want to kill a long-running command, try hitting Control-C.)
+
+#### aplay, arecord
+
+The [aplay and arecord]{ext_um|man1/aplay.1.html} commands
+are primarily intended to play and record audio files.
+However, they can also be used to provide information
+about the state of ALSA's sound infrastructure:
+
+    $ aplay -L
+    null
+        Discard all samples (playback) or generate zero samples (capture)
+    jack
+        JACK Audio Connection Kit
+    pulse
+        PulseAudio Sound Server
+    default
+        Playback/recording through the PulseAudio sound server
+    ...
+
+#### ffmpeg, ffmplay
+
+[ffmpeg]{ext_um|man1/ffmpeg.1.html} is a very fast video and audio converter
+that can also grab from a live audio/video source.
+[ffplay]{ext_um|man1/ffplay.1.html} is a very simple and portable media player
+that uses the FFmpeg libraries and the SDL library.
+It is mostly used as a testbed for the various FFmpeg APIs.
+
+#### jackd
+
+The JACK Audio Connection Kit ([JACK]{cat_sof|JACK})
+provides basic infrastructure for audio applications.
+[jackd]{ext_um|man1/jackd.1.html} is the JACK audio server daemon,
+a low-latency audio server.
+
+#### mpg123
+
+[mpg123]{ext_lm|1/mpg123} is a real time MPEG 1.0/2.0/2.5 audio player/decoder
+for layers 1, 2 and 3 (MPEG 1.0 layer 3 is also known as MP3).
+
+#### play
+
+The [play]{ext_um|man1/play.1.html} command is part of [SoX]{cat_sof|SoX}
+(Sound eXchange, the Swiss Army knife of audio manipulation).
+It will play any file format supported by sox,
+using the default audio device.
+
+Most of Perkify's sound samples are located in `/usr/share/sounds`;
+try going there and playing some of them:
+
+    $ cd /usr/share/sounds
+    $ play -q Oxygen-Sys-Trash-Emptied.ogg
+
+*Note:*
+The `-q` flag turns off several lines of detailed reporting.
+Try leaving it off, if you're curious...
+
+The `play` command has a large number of options.
+For example, if you simply ask it to play this recording
+of Renaissance Portuguese Polyphony,
+it will take a few seconds to get past the silent beginning:
+
+    $ play -q ~/_base/data/Non_Mortui.mp3
+
+However, by adding some mysterious options, you can skip that part:
+
+    $ play -q ~/_base/data/Non_Mortui.mp3 silence -l 1 5 2%
+
+#### pulseaudio
+
+PulseAudio is a networked, low-latency sound server
+for Linux, POSIX, and Windows systems.
+The [pulseaudio]{ext_um|man1/pulseaudio.1.html} command
+is used to administer the server.
+
+For example, the following pair of commands will tell us
+the status of the PulseAudio daemon for the `vagrant` user.
+The `echo` will print 0 if the daemon is running, else 1:
+
+    $ pulseaudio --check
+    $ echo $?
+
+#### speaker-test
+
+The `alsa-utils` package contains utilities which support use of ALSA.
+The [speaker-test]{https://linux.die.net/man/1/speaker-test} command,
+for example, is a good way to confirm that audio output is working.
+The command has quite a few options,
+but its default behavior is to generate [pink noise]{ext_wp|Pink_noise}:
+
+    $ speaker-test -s1
+    speaker-test 1.1.9
+    Playback device is default
+    Stream parameters are 48000Hz, S16_LE, 1 channels
+    Using 16 octaves of pink noise
+    ...
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

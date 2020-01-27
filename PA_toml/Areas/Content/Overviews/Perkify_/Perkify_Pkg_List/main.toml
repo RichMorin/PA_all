@@ -19,7 +19,7 @@
   verbose     = '''
 [Perkify]{con_ove|Perkify_Intro} begins as a
 [Vagrant]{ext_wp|Vagrant_(software)} / [VirtualBox]{ext_wp|VirtualBox} "box"
-based on [Ubuntu]{ext_wp|Ubuntu} 19.04 ("Disco Dingo").
+based on [Ubuntu]{ext_wp|Ubuntu} 19.10 ("Eoan Ermine").
 We then add about 200 packages explicitly, as detailed below.
 Note, however, that [Debian]{ext_wp|Debian}'s Advanced Package Manager
 ([APT]{ext_wp|APT_(software)}) increases this number dramatically
@@ -30,7 +30,7 @@ So, the total count of installed packages is about 4000
 Although this page is admittedly quite incomplete,
 it should be useful starting point
 in understanding Perkify's capabilities and offerings.
-Learning a bit about Ubuntu Disco's offerings would also be very useful.
+Learning a bit about Ubuntu's offerings would also be very useful.
 Finally, if you want to explore the available and installed packages,
 you'll need to learn about some APT commands and web pages.
 So, be sure to visit [Perkify - APT]{con_how|Perkify_APT}!

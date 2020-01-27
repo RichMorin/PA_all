@@ -33,7 +33,7 @@ See the section below on The Open Build Service for one approach to this goal.
 If the "APT name" field is "_",
 we found no evidence that there had ever been an APT archive for the package.
 Otherwise, we found an archive for some earlier release of Debian,
-but nothing for Ubuntu "disco".
+but nothing for our base Ubuntu release (e.g., 19.10, "Eoan Ermine").
 
 | Title                | APT name        | Notes                       |
 | -------              | ----------      | -------                     |

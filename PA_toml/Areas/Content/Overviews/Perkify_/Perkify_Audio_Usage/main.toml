@@ -1,0 +1,41 @@
+# con_ove|Perkify_Audio_Usage/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_Audio_Usage'
+  title       = 'Perkify - Audio Usage'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'con_how|Perkify_Setup_Audio, con_ove|Perkify_Audio'
+
+[ about ]
+
+  precis      = 'usage of ALSA (etc.) on Perkify'
+
+  verbose     = '''
+Perkify has a large number of audio-related packages,
+which can connect to each other in a dynamic fashion.
+This page attempts to provide a high-level overview of the major players.
+
+The lowest level of audio support in Perkify is the
+Advanced Linux Sound Architecture ([ALSA]{cat_sof|ALSA}).
+[PulseAudio]{cat_sof|PulseAudio} provides simple routing services.
+The JACK Audio Connection Kit ([JACK]{cat_sof|JACK})
+supports more complex routing schemes.
+
+### Applications
+
+- Emacspeak uses ALSA, through Voxin.
+- Orca uses ALSA, through PulseAudio.
+- Many audio tools use ALSA, through JACK.
+
+To be continued...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

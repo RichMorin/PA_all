@@ -16,9 +16,11 @@ run a [speed test]{https://www.speedtest.net}.
 If your [download]{ext_wp|Download} speed is 20 Mbps, downloading
 a 10 GB (80 Gb) of image data will take about an hour (4000 seconds).
 
-As a side note, Perkify includes a copy of the
-[Interactive Ruby Shell]{ext_wp|Interactive_Ruby_Shell};
-here's how this calculation might be done in `irb(1)`:
+As a side note, Perkify includes a number of interactive calculators
+and read–eval–print loops ([REPLs]{ext_wp|Read–eval–print_loop}).
+(See the [Perkify - REPLs]{con_how|Perkify_REPLs} HowTo for more information.)
+Here's how this calculation might be done in `irb(1)`,
+the [Interactive Ruby Shell]{ext_wp|Interactive_Ruby_Shell}:
 
     irb(main):001:0> secs = ( (80 * 1000) / 20) 
     => 4000

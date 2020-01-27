@@ -1,0 +1,12 @@
+: setup_apache - set up the Apache HTTP Server
+#
+# See: https://en.wikipedia.org/wiki/Apache_HTTP_Server
+#
+# Written by Rich Morin, CFCL, 2019-2020.
+
+# set -ex #!T
+
+src=/var/www/html
+tgt=/home/vagrant/_base/html
+rm -rf $src
+ln -fs $tgt $src

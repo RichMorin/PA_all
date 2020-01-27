@@ -42,8 +42,10 @@
       'zoo'     # everything else
     ]
 
-    if false #!D - set to true for debugging
-      tags    = %w(a11y media) #!D
+    if true #!D - set to true for debugging
+      tags    = %w(debug)
+      tags    = %w(a11y media)
+
       types   = debian(tags)
     else
       types   = debian(tags) + %w(ruby_gems)

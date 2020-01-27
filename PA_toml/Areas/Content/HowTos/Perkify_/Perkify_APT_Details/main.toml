@@ -48,12 +48,12 @@ so we may need to look in both places:
   - [$url]{https://packages.debian.org/search?keywords=emacspeak}</br>
     This page supports searching for information on `emacspeak`.
 
-- Ubuntu (disco)
+- Ubuntu (e.g., 19.10; Eoan Ermine)
 
   - [$url]{https://launchpad.net/ubuntu/+source/emacspeak}</br>
     This page provides information of interest to Ubuntu developers.
 
-  - [$url]{https://packages.ubuntu.com/disco/emacspeak}</br>
+  - [$url]{https://packages.ubuntu.comeoanemacspeak}</br>
     This page describes the `emacspeak` package.
 
   - [$url]{https://packages.ubuntu.com/search?keywords=emacspeak}</br>

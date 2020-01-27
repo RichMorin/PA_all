@@ -50,7 +50,7 @@ defmodule InfoWeb.MixProject do
   defp deps() do
     [
       # added
-      { :floki,               "~> 0.21" },
+      { :floki,               "~> 0.25" },
       { :httpoison,           "~> 1.5" },
       { :toml,                "~> 0.5.2" },
 

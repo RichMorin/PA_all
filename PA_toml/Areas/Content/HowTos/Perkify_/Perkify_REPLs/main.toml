@@ -173,33 +173,6 @@ For more information, see
     Save workspace image? [y/n/c]: n
     $
 
-#### SageMath (<code>[sage]{ext_um|man1/sage.1.html}</code>)
-
-[SageMath]{ext_wp|SageMath} is a
-[computer algebra system]{ext_wp|Computer_algebra_system}
-with a syntax that is based on Python.
-For more information, see the 
-[Sage Tutorial]{http://doc.sagemath.org/pdf/en/tutorial/SageTutorial.pdf}.
-
-    $ sage
-    ...
-    sage: 1 + 2
-    3
-    sage: factorial(42)
-    1405006117752879898543142606244511569936384000000000
-    sage: # Define a factorial function.
-    sage: def f(n):
-    ....:     if n <= 1:
-    ....:         return 1
-    ....:     else:
-    ....:         return n * f(n-1)
-    ....:     
-    sage: f(42)
-    1405006117752879898543142606244511569936384000000000
-    sage: ^D                           
-    ...
-    $
-
 #### units (<code>[units]{ext_um|man1/units.1.html}</code>)
 
 > The "units" program converts quantities expressed in various scales
@@ -474,4 +447,33 @@ To be continued...
 
 [ zoo ]
 
-  snippets    = '...'
+  snippets    = '''
+SageMath isn't supported in Ubuntu 19.10 (sigh).
+
+#### SageMath (<code>[sage]{ext_um|man1/sage.1.html}</code>)
+
+[SageMath]{ext_wp|SageMath} is a
+[computer algebra system]{ext_wp|Computer_algebra_system}
+with a syntax that is based on Python.
+For more information, see the 
+[Sage Tutorial]{http://doc.sagemath.org/pdf/en/tutorial/SageTutorial.pdf}.
+
+    $ sage
+    ...
+    sage: 1 + 2
+    3
+    sage: factorial(42)
+    1405006117752879898543142606244511569936384000000000
+    sage: # Define a factorial function.
+    sage: def f(n):
+    ....:     if n <= 1:
+    ....:         return 1
+    ....:     else:
+    ....:         return n * f(n-1)
+    ....:     
+    sage: f(42)
+    1405006117752879898543142606244511569936384000000000
+    sage: ^D                           
+    ...
+    $
+'''

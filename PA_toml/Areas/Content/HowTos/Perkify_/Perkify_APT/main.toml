@@ -132,21 +132,21 @@ If you know the name of the package, you can ask APT for detailed information.
 #### Web Sites
 
 There are several useful web sites you can visit to find out about packages.
-Our initial release is based on Ubuntu "disco" (19.04)
+Our current release is based on Ubuntu "Eoan Ermine" (19.10)
 and the `apt(1)` command automagically uses the appropriate archive sites.
 However, to get information on a specific package from a web site,
-you'll have to include the current base release (e.g., "disco") in the URL:
+you'll have to include the current base release (e.g., "eoan") in the URL:
 
 - [Ubuntu Packages Search]{https://packages.ubuntu.com/}</br>
   This page lists the available Ubuntu releases
   and provides an online search facility.
 
-- [$url]{https://packages.ubuntu.com/disco}</br>
+- [$url]{https://packages.ubuntu.com/eoan}</br>
   This page lists several dozen sections
-  (e.g., [Games]{https://packages.ubuntu.com/disco/games/})
-  that are available for Ubuntu disco.
+  (e.g., [Games]{https://packages.ubuntu.comeoangames/})
+  that are available for Ubuntu 19.10 "eoan ermine").
 
-- [$url]{https://packages.ubuntu.com/disco/a2ps}</br>
+- [$url]{https://packages.ubuntu.comeoana2ps}</br>
   This page describes `a2ps`, lists related packages, etc.
 
 - [$url]{https://launchpad.net/ubuntu/+source/a2ps}</br>

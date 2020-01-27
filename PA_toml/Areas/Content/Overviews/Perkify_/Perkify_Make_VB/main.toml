@@ -30,26 +30,27 @@ used in making a new box.
 The `_base` sub-directory contains scripts and data files:
 
     _base/
-    | bin/*               convenience scripts for Perkify
-    | | apt_summ          generate an APT package summary
-    | | path_chk          check $PATH for name conflicts
-    | html/               default directory for Apache
-    | | index.html        dummy "landing page" for Apache
-    | make/               files used in making the image
-    | | add_ons           install add-on packages
-    | | add_ons.rb        helper for the add_ons script
-    | | add_ons.toml      specify Perkify add-on packages
-    | | apt_presets       APT configuration preset file
-    | | get_apt           get an APT package
-    | | get_gem           get a Ruby Gem
-    | | pkg_list.rb       pkg_tbl.md generation script
-    | | Vagrantfile.dist  configuration (distributed)
-    | | Vagrantfile.make  configuration (for build)
-    | | vf_common.rb      common code for Vagrantfiles 
+    | bin/*                 convenience scripts for Perkify
+    | | apt_summ            generate an APT package summary
+    | | path_chk            check $PATH for name conflicts
+    | html/                 default directory for Apache
+    | | index.html          dummy "landing page" for Apache
+    | make/                 files used in making the image
+    | | add_ons             install add-on packages
+    | | add_ons.rb          helper for the add_ons script
+    | | add_ons.toml        specify Perkify add-on packages
+    | | apt_presets         APT configuration preset file
+    | | get_apt             get an APT package
+    | | get_gem             get a Ruby Gem
+    | | mpma                make perk-make attempt
+    | | pkg_list.rb         pkg_tbl.md generation script
+    | | Vagrantfile.dist    configuration (distributed)
+    | | Vagrantfile.make_   configuration (for build)
+    | | Vagrantfile.test    configuration (for tests)
+    | | vf_common.rb        common code for Vagrantfiles 
 
-    _save/                file snapshots, etc.
-    | mpma                make perk_make attempt (snap)
-    | V_hax/*             Vagrantfile hack snaps
+    _save/                  file snapshots, etc.
+    | V_hax/*               Vagrantfile hack snaps
 
 ### Procedure
 
@@ -58,11 +59,11 @@ All told, the process takes several hours.
 
 #### Create a Virtual Machine
 
-Create (if need be) and go to `~/perk_make`,
-then run the `mpma` (make perk_make attempt) script:
+Create (if need be) and go to `~/perk-make`,
+then run the `mpma` (make perk-make attempt) script:
 
-    $ mkdir ~/perk_make     # just in case
-    $ cd ~/perk_make        # get situated
+    $ mkdir ~/perk-make     # just in case
+    $ cd ~/perk-make        # get situated
     $ mpma
 
 This will:
@@ -82,18 +83,18 @@ Start up an SSH session to the VM:
 
 Apply the available Ubuntu updates:
 
-    vagrant@perkify-make:~$ sudo apt update && sudo apt upgrade -y
+    vagrant@perk-make:~$ sudo apt update && sudo apt upgrade -y
     ...
 
 *Note:*
-The GRUB upgrade puts up an interactive dialog, asking about which disk
-it should be installed on.
+In disco, the GRUB upgrade puts up an interactive dialog, asking about
+which disk it should be installed on.
 It then ignores the user's input (at least under add_ons).
 So, for the moment, we're choosing not to enable any of these...
 
 Run these commands again, for good measure:
 
-    vagrant@perkify-make:~$ sudo apt update && sudo apt upgrade -y
+    vagrant@perk-make:~$ sudo apt update && sudo apt upgrade -y
     ...
     0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 
@@ -101,57 +102,65 @@ Run these commands again, for good measure:
 
 Fold in the Perkify add-on packages, then tidy up a bit:
 
-    vagrant@perkify-make:~$ l /vagrant
+    vagrant@perk-make:~$ l /vagrant
     bin/  html/  make/  Vagrantfile  Vagrantfile.dist  Vagrantfile.make
 
     # Skip the next step to speed up testing. Instead, just:
-    vagrant@perkify-make:~$ cp -R /vagrant _base
+    vagrant@perk-make:~$ cp -R /vagrant _base
 
-    vagrant@perkify-make:~$ sudo /vagrant/make/add_ons
-       1  debian_apt_a11y Accerciser, accerciser, accessibility explorer
-    Tue 24 Dec 2019 10:37:19 PM PST     41.9   649
+    vagrant@perk-make:~$ sudo /vagrant/make/add_ons
+       1  debian_apt_a11y R, Accerciser, accerciser, accessibility explorer
+    Tue 21 Jan 2020 09:26:17 PM PST     36.0   583
     ...
-     199  ruby_gems       Xiki,       xiki,       text-based menus
-    Tue 24 Dec 2019 11:55:04 PM PST     53.9    69
+     200  ruby_gems       R, Xiki,       xiki,       text-based menus
+    Tue 21 Jan 2020 10:24:24 PM PST     29.2    76
 
     Loading issues: none
 
-    Named packages:    199
-    Total packages:   4186
-    Duration: 4706.1 seconds (78.4 minutes)
+    Named packages:    200
+    Total packages:   3916
+    Duration: 3522.1 seconds (58.7 minutes)
 
-    vagrant@perkify-make:~$ sudo apt autoremove
+Trim the image, then exit and halt the VM:
 
-Kick the tires a bit, then exit:
+    vagrant@perk-make:~$ sudo apt autoremove
+    vagrant@perk-make:~$ exit
+    $ vagrant halt
 
-    vagrant@perkify-make:~$ ...
-    vagrant@perkify-make:~$ exit
+Bring the image back up, SSH in, kick the tires a bit, and exit...
+
+    $ vagrant up
+    $ vagrant ssh
+    vagrant@vagrant:~$ ...
+    vagrant@vagrant:~$ exit
 
 #### Create and Try Out a Vagrant Package
 
 Save the VM image as a package (aka box):
 
-    $ box=../perk_0_2_0.box; rm -f $box
+    $ box=../perk_0_2_1.box; rm -f $box
     $ vagrant package --output $box --vagrantfile Vagrantfile.dist
 
     $ wc -c $box
-    9712491857 $box
+    8005535020 $box
 
     $ shasum $box
-    7e75d15f95bb24294ebacde16fb2bb5af4db13cc  $box
+    9ce8113b5e40b0f8e94a7f94e584769f3c4faec2  ../perk_0_2_1.box
 
 Try it out, largely per [Perkify - Install]{con_how|Perkify_Install}:
 
-    $ rm -rf ~/perk_test                # remove any old working directory
-    $ mkdir ~/perk_test                 # create a working directory
-    $ cd ~/perk_test                    # go to the working directory
+    $ rm -rf ~/perk-test                # remove any old working directory
+    $ mkdir  ~/perk-test                # create a working directory
+    $ cd     ~/perk-test                # go to the working directory
 
-    $ vagrant box add perk_test $box --force
+    $ vagrant box add perk-test ../perk_0_2_1.box --force
     ...
-    $ vagrant init perk_test
+    $ vagrant init perk-test --minimal
     ...
-    $ vagrant up                        # download and boot the Perkify VM
+    $ vagrant up                        # load and boot the Perkify VM
     ...
+    $ vagrant ssh                       # start up an SSH session
+    ...                                 # try things out a bit
 
 #### Push it to Vagrant Cloud
 
@@ -175,28 +184,28 @@ Note that we need to work out details for handling upgrades...
   - Select SHA1
 
 - Under "Checksum":
-  - paste in 7e75d15f95bb24294ebacde16fb2bb5af4db13cc
+  - paste in <checksum, from above>
 
 - Click the "Continue to upload" button.
 
 - Under "Add Provider File"
   - Click the "Choose file" button.
-  - Select `~/perk0_2_0.box`.
+  - Select `~/perk_0_2_1.box`.
   - Click the "Open" button.
 
 - Wait for upload to complete.
   - Click "Perkify" link.
-  - Click "Release" link for `v0.2.0`.
+  - Click "Release" link for `v0.2.1`.
   - Click the "Release version" button.
 
 Download and try out, largely per [Perkify - Install]{con_how|Perkify_Install}:
 
-    $ mkdir ~/perk_test                 # create a working directory
-    $ cd ~/perk_test                    # go to the working directory
+    $ mkdir ~/perk-test                 # create a working directory
+    $ cd ~/perk-test                    # go to the working directory
     $ vagrant destroy                   # kill off any running VM
     $ rm -rf .vagrant *                 # remove cruft
 
-    $ vagrant init Rich_Morin/Perkify --box-version 0.2.0
+    $ vagrant init Rich_Morin/Perkify --box-version 0.2.1
     $ vagrant up                        # download and boot the Perkify VM
     ... this will take about an hour ...
 

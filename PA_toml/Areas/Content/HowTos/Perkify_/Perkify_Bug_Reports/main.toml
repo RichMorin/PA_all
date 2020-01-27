@@ -123,8 +123,8 @@ by running the following commands in a Perkify SSH session:
 
     $ apt list alsa-utils
     Listing... Done
-    alsa-utils/disco,now 1.1.8-1ubuntu1 amd64 [installed]
-    alsa-utils/disco 1.1.8-1ubuntu1 i386
+    alsa-utils/eoan,now 1.1.8-1ubuntu1 amd64 [installed]
+    alsa-utils/eoan 1.1.8-1ubuntu1 i386
 
 Giving the name and version number of any related infrastructure
 (e.g., operating system, web browser) is also a good idea.
@@ -133,9 +133,9 @@ Here are some commands to get information on the operating system:
     $ lsb_release -a
     No LSB modules are available.
     Distributor ID:	Ubuntu
-    Description:	Ubuntu 19.04
-    Release:	19.04
-    Codename:	disco
+    Description:	Ubuntu 19.10
+    Release:	19.10
+    Codename:	eoan
 
     $ uname -a
     Linux vagrant 5.0.0-38-generic #41-Ubuntu SMP ...
@@ -177,7 +177,7 @@ but we'll try to help you in any case.
 If the bug seems to be related to a packaging issue,
 you'll need to contact the folks who did the packaging.
 Bring up the Ubuntu page for the package
-(e.g., [$url]{https://packages.ubuntu.com/disco/alsa-utils})
+(e.g., [$url]{https://packages.ubuntu.comeoanalsa-utils})
 and skim the "Maintainer" section for contact information.
 
 If the bug seems to be in the original software,

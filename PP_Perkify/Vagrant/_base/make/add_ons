@@ -9,10 +9,13 @@
 #   | | get_apt         Bash    get an APT package
 #   | | get_gem         Bash    get a Ruby Gem
 #   | apt_presets       text    specify APT configuration presets
+#   | setup_alsa        Bash    set up ALSA and related packages
+#   | setup_apache      Bash    set up the Apache HTTP Server
+#   | setup_profile     Bash    set up .profile for user vagrant
 #
 # Written by Rich Morin, CFCL, 2019.
 
-# set -x  #!T
+  set -x  #!T
   export TZ=America/Los_Angeles           # really, San Bruno...
   pkg_lim=$1
 
@@ -24,7 +27,8 @@
   log_dir=/tmp/add_ons_log
   rm -rf $log_dir
   mkdir  $log_dir
-  log=$log_dir/_prelims
+  log_i=$log_dir/_intro
+  log_o=$log_dir/_outro
 
   home=/home/vagrant
   base=$home/_base
@@ -33,16 +37,13 @@
 
   # Do some preliminaries.
 
-  ( # Adjust the default sort order for ls(1).
+  ( 
     # Copy in a snaphot of the "_base" directory.
 
-    echo "\n# Perkify additions"          >> $home/.profile
-    echo "export LC_COLLATE=C"            >> $home/.profile
-
-    cp    -R /vagrant                     $base
-    chmod -R 755                          $base
-    chown -R vagrant.vagrant              $base
-    mv $base/bin $home
+    cp    -R /vagrant         $base
+    chmod -R 755              $base
+    chown -R vagrant.vagrant  $base
+    mv $base/bin $home/
     $summ > $data/apt_summ.0
 
     # Set up some infrastructure.
@@ -50,16 +51,16 @@
     apt-get update; echo $bar
     $summ > $data/apt_summ.update
 
-    pkgs='debconf-utils expect'
+    pkgs='ruby-full'
     for pkg in $pkgs; do
-      ./get_apt $log_dir $pkg
+      $base/make/get_apt $log_dir $pkg
       echo $bar
       $summ > $data/apt_summ.$pkg
     done
 
     gem install toml-rb; echo $bar
     $summ > $data/apt_summ.toml-rb
-  ) >> $log 2>&1
+  ) >> $log_i 2>&1
 
   # Install APT packages, RubyGems, etc.
 
@@ -70,3 +71,11 @@
   debconf-set-selections apt_presets        # specify APT configuration presets
   add_ons.rb $log_dir $pkg_lim              # install specified add_on packages
   $summ > $data/apt_summ.2
+
+  # Set up some packages.
+
+  (
+#   setup_alsa        # set up ALSA and related packages
+    setup_apache      # set up the Apache HTTP Server
+    setup_profile     # set up .profile for user vagrant
+  ) >> $log_o 2>&1

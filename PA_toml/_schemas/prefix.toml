@@ -68,6 +68,7 @@
   ext_um    = 'Ubuntu Manuals'
   ext_vc    = 'Vagrant Cloud'
   ext_wp    = 'Wikipedia'
+  ext_wq    = 'Wikiquote'
   ext_yt    = 'YouTube'
 
   # Test

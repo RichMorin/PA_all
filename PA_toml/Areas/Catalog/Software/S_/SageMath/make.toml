@@ -14,3 +14,5 @@ arch_pkgs|community/x86_64/sagemath-jupyter
 [ os.debian ]
 
   package     = 'debi_pkgs|buster/sagemath'
+
+# Not supported in Ubuntu 19.10; see add_ons.toml for details.

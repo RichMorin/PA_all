@@ -5,11 +5,46 @@
 # available to their Ruby code.  This hack avoids problems of the files
 # becoming separated and thus unavailable to the load command, etc.
 #
-# Written by Rich Morin, CFCL, 2019.
+# conf_ports(vm)            Configure forwarded port mappings.
+# cust_alsa(vm)             Customize the VM's audio settings.
+# prov_init(vm, hostname)   Perform initial provisioning
+#
+# See also:
+#
+#   https://www.vagrantup.com/docs/provisioning/basic_usage.html
+#
+# Written by Rich Morin, CFCL, 2019-2020.
+
+  def conf_ports(vm)
+  #
+  # Configure forwarded port mappings from the guest (VM) to the host.
+  #
+  # In general, mappings should only allow access to a specific port within
+  # the guest (VM) via a port on the host machine.  So, we use an IP address
+  # of 127.0.0.1 to disable public access.
+
+    mappings = {
+    # guest     host
+      80     => 8080,   # basic HTTP
+    }
+
+    mappings.each do |guest, host|
+      vm.network('forwarded_port',
+        guest:    guest,
+        host:     host,
+        host_ip:  '127.0.0.1'
+      )
+    end
+  end
+
 
   def cust_alsa(vm)
   #
   # Customize the VM's audio settings, based on the host's operating system.
+  #
+  # For details, see:
+  #   https://www.vagrantup.com/docs/virtualbox/configuration.html
+  #     #vboxmanage-customizations
 
     vm.provider :virtualbox do |vb|
       audio = case RUBY_PLATFORM
@@ -26,50 +61,16 @@
     end
   end
 
-  def prov_alsa(vm)
+
+  def prov_init(vm, hostname)
   #
-  # provisioning script for ALSA
-  #
-  # This code is adapted from Christoph Neumann's vagrant-audio Vagrantfile
-  # (in https://github.com/christoph-neumann/vagrant-audio), with help from
-  # Clemens Ladisch and Eric Zuck.  See also `./cust_alsa.rb`.
-  #
-  # For details, see:
-  #   https://www.virtualbox.org/manual/ch08.html#vboxmanage-modifyvm-general
-  #   https://www.vagrantup.com/docs/virtualbox/configuration.html
-  #     #vboxmanage-customizations
+  # Perform initial provisioning
 
-    vm.provision "shell", inline: <<SHELL
-extra=linux-modules-extra-$(uname -r)
-echo "extra: $extra" #!T
-apt-get install -y linux-image-generic $extra alsa-utils
+    build = <<-SHELL
+    # set -ex #!T
 
-sudo usermod -aG audio vagrant
+      hostname #{ hostname }
+    SHELL
 
-cat <<CONF > /etc/asound.conf
-pcm.!default {
-  type plug
-  slave.pcm "hw:0,1"
-}
-CONF
-
-sudo modprobe snd
-sudo modprobe snd-hda-intel
-sleep 2
-sudo amixer -c 0 set Master playback 100% unmute
-SHELL
-  end
-
-  def prov_apache(vm)
-  #
-  # provisioning script for Apache
-
-    vm.provision "shell", inline: <<SHELL
-apt-get install -y apache2
-
-src=/var/www/html
-tgt=/home/vagrant/_base/html
-rm -rf $src
-ln -fs $tgt $src
-SHELL
+    vm.provision(:shell, inline: build)
   end

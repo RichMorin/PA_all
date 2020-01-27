@@ -106,7 +106,7 @@ defmodule PhxHttpWeb.View.Link do
     
     pattern     = ~r{A\$([-\w+]+)\$}
     pre_base    = "https://packages.ubuntu.com"
-    pre_full    = "#{ pre_base }/disco"
+    pre_full    = "#{ pre_base }eoan"
     becomes     = "[\\1]{#{ pre_full }/\\1}"
     tmp_str     = inp_str |> String.replace(pattern, becomes)
 

@@ -80,8 +80,8 @@ https://www.amazon.com/s?k=headphones+under+5+dollars,
 # 500 Internal Server Error
 
   code_500  = '''
-https://packages.ubuntu.com/disco/mailutils,
-https://packages.ubuntu.com/disco/ronn,
+https://packages.ubuntu.comeoanmailutils,
+https://packages.ubuntu.comeoanronn,
 http://vinuxproject.org,
 http://visioneers.org,
 '''

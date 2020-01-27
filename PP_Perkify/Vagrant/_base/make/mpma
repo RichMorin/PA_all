@@ -1,0 +1,49 @@
+:
+# mpma - make perk-make attempt
+#
+# Written by Rich Morin, CFCL, 2019-2020
+
+  set -x  #!T
+
+  # Check where we are...
+
+  pm='/Local/Users/rdm/perk-make'
+
+  if [ $PWD != $pm ]; then    #!K - shouldn't need this...
+    echo "Must be run from directory '$pm'."
+    exit
+  fi
+
+  # Deal with a few preliminary tasks:
+
+  if [ -e Vagrantfile ]; then         #!K
+    vagrant destroy -f                # kill off any existing VM
+    rm -rf .vagrant *                 # remove file detritus
+  fi
+
+  # Load the Vagrantfile (etc) for Ubuntu 19.10: 
+  #   https://app.vagrantup.com/bento/boxes/ubuntu-19.10
+
+  bv=''                               # Unspecified; use the default.
+  bv=" --box-version 201912.14.0 "    # Loads without problems.
+# bv=" --box-version 202001.16.0 "    # Gets a 404 error, as of 2020.0121
+
+  vagrant init bento/ubuntu-19.10 --minimal $bv
+
+  # Update the working directory; set up Vagrantfiles.
+
+  base=../_Work/P_Elixir/PA_hax/PA_all/PP_Perkify/Vagrant/_base   #!K
+  vf=Vagrantfile
+
+  (cd $base/make; pkg_list.rb)          # generate pkg_tbl.md
+
+  cp  -R $base/* .
+  cat $vf make/$vf.make_ make/vf_common.rb > $vf.make
+  mv  $vf $vf.orig
+  cp  $vf.make $vf
+
+  for ext in dist test; do
+    cat make/$vf.$ext make/vf_common.rb > $vf.$ext
+  done
+
+  vagrant up --provision                # Bring up a provisioned VM.

@@ -1,0 +1,16 @@
+
+# Vagrantfile.make_ - suffix file for Vagrantfile.make.
+#
+# This file is appended to the Vagrantfile set up by `vagrant init`.  It
+# specifies the provisioning and configuration of the base Perkify VM
+# (before the add_ons script is run).  See ./vf_common.rb for method
+# definitions.
+
+  Vagrant.configure('2') do |config|
+    config.ssh.forward_x11  = true
+    vm  = config.vm
+
+    conf_ports(vm)              # Create port mappings.
+    prov_init(vm, 'perk-make')  # Initial provisioning
+    cust_alsa(vm)               # Customize ALSA.
+  end
