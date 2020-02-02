@@ -16,7 +16,6 @@
 
   IP_addr:      #{ ip_addr }
   page_url:     #{ @prev_url }
-  save_name:    #{ @save_name }
   
   ... feedback ...
   """

@@ -71,7 +71,6 @@ defmodule PhxHttpWeb.MailController do
     |> put_flash(:info,         message)
     |> base_assigns(:mail_edit, "PA Feedback")
     |> assign(:prev_url,        prev_url)
-    |> assign(:save_name,       save_name)
     |> render("feed.html")
   end
 
