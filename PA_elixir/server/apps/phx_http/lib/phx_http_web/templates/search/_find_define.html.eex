@@ -19,9 +19,8 @@
   <b><label for="search_text">Search Text:</label></b>
   <input type="search" name="search_text" maxlength="60" size="60">
 
-  <h4>Make search selections
-    <%= hide_show("ih:1/2", "tag types to be defined") %>
-  </h4>
+  <h4>Make search selections</h4>
+  <p><%= hide_show("ih:1/2") %></p>
 
   <div class="hs-body1 hs-ih">
     <p>
@@ -34,10 +33,8 @@
 
     <%= for tag_type <- tag_types(kv_map) do %>
       <div class="hs-base2">
-        <h4>
-          <%= tag_type %>
-          <%= hide_show("ih:2/2", "tag types and values to be defined") %>
-        </h4>
+        <h4><%= tag_type %></h4>
+        <p><%= hide_show("ih:2/2") %></p>
 
         <div class="hs-body2 hs-ih">
           <fieldset>

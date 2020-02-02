@@ -13,10 +13,8 @@
 %>
 
 <div class="hs-base2">
-  <h3>
-    Biggest Files
-    <%= hide_show("is:2/2", "statistics of big code files") %>
-  </h3>
+  <h3>Biggest Files</h3>
+  <p><%= hide_show("is:2/2") %></p>
 
   <div class="hs-body2 hs-is">
     <table class="dash-code tablesorter">

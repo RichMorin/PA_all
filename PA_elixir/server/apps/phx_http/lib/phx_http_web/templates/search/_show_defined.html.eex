@@ -2,10 +2,8 @@
 
 <%= if !Enum.empty?(@tags_d) do %>
   <div class="hs-base1">
-    <h4>
-      Defined
-      <%= hide_show("is:1/2", "tag types for defined queries") %>
-    </h4>
+    <h4>Defined</h4>
+    <p><%= hide_show("is:1/2") %></p>
 
     <div class="hs-body1 hs-is">
       <ul>

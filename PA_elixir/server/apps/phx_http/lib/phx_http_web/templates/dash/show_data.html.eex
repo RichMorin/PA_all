@@ -3,12 +3,8 @@
 <% alias PhxHttpWeb.DashView %>
 
 <div class="hs-base1">
-  <h2>
-    Data Files
-    <%= hide_show("is:1/2",
-          "data-related section headings,
-           data-related headings and content") %>
-  </h2>
+  <h2>Data Files</h2>
+  <p><%= hide_show("is:1/2") %></p>
 
   <%= render(DashView, "_path.html", assigns) %>
 

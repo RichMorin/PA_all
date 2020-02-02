@@ -11,17 +11,13 @@
 %>
 
 <div class="hs-base1">
-  <h2>
-    <%= meta.title %>
-    <%=
-      hide_show("is:1/2",
-        "following headers,
-         following headers and content.")
-    %>
-  </h2>
+  <h2><%= meta.title %></h2>
+  <p><%= hide_show("is:1/2") %></p>
 
   <div class="hs-body1">
     <p><%= fmt_authors(authors) %><p>
+
+    <toc />
 
     <%= fmt_path(@key) %>
 
@@ -30,10 +26,8 @@
     <%= render(ItemView, "_show_refs.html", assigns) %>
 
     <div class="hs-base2">
-      <h3>
-        Description
-        <%= hide_show("is:2/2", "descriptive text for this item") %>
-      </h3>
+      <h3>Description</h3>
+      <p><%= hide_show("is:2/2") %></p>
 
       <div class="hs-body2">
         <%= fmt_section(@item, [:about, :verbose]) %>
@@ -42,10 +36,8 @@
 
     <%= if access do %>
       <div class="hs-base2">
-        <h3>
-          Access Notes
-          <%= hide_show("is:2/2", "notes on accessibility for this item") %>
-        </h3>
+        <h3>Access Notes</h3>
+        <p><%= hide_show("is:2/2") %></p>
 
         <div class="hs-body2">
           <%= fmt_section(@item, [:about, :access]) %>

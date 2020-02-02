@@ -1,0 +1,26 @@
+# con_ove|EE_Typespecs/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'EE_Typespecs'
+  title       = 'Elixir, etc. - Typespecs'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'introduction to Typespecs, Dialyzer, etc.'
+
+  verbose     = '''
+Using a form of [gradual]{ext_wp|Gradual_typing}
+[static typing]{ext_wp|Type_system#Static_and_dynamic_type_checking_in_practice},
+Dialyzer can detect many type errors before the code is run.
+'''
+
+[ zoo ]
+
+  snippets    = '...'

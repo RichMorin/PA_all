@@ -26,8 +26,6 @@ defmodule InfoWeb.Checker do
   - Detecting broken links, so that we can (manually) eliminate them.
     Although there may be multiple instances of a broken link, we
     only need to report a single instance, along with its `from_page`.
-
-  - Detecting missing `title` attributes.
   
   - Detecting jumps in heading levels.
 

@@ -41,10 +41,8 @@ defmodule PhxHttpWeb.ItemView do
 
     ~E"""
     <div class="hs-base2">
-      <h4>
-        <%= auth_out %>
-        <%= hide_show("is:2/2", "full review for this item") %>
-      </h4>
+      <h4><%= auth_out %></h4>
+      <p><%= hide_show("is:2/2") %></p>
       <%= fmt_precis(precis) %>
       <div class="hs-body2">
         <%= verbose %>

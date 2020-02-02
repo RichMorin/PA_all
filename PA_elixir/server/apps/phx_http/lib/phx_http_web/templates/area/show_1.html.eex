@@ -16,12 +16,8 @@
   <p>This is <%= precis %>.</p>
 
   <div class="hs-base1">
-    <p>
-      <h4>
-        Sections: <%= Enum.count(minors) %>
-        <%= hide_show("is:1/1", "sections in the #{ major_u } area") %>
-      </h4>
-    </p>
+    <h4>Sections: <%= Enum.count(minors) %></h4>
+    <p><%= hide_show("is:1/1") %></p>
 
     <div class="hs-body1 hs-is">
       <ul>

@@ -6,10 +6,8 @@
 %>
 
 <div class="hs-base2">
-  <h3>
-    Counts by File Name
-    <%= hide_show("is:2/2", "data statistics by file name") %>
-  </h3>
+  <h3>Counts by File Name</h3>
+  <p><%= hide_show("is:2/2") %></p>
 
   <div class="hs-body2 hs-is">
     <table class="dash-code tablesorter">

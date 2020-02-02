@@ -20,21 +20,6 @@ defmodule InfoWeb.Types do
 
 
   @typedoc """
-  The `html_tree` is either an HTML tuple or a (possibly empty) list of them.
-  """
-  @type html_tree :: html_tuple | [html_tuple]
-
-
-  @typedoc """
-  The `html_tuple` is a recursively defined tuple
-  containing information extracted from an HTML page:
-  
-      { tag, [ {<attr>, <value>} ], [html_tree] }
-  """
-  @type html_tuple :: { [{st, st}], html_tuple }
-
-
-  @typedoc """
   The `link_out` tuple contains output information on an HTML link:
 
       { note, from_path, page_url }

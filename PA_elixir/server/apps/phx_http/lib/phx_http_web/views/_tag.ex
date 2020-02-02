@@ -131,7 +131,7 @@ defmodule PhxHttpWeb.View.Tag do
     ~E"""
     <div class="hs-base2">
       <%= header %>
-      <%= hide_show("ih:2/2", "details for this query") %>
+      <p><%= hide_show("ih:2/2") %></p>
       <div class="hs-body2 hs-ih">
         <ul><%= set_str %></ul>
       </div>
@@ -145,7 +145,7 @@ defmodule PhxHttpWeb.View.Tag do
     <div class="hs-base2">
       <li>
         <%= header %>
-        <%= hide_show("ih:2/2", "details for this query") %>
+        <p><%= hide_show("ih:2/2") %></p>
         <div class="hs-body2 hs-ih">
           <ul><%= set_str %></ul>
         </div>

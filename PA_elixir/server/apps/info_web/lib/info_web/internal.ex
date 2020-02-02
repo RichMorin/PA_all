@@ -120,7 +120,7 @@ defmodule InfoWeb.Internal do
 
       if response.status_code == 200 do
 
-        html_tree   = response.body |> Floki.parse_document()
+        {:ok, html_tree}  = response.body |> Floki.parse_document()
 
         links       = html_tree
         |> Headings.do_headings(page_url)

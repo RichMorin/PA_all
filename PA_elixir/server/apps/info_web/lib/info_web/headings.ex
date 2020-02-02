@@ -24,7 +24,7 @@ defmodule InfoWeb.Headings do
   """
 
   @spec do_headings(ht, String.t) :: ht
-    when ht: IWT.html_tree
+    when ht: Floki.html_tree
 
   def do_headings(html_tree, page_url) do
 
@@ -43,7 +43,8 @@ defmodule InfoWeb.Headings do
   # Private functions
 
   @spec check_headings(ht, String.t) :: ht
-    when ht: IWT.html_tree
+    when ht: Floki.html_tree
+#   when ht: IWT.html_tree
 
   defp check_headings(headings, page_url) do
   #

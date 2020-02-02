@@ -7,11 +7,7 @@
 <div class="hs-base1">
   <p>
     <%= add_s(@tally, "result") %> found.
-    <%=
-      hide_show("is:1/2",
-        "\"#{ @header }\" search results,
-         all \"#{ @header }\" search results")
-    %>
+    <%= hide_show("is:1/2") %>
   </p>
 
   <div class="hs-body1 hs-is">

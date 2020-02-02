@@ -54,11 +54,15 @@ macro, as it wouldn't help much and it would obscure the basic structure:
     get   "/search/find",     SearchController,   :find
     post  "/search/show",     SearchController,   :show
 
+    get   "/slide",           SlideController,    :show
+
     get   "/source",          SourceController,   :show
     get   "/source/down",     SourceController,   :down
 
     get   "/",                TextController,     :show
     get   "/text",            TextController,     :show
+
+    get   "/*zoo",            ZooController,      :show
 
 ### <tt>AreaController</tt>
 
@@ -128,6 +132,12 @@ macro, as it wouldn't help much and it would obscure the basic structure:
 
     # Display a "search" form; do a search upon submission.
 
+### <tt>SlideController</tt>
+
+    get   "/slide",           SlideController,    :show
+
+    # Display a set of presentation slides.
+
 ### <tt>SourceController</tt>
 
     get   "/source",          SourceController,   :show
@@ -155,6 +165,14 @@ macro, as it wouldn't help much and it would obscure the basic structure:
     #
     #   /text?key=_text/home.toml     # "/" also works for this.
     #   /text?key=_text/usage.toml
+    
+### <tt>ZooController<tt>
+
+    get   "/*zoo",            ZooController,      :show
+
+    # Redirect to / with a nastygram:
+    #
+    #   /foo
 '''
 
 [ zoo ]

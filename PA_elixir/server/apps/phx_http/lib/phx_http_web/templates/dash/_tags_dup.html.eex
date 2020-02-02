@@ -8,10 +8,8 @@
 %>
 
 <div class="hs-base2">
-  <h3>
-    Duplicates
-    <%= hide_show("is:2/2", "information on tag duplication") %>
-  </h3>
+  <h3>Duplicates</h3>
+  <p><%= hide_show("is:2/2") %></p>
 
   <div class="hs-body2 hs-is">
     <p>

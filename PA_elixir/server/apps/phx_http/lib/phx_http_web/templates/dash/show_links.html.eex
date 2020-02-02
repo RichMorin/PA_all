@@ -8,12 +8,8 @@
 %>
 
 <div class="hs-base1">
-  <h2>
-    Links
-    <%= hide_show("is:1/2",
-          "link-related section headings,
-           link-related headings and content") %>
-  </h2>
+  <h2>Links</h2>
+  <p><%= hide_show("is:1/2") %></p>
 
   <%= render(DashView, "_path.html", assigns) %>
 

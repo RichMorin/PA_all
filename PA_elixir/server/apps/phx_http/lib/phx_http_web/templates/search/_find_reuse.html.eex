@@ -7,9 +7,8 @@
 
 <%= if set_cnt > 0 do %>
   <div class="hs-base1">
-    <h3>Reuse search queries
-      <%= hide_show("ih:1/2", "tag types to be reused") %>
-    </h3>
+    <h3>Reuse search queries</h3>
+    <p><%= hide_show("ih:1/2") %></p>
 
     <div class="hs-body1 hs-ih">
       <p>

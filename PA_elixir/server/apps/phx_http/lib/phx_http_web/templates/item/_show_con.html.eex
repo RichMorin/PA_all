@@ -14,6 +14,8 @@
 
   <p><%= fmt_authors(authors) %><p>
 
+  <toc />
+
   <%= fmt_path(@key) %>
 
   <%= fmt_precis(about.precis) %>

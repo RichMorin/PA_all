@@ -16,9 +16,8 @@
 
 <%= if ref_cnt > 0 do %>
   <div class="hs-base1">
-    <h3>References
-        <%= hide_show("is:1/1", "references to other items") %>
-    </h3>
+    <h3>References</h3>
+    <p><%= hide_show("is:1/1") %></p>
 
     <div class="hs-body1">
       <ul>

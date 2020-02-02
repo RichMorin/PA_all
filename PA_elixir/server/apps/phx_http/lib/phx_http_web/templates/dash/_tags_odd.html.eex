@@ -7,10 +7,8 @@
 %>
 
 <div class="hs-base2">
-  <h3>
-    Oddballs
-    <%= hide_show("is:2/2", "information on oddball tags") %>
-  </h3>
+  <h3>Oddballs</h3>
+  <p><%= hide_show("is:2/2") %></p>
 
   <p>
     This section summarizes "oddball" tags,

@@ -6,9 +6,8 @@
 %>
 
 <div class="hs-base2">
-  <h3>Contact Information
-      <%= hide_show("is:2/2", "contact information for this item") %>
-  </h3>
+  <h3>Contact Information</h3>
+  <p><%= hide_show("is:2/2") %></p>
 
   <div class="hs-body2">
     <%= for section <- sections, do: fmt_address(section, address) %>

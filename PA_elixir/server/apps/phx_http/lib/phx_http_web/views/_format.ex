@@ -122,7 +122,7 @@ defmodule PhxHttpWeb.View.Format do
   @spec fmt_precis(String.t) :: PHT.safe_html
 
   def fmt_precis(precis) do
-    "<p><b>Precis:</b>&nbsp; #{ precis }</p>\n<pa_toc />\n" |> raw()
+    "<p><b>Precis:</b>&nbsp; #{ precis }</p>" |> raw()
   end
 
   @doc """

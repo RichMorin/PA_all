@@ -2,10 +2,8 @@
 
 <%= if !Enum.empty?(@queries_r) do %>
   <div class="hs-base1">
-    <h4>
-      Reused
-      <%= hide_show("is:1/2", "reused selections in this search") %>
-    </h4>
+    <h4>Reused</h4>
+    <p><%= hide_show("is:1/2") %></p>
 
     <div class="hs-body1 hs-is">
       <%=

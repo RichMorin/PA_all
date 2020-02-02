@@ -1,9 +1,8 @@
 <!-- templates/item/_show_toml.html.eex -->
 
 <div class="hs-base1">
-  <h2>Source Code
-      <%= hide_show("is:1/1", "TOML & Markdown source code") %>
-  </h2>
+  <h2>Source Code</h2>
+  <p><%= hide_show("is:1/1") %></p>
 
   <div class="hs-body1">
 <pre>

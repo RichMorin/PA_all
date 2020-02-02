@@ -75,6 +75,31 @@ defmodule PhxHttp.MixProject do
 #     { :earmark, override: true,
 #       git: "https://github.com/pragdave/earmark.git" },
 
+# Temporary redirect until Hex.pm gets a new version of Floki...
+#     { :floki,               "~> 0.25" },
+      { :floki, override: true,
+        git: "https://github.com/RichMorin/floki.git" },
+
+# I tried installing :modest_ex on a macOS Catalina (10.15.2) system.
+# The build crashed, because the `cmake` command was missing.
+# After I did a `brew install cmake` (and cleaned out the relevant deps),
+# the build "succeeded" (with bazillions of warnings).
+# However, `iex -S mix` then refused to start:
+#
+# [error] Cookie file /Local/Users/rdm/.erlang.cookie must be accessible by owner only
+# [info] Application modest_ex exited:
+#   ModestEx.Safe.start(:normal, []) returned an error:
+#     shutdown: failed to start child: Nodex.Cnode
+#    ** (EXIT) an exception was raised:
+#        ** (RuntimeError) Node is not alive. Cannot connect to a cnode.
+#            (nodex) lib/nodex/cnode.ex:37: Nodex.Cnode.init/1
+#            (stdlib) gen_server.erl:374: :gen_server.init_it/2
+#            (stdlib) gen_server.erl:342: :gen_server.init_it/6
+#            (stdlib) proc_lib.erl:249: :proc_lib.init_p_do_apply/3
+# ...
+#
+#     {:modest_ex,            "~> 1.0"},
+
       # local
       { :common,               in_umbrella: true },
       { :info_files,           in_umbrella: true },

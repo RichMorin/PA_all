@@ -7,10 +7,8 @@
 <%= fmt_section(@item, [:about, :verbose]) %>
 
 <div class="hs-base1">
-  <h3>
-    Items: <%= @item_cnt %>
-    <%= hide_show("is:1/1", "all items in this section") %>
-  </h3>
+  <h3>Items: <%= @item_cnt %></h3>
+  <p><%= hide_show("is:1/1") %></p>
 
   <div class="hs-body1 hs-is">
 

@@ -21,10 +21,8 @@
   %>
 
   <div class="hs-base1">
-    <h3>
-      <code><%= header %></code>
-      <%= hide_show("is:1/1", "TOML & Markdown source code") %>
-    </h3>
+    <h3><code><%= header %></code></h3>
+    <p><%= hide_show("is:1/1") %></p>
 
     <div class="hs-body1 hs-is">
       <p>

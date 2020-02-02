@@ -1,6 +1,6 @@
 <!-- _hs_s.html.eex - offers "show" initially -->
 
 <span class="hs-hide<%= @hs_level %> hs-ih hs-none">(<a
-  href="#" title="Hide <%= @hs_t1 %>.">hide</a>)</span>
+  href="#">hide</a>)</span>
 <span class="hs-show<%= @hs_level %> hs-is hs-none">(<a
-  href="#" title="Show <%= @hs_t1 %>.">show</a>)</span>
+  href="#">show</a>)</span>

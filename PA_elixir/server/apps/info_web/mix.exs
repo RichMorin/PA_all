@@ -50,7 +50,12 @@ defmodule InfoWeb.MixProject do
   defp deps() do
     [
       # added
-      { :floki,               "~> 0.25" },
+
+# Temporary redirect until Hex.pm gets a new version of Floki...
+#     { :floki,               "~> 0.25" },
+      { :floki, override: true,
+        git: "https://github.com/RichMorin/floki.git" },
+
       { :httpoison,           "~> 1.5" },
       { :toml,                "~> 0.5.2" },
 

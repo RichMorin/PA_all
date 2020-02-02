@@ -6,8 +6,8 @@
       {header, count}  = result_header(@result)
       "#{ header }: #{ count }"
     %>
-    <%= hide_show("is:2/2", "\"#{ header }\" results") %>
   </h5>
+  <p><%= hide_show("is:2/2") %></p>
 
   <div class="hs-body2 hs-is">
     <ul>

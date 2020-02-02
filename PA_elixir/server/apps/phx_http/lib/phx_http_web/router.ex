@@ -57,6 +57,8 @@ defmodule PhxHttpWeb.Router do
 
     get   "/",                TextController,     :show
     get   "/text",            TextController,     :show
+
+    get   "/*zoo",            ZooController,      :show
   end
 
   # Other scopes may use custom stacks.

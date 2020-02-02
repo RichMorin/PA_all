@@ -139,8 +139,8 @@ If the relevant behavior is not covered by a test,
 the type error might crash the offending process at runtime,
 preventing the desired diagnostic information from being displayed.
 
-Using a form of [gradual]{ext_wp|Gradual_typing}
-[static typing]{ ext_wp|Type_system#Static_and_dynamic_type_checking_in_practice},
+Using a form of gradual
+[static typing]{ext_wp|Type_system#Static_and_dynamic_type_checking_in_practice},
 Dialyzer can detect many type errors before the code is run.
 So, it provides a useful addition to the checks isted above.
 Dialyzer's notion of "success typing" evaluates every function call
@@ -412,6 +412,39 @@ I often use this to examine the data flowing through (or from) a pipeline:
     ...
     |> ii(:foo)
     ...
+
+#### Using Libraries
+
+Well-mannered Elixir and Erlang libraries
+typically define the types that their functions expect and return.
+Using these types in your own specs can save effort
+and reduce the chance of getting something wrong.
+Before trying to create your own types, check the documentation!
+
+Of course, it's also possible that a library's spec
+will (gasp!) contain a bug.
+For example, I recently tried to use Floki's new
+[traverse_and_update/3
+]{https://hexdocs.pm/floki/Floki.html#traverse_and_update/3} function
+and found that its spec had a tiny glitch.
+After filing an [issue]{ext_gh|philss/floki/issues/252} on GitHub,
+my next challenge was to override the spec so that I could continue
+cleaning up my own errors.
+
+Although there may be a simpler approach,
+I found one that seemed to work well.
+First, clone the library's repo in GitHub.
+Next, find and edit the spec definition(s) as needed.
+Finally, point your `deps` entry
+(in each relevant `mix.exs` file) to the edited version:
+
+    # Temporary redirect until Hex.pm gets a new version of Floki...
+    #     { :floki,               "~> 0.25" },
+          { :floki, override: true,
+            git: "https://github.com/RichMorin/floki.git" },
+
+Once you're confident that your change is correct,
+file a [pull request]{ext_gh|philss/floki/pull/255}.
 
 ### Afterword
 

@@ -107,8 +107,6 @@ located in `_info_web_t.ex`,
 defines types for use in `InfoWeb` and `PhxHttp*`.
 
 - `bins_map`    - information on HTML links, binned by status
-- `html_tree`   - either an HTML tuple or a list of them
-- `html_tuple`  - stores information from an HTML page
 - `link_out`    - output  information on an HTML link
 - `link_work`   - working information on an HTML link
 - `ok_map`      - URLs that are forced or known to be OK

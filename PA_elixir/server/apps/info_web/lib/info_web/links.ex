@@ -26,7 +26,8 @@ defmodule InfoWeb.Links do
   Process link tuples from the parsed page (aka HTML tree).
   """
 
-  @spec do_links(IWT.html_tree, String.t) :: [IWT.link_work]
+  @spec do_links(ht, String.t) :: [IWT.link_work]
+    when ht: Floki.html_tree 
 
   def do_links(html_tree, page_url) do
 
@@ -38,7 +39,8 @@ defmodule InfoWeb.Links do
 
   # Private functions
 
-  @spec check_link_elts(IWT.html_tree, String.t) :: [IWT.link_work]
+  @spec check_link_elts(ht, String.t) :: [IWT.link_work]
+    when ht: Floki.html_tree 
 
   defp check_link_elts(link_elts, page_url) do
   #
@@ -92,7 +94,8 @@ defmodule InfoWeb.Links do
     link_elts
   end
 
-  @spec get_link_tuples(IWT.html_tree, String.t) :: [IWT.link_work]
+  @spec get_link_tuples(ht, String.t) :: [IWT.link_work]
+    when ht: Floki.html_tree 
 
   defp get_link_tuples(link_elts, page_url) do
   #

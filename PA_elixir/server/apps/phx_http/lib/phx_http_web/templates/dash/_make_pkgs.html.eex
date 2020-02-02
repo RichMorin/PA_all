@@ -10,10 +10,8 @@
 %>
 
 <div class="hs-base2">
-  <h3>
-    Make Packages
-    <%= hide_show("is:2/2", "information on make packages") %>
-  </h3>
+  <h3>Make Packages</h3>
+  <p><%= hide_show("is:2/2") %></p>
 
   <p>
     The following table summarizes <%= pkg_cnt %> software packages

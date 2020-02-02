@@ -29,6 +29,9 @@ supports more complex routing schemes.
 
 ### Applications
 
+Here is some (sketchy) information on how different applications access audio.
+As usual, additions and corrections would be most welcome!
+
 - Emacspeak uses ALSA, through Voxin.
 - Orca uses ALSA, through PulseAudio.
 - Many audio tools use ALSA, through JACK.

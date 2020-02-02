@@ -49,17 +49,9 @@ Pete's Alley uses links in various ways:
 - on-page links  (jump to another part of the page)
 
 In general, it should be possible to determine what a link will do
-by reading the link's text, tooltip, and/or URL.
+by reading the link's text and/or URL.
 That said, if you don't know what a link does, just try it out!
 You won't hurt anything and you can always go back to the original page.
-
-Our URLs can be a bit long for convenient use in email, etc.
-So, we've used [TinyURL]{https://tinyurl.com} to create some shorter URLs:
-
-- `https://tinyurl.com/Perkian-Intro`
-- `https://tinyurl.com/Perkify-Intro`
-- `https://tinyurl.com/Perkify-Issues`
-- `https://tinyurl.com/Perkify-Packages`
 
 ### Progressive Disclosure
 
@@ -68,16 +60,17 @@ In order to make this less time-consuming to work with,
 we use a form of [progressive disclosure]{ext_wp|Progressive_disclosure}.
 The "hide" and "show" control links act as complementary
 [disclosure widgets]{ext_wp|Disclosure_widget},
-controlling a single level of content.
+controlling a single level of the page.
 The "hide all" and "show all" links control multiple levels,
 hiding or showing all subsidiary levels.
 
-To reduce clutter, some content starts out in "hide" mode.
+To reduce clutter, some parts of a page may start out in "hide" mode.
+For example, the (table of) Contents section acts in this manner.
 Click "show" or "show all" as needed
 to allow scanning, printing, and searching tasks.
 Certain sequences of clicks are also useful.
 For example, clicking "hide all" and then "show"
-will cause only the headings to be shown.
+will hide the details but allow the headings to be shown.
 
 ### Navigation
 
@@ -95,7 +88,7 @@ The page header contains several internal links:
 - [Pete's Alley ]{_text/home.toml}    - the home (landing) page
 - [About        ]{_text/about.toml}   - background information
 - [Catalog      ]{cat|:a}             - links to Catalog sections
-- [Catalog      ]{con|:a}             - links to Content sections
+- [Content      ]{con|:a}             - links to Content sections
 - [Search       ]{/search/find}       - tag-based search tool
 - [Usage        ]{_text/usage.toml}   - tutorial on site usage
 

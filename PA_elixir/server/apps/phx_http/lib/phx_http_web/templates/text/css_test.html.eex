@@ -7,4 +7,6 @@
 
 <h2><%= title %></h2>
 
+<toc />
+
 <%= fmt_section(@item, [:about, :verbose]) %>
