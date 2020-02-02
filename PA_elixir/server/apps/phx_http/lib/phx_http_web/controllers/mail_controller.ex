@@ -7,7 +7,12 @@ defmodule PhxHttpWeb.MailController do
 #   feed_form/2
 #     Generate the mail composing and sending page.
 #   feed_post/2
-#     Send the feedback, then redisplay the page.
+#     Try to send the feedback.
+#
+# Private functions
+#
+#   post_ok/2
+#     Save the feedback, then redirect to the originating page.
 
   @moduledoc """
   This module contains controller actions (etc) for editing and sending email.
@@ -36,7 +41,7 @@ defmodule PhxHttpWeb.MailController do
   end
 
   @doc """
-  This function sends the feedback, then redisplays the page.
+  This function tries to send the feedback.
   """
 
   @spec feed_post(pc, PHT.params) :: pc
@@ -44,8 +49,27 @@ defmodule PhxHttpWeb.MailController do
 
   def feed_post(conn, params) do
 
+    cond do
+      params["url"] == nil ->
+        message = "No 'url' was specified for the item."
+        nastygram(conn, message)
+
+      params["PA.message"] == nil ->
+        message = "No 'PA.message' was specified for the item."
+        nastygram(conn, message)
+
+      true -> post_ok(conn, params)
+    end
+  end
+
+  # Private functions
+
+  defp post_ok(conn, params) do
+  #
+  # Save the feedback, then redirect to the originating page.
+
     feed_base   = "/Local/Users/rdm/Dropbox/Rich_bench/PA_feed" #!K
-    prev_url    = params["url"] || "???"
+    prev_url    = params["url"]
 
     feedback    = params["PA.message"]
     |> String.replace("\r\n", "\n")     # Fix CR/NL
@@ -63,17 +87,12 @@ defmodule PhxHttpWeb.MailController do
     save_name   = String.replace(save_path, ~r{ ^ .+ / }x, "")
 
     message     = """
-    Your feedback has been saved as "#{ save_name }".
-    Feel free to use this Feedback page as a new starting point.
+    Thanks!  Your feedback has been saved as "#{ save_name }".
     """
 
     conn
-    |> put_flash(:info,         message)
-    |> base_assigns(:mail_edit, "PA Feedback")
-    |> assign(:prev_url,        prev_url)
-    |> render("feed.html")
+    |> put_flash(:info, message)
+    |> redirect(to: prev_url)
   end
-
-  # Private functions
 
 end
