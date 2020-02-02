@@ -100,7 +100,8 @@ defmodule PhxHttpWeb.Router.TOC do
     patt_toc  = "<toc />"
 
     if String.contains?(body_tmp, patt_toc) do
-      patt_hdr    = ~r{<[Hh][1-6].+?[Hh][1-6]>}
+#     patt_hdr    = ~r{<[Hh][1-6].+?[Hh][1-6]>}
+      patt_hdr    = ~r{<[Hh][3-6].+?[Hh][3-6]>}
 
       match_list  = patt_hdr
       |> Regex.scan(body_tmp)     # [ [ "<h1>Foo</h1>" ], ... ]
@@ -143,6 +144,19 @@ defmodule PhxHttpWeb.Router.TOC do
   #
   # Generate TOC HTML from the match_list.
 
+    level_base  = 2
+
+    m_r_fn  = fn tup_inp, level_prev ->
+      {header, _hdr_ndx}  = tup_inp
+
+      tup_out   = tup_inp                   # { "<h3>Foo</h3>", 2}
+      |> Tuple.append(level_prev)           # { "<h3>Foo</h3>", 2, 2}
+
+      level_this  = get_level(header)
+
+      {tup_out, level_this}                 # { { "<h3>Foo</h3>", 2, 2}, 3}
+    end
+
     map_fn  = fn match_tuple ->
       {header, hdr_ndx, level_prev} = match_tuple
       level_this        = get_level(header)
@@ -158,15 +172,15 @@ defmodule PhxHttpWeb.Router.TOC do
       level_diff  = level_this - level_prev
 
       cond do
-        level_this == 0 ->    # Close out all ul levels.
+        level_this == level_base ->         # Close out all ul levels.
           adjust  = String.duplicate("</ul>", -level_diff)
           [ adjust ]
 
-        level_diff > 0 ->     # Increase the ul level.
+        level_diff > 0 ->                   # Increase the ul level.
           adjust  = String.duplicate("<ul>",   level_diff)
           [ adjust, item ]
 
-        level_diff < 0 ->     # Decrease the ul level.
+        level_diff < 0 ->                   # Decrease the ul level.
           adjust  = String.duplicate("</ul>", -level_diff)
           [ adjust, item ]
 
@@ -174,27 +188,16 @@ defmodule PhxHttpWeb.Router.TOC do
       end
     end
 
-    m_r_fn  = fn tup_inp, level_prev ->
-      {header, _hdr_ndx}  = tup_inp
+    dummy_item  = {"<h#{ level_base }></h#{ level_base }>", 99}
 
-      tup_out   = tup_inp               # { "<h3>Foo</h3>", 2}
-      |> Tuple.append(level_prev)       # { "<h3>Foo</h3>", 2, 2}
+    {toc_tmp1, _acc}  = match_list          # [ ..., {"<h4>...</h4>", 20} ]
+    |> List.insert_at(-1, dummy_item)       # append {"...", 99}
+    |> Enum.map_reduce(level_base, m_r_fn)  # { [ ..., {"...", 99, 4} ], 0}
 
-      level_this  = get_level(header)
-
-      {tup_out, level_this}             # { { "<h3>Foo</h3>", 2, 2}, 3}
-    end
-
-    dummy_item  = {"<h0></h0>", 99}
-
-    {toc_tmp1, _acc}  = match_list      # [ ..., {"<h4>...</h4>", 20} ]
-    |> List.insert_at(-1, dummy_item)   # append {"<h0></h0>", 99}
-    |> Enum.map_reduce(0, m_r_fn)       # { [ ..., {"<h0></h0>", 99, 4} ], 0}
-
-    toc_tmp2   = toc_tmp1               # [ ..., {"<h0></h0>", 99, 4} ]
-    |> Enum.map(map_fn)                 # [ ..., [ "</ul></ul></ul></ul>" ] ]
-    |> List.flatten()                   # [ ..., "</ul></ul></ul></ul>" ]
-    |> Enum.join("\n")                  # "...\n</ul></ul></ul></ul>"
+    toc_tmp2   = toc_tmp1                   # [ ..., {"...", 99, 4} ]
+    |> Enum.map(map_fn)                     # [ ..., [ "</ul></ul>" ] ]
+    |> List.flatten()                       # [ ..., "</ul></ul>" ]
+    |> Enum.join("\n")                      # "...\n</ul></ul>"
     
     """
     <b>Contents:</b>
@@ -203,7 +206,7 @@ defmodule PhxHttpWeb.Router.TOC do
     <span class="hs-show1 hs-is hs-none">(<a
       href="#">show</a>)</span>
 
-    <div class="hs-body1 hs-ih toc">
+    <div class="hs-body1 hs-ih tocx">
     #{ toc_tmp2 }
     </div>
     """
