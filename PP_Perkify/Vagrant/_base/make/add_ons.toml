@@ -8,7 +8,7 @@
 # in the Perkify Vagrant "box".  Each line contains four (comma-separated,
 # blank-padded) fields: Flags, Title, APT Name, and Description.
 #
-# The Flags field is use to indicate the processing status, etc.
+# The Flags field is used to indicate assorted aspects of the package.
 #
 #   I  Installs
 #   P  Prospect

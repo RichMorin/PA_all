@@ -32,7 +32,7 @@ defmodule Server.MixProject do
       # Docs
       name:                   "Pete's Alley",
       source_url:             src_url,
-      homepage_url:           "http://www.cfcl.com/PA",
+      homepage_url:           "http://pa.cfcl.com",
 
       docs: [
         source_url_pattern:   src_patt,

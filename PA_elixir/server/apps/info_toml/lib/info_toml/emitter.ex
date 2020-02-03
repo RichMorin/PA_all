@@ -5,7 +5,7 @@ defmodule InfoToml.Emitter do
 # Public functions
 #
 #   chef_save/1
-#     Save a file of Chef control data, in TOML format.
+#     Save a file of Chef control data, in TOML format. (inactive)
 #   emit_toml/2
 #     Emit a TOML file.  Return path to the file.
 #   get_chef_toml/2
@@ -33,7 +33,7 @@ defmodule InfoToml.Emitter do
   # Public functions
 
   @doc """
-  Save a file of Chef control data, in TOML format.
+  Save a file of Chef control data, in TOML format. (inactive)
   """
 
   @spec chef_save(atom) :: String.t

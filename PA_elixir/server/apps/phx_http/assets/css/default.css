@@ -75,6 +75,12 @@ pre {
   padding:                10px 10px 10px 10px;
 }
 
+/*
+|| This (div.toc) styling makes the TOC look a bit nicer.  Unfortunately,
+|| it seems to keep some screen readers from recognizing list hierarchies.
+|| So, for the moment at least, we're not using it.
+*/
+
 div.toc ul {
   list-style-type:        none;
   padding:                0px 20px 0px 20px;

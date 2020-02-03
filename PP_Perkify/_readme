@@ -1,0 +1,8 @@
+This directory contains files related to the generation and distribution
+of Perkify virtual machines.
+
+# Sub-directories
+
+- Chef      (experimental; inactive)
+- Docker    (experimental; inactive)
+- Vagrant   (production)
