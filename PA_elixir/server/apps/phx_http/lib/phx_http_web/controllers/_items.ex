@@ -14,7 +14,7 @@ defmodule PhxHttpWeb.Cont.Items do
 #     Get `make.toml` information for an item.
 #   get_reviews/1
 #     Get a list of keys for this item's reviews.
-#   get_slides/1
+#   get_slide_keys/1
 #     Get `s_*.toml` information for an item.
 #
 # Private functions
@@ -28,7 +28,7 @@ defmodule PhxHttpWeb.Cont.Items do
   This module provides functions to retrieve information on items.
   """
 
-  import Common, only: [ sort_by_elem: 2 ]
+  import Common, only: [sort_by_elem: 2]
 
   alias InfoToml.Types, as: ITT
   alias PhxHttp.Types,  as: PHT
@@ -162,9 +162,9 @@ defmodule PhxHttpWeb.Cont.Items do
   Get a list of keys for this item's slides.
   """
 
-  @spec get_slides(st) :: [st] when st: String.t
+  @spec get_slide_keys(st) :: [st] when st: String.t
 
-  def get_slides(key) do
+  def get_slide_keys(key) do
     pattern   = ~r{ / s_\w+ \. toml $ }x
     get_extras(key, pattern)
   end

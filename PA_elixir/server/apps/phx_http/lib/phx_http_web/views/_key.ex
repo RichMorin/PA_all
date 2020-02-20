@@ -19,7 +19,7 @@ defmodule PhxHttpWeb.View.Key do
   Handle tasks related to `toml_map` keys.
   """
 
-  import InfoToml, only: [ get_item: 1 ]
+  import InfoToml, only: [get_item: 1]
 
   # Public functions
 

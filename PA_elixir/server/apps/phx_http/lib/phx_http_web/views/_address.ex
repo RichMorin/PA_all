@@ -23,8 +23,8 @@ defmodule PhxHttpWeb.View.Address do
   use Phoenix.HTML
 # use PhxHttpWeb, :view
 
-  import Common,
-    only: [ csv_split: 1, ii: 2, keyss: 1 ]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [csv_split: 1, keyss: 1]
   import PhxHttpWeb.View.Markup
   import PhxHttpWeb.View.Zoo
 

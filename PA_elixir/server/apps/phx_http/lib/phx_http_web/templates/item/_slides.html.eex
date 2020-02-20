@@ -1,10 +1,9 @@
 <!-- templates/item/_slides.html.eex -->
 
-<%= if !Enum.empty?(@slides) do %>
-  <h3>Slides</h3>
-
+<%= if !Enum.empty?(@slide_keys) do %>
+  <h3>Index</h3>
   <ul>
-    <%= for key <- @slides do %>
+    <%= for key <- @slide_keys do %>
       <%
         item    = InfoToml.get_item(key)
         title   = item.meta.title
@@ -15,4 +14,13 @@
       </li>
     <% end %>
   </ul>
+
+  <div class="hs-base1">
+    <h3>Slides</h3>
+    <p><%= hide_show("ih:1/1") %></p>
+
+    <div class="hs-body1 hs-ih">
+      <%= fmt_markup(@slide_text) %>
+    </div>
+  </div>
 <% end %>

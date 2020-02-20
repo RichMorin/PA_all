@@ -7,7 +7,7 @@ defmodule PhxHttpWeb.View.Markup do
 #   fmt_markup/1
 #     Convert a string containing markup (extended Markdown) to HTML.
 #   fmt_section/2
-#     Convert a section containing markup (extended Markdown) to HTML.
+#     Extract and convert a TOML section containing markup to HTML.
 #
 # Private functions
 #
@@ -22,8 +22,8 @@ defmodule PhxHttpWeb.View.Markup do
 
   use Phoenix.HTML
 
-  import Common, warn: false, only: [ ii: 2 ]
-  import PhxHttpWeb.View.Link, only: [do_links: 1 ]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import PhxHttpWeb.View.Link, only: [do_links: 1]
 
   alias InfoToml.Types, as: ITT
   alias PhxHttp.Types,  as: PHT
@@ -50,13 +50,12 @@ defmodule PhxHttpWeb.View.Markup do
         markup_err(md_inp, err_list)
 
 #     unknown -> "<p>#{ inspect(unknown) }</p>"   #!D
-    end
+    end |> raw()
   end
 
   @doc """
-  This function extracts a section containing markup (extended Markdown)
-  and converts it to HTML.  In the process, it handles file inclusions
-  and expands some prefix strings.
+  This function extracts a TOML section containing markup (extended Markdown)
+  and converts it to HTML.  In the process, it expands some prefix strings.
   """
 
   @spec fmt_section(ITT.item_map, [atom]) :: PHT.safe_html

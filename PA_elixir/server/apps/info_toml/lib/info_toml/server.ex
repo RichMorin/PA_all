@@ -23,7 +23,8 @@ defmodule InfoToml.Server do
 
   @me __MODULE__
 
-  import Common, warn: false, only: [ ii: 2, keyss: 1]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [keyss: 1]
 
   alias InfoToml.{CheckTree, IndexTree, LoadTree, Schemer}
   alias InfoToml.Types, as: ITT
@@ -106,6 +107,7 @@ defmodule InfoToml.Server do
 
     toml_map    = toml_map
     |> Map.put(:index,  toml_ndx)
+    |> Map.put(:memos,  %{})
     |> Map.put(:prefix, toml_pre)
 
     {status, messages} = CheckTree.check_all(toml_map)

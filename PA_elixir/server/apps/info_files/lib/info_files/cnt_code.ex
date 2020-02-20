@@ -20,7 +20,7 @@ defmodule InfoFiles.CntCode do
   lines, and characters.
   """
 
-  import Common, warn: false, only: [ ii: 2 ]
+  import Common.Tracing, only: [ii: 2], warn: false
 
   alias InfoFiles.CntAny
   alias InfoFiles.Types, as: IFT

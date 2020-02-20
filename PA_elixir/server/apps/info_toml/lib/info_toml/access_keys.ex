@@ -23,7 +23,8 @@ defmodule InfoToml.AccessKeys do
 
   @me InfoToml.Server
 
-  import Common, warn: false, only: [ ii: 2, keyss: 1, ssw: 2 ]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [keyss: 1, ssw: 2]
 
   # Public functions
 

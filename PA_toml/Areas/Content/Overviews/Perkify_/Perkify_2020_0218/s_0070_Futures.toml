@@ -1,0 +1,16 @@
+# con_ove|Perkian_2020_0218/s_0070_Futures.toml
+
+[ meta ]
+
+  title       = 'Futures'
+
+[ about ]
+
+  verbose     = '''
+Perkify is definitely a Work In Progress...
+
+- Multiple distributions are a possibility.
+- Some packages will always need to be built.
+- Some packages will always need to be tested.
+- Still; it's showing signs of life.
+'''

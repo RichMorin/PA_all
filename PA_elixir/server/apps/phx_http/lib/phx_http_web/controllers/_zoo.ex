@@ -34,7 +34,7 @@ defmodule PhxHttpWeb.Cont.Zoo do
     when im: ITT.item_maybe, pc: Plug.Conn.t, st: String.t
 
   def base_assigns(conn, page_type, title, item \\ nil, key \\ nil) do
-    import Plug.Conn, only: [ assign: 3 ]
+    import Plug.Conn, only: [assign: 3]
 
     conn
     |> assign(:item,      item)

@@ -29,8 +29,8 @@ defmodule InfoToml.IndexTree do
   prevent IEx from displaying ID lists as strings.
   """
 
-  import Common, warn: false,
-    only: [ csv_split: 1, ii: 2, keyss: 1 ]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [csv_split: 1, keyss: 1]
 
   alias InfoToml.Types, as: ITT
 

@@ -13,7 +13,7 @@ defmodule Common.Maps do
   This module contains map-handling functions for common use.
   """
 
-  import Common, warn: false, only: [ii: 2]
+  import Common.Tracing, only: [ii: 2], warn: false
 
   alias Common.Types, as: CT
 

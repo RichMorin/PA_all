@@ -1,0 +1,27 @@
+# con_ove|Perkify_2020_0218/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkify_2020_0218'
+  title       = 'Perkify - BALUG Talk (2020.0218)'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'Perkify: a blind-friendly virtual machine'
+
+  verbose     = '''
+I gave a short, introductory talk (Perkify: a blind-friendly virtual machine)
+at the Bay Area Linux Users Group ([BALUG]{https://www.balug.org}) meeting
+on February 18, 2020.
+This item contains the slides for the talk.
+'''
+
+[ zoo ]
+
+  snippets    = '...'

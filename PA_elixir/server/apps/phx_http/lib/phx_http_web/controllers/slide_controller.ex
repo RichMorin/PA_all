@@ -20,7 +20,7 @@ defmodule PhxHttpWeb.SlideController do
 
   use PhxHttpWeb, :controller
 
-  import PhxHttpWeb.Cont.Items, only: [ get_slides: 1 ]
+  import PhxHttpWeb.Cont.Items, only: [get_slide_keys: 1]
 
   alias InfoToml.Types, as: ITT
   alias PhxHttp.Types,  as: PHT
@@ -56,7 +56,7 @@ defmodule PhxHttpWeb.SlideController do
 
     conn
     |> base_assigns(:slide, "PA Slide", item, key)
-    |> assign(:slides, get_slides(key))
+    |> assign(:slide_keys, get_slide_keys(key))
     |> render("show.html")
   end
 

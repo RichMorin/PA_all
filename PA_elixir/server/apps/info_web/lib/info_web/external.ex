@@ -12,7 +12,7 @@ defmodule InfoWeb.External do
   such as missing pages, redirects, etc.
   """
 
-  import Common, only: [ ii: 2 ]
+  import Common.Tracing, only: [ii: 2], warn: false
 
   alias InfoWeb.Types, as: IWT
 

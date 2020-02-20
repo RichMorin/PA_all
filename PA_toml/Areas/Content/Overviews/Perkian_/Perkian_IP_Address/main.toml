@@ -1,0 +1,85 @@
+# con_ove|Perkian_IP_Address/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkian_IP_Address'
+  title       = 'Perkian - IP Address'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ about ]
+
+  precis      = 'determining the IP address of a Perkian system'
+
+  verbose     = '''
+It should be possible to set up a Perkian image
+so that even a newly installed system
+will boot with Secure Shell ([SSH]{ext_wp|Secure_Shell}) enabled.
+So, in theory, the user can simply log in
+from a nearby, [Wi-Fi]{ext_wp|Wi-Fi} enabled system.
+However, this ignores the issue of determining what
+[IP address]{ext_wp|IP_address} the Perkian system will be using.
+
+In the scenario I have in mind,
+someone downloads an ISO image and copies it onto a mass storage device
+such as a microSD card or a USB flash drive.
+They then plug the device into the RasPi and power up the system.
+Assuming that the user's location has an active Wi-Fi router,
+I'd expect the RasPi to pick up a Class C IP address
+from a Dynamic Host Configuration Protocol
+([DHCP]{ext_wp|Dynamic_Host_Configuration_Protocol}) server
+and be ready to respond to requests.
+So, the user will still need a way to determine the new system's IP address
+out of 200+ possibilities.
+
+CFCL uses a "Cisco RV042 10/100 4-Port VPN Router".
+This device lets me log in over either Wi-Fi or the wired LAN,
+using the password for its `admin` account.
+I can then browse through the router's web interface
+to the DHCP Status page and examine the Client Table.
+This is a fine solution for me, but not something I can suggest
+to random users somewhere across the globe.
+I've been looking for more general solutions,
+but I'm not finding anything very convenient.
+So, in the meanwhile, I decided to hack something up...
+
+### Take a Memo
+
+If the user's Local Area Network ([LAN]{ext_wp|Local_area_network})
+is connected to the Internet,
+one plausible (albeit rather peculiar) possibility would be
+to have the RasPi "call home" at boot time,
+accessing a specialized web page.
+For example, this URL might say that a Perkian system named `frodo`
+booted up and received a (local) IP address of `192.168.1.42`:
+
+    http://pa.cfcl.com/memo?hn=frodo&ip=192.168.1.42&os=perkian
+
+The user could then browse to a personalized report page,
+which would display the URLs used by the (most recent) calls
+from the user's external IP address.
+Something like this:
+
+<blockquote>
+  <b>Memos for 127.0.0.1</b>
+  <p><b>2020-02-20T07:48:04.852401Z</b></p>
+  <pre>
+hn:        frodo
+ip:        192.168.1.42
+os:        perkian</pre>
+  ...
+</blockquote>
+
+Given the power of [Elixir]{ext_wp|Elixir_(programming_language)}
+and the [Phoenix]{ext_wp|Phoenix_(web_framework)} framework,
+it only took a few dozen lines of code to add this capability to Pete's Alley.
+Feel free to give it a try...
+'''
+
+[ zoo ]
+
+  snippets    = '...'

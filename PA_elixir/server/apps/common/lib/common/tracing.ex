@@ -30,6 +30,18 @@ defmodule Common.Tracing do
 
   #!W Figure out how to test this.
 
+  #!K There is no concise way to tell Elixir to optionally import selected
+  #   functions from a module (as in `warn: false`), but import others from
+  #   it with warnings enabled.  As a result, this code base is littered
+  #   with lines of the following form:
+  #
+  #     import Common.Tracing, only: [ii: 2], warn: false
+  #
+  #   I have reported this issue to the elixir-core mailing list, suggesting
+  #   something like the following syntax:
+  #
+  #     import Common, maybe: [ii: 2], only: [foo: 1]
+
   def ii(float, label) when is_float(float) do
     float
     |> :erlang.float_to_binary(decimals: 2)

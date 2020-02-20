@@ -29,8 +29,9 @@ defmodule PhxHttpWeb.SearchController do
 
   use PhxHttpWeb, :controller
 
-  import Common, only: [ base_26: 1, get_run_mode: 0, ii: 2 ]
-  import PhxHttpWeb.Cont.Params, only: [ munge: 1 ]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [base_26: 1, get_run_mode: 0]
+  import PhxHttpWeb.Cont.Params, only: [munge: 1]
 
   alias InfoToml.Types, as: ITT
   alias PhxHttp.Types,  as: PHT

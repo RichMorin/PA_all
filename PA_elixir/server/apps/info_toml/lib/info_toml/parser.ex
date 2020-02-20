@@ -15,8 +15,8 @@ defmodule InfoToml.Parser do
 #     Wrapper for Toml.decode/1; allows :string as `atom_key`.
 #   filter/2
 #     Filter the parsing results, reporting and removing cruft.
-#   includes/2
-#     Process file inclusions , using Jekyll syntax.
+#   incl_jekyll/2
+#     Process include_relative commands (using Jekyll syntax).
 #   parse_h1/2
 #     Read the file, check for valid Unicode, and (maybe) parse it.
 #   parse_h2/2
@@ -26,7 +26,8 @@ defmodule InfoToml.Parser do
   This module handles reading and parsing of data from a TOML file.
   """
 
-  import Common, warn: false, only: [get_tree_base: 0, ii: 2]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [get_tree_base: 0]
 
   alias String, as: S
   alias InfoToml.Types, as: ITT
@@ -136,16 +137,16 @@ defmodule InfoToml.Parser do
     end
   end
 
-  @spec includes(st, st) :: st
+  @spec incl_jekyll(st, st) :: st
     when st: S.t
 
-  defp includes(inp_text, user_abs) do
+  defp incl_jekyll(inp_text, user_abs) do
   #
-  # Process file inclusions, using Jekyll syntax:
+  # Process `include_relative` commands (using Jekyll syntax):
   #
   #   {% include_relative filepath %}
   #
-  # The filepath must refer to a Markdown file under PA_toml.
+  # The filepath must refer to a Markdown file located under PA_toml.
 
     incl_patt   = ~r< {% \s+ include_relative \s+ (\S+) \s+ %} >x
     toml_abs    = get_tree_base() <> "/PA_toml"
@@ -214,7 +215,7 @@ defmodule InfoToml.Parser do
 
     file_text   = file_abs
     |> File.read!()             # "<TOML file text>"
-    |> includes(file_abs)       # Process include files, if any.
+    |> incl_jekyll(file_abs)    # Process include files, if any.
 
     if S.valid?(file_text) do
       {status, payload} = tuple = parse_h2(file_text, atom_key)

@@ -19,7 +19,9 @@
     toml_data   = TomlRB.load_file(toml_path)
     data_pkgs   = toml_data['packages']
     pkg_cnt     = 0
-    skip_wip    = true  # Comment out to process lines for WIP packages.
+
+    test_build  = false
+#   test_build  = true    # Uncomment to build a test distro.
 
     # The add_ons.toml file contains ~200 Debian APT packages.  To retain some
     # useful order and support debugging, these are divided into topical types
@@ -28,6 +30,7 @@
     tags    = [
       'a11y',   # accessibility
       'admin',  # administration
+      'cad',    # 3D CAD, etc.
       'comm',   # communication
       'desk',   # desktops, tools
       'docs',   # documentation
@@ -42,7 +45,7 @@
       'zoo'     # everything else
     ]
 
-    if true #!D - set to true for debugging
+    if false #!D - set to true for debugging
       tags    = %w(debug)
       tags    = %w(a11y media)
 
@@ -58,9 +61,14 @@
         next if line =~ /^#/                  # Skip comment lines.
         next if line =~ /^\s*$/               # Skip blank lines.
 
-        flags, title, name, notes = get_fields(line)
-        next if flags =~ /P/                  # Skip prospects.
-        next if flags =~ /I/ and skip_wip     # Skip WIP packages.
+        sizes, flags, title, name, notes = get_fields(line)
+
+        if test_build
+          next unless flags =~ /[S?]/         # Small or test distro
+        else
+          next if flags =~ /-/                # any normal distro
+          next unless flags =~ /[SM]/
+        end
 
         next if pkg_cnt >= pkg_lim
         pkg_cnt += 1

@@ -13,8 +13,8 @@ defmodule InfoToml.CheckTree do
   This module runs tests on a prospective toml_map.
   """
 
-  import Common, only:
-    [ csv_split: 1, fmt_list: 1, ii: 2, sort_by_elem: 3, ssw: 2 ]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [csv_split: 1, fmt_list: 1, sort_by_elem: 3, ssw: 2]
 
   alias InfoToml.Schemer
   alias InfoToml.Types, as: ITT

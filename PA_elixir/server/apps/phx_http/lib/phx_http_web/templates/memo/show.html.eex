@@ -1,0 +1,27 @@
+<!-- templates/memo/show.html.eex -->
+
+<% ip_addr   = hd(@memos).ip_addr %>
+
+<h4>Memos for <%= ip_addr %></h4>
+
+<%= for memo <- @memos do %>
+  <h5><%= memo.iso8601 %></h5>
+
+  <%
+    keys  = keyss(memo.params)
+    last  = List.last(keys)
+  %>
+
+  <pre>
+    <%= for key <- keys do %>
+      <%=
+        param     = memo.params[key]
+        key_tmp   = key <> ":"
+        key_fmt   = String.pad_trailing(key_tmp, 10)
+        break     = if key == last do "" else "\n" end
+
+        "#{ key_fmt } #{ param }#{ break }"
+      %>
+    <% end %>
+  </pre>
+<% end %>

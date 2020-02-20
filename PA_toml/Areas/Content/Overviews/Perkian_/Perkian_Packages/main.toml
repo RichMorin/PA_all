@@ -1,0 +1,72 @@
+# con_ove|Perkian_Packages/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Perkian_Packages'
+  title       = 'Perkian - A11y Packages'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'con_ove|Perkian_Related'
+
+[ about ]
+
+  precis      = 'Perkian Project - A11y Packages'
+
+  verbose     = '''
+Several blind-friendly Linux releases have been created over the years,
+featuring various combinations of accessibility-related software packages.
+This page attempts to bring these package lists together,
+allowing them to be compared and contrasted.
+It may also allow us to identify packages
+whose inclusion seems to embody a Best Practice.
+
+Here are the OS names, along with the (rather cryptic) abbreviations
+used in the table below:
+
+- F123Light (FL)
+- Grml (Gr)
+- Knoppix (Kn)
+- Perkify/Vagrant (PV)
+- Raspberry VI (RV)
+- Slint (Sl)
+- Sonar (So)
+- TalkingArch (TA)
+- Ubuntu (Ub)
+- Vinux (Vi)
+
+| Package Name          | Linux Variants    | Description                   |
+| ------------          | --------------    | -----------                   |
+| Accerciser            | PV                | accessibility explorer        |
+| Adriane               | Kn                | accessibility toolkit         |
+| BRLTTY                | Gr, PV            | braille output support        |
+| brltty-espeak         | PV                | eSpeak driver for BRLTTY      |
+| Bookworm              |                   | eBook reader                  |
+| DAISY Pipeline 2      |                   | document converter            |
+| Daisy Player          | PV                | ebook reader                  |
+| Dasher                | PV                | predictive text input         |
+| ELinks                | Kn                | text-mode web browser         |
+| Emacspeak             |                   | accessible editor             |
+| eSpeakNG              | PV                | speech synthesizer            |
+| espeakup              | PV                | eSpeak/speakup connector      |
+| Eww                   |                   | Emacs-based web browser       |
+| Fenrir                | PV, St            | console screen reader         |
+| GNOME A11y            |                   | accessible desktop themes     |
+| latex-access          |                   | LaTeX-to-braille translator   |
+| Liblouis              | PV                | braille translation library   |
+| Lucidor               |                   | ebook reader                  |
+| MBROLA                | PV                | speech synthesizer            |
+| Orca                  | PV, St, Ub        | scriptable screen reader      |
+| ratpoison             | FL                | CLI window manager            |
+| SBL                   | Kn                | screen reader                 |
+| speech-dispatcher     | PV                | speech synthesis interface    |
+| tdsr                  |                   | screen reader                 |
+| The vOICe             |                   | sensory substitution          |
+'''
+
+[ zoo ]
+
+  snippets    = '...'

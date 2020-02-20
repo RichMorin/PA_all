@@ -20,8 +20,9 @@ defmodule PhxHttpWeb.View.Link do
 
   use Phoenix.HTML
 
-  import Common,   only: [ ii: 2, sew: 2, ssw: 2 ]
-  import InfoToml, only: [ exp_prefix: 1 ]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [sew: 2, ssw: 2]
+  import InfoToml, only: [exp_prefix: 1]
 
   alias PhxHttp.Types, as: PHT
 
@@ -139,7 +140,7 @@ defmodule PhxHttpWeb.View.Link do
           true                ->  :int_item     # "...|..."
         end
 
-      head_2 == "ext_wp"  ->  :ext_wp       # "ext_wp|..."
+      head_2 == "ext_am"  ->  :ext_am       # "ext_am|..."
       true                ->  :ext_zoo      # "..._...|..."  
     end
 
@@ -165,22 +166,22 @@ defmodule PhxHttpWeb.View.Link do
   @spec do_links_h2(atom, st, st) :: st
     when st: String.t
 
-  defp do_links_h2(:ext_wp, inp_1, inp_2) do
+  defp do_links_h2(:ext_am, inp_1, inp_2) do
   #
-  # Handle external links to Wikipedia ("ext_wp|...").
+  # Handle external links to Amazon ("ext_am|...").
 
     out_2   = exp_prefix(inp_2)
     out_1   = if inp_1 == "$url" do out_2 else inp_1 end
 
-    "[#{ out_1 }](#{ out_2 })"
+    "[#{ out_1 }](#{ out_2 }?tag=petesalley-20)"
   end
 
   defp do_links_h2(:ext_zoo, inp_1, inp_2) do
   #
   # Handle other external links ("ext_...|...").
 
-    out_2     = exp_prefix(inp_2)
-    out_1     = if inp_1 == "$url" do out_2 else inp_1 end
+    out_2   = exp_prefix(inp_2)
+    out_1   = if inp_1 == "$url" do out_2 else inp_1 end
 
     "[#{ out_1 }](#{ out_2 })"
   end

@@ -23,7 +23,7 @@ defmodule InfoFiles.CntAny do
   It counts files, functions, lines, and characters.
   """
 
-  import Common, only: [ii: 2]
+  import Common.Tracing, only: [ii: 2], warn: false
 
   alias InfoFiles.Types, as: IFT
 

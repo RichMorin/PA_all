@@ -23,8 +23,8 @@ defmodule PhxHttpWeb.SourceController do
 
   use PhxHttpWeb, :controller
 
-  import Common, only: [ ssw: 2 ]
-  import InfoToml.Common, only: [ get_file_abs: 1 ]
+  import Common, only: [ssw: 2]
+  import InfoToml.Common, only: [get_file_abs: 1]
 
   alias InfoToml.Types, as: ITT
   alias PhxHttp.Types,  as: PHT

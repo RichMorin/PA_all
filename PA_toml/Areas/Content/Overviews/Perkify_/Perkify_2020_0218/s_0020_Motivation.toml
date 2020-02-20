@@ -1,0 +1,18 @@
+# con_ove|Perkian_2020_0218/s_0020_Motivation.toml
+
+[ meta ]
+
+  title       = 'Motivation'
+
+[ about ]
+
+  verbose     = '''
+Installing open source software should be easy and safe:
+
+- The open source community has produced a wealth of software.
+- Much of this could be of use to the visually disabled.
+- For example, there are a great many text-based commands.
+- However, finding and installing packages is a lot of work.
+- Adding and removing packages can also destabilize a system.
+- So, let's make the process a bit less painful...
+'''

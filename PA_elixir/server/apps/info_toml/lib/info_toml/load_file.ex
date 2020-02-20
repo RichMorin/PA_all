@@ -19,7 +19,8 @@ defmodule InfoToml.LoadFile do
   loading and checking against the schema.
   """
 
-  import InfoToml.Common, only: [ get_file_abs: 1, get_map_key: 1 ]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import InfoToml.Common, only: [get_file_abs: 1, get_map_key: 1]
 
   alias InfoToml.{CheckItem, Parser}
   alias InfoToml.Types, as: ITT
@@ -80,6 +81,13 @@ defmodule InfoToml.LoadFile do
 
     file_abs           = get_file_abs(file_rel)
     {:ok, file_stat}   = File.stat(file_abs, time: :posix)
+
+    # The code below gets the date and time of the file's most recent commit.
+    # Unfortunately, it takes an annoying amount of time to do so...
+    #
+    #  arg_list      = ~w(log -1 --pretty=%ci) ++ [file_abs]
+    #  {cmd_out, 0}  = System.cmd("git", arg_list)
+    #  date_time     = String.trim(cmd_out)
 
     patt_item   = ~r{ / [^/]+ / ( main | make | s_\w+ ) \. toml $ }x
     patt_misc   = ~r{ / [^/]+ \. toml $ }x

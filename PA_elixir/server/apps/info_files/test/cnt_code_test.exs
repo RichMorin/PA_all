@@ -5,14 +5,14 @@ defmodule InfoFilesTest.CntCode do
   use ExUnit.Case
 
   setup_all do
-    import Common, only: [ get_tree_base: 0 ]
+    import Common, only: [get_tree_base: 0]
 
     tree_base   = get_tree_base()
     { :ok, file_info: InfoFiles.CntCode.get_code_info(tree_base) }
   end
 
   test "creates expected data structure", state do
-    import Common, only: [ keyss: 1, ssw: 2 ]
+    import Common, only: [keyss: 1, ssw: 2]
 
     # cnts_by_app:    %{ "<app>"  => %{...}, ... },
     # cnts_by_ext:    %{ "<ext>"  => %{...}, ... },

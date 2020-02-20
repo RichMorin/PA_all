@@ -7,7 +7,7 @@
 [ about ]
 
   verbose     = '''
-### A Gentle Introduction to Dialyzer and Typespecs
+#### A Gentle Introduction to Dialyzer and Typespecs
 
 by Rich Morin (rdm@cfcl.com)<br>
 Canta Forda Computer Laboratory

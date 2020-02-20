@@ -22,7 +22,8 @@ defmodule PhxHttpWeb.View.Tag do
 
   use Phoenix.HTML
 
-  import Common, only: [ ii: 2, keyss: 1 ], warn: false
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [keyss: 1]
   import PhxHttpWeb.View.Hide
 
   alias InfoToml.Types, as: ITT

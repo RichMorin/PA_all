@@ -15,7 +15,7 @@
 #
 # Written by Rich Morin, CFCL, 2019.
 
-  set -x  #!T
+# set -x  #!T
   export TZ=America/Los_Angeles           # really, San Bruno...
   pkg_lim=$1
 

@@ -30,8 +30,8 @@ defmodule PhxHttpWeb.DashController do
 
   use PhxHttpWeb, :controller
 
-  import Common,
-    only: [ get_http_port: 0, get_tree_base: 0, ii: 2, keyss: 1 ]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [get_http_port: 0, get_tree_base: 0, keyss: 1]
 
   alias PhxHttpWeb.Cont.Make
   alias PhxHttp.Types, as: PHT

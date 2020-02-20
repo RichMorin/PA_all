@@ -44,6 +44,11 @@ The `_base` sub-directory contains scripts and data files:
     | | get_gem             get a Ruby Gem
     | | mpma                make perk-make attempt
     | | pkg_list.rb         pkg_tbl.md generation script
+    | | setup_alsa          script to set up ALSA
+    | | setup_apache        script to set up Apache
+    | | setup_profile       script to set up ~/.profile
+    | | sizes_bis           List packages, by Installed-Size
+    | | sizes_rec           List packages, recursively
     | | Vagrantfile.dist    configuration (distributed)
     | | Vagrantfile.make_   configuration (for build)
     | | Vagrantfile.test    configuration (for tests)
@@ -72,25 +77,23 @@ This will:
 - load the Vagrantfile (etc) for Ubuntu 19.04
 - update the working directory and provision a VM
 
+*Note:*
+The "202001.16.0" version of "bento/ubuntu-19.10" got a 404 error.
+I worked around this by fudging the value of `bv` in `mpma`.
+
 #### Update and Upgrade the VM
 
 Start up an SSH session to the VM:
 
     $ vagrant ssh
     ...
-    91 updates can be installed immediately.
-    50 of these updates are security updates.
+    0 updates can be installed immediately.
+    0 of these updates are security updates.
 
 Apply the available Ubuntu updates:
 
     vagrant@perk-make:~$ sudo apt update && sudo apt upgrade -y
     ...
-
-*Note:*
-In disco, the GRUB upgrade puts up an interactive dialog, asking about
-which disk it should be installed on.
-It then ignores the user's input (at least under add_ons).
-So, for the moment, we're choosing not to enable any of these...
 
 Run these commands again, for good measure:
 

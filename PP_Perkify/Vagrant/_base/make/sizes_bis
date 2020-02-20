@@ -1,0 +1,92 @@
+#!/usr/bin/env ruby
+#
+# sizes_bis - list package sizes, by Installed-Size
+#
+# Written by Rich Morin, CFCL, 2020.
+
+  require 'fileutils'
+  require 'toml-rb'
+
+  def main()
+    toml_path   = 'add_ons.toml'
+    toml_all    = TomlRB.load_file(toml_path)
+    toml_pkgs   = toml_all['packages']
+    info_pkgs   = []
+
+    # The add_ons.toml file contains ~200 Debian APT packages.  To retain some
+    # useful order and support debugging, these are divided into topical types
+    # (e.g., debian_apt_a11y).  The tags below are the type name suffixes:
+
+    tags    = [
+      'a11y',   # accessibility
+      'admin',  # administration
+      'cad',    # 3D CAD, etc.
+      'comm',   # communication
+      'desk',   # desktops, tools
+      'docs',   # documentation
+      'games',  # games, etc.
+      'image',  # images, etc.
+      'math',   # mathematics
+      'media',  # audio, video
+      'ocr',    # OCR support
+      'prog',   # programming
+      'term',   # terminal support
+      'web',    # world wide web
+      'zoo'     # everything else
+    ]
+
+    types   = debian(tags)
+
+    for type in types do
+#     puts "\n #{ type }"
+      pkg_lines   = toml_pkgs[type].split("\n")
+
+      for pkg_line in pkg_lines do
+        next if pkg_line =~ /^#/          # Skip comment lines.
+        next if pkg_line =~ /^\s*$/       # Skip blank lines.
+
+        sizes, flags, title, name, notes = get_fields(pkg_line)
+        show_cmd    = "apt-cache show #{ name }"
+        show_out    = `#{ show_cmd }`
+        show_lines  = show_out.split("\n")
+
+        for show_line in show_lines do
+          if show_line =~ /^Installed-Size: (\d+)$/
+            size    = $1.to_i
+#           puts '  %-30s  %6d' % [name, size]
+
+            info_pkg  = {
+              name:  name,
+              size:  size,
+              type:  type,
+            }
+            info_pkgs << info_pkg
+            break #!K
+          end
+        end
+      end
+    end
+
+    puts "\n\n\n"
+    info_sort  = info_pkgs.sort_by {|ip| ip[:size] }
+    sum_sizes  = 0
+
+    for info_pkg in info_sort do
+      pkg_name   = info_pkg[:name]
+      pkg_size   = info_pkg[:size]
+      sum_sizes += pkg_size
+
+      puts '  %-30s  %8d  %8d' %
+        [ pkg_name, pkg_size, sum_sizes/1000 ]
+    end
+  end
+
+  def debian(tags)
+    tags.map {|tag| "debian_apt_#{ tag }" }
+  end
+
+  def get_fields(line)
+    line.split(',').map {|field| field.strip }
+  end
+
+  main()

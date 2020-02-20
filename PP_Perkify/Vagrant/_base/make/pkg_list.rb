@@ -36,7 +36,7 @@
         next if line =~ /^\s*$/     # Skip empty lines.
         pkg_cnt  += 1
 
-        flags, title, name, notes = get_fields(line)
+        sizes, flags, title, name, notes = get_fields(line)
 
         unless name && notes
           puts 'Parse error detected; exiting.'

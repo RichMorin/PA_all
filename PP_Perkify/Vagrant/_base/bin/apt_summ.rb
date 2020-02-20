@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 #
-# apt_summ - display a summary of installed APT packages
+# apt_summ.rb - display a summary of installed APT packages
+#
+# This version is inactive, because Ruby isn't included in Ubuntu by default.
+# See apt_summ for the active (Perl 5) version.
 #
 # Written by Rich Morin, CFCL, 2019
 

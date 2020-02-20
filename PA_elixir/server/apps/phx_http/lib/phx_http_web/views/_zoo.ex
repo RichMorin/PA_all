@@ -21,8 +21,9 @@ defmodule PhxHttpWeb.View.Zoo do
 # use Phoenix.HTML
 # use PhxHttpWeb, :view
 
-  import Common,   only: [ csv_split: 1, ii: 2, ssw: 2 ]
-  import InfoToml, only: [ exp_prefix: 1 ]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [csv_split: 1, ssw: 2]
+  import InfoToml, only: [exp_prefix: 1]
 
   alias PhxHttp.Types, as: PHT
 

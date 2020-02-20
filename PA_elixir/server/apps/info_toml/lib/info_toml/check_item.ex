@@ -26,11 +26,10 @@ defmodule InfoToml.CheckItem do
   This module checks maps that were loaded from a TOML file.
   """
 
-  import Common,
-    only: [ csv_split: 1, get_http_port: 0, ssw: 2 ]
+  import Common, only: [csv_split: 1, get_http_port: 0, ssw: 2]
 
-  import InfoToml.Schemer, only: [ get_schema: 2 ]
-  import InfoToml.Trees, only: [ leaf_paths: 1 ]
+  import InfoToml.Schemer, only: [get_schema: 2]
+  import InfoToml.Trees, only: [leaf_paths: 1]
 
   alias Common.Types,   as: CT
   alias InfoToml.Types, as: ITT

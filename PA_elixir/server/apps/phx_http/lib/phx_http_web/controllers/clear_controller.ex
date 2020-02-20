@@ -15,7 +15,7 @@ defmodule PhxHttpWeb.ClearController do
 
   use PhxHttpWeb, :controller
 
-  import Common, only: [ ssw: 2 ]
+  import Common, only: [ssw: 2]
 
   alias PhxHttp.Types, as: PHT
 

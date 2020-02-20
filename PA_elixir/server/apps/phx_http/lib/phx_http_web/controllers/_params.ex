@@ -23,7 +23,8 @@ defmodule PhxHttpWeb.Cont.Params do
 
   use PhxHttpWeb, :controller
 
-  import Common, warn: false, only: [ ii: 2, ssw: 2 ]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [ssw: 2]
 
   alias PhxHttp.Types, as: PHT
 

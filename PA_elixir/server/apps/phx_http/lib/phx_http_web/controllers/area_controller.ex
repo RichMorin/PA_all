@@ -22,7 +22,7 @@ defmodule PhxHttpWeb.AreaController do
   use PhxHttpWeb, :controller
 
   import PhxHttpWeb.Cont.Levels
-  import Common, only: [ chk_local: 1, get_run_mode: 0 ]
+  import Common, only: [chk_local: 1, get_run_mode: 0]
 
   alias PhxHttp.Types, as: PHT
 

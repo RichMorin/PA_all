@@ -2,12 +2,12 @@
 
 <%
   title       = get_in(@item, [:meta, :title])
-  final       = length(@slides) - 1
+  final       = length(@slide_keys) - 1
   ndx_fn      = fn x -> x == @key end
-  ndx         = Enum.find_index(@slides, ndx_fn)
+  ndx         = Enum.find_index(@slide_keys, ndx_fn)
   key_main    = String.replace(@key, ~r{[^/]+$}, "main.toml")
-  key_next    = if ndx < final do Enum.at(@slides, ndx+1) else nil end
-  key_prev    = if ndx > 0 do Enum.at(@slides, ndx-1) else nil end
+  key_next    = if ndx < final do Enum.at(@slide_keys, ndx+1) else nil end
+  key_prev    = if ndx > 0     do Enum.at(@slide_keys, ndx-1) else nil end
   local_user  = chk_local(@conn)
 %>
 

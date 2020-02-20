@@ -1,6 +1,6 @@
-# phx_http_web/router_toc.ex
+# phx_http_web/plugs/toc.ex
 
-defmodule PhxHttpWeb.Router.TOC do
+defmodule PhxHttpWeb.Plugs.TOC do
 #
 # The registration approach taken by this module plug is loosely inspired
 # by MinifyResponse (https://github.com/gravityblast/minify_response).
@@ -29,13 +29,13 @@ defmodule PhxHttpWeb.Router.TOC do
   The following line goes near the end of `pipeline :browser` in `router.ex`.
 
   ```
-  plug PhxHttpWeb.Router.TOC
+  plug PhxHttpWeb.Plugs.TOC
   ```
   """
 
-  import Common, warn: false, only: [ii: 2]
+  import Common.Tracing, only: [ii: 2], warn: false
 
-  alias PhxHttpWeb.Router.TOC
+  alias PhxHttpWeb.Plugs.TOC
 
   # Public Functions
 

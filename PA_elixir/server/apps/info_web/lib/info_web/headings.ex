@@ -13,9 +13,7 @@ defmodule InfoWeb.Headings do
   This module handles checking (etc) of headings for `InfoWeb.Internal`.
   """
 
-  import Common, only: [ ii: 2 ]
-
-  alias InfoWeb.Types, as: IWT
+  import Common.Tracing, only: [ii: 2], warn: false
 
   # Public functions
 
@@ -44,7 +42,6 @@ defmodule InfoWeb.Headings do
 
   @spec check_headings(ht, String.t) :: ht
     when ht: Floki.html_tree
-#   when ht: IWT.html_tree
 
   defp check_headings(headings, page_url) do
   #

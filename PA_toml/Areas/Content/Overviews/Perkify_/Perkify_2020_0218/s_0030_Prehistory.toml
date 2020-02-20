@@ -1,0 +1,17 @@
+# con_ove|Perkian_2020_0218/s_0030_Prehistory.toml
+
+[ meta ]
+
+  title       = 'Prehistory'
+
+[ about ]
+
+  verbose     = '''
+Building open source collections has gotten a lot easier:
+
+- No more groveling through random FTP directories!
+- Most packages are built, documented, indexed, tested, etc.
+- Debian's Advanced Package Toolkit (APT) is phenomenal.
+- Arch's "pacman" looks pretty sweet, as well.
+- Ruby Gems and such provide language-specific solutions.
+'''

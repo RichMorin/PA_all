@@ -21,7 +21,7 @@ defmodule Common.Zoo do
   This module contains miscellaneous functions for common use.
   """
 
-  import Common, warn: false, only: [ii: 2]
+  import Common.Tracing, only: [ii: 2], warn: false
 
   # Public functions
 

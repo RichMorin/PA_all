@@ -1,0 +1,17 @@
+# con_ove|Perkian_2020_0218/s_0000_Title.toml
+
+[ meta ]
+
+  title       = 'Title'
+
+[ about ]
+
+  verbose     = '''
+#### Perkify: a blind-friendly virtual machine
+
+by Rich Morin (rdm@cfcl.com)<br>
+Canta Forda Computer Laboratory
+
+Bay Area Linux Users Group ([BALUG]{https://www.balug.org})<br>
+February 18, 2020
+'''

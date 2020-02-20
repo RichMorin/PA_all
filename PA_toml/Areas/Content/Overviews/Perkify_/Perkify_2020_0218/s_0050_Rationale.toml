@@ -1,0 +1,18 @@
+# con_ove|Perkian_2020_0218/s_0050_Rationale.toml
+
+[ meta ]
+
+  title       = 'Rationale'
+
+[ about ]
+
+  verbose     = '''
+Disk space: the final frontier.
+
+- Is a 25 GB distribution really a problem?
+  - Terabyte disk drives are common.
+  - It doesn't slow down the system.
+  - It can take a while to download.
+
+- Do it once, do it right, and use it everywhere.
+'''

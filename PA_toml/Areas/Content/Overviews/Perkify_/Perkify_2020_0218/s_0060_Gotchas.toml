@@ -1,0 +1,16 @@
+# con_ove|Perkian_2020_0218/s_0060_Gotchas.toml
+
+[ meta ]
+
+  title       = 'Gotchas'
+
+[ about ]
+
+  verbose     = '''
+Well, Jane, it just goes to show you, it's always something!
+
+- Accessibility (a11y) isn't always taken into account.
+- Binary package distributions aren't always available.
+- Some configuration issues may not have been handled.
+- Virtual machines may introduce constraints and latency.
+'''

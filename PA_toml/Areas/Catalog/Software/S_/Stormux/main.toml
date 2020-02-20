@@ -1,0 +1,53 @@
+# cat_sof|Stormux/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Stormux'
+  title       = 'Stormux'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'cat_peo|Rich_Morin'
+
+[ meta.tags ]
+
+  features    = 'screen reader, speech synthesis'
+  impairments = 'blindness, low vision'
+  interfaces  = 'audio, speech, text'
+  licenses    = 'free, GPLv3, open source'
+  requires    = 'Arch Linux ARM, Linux, Raspberry Pi'
+  roles       = 'operating system'
+  standards   = 'braille'
+
+[ about ]
+
+  precis      = 'a blind-friendly Linux distribution'
+
+  verbose     = '''
+> Welcome to Stormux, the continuation of Fernando Botelho's F123Light project.
+Stormux aims to bring a low cost, fully accessible to the blind,
+general purpose computer to the masses.
+Stormux is configured to be accessible out of the box.
+All you need do is write the image, insert the card,
+and plug it in to get started.
+
+> Stormux is optimized for the Raspberry Pi 4.
+It runs the Mate desktop and is powered by Arch Linux.
+Stormux provides access to the console using the Fenrir screen reader,
+and the desktop using Orca.
+
+> Other platforms such as X86_64 and the Raspberry Pi 3 may become available.
+We are currently a small team, however,
+and these secondary platforms may not receive as much support as the Pi 4.
+There is a [general purpose support email list]{https://groups.io/g/stormux}
+if you have questions or would just like to follow along.
+
+> -- [$url]{https://stormux.org}
+'''
+
+[ address.web_site ]
+
+  forum       = 'https://groups.io/g/stormux'
+  main        = 'https://stormux.org'

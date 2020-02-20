@@ -24,7 +24,7 @@ defmodule InfoToml.Common do
   This module contains general purpose functions and macros.
   """
 
-  import Common, only: [ ii: 2 ]
+  import Common.Tracing, only: [ii: 2], warn: false
 
   # Public functions
 

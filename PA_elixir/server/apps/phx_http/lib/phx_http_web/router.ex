@@ -14,8 +14,9 @@ defmodule PhxHttpWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug PhxHttpWeb.Router.TOC
-    plug :divider
+
+    plug PhxHttpWeb.Plugs.Bar
+    plug PhxHttpWeb.Plugs.TOC
   end
 
   pipeline :api do
@@ -47,6 +48,8 @@ defmodule PhxHttpWeb.Router do
     get   "/mail/feed",       MailController,     :feed_form
     post  "/mail/feed",       MailController,     :feed_post
 
+    get   "/memo",            MemoController,     :show
+
     get   "/search/find",     SearchController,   :find
     post  "/search/show",     SearchController,   :show
 
@@ -65,24 +68,5 @@ defmodule PhxHttpWeb.Router do
   # scope "/api", PhxHttpWeb do
   #   pipe_through :api
   # end
-
-  @doc """
-  When the server is running in `:dev` mode, this function displays a time-stamped
-  divider (`= = = ...`) on the console for each request.
-  """
-
-  @spec divider(pc, []) :: pc
-    when pc: Plug.Conn.t #!K - assumes _opts is empty
-
-  def divider(conn, _opts) do # rdm
-    if Common.get_run_mode() == :dev do #!K
-      prefix    = String.duplicate("= ", 5)
-      iso8601   = DateTime.utc_now() |> DateTime.to_iso8601()
-      ip_addr   = conn.remote_ip |> :inet.ntoa() |> to_string()
-      IO.puts "\n#{ prefix }=> #{ iso8601 } from #{ ip_addr }\n"
-    end
-
-    conn
-  end
 
 end

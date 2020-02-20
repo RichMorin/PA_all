@@ -28,7 +28,8 @@ defmodule InfoToml.KeyVal do
   This module implements key/value usage analysis for `InfoToml`.
   """
 
-  import Common, warn: false, only: [ ii: 2, keyss: 1, sort_by_elem: 2 ]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [keyss: 1, sort_by_elem: 2]
 
   alias InfoToml.Types, as: ITT
 

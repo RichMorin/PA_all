@@ -20,6 +20,7 @@ defmodule InfoToml do
   defdelegate get_part(key_list),                 to: AccessData
   defdelegate get_toml(item_key),                 to: AccessData
   defdelegate put_item(key, item),                to: AccessData
+  defdelegate put_part(value, key_list),          to: AccessData
 
   ## AccessKeys
 

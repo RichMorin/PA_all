@@ -1,7 +1,6 @@
 <footer>
   <hr>
   <nav>
-    &nbsp;
     <%=
       url     = "/mail/feed?url=#{ @rel_url }"
       link("Feedback", to: url)
@@ -28,4 +27,17 @@
       link("Dashboard", to: "/dash")
     %>
   </nav>
+
+  <%  file_time = get_in(@item, [:meta, :file_time]) %>
+  <%= if file_time do %>
+    <p>
+      <b>Modified:</b> &nbsp;
+      <%=
+        file_time
+        |> DateTime.from_unix!()
+        |> DateTime.to_iso8601()
+      %>
+    </p>
+  <% end %>
+
 </footer>

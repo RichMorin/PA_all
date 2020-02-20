@@ -3,7 +3,7 @@
 #
 # Written by Rich Morin, CFCL, 2019-2020
 
-  set -x  #!T
+# set -x  #!T
 
   # Check where we are...
 
@@ -25,8 +25,9 @@
   #   https://app.vagrantup.com/bento/boxes/ubuntu-19.10
 
   bv=''                               # Unspecified; use the default.
-  bv=" --box-version 201912.14.0 "    # Loads without problems.
+# bv=" --box-version 201912.14.0 "    # Loads without problems.
 # bv=" --box-version 202001.16.0 "    # Gets a 404 error, as of 2020.0121
+# '202002.04.0' loads OK (whew!)
 
   vagrant init bento/ubuntu-19.10 --minimal $bv
 

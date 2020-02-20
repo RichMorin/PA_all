@@ -13,7 +13,7 @@ defmodule PhxHttpWeb.Cont.Make do
   This module contains helper functions for the Make Dashboard.
   """
 
-  import Common, only: [ csv_split: 1 ]
+  import Common, only: [csv_split: 1]
 
   alias PhxHttp.Types, as: PHT
 

@@ -16,6 +16,10 @@ defmodule InfoToml.AccessData do
 #     Return the TOML source code, given its key.
 #   put_item/2
 #     Update an item in toml_map, given its key and value.
+#   put_part/2
+#     Replace a specified portion of `toml_map`.
+
+  @spec put_part(any, [CT.map_key] | nil) :: :ok
 
   @moduledoc """
   This module implements part of the external access API (e.g., `get_keys/1`)
@@ -25,7 +29,8 @@ defmodule InfoToml.AccessData do
 
   @me InfoToml.Server
 
-  import Common, warn: false, only: [ ii: 2, keyss: 1, ssw: 2 ]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [keyss: 1, ssw: 2]
   import InfoToml.Common, only: [get_file_abs: 1]
 
   alias Common.Types, as: CT

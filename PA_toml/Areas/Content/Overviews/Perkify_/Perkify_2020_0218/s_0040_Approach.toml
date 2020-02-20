@@ -1,0 +1,19 @@
+# con_ove|Perkian_2020_0218/s_0040_Approach.toml
+
+[ meta ]
+
+  title       = 'Approach'
+
+[ about ]
+
+  verbose     = '''
+Automate all the things...
+
+- Use Ubuntu to supply a capable base system.
+- Use Debian's APT to install add-on packages.
+- Use TOML files to encode package information.
+- Use Ruby scripts to mechanize installation.
+- Use VirtualBox for cross-OS virtualization.
+- Use Vagrant for CLI-based administration.
+- Use Vagrant Cloud for package distribution.
+'''

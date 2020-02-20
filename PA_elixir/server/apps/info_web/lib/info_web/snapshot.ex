@@ -19,7 +19,8 @@ defmodule InfoWeb.Snapshot do
   This module handles reading and writing of TOML snapshot files.
   """
 
-  import Common, warn: false, only: [ ii: 2, sort_by_elem: 2 ]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [sort_by_elem: 2]
 
   alias InfoWeb.Types, as: IWT
 

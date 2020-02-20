@@ -4,7 +4,7 @@ defmodule InfoTomlTest.Tagger do
 
   use ExUnit.Case
 
-  import InfoToml.Trees, only: [ our_tree: 2 ]
+  import InfoToml.Trees, only: [our_tree: 2]
 
   alias     InfoToml.{Reffer, Tagger}
 

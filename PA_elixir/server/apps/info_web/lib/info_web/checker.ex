@@ -57,8 +57,8 @@ defmodule InfoWeb.Checker do
   know to be valid, saving both human and machine time.
   """
 
-  import Common, warn: false,
-    only: [ csv_split: 1, ii: 2, get_http_port: 0 ]
+  import Common.Tracing, only: [ii: 2], warn: false
+  import Common, only: [csv_split: 1, get_http_port: 0]
 
   alias InfoWeb.{External, Internal, Server, Snapshot}
   alias InfoWeb.Types, as: IWT

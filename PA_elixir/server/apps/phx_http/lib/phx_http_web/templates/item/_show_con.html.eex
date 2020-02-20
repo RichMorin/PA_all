@@ -28,5 +28,5 @@
 
   <%= fmt_section(@item, [:about, :verbose]) %>
 
-  <%= if @slides, do: render(ItemView, "_slides.html", assigns) %>
+  <%= if !Enum.empty?(@slide_keys), do: render(ItemView, "_slides.html", assigns) %>
 </div>

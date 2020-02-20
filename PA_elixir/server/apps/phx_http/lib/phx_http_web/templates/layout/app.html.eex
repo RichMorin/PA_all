@@ -2,7 +2,8 @@
 <%
   alias PhxHttpWeb.LayoutView
 
-    import Common, warn: false, only: [ chk_local: 1, ii: 2, ssw: 2 ]
+    import Common.Tracing, only: [ii: 2], warn: false
+    import Common, only: [ssw: 2]
 
     path_str    = @conn.path_info     |> Enum.join("/")
     query_str   = @conn.query_string

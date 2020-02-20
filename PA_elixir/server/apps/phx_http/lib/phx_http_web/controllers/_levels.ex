@@ -18,10 +18,10 @@ defmodule PhxHttpWeb.Cont.Levels do
   This module generates HTML content to display different Area levels.
   """
 
-  import Common, only: [ sort_by_elem: 3 ]
+  import Common, only: [sort_by_elem: 3]
   import InfoToml,
-    only: [ get_area_name: 1, get_area_names: 0, get_area_names: 1 ]
-  import Phoenix.Controller, only: [ render: 2 ]
+    only: [get_area_name: 1, get_area_names: 0, get_area_names: 1]
+  import Phoenix.Controller, only: [render: 2]
   import PhxHttpWeb.Cont.Zoo
   import Plug.Conn
 
