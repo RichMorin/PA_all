@@ -48,7 +48,7 @@ defmodule PhxHttpWeb.ItemController do
 
   # Private Functions
 
-  @spec get_slides(st) :: st
+  @spec get_slides([st]) :: st
     when st: String.t
 
   defp get_slides(slide_keys) do

@@ -9,7 +9,7 @@
 [ meta.refs ]
 
   f_authors   = 'cat_peo|Rich_Morin'
-  f_editors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'NA'
   see_also    = 'cat_sof|GNOME, cat_sof|Orca'
 
 [ meta.tags ]

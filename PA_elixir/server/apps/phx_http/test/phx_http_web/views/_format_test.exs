@@ -8,31 +8,31 @@ defmodule PhxHttpWeb.FormatViewTest do
 
   doctest PhxHttpWeb.View.Format
 
-  test "formats a single link as desired" do
+  test "formats a single author link as desired" do
 
     f_authors   = "Rich_Morin"
-    output      = fmt_authors(f_authors)
+    output      = fmt_bylines(f_authors, "NA")
 
     test_val    = """
-    by
+    Written by
     <a href='/item?key=Areas/Catalog/People/Rich_Morin/main.toml'
-      >Rich Morin</a>
+      >Rich Morin</a>.
     """
 
     assert output == { :safe, test_val }
   end
 
-  test "formats a pair of links as desired" do
+  test "formats a pair of author links as desired" do
 
     f_authors   = "Amanda_Lacy, Rich_Morin"
-    output      = fmt_authors(f_authors)
+    output      = fmt_bylines(f_authors, "NA")
 
     test_val    = """
-    by
+    Written by
     <a href='/item?key=Areas/Catalog/People/Amanda_Lacy/main.toml'
       >Amanda Lacy</a>
      and <a href='/item?key=Areas/Catalog/People/Rich_Morin/main.toml'
-      >Rich Morin</a>
+      >Rich Morin</a>.
     """
 
     assert output == { :safe, test_val }

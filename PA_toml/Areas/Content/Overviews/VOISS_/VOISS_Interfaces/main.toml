@@ -9,7 +9,7 @@
 [ meta.refs ]
 
   f_authors   = 'cat_peo|Rich_Morin'
-  f_editors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'NA'
 
 [ about ]
 
@@ -115,7 +115,7 @@ are explicitly designed to supply USB power.
 as part of their duty to support "USB Slave" devices
 (e.g., headphones, keyboards).
 
-Because the RasPi is powered by means of a micro USB socket,
+Because the RasPi is powered by means of a Micro-USB socket,
 you may be tempted to hook it up to one of these power sources.
 Don't do that!
 Aside from the dangers of poorly controlled and filtered power,

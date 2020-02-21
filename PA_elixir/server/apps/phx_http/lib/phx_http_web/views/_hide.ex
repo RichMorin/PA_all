@@ -18,8 +18,6 @@ defmodule PhxHttpWeb.View.Hide do
 
   use Phoenix.HTML
 
-  import Common, only: [csv_split: 1]
-
   alias PhxHttp.Types, as: PHT
   alias PhxHttpWeb.LayoutView
 

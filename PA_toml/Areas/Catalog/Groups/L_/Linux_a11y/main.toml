@@ -9,7 +9,7 @@
 [ meta.refs ]
 
   f_authors   = 'cat_peo|Rich_Morin'
-  f_editors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'NA'
   provides    = 'cat_sof|Fenrir, cat_sof|OCRdesktop'
 
 [ meta.tags ]

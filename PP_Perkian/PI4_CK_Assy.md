@@ -3,7 +3,7 @@
 *Note:*
 As an [AmazonSmile](https://smile.amazon.com) affiliate,
 I will earn a commission on any products
-purchased by following links from this site.
+purchased by following links from this page.
 My commission does not affect the price you pay for the product.
 It does, however, enable me to continue my work of bringing
 affordable computers, accessible to the blind, to everyone everywhere.
@@ -302,7 +302,7 @@ All you need to do now is grab a blind-accessible OS image,
 put it on either a microSD card or a USB thumb drive,
 and power up the system.
 
-Although you could use the included 32GB microSD card for this,
+Although you could use the included 32 GB microSD card for this,
 you may want to reserve that for emergencies,
 since it contains a copy of NOOBS
 (the RasPi's "New Out Of the Box Software").
@@ -316,5 +316,3 @@ Unlike microSD cards, these typically have a mounting hole
 that you can use to attach an identifying tag (e.g., with braille).
 A thumb drive with a tag is much less likely to get misplaced
 than a tiny, anonymous microSD drive.
-
-StormOS ...

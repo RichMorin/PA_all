@@ -6,27 +6,31 @@
   meta      = @item.meta
   about     = @item.about
   authors   = get_in(meta,  [:refs, :f_authors])
+  editors   = get_in(meta,  [:refs, :f_editors])
   see_also  = get_in(meta,  [:refs, :see_also])
 %>
 
-<div class="hs-base1">
-  <h2><%= meta.title %></h2>
+<h2><%= meta.title %></h2>
 
-  <p><%= fmt_authors(authors) %><p>
+<p>
+  <%= fmt_bylines(authors, editors) %>
+</p>
 
-  <toc />
+<toc />
 
-  <%= fmt_path(@key) %>
+<%= fmt_path(@key) %>
 
-  <%= fmt_precis(about.precis) %>
-  
-  <%= if see_also do %>
-    <div class="no_print">
-      <%= fmt_ref(:see_also, see_also) %>
-    </div>
-  <% end %>
+<%= fmt_precis(about.precis) %>
 
-  <%= fmt_section(@item, [:about, :verbose]) %>
+<%= if see_also do %>
+  <div class="no_print">
+    <%= fmt_ref(:see_also, see_also) %>
+  </div>
+<% end %>
 
-  <%= if !Enum.empty?(@slide_keys), do: render(ItemView, "_slides.html", assigns) %>
-</div>
+<%= fmt_section(@item, [:about, :verbose]) %>
+
+<%= if !Enum.empty?(@slide_keys) do
+      render(ItemView, "_slides.html", assigns)
+    end
+%>

@@ -3,7 +3,7 @@
 *Note:*
 As an [AmazonSmile]{https://smile.amazon.com} affiliate,
 I will earn a commission on any products
-purchased by following links from this site.
+purchased by following links from this page.
 My commission does not affect the price you pay for the product.
 It does, however, enable me to continue my work of bringing
 affordable computers, accessible to the blind, to everyone everywhere.
@@ -43,10 +43,10 @@ and open up the top of the box.
 Once you have the box open, you can inspect and inventory its contents.
 
 The box contains several items that you should set aside for now.
-These include an inline micro USB power switch, a USB SD card reader,
+These include an inline Micro-USB power switch, a USB SD card reader,
 an HDMI cable, and assorted paper items.
 The only items of interest for assembling the kit are three cardstock boxes.
-The heaviest of these contains the micro USB power adapter;
+The heaviest of these contains the Micro-USB power adapter;
 put it aside for the last part of the assembly process.
 
 There should be a small bag with a zip lock top,
@@ -110,7 +110,7 @@ In order, from front to back, these are:
 - 1/8" (3.5 mm) stereo audio output jack
 - flexible printed circuit connector (camera)
 - full-size HDMI socket (audio-video output)
-- micro-USB socket (input power)
+- Micro-USB socket (input power)
 - flexible printed circuit connector (display)
 
 ### Plastic Case
@@ -203,7 +203,7 @@ Voila, you have now assembled your Raspberry Pi.
 The RasPi 3 is powered by a USB power supply,
 through a short switching cable.
 Both of these deserve a bit of discussion.
-The power cables use a micro USB connector,
+The power cables use a Micro-USB connector,
 which is very small and must be oriented properly in order to go in.
 If this is your first experience with this connector, be patient;
 once you get the knack, plugging it in will be only a minor nuisance.
@@ -245,7 +245,7 @@ All you need to do now is grab a blind-accessible OS image,
 put it on either a microSD card or a USB thumb drive,
 and power up the system.
 
-Although you could use the included 32GB microSD card for this,
+Although you could use the included 32 GB microSD card for this,
 you may want to reserve that for emergencies,
 since it contains a copy of NOOBS
 (the RasPi's "New Out Of the Box Software").
@@ -259,5 +259,3 @@ Unlike microSD cards, these typically have a mounting hole
 that you can use to attach an identifying tag (e.g., with braille).
 A thumb drive with a tag is much less likely to get misplaced
 than a tiny, anonymous microSD drive.
-
-StormOS ...

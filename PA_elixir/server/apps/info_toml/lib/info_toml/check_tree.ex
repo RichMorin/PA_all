@@ -150,6 +150,10 @@ defmodule InfoToml.CheckTree do
         pre_list |> Enum.reduce(inp_str, prefix_fn_h)
       end
 
+      reject_fn   = fn ref -> ref == "NA" end
+      #
+      # Add a file name suffix, converting the reference to an item key string.
+
       suffix_fn   = fn ref -> "#{ ref }/main.toml" end
       #
       # Add a file name suffix, converting the reference to an item key string.
@@ -161,6 +165,7 @@ defmodule InfoToml.CheckTree do
         item_keys  = ref_map          # %{ foo: "a|b, ..." }
         |> Enum.map(fields_fn)        # [ [ "a|b", "c|d", ... ], ... ]
         |> List.flatten()             # [ "a|b", "c|d", ... ]
+        |> Enum.reject(reject_fn)     # Kill off "NA" entries.
         |> Enum.map(prefix_fn)        # [ ".../b", ... ]
         |> Enum.map(suffix_fn)        # [ ".../b/main.toml", ... ]
 
@@ -192,8 +197,8 @@ defmodule InfoToml.CheckTree do
     if Enum.empty?(undef_list) do
       { :ok, "" }
     else
-      undef_fmt = fmt_list(undef_list)
-      message = "undefined item(s) referenced: #{ undef_fmt }"
+      undef_fmt   = fmt_list(undef_list)
+      message     = "undefined item(s) referenced: #{ undef_fmt }"
       IO.puts ">>> #{ message }\n"
       ii(undef_list, :undef_list) #!T
       IO.puts ""

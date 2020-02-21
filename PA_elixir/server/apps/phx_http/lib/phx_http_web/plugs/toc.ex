@@ -200,15 +200,20 @@ defmodule PhxHttpWeb.Plugs.TOC do
     |> Enum.join("\n")                      # "...\n</ul></ul>"
     
     """
-    <b>Contents:</b>
-    <span class="hs-hide1 hs-ih hs-none">(<a
-      href="#">hide</a>)</span>
-    <span class="hs-show1 hs-is hs-none">(<a
-      href="#">show</a>)</span>
+    <p>
+      <div class="hs-base1">
+        <b>Contents:</b>
 
-    <div class="hs-body1 hs-ih tocx">
-    #{ toc_tmp2 }
-    </div>
+        <span class="hs-hide1 hs-ih hs-none">(<a
+          href="#">hide</a>)</span>
+        <span class="hs-show1 hs-is hs-none">(<a
+          href="#">show</a>)</span>
+
+        <div class="hs-body1 hs-ih tocx">
+        #{ toc_tmp2 }
+        </div>
+      </div>
+    </p>
     """
   end
     

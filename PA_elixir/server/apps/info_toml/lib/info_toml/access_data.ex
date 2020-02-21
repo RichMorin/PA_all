@@ -19,7 +19,7 @@ defmodule InfoToml.AccessData do
 #   put_part/2
 #     Replace a specified portion of `toml_map`.
 
-  @spec put_part(any, [CT.map_key] | nil) :: :ok
+  alias Common.Types, as: CT
 
   @moduledoc """
   This module implements part of the external access API (e.g., `get_keys/1`)
@@ -105,7 +105,7 @@ defmodule InfoToml.AccessData do
       iex> v1   = get_map()
       iex> t1   = is_map(v1)
       iex> keys = Common.keyss(v1)
-      iex> test = [:index, :items, :prefix]
+      iex> test = [:index, :items, :memos, :prefix]
       iex> t2   = (keys == test)
       iex> t1 && t2
       true

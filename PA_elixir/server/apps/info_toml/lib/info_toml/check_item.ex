@@ -143,12 +143,16 @@ defmodule InfoToml.CheckItem do
 
     reject_fn   = fn {_type, ref_str} ->
     #
-    # Return true if any field has invalid syntax.
+    # Return false if any field has invalid syntax.
 
-      ref_str
-      |> csv_split()
-      |> Enum.filter(filter_fn)
-      |> Enum.empty?()
+      if ref_str == "NA" do
+        true
+      else
+        ref_str
+        |> csv_split()
+        |> Enum.filter(filter_fn)
+        |> Enum.empty?()
+      end
     end
 
     cond do

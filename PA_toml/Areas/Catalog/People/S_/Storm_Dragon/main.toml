@@ -1,0 +1,45 @@
+# cat_peo|Storm_Dragon/main.toml
+
+[ meta ]
+
+  actions     = 'publish'
+  id_str      = 'Storm_Dragon'
+  title       = 'Storm Dragon'
+
+[ meta.refs ]
+
+  f_authors   = 'cat_peo|Storm_Dragon'
+  f_editors   = 'cat_peo|Rich_Morin'
+  see_also    = 'cat_sof|Stormux, cat_gro|VOISS'
+
+[ meta.tags ]
+
+  impairments = 'blind'
+  skills      = 'computer programmer'
+
+[ about ]
+
+  precis      = 'computer programmer'
+
+  verbose     = '''
+Storm Dragon has an extensive history
+of developing accessible software for the blind.
+His current project, [Stormux]{cat_sof|Stormux},
+picks up where the [VOISS]{cat_gro|VOISS} project left off,
+developing blind-accessible versions of Linux
+for the [Raspberry Pi]{ext_wp|Raspberry_Pi}.
+'''
+
+[ address.email ]
+
+  main        = 'storm_dragon@linux-a11y.org'
+
+[ address.web_site ]
+
+  main        = 'https://stormux.org'
+
+  zoo        = '''
+https://linux-a11y.org,
+https://stormux.groups.io,
+https://stormux.org
+'''

@@ -9,7 +9,7 @@
 [ meta.refs ]
 
   f_authors   = 'cat_peo|Rich_Morin'
-  f_editors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'NA'
 
 [ about ]
 
@@ -78,6 +78,38 @@ Given the power of [Elixir]{ext_wp|Elixir_(programming_language)}
 and the [Phoenix]{ext_wp|Phoenix_(web_framework)} framework,
 it only took a few dozen lines of code to add this capability to Pete's Alley.
 Feel free to give it a try...
+
+### Related Work
+
+[Zero-configuration networking]{ext_wp|Zero-configuration_networking}
+(zeroconf) is an important issue
+for the Internet of Things ([IoT]{ext_wp|Internet_of_things}).
+After a user installs a device, they may need to connect to it
+in order to adjust its configuration, etc.
+
+#### Bonjour and Avahi
+
+[Bonjour]{ext_wp|Bonjour_(software)} was developed by Apple,
+but licensed implementations are available from other vendors.
+For example, free downloads of
+[Bonjour for Windows]{https://downloads.digitaltrends.com/bonjour/windows}
+are readily available.
+[Avahi]{ext_wp|Avahi_(software)} is the *de facto* standard
+for zeroconf in the Linux community.
+It tends to be installed by default on most Linux systems
+and interoperates with Apple's Bonjour protocol.
+
+#### Wireless Network Watcher
+
+[Wireless Network Watcher
+]{https://www.nirsoft.net/utils/wireless_network_watcher.html}
+is a small utility that scans your wireless network
+and displays a list of all computers and devices
+that are currently connected to your network.
+For every computer or device that is connected to your network,
+the following information is displayed:
+IP address, MAC address, the company that manufactured the network card,
+and optionally the computer name.
 '''
 
 [ zoo ]

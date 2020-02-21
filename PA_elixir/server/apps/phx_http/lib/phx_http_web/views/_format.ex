@@ -4,8 +4,8 @@ defmodule PhxHttpWeb.View.Format do
 #
 # Public functions
 #
-#   fmt_authors/1
-#     Format author information, set up links, etc.
+#   fmt_bylines/1
+#     Format author/editor information, set up links, etc.
 #   fmt_path/1
 #     Format the file path for display.
 #   fmt_precis/1
@@ -14,6 +14,11 @@ defmodule PhxHttpWeb.View.Format do
 #     Format a reference from `meta.refs.*`.
 #   sort_keys/2
 #    Extract and sort the keys from a `tag_sets` stucture.
+#
+# Private functions
+#
+#   fmt_helper/2
+#     Format author/editor information, set up links, etc.
 
   @moduledoc """
   Conveniences for formatting common page content.
@@ -31,38 +36,22 @@ defmodule PhxHttpWeb.View.Format do
   # Public functions
 
   @doc """
-  This function formats author information, sets up links, etc.
+  This function formats author/editor information, sets up links, etc.
   """
 
-  @spec fmt_authors(String.t) :: PHT.safe_html
+  @spec fmt_bylines(st, st) :: PHT.safe_html
+    when st: String.t
 
-  def fmt_authors(f_authors) do
+  def fmt_bylines(f_authors, f_editors) do
+    auth_out  = fmt_helper("Written", f_authors)
 
-    link_fn  = fn ref_str ->
-    #
-    # Return the HTML for a link, based on the reference string.
-
-      id_str  = String.replace_prefix(ref_str, "cat_peo|", "")
-      key     = "Areas/Catalog/People/#{ id_str }/main.toml"
-      href    = "/item?key=#{ key }"
-      name    = InfoToml.get_item(key).meta.title
-
-      """
-      <a href='#{ href }'
-        >#{ name }</a>
-      """
+    if f_editors == "NA" do
+      raw(auth_out)
+    else
+      edit_out  = fmt_helper("Edited",  f_editors)
+      both_out  = "#{ auth_out }</br>#{ edit_out }"
+      raw(both_out)
     end
-
-    byline_fn   = fn line -> "by\n#{ line }" end
-    #
-    # Return the HTML for a byline.
-
-    f_authors                 # "cat_peo|Rich_Morin, ..."
-    |> csv_split()            # [ "cat_peo|Rich_Morin", ... ]
-    |> Enum.map(link_fn)      # [ <link to Rich_Morin's page>, ... ]
-    |> fmt_list()             # "<link1>, <link2>, and ..."
-    |> byline_fn.()           # "by <link>, ..."
-    |> raw()                  # { :safe, "by <link>, ..." }
   end
 
   @doc """
@@ -206,6 +195,41 @@ defmodule PhxHttpWeb.View.Format do
     tag_sets                          # %{ "aa" => [...], "z" => [...], ... }
     |> Map.keys()                     # [ "aa", "z", ... ]
     |> Enum.sort_by(sort_fn)          # [ "z", "aa", ... ]
+  end
+
+  # Private functions
+
+  @spec fmt_helper(st, st) :: PHT.safe_html
+    when st: String.t
+
+  defp fmt_helper(prefix, name_str) do
+  #
+  # This function formats author/editor information, sets up links, etc.
+
+    link_fn  = fn ref_str ->
+    #
+    # Return the HTML for a link, based on the reference string.
+
+      id_str  = String.replace_prefix(ref_str, "cat_peo|", "")
+      key     = "Areas/Catalog/People/#{ id_str }/main.toml"
+      href    = "/item?key=#{ key }"
+      name    = InfoToml.get_item(key).meta.title
+
+      """
+      <a href='#{ href }'
+        >#{ name }</a>
+      """
+    end
+
+    byline_fn   = fn line -> "#{ prefix } by\n#{ String.trim(line) }.\n" end
+    #
+    # Return the HTML for a byline.
+
+    name_str                  # "cat_peo|Rich_Morin, ..."
+    |> csv_split()            # [ "cat_peo|Rich_Morin", ... ]
+    |> Enum.map(link_fn)      # [ <link to Rich_Morin's page>, ... ]
+    |> fmt_list()             # "<link1>, <link2>, and ..."
+    |> byline_fn.()           # "... by <link>, ..."
   end
 
 end

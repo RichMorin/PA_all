@@ -8,44 +8,45 @@
   access    = about[:access]
   address   = get_in(@item, [:address])
   authors   = get_in(meta,  [:refs, :f_authors])
+  editors   = get_in(meta,  [:refs, :f_editors])
+  people    = @key =~ ~r(Areas/Catalog/People/)
 %>
 
+<h2><%= meta.title %></h2>
+
+<%= if !people do %>
+  <p><%= fmt_bylines(authors, editors) %><p>
+<% end %>
+
+<toc />
+
+<%= fmt_path(@key) %>
+
+<%= fmt_precis(about.precis) %>
+
+<%= render(ItemView, "_show_refs.html", assigns) %>
+
+<h3>Description</h3>
+
 <div class="hs-base1">
-  <h2><%= meta.title %></h2>
-  <p><%= hide_show("is:1/2") %></p>
+  <p><%= hide_show("is:1/1") %></p>
 
   <div class="hs-body1">
-    <p><%= fmt_authors(authors) %><p>
-
-    <toc />
-
-    <%= fmt_path(@key) %>
-
-    <%= fmt_precis(about.precis) %>
-
-    <%= render(ItemView, "_show_refs.html", assigns) %>
-
-    <div class="hs-base2">
-      <h3>Description</h3>
-      <p><%= hide_show("is:2/2") %></p>
-
-      <div class="hs-body2">
-        <%= fmt_section(@item, [:about, :verbose]) %>
-      </div>
-    </div>
-
-    <%= if access do %>
-      <div class="hs-base2">
-        <h3>Access Notes</h3>
-        <p><%= hide_show("is:2/2") %></p>
-
-        <div class="hs-body2">
-          <%= fmt_section(@item, [:about, :access]) %>
-        </div>
-      </div>
-    <% end %>
-
-    <%= if address,  do: render(ItemView, "_address.html", assigns) %>
-    <%= if @reviews, do: render(ItemView, "_reviews.html", assigns) %>
+    <%= fmt_section(@item, [:about, :verbose]) %>
   </div>
 </div>
+
+<%= if access do %>
+  <h3>Access Notes</h3>
+
+  <div class="hs-base1">
+    <p><%= hide_show("is:1/1") %></p>
+
+    <div class="hs-body1">
+      <%= fmt_section(@item, [:about, :access]) %>
+    </div>
+  </div>
+<% end %>
+
+<%= if address,  do: render(ItemView, "_address.html", assigns) %>
+<%= if @reviews, do: render(ItemView, "_reviews.html", assigns) %>

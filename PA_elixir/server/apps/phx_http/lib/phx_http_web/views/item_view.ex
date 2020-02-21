@@ -34,19 +34,18 @@ defmodule PhxHttpWeb.ItemView do
 
   def fmt_review(rev_key) do
     rev_item    = InfoToml.get_item(rev_key)
-    f_authors   = rev_item.meta.refs.f_authors
+    authors     = rev_item.meta.refs.f_authors
+    editors     = rev_item.meta.refs.f_authors
+    bylines     = fmt_bylines(authors, editors)
     precis      = rev_item.about.precis
     verbose     = fmt_section(rev_item, [:about, :verbose])
-    auth_out    = fmt_authors(f_authors)
 
     ~E"""
-    <div class="hs-base2">
-      <h4><%= auth_out %></h4>
-      <p><%= hide_show("is:2/2") %></p>
-      <%= fmt_precis(precis) %>
-      <div class="hs-body2">
-        <%= verbose %>
-      </div>
+    <h4><%= bylines %></h4>
+    <p><%= hide_show("is:1/1") %></p>
+    <%= fmt_precis(precis) %>
+    <div class="hs-body1">
+      <%= verbose %>
     </div>
     """
   end

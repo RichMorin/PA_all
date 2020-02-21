@@ -50,7 +50,7 @@ defmodule PhxHttpWeb.View.Markup do
         markup_err(md_inp, err_list)
 
 #     unknown -> "<p>#{ inspect(unknown) }</p>"   #!D
-    end |> raw()
+    end
   end
 
   @doc """

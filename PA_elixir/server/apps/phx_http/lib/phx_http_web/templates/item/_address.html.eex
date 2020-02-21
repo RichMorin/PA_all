@@ -5,11 +5,12 @@
   sections  = ~w(web_site related document email phone postal)a
 %>
 
-<div class="hs-base2">
-  <h3>Contact Information</h3>
-  <p><%= hide_show("is:2/2") %></p>
+<h3>Contact Information</h3>
 
-  <div class="hs-body2">
+<div class="hs-base1">
+  <p><%= hide_show("is:1/1") %></p>
+
+  <div class="hs-body1">
     <%= for section <- sections, do: fmt_address(section, address) %>
   </div>
 </div>

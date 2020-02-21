@@ -9,7 +9,7 @@
 [ meta.refs ]
 
   f_authors   = 'cat_peo|Rich_Morin'
-  f_editors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'NA'
 
   see_also    = '''
 con_ove|VOISS_PiJuice_HAT,

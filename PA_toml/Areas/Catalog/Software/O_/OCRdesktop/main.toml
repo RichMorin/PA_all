@@ -9,7 +9,7 @@
 [ meta.refs ]
 
   f_authors   = 'cat_peo|Rich_Morin'
-  f_editors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'NA'
   provider    = 'cat_gro|Linux_a11y'
   see_also    = 'cat_sof|Tesseract'
 

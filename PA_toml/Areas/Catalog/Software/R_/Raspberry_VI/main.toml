@@ -9,7 +9,7 @@
 [ meta.refs ]
 
   f_authors   = 'cat_peo|Rich_Morin'
-  f_editors   = 'cat_peo|Rich_Morin'
+  f_editors   = 'NA'
   based_on    = 'cat_sof|Debian, cat_sof|Raspbian'
 
 [ meta.tags ]
